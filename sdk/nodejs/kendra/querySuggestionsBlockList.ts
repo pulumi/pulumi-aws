@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS Kendra block list used for query suggestions for an index.
+ *
  * ## Example Usage
  * ### Basic Usage
  *
@@ -93,6 +95,9 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
      */
     public readonly sourceS3Path!: pulumi.Output<outputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -182,6 +187,9 @@ export interface QuerySuggestionsBlockListState {
      */
     sourceS3Path?: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
     status?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -213,5 +221,8 @@ export interface QuerySuggestionsBlockListArgs {
      * The S3 path where your block list text file sits in S3. Detailed below.
      */
     sourceS3Path: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

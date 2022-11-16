@@ -64,7 +64,8 @@ type Connect struct {
 
 	// The tunnel protocol. Valida values: `gre`. Default is `gre`.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -113,8 +114,9 @@ func GetConnect(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Connect resources.
 type connectState struct {
 	// The tunnel protocol. Valida values: `gre`. Default is `gre`.
-	Protocol *string           `pulumi:"protocol"`
-	Tags     map[string]string `pulumi:"tags"`
+	Protocol *string `pulumi:"protocol"`
+	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -130,7 +132,8 @@ type connectState struct {
 type ConnectState struct {
 	// The tunnel protocol. Valida values: `gre`. Default is `gre`.
 	Protocol pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
+	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -149,8 +152,9 @@ func (ConnectState) ElementType() reflect.Type {
 
 type connectArgs struct {
 	// The tunnel protocol. Valida values: `gre`. Default is `gre`.
-	Protocol *string           `pulumi:"protocol"`
-	Tags     map[string]string `pulumi:"tags"`
+	Protocol *string `pulumi:"protocol"`
+	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
 	TransitGatewayDefaultRouteTableAssociation *bool `pulumi:"transitGatewayDefaultRouteTableAssociation"`
 	// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -165,7 +169,8 @@ type connectArgs struct {
 type ConnectArgs struct {
 	// The tunnel protocol. Valida values: `gre`. Default is `gre`.
 	Protocol pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
+	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
 	TransitGatewayDefaultRouteTableAssociation pulumi.BoolPtrInput
 	// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -268,6 +273,7 @@ func (o ConnectOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connect) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connect) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

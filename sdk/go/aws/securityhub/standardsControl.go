@@ -11,6 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Disable/enable Security Hub standards control in the current region.
+//
+// The `securityhub.StandardsControl` behaves differently from normal resources, in that
+// The provider does not _create_ this resource, but instead "adopts" it
+// into management. When you _delete_ this resource configuration, the provider "abandons" resource as is and just removes it from the state.
+//
 // ## Example Usage
 //
 // ```go

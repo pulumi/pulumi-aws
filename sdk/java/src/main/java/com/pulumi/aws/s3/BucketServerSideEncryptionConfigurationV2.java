@@ -69,13 +69,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,
+ * S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,
  * 
  * ```sh
  *  $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name
  * ```
  * 
- *  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+ *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
  * 
  * ```sh
  *  $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012

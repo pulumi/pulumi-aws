@@ -255,7 +255,7 @@ public final class SecretsmanagerFunctions {
         return Deployment.getInstance().invokeAsync("aws:secretsmanager/getRandomPassword:getRandomPassword", TypeShape.of(GetRandomPasswordResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion`.
+     * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
      * ### ARN
@@ -322,7 +322,7 @@ public final class SecretsmanagerFunctions {
         return getSecret(GetSecretArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion`.
+     * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
      * ### ARN
@@ -389,7 +389,7 @@ public final class SecretsmanagerFunctions {
         return getSecretPlain(GetSecretPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion`.
+     * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
      * ### ARN
@@ -456,7 +456,7 @@ public final class SecretsmanagerFunctions {
         return getSecret(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion`.
+     * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
      * ### ARN
@@ -523,7 +523,7 @@ public final class SecretsmanagerFunctions {
         return getSecretPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion`.
+     * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
      * ### ARN
@@ -590,7 +590,7 @@ public final class SecretsmanagerFunctions {
         return Deployment.getInstance().invoke("aws:secretsmanager/getSecret:getSecret", TypeShape.of(GetSecretResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion`.
+     * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
      * ### ARN

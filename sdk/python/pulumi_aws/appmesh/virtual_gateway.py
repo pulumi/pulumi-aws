@@ -343,8 +343,6 @@ class VirtualGateway(pulumi.CustomResource):
          $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
         ```
 
-         [1]/docs/providers/aws/index.html
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
@@ -423,8 +421,6 @@ class VirtualGateway(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
         ```
-
-         [1]/docs/providers/aws/index.html
 
         :param str resource_name: The name of the resource.
         :param VirtualGatewayArgs args: The arguments to use to populate this resource's properties.

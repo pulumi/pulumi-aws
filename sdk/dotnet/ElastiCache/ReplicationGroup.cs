@@ -63,7 +63,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// You have two options for adjusting the number of replicas:
     /// 
-    /// * Adjusting `number_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g. preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
+    /// * Adjusting `num_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
     /// * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replication_group_id` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `number_cache_cluster` attribute.
     /// 
     /// ```csharp
@@ -479,9 +479,15 @@ namespace Pulumi.Aws.ElastiCache
         [Output("subnetGroupName")]
         public Output<string> SubnetGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -797,6 +803,10 @@ namespace Pulumi.Aws.ElastiCache
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -1131,6 +1141,10 @@ namespace Pulumi.Aws.ElastiCache
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -1139,6 +1153,10 @@ namespace Pulumi.Aws.ElastiCache
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

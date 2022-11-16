@@ -284,7 +284,7 @@ export class PatchBaseline extends pulumi.CustomResource {
      */
     public readonly sources!: pulumi.Output<outputs.ssm.PatchBaselineSource[] | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -421,7 +421,7 @@ export interface PatchBaselineState {
      */
     sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineSource>[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -506,7 +506,7 @@ export interface PatchBaselineArgs {
      */
     sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineSource>[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

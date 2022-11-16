@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a version of a CloudFormation Type.
+//
 // ## Example Usage
 //
 // ```go

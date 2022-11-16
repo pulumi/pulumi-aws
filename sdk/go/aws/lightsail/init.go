@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LbCertificate{}
 	case "aws:lightsail/lbCertificateAttachment:LbCertificateAttachment":
 		r = &LbCertificateAttachment{}
+	case "aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy":
+		r = &LbHttpsRedirectionPolicy{}
 	case "aws:lightsail/lbStickinessPolicy:LbStickinessPolicy":
 		r = &LbStickinessPolicy{}
 	case "aws:lightsail/staticIp:StaticIp":
@@ -143,6 +145,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lightsail/lbCertificateAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/lbHttpsRedirectionPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

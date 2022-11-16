@@ -59,7 +59,8 @@ type Acl struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The minimum engine version supported by the ACL.
 	MinimumEngineVersion pulumi.StringOutput `pulumi:"minimumEngineVersion"`
-	Name                 pulumi.StringOutput `pulumi:"name"`
+	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -103,7 +104,8 @@ type aclState struct {
 	Arn *string `pulumi:"arn"`
 	// The minimum engine version supported by the ACL.
 	MinimumEngineVersion *string `pulumi:"minimumEngineVersion"`
-	Name                 *string `pulumi:"name"`
+	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -119,7 +121,8 @@ type AclState struct {
 	Arn pulumi.StringPtrInput
 	// The minimum engine version supported by the ACL.
 	MinimumEngineVersion pulumi.StringPtrInput
-	Name                 pulumi.StringPtrInput
+	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -135,6 +138,7 @@ func (AclState) ElementType() reflect.Type {
 }
 
 type aclArgs struct {
+	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -146,6 +150,7 @@ type aclArgs struct {
 
 // The set of arguments for constructing a Acl resource.
 type AclArgs struct {
+	// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -252,6 +257,7 @@ func (o AclOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.MinimumEngineVersion }).(pulumi.StringOutput)
 }
 
+// Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o AclOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

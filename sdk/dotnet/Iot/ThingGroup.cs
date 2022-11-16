@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Iot
     ///         },
     ///         Tags = 
     ///         {
-    ///             { "terraform", "true" },
+    ///             { "managed", "true" },
     ///         },
     ///     });
     /// 

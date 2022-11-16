@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * VPC Peering Connections use the `aws.ec2.VpcPeeringConnection` resource to manage the requester&#39;s side of the
  * connection and use the `aws.ec2.VpcPeeringConnectionAccepter` resource to manage the accepter&#39;s side of the connection.
  * 
+ * &gt; **Note:** Creating multiple `aws.ec2.VpcPeeringConnection` resources with the same `peer_vpc_id` and `vpc_id` will not produce an error. Instead, AWS will return the connection `id` that already exists, resulting in multiple `aws.ec2.VpcPeeringConnection` resources with the same `id`.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -210,8 +212,6 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
  * ```
  * 
- *  [1]/docs/providers/aws/index.html
- * 
  */
 @ResourceType(type="aws:ec2/vpcPeeringConnection:VpcPeeringConnection")
 public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
@@ -261,7 +261,7 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
     }
     /**
      * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     @Export(name="peerOwnerId", type=String.class, parameters={})
@@ -269,7 +269,7 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     public Output<String> peerOwnerId() {

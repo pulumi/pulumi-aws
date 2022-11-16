@@ -89,9 +89,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:iam/userLoginProfile:UserLoginProfile")
 public class UserLoginProfile extends com.pulumi.resources.CustomResource {
+    /**
+     * The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+     * 
+     */
     @Export(name="encryptedPassword", type=String.class, parameters={})
     private Output<String> encryptedPassword;
 
+    /**
+     * @return The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+     * 
+     */
     public Output<String> encryptedPassword() {
         return this.encryptedPassword;
     }

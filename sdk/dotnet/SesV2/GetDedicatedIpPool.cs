@@ -12,6 +12,8 @@ namespace Pulumi.Aws.SesV2
     public static class GetDedicatedIpPool
     {
         /// <summary>
+        /// Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -38,6 +40,8 @@ namespace Pulumi.Aws.SesV2
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedIpPoolResult>("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", args ?? new GetDedicatedIpPoolArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

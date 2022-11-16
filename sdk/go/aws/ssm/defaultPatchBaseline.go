@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for registering an AWS Systems Manager Default Patch Baseline.
+//
 // ## Example Usage
 // ### Basic Usage
 //

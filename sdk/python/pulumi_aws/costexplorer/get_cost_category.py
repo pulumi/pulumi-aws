@@ -113,7 +113,7 @@ class GetCostCategoryResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        Resource tags.
+        Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         return pulumi.get(self, "tags")
 
@@ -152,7 +152,7 @@ def get_cost_category(cost_category_arn: Optional[str] = None,
 
 
     :param str cost_category_arn: Unique name for the Cost Category.
-    :param Mapping[str, str] tags: Resource tags.
+    :param Mapping[str, str] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
     """
     __args__ = dict()
     __args__['costCategoryArn'] = cost_category_arn
@@ -190,6 +190,6 @@ def get_cost_category_output(cost_category_arn: Optional[pulumi.Input[str]] = No
 
 
     :param str cost_category_arn: Unique name for the Cost Category.
-    :param Mapping[str, str] tags: Resource tags.
+    :param Mapping[str, str] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
     """
     ...

@@ -167,6 +167,8 @@ import (
 //
 // Security Group's Name [cannot be edited after the resource is created](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group). In fact, the `name` and `name-prefix` arguments force the creation of a new Security Group resource when they change value. In that case, this provider first deletes the existing Security Group resource and then it creates a new one. If the existing Security Group is associated to a Network Interface resource, the deletion cannot complete. The reason is that Network Interface resources cannot be left with no Security Group attached and the new one is not yet available at that point.
 //
+// You must invert the default behavior of the provider. That is, first the new Security Group resource must be created, then associated to possible Network Interface resources and finally the old Security Group can be detached and deleted. To force this behavior, you must set the createBeforeDestroy property:
+//
 // ```go
 // package main
 //
@@ -205,9 +207,9 @@ type SecurityGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of this egress rule.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Egress SecurityGroupEgressArrayOutput `pulumi:"egress"`
-	// Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Ingress SecurityGroupIngressArrayOutput `pulumi:"ingress"`
 	// Name of the security group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -215,7 +217,7 @@ type SecurityGroup struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Owner ID.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+	// Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -262,9 +264,9 @@ type securityGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// Description of this egress rule.
 	Description *string `pulumi:"description"`
-	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Egress []SecurityGroupEgress `pulumi:"egress"`
-	// Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
 	// Name of the security group. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
@@ -272,7 +274,7 @@ type securityGroupState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Owner ID.
 	OwnerId *string `pulumi:"ownerId"`
-	// Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+	// Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
 	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -288,9 +290,9 @@ type SecurityGroupState struct {
 	Arn pulumi.StringPtrInput
 	// Description of this egress rule.
 	Description pulumi.StringPtrInput
-	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Egress SecurityGroupEgressArrayInput
-	// Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Ingress SecurityGroupIngressArrayInput
 	// Name of the security group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
@@ -298,7 +300,7 @@ type SecurityGroupState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Owner ID.
 	OwnerId pulumi.StringPtrInput
-	// Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+	// Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -316,15 +318,15 @@ func (SecurityGroupState) ElementType() reflect.Type {
 type securityGroupArgs struct {
 	// Description of this egress rule.
 	Description *string `pulumi:"description"`
-	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Egress []SecurityGroupEgress `pulumi:"egress"`
-	// Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
 	// Name of the security group. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+	// Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
 	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -337,15 +339,15 @@ type securityGroupArgs struct {
 type SecurityGroupArgs struct {
 	// Description of this egress rule.
 	Description pulumi.StringPtrInput
-	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Egress SecurityGroupEgressArrayInput
-	// Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Ingress SecurityGroupIngressArrayInput
 	// Name of the security group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+	// Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -451,12 +453,12 @@ func (o SecurityGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 func (o SecurityGroupOutput) Egress() SecurityGroupEgressArrayOutput {
 	return o.ApplyT(func(v *SecurityGroup) SecurityGroupEgressArrayOutput { return v.Egress }).(SecurityGroupEgressArrayOutput)
 }
 
-// Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 func (o SecurityGroupOutput) Ingress() SecurityGroupIngressArrayOutput {
 	return o.ApplyT(func(v *SecurityGroup) SecurityGroupIngressArrayOutput { return v.Ingress }).(SecurityGroupIngressArrayOutput)
 }
@@ -476,7 +478,7 @@ func (o SecurityGroupOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+// Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
 func (o SecurityGroupOutput) RevokeRulesOnDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.BoolPtrOutput { return v.RevokeRulesOnDelete }).(pulumi.BoolPtrOutput)
 }

@@ -26,6 +26,7 @@ class AccountArgs:
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
+        :param pulumi.Input[bool] create_govcloud: Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
         :param pulumi.Input[str] name: Friendly name for the member account.
         :param pulumi.Input[str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
@@ -75,6 +76,9 @@ class AccountArgs:
     @property
     @pulumi.getter(name="createGovcloud")
     def create_govcloud(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+        """
         return pulumi.get(self, "create_govcloud")
 
     @create_govcloud.setter
@@ -163,6 +167,7 @@ class _AccountState:
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[str] arn: The ARN for this account.
         :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
+        :param pulumi.Input[bool] create_govcloud: Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
         :param pulumi.Input[str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         :param pulumi.Input[str] govcloud_id: ID for a GovCloud account created with the account.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
@@ -228,6 +233,9 @@ class _AccountState:
     @property
     @pulumi.getter(name="createGovcloud")
     def create_govcloud(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+        """
         return pulumi.get(self, "create_govcloud")
 
     @create_govcloud.setter
@@ -419,6 +427,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
+        :param pulumi.Input[bool] create_govcloud: Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
         :param pulumi.Input[str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
         :param pulumi.Input[str] name: Friendly name for the member account.
@@ -557,6 +566,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN for this account.
         :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
+        :param pulumi.Input[bool] create_govcloud: Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
         :param pulumi.Input[str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         :param pulumi.Input[str] govcloud_id: ID for a GovCloud account created with the account.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
@@ -605,6 +615,9 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createGovcloud")
     def create_govcloud(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+        """
         return pulumi.get(self, "create_govcloud")
 
     @property

@@ -206,6 +206,9 @@ export class MetricStream extends pulumi.CustomResource {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
      */
     public /*out*/ readonly lastUpdateDate!: pulumi.Output<string>;
+    /**
+     * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
@@ -322,6 +325,9 @@ export interface MetricStreamState {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
      */
     lastUpdateDate?: pulumi.Input<string>;
+    /**
+     * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
@@ -369,6 +375,9 @@ export interface MetricStreamArgs {
      * List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
      */
     includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamIncludeFilter>[]>;
+    /**
+     * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.

@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;, TransitGatewayArgs.builder()        
  *             .amazonSideAsn(&#34;64513&#34;)
- *             .description(&#34;terraform_ipsec_vpn_example&#34;)
+ *             .description(&#34;example_ipsec_vpn_example&#34;)
  *             .transitGatewayCidrBlocks(&#34;10.0.0.0/24&#34;)
  *             .build());
  * 
@@ -170,7 +170,7 @@ import javax.annotation.Nullable;
  *             .bgpAsn(64514)
  *             .ipAddress(&#34;10.0.0.1&#34;)
  *             .type(&#34;ipsec.1&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;terraform_ipsec_vpn_example&#34;))
+ *             .tags(Map.of(&#34;Name&#34;, &#34;example_ipsec_vpn_example&#34;))
  *             .build());
  * 
  *         var exampleGatewayAssociation = new GatewayAssociation(&#34;exampleGatewayAssociation&#34;, GatewayAssociationArgs.builder()        
@@ -190,7 +190,7 @@ import javax.annotation.Nullable;
  *             .transitGatewayId(exampleTransitGateway.id())
  *             .transportTransitGatewayAttachmentId(exampleDirectConnectGatewayAttachment.applyValue(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult).applyValue(exampleDirectConnectGatewayAttachment -&gt; exampleDirectConnectGatewayAttachment.applyValue(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult.id())))
  *             .type(&#34;ipsec.1&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;terraform_ipsec_vpn_example&#34;))
+ *             .tags(Map.of(&#34;Name&#34;, &#34;example_ipsec_vpn_example&#34;))
  *             .build());
  * 
  *     }
@@ -419,14 +419,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
+     * When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      * 
      */
     @Export(name="transitGatewayAttachmentId", type=String.class, parameters={})
     private Output<String> transitGatewayAttachmentId;
 
     /**
-     * @return When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
+     * @return When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      * 
      */
     public Output<String> transitGatewayAttachmentId() {

@@ -52,9 +52,9 @@ import * as utilities from "../utilities";
  * **Use in combination with an AWS ELB resource:**
  *
  * Some properties of an IAM Server Certificates cannot be updated while they are
- * in use. In order for this provider to effectively manage a Certificate in this situation, it is
+ * in use. In order for the provider to effectively manage a Certificate in this situation, it is
  * recommended you utilize the `namePrefix` attribute and enable the
- * `createBeforeDestroy` [lifecycle block][lifecycle]. This will allow this provider
+ * `createBeforeDestroy`. This will allow this provider
  * to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
  * dependant resources before attempting to destroy the old version.
  *
@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  *  $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
  * ```
  *
- *  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html [lifecycle]/docs/configuration/resources.html
+ *  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
  */
 export class ServerCertificate extends pulumi.CustomResource {
     /**
@@ -160,7 +160,7 @@ export class ServerCertificate extends pulumi.CustomResource {
      */
     public readonly privateKey!: pulumi.Output<string>;
     /**
-     * Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -266,7 +266,7 @@ export interface ServerCertificateState {
      */
     privateKey?: pulumi.Input<string>;
     /**
-     * Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -316,7 +316,7 @@ export interface ServerCertificateArgs {
      */
     privateKey: pulumi.Input<string>;
     /**
-     * Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

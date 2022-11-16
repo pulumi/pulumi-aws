@@ -98,7 +98,7 @@ public final class ConfigurationTemplateState extends com.pulumi.resources.Resou
 
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+     * off of. Example stacks can be found in the [Amazon API documentation][1]
      * 
      */
     @Import(name="solutionStackName")
@@ -106,7 +106,7 @@ public final class ConfigurationTemplateState extends com.pulumi.resources.Resou
 
     /**
      * @return A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+     * off of. Example stacks can be found in the [Amazon API documentation][1]
      * 
      */
     public Optional<Output<String>> solutionStackName() {
@@ -265,7 +265,7 @@ public final class ConfigurationTemplateState extends com.pulumi.resources.Resou
 
         /**
          * @param solutionStackName A solution stack to base your Template
-         * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+         * off of. Example stacks can be found in the [Amazon API documentation][1]
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class ConfigurationTemplateState extends com.pulumi.resources.Resou
 
         /**
          * @param solutionStackName A solution stack to base your Template
-         * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+         * off of. Example stacks can be found in the [Amazon API documentation][1]
          * 
          * @return builder
          * 

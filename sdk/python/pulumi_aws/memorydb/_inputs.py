@@ -66,8 +66,7 @@ class ClusterShardArgs:
                  num_nodes: Optional[pulumi.Input[int]] = None,
                  slots: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Name of this node.
-               * `endpoint`
+        :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArgs']]] nodes: Set of nodes in this shard.
         :param pulumi.Input[int] num_nodes: Number of individual nodes in this shard.
         :param pulumi.Input[str] slots: Keyspace for this shard. Example: `0-16383`.
@@ -85,8 +84,7 @@ class ClusterShardArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of this node.
-        * `endpoint`
+        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -141,8 +139,7 @@ class ClusterShardNodeArgs:
         """
         :param pulumi.Input[str] availability_zone: The Availability Zone in which the node resides.
         :param pulumi.Input[str] create_time: The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-        :param pulumi.Input[str] name: Name of this node.
-               * `endpoint`
+        :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
@@ -190,8 +187,7 @@ class ClusterShardNodeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of this node.
-        * `endpoint`
+        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -296,7 +292,7 @@ class SnapshotClusterConfigurationArgs:
         :param pulumi.Input[str] description: Description for the cluster.
         :param pulumi.Input[str] engine_version: Version number of the Redis engine used by the cluster.
         :param pulumi.Input[str] maintenance_window: The weekly time range during which maintenance on the cluster is performed.
-        :param pulumi.Input[str] name: Name of the cluster.
+        :param pulumi.Input[str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] node_type: Compute and memory capacity of the nodes in the cluster.
         :param pulumi.Input[int] num_shards: Number of shards in the cluster.
         :param pulumi.Input[str] parameter_group_name: Name of the parameter group associated with the cluster.
@@ -374,7 +370,7 @@ class SnapshotClusterConfigurationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the cluster.
+        Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 

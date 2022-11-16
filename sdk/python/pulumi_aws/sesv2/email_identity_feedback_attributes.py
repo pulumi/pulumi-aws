@@ -99,6 +99,8 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
                  email_identity: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
+
         ## Example Usage
         ### Basic Usage
 
@@ -132,6 +134,8 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
                  args: EmailIdentityFeedbackAttributesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
+
         ## Example Usage
         ### Basic Usage
 

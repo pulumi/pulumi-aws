@@ -22,6 +22,7 @@ public final class InstancePublicPortsPortInfo {
      * 
      */
     private Integer fromPort;
+    private @Nullable List<String> ipv6Cidrs;
     /**
      * @return IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
      * 
@@ -47,6 +48,9 @@ public final class InstancePublicPortsPortInfo {
      */
     public Integer fromPort() {
         return this.fromPort;
+    }
+    public List<String> ipv6Cidrs() {
+        return this.ipv6Cidrs == null ? List.of() : this.ipv6Cidrs;
     }
     /**
      * @return IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
@@ -74,6 +78,7 @@ public final class InstancePublicPortsPortInfo {
     public static final class Builder {
         private @Nullable List<String> cidrs;
         private Integer fromPort;
+        private @Nullable List<String> ipv6Cidrs;
         private String protocol;
         private Integer toPort;
         public Builder() {}
@@ -81,6 +86,7 @@ public final class InstancePublicPortsPortInfo {
     	      Objects.requireNonNull(defaults);
     	      this.cidrs = defaults.cidrs;
     	      this.fromPort = defaults.fromPort;
+    	      this.ipv6Cidrs = defaults.ipv6Cidrs;
     	      this.protocol = defaults.protocol;
     	      this.toPort = defaults.toPort;
         }
@@ -99,6 +105,14 @@ public final class InstancePublicPortsPortInfo {
             return this;
         }
         @CustomType.Setter
+        public Builder ipv6Cidrs(@Nullable List<String> ipv6Cidrs) {
+            this.ipv6Cidrs = ipv6Cidrs;
+            return this;
+        }
+        public Builder ipv6Cidrs(String... ipv6Cidrs) {
+            return ipv6Cidrs(List.of(ipv6Cidrs));
+        }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
@@ -112,6 +126,7 @@ public final class InstancePublicPortsPortInfo {
             final var o = new InstancePublicPortsPortInfo();
             o.cidrs = cidrs;
             o.fromPort = fromPort;
+            o.ipv6Cidrs = ipv6Cidrs;
             o.protocol = protocol;
             o.toPort = toPort;
             return o;

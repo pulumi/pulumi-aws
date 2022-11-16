@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+ *
  * ## Example Usage
  * ### Basic Usage
  *

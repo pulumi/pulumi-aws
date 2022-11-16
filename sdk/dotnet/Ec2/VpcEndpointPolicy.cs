@@ -78,6 +78,9 @@ namespace Pulumi.Aws.Ec2
     [AwsResourceType("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy")]
     public partial class VpcEndpointPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -133,6 +136,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
@@ -150,6 +156,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointPolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

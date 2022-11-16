@@ -121,14 +121,14 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+     * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
      * 
      */
     @Import(name="enableKeyRotation")
     private @Nullable Output<Boolean> enableKeyRotation;
 
     /**
-     * @return Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+     * @return Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enableKeyRotation() {
@@ -418,7 +418,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableKeyRotation Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+         * @param enableKeyRotation Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableKeyRotation Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+         * @param enableKeyRotation Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
          * 
          * @return builder
          * 

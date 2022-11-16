@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS Transcribe Vocabulary.
+ *
  * ## Example Usage
  * ### Basic Usage
  *
@@ -83,6 +85,9 @@ export class Vocabulary extends pulumi.CustomResource {
      * - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
     public readonly phrases!: pulumi.Output<string[] | undefined>;
+    /**
+     * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -157,6 +162,9 @@ export interface VocabularyState {
      * - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
     phrases?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -181,6 +189,9 @@ export interface VocabularyArgs {
      * - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
     phrases?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.

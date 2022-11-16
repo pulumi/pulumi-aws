@@ -413,6 +413,25 @@ import (
 //
 // ```
 //
+// For JSON syntax, use an array instead of defining the `queue` key twice.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // S3 bucket notification can be imported using the `bucket`, e.g.,

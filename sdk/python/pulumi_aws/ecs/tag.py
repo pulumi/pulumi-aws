@@ -130,6 +130,12 @@ class Tag(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages an individual ECS resource tag. This resource should only be used in cases where ECS resources are created outside the provider (e.g., ECS Clusters implicitly created by Batch Compute Environments).
+
+        > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `ecs.Cluster` and `ecs.Tag` to manage tags of the same ECS Cluster will cause a perpetual difference where the `ecs.Cluster` resource will try to remove the tag being added by the `ecs.Tag` resource.
+
+        > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+
         ## Example Usage
 
         ```python
@@ -167,6 +173,12 @@ class Tag(pulumi.CustomResource):
                  args: TagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an individual ECS resource tag. This resource should only be used in cases where ECS resources are created outside the provider (e.g., ECS Clusters implicitly created by Batch Compute Environments).
+
+        > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `ecs.Cluster` and `ecs.Tag` to manage tags of the same ECS Cluster will cause a perpetual difference where the `ecs.Cluster` resource will try to remove the tag being added by the `ecs.Tag` resource.
+
+        > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+
         ## Example Usage
 
         ```python

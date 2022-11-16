@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Location Geofence Collection.
+//
 // ## Example Usage
 //
 // ```go
@@ -59,8 +61,9 @@ type GeofenceCollection struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
@@ -106,9 +109,10 @@ type geofenceCollectionState struct {
 	// The optional description for the geofence collection.
 	Description *string `pulumi:"description"`
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-	KmsKeyId *string           `pulumi:"kmsKeyId"`
-	Tags     map[string]string `pulumi:"tags"`
-	TagsAll  map[string]string `pulumi:"tagsAll"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
 	UpdateTime *string `pulumi:"updateTime"`
 }
@@ -124,8 +128,9 @@ type GeofenceCollectionState struct {
 	Description pulumi.StringPtrInput
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
+	// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
 	UpdateTime pulumi.StringPtrInput
 }
@@ -140,8 +145,9 @@ type geofenceCollectionArgs struct {
 	// The optional description for the geofence collection.
 	Description *string `pulumi:"description"`
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-	KmsKeyId *string           `pulumi:"kmsKeyId"`
-	Tags     map[string]string `pulumi:"tags"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GeofenceCollection resource.
@@ -152,7 +158,8 @@ type GeofenceCollectionArgs struct {
 	Description pulumi.StringPtrInput
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
+	// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (GeofenceCollectionArgs) ElementType() reflect.Type {
@@ -267,6 +274,7 @@ func (o GeofenceCollectionOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o GeofenceCollectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

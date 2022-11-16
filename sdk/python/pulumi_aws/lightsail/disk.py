@@ -17,8 +17,7 @@ class DiskArgs:
                  availability_zone: pulumi.Input[str],
                  size_in_gb: pulumi.Input[int],
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Disk resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your disk.
@@ -32,8 +31,6 @@ class DiskArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -83,15 +80,6 @@ class DiskArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _DiskState:
@@ -113,6 +101,7 @@ class _DiskState:
         :param pulumi.Input[int] size_in_gb: The instance port the load balancer will connect.
         :param pulumi.Input[str] support_code: The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -218,6 +207,9 @@ class _DiskState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -234,7 +226,6 @@ class Disk(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  size_in_gb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Lightsail Disk resource.
@@ -322,7 +313,6 @@ class Disk(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  size_in_gb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -340,10 +330,10 @@ class Disk(pulumi.CustomResource):
                 raise TypeError("Missing required property 'size_in_gb'")
             __props__.__dict__["size_in_gb"] = size_in_gb
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["support_code"] = None
+            __props__.__dict__["tags_all"] = None
         super(Disk, __self__).__init__(
             'aws:lightsail/disk:Disk',
             resource_name,
@@ -376,6 +366,7 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[int] size_in_gb: The instance port the load balancer will connect.
         :param pulumi.Input[str] support_code: The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -450,5 +441,8 @@ class Disk(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

@@ -295,6 +295,38 @@ class Framework(pulumi.CustomResource):
                 aws.backup.FrameworkControlArgs(
                     name="BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
                 ),
+                aws.backup.FrameworkControlArgs(
+                    input_parameters=[
+                        aws.backup.FrameworkControlInputParameterArgs(
+                            name="maxRetentionDays",
+                            value="100",
+                        ),
+                        aws.backup.FrameworkControlInputParameterArgs(
+                            name="minRetentionDays",
+                            value="1",
+                        ),
+                    ],
+                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
+                    scope=aws.backup.FrameworkControlScopeArgs(
+                        compliance_resource_types=["EBS"],
+                    ),
+                ),
+                aws.backup.FrameworkControlArgs(
+                    input_parameters=[
+                        aws.backup.FrameworkControlInputParameterArgs(
+                            name="recoveryPointAgeUnit",
+                            value="days",
+                        ),
+                        aws.backup.FrameworkControlInputParameterArgs(
+                            name="recoveryPointAgeValue",
+                            value="1",
+                        ),
+                    ],
+                    name="BACKUP_LAST_RECOVERY_POINT_CREATED",
+                    scope=aws.backup.FrameworkControlScopeArgs(
+                        compliance_resource_types=["EBS"],
+                    ),
+                ),
             ],
             description="this is an example framework",
             tags={
@@ -371,6 +403,38 @@ class Framework(pulumi.CustomResource):
                 ),
                 aws.backup.FrameworkControlArgs(
                     name="BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
+                ),
+                aws.backup.FrameworkControlArgs(
+                    input_parameters=[
+                        aws.backup.FrameworkControlInputParameterArgs(
+                            name="maxRetentionDays",
+                            value="100",
+                        ),
+                        aws.backup.FrameworkControlInputParameterArgs(
+                            name="minRetentionDays",
+                            value="1",
+                        ),
+                    ],
+                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
+                    scope=aws.backup.FrameworkControlScopeArgs(
+                        compliance_resource_types=["EBS"],
+                    ),
+                ),
+                aws.backup.FrameworkControlArgs(
+                    input_parameters=[
+                        aws.backup.FrameworkControlInputParameterArgs(
+                            name="recoveryPointAgeUnit",
+                            value="days",
+                        ),
+                        aws.backup.FrameworkControlInputParameterArgs(
+                            name="recoveryPointAgeValue",
+                            value="1",
+                        ),
+                    ],
+                    name="BACKUP_LAST_RECOVERY_POINT_CREATED",
+                    scope=aws.backup.FrameworkControlScopeArgs(
+                        compliance_resource_types=["EBS"],
+                    ),
                 ),
             ],
             description="this is an example framework",

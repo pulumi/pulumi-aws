@@ -84,6 +84,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  auto_enable: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationAutoEnableArgs']]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS Inspector V2 Organization Configuration.
+
+        > **NOTE:** In order for this resource to work, the account you use must be an Inspector V2 Delegated Admin Account.
+
+        > **NOTE:** When this resource is deleted, EC2 and ECR scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
+
         ## Example Usage
         ### Basic Usage
 
@@ -108,6 +114,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  args: OrganizationConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS Inspector V2 Organization Configuration.
+
+        > **NOTE:** In order for this resource to work, the account you use must be an Inspector V2 Delegated Admin Account.
+
+        > **NOTE:** When this resource is deleted, EC2 and ECR scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
+
         ## Example Usage
         ### Basic Usage
 

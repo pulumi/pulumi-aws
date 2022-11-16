@@ -17,6 +17,7 @@ class InstanceArgs:
                  availability_zone: pulumi.Input[str],
                  blueprint_id: pulumi.Input[str],
                  bundle_id: pulumi.Input[str],
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
                  key_pair_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -27,6 +28,7 @@ class InstanceArgs:
                instance (see list below)
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
         :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
+        :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
@@ -36,6 +38,8 @@ class InstanceArgs:
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "blueprint_id", blueprint_id)
         pulumi.set(__self__, "bundle_id", bundle_id)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if key_pair_name is not None:
             pulumi.set(__self__, "key_pair_name", key_pair_name)
         if name is not None:
@@ -81,6 +85,18 @@ class InstanceArgs:
     @bundle_id.setter
     def bundle_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "bundle_id", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address_type", value)
 
     @property
     @pulumi.getter(name="keyPairName")
@@ -141,6 +157,7 @@ class _InstanceState:
                  bundle_id: Optional[pulumi.Input[str]] = None,
                  cpu_count: Optional[pulumi.Input[int]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address: Optional[pulumi.Input[str]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_static_ip: Optional[pulumi.Input[bool]] = None,
@@ -162,6 +179,7 @@ class _InstanceState:
         :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
         :param pulumi.Input[int] cpu_count: The number of vCPUs the instance has.
         :param pulumi.Input[str] created_at: The timestamp when the instance was created.
+        :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
         :param pulumi.Input[str] ipv6_address: (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: List of IPv6 addresses for the Lightsail instance.
         :param pulumi.Input[bool] is_static_ip: A Boolean value indicating whether this instance has a static IP assigned to it.
@@ -188,6 +206,8 @@ class _InstanceState:
             pulumi.set(__self__, "cpu_count", cpu_count)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if ipv6_address is not None:
             warnings.warn("""use `ipv6_addresses` attribute instead""", DeprecationWarning)
             pulumi.log.warn("""ipv6_address is deprecated: use `ipv6_addresses` attribute instead""")
@@ -288,6 +308,18 @@ class _InstanceState:
     @created_at.setter
     def created_at(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address_type", value)
 
     @property
     @pulumi.getter(name="ipv6Address")
@@ -443,6 +475,7 @@ class Instance(pulumi.CustomResource):
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  blueprint_id: Optional[pulumi.Input[str]] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
                  key_pair_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -537,6 +570,7 @@ class Instance(pulumi.CustomResource):
                instance (see list below)
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
         :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
+        :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
@@ -650,6 +684,7 @@ class Instance(pulumi.CustomResource):
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  blueprint_id: Optional[pulumi.Input[str]] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
                  key_pair_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -672,6 +707,7 @@ class Instance(pulumi.CustomResource):
             if bundle_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bundle_id'")
             __props__.__dict__["bundle_id"] = bundle_id
+            __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["key_pair_name"] = key_pair_name
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
@@ -703,6 +739,7 @@ class Instance(pulumi.CustomResource):
             bundle_id: Optional[pulumi.Input[str]] = None,
             cpu_count: Optional[pulumi.Input[int]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
+            ip_address_type: Optional[pulumi.Input[str]] = None,
             ipv6_address: Optional[pulumi.Input[str]] = None,
             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             is_static_ip: Optional[pulumi.Input[bool]] = None,
@@ -729,6 +766,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
         :param pulumi.Input[int] cpu_count: The number of vCPUs the instance has.
         :param pulumi.Input[str] created_at: The timestamp when the instance was created.
+        :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
         :param pulumi.Input[str] ipv6_address: (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: List of IPv6 addresses for the Lightsail instance.
         :param pulumi.Input[bool] is_static_ip: A Boolean value indicating whether this instance has a static IP assigned to it.
@@ -753,6 +791,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["bundle_id"] = bundle_id
         __props__.__dict__["cpu_count"] = cpu_count
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["ip_address_type"] = ip_address_type
         __props__.__dict__["ipv6_address"] = ipv6_address
         __props__.__dict__["ipv6_addresses"] = ipv6_addresses
         __props__.__dict__["is_static_ip"] = is_static_ip
@@ -815,6 +854,14 @@ class Instance(pulumi.CustomResource):
         The timestamp when the instance was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        """
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="ipv6Address")

@@ -477,6 +477,8 @@ class InstancePublicPortsPortInfo(dict):
             suggest = "from_port"
         elif key == "toPort":
             suggest = "to_port"
+        elif key == "ipv6Cidrs":
+            suggest = "ipv6_cidrs"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InstancePublicPortsPortInfo. Access the value via the '{suggest}' property getter instead.")
@@ -493,7 +495,8 @@ class InstancePublicPortsPortInfo(dict):
                  from_port: int,
                  protocol: str,
                  to_port: int,
-                 cidrs: Optional[Sequence[str]] = None):
+                 cidrs: Optional[Sequence[str]] = None,
+                 ipv6_cidrs: Optional[Sequence[str]] = None):
         """
         :param int from_port: First port in a range of open ports on an instance.
         :param str protocol: IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
@@ -505,6 +508,8 @@ class InstancePublicPortsPortInfo(dict):
         pulumi.set(__self__, "to_port", to_port)
         if cidrs is not None:
             pulumi.set(__self__, "cidrs", cidrs)
+        if ipv6_cidrs is not None:
+            pulumi.set(__self__, "ipv6_cidrs", ipv6_cidrs)
 
     @property
     @pulumi.getter(name="fromPort")
@@ -537,6 +542,11 @@ class InstancePublicPortsPortInfo(dict):
         Set of CIDR blocks.
         """
         return pulumi.get(self, "cidrs")
+
+    @property
+    @pulumi.getter(name="ipv6Cidrs")
+    def ipv6_cidrs(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "ipv6_cidrs")
 
 
 @pulumi.output_type

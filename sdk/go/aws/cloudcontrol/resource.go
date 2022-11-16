@@ -57,8 +57,10 @@ import (
 type Resource struct {
 	pulumi.CustomResourceState
 
+	// JSON string matching the CloudFormation resource type schema with desired configuration.
 	DesiredState pulumi.StringOutput `pulumi:"desiredState"`
-	Properties   pulumi.StringOutput `pulumi:"properties"`
+	// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
+	Properties pulumi.StringOutput `pulumi:"properties"`
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
@@ -104,8 +106,10 @@ func GetResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Resource resources.
 type resourceState struct {
+	// JSON string matching the CloudFormation resource type schema with desired configuration.
 	DesiredState *string `pulumi:"desiredState"`
-	Properties   *string `pulumi:"properties"`
+	// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
+	Properties *string `pulumi:"properties"`
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
@@ -117,8 +121,10 @@ type resourceState struct {
 }
 
 type ResourceState struct {
+	// JSON string matching the CloudFormation resource type schema with desired configuration.
 	DesiredState pulumi.StringPtrInput
-	Properties   pulumi.StringPtrInput
+	// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
+	Properties pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
@@ -134,6 +140,7 @@ func (ResourceState) ElementType() reflect.Type {
 }
 
 type resourceArgs struct {
+	// JSON string matching the CloudFormation resource type schema with desired configuration.
 	DesiredState string `pulumi:"desiredState"`
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
@@ -147,6 +154,7 @@ type resourceArgs struct {
 
 // The set of arguments for constructing a Resource resource.
 type ResourceArgs struct {
+	// JSON string matching the CloudFormation resource type schema with desired configuration.
 	DesiredState pulumi.StringInput
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput
@@ -245,10 +253,12 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 	return o
 }
 
+// JSON string matching the CloudFormation resource type schema with desired configuration.
 func (o ResourceOutput) DesiredState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.DesiredState }).(pulumi.StringOutput)
 }
 
+// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
 func (o ResourceOutput) Properties() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Properties }).(pulumi.StringOutput)
 }

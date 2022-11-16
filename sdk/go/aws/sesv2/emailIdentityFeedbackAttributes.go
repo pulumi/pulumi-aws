@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
+//
 // ## Example Usage
 // ### Basic Usage
 //

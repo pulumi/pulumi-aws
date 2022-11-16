@@ -46,8 +46,6 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
  * ```
- *
- *  [1]/docs/providers/aws/index.html
  */
 export class GatewayRoute extends pulumi.CustomResource {
     /**

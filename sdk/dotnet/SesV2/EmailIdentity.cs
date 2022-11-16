@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SesV2
 {
     /// <summary>
+    /// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -109,6 +111,9 @@ namespace Pulumi.Aws.SesV2
         [Output("identityType")]
         public Output<string> IdentityType { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -187,18 +192,14 @@ namespace Pulumi.Aws.SesV2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public EmailIdentityArgs()
@@ -241,6 +242,10 @@ namespace Pulumi.Aws.SesV2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

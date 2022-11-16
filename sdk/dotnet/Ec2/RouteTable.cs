@@ -118,6 +118,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A list of route objects. Their keys are documented below.
+        /// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.RouteTableRoute>> Routes { get; private set; } = null!;
@@ -203,6 +204,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A list of route objects. Their keys are documented below.
+        /// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         /// </summary>
         public InputList<Inputs.RouteTableRouteArgs> Routes
         {
@@ -265,6 +267,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A list of route objects. Their keys are documented below.
+        /// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         /// </summary>
         public InputList<Inputs.RouteTableRouteGetArgs> Routes
         {

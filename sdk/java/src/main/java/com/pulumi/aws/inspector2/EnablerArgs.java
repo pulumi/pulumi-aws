@@ -29,9 +29,17 @@ public final class EnablerArgs extends com.pulumi.resources.ResourceArgs {
         return this.accountIds;
     }
 
+    /**
+     * Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     * 
+     */
     @Import(name="resourceTypes", required=true)
     private Output<List<String>> resourceTypes;
 
+    /**
+     * @return Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     * 
+     */
     public Output<List<String>> resourceTypes() {
         return this.resourceTypes;
     }
@@ -92,15 +100,33 @@ public final class EnablerArgs extends com.pulumi.resources.ResourceArgs {
             return accountIds(List.of(accountIds));
         }
 
+        /**
+         * @param resourceTypes Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceTypes(Output<List<String>> resourceTypes) {
             $.resourceTypes = resourceTypes;
             return this;
         }
 
+        /**
+         * @param resourceTypes Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceTypes(List<String> resourceTypes) {
             return resourceTypes(Output.of(resourceTypes));
         }
 
+        /**
+         * @param resourceTypes Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceTypes(String... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
         }

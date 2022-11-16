@@ -89,7 +89,7 @@ export interface GetFirewallPolicyResult {
      */
     readonly description: string;
     /**
-     * The [policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy) for the specified firewall policy.
+     * The [policy][2] for the specified firewall policy.
      */
     readonly firewallPolicies: outputs.networkfirewall.GetFirewallPolicyFirewallPolicy[];
     /**

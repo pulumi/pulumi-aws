@@ -18,6 +18,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS Kendra Experience.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java
@@ -88,9 +90,17 @@ public class Experience extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     * 
+     */
     @Export(name="configuration", type=ExperienceConfiguration.class, parameters={})
     private Output<ExperienceConfiguration> configuration;
 
+    /**
+     * @return Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     * 
+     */
     public Output<ExperienceConfiguration> configuration() {
         return this.configuration;
     }

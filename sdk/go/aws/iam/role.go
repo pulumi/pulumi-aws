@@ -13,7 +13,7 @@ import (
 
 // Provides an IAM role.
 //
-// > **NOTE:** If policies are attached to the role via the `iam.PolicyAttachment` resource and you are modifying the role `name` or `path`, the `forceDetachPolicies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.RolePolicyAttachment` resource does not have this requirement.
+// > **NOTE:** If policies are attached to the role via the `iam.PolicyAttachment` resource and you are modifying the role `name` or `path`, the `forceDetachPolicies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.RolePolicyAttachment` resource (recommended) does not have this requirement.
 //
 // > **NOTE:** If you use this resource's `managedPolicyArns` argument or `inlinePolicy` configuration blocks, this resource will take over exclusive management of the role's respective policy types (e.g., both policy types if both arguments are used). These arguments are incompatible with other ways of managing a role's policies, such as `iam.PolicyAttachment`, `iam.RolePolicyAttachment`, and `iam.RolePolicy`. If you attempt to manage a role's policies by multiple means, you will get resource cycling and/or errors.
 //
@@ -113,7 +113,7 @@ import (
 // ```
 // ### Example of Exclusive Inline Policies
 //
-// This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, the provider will remove that policy. If someone deletes these policies out-of-band, the provider will recreate them.
+// This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
 //
 // ```go
 // package main
@@ -183,7 +183,7 @@ import (
 // ```
 // ### Example of Removing Inline Policies
 //
-// This example creates an IAM role with what appears to be empty IAM `inlinePolicy` argument instead of using `inlinePolicy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, the provider will remove that policy.
+// This example creates an IAM role with what appears to be empty IAM `inlinePolicy` argument instead of using `inlinePolicy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
 //
 // ```go
 // package main
@@ -213,7 +213,7 @@ import (
 // ```
 // ### Example of Exclusive Managed Policies
 //
-// This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, the provider will detach that policy. If someone detaches these policies out-of-band, the provider will attach them again.
+// This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
 //
 // ```go
 // package main
@@ -292,7 +292,7 @@ import (
 // ```
 // ### Example of Removing Managed Policies
 //
-// This example creates an IAM role with an empty `managedPolicyArns` argument. If someone attaches a policy out-of-band, on the next apply, the provider will detach that policy.
+// This example creates an IAM role with an empty `managedPolicyArns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
 //
 // ```go
 // package main
@@ -341,10 +341,9 @@ type Role struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies pulumi.BoolPtrOutput `pulumi:"forceDetachPolicies"`
-	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, this provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
-	InlinePolicies RoleInlinePolicyArrayOutput `pulumi:"inlinePolicies"`
-	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, this provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
-	ManagedPolicyArns pulumi.StringArrayOutput `pulumi:"managedPolicyArns"`
+	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
+	InlinePolicies    RoleInlinePolicyArrayOutput `pulumi:"inlinePolicies"`
+	ManagedPolicyArns pulumi.StringArrayOutput    `pulumi:"managedPolicyArns"`
 	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration pulumi.IntPtrOutput `pulumi:"maxSessionDuration"`
 	// Name of the role policy.
@@ -405,10 +404,9 @@ type roleState struct {
 	Description *string `pulumi:"description"`
 	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies *bool `pulumi:"forceDetachPolicies"`
-	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, this provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
-	InlinePolicies []RoleInlinePolicy `pulumi:"inlinePolicies"`
-	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, this provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
-	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
+	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
+	InlinePolicies    []RoleInlinePolicy `pulumi:"inlinePolicies"`
+	ManagedPolicyArns []string           `pulumi:"managedPolicyArns"`
 	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration *int `pulumi:"maxSessionDuration"`
 	// Name of the role policy.
@@ -438,9 +436,8 @@ type RoleState struct {
 	Description pulumi.StringPtrInput
 	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies pulumi.BoolPtrInput
-	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, this provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
-	InlinePolicies RoleInlinePolicyArrayInput
-	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, this provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
+	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
+	InlinePolicies    RoleInlinePolicyArrayInput
 	ManagedPolicyArns pulumi.StringArrayInput
 	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration pulumi.IntPtrInput
@@ -471,10 +468,9 @@ type roleArgs struct {
 	Description *string `pulumi:"description"`
 	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies *bool `pulumi:"forceDetachPolicies"`
-	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, this provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
-	InlinePolicies []RoleInlinePolicy `pulumi:"inlinePolicies"`
-	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, this provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
-	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
+	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
+	InlinePolicies    []RoleInlinePolicy `pulumi:"inlinePolicies"`
+	ManagedPolicyArns []string           `pulumi:"managedPolicyArns"`
 	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration *int `pulumi:"maxSessionDuration"`
 	// Name of the role policy.
@@ -497,9 +493,8 @@ type RoleArgs struct {
 	Description pulumi.StringPtrInput
 	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies pulumi.BoolPtrInput
-	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, this provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
-	InlinePolicies RoleInlinePolicyArrayInput
-	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, this provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
+	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
+	InlinePolicies    RoleInlinePolicyArrayInput
 	ManagedPolicyArns pulumi.StringArrayInput
 	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration pulumi.IntPtrInput
@@ -627,12 +622,11 @@ func (o RoleOutput) ForceDetachPolicies() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Role) pulumi.BoolPtrOutput { return v.ForceDetachPolicies }).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, this provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
+// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
 func (o RoleOutput) InlinePolicies() RoleInlinePolicyArrayOutput {
 	return o.ApplyT(func(v *Role) RoleInlinePolicyArrayOutput { return v.InlinePolicies }).(RoleInlinePolicyArrayOutput)
 }
 
-// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, this provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
 func (o RoleOutput) ManagedPolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringArrayOutput { return v.ManagedPolicyArns }).(pulumi.StringArrayOutput)
 }

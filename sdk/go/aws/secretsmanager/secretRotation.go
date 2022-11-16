@@ -70,8 +70,7 @@ type SecretRotation struct {
 	// A structure that defines the rotation configuration for this secret. Defined below.
 	RotationRules SecretRotationRotationRulesOutput `pulumi:"rotationRules"`
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-	SecretId pulumi.StringOutput    `pulumi:"secretId"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	SecretId pulumi.StringOutput `pulumi:"secretId"`
 }
 
 // NewSecretRotation registers a new resource with the given unique name, arguments, and options.
@@ -119,8 +118,7 @@ type secretRotationState struct {
 	// A structure that defines the rotation configuration for this secret. Defined below.
 	RotationRules *SecretRotationRotationRules `pulumi:"rotationRules"`
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-	SecretId *string           `pulumi:"secretId"`
-	Tags     map[string]string `pulumi:"tags"`
+	SecretId *string `pulumi:"secretId"`
 }
 
 type SecretRotationState struct {
@@ -132,7 +130,6 @@ type SecretRotationState struct {
 	RotationRules SecretRotationRotationRulesPtrInput
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
 	SecretId pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
 }
 
 func (SecretRotationState) ElementType() reflect.Type {
@@ -145,8 +142,7 @@ type secretRotationArgs struct {
 	// A structure that defines the rotation configuration for this secret. Defined below.
 	RotationRules SecretRotationRotationRules `pulumi:"rotationRules"`
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-	SecretId string            `pulumi:"secretId"`
-	Tags     map[string]string `pulumi:"tags"`
+	SecretId string `pulumi:"secretId"`
 }
 
 // The set of arguments for constructing a SecretRotation resource.
@@ -157,7 +153,6 @@ type SecretRotationArgs struct {
 	RotationRules SecretRotationRotationRulesInput
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
 	SecretId pulumi.StringInput
-	Tags     pulumi.StringMapInput
 }
 
 func (SecretRotationArgs) ElementType() reflect.Type {
@@ -265,10 +260,6 @@ func (o SecretRotationOutput) RotationRules() SecretRotationRotationRulesOutput 
 // Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
 func (o SecretRotationOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretRotation) pulumi.StringOutput { return v.SecretId }).(pulumi.StringOutput)
-}
-
-func (o SecretRotationOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SecretRotation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type SecretRotationArrayOutput struct{ *pulumi.OutputState }

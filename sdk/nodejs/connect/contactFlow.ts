@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *     description: "Test Contact Flow Description",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     tags: {
- *         Application: "Terraform",
+ *         Application: "Example",
  *         Method: "Create",
  *         Name: "Test Contact Flow",
  *     },
@@ -106,6 +106,9 @@ export class ContactFlow extends pulumi.CustomResource {
      * Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      */
     public readonly content!: pulumi.Output<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
+     */
     public readonly contentHash!: pulumi.Output<string | undefined>;
     /**
      * Specifies the description of the Contact Flow.
@@ -198,6 +201,9 @@ export interface ContactFlowState {
      * Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      */
     content?: pulumi.Input<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
+     */
     contentHash?: pulumi.Input<string>;
     /**
      * Specifies the description of the Contact Flow.
@@ -237,6 +243,9 @@ export interface ContactFlowArgs {
      * Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      */
     content?: pulumi.Input<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
+     */
     contentHash?: pulumi.Input<string>;
     /**
      * Specifies the description of the Contact Flow.

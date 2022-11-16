@@ -54,7 +54,7 @@ export class ResourceGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+     * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
@@ -95,7 +95,7 @@ export interface ResourceGroupState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+     * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -105,7 +105,7 @@ export interface ResourceGroupState {
  */
 export interface ResourceGroupArgs {
     /**
-     * Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+     * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
      */
     tags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -103,6 +103,7 @@ class _AccessPointState:
         :param pulumi.Input['AccessPointPosixUserArgs'] posix_user: Operating system user and group applied to all file system requests made using the access point. Detailed below.
         :param pulumi.Input['AccessPointRootDirectoryArgs'] root_directory: Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -205,6 +206,9 @@ class _AccessPointState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -344,6 +348,7 @@ class AccessPoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']] posix_user: Operating system user and group applied to all file system requests made using the access point. Detailed below.
         :param pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']] root_directory: Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -415,5 +420,8 @@ class AccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

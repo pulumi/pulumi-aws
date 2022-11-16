@@ -48,8 +48,6 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
  * ```
- *
- *  [1]/docs/providers/aws/index.html
  */
 export class VirtualRouter extends pulumi.CustomResource {
     /**

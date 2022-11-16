@@ -8,6 +8,13 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an RDS security group resource. This is only for DB instances in the
+ * EC2-Classic Platform. For instances inside a VPC, use the
+ * `aws_db_instance.vpc_security_group_ids`
+ * attribute instead.
+ *
+ * !> **WARNING:** With the retirement of EC2-Classic the `aws.rds.SecurityGroup` resource has been deprecated and will be removed in a future version.
+ *
  * ## Example Usage
  *
  * ```typescript

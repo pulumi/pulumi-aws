@@ -76,9 +76,17 @@ public final class DomainDomainEndpointOptionsArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.enforceHttps);
     }
 
+    /**
+     * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+     * 
+     */
     @Import(name="tlsSecurityPolicy")
     private @Nullable Output<String> tlsSecurityPolicy;
 
+    /**
+     * @return Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+     * 
+     */
     public Optional<Output<String>> tlsSecurityPolicy() {
         return Optional.ofNullable(this.tlsSecurityPolicy);
     }
@@ -195,11 +203,23 @@ public final class DomainDomainEndpointOptionsArgs extends com.pulumi.resources.
             return enforceHttps(Output.of(enforceHttps));
         }
 
+        /**
+         * @param tlsSecurityPolicy Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tlsSecurityPolicy(@Nullable Output<String> tlsSecurityPolicy) {
             $.tlsSecurityPolicy = tlsSecurityPolicy;
             return this;
         }
 
+        /**
+         * @param tlsSecurityPolicy Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tlsSecurityPolicy(String tlsSecurityPolicy) {
             return tlsSecurityPolicy(Output.of(tlsSecurityPolicy));
         }

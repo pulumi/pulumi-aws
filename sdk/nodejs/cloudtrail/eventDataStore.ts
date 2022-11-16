@@ -127,6 +127,9 @@ export class EventDataStore extends pulumi.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
@@ -204,6 +207,9 @@ export interface EventDataStoreState {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.

@@ -194,8 +194,14 @@ type ContainerService struct {
 	// nodes of the container service.
 	Scale pulumi.IntOutput `pulumi:"scale"`
 	// The current state of the container service.
-	State   pulumi.StringOutput    `pulumi:"state"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	State pulumi.StringOutput `pulumi:"state"`
+	// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+	// configured with a provider
+	// `defaultTags` configuration block
+	// present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider
+	// `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The publicly accessible URL of the container service. If no public endpoint is specified in the
 	// currentDeployment, this URL returns a 404 response.
@@ -274,8 +280,14 @@ type containerServiceState struct {
 	// nodes of the container service.
 	Scale *int `pulumi:"scale"`
 	// The current state of the container service.
-	State   *string           `pulumi:"state"`
-	Tags    map[string]string `pulumi:"tags"`
+	State *string `pulumi:"state"`
+	// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+	// configured with a provider
+	// `defaultTags` configuration block
+	// present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider
+	// `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The publicly accessible URL of the container service. If no public endpoint is specified in the
 	// currentDeployment, this URL returns a 404 response.
@@ -320,8 +332,14 @@ type ContainerServiceState struct {
 	// nodes of the container service.
 	Scale pulumi.IntPtrInput
 	// The current state of the container service.
-	State   pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	State pulumi.StringPtrInput
+	// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+	// configured with a provider
+	// `defaultTags` configuration block
+	// present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider
+	// `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The publicly accessible URL of the container service. If no public endpoint is specified in the
 	// currentDeployment, this URL returns a 404 response.
@@ -352,8 +370,12 @@ type containerServiceArgs struct {
 	PublicDomainNames *ContainerServicePublicDomainNames `pulumi:"publicDomainNames"`
 	// The scale specification for the container service. The scale specifies the allocated compute
 	// nodes of the container service.
-	Scale int               `pulumi:"scale"`
-	Tags  map[string]string `pulumi:"tags"`
+	Scale int `pulumi:"scale"`
+	// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+	// configured with a provider
+	// `defaultTags` configuration block
+	// present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ContainerService resource.
@@ -378,7 +400,11 @@ type ContainerServiceArgs struct {
 	// The scale specification for the container service. The scale specifies the allocated compute
 	// nodes of the container service.
 	Scale pulumi.IntInput
-	Tags  pulumi.StringMapInput
+	// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+	// configured with a provider
+	// `defaultTags` configuration block
+	// present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ContainerServiceArgs) ElementType() reflect.Type {
@@ -548,10 +574,16 @@ func (o ContainerServiceOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
+// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+// configured with a provider
+// `defaultTags` configuration block
+// present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ContainerServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider
+// `defaultTags` configuration block.
 func (o ContainerServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

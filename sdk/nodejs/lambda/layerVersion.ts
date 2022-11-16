@@ -5,8 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
+ *
+ * For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+ *
+ * > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account.
+ *
  * ## Example Usage
- * ### Basic Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -14,22 +19,6 @@ import * as utilities from "../utilities";
  *
  * const lambdaLayer = new aws.lambda.LayerVersion("lambda_layer", {
  *     compatibleRuntimes: ["nodejs16.x"],
- *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
- *     layerName: "lambda_layer_name",
- * });
- * ```
- * ### Lambda Layer with Compatible Architectures
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const lambdaLayer = new aws.lambda.LayerVersion("lambda_layer", {
- *     compatibleArchitectures: [
- *         "arm64",
- *         "x86_64",
- *     ],
- *     compatibleRuntimes: ["nodejs12.x"],
  *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
  *     layerName: "lambda_layer_name",
  * });
@@ -145,6 +134,9 @@ export class LayerVersion extends pulumi.CustomResource {
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
      */
     public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
+     */
     public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
      * Size in bytes of the function .zip file.
@@ -279,6 +271,9 @@ export interface LayerVersionState {
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
      */
     skipDestroy?: pulumi.Input<boolean>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
+     */
     sourceCodeHash?: pulumi.Input<string>;
     /**
      * Size in bytes of the function .zip file.
@@ -334,5 +329,8 @@ export interface LayerVersionArgs {
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
      */
     skipDestroy?: pulumi.Input<boolean>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
+     */
     sourceCodeHash?: pulumi.Input<string>;
 }

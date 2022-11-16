@@ -33,6 +33,9 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// Return results that match both `Dimension` object.
         /// </summary>
         public readonly ImmutableArray<Outputs.CostCategoryRuleRuleOr> Ors;
+        /// <summary>
+        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
+        /// </summary>
         public readonly Outputs.CostCategoryRuleRuleTags? Tags;
 
         [OutputConstructor]

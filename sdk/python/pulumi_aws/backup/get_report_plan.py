@@ -150,7 +150,7 @@ def get_report_plan(name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.backup.get_report_plan(name="tf_example_backup_report_plan_name")
+    example = aws.backup.get_report_plan(name="my_example_backup_report_plan_name")
     ```
 
 
@@ -188,7 +188,7 @@ def get_report_plan_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.backup.get_report_plan(name="tf_example_backup_report_plan_name")
+    example = aws.backup.get_report_plan(name="my_example_backup_report_plan_name")
     ```
 
 

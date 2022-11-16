@@ -429,7 +429,7 @@ class DataSource(pulumi.CustomResource):
         example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
         example_data_source = aws.appsync.DataSource("exampleDataSource",
             api_id=example_graph_ql_api.id,
-            name="tf_appsync_example",
+            name="my_appsync_example",
             service_role_arn=example_role.arn,
             type="AMAZON_DYNAMODB",
             dynamodb_config=aws.appsync.DataSourceDynamodbConfigArgs(
@@ -514,7 +514,7 @@ class DataSource(pulumi.CustomResource):
         example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
         example_data_source = aws.appsync.DataSource("exampleDataSource",
             api_id=example_graph_ql_api.id,
-            name="tf_appsync_example",
+            name="my_appsync_example",
             service_role_arn=example_role.arn,
             type="AMAZON_DYNAMODB",
             dynamodb_config=aws.appsync.DataSourceDynamodbConfigArgs(

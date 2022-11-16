@@ -68,6 +68,9 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === ObjectLambdaAccessPoint.__pulumiType;
     }
 
+    /**
+     * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     */
     public readonly accountId!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the Object Lambda Access Point.
@@ -118,6 +121,9 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ObjectLambdaAccessPoint resources.
  */
 export interface ObjectLambdaAccessPointState {
+    /**
+     * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     */
     accountId?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the Object Lambda Access Point.
@@ -137,6 +143,9 @@ export interface ObjectLambdaAccessPointState {
  * The set of arguments for constructing a ObjectLambdaAccessPoint resource.
  */
 export interface ObjectLambdaAccessPointArgs {
+    /**
+     * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     */
     accountId?: pulumi.Input<string>;
     /**
      * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.

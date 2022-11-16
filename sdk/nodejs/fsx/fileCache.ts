@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS FSx File Cache.
+ * See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
  * ## Example Usage
  *
  * ```typescript
@@ -139,8 +141,11 @@ export class FileCache extends pulumi.CustomResource {
      * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of your virtual private cloud (VPC).
      */
@@ -201,13 +206,13 @@ export class FileCache extends pulumi.CustomResource {
             resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dataRepositoryAssociationIds"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["fileCacheId"] = undefined /*out*/;
             resourceInputs["networkInterfaceIds"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -277,6 +282,9 @@ export interface FileCacheState {
      * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -326,6 +334,8 @@ export interface FileCacheArgs {
      * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -4193,6 +4193,10 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getInternetGateway:getInternetGateway", TypeShape.of(GetInternetGatewayResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
+     * 
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+     * 
      * ## Example Usage
      * 
      * Basic usage:
@@ -4238,6 +4242,10 @@ public final class Ec2Functions {
         return getIpamPreviewNextCidr(args, InvokeOptions.Empty);
     }
     /**
+     * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
+     * 
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+     * 
      * ## Example Usage
      * 
      * Basic usage:
@@ -4283,6 +4291,10 @@ public final class Ec2Functions {
         return getIpamPreviewNextCidrPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
+     * 
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+     * 
      * ## Example Usage
      * 
      * Basic usage:
@@ -4328,6 +4340,10 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", TypeShape.of(GetIpamPreviewNextCidrResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
+     * 
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
+     * 
      * ## Example Usage
      * 
      * Basic usage:
@@ -9345,6 +9361,16 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", TypeShape.of(GetNetworkInterfacesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -9438,6 +9464,16 @@ public final class Ec2Functions {
         return getPrefixList(GetPrefixListArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -9531,6 +9567,16 @@ public final class Ec2Functions {
         return getPrefixListPlain(GetPrefixListPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -9624,6 +9670,16 @@ public final class Ec2Functions {
         return getPrefixList(args, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -9717,6 +9773,16 @@ public final class Ec2Functions {
         return getPrefixListPlain(args, InvokeOptions.Empty);
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -9810,6 +9876,16 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getPrefixList:getPrefixList", TypeShape.of(GetPrefixListResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
+     * in the current region.
+     * 
+     * This can be used both to validate a prefix list given in a variable
+     * and to obtain the CIDR blocks (IP address ranges) for the associated
+     * AWS service. The latter may be useful e.g., for adding network ACL
+     * rules.
+     * 
+     * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -10785,8 +10861,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getSecurityGroup:getSecurityGroup", TypeShape.of(GetSecurityGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get IDs and VPC membership of Security Groups that are created
-     * outside of this provider.
+     * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
      * 
      * ## Example Usage
      * ```java
@@ -10862,8 +10937,7 @@ public final class Ec2Functions {
         return getSecurityGroups(GetSecurityGroupsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get IDs and VPC membership of Security Groups that are created
-     * outside of this provider.
+     * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
      * 
      * ## Example Usage
      * ```java
@@ -10939,8 +11013,7 @@ public final class Ec2Functions {
         return getSecurityGroupsPlain(GetSecurityGroupsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get IDs and VPC membership of Security Groups that are created
-     * outside of this provider.
+     * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
      * 
      * ## Example Usage
      * ```java
@@ -11016,8 +11089,7 @@ public final class Ec2Functions {
         return getSecurityGroups(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get IDs and VPC membership of Security Groups that are created
-     * outside of this provider.
+     * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
      * 
      * ## Example Usage
      * ```java
@@ -11093,8 +11165,7 @@ public final class Ec2Functions {
         return getSecurityGroupsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get IDs and VPC membership of Security Groups that are created
-     * outside of this provider.
+     * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
      * 
      * ## Example Usage
      * ```java
@@ -11170,8 +11241,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getSecurityGroups:getSecurityGroups", TypeShape.of(GetSecurityGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get IDs and VPC membership of Security Groups that are created
-     * outside of this provider.
+     * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
      * 
      * ## Example Usage
      * ```java
@@ -15042,7 +15112,10 @@ public final class Ec2Functions {
     }
     /**
      * Use this data source to get IDs of Amazon VPC peering connections
-     * To get more details on each connection, use the data resource `aws.ec2.VpcPeeringConnection`
+     * To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+     * 
+     * Note: To use this data source in a count, the resources should exist before trying to access
+     * the data source.
      * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections() {
@@ -15050,7 +15123,10 @@ public final class Ec2Functions {
     }
     /**
      * Use this data source to get IDs of Amazon VPC peering connections
-     * To get more details on each connection, use the data resource `aws.ec2.VpcPeeringConnection`
+     * To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+     * 
+     * Note: To use this data source in a count, the resources should exist before trying to access
+     * the data source.
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain() {
@@ -15058,7 +15134,10 @@ public final class Ec2Functions {
     }
     /**
      * Use this data source to get IDs of Amazon VPC peering connections
-     * To get more details on each connection, use the data resource `aws.ec2.VpcPeeringConnection`
+     * To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+     * 
+     * Note: To use this data source in a count, the resources should exist before trying to access
+     * the data source.
      * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections(GetVpcPeeringConnectionsArgs args) {
@@ -15066,7 +15145,10 @@ public final class Ec2Functions {
     }
     /**
      * Use this data source to get IDs of Amazon VPC peering connections
-     * To get more details on each connection, use the data resource `aws.ec2.VpcPeeringConnection`
+     * To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+     * 
+     * Note: To use this data source in a count, the resources should exist before trying to access
+     * the data source.
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain(GetVpcPeeringConnectionsPlainArgs args) {
@@ -15074,7 +15156,10 @@ public final class Ec2Functions {
     }
     /**
      * Use this data source to get IDs of Amazon VPC peering connections
-     * To get more details on each connection, use the data resource `aws.ec2.VpcPeeringConnection`
+     * To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+     * 
+     * Note: To use this data source in a count, the resources should exist before trying to access
+     * the data source.
      * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections(GetVpcPeeringConnectionsArgs args, InvokeOptions options) {
@@ -15082,7 +15167,10 @@ public final class Ec2Functions {
     }
     /**
      * Use this data source to get IDs of Amazon VPC peering connections
-     * To get more details on each connection, use the data resource `aws.ec2.VpcPeeringConnection`
+     * To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+     * 
+     * Note: To use this data source in a count, the resources should exist before trying to access
+     * the data source.
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain(GetVpcPeeringConnectionsPlainArgs args, InvokeOptions options) {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionOriginS3OriginConfig
     {
         /// <summary>
-        /// The [CloudFront origin access identity](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_identity.html) to associate with the origin.
+        /// The CloudFront origin access identity to associate with the origin.
         /// </summary>
         public readonly string OriginAccessIdentity;
 

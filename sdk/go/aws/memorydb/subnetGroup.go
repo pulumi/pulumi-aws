@@ -71,9 +71,11 @@ type SubnetGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the subnet group.
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Description for the subnet group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
+	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
@@ -119,9 +121,11 @@ func GetSubnetGroup(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SubnetGroup resources.
 type subnetGroupState struct {
 	// The ARN of the subnet group.
-	Arn         *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Description for the subnet group.
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
+	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
@@ -136,9 +140,11 @@ type subnetGroupState struct {
 
 type SubnetGroupState struct {
 	// The ARN of the subnet group.
-	Arn         pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// Description for the subnet group.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
+	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
@@ -156,8 +162,10 @@ func (SubnetGroupState) ElementType() reflect.Type {
 }
 
 type subnetGroupArgs struct {
+	// Description for the subnet group.
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
+	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
@@ -168,8 +176,10 @@ type subnetGroupArgs struct {
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
+	// Description for the subnet group.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
+	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
@@ -270,10 +280,12 @@ func (o SubnetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Description for the subnet group.
 func (o SubnetGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

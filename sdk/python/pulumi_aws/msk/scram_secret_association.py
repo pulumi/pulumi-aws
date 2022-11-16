@@ -98,6 +98,18 @@ class ScramSecretAssociation(pulumi.CustomResource):
                  secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Associates SCRAM secrets stored in the Secrets Manager service with a Managed Streaming for Kafka (MSK) cluster.
+
+        > **Note:** The following assumes the MSK cluster has SASL/SCRAM authentication enabled. See below for example usage or refer to the [Username/Password Authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html) section of the MSK Developer Guide for more details.
+
+        To set up username and password authentication for a cluster, create an `secretsmanager.Secret` resource and associate
+        a username and password with the secret with an `secretsmanager.SecretVersion` resource. When creating a secret for the cluster,
+        the `name` must have the prefix `AmazonMSK_` and you must either use an existing custom AWS KMS key or create a new
+        custom AWS KMS key for your secret with the `kms.Key` resource. It is important to note that a policy is required for the `secretsmanager.Secret`
+        resource in order for Kafka to be able to read it. This policy is attached automatically when the `msk.ScramSecretAssociation` is used,
+        however, this policy will not be in the state and as such, will present a diff on plan/apply. For that reason, you must use the `secretsmanager.SecretPolicy`
+        resource](/docs/providers/aws/r/secretsmanager_secret_policy.html) as shown below in order to ensure that the state is in a clean state after the creation of secret and the association to the cluster.
+
         ## Example Usage
 
         ```python
@@ -159,6 +171,18 @@ class ScramSecretAssociation(pulumi.CustomResource):
                  args: ScramSecretAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Associates SCRAM secrets stored in the Secrets Manager service with a Managed Streaming for Kafka (MSK) cluster.
+
+        > **Note:** The following assumes the MSK cluster has SASL/SCRAM authentication enabled. See below for example usage or refer to the [Username/Password Authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html) section of the MSK Developer Guide for more details.
+
+        To set up username and password authentication for a cluster, create an `secretsmanager.Secret` resource and associate
+        a username and password with the secret with an `secretsmanager.SecretVersion` resource. When creating a secret for the cluster,
+        the `name` must have the prefix `AmazonMSK_` and you must either use an existing custom AWS KMS key or create a new
+        custom AWS KMS key for your secret with the `kms.Key` resource. It is important to note that a policy is required for the `secretsmanager.Secret`
+        resource in order for Kafka to be able to read it. This policy is attached automatically when the `msk.ScramSecretAssociation` is used,
+        however, this policy will not be in the state and as such, will present a diff on plan/apply. For that reason, you must use the `secretsmanager.SecretPolicy`
+        resource](/docs/providers/aws/r/secretsmanager_secret_policy.html) as shown below in order to ensure that the state is in a clean state after the creation of secret and the association to the cluster.
+
         ## Example Usage
 
         ```python

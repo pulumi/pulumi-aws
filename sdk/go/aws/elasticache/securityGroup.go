@@ -11,6 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an ElastiCache Security Group to control access to one or more cache
+// clusters.
+//
+// > **NOTE:** ElastiCache Security Groups are for use only when working with an
+// ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
+// ElastiCache Subnet Group resource.
+//
+// !> **WARNING:** With the retirement of EC2-Classic the `elasticache.SecurityGroup` resource has been deprecated and will be removed in a future version.
+//
 // ## Example Usage
 //
 // ```go

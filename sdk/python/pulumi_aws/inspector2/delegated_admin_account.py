@@ -82,6 +82,8 @@ class DelegatedAdminAccount(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS Inspector V2 Delegated Admin Account.
+
         ## Example Usage
         ### Basic Usage
 
@@ -112,6 +114,8 @@ class DelegatedAdminAccount(pulumi.CustomResource):
                  args: DelegatedAdminAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS Inspector V2 Delegated Admin Account.
+
         ## Example Usage
         ### Basic Usage
 

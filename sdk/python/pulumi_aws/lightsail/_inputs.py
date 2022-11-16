@@ -428,7 +428,8 @@ class InstancePublicPortsPortInfoArgs:
                  from_port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
                  to_port: pulumi.Input[int],
-                 cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] from_port: First port in a range of open ports on an instance.
         :param pulumi.Input[str] protocol: IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
@@ -440,6 +441,8 @@ class InstancePublicPortsPortInfoArgs:
         pulumi.set(__self__, "to_port", to_port)
         if cidrs is not None:
             pulumi.set(__self__, "cidrs", cidrs)
+        if ipv6_cidrs is not None:
+            pulumi.set(__self__, "ipv6_cidrs", ipv6_cidrs)
 
     @property
     @pulumi.getter(name="fromPort")
@@ -488,6 +491,15 @@ class InstancePublicPortsPortInfoArgs:
     @cidrs.setter
     def cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "cidrs", value)
+
+    @property
+    @pulumi.getter(name="ipv6Cidrs")
+    def ipv6_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "ipv6_cidrs")
+
+    @ipv6_cidrs.setter
+    def ipv6_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ipv6_cidrs", value)
 
 
 @pulumi.input_type

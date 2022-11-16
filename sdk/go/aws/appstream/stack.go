@@ -108,8 +108,9 @@ type Stack struct {
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayOutput `pulumi:"storageConnectors"`
-	Tags              pulumi.StringMapOutput           `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput           `pulumi:"tagsAll"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
 	// See `userSettings` below.
 	UserSettings StackUserSettingArrayOutput `pulumi:"userSettings"`
@@ -169,8 +170,9 @@ type stackState struct {
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
-	Tags              map[string]string       `pulumi:"tags"`
-	TagsAll           map[string]string       `pulumi:"tagsAll"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
 	// See `userSettings` below.
 	UserSettings []StackUserSetting `pulumi:"userSettings"`
@@ -202,8 +204,9 @@ type StackState struct {
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayInput
-	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
 	// See `userSettings` below.
 	UserSettings StackUserSettingArrayInput
@@ -235,7 +238,8 @@ type stackArgs struct {
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
-	Tags              map[string]string       `pulumi:"tags"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
 	// See `userSettings` below.
 	UserSettings []StackUserSetting `pulumi:"userSettings"`
@@ -264,7 +268,8 @@ type StackArgs struct {
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayInput
-	Tags              pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
 	// See `userSettings` below.
 	UserSettings StackUserSettingArrayInput
@@ -415,6 +420,7 @@ func (o StackOutput) StorageConnectors() StackStorageConnectorArrayOutput {
 	return o.ApplyT(func(v *Stack) StackStorageConnectorArrayOutput { return v.StorageConnectors }).(StackStorageConnectorArrayOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o StackOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -120,6 +120,7 @@ type RouteTable struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
 	// A list of route objects. Their keys are documented below.
+	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
 	Routes RouteTableRouteArrayOutput `pulumi:"routes"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -168,6 +169,7 @@ type routeTableState struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
 	// A list of route objects. Their keys are documented below.
+	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -185,6 +187,7 @@ type RouteTableState struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
 	// A list of route objects. Their keys are documented below.
+	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
 	Routes RouteTableRouteArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -202,6 +205,7 @@ type routeTableArgs struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
 	// A list of route objects. Their keys are documented below.
+	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -214,6 +218,7 @@ type RouteTableArgs struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
 	// A list of route objects. Their keys are documented below.
+	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
 	Routes RouteTableRouteArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -324,6 +329,7 @@ func (o RouteTableOutput) PropagatingVgws() pulumi.StringArrayOutput {
 }
 
 // A list of route objects. Their keys are documented below.
+// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
 func (o RouteTableOutput) Routes() RouteTableRouteArrayOutput {
 	return o.ApplyT(func(v *RouteTable) RouteTableRouteArrayOutput { return v.Routes }).(RouteTableRouteArrayOutput)
 }

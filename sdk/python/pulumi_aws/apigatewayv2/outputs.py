@@ -197,7 +197,7 @@ class DomainNameDomainNameConfiguration(dict):
                  ownership_verification_certificate_arn: Optional[str] = None,
                  target_domain_name: Optional[str] = None):
         """
-        :param str certificate_arn: ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+        :param str certificate_arn: ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `acm.Certificate` resource to configure an ACM certificate.
         :param str endpoint_type: Endpoint type. Valid values: `REGIONAL`.
         :param str security_policy: Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
         :param str hosted_zone_id: Amazon Route 53 Hosted Zone ID of the endpoint.
@@ -218,7 +218,7 @@ class DomainNameDomainNameConfiguration(dict):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> str:
         """
-        ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+        ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `acm.Certificate` resource to configure an ACM certificate.
         """
         return pulumi.get(self, "certificate_arn")
 

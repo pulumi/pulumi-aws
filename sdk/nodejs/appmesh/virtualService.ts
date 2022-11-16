@@ -53,8 +53,6 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
  * ```
- *
- *  [1]/docs/providers/aws/index.html
  */
 export class VirtualService extends pulumi.CustomResource {
     /**

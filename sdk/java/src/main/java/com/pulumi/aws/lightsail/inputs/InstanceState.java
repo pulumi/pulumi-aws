@@ -113,6 +113,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    /**
+     * @return The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+
+    /**
      * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
      * 
      * @deprecated
@@ -311,6 +326,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.bundleId = $.bundleId;
         this.cpuCount = $.cpuCount;
         this.createdAt = $.createdAt;
+        this.ipAddressType = $.ipAddressType;
         this.ipv6Address = $.ipv6Address;
         this.ipv6Addresses = $.ipv6Addresses;
         this.isStaticIp = $.isStaticIp;
@@ -469,6 +485,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
+        }
+
+        /**
+         * @param ipAddressType The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         /**

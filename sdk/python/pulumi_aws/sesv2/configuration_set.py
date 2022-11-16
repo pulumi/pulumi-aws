@@ -22,7 +22,6 @@ class ConfigurationSetArgs:
                  sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
                  suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
@@ -31,6 +30,7 @@ class ConfigurationSetArgs:
         :param pulumi.Input['ConfigurationSetReputationOptionsArgs'] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         :param pulumi.Input['ConfigurationSetSendingOptionsArgs'] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         :param pulumi.Input['ConfigurationSetSuppressionOptionsArgs'] suppression_options: An object that contains information about the suppression list preferences for your account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
         pulumi.set(__self__, "configuration_set_name", configuration_set_name)
@@ -44,8 +44,6 @@ class ConfigurationSetArgs:
             pulumi.set(__self__, "suppression_options", suppression_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if tracking_options is not None:
             pulumi.set(__self__, "tracking_options", tracking_options)
 
@@ -112,20 +110,14 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="trackingOptions")
@@ -160,6 +152,7 @@ class _ConfigurationSetState:
         :param pulumi.Input['ConfigurationSetReputationOptionsArgs'] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         :param pulumi.Input['ConfigurationSetSendingOptionsArgs'] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         :param pulumi.Input['ConfigurationSetSuppressionOptionsArgs'] suppression_options: An object that contains information about the suppression list preferences for your account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
         if arn is not None:
@@ -256,6 +249,9 @@ class _ConfigurationSetState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -295,11 +291,39 @@ class ConfigurationSet(pulumi.CustomResource):
                  sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
                  suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
+
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sesv2.ConfigurationSet("example",
+            configuration_set_name="example",
+            delivery_options=aws.sesv2.ConfigurationSetDeliveryOptionsArgs(
+                tls_policy="REQUIRE",
+            ),
+            reputation_options=aws.sesv2.ConfigurationSetReputationOptionsArgs(
+                reputation_metrics_enabled=False,
+            ),
+            sending_options=aws.sesv2.ConfigurationSetSendingOptionsArgs(
+                sending_enabled=True,
+            ),
+            suppression_options=aws.sesv2.ConfigurationSetSuppressionOptionsArgs(
+                suppressed_reasons=[
+                    "BOUNCE",
+                    "COMPLAINT",
+                ],
+            ),
+            tracking_options=aws.sesv2.ConfigurationSetTrackingOptionsArgs(
+                custom_redirect_domain="example.com",
+            ))
+        ```
 
         ## Import
 
@@ -316,6 +340,7 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']] suppression_options: An object that contains information about the suppression list preferences for your account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
         ...
@@ -325,7 +350,36 @@ class ConfigurationSet(pulumi.CustomResource):
                  args: ConfigurationSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
+
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sesv2.ConfigurationSet("example",
+            configuration_set_name="example",
+            delivery_options=aws.sesv2.ConfigurationSetDeliveryOptionsArgs(
+                tls_policy="REQUIRE",
+            ),
+            reputation_options=aws.sesv2.ConfigurationSetReputationOptionsArgs(
+                reputation_metrics_enabled=False,
+            ),
+            sending_options=aws.sesv2.ConfigurationSetSendingOptionsArgs(
+                sending_enabled=True,
+            ),
+            suppression_options=aws.sesv2.ConfigurationSetSuppressionOptionsArgs(
+                suppressed_reasons=[
+                    "BOUNCE",
+                    "COMPLAINT",
+                ],
+            ),
+            tracking_options=aws.sesv2.ConfigurationSetTrackingOptionsArgs(
+                custom_redirect_domain="example.com",
+            ))
+        ```
 
         ## Import
 
@@ -356,7 +410,6 @@ class ConfigurationSet(pulumi.CustomResource):
                  sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
                  suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -375,9 +428,9 @@ class ConfigurationSet(pulumi.CustomResource):
             __props__.__dict__["sending_options"] = sending_options
             __props__.__dict__["suppression_options"] = suppression_options
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["tracking_options"] = tracking_options
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(ConfigurationSet, __self__).__init__(
             'aws:sesv2/configurationSet:ConfigurationSet',
             resource_name,
@@ -410,6 +463,7 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']] suppression_options: An object that contains information about the suppression list preferences for your account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -478,6 +532,9 @@ class ConfigurationSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

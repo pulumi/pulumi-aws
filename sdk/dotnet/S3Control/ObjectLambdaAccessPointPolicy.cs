@@ -89,6 +89,9 @@ namespace Pulumi.Aws.S3Control
     [AwsResourceType("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy")]
     public partial class ObjectLambdaAccessPointPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
@@ -156,6 +159,9 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class ObjectLambdaAccessPointPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
@@ -179,6 +185,9 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class ObjectLambdaAccessPointPolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 

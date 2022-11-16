@@ -14,6 +14,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS IdentityStore Group Membership.
+ * 
  * ## Import
  * 
  * `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,

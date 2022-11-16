@@ -121,9 +121,17 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<List<ClusterClusterEndpoint>> clusterEndpoints() {
         return this.clusterEndpoints;
     }
+    /**
+     * Description for the cluster.
+     * 
+     */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description for the cluster.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -198,16 +206,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.maintenanceWindow;
     }
     /**
-     * Name of this node.
-     * * `endpoint`
+     * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Name of this node.
-     * * `endpoint`
+     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Output<String> name() {

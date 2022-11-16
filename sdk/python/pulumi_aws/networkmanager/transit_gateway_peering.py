@@ -21,6 +21,7 @@ class TransitGatewayPeeringArgs:
         The set of arguments for constructing a TransitGatewayPeering resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network.
         :param pulumi.Input[str] transit_gateway_arn: The ARN of the transit gateway for the peering request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "transit_gateway_arn", transit_gateway_arn)
@@ -54,6 +55,9 @@ class TransitGatewayPeeringArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -84,6 +88,7 @@ class _TransitGatewayPeeringState:
         :param pulumi.Input[str] owner_account_id: The ID of the account owner.
         :param pulumi.Input[str] peering_type: The type of peering. This will be `TRANSIT_GATEWAY`.
         :param pulumi.Input[str] resource_arn: The resource ARN of the peer.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_arn: The ARN of the transit gateway for the peering request.
         :param pulumi.Input[str] transit_gateway_peering_attachment_id: The ID of the transit gateway peering attachment.
@@ -198,6 +203,9 @@ class _TransitGatewayPeeringState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -275,6 +283,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] transit_gateway_arn: The ARN of the transit gateway for the peering request.
         """
         ...
@@ -382,6 +391,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
         :param pulumi.Input[str] owner_account_id: The ID of the account owner.
         :param pulumi.Input[str] peering_type: The type of peering. This will be `TRANSIT_GATEWAY`.
         :param pulumi.Input[str] resource_arn: The resource ARN of the peer.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_arn: The ARN of the transit gateway for the peering request.
         :param pulumi.Input[str] transit_gateway_peering_attachment_id: The ID of the transit gateway peering attachment.
@@ -462,6 +472,9 @@ class TransitGatewayPeering(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

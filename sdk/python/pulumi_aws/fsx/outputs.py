@@ -187,6 +187,7 @@ class FileCacheDataRepositoryAssociation(dict):
         :param Sequence[str] data_repository_subdirectories: A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
         :param str file_cache_id: The system-generated, unique ID of the cache.
         :param Sequence['FileCacheDataRepositoryAssociationNfArgs'] nfs: - (Optional) See the `nfs` configuration block.
+        :param Mapping[str, str] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "data_repository_path", data_repository_path)
         pulumi.set(__self__, "file_cache_path", file_cache_path)
@@ -277,6 +278,9 @@ class FileCacheDataRepositoryAssociation(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
 

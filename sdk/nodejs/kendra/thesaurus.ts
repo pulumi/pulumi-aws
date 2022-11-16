@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS Kendra Thesaurus.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -91,6 +93,9 @@ export class Thesaurus extends pulumi.CustomResource {
      * The current status of the thesaurus.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -180,6 +185,9 @@ export interface ThesaurusState {
      * The current status of the thesaurus.
      */
     status?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -212,5 +220,8 @@ export interface ThesaurusArgs {
      * The S3 path where your thesaurus file sits in S3. Detailed below.
      */
     sourceS3Path: pulumi.Input<inputs.kendra.ThesaurusSourceS3Path>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

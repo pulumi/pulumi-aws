@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS Transcribe VocabularyFilter.
+ *
  * ## Example Usage
  * ### Basic Usage
  *
@@ -74,6 +76,9 @@ export class VocabularyFilter extends pulumi.CustomResource {
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
     public readonly languageCode!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -148,6 +153,9 @@ export interface VocabularyFilterState {
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
     languageCode?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -172,6 +180,9 @@ export interface VocabularyFilterArgs {
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
     languageCode: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.

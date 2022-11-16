@@ -13,7 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// Manages a Kinesis Analytics v2 Application.
     /// This resource can be used to manage both Kinesis Data Analytics for SQL applications and Kinesis Data Analytics for Apache Flink applications.
     /// 
-    /// &gt; **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `aws.kinesis.AnalyticsApplication`resource.
+    /// &gt; **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `aws.kinesis.AnalyticsApplication` resource.
     /// 
     /// ## Example Usage
     /// ### Apache Flink Application
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`.
         /// </summary>
         [Output("runtimeEnvironment")]
         public Output<string> RuntimeEnvironment { get; private set; } = null!;
@@ -480,7 +480,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`.
         /// </summary>
         [Input("runtimeEnvironment", required: true)]
         public Input<string> RuntimeEnvironment { get; set; } = null!;
@@ -566,7 +566,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`.
         /// </summary>
         [Input("runtimeEnvironment")]
         public Input<string>? RuntimeEnvironment { get; set; }

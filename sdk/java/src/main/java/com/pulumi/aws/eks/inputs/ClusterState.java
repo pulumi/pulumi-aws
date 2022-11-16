@@ -38,30 +38,22 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-     * 
-     */
     @Import(name="certificateAuthorities")
     private @Nullable Output<List<ClusterCertificateAuthorityArgs>> certificateAuthorities;
 
-    /**
-     * @return Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-     * 
-     */
     public Optional<Output<List<ClusterCertificateAuthorityArgs>>> certificateAuthorities() {
         return Optional.ofNullable(this.certificateAuthorities);
     }
 
     /**
-     * The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+     * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
     @Import(name="certificateAuthority")
     private @Nullable Output<ClusterCertificateAuthorityArgs> certificateAuthority;
 
     /**
-     * @return The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+     * @return Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
     public Optional<Output<ClusterCertificateAuthorityArgs>> certificateAuthority() {
@@ -83,17 +75,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.createdAt);
     }
 
-    /**
-     * List of addons to remove upon creation. Any addon listed will be &#34;adopted&#34; and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-     * 
-     */
     @Import(name="defaultAddonsToRemoves")
     private @Nullable Output<List<String>> defaultAddonsToRemoves;
 
-    /**
-     * @return List of addons to remove upon creation. Any addon listed will be &#34;adopted&#34; and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-     * 
-     */
     public Optional<Output<List<String>>> defaultAddonsToRemoves() {
         return Optional.ofNullable(this.defaultAddonsToRemoves);
     }
@@ -221,14 +205,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -373,39 +357,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param certificateAuthorities Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorities(@Nullable Output<List<ClusterCertificateAuthorityArgs>> certificateAuthorities) {
             $.certificateAuthorities = certificateAuthorities;
             return this;
         }
 
-        /**
-         * @param certificateAuthorities Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorities(List<ClusterCertificateAuthorityArgs> certificateAuthorities) {
             return certificateAuthorities(Output.of(certificateAuthorities));
         }
 
-        /**
-         * @param certificateAuthorities Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorities(ClusterCertificateAuthorityArgs... certificateAuthorities) {
             return certificateAuthorities(List.of(certificateAuthorities));
         }
 
         /**
-         * @param certificateAuthority The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+         * @param certificateAuthority Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
          * 
          * @return builder
          * 
@@ -416,7 +382,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateAuthority The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+         * @param certificateAuthority Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
          * 
          * @return builder
          * 
@@ -446,33 +412,15 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param defaultAddonsToRemoves List of addons to remove upon creation. Any addon listed will be &#34;adopted&#34; and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultAddonsToRemoves(@Nullable Output<List<String>> defaultAddonsToRemoves) {
             $.defaultAddonsToRemoves = defaultAddonsToRemoves;
             return this;
         }
 
-        /**
-         * @param defaultAddonsToRemoves List of addons to remove upon creation. Any addon listed will be &#34;adopted&#34; and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultAddonsToRemoves(List<String> defaultAddonsToRemoves) {
             return defaultAddonsToRemoves(Output.of(defaultAddonsToRemoves));
         }
 
-        /**
-         * @param defaultAddonsToRemoves List of addons to remove upon creation. Any addon listed will be &#34;adopted&#34; and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultAddonsToRemoves(String... defaultAddonsToRemoves) {
             return defaultAddonsToRemoves(List.of(defaultAddonsToRemoves));
         }
@@ -669,7 +617,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+         * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
          * 
          * @return builder
          * 
@@ -680,7 +628,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+         * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
          * 
          * @return builder
          * 

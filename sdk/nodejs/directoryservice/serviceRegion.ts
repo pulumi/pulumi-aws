@@ -59,7 +59,13 @@ export class ServiceRegion extends pulumi.CustomResource {
      * The name of the Region where you want to add domain controllers for replication.
      */
     public readonly regionName!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * VPC information in the replicated Region. Detailed below.
@@ -124,7 +130,13 @@ export interface ServiceRegionState {
      * The name of the Region where you want to add domain controllers for replication.
      */
     regionName?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC information in the replicated Region. Detailed below.
@@ -148,6 +160,9 @@ export interface ServiceRegionArgs {
      * The name of the Region where you want to add domain controllers for replication.
      */
     regionName: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC information in the replicated Region. Detailed below.

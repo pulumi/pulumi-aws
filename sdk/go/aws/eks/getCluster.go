@@ -67,7 +67,7 @@ type LookupClusterResult struct {
 	CreatedAt string `pulumi:"createdAt"`
 	// The enabled control plane logs.
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
-	// The endpoint for your Kubernetes API server.
+	// Endpoint for your Kubernetes API server.
 	Endpoint string `pulumi:"endpoint"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -152,7 +152,7 @@ func (o LookupClusterResultOutput) EnabledClusterLogTypes() pulumi.StringArrayOu
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.EnabledClusterLogTypes }).(pulumi.StringArrayOutput)
 }
 
-// The endpoint for your Kubernetes API server.
+// Endpoint for your Kubernetes API server.
 func (o LookupClusterResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }

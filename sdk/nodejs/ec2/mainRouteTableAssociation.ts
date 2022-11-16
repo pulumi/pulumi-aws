@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a resource for managing the main routing table of a VPC.
+ *
+ * > **NOTE:** **Do not** use both `aws.ec2.DefaultRouteTable` to manage a default route table **and** `aws.ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See aws.ec2.DefaultRouteTable documentation for more details.
+ * For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in the provider, see `aws.ec2.RouteTable`.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -24,10 +29,6 @@ import * as utilities from "../utilities";
  * this original table as the Main Route Table for the VPC. You'll see this
  * additional Route Table in the AWS console; it must remain intact in order for
  * the `mainRouteTableAssociation` delete to work properly.
- *
- * [aws-route-tables]: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table
- * [tf-route-tables]: /docs/providers/aws/r/route_table.html
- * [tf-default-route-table]: /docs/providers/aws/r/default_route_table.html
  */
 export class MainRouteTableAssociation extends pulumi.CustomResource {
     /**
@@ -58,7 +59,7 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Used internally, see __Notes__ below
+     * Used internally, see **Notes** below
      */
     public /*out*/ readonly originalRouteTableId!: pulumi.Output<string>;
     /**
@@ -109,7 +110,7 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
  */
 export interface MainRouteTableAssociationState {
     /**
-     * Used internally, see __Notes__ below
+     * Used internally, see **Notes** below
      */
     originalRouteTableId?: pulumi.Input<string>;
     /**

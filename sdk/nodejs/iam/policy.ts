@@ -95,7 +95,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public /*out*/ readonly policyId!: pulumi.Output<string>;
     /**
-     * Map of resource tags for the IAM Policy If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -179,7 +179,7 @@ export interface PolicyState {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * Map of resource tags for the IAM Policy If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -214,7 +214,7 @@ export interface PolicyArgs {
      */
     policy: pulumi.Input<string | PolicyDocument>;
     /**
-     * Map of resource tags for the IAM Policy If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

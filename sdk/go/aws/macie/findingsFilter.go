@@ -78,7 +78,8 @@ type FindingsFilter struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The criteria to use to filter findings.
 	FindingCriteria FindingsFilterFindingCriteriaOutput `pulumi:"findingCriteria"`
-	Name            pulumi.StringOutput                 `pulumi:"name"`
+	// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
@@ -131,7 +132,8 @@ type findingsFilterState struct {
 	Description *string `pulumi:"description"`
 	// The criteria to use to filter findings.
 	FindingCriteria *FindingsFilterFindingCriteria `pulumi:"findingCriteria"`
-	Name            *string                        `pulumi:"name"`
+	// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
@@ -150,7 +152,8 @@ type FindingsFilterState struct {
 	Description pulumi.StringPtrInput
 	// The criteria to use to filter findings.
 	FindingCriteria FindingsFilterFindingCriteriaPtrInput
-	Name            pulumi.StringPtrInput
+	// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
@@ -171,7 +174,8 @@ type findingsFilterArgs struct {
 	Description *string `pulumi:"description"`
 	// The criteria to use to filter findings.
 	FindingCriteria FindingsFilterFindingCriteria `pulumi:"findingCriteria"`
-	Name            *string                       `pulumi:"name"`
+	// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
@@ -188,7 +192,8 @@ type FindingsFilterArgs struct {
 	Description pulumi.StringPtrInput
 	// The criteria to use to filter findings.
 	FindingCriteria FindingsFilterFindingCriteriaInput
-	Name            pulumi.StringPtrInput
+	// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
@@ -304,6 +309,7 @@ func (o FindingsFilterOutput) FindingCriteria() FindingsFilterFindingCriteriaOut
 	return o.ApplyT(func(v *FindingsFilter) FindingsFilterFindingCriteriaOutput { return v.FindingCriteria }).(FindingsFilterFindingCriteriaOutput)
 }
 
+// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o FindingsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

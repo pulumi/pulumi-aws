@@ -59,6 +59,10 @@ class AwaitableGetDefaultTagsResult(GetDefaultTagsResult):
 def get_default_tags(tags: Optional[Mapping[str, str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultTagsResult:
     """
+    Use this data source to get the default tags configured on the provider.
+
+    With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+
     ## Example Usage
     ### Basic Usage
 
@@ -86,6 +90,10 @@ def get_default_tags(tags: Optional[Mapping[str, str]] = None,
 def get_default_tags_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultTagsResult]:
     """
+    Use this data source to get the default tags configured on the provider.
+
+    With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+
     ## Example Usage
     ### Basic Usage
 

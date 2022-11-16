@@ -95,6 +95,10 @@ export class Vocabulary extends pulumi.CustomResource {
      * The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * Tags to apply to the vocabulary. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -193,6 +197,10 @@ export interface VocabularyState {
      * The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      */
     state?: pulumi.Input<string>;
+    /**
+     * Tags to apply to the vocabulary. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -224,5 +232,9 @@ export interface VocabularyArgs {
      * A unique name of the custom vocabulary. Must not be more than 140 characters.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Tags to apply to the vocabulary. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

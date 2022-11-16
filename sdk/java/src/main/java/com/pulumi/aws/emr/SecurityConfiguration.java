@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *       },
  *       &#34;LocalDiskEncryptionConfiguration&#34;: {
  *         &#34;EncryptionKeyProviderType&#34;: &#34;AwsKms&#34;,
- *         &#34;AwsKmsKey&#34;: &#34;arn:aws:kms:us-west-2:187416307283:alias/tf_emr_test_key&#34;
+ *         &#34;AwsKmsKey&#34;: &#34;arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key&#34;
  *       }
  *     },
  *     &#34;EnableInTransitEncryption&#34;: false,

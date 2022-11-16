@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *     enableDnsHostnames: true,
  * });
  * const gw = new aws.ec2.InternetGateway("gw", {vpcId: _default.id});
- * const tfTestSubnet = new aws.ec2.Subnet("tfTestSubnet", {
+ * const myTestSubnet = new aws.ec2.Subnet("myTestSubnet", {
  *     vpcId: _default.id,
  *     cidrBlock: "10.0.0.0/24",
  *     mapPublicIpOnLaunch: true,
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *     ami: "ami-5189a661",
  *     instanceType: "t2.micro",
  *     privateIp: "10.0.0.12",
- *     subnetId: tfTestSubnet.id,
+ *     subnetId: myTestSubnet.id,
  * });
  * const bar = new aws.ec2.Eip("bar", {
  *     vpc: true,
@@ -104,8 +104,6 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
  * ```
- *
- *  [1]https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html
  */
 export class Eip extends pulumi.CustomResource {
     /**
@@ -196,7 +194,8 @@ export class Eip extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
-     * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+     * EC2 IPv4 address pool identifier or `amazon`.
+     * This option is only available for VPC EIPs.
      */
     public readonly publicIpv4Pool!: pulumi.Output<string>;
     /**
@@ -337,7 +336,8 @@ export interface EipState {
      */
     publicIp?: pulumi.Input<string>;
     /**
-     * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+     * EC2 IPv4 address pool identifier or `amazon`.
+     * This option is only available for VPC EIPs.
      */
     publicIpv4Pool?: pulumi.Input<string>;
     /**
@@ -384,7 +384,8 @@ export interface EipArgs {
      */
     networkInterface?: pulumi.Input<string>;
     /**
-     * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+     * EC2 IPv4 address pool identifier or `amazon`.
+     * This option is only available for VPC EIPs.
      */
     publicIpv4Pool?: pulumi.Input<string>;
     /**

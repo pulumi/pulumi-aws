@@ -74,6 +74,9 @@ namespace Pulumi.Aws.Location
         [Output("mapName")]
         public Output<string> MapName { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -155,6 +158,10 @@ namespace Pulumi.Aws.Location
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -201,6 +208,10 @@ namespace Pulumi.Aws.Location
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

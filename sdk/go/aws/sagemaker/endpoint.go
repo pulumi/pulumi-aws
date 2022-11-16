@@ -62,7 +62,7 @@ type Endpoint struct {
 	DeploymentConfig EndpointDeploymentConfigPtrOutput `pulumi:"deploymentConfig"`
 	// The name of the endpoint configuration to use.
 	EndpointConfigName pulumi.StringOutput `pulumi:"endpointConfigName"`
-	// The name of the endpoint.
+	// The name of the endpoint. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -108,7 +108,7 @@ type endpointState struct {
 	DeploymentConfig *EndpointDeploymentConfig `pulumi:"deploymentConfig"`
 	// The name of the endpoint configuration to use.
 	EndpointConfigName *string `pulumi:"endpointConfigName"`
-	// The name of the endpoint.
+	// The name of the endpoint. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -123,7 +123,7 @@ type EndpointState struct {
 	DeploymentConfig EndpointDeploymentConfigPtrInput
 	// The name of the endpoint configuration to use.
 	EndpointConfigName pulumi.StringPtrInput
-	// The name of the endpoint.
+	// The name of the endpoint. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -140,7 +140,7 @@ type endpointArgs struct {
 	DeploymentConfig *EndpointDeploymentConfig `pulumi:"deploymentConfig"`
 	// The name of the endpoint configuration to use.
 	EndpointConfigName string `pulumi:"endpointConfigName"`
-	// The name of the endpoint.
+	// The name of the endpoint. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -152,7 +152,7 @@ type EndpointArgs struct {
 	DeploymentConfig EndpointDeploymentConfigPtrInput
 	// The name of the endpoint configuration to use.
 	EndpointConfigName pulumi.StringInput
-	// The name of the endpoint.
+	// The name of the endpoint. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -260,7 +260,7 @@ func (o EndpointOutput) EndpointConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointConfigName }).(pulumi.StringOutput)
 }
 
-// The name of the endpoint.
+// The name of the endpoint. If omitted, the provider will assign a random, unique name.
 func (o EndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

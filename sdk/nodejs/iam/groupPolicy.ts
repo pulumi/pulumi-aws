@@ -70,7 +70,7 @@ export class GroupPolicy extends pulumi.CustomResource {
      */
     public readonly group!: pulumi.Output<string>;
     /**
-     * The name of the policy. If omitted, this provider will
+     * The name of the policy. If omitted, the provider will
      * assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
@@ -128,7 +128,7 @@ export interface GroupPolicyState {
      */
     group?: pulumi.Input<string>;
     /**
-     * The name of the policy. If omitted, this provider will
+     * The name of the policy. If omitted, the provider will
      * assign a random, unique name.
      */
     name?: pulumi.Input<string>;
@@ -152,7 +152,7 @@ export interface GroupPolicyArgs {
      */
     group: pulumi.Input<string>;
     /**
-     * The name of the policy. If omitted, this provider will
+     * The name of the policy. If omitted, the provider will
      * assign a random, unique name.
      */
     name?: pulumi.Input<string>;

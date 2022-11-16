@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Ec2
     ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
     ///     {
     ///         AmazonSideAsn = 64513,
-    ///         Description = "terraform_ipsec_vpn_example",
+    ///         Description = "example_ipsec_vpn_example",
     ///         TransitGatewayCidrBlocks = new[]
     ///         {
     ///             "10.0.0.0/24",
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Ec2
     ///         Type = "ipsec.1",
     ///         Tags = 
     ///         {
-    ///             { "Name", "terraform_ipsec_vpn_example" },
+    ///             { "Name", "example_ipsec_vpn_example" },
     ///         },
     ///     });
     /// 
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Ec2
     ///         Type = "ipsec.1",
     ///         Tags = 
     ///         {
-    ///             { "Name", "terraform_ipsec_vpn_example" },
+    ///             { "Name", "example_ipsec_vpn_example" },
     ///         },
     ///     });
     /// 
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
+        /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
         /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
@@ -1143,7 +1143,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
+        /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
         /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }

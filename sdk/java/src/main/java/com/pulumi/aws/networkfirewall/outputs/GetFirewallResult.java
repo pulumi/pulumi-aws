@@ -72,7 +72,7 @@ public final class GetFirewallResult {
      */
     private List<GetFirewallSubnetMapping> subnetMappings;
     /**
-     * @return Map of resource tags to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     private @Nullable Map<String,String> tags;
@@ -166,7 +166,7 @@ public final class GetFirewallResult {
         return this.subnetMappings;
     }
     /**
-     * @return Map of resource tags to associate with the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Map<String,String> tags() {

@@ -306,9 +306,17 @@ public class Domain extends com.pulumi.resources.CustomResource {
     public Output<String> accessPolicies() {
         return this.accessPolicies;
     }
+    /**
+     * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
+     * 
+     */
     @Export(name="advancedOptions", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> advancedOptions;
 
+    /**
+     * @return Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
+     * 
+     */
     public Output<Map<String,String>> advancedOptions() {
         return this.advancedOptions;
     }
@@ -550,9 +558,21 @@ public class Domain extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+     * 
+     */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -75,7 +75,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly endpointConfigName!: pulumi.Output<string>;
     /**
-     * The name of the endpoint.
+     * The name of the endpoint. If omitted, the provider will assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export interface EndpointState {
      */
     endpointConfigName?: pulumi.Input<string>;
     /**
-     * The name of the endpoint.
+     * The name of the endpoint. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -166,7 +166,7 @@ export interface EndpointArgs {
      */
     endpointConfigName: pulumi.Input<string>;
     /**
-     * The name of the endpoint.
+     * The name of the endpoint. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**

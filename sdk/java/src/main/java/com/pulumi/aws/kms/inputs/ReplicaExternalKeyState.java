@@ -176,9 +176,17 @@ public final class ReplicaExternalKeyState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.keyUsage);
     }
 
+    /**
+     * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+     * 
+     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
+    /**
+     * @return The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+     * 
+     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
@@ -499,11 +507,23 @@ public final class ReplicaExternalKeyState extends com.pulumi.resources.Resource
             return keyUsage(Output.of(keyUsage));
         }
 
+        /**
+         * @param policy The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

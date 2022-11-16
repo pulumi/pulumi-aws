@@ -155,9 +155,17 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
     public Output<Integer> maximumMatchDistance() {
         return this.maximumMatchDistance;
     }
+    /**
+     * A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

@@ -306,6 +306,8 @@ class User(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an ElastiCache user resource.
+
         ## Example Usage
 
         ```python
@@ -346,6 +348,8 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an ElastiCache user resource.
+
         ## Example Usage
 
         ```python

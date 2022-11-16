@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an Elastic Load Balancer resource, also known as a &#34;Classic
  * Load Balancer&#34; after the release of
- * `Application/Network Load Balancers`.
+ * Application/Network Load Balancers.
  * 
  * &gt; **NOTE on ELB Instances and ELB Attachments:** This provider currently
  * provides both a standalone ELB Attachment resource

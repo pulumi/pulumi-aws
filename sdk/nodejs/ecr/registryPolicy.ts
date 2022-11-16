@@ -66,6 +66,9 @@ export class RegistryPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegistryPolicy.__pulumiType;
     }
 
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The registry ID where the registry was created.
@@ -104,6 +107,9 @@ export class RegistryPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RegistryPolicy resources.
  */
 export interface RegistryPolicyState {
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     policy?: pulumi.Input<string>;
     /**
      * The registry ID where the registry was created.
@@ -115,5 +121,8 @@ export interface RegistryPolicyState {
  * The set of arguments for constructing a RegistryPolicy resource.
  */
 export interface RegistryPolicyArgs {
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     policy: pulumi.Input<string>;
 }

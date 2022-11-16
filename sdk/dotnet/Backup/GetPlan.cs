@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Backup
         /// {
         ///     var example = Aws.Backup.GetPlan.Invoke(new()
         ///     {
-        ///         PlanId = "tf_example_backup_plan_id",
+        ///         PlanId = "my_example_backup_plan_id",
         ///     });
         /// 
         /// });
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Backup
         /// {
         ///     var example = Aws.Backup.GetPlan.Invoke(new()
         ///     {
-        ///         PlanId = "tf_example_backup_plan_id",
+        ///         PlanId = "my_example_backup_plan_id",
         ///     });
         /// 
         /// });

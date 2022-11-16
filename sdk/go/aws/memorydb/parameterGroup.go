@@ -60,7 +60,8 @@ type ParameterGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the parameter group.
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Description for the parameter group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The engine version that the parameter group can be used with.
 	Family pulumi.StringOutput `pulumi:"family"`
@@ -109,7 +110,8 @@ func GetParameterGroup(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ParameterGroup resources.
 type parameterGroupState struct {
 	// The ARN of the parameter group.
-	Arn         *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Description for the parameter group.
 	Description *string `pulumi:"description"`
 	// The engine version that the parameter group can be used with.
 	Family *string `pulumi:"family"`
@@ -127,7 +129,8 @@ type parameterGroupState struct {
 
 type ParameterGroupState struct {
 	// The ARN of the parameter group.
-	Arn         pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// Description for the parameter group.
 	Description pulumi.StringPtrInput
 	// The engine version that the parameter group can be used with.
 	Family pulumi.StringPtrInput
@@ -148,6 +151,7 @@ func (ParameterGroupState) ElementType() reflect.Type {
 }
 
 type parameterGroupArgs struct {
+	// Description for the parameter group.
 	Description *string `pulumi:"description"`
 	// The engine version that the parameter group can be used with.
 	Family string `pulumi:"family"`
@@ -163,6 +167,7 @@ type parameterGroupArgs struct {
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
+	// Description for the parameter group.
 	Description pulumi.StringPtrInput
 	// The engine version that the parameter group can be used with.
 	Family pulumi.StringInput
@@ -268,6 +273,7 @@ func (o ParameterGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Description for the parameter group.
 func (o ParameterGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

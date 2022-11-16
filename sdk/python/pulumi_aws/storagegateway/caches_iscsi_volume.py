@@ -193,10 +193,10 @@ class _CachesIscsiVolumeState:
         :param pulumi.Input[str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] target_arn: Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        :param pulumi.Input[str] target_arn: Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
-        :param pulumi.Input[str] volume_arn: Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-        :param pulumi.Input[str] volume_id: Volume ID, e.g. `vol-12345678`.
+        :param pulumi.Input[str] volume_arn: Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        :param pulumi.Input[str] volume_id: Volume ID, e.g., `vol-12345678`.
         :param pulumi.Input[int] volume_size_in_bytes: The size of the volume in bytes.
         """
         if arn is not None:
@@ -382,7 +382,7 @@ class _CachesIscsiVolumeState:
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         """
         return pulumi.get(self, "target_arn")
 
@@ -406,7 +406,7 @@ class _CachesIscsiVolumeState:
     @pulumi.getter(name="volumeArn")
     def volume_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
         return pulumi.get(self, "volume_arn")
 
@@ -418,7 +418,7 @@ class _CachesIscsiVolumeState:
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Volume ID, e.g. `vol-12345678`.
+        Volume ID, e.g., `vol-12345678`.
         """
         return pulumi.get(self, "volume_id")
 
@@ -457,9 +457,9 @@ class CachesIscsiVolume(pulumi.CustomResource):
         """
         Manages an AWS Storage Gateway cached iSCSI volume.
 
-        > **NOTE:** The gateway must have cache added (e.g. via the `storagegateway.Cache` resource) before creating volumes otherwise the Storage Gateway API will return an error.
+        > **NOTE:** The gateway must have cache added (e.g., via the `storagegateway.Cache` resource) before creating volumes otherwise the Storage Gateway API will return an error.
 
-        > **NOTE:** The gateway must have an upload buffer added (e.g. via the `storagegateway.UploadBuffer` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
+        > **NOTE:** The gateway must have an upload buffer added (e.g., via the `storagegateway.UploadBuffer` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
 
         ## Example Usage
 
@@ -533,9 +533,9 @@ class CachesIscsiVolume(pulumi.CustomResource):
         """
         Manages an AWS Storage Gateway cached iSCSI volume.
 
-        > **NOTE:** The gateway must have cache added (e.g. via the `storagegateway.Cache` resource) before creating volumes otherwise the Storage Gateway API will return an error.
+        > **NOTE:** The gateway must have cache added (e.g., via the `storagegateway.Cache` resource) before creating volumes otherwise the Storage Gateway API will return an error.
 
-        > **NOTE:** The gateway must have an upload buffer added (e.g. via the `storagegateway.UploadBuffer` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
+        > **NOTE:** The gateway must have an upload buffer added (e.g., via the `storagegateway.UploadBuffer` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
 
         ## Example Usage
 
@@ -692,10 +692,10 @@ class CachesIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] target_arn: Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        :param pulumi.Input[str] target_arn: Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
-        :param pulumi.Input[str] volume_arn: Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-        :param pulumi.Input[str] volume_id: Volume ID, e.g. `vol-12345678`.
+        :param pulumi.Input[str] volume_arn: Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        :param pulumi.Input[str] volume_id: Volume ID, e.g., `vol-12345678`.
         :param pulumi.Input[int] volume_size_in_bytes: The size of the volume in bytes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -821,7 +821,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[str]:
         """
-        Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         """
         return pulumi.get(self, "target_arn")
 
@@ -837,7 +837,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     @pulumi.getter(name="volumeArn")
     def volume_arn(self) -> pulumi.Output[str]:
         """
-        Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
         return pulumi.get(self, "volume_arn")
 
@@ -845,7 +845,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> pulumi.Output[str]:
         """
-        Volume ID, e.g. `vol-12345678`.
+        Volume ID, e.g., `vol-12345678`.
         """
         return pulumi.get(self, "volume_id")
 

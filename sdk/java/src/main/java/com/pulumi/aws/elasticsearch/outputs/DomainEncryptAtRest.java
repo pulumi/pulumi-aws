@@ -17,6 +17,10 @@ public final class DomainEncryptAtRest {
      * 
      */
     private Boolean enabled;
+    /**
+     * @return KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
+     * 
+     */
     private @Nullable String kmsKeyId;
 
     private DomainEncryptAtRest() {}
@@ -27,6 +31,10 @@ public final class DomainEncryptAtRest {
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
+     * 
+     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }

@@ -17,6 +17,12 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a DynamoDB table replica resource for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html).
+ * 
+ * &gt; **Note:** Use `lifecycle` `ignore_changes` for `replica` in the associated aws.dynamodb.Table configuration.
+ * 
+ * &gt; **Note:** Do not use the `replica` configuration block of aws.dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
+ * 
  * ## Example Usage
  * ### Basic Example
  * ```java
@@ -162,15 +168,31 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> tableClassOverride() {
         return Codegen.optional(this.tableClassOverride);
     }
+    /**
+     * Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

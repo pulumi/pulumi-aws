@@ -61,7 +61,7 @@ type Snapshot struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// ARN of the KMS key used to encrypt the snapshot at rest.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// Name of the cluster.
+	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
@@ -113,7 +113,7 @@ type snapshotState struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// ARN of the KMS key used to encrypt the snapshot at rest.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Name of the cluster.
+	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -134,7 +134,7 @@ type SnapshotState struct {
 	ClusterName pulumi.StringPtrInput
 	// ARN of the KMS key used to encrypt the snapshot at rest.
 	KmsKeyArn pulumi.StringPtrInput
-	// Name of the cluster.
+	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -155,7 +155,7 @@ type snapshotArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// ARN of the KMS key used to encrypt the snapshot at rest.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Name of the cluster.
+	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -169,7 +169,7 @@ type SnapshotArgs struct {
 	ClusterName pulumi.StringInput
 	// ARN of the KMS key used to encrypt the snapshot at rest.
 	KmsKeyArn pulumi.StringPtrInput
-	// Name of the cluster.
+	// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -284,7 +284,7 @@ func (o SnapshotOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of the cluster.
+// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o SnapshotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -50,17 +50,17 @@ class BucketObjectArgs:
         :param pulumi.Input[str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         :param pulumi.Input[str] content_language: Language the content is in e.g., en-US or en-GB.
         :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
-        :param pulumi.Input[str] etag: Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
+        :param pulumi.Input[str] etag: Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: Name of the object once it is in the bucket.
-        :param pulumi.Input[str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. This provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         :param pulumi.Input[str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
-        :param pulumi.Input[str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+        :param pulumi.Input[str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations.
         :param pulumi.Input[str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
@@ -237,7 +237,7 @@ class BucketObjectArgs:
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
         """
-        Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
+        Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         """
         return pulumi.get(self, "etag")
 
@@ -273,7 +273,7 @@ class BucketObjectArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. This provider will only perform drift detection if a configuration value is provided.
+        ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -357,7 +357,7 @@ class BucketObjectArgs:
     @pulumi.getter(name="sourceHash")
     def source_hash(self) -> Optional[pulumi.Input[str]]:
         """
-        Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+        Triggers updates like `etag` but useful to address `etag` encryption limitations.
         """
         return pulumi.get(self, "source_hash")
 
@@ -443,17 +443,17 @@ class _BucketObjectState:
         :param pulumi.Input[str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         :param pulumi.Input[str] content_language: Language the content is in e.g., en-US or en-GB.
         :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
-        :param pulumi.Input[str] etag: Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
+        :param pulumi.Input[str] etag: Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: Name of the object once it is in the bucket.
-        :param pulumi.Input[str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. This provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         :param pulumi.Input[str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
-        :param pulumi.Input[str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+        :param pulumi.Input[str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations.
         :param pulumi.Input[str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -637,7 +637,7 @@ class _BucketObjectState:
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
         """
-        Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
+        Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         """
         return pulumi.get(self, "etag")
 
@@ -673,7 +673,7 @@ class _BucketObjectState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. This provider will only perform drift detection if a configuration value is provided.
+        ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -757,7 +757,7 @@ class _BucketObjectState:
     @pulumi.getter(name="sourceHash")
     def source_hash(self) -> Optional[pulumi.Input[str]]:
         """
-        Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+        Triggers updates like `etag` but useful to address `etag` encryption limitations.
         """
         return pulumi.get(self, "source_hash")
 
@@ -963,17 +963,17 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         :param pulumi.Input[str] content_language: Language the content is in e.g., en-US or en-GB.
         :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
-        :param pulumi.Input[str] etag: Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
+        :param pulumi.Input[str] etag: Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: Name of the object once it is in the bucket.
-        :param pulumi.Input[str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. This provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         :param pulumi.Input[str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
-        :param pulumi.Input[str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+        :param pulumi.Input[str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations.
         :param pulumi.Input[str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
@@ -1208,17 +1208,17 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         :param pulumi.Input[str] content_language: Language the content is in e.g., en-US or en-GB.
         :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
-        :param pulumi.Input[str] etag: Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
+        :param pulumi.Input[str] etag: Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: Name of the object once it is in the bucket.
-        :param pulumi.Input[str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. This provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         :param pulumi.Input[str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
-        :param pulumi.Input[str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+        :param pulumi.Input[str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations.
         :param pulumi.Input[str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1341,7 +1341,7 @@ class BucketObject(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
-        Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
+        Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         """
         return pulumi.get(self, "etag")
 
@@ -1365,7 +1365,7 @@ class BucketObject(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[str]:
         """
-        ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. This provider will only perform drift detection if a configuration value is provided.
+        ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -1421,7 +1421,7 @@ class BucketObject(pulumi.CustomResource):
     @pulumi.getter(name="sourceHash")
     def source_hash(self) -> pulumi.Output[Optional[str]]:
         """
-        Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5("path/to/source")`. (The value is only stored in state and not saved by AWS.)
+        Triggers updates like `etag` but useful to address `etag` encryption limitations.
         """
         return pulumi.get(self, "source_hash")
 

@@ -234,8 +234,6 @@ namespace Pulumi.Aws.AppMesh
     /// ```sh
     ///  $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
     /// ```
-    /// 
-    ///  [1]/docs/providers/aws/index.html
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualNode:VirtualNode")]
     public partial class VirtualNode : global::Pulumi.CustomResource

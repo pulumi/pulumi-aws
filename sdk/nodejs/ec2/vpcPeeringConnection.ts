@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  * VPC Peering Connections use the `aws.ec2.VpcPeeringConnection` resource to manage the requester's side of the
  * connection and use the `aws.ec2.VpcPeeringConnectionAccepter` resource to manage the accepter's side of the connection.
  *
+ * > **Note:** Creating multiple `aws.ec2.VpcPeeringConnection` resources with the same `peerVpcId` and `vpcId` will not produce an error. Instead, AWS will return the connection `id` that already exists, resulting in multiple `aws.ec2.VpcPeeringConnection` resources with the same `id`.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -105,8 +107,6 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
  * ```
- *
- *  [1]/docs/providers/aws/index.html
  */
 export class VpcPeeringConnection extends pulumi.CustomResource {
     /**
@@ -151,7 +151,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     public readonly autoAccept!: pulumi.Output<boolean | undefined>;
     /**
      * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * Defaults to the account ID the AWS provider is currently connected to.
      */
     public readonly peerOwnerId!: pulumi.Output<string>;
     /**
@@ -247,7 +247,7 @@ export interface VpcPeeringConnectionState {
     autoAccept?: pulumi.Input<boolean>;
     /**
      * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * Defaults to the account ID the AWS provider is currently connected to.
      */
     peerOwnerId?: pulumi.Input<string>;
     /**
@@ -293,7 +293,7 @@ export interface VpcPeeringConnectionArgs {
     autoAccept?: pulumi.Input<boolean>;
     /**
      * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * Defaults to the account ID the AWS provider is currently connected to.
      */
     peerOwnerId?: pulumi.Input<string>;
     /**

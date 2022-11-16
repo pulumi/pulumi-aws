@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
+    /// Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
+    /// 
+    /// &gt; **NOTE:** Removing this resource disables serial console access.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

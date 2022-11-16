@@ -67,7 +67,7 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the cluster.
+        /// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Name of the cluster.
+        /// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Name of the cluster.
+        /// Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

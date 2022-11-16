@@ -60,11 +60,10 @@ class StackArgs:
         :param pulumi.Input[str] hostname_theme: Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         :param pulumi.Input[bool] manage_berkshelf: Boolean value controlling whether Opsworks will run Berkshelf for this stack.
         :param pulumi.Input[str] name: The name of the stack.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are
-               enabled.
-        :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
-               security groups apply to created instances.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+               If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are enabled.
+        :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
                Defaults to the region's default VPC.
         """
@@ -332,7 +331,8 @@ class StackArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource.
+        If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -344,8 +344,7 @@ class StackArgs:
     @pulumi.getter(name="useCustomCookbooks")
     def use_custom_cookbooks(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean value controlling whether the custom cookbook settings are
-        enabled.
+        Boolean value controlling whether the custom cookbook settings are enabled.
         """
         return pulumi.get(self, "use_custom_cookbooks")
 
@@ -357,8 +356,7 @@ class StackArgs:
     @pulumi.getter(name="useOpsworksSecurityGroups")
     def use_opsworks_security_groups(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean value controlling whether the standard OpsWorks
-        security groups apply to created instances.
+        Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         """
         return pulumi.get(self, "use_opsworks_security_groups")
 
@@ -430,12 +428,11 @@ class _StackState:
         :param pulumi.Input[str] name: The name of the stack.
         :param pulumi.Input[str] region: The name of the region where the stack will exist.
         :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+               If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are
-               enabled.
-        :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
-               security groups apply to created instances.
+        :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are enabled.
+        :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
                Defaults to the region's default VPC.
         """
@@ -730,7 +727,8 @@ class _StackState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource.
+        If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -754,8 +752,7 @@ class _StackState:
     @pulumi.getter(name="useCustomCookbooks")
     def use_custom_cookbooks(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean value controlling whether the custom cookbook settings are
-        enabled.
+        Boolean value controlling whether the custom cookbook settings are enabled.
         """
         return pulumi.get(self, "use_custom_cookbooks")
 
@@ -767,8 +764,7 @@ class _StackState:
     @pulumi.getter(name="useOpsworksSecurityGroups")
     def use_opsworks_security_groups(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean value controlling whether the standard OpsWorks
-        security groups apply to created instances.
+        Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         """
         return pulumi.get(self, "use_opsworks_security_groups")
 
@@ -872,11 +868,10 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the stack.
         :param pulumi.Input[str] region: The name of the region where the stack will exist.
         :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are
-               enabled.
-        :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
-               security groups apply to created instances.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+               If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are enabled.
+        :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
                Defaults to the region's default VPC.
         """
@@ -1057,12 +1052,11 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the stack.
         :param pulumi.Input[str] region: The name of the region where the stack will exist.
         :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
+               If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are
-               enabled.
-        :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
-               security groups apply to created instances.
+        :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are enabled.
+        :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
                Defaults to the region's default VPC.
         """
@@ -1257,7 +1251,8 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource.
+        If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1273,8 +1268,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="useCustomCookbooks")
     def use_custom_cookbooks(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean value controlling whether the custom cookbook settings are
-        enabled.
+        Boolean value controlling whether the custom cookbook settings are enabled.
         """
         return pulumi.get(self, "use_custom_cookbooks")
 
@@ -1282,8 +1276,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="useOpsworksSecurityGroups")
     def use_opsworks_security_groups(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean value controlling whether the standard OpsWorks
-        security groups apply to created instances.
+        Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         """
         return pulumi.get(self, "use_opsworks_security_groups")
 

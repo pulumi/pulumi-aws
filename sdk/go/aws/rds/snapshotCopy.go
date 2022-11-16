@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the [`rds.ClusterSnapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
+// Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the `rds.ClusterSnapshot` resource.
 //
 // ## Example Usage
 //

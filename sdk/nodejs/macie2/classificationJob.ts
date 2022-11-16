@@ -92,6 +92,9 @@ export class ClassificationJob extends pulumi.CustomResource {
      * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
      */
     public readonly jobType!: pulumi.Output<string>;
+    /**
+     * A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -208,6 +211,9 @@ export interface ClassificationJobState {
      * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
      */
     jobType?: pulumi.Input<string>;
+    /**
+     * A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -260,6 +266,9 @@ export interface ClassificationJobArgs {
      * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
      */
     jobType: pulumi.Input<string>;
+    /**
+     * A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

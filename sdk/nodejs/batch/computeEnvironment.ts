@@ -58,16 +58,13 @@ import * as utilities from "../utilities";
  *     role: awsBatchServiceRoleRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
  * });
+ * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sampleSecurityGroup", {egress: [{
+ *     fromPort: 0,
+ *     toPort: 0,
+ *     protocol: "-1",
+ *     cidrBlocks: ["0.0.0.0/0"],
+ * }]});
  * const sampleVpc = new aws.ec2.Vpc("sampleVpc", {cidrBlock: "10.1.0.0/16"});
- * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sampleSecurityGroup", {
- *     vpcId: sampleVpc.id,
- *     egress: [{
- *         fromPort: 0,
- *         toPort: 0,
- *         protocol: "-1",
- *         cidrBlocks: ["0.0.0.0/0"],
- *     }],
- * });
  * const sampleSubnet = new aws.ec2.Subnet("sampleSubnet", {
  *     vpcId: sampleVpc.id,
  *     cidrBlock: "10.1.1.0/24",
@@ -153,7 +150,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      */
     public readonly computeEnvironmentName!: pulumi.Output<string>;
     /**
@@ -260,7 +257,7 @@ export interface ComputeEnvironmentState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      */
     computeEnvironmentName?: pulumi.Input<string>;
     /**
@@ -314,7 +311,7 @@ export interface ComputeEnvironmentState {
  */
 export interface ComputeEnvironmentArgs {
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      */
     computeEnvironmentName?: pulumi.Input<string>;
     /**

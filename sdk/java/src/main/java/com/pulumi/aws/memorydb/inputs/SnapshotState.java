@@ -79,14 +79,14 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the cluster.
+     * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the cluster.
+     * @return Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -280,7 +280,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the cluster.
+         * @param name Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the cluster.
+         * @param name Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 

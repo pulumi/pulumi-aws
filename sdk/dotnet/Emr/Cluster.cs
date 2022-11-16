@@ -698,7 +698,9 @@ namespace Pulumi.Aws.Emr
     ///  $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
     /// ```
     /// 
-    ///  Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the resource options configuration block `ignoreChanges` argument available to all provider resources to prevent perpetual differences, e.g. terraform resource "aws_emr_cluster" "example" {
+    ///  Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the
+    /// 
+    /// `ignore_changes` option available to all resources to prevent perpetual differences, e.g., terraform resource "aws_emr_cluster" "example" {
     /// 
     /// # ... other configuration ...
     /// 
@@ -711,6 +713,9 @@ namespace Pulumi.Aws.Emr
     [AwsResourceType("aws:emr/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+        /// </summary>
         [Output("additionalInfo")]
         public Output<string?> AdditionalInfo { get; private set; } = null!;
 
@@ -946,6 +951,9 @@ namespace Pulumi.Aws.Emr
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+        /// </summary>
         [Input("additionalInfo")]
         public Input<string>? AdditionalInfo { get; set; }
 
@@ -1155,6 +1163,9 @@ namespace Pulumi.Aws.Emr
 
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+        /// </summary>
         [Input("additionalInfo")]
         public Input<string>? AdditionalInfo { get; set; }
 

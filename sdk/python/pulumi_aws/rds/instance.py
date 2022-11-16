@@ -133,7 +133,7 @@ class InstanceArgs:
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
         :param pulumi.Input[str] identifier: The name of the RDS instance,
-               if omitted, this provider will assign a random, unique identifier.
+               if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
@@ -205,7 +205,7 @@ class InstanceArgs:
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
                specified, "gp2" if not.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
                only supported by Microsoft SQL Server. The `timezone` can only be set on
                creation. See [MSSQL User
@@ -662,7 +662,7 @@ class InstanceArgs:
     def identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the RDS instance,
-        if omitted, this provider will assign a random, unique identifier.
+        if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         """
         return pulumi.get(self, "identifier")
 
@@ -1064,7 +1064,7 @@ class InstanceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1249,7 +1249,7 @@ class _InstanceState:
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
         :param pulumi.Input[str] identifier: The name of the RDS instance,
-               if omitted, this provider will assign a random, unique identifier.
+               if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
@@ -1325,7 +1325,7 @@ class _InstanceState:
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
                specified, "gp2" if not.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
                only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -1853,7 +1853,7 @@ class _InstanceState:
     def identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the RDS instance,
-        if omitted, this provider will assign a random, unique identifier.
+        if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         """
         return pulumi.get(self, "identifier")
 
@@ -2312,7 +2312,7 @@ class _InstanceState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -2454,9 +2454,6 @@ class Instance(pulumi.CustomResource):
         When upgrading the major version of an engine, `allow_major_version_upgrade`
         must be set to `true`.
 
-        > **Note:** using `apply_immediately` can result in a brief downtime as the
-        server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
-
         ## RDS Instance Class Types
 
         Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
@@ -2559,7 +2556,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
         :param pulumi.Input[str] identifier: The name of the RDS instance,
-               if omitted, this provider will assign a random, unique identifier.
+               if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
@@ -2632,7 +2629,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
                specified, "gp2" if not.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
                only supported by Microsoft SQL Server. The `timezone` can only be set on
                creation. See [MSSQL User
@@ -2663,9 +2660,6 @@ class Instance(pulumi.CustomResource):
 
         When upgrading the major version of an engine, `allow_major_version_upgrade`
         must be set to `true`.
-
-        > **Note:** using `apply_immediately` can result in a brief downtime as the
-        server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
 
         ## RDS Instance Class Types
 
@@ -3016,7 +3010,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
         :param pulumi.Input[str] identifier: The name of the RDS instance,
-               if omitted, this provider will assign a random, unique identifier.
+               if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
@@ -3092,7 +3086,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
                specified, "gp2" if not.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
                only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -3439,7 +3433,7 @@ class Instance(pulumi.CustomResource):
     def identifier(self) -> pulumi.Output[str]:
         """
         The name of the RDS instance,
-        if omitted, this provider will assign a random, unique identifier.
+        if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         """
         return pulumi.get(self, "identifier")
 
@@ -3758,7 +3752,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

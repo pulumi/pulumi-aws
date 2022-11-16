@@ -207,6 +207,8 @@ class MedicalVocabulary(pulumi.CustomResource):
                  vocabulary_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS Transcribe MedicalVocabulary.
+
         ## Example Usage
         ### Basic Usage
 
@@ -252,6 +254,8 @@ class MedicalVocabulary(pulumi.CustomResource):
                  args: MedicalVocabularyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS Transcribe MedicalVocabulary.
+
         ## Example Usage
         ### Basic Usage
 

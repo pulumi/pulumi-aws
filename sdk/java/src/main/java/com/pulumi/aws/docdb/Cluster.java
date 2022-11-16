@@ -140,28 +140,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.backupRetentionPeriod);
     }
     /**
-     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     * The cluster identifier. If omitted, the provider will assign a random, unique identifier.
      * 
      */
     @Export(name="clusterIdentifier", type=String.class, parameters={})
     private Output<String> clusterIdentifier;
 
     /**
-     * @return The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     * @return The cluster identifier. If omitted, the provider will assign a random, unique identifier.
      * 
      */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
     @Export(name="clusterIdentifierPrefix", type=String.class, parameters={})
     private Output<String> clusterIdentifierPrefix;
 
     /**
-     * @return Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+     * @return Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
     public Output<String> clusterIdentifierPrefix() {

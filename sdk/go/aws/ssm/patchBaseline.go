@@ -325,7 +325,7 @@ type PatchBaseline struct {
 	// Applies to Linux instances only.
 	// See `source` below.
 	Sources PatchBaselineSourceArrayOutput `pulumi:"sources"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -411,7 +411,7 @@ type patchBaselineState struct {
 	// Applies to Linux instances only.
 	// See `source` below.
 	Sources []PatchBaselineSource `pulumi:"sources"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -469,7 +469,7 @@ type PatchBaselineState struct {
 	// Applies to Linux instances only.
 	// See `source` below.
 	Sources PatchBaselineSourceArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -529,7 +529,7 @@ type patchBaselineArgs struct {
 	// Applies to Linux instances only.
 	// See `source` below.
 	Sources []PatchBaselineSource `pulumi:"sources"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -584,7 +584,7 @@ type PatchBaselineArgs struct {
 	// Applies to Linux instances only.
 	// See `source` below.
 	Sources PatchBaselineSourceArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -762,7 +762,7 @@ func (o PatchBaselineOutput) Sources() PatchBaselineSourceArrayOutput {
 	return o.ApplyT(func(v *PatchBaseline) PatchBaselineSourceArrayOutput { return v.Sources }).(PatchBaselineSourceArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PatchBaselineOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

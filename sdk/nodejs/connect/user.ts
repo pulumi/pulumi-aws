@@ -193,6 +193,10 @@ export class User extends pulumi.CustomResource {
      * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
      */
     public readonly securityProfileIds!: pulumi.Output<string[]>;
+    /**
+     * Tags to apply to the user. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -306,6 +310,10 @@ export interface UserState {
      * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
      */
     securityProfileIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Tags to apply to the user. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -357,5 +365,9 @@ export interface UserArgs {
      * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
      */
     securityProfileIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Tags to apply to the user. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -84,7 +84,7 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Define how to resolve parameter value conflicts
      * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      * 
      */
     @Import(name="resolveConflicts")
@@ -93,7 +93,7 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Define how to resolve parameter value conflicts
      * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      * 
      */
     public Optional<Output<String>> resolveConflicts() {
@@ -261,7 +261,7 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resolveConflicts Define how to resolve parameter value conflicts
          * when migrating an existing add-on to an Amazon EKS add-on or when applying
-         * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+         * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resolveConflicts Define how to resolve parameter value conflicts
          * when migrating an existing add-on to an Amazon EKS add-on or when applying
-         * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`.
+         * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
          * 
          * @return builder
          * 

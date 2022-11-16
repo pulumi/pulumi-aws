@@ -87,14 +87,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. It is recommended to specify 3 AZs.
+     * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
      * 
      */
     @Import(name="availabilityZones")
     private @Nullable Output<List<String>> availabilityZones;
 
     /**
-     * @return A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. It is recommended to specify 3 AZs.
+     * @return List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
      * 
      */
     public Optional<Output<List<String>>> availabilityZones() {
@@ -462,14 +462,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+     * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
      * 
      */
     @Import(name="iamDatabaseAuthenticationEnabled")
     private @Nullable Output<Boolean> iamDatabaseAuthenticationEnabled;
 
     /**
-     * @return Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+     * @return Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
      * 
      */
     public Optional<Output<Boolean>> iamDatabaseAuthenticationEnabled() {
@@ -582,14 +582,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
     @Import(name="preferredBackupWindow")
     private @Nullable Output<String> preferredBackupWindow;
 
     /**
-     * @return The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+     * @return The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
     public Optional<Output<String>> preferredBackupWindow() {
@@ -597,14 +597,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+     * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
     @Import(name="preferredMaintenanceWindow")
     private @Nullable Output<String> preferredMaintenanceWindow;
 
     /**
-     * @return The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+     * @return The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
     public Optional<Output<String>> preferredMaintenanceWindow() {
@@ -629,14 +629,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignore_changes`.
+     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
      * 
      */
     @Import(name="replicationSourceIdentifier")
     private @Nullable Output<String> replicationSourceIdentifier;
 
     /**
-     * @return ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignore_changes`.
+     * @return ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
      * 
      */
     public Optional<Output<String>> replicationSourceIdentifier() {
@@ -741,14 +741,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the DB cluster is encrypted
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Import(name="storageEncrypted")
     private @Nullable Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster is encrypted
+     * @return Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Optional<Output<Boolean>> storageEncrypted() {
@@ -976,7 +976,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. It is recommended to specify 3 AZs.
+         * @param availabilityZones List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
          * 
          * @return builder
          * 
@@ -987,7 +987,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. It is recommended to specify 3 AZs.
+         * @param availabilityZones List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
          * 
          * @return builder
          * 
@@ -997,7 +997,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. It is recommended to specify 3 AZs.
+         * @param availabilityZones List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
          * 
          * @return builder
          * 
@@ -1571,7 +1571,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamDatabaseAuthenticationEnabled Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+         * @param iamDatabaseAuthenticationEnabled Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
          * 
          * @return builder
          * 
@@ -1582,7 +1582,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamDatabaseAuthenticationEnabled Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+         * @param iamDatabaseAuthenticationEnabled Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
          * 
          * @return builder
          * 
@@ -1749,7 +1749,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredBackupWindow The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+         * @param preferredBackupWindow The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
          * 
          * @return builder
          * 
@@ -1760,7 +1760,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredBackupWindow The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+         * @param preferredBackupWindow The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
          * 
          * @return builder
          * 
@@ -1770,7 +1770,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+         * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
          * 
          * @return builder
          * 
@@ -1781,7 +1781,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+         * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
          * 
          * @return builder
          * 
@@ -1814,7 +1814,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicationSourceIdentifier ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignore_changes`.
+         * @param replicationSourceIdentifier ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
          * 
          * @return builder
          * 
@@ -1825,7 +1825,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicationSourceIdentifier ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use `ignore_changes`.
+         * @param replicationSourceIdentifier ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
          * 
          * @return builder
          * 
@@ -1970,7 +1970,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster is encrypted
+         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -1981,7 +1981,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster is encrypted
+         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 

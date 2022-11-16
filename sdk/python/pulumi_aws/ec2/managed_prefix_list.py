@@ -120,6 +120,7 @@ class _ManagedPrefixListState:
         :param pulumi.Input[str] name: Name of this resource. The name must not start with `com.amazonaws`.
         :param pulumi.Input[str] owner_id: ID of the AWS account that owns this prefix list.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] version: Latest version of this prefix list.
         """
         if address_family is not None:
@@ -228,6 +229,9 @@ class _ManagedPrefixListState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -259,6 +263,20 @@ class ManagedPrefixList(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Provides a managed prefix list resource.
+
+        > **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
+        currently provides both a standalone Managed Prefix List Entry resource (a single entry),
+        and a Managed Prefix List resource with entries defined in-line. At this time you
+        cannot use a Managed Prefix List with in-line rules in conjunction with any Managed
+        Prefix List Entry resources. Doing so will cause a conflict of entries and will overwrite entries.
+
+        > **NOTE on `max_entries`:** When you reference a Prefix List in a resource,
+        the maximum number of entries for the prefix lists counts as the same number of rules
+        or entries for the resource. For example, if you create a prefix list with a maximum
+        of 20 entries and you reference that prefix list in a security group rule, this counts
+        as 20 rules for the security group.
+
         ## Example Usage
 
         Basic usage
@@ -308,6 +326,20 @@ class ManagedPrefixList(pulumi.CustomResource):
                  args: ManagedPrefixListArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a managed prefix list resource.
+
+        > **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
+        currently provides both a standalone Managed Prefix List Entry resource (a single entry),
+        and a Managed Prefix List resource with entries defined in-line. At this time you
+        cannot use a Managed Prefix List with in-line rules in conjunction with any Managed
+        Prefix List Entry resources. Doing so will cause a conflict of entries and will overwrite entries.
+
+        > **NOTE on `max_entries`:** When you reference a Prefix List in a resource,
+        the maximum number of entries for the prefix lists counts as the same number of rules
+        or entries for the resource. For example, if you create a prefix list with a maximum
+        of 20 entries and you reference that prefix list in a security group rule, this counts
+        as 20 rules for the security group.
+
         ## Example Usage
 
         Basic usage
@@ -417,6 +449,7 @@ class ManagedPrefixList(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of this resource. The name must not start with `com.amazonaws`.
         :param pulumi.Input[str] owner_id: ID of the AWS account that owns this prefix list.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] version: Latest version of this prefix list.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -493,6 +526,9 @@ class ManagedPrefixList(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

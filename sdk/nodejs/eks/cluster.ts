@@ -156,21 +156,15 @@ export class Cluster extends pulumi.CustomResource {
      * ARN of the cluster.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-     */
     public /*out*/ readonly certificateAuthorities!: pulumi.Output<outputs.eks.ClusterCertificateAuthority[]>;
     /**
-     * The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+     * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
     public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
-     * List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-     */
     public readonly defaultAddonsToRemoves!: pulumi.Output<string[] | undefined>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -206,7 +200,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly platformVersion!: pulumi.Output<string>;
     /**
-     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
@@ -303,21 +297,15 @@ export interface ClusterState {
      * ARN of the cluster.
      */
     arn?: pulumi.Input<string>;
-    /**
-     * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-     */
     certificateAuthorities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterCertificateAuthority>[]>;
     /**
-     * The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+     * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
     certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthority>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
     createdAt?: pulumi.Input<string>;
-    /**
-     * List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-     */
     defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -353,7 +341,7 @@ export interface ClusterState {
      */
     platformVersion?: pulumi.Input<string>;
     /**
-     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      */
     roleArn?: pulumi.Input<string>;
     /**
@@ -382,9 +370,6 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
-    /**
-     * List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-     */
     defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -407,7 +392,7 @@ export interface ClusterArgs {
      */
     outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfig>;
     /**
-     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      */
     roleArn: pulumi.Input<string>;
     /**

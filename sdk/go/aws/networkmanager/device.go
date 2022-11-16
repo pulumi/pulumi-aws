@@ -69,7 +69,8 @@ type Device struct {
 	SerialNumber pulumi.StringPtrOutput `pulumi:"serialNumber"`
 	// The ID of the site.
 	SiteId pulumi.StringPtrOutput `pulumi:"siteId"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	// Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of device.
@@ -125,8 +126,9 @@ type deviceState struct {
 	// The serial number of the device.
 	SerialNumber *string `pulumi:"serialNumber"`
 	// The ID of the site.
-	SiteId *string           `pulumi:"siteId"`
-	Tags   map[string]string `pulumi:"tags"`
+	SiteId *string `pulumi:"siteId"`
+	// Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of device.
@@ -152,7 +154,8 @@ type DeviceState struct {
 	SerialNumber pulumi.StringPtrInput
 	// The ID of the site.
 	SiteId pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The type of device.
@@ -179,8 +182,9 @@ type deviceArgs struct {
 	// The serial number of the device.
 	SerialNumber *string `pulumi:"serialNumber"`
 	// The ID of the site.
-	SiteId *string           `pulumi:"siteId"`
-	Tags   map[string]string `pulumi:"tags"`
+	SiteId *string `pulumi:"siteId"`
+	// Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of device.
 	Type *string `pulumi:"type"`
 	// The vendor of the device.
@@ -203,7 +207,8 @@ type DeviceArgs struct {
 	SerialNumber pulumi.StringPtrInput
 	// The ID of the site.
 	SiteId pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The type of device.
 	Type pulumi.StringPtrInput
 	// The vendor of the device.
@@ -337,6 +342,7 @@ func (o DeviceOutput) SiteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.SiteId }).(pulumi.StringPtrOutput)
 }
 
+// Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

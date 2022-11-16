@@ -19,6 +19,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS NetworkManager VpcAttachment.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java
@@ -231,9 +233,17 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
     public Output<List<String>> subnetArns() {
         return this.subnetArns;
     }
+    /**
+     * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

@@ -39,6 +39,10 @@ class ContainerServiceArgs:
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.
                Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+               configured with a provider
+               `default_tags` configuration block
+               present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "power", power)
         pulumi.set(__self__, "scale", scale)
@@ -136,6 +140,12 @@ class ContainerServiceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+        configured with a provider
+        `default_tags` configuration block
+        present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -189,6 +199,12 @@ class _ContainerServiceState:
         :param pulumi.Input[int] scale: The scale specification for the container service. The scale specifies the allocated compute
                nodes of the container service.
         :param pulumi.Input[str] state: The current state of the container service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+               configured with a provider
+               `default_tags` configuration block
+               present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider
+               `default_tags` configuration block.
         :param pulumi.Input[str] url: The publicly accessible URL of the container service. If no public endpoint is specified in the
                currentDeployment, this URL returns a 404 response.
         """
@@ -404,6 +420,12 @@ class _ContainerServiceState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+        configured with a provider
+        `default_tags` configuration block
+        present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -413,6 +435,10 @@ class _ContainerServiceState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider
+        `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -540,6 +566,10 @@ class ContainerService(pulumi.CustomResource):
                Defined below.
         :param pulumi.Input[int] scale: The scale specification for the container service. The scale specifies the allocated compute
                nodes of the container service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+               configured with a provider
+               `default_tags` configuration block
+               present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -735,6 +765,12 @@ class ContainerService(pulumi.CustomResource):
         :param pulumi.Input[int] scale: The scale specification for the container service. The scale specifies the allocated compute
                nodes of the container service.
         :param pulumi.Input[str] state: The current state of the container service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+               configured with a provider
+               `default_tags` configuration block
+               present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider
+               `default_tags` configuration block.
         :param pulumi.Input[str] url: The publicly accessible URL of the container service. If no public endpoint is specified in the
                currentDeployment, this URL returns a 404 response.
         """
@@ -882,11 +918,21 @@ class ContainerService(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+        configured with a provider
+        `default_tags` configuration block
+        present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider
+        `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

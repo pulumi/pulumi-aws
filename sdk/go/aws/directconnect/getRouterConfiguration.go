@@ -10,6 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+//
 // ## Example Usage
 // ### Basic Usage
 //

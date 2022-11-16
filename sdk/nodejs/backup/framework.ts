@@ -56,6 +56,38 @@ import * as utilities from "../utilities";
  *         {
  *             name: "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
  *         },
+ *         {
+ *             inputParameters: [
+ *                 {
+ *                     name: "maxRetentionDays",
+ *                     value: "100",
+ *                 },
+ *                 {
+ *                     name: "minRetentionDays",
+ *                     value: "1",
+ *                 },
+ *             ],
+ *             name: "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
+ *             scope: {
+ *                 complianceResourceTypes: ["EBS"],
+ *             },
+ *         },
+ *         {
+ *             inputParameters: [
+ *                 {
+ *                     name: "recoveryPointAgeUnit",
+ *                     value: "days",
+ *                 },
+ *                 {
+ *                     name: "recoveryPointAgeValue",
+ *                     value: "1",
+ *                 },
+ *             ],
+ *             name: "BACKUP_LAST_RECOVERY_POINT_CREATED",
+ *             scope: {
+ *                 complianceResourceTypes: ["EBS"],
+ *             },
+ *         },
  *     ],
  *     description: "this is an example framework",
  *     tags: {

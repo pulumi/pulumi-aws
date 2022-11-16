@@ -15,6 +15,8 @@ import java.util.concurrent.CompletableFuture;
 
 public final class Sesv2Functions {
     /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java
@@ -51,6 +53,8 @@ public final class Sesv2Functions {
         return getDedicatedIpPool(args, InvokeOptions.Empty);
     }
     /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java
@@ -87,6 +91,8 @@ public final class Sesv2Functions {
         return getDedicatedIpPoolPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java
@@ -123,6 +129,8 @@ public final class Sesv2Functions {
         return Deployment.getInstance().invoke("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", TypeShape.of(GetDedicatedIpPoolResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+     * 
      * ## Example Usage
      * ### Basic Usage
      * ```java

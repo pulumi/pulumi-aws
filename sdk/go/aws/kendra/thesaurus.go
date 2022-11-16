@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Kendra Thesaurus.
+//
 // ## Example Usage
 //
 // ```go
@@ -70,8 +72,9 @@ type Thesaurus struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3PathOutput `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 	ThesaurusId pulumi.StringOutput    `pulumi:"thesaurusId"`
@@ -128,8 +131,9 @@ type thesaurusState struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path *ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
+	Status *string `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll     map[string]string `pulumi:"tagsAll"`
 	ThesaurusId *string           `pulumi:"thesaurusId"`
@@ -150,7 +154,8 @@ type ThesaurusState struct {
 	SourceS3Path ThesaurusSourceS3PathPtrInput
 	// The current status of the thesaurus.
 	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll     pulumi.StringMapInput
 	ThesaurusId pulumi.StringPtrInput
@@ -171,7 +176,8 @@ type thesaurusArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
-	Tags         map[string]string     `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Thesaurus resource.
@@ -186,7 +192,8 @@ type ThesaurusArgs struct {
 	RoleArn pulumi.StringInput
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3PathInput
-	Tags         pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ThesaurusArgs) ElementType() reflect.Type {
@@ -311,6 +318,7 @@ func (o ThesaurusOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ThesaurusOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

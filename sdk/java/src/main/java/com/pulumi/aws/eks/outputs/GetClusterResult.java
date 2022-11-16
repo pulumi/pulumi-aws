@@ -37,7 +37,7 @@ public final class GetClusterResult {
      */
     private List<String> enabledClusterLogTypes;
     /**
-     * @return The endpoint for your Kubernetes API server.
+     * @return Endpoint for your Kubernetes API server.
      * 
      */
     private String endpoint;
@@ -123,7 +123,7 @@ public final class GetClusterResult {
         return this.enabledClusterLogTypes;
     }
     /**
-     * @return The endpoint for your Kubernetes API server.
+     * @return Endpoint for your Kubernetes API server.
      * 
      */
     public String endpoint() {

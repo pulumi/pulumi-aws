@@ -157,7 +157,7 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
  * ```
  * 
- *  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g. terraform resource &#34;aws_docdb_global_cluster&#34; &#34;example&#34; {
+ *  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource &#34;aws_docdb_global_cluster&#34; &#34;example&#34; {
  * 
  * # ... other configuration ...
  * 
@@ -214,9 +214,17 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> deletionProtection() {
         return Codegen.optional(this.deletionProtection);
     }
+    /**
+     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+     * 
+     */
     @Export(name="engine", type=String.class, parameters={})
     private Output<String> engine;
 
+    /**
+     * @return Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
+     * 
+     */
     public Output<String> engine() {
         return this.engine;
     }
@@ -278,9 +286,17 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     public Output<String> globalClusterResourceId() {
         return this.globalClusterResourceId;
     }
+    /**
+     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * 
+     */
     @Export(name="sourceDbClusterIdentifier", type=String.class, parameters={})
     private Output<String> sourceDbClusterIdentifier;
 
+    /**
+     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * 
+     */
     public Output<String> sourceDbClusterIdentifier() {
         return this.sourceDbClusterIdentifier;
     }
@@ -290,9 +306,17 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * 
+     */
     @Export(name="storageEncrypted", type=Boolean.class, parameters={})
     private Output<Boolean> storageEncrypted;
 
+    /**
+     * @return Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * 
+     */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
     }

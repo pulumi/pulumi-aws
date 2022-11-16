@@ -80,7 +80,8 @@ type Disk struct {
 	// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -132,7 +133,8 @@ type diskState struct {
 	// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode *string `pulumi:"supportCode"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -150,7 +152,8 @@ type DiskState struct {
 	// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode pulumi.StringPtrInput
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -166,8 +169,7 @@ type diskArgs struct {
 	// The instance port the load balancer will connect.
 	SizeInGb int `pulumi:"sizeInGb"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Disk resource.
@@ -179,8 +181,7 @@ type DiskArgs struct {
 	// The instance port the load balancer will connect.
 	SizeInGb pulumi.IntInput
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (DiskArgs) ElementType() reflect.Type {
@@ -305,6 +306,7 @@ func (o DiskOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DiskOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

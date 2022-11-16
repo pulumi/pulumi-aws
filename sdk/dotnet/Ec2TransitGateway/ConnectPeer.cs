@@ -75,6 +75,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("peerAddress")]
         public Output<string> PeerAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -168,6 +171,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -226,6 +233,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

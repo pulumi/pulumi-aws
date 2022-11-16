@@ -61,8 +61,6 @@ namespace Pulumi.Aws.AppMesh
     /// ```sh
     ///  $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
     /// ```
-    /// 
-    ///  [1]/docs/providers/aws/index.html
     /// </summary>
     [AwsResourceType("aws:appmesh/gatewayRoute:GatewayRoute")]
     public partial class GatewayRoute : global::Pulumi.CustomResource

@@ -93,7 +93,7 @@ type Analyzer struct {
 	AnalyzerName pulumi.StringOutput `pulumi:"analyzerName"`
 	// ARN of the Analyzer.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -137,7 +137,7 @@ type analyzerState struct {
 	AnalyzerName *string `pulumi:"analyzerName"`
 	// ARN of the Analyzer.
 	Arn *string `pulumi:"arn"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -150,7 +150,7 @@ type AnalyzerState struct {
 	AnalyzerName pulumi.StringPtrInput
 	// ARN of the Analyzer.
 	Arn pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -165,7 +165,7 @@ func (AnalyzerState) ElementType() reflect.Type {
 type analyzerArgs struct {
 	// Name of the Analyzer.
 	AnalyzerName string `pulumi:"analyzerName"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 	Type *string `pulumi:"type"`
@@ -175,7 +175,7 @@ type analyzerArgs struct {
 type AnalyzerArgs struct {
 	// Name of the Analyzer.
 	AnalyzerName pulumi.StringInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 	Type pulumi.StringPtrInput
@@ -278,7 +278,7 @@ func (o AnalyzerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AnalyzerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

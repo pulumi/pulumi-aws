@@ -23,6 +23,7 @@ class GeofenceCollectionArgs:
         :param pulumi.Input[str] collection_name: The name of the geofence collection.
         :param pulumi.Input[str] description: The optional description for the geofence collection.
         :param pulumi.Input[str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "collection_name", collection_name)
         if description is not None:
@@ -71,6 +72,9 @@ class GeofenceCollectionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -96,6 +100,7 @@ class _GeofenceCollectionState:
         :param pulumi.Input[str] create_time: The timestamp for when the geofence collection resource was created in ISO 8601 format.
         :param pulumi.Input[str] description: The optional description for the geofence collection.
         :param pulumi.Input[str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] update_time: The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
         """
         if collection_arn is not None:
@@ -178,6 +183,9 @@ class _GeofenceCollectionState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -217,6 +225,8 @@ class GeofenceCollection(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS Location Geofence Collection.
+
         ## Example Usage
 
         ```python
@@ -239,6 +249,7 @@ class GeofenceCollection(pulumi.CustomResource):
         :param pulumi.Input[str] collection_name: The name of the geofence collection.
         :param pulumi.Input[str] description: The optional description for the geofence collection.
         :param pulumi.Input[str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -247,6 +258,8 @@ class GeofenceCollection(pulumi.CustomResource):
                  args: GeofenceCollectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS Location Geofence Collection.
+
         ## Example Usage
 
         ```python
@@ -332,6 +345,7 @@ class GeofenceCollection(pulumi.CustomResource):
         :param pulumi.Input[str] create_time: The timestamp for when the geofence collection resource was created in ISO 8601 format.
         :param pulumi.Input[str] description: The optional description for the geofence collection.
         :param pulumi.Input[str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] update_time: The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -391,6 +405,9 @@ class GeofenceCollection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -710,7 +710,9 @@ import (
 //
 // ```
 //
-//	Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the resource options configuration block `ignoreChanges` argument available to all provider resources to prevent perpetual differences, e.g. terraform resource "aws_emr_cluster" "example" {
+//	Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the
+//
+// `ignore_changes` option available to all resources to prevent perpetual differences, e.g., terraform resource "aws_emr_cluster" "example" {
 //
 // # ... other configuration ...
 //
@@ -722,6 +724,7 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
 	AdditionalInfo pulumi.StringPtrOutput `pulumi:"additionalInfo"`
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications pulumi.StringArrayOutput `pulumi:"applications"`
@@ -822,6 +825,7 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
 	AdditionalInfo *string `pulumi:"additionalInfo"`
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications []string `pulumi:"applications"`
@@ -888,6 +892,7 @@ type clusterState struct {
 }
 
 type ClusterState struct {
+	// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
 	AdditionalInfo pulumi.StringPtrInput
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications pulumi.StringArrayInput
@@ -958,6 +963,7 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
 	AdditionalInfo *string `pulumi:"additionalInfo"`
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications []string `pulumi:"applications"`
@@ -1019,6 +1025,7 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
 	AdditionalInfo pulumi.StringPtrInput
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications pulumi.StringArrayInput
@@ -1165,6 +1172,7 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
 func (o ClusterOutput) AdditionalInfo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.AdditionalInfo }).(pulumi.StringPtrOutput)
 }

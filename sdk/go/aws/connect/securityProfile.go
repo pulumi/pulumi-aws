@@ -73,8 +73,10 @@ type SecurityProfile struct {
 	// Specifies a list of permissions assigned to the security profile.
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 	// The identifier for the Security Profile.
-	SecurityProfileId pulumi.StringOutput    `pulumi:"securityProfileId"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	SecurityProfileId pulumi.StringOutput `pulumi:"securityProfileId"`
+	// Tags to apply to the Security Profile. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -124,8 +126,10 @@ type securityProfileState struct {
 	// Specifies a list of permissions assigned to the security profile.
 	Permissions []string `pulumi:"permissions"`
 	// The identifier for the Security Profile.
-	SecurityProfileId *string           `pulumi:"securityProfileId"`
-	Tags              map[string]string `pulumi:"tags"`
+	SecurityProfileId *string `pulumi:"securityProfileId"`
+	// Tags to apply to the Security Profile. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -145,7 +149,9 @@ type SecurityProfileState struct {
 	Permissions pulumi.StringArrayInput
 	// The identifier for the Security Profile.
 	SecurityProfileId pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
+	// Tags to apply to the Security Profile. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -162,8 +168,10 @@ type securityProfileArgs struct {
 	// Specifies the name of the Security Profile.
 	Name *string `pulumi:"name"`
 	// Specifies a list of permissions assigned to the security profile.
-	Permissions []string          `pulumi:"permissions"`
-	Tags        map[string]string `pulumi:"tags"`
+	Permissions []string `pulumi:"permissions"`
+	// Tags to apply to the Security Profile. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SecurityProfile resource.
@@ -176,7 +184,9 @@ type SecurityProfileArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies a list of permissions assigned to the security profile.
 	Permissions pulumi.StringArrayInput
-	Tags        pulumi.StringMapInput
+	// Tags to apply to the Security Profile. If configured with a provider
+	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (SecurityProfileArgs) ElementType() reflect.Type {
@@ -301,6 +311,8 @@ func (o SecurityProfileOutput) SecurityProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.SecurityProfileId }).(pulumi.StringOutput)
 }
 
+// Tags to apply to the Security Profile. If configured with a provider
+// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SecurityProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

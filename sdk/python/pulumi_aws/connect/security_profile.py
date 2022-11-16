@@ -25,6 +25,8 @@ class SecurityProfileArgs:
         :param pulumi.Input[str] description: Specifies the description of the Security Profile.
         :param pulumi.Input[str] name: Specifies the name of the Security Profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Specifies a list of permissions assigned to the security profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Security Profile. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         if description is not None:
@@ -87,6 +89,10 @@ class SecurityProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the Security Profile. If configured with a provider
+        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -115,6 +121,8 @@ class _SecurityProfileState:
         :param pulumi.Input[str] organization_resource_id: The organization resource identifier for the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Specifies a list of permissions assigned to the security profile.
         :param pulumi.Input[str] security_profile_id: The identifier for the Security Profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Security Profile. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -223,6 +231,10 @@ class _SecurityProfileState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the Security Profile. If configured with a provider
+        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -289,6 +301,8 @@ class SecurityProfile(pulumi.CustomResource):
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: Specifies the name of the Security Profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Specifies a list of permissions assigned to the security profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Security Profile. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -399,6 +413,8 @@ class SecurityProfile(pulumi.CustomResource):
         :param pulumi.Input[str] organization_resource_id: The organization resource identifier for the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Specifies a list of permissions assigned to the security profile.
         :param pulumi.Input[str] security_profile_id: The identifier for the Security Profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Security Profile. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -475,6 +491,10 @@ class SecurityProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags to apply to the Security Profile. If configured with a provider
+        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

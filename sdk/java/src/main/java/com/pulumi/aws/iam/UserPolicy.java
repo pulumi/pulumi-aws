@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:iam/userPolicy:UserPolicy")
 public class UserPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the policy. If omitted, this provider will assign a random, unique name.
+     * The name of the policy. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the policy. If omitted, this provider will assign a random, unique name.
+     * @return The name of the policy. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {

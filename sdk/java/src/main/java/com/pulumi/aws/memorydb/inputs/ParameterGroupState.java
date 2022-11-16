@@ -33,9 +33,17 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Description for the parameter group.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description for the parameter group.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -182,11 +190,23 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param description Description for the parameter group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description for the parameter group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const example = new aws.sagemaker.CodeRepository("example", {
  *     codeRepositoryName: "example",
  *     gitConfig: {
- *         repositoryUrl: "https://github.com/hashicorp/terraform-provider-aws.git",
+ *         repositoryUrl: "https://github.com/github/docs.git",
  *     },
  * });
  * ```
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * const exampleCodeRepository = new aws.sagemaker.CodeRepository("exampleCodeRepository", {
  *     codeRepositoryName: "example",
  *     gitConfig: {
- *         repositoryUrl: "https://github.com/hashicorp/terraform-provider-aws.git",
+ *         repositoryUrl: "https://github.com/github/docs.git",
  *         secretArn: exampleSecret.arn,
  *     },
  * }, {

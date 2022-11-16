@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam
 {
     /// <summary>
+    /// Provides an IAM Signing Certificate resource to upload Signing Certificates.
+    /// 
     /// ## Import
     /// 
     /// IAM Signing Certificates can be imported using the `id`, e.g.,

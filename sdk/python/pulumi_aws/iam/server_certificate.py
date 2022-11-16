@@ -37,7 +37,7 @@ class ServerCertificateArgs:
                included, it defaults to a slash (/). If this certificate is for use with
                AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the server certificate. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "certificate_body", certificate_body)
         pulumi.set(__self__, "private_key", private_key)
@@ -136,7 +136,7 @@ class ServerCertificateArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of resource tags for the server certificate. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -177,7 +177,7 @@ class _ServerCertificateState:
                AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         :param pulumi.Input[str] private_key: The contents of the private key in PEM-encoded format.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the server certificate. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] upload_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
         """
@@ -312,7 +312,7 @@ class _ServerCertificateState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of resource tags for the server certificate. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -405,9 +405,9 @@ class ServerCertificate(pulumi.CustomResource):
         **Use in combination with an AWS ELB resource:**
 
         Some properties of an IAM Server Certificates cannot be updated while they are
-        in use. In order for this provider to effectively manage a Certificate in this situation, it is
+        in use. In order for the provider to effectively manage a Certificate in this situation, it is
         recommended you utilize the `name_prefix` attribute and enable the
-        `create_before_destroy` [lifecycle block][lifecycle]. This will allow this provider
+        `create_before_destroy`. This will allow this provider
         to create a new, updated `iam.ServerCertificate` resource and replace it in
         dependant resources before attempting to destroy the old version.
 
@@ -439,7 +439,7 @@ class ServerCertificate(pulumi.CustomResource):
          $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
         ```
 
-         [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html [lifecycle]/docs/configuration/resources.html
+         [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -457,7 +457,7 @@ class ServerCertificate(pulumi.CustomResource):
                AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         :param pulumi.Input[str] private_key: The contents of the private key in PEM-encoded format.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the server certificate. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -512,9 +512,9 @@ class ServerCertificate(pulumi.CustomResource):
         **Use in combination with an AWS ELB resource:**
 
         Some properties of an IAM Server Certificates cannot be updated while they are
-        in use. In order for this provider to effectively manage a Certificate in this situation, it is
+        in use. In order for the provider to effectively manage a Certificate in this situation, it is
         recommended you utilize the `name_prefix` attribute and enable the
-        `create_before_destroy` [lifecycle block][lifecycle]. This will allow this provider
+        `create_before_destroy`. This will allow this provider
         to create a new, updated `iam.ServerCertificate` resource and replace it in
         dependant resources before attempting to destroy the old version.
 
@@ -546,7 +546,7 @@ class ServerCertificate(pulumi.CustomResource):
          $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
         ```
 
-         [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html [lifecycle]/docs/configuration/resources.html
+         [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
 
         :param str resource_name: The name of the resource.
         :param ServerCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -638,7 +638,7 @@ class ServerCertificate(pulumi.CustomResource):
                AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         :param pulumi.Input[str] private_key: The contents of the private key in PEM-encoded format.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the server certificate. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] upload_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
         """
@@ -735,7 +735,7 @@ class ServerCertificate(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of resource tags for the server certificate. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

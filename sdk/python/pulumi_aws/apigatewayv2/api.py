@@ -595,7 +595,7 @@ class Api(pulumi.CustomResource):
         """
         Manages an Amazon API Gateway Version 2 API.
 
-        > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1.
+        > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1 resources.
 
         ## Example Usage
         ### Basic WebSocket API
@@ -658,7 +658,7 @@ class Api(pulumi.CustomResource):
         """
         Manages an Amazon API Gateway Version 2 API.
 
-        > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1.
+        > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1 resources.
 
         ## Example Usage
         ### Basic WebSocket API

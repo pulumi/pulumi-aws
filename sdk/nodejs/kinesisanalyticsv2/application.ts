@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Manages a Kinesis Analytics v2 Application.
  * This resource can be used to manage both Kinesis Data Analytics for SQL applications and Kinesis Data Analytics for Apache Flink applications.
  *
- * > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `aws.kinesis.AnalyticsApplication`resource.
+ * > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `aws.kinesis.AnalyticsApplication` resource.
  *
  * ## Example Usage
  * ### Apache Flink Application
@@ -282,7 +282,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`.
      */
     public readonly runtimeEnvironment!: pulumi.Output<string>;
     /**
@@ -404,7 +404,7 @@ export interface ApplicationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`.
      */
     runtimeEnvironment?: pulumi.Input<string>;
     /**
@@ -458,7 +458,7 @@ export interface ApplicationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
+     * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`.
      */
     runtimeEnvironment: pulumi.Input<string>;
     /**

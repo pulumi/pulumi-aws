@@ -345,14 +345,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)&#39;s `uri`.
+     * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
     @Import(name="qualifiedInvokeArn")
     private @Nullable Output<String> qualifiedInvokeArn;
 
     /**
-     * @return Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)&#39;s `uri`.
+     * @return Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
     public Optional<Output<String>> qualifiedInvokeArn() {
@@ -480,14 +480,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)`, where &#34;file.zip&#34; is the local filename of the lambda function source archive.
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
     @Import(name="sourceCodeHash")
     private @Nullable Output<String> sourceCodeHash;
 
     /**
-     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)`, where &#34;file.zip&#34; is the local filename of the lambda function source archive.
+     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
     public Optional<Output<String>> sourceCodeHash() {
@@ -1124,7 +1124,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qualifiedInvokeArn Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)&#39;s `uri`.
+         * @param qualifiedInvokeArn Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
          * 
          * @return builder
          * 
@@ -1135,7 +1135,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qualifiedInvokeArn Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)&#39;s `uri`.
+         * @param qualifiedInvokeArn Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
          * 
          * @return builder
          * 
@@ -1333,7 +1333,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCodeHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)`, where &#34;file.zip&#34; is the local filename of the lambda function source archive.
+         * @param sourceCodeHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
          * 
          * @return builder
          * 
@@ -1344,7 +1344,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCodeHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)`, where &#34;file.zip&#34; is the local filename of the lambda function source archive.
+         * @param sourceCodeHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
          * 
          * @return builder
          * 

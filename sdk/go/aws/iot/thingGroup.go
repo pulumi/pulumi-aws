@@ -42,7 +42,7 @@ import (
 //					Description: pulumi.String("This is my thing group"),
 //				},
 //				Tags: pulumi.StringMap{
-//					"terraform": pulumi.String("true"),
+//					"managed": pulumi.String("true"),
 //				},
 //			})
 //			if err != nil {

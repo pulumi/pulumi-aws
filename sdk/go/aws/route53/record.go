@@ -247,7 +247,8 @@ type Record struct {
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy pulumi.BoolPtrOutput `pulumi:"multivalueAnswerRoutingPolicy"`
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-	Name    pulumi.StringOutput      `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
 	Records pulumi.StringArrayOutput `pulumi:"records"`
 	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
 	SetIdentifier pulumi.StringPtrOutput `pulumi:"setIdentifier"`
@@ -317,7 +318,8 @@ type recordState struct {
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy *bool `pulumi:"multivalueAnswerRoutingPolicy"`
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-	Name    *string  `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
 	Records []string `pulumi:"records"`
 	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
 	SetIdentifier *string `pulumi:"setIdentifier"`
@@ -350,7 +352,8 @@ type RecordState struct {
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy pulumi.BoolPtrInput
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-	Name    pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
 	Records pulumi.StringArrayInput
 	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
 	SetIdentifier pulumi.StringPtrInput
@@ -385,7 +388,8 @@ type recordArgs struct {
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy *bool `pulumi:"multivalueAnswerRoutingPolicy"`
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-	Name    string   `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
 	Records []string `pulumi:"records"`
 	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
 	SetIdentifier *string `pulumi:"setIdentifier"`
@@ -417,7 +421,8 @@ type RecordArgs struct {
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy pulumi.BoolPtrInput
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-	Name    pulumi.StringInput
+	Name pulumi.StringInput
+	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
 	Records pulumi.StringArrayInput
 	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
 	SetIdentifier pulumi.StringPtrInput
@@ -564,6 +569,7 @@ func (o RecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Record) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
 func (o RecordOutput) Records() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Record) pulumi.StringArrayOutput { return v.Records }).(pulumi.StringArrayOutput)
 }

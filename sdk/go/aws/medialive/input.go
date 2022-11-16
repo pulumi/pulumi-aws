@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS MediaLive Input.
+//
 // ## Example Usage
 // ### Basic Usage
 //
@@ -93,7 +95,7 @@ type Input struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The source URLs for a PULL-type input. See Sources for more details.
 	Sources InputSourceArrayOutput `pulumi:"sources"`
-	// A map of tags to assign to the Input. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
@@ -158,7 +160,7 @@ type inputState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The source URLs for a PULL-type input. See Sources for more details.
 	Sources []InputSource `pulumi:"sources"`
-	// A map of tags to assign to the Input. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
@@ -192,7 +194,7 @@ type InputState struct {
 	RoleArn pulumi.StringPtrInput
 	// The source URLs for a PULL-type input. See Sources for more details.
 	Sources InputSourceArrayInput
-	// A map of tags to assign to the Input. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The different types of inputs that AWS Elemental MediaLive supports.
@@ -220,7 +222,7 @@ type inputArgs struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The source URLs for a PULL-type input. See Sources for more details.
 	Sources []InputSource `pulumi:"sources"`
-	// A map of tags to assign to the Input. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
 	Type string `pulumi:"type"`
@@ -244,7 +246,7 @@ type InputArgs struct {
 	RoleArn pulumi.StringPtrInput
 	// The source URLs for a PULL-type input. See Sources for more details.
 	Sources InputSourceArrayInput
-	// A map of tags to assign to the Input. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The different types of inputs that AWS Elemental MediaLive supports.
 	Type pulumi.StringInput
@@ -399,7 +401,7 @@ func (o InputOutput) Sources() InputSourceArrayOutput {
 	return o.ApplyT(func(v *Input) InputSourceArrayOutput { return v.Sources }).(InputSourceArrayOutput)
 }
 
-// A map of tags to assign to the Input. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InputOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

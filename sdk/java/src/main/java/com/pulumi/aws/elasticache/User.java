@@ -18,6 +18,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an ElastiCache user resource.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

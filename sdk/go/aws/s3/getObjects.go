@@ -10,6 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+//
+// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
 func GetObjects(ctx *pulumi.Context, args *GetObjectsArgs, opts ...pulumi.InvokeOption) (*GetObjectsResult, error) {
 	var rv GetObjectsResult
 	err := ctx.Invoke("aws:s3/getObjects:getObjects", args, &rv, opts...)

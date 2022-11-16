@@ -104,8 +104,7 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupsResult:
     """
-    Use this data source to get IDs and VPC membership of Security Groups that are created
-    outside of this provider.
+    Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
 
     ## Example Usage
 
@@ -159,8 +158,7 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupsResult]:
     """
-    Use this data source to get IDs and VPC membership of Security Groups that are created
-    outside of this provider.
+    Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
 
     ## Example Usage
 

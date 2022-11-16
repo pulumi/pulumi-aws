@@ -134,8 +134,6 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
  * ```
- *
- *  [1]/docs/providers/aws/index.html
  */
 export class Route extends pulumi.CustomResource {
     /**

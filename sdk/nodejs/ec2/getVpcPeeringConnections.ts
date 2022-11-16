@@ -9,7 +9,10 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get IDs of Amazon VPC peering connections
- * To get more details on each connection, use the data resource `aws.ec2.VpcPeeringConnection`
+ * To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+ *
+ * Note: To use this data source in a count, the resources should exist before trying to access
+ * the data source.
  */
 export function getVpcPeeringConnections(args?: GetVpcPeeringConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionsResult> {
     args = args || {};

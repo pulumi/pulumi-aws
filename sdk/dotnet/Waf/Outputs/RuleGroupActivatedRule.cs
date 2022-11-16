@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Waf.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// The ID of a `waf_rule`
+        /// The ID of a rule
         /// </summary>
         public readonly string RuleId;
         /// <summary>

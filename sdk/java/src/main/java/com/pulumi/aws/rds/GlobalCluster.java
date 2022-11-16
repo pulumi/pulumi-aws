@@ -18,6 +18,282 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
+ * 
+ * More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
+ * 
+ * ## Example Usage
+ * ### New MySQL Global Cluster
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.GlobalCluster;
+ * import com.pulumi.aws.rds.GlobalClusterArgs;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import com.pulumi.aws.rds.ClusterInstance;
+ * import com.pulumi.aws.rds.ClusterInstanceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GlobalCluster(&#34;example&#34;, GlobalClusterArgs.builder()        
+ *             .globalClusterIdentifier(&#34;global-test&#34;)
+ *             .engine(&#34;aurora&#34;)
+ *             .engineVersion(&#34;5.6.mysql_aurora.1.22.2&#34;)
+ *             .databaseName(&#34;example_db&#34;)
+ *             .build());
+ * 
+ *         var primaryCluster = new Cluster(&#34;primaryCluster&#34;, ClusterArgs.builder()        
+ *             .engine(example.engine())
+ *             .engineVersion(example.engineVersion())
+ *             .clusterIdentifier(&#34;test-primary-cluster&#34;)
+ *             .masterUsername(&#34;username&#34;)
+ *             .masterPassword(&#34;somepass123&#34;)
+ *             .databaseName(&#34;example_db&#34;)
+ *             .globalClusterIdentifier(example.id())
+ *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(aws.primary())
+ *                 .build());
+ * 
+ *         var primaryClusterInstance = new ClusterInstance(&#34;primaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *             .engine(example.engine())
+ *             .engineVersion(example.engineVersion())
+ *             .identifier(&#34;test-primary-cluster-instance&#34;)
+ *             .clusterIdentifier(primaryCluster.id())
+ *             .instanceClass(&#34;db.r4.large&#34;)
+ *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(aws.primary())
+ *                 .build());
+ * 
+ *         var secondaryCluster = new Cluster(&#34;secondaryCluster&#34;, ClusterArgs.builder()        
+ *             .engine(example.engine())
+ *             .engineVersion(example.engineVersion())
+ *             .clusterIdentifier(&#34;test-secondary-cluster&#34;)
+ *             .globalClusterIdentifier(example.id())
+ *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(aws.secondary())
+ *                 .dependsOn(primaryClusterInstance)
+ *                 .build());
+ * 
+ *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *             .engine(example.engine())
+ *             .engineVersion(example.engineVersion())
+ *             .identifier(&#34;test-secondary-cluster-instance&#34;)
+ *             .clusterIdentifier(secondaryCluster.id())
+ *             .instanceClass(&#34;db.r4.large&#34;)
+ *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(aws.secondary())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### New PostgreSQL Global Cluster
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.Provider;
+ * import com.pulumi.aws.ProviderArgs;
+ * import com.pulumi.aws.rds.GlobalCluster;
+ * import com.pulumi.aws.rds.GlobalClusterArgs;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import com.pulumi.aws.rds.ClusterInstance;
+ * import com.pulumi.aws.rds.ClusterInstanceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var primary = new Provider(&#34;primary&#34;, ProviderArgs.builder()        
+ *             .region(&#34;us-east-2&#34;)
+ *             .build());
+ * 
+ *         var secondary = new Provider(&#34;secondary&#34;, ProviderArgs.builder()        
+ *             .region(&#34;us-east-1&#34;)
+ *             .build());
+ * 
+ *         var example = new GlobalCluster(&#34;example&#34;, GlobalClusterArgs.builder()        
+ *             .globalClusterIdentifier(&#34;global-test&#34;)
+ *             .engine(&#34;aurora-postgresql&#34;)
+ *             .engineVersion(&#34;11.9&#34;)
+ *             .databaseName(&#34;example_db&#34;)
+ *             .build());
+ * 
+ *         var primaryCluster = new Cluster(&#34;primaryCluster&#34;, ClusterArgs.builder()        
+ *             .engine(example.engine())
+ *             .engineVersion(example.engineVersion())
+ *             .clusterIdentifier(&#34;test-primary-cluster&#34;)
+ *             .masterUsername(&#34;username&#34;)
+ *             .masterPassword(&#34;somepass123&#34;)
+ *             .databaseName(&#34;example_db&#34;)
+ *             .globalClusterIdentifier(example.id())
+ *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(aws.primary())
+ *                 .build());
+ * 
+ *         var primaryClusterInstance = new ClusterInstance(&#34;primaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *             .engine(example.engine())
+ *             .engineVersion(example.engineVersion())
+ *             .identifier(&#34;test-primary-cluster-instance&#34;)
+ *             .clusterIdentifier(primaryCluster.id())
+ *             .instanceClass(&#34;db.r4.large&#34;)
+ *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(aws.primary())
+ *                 .build());
+ * 
+ *         var secondaryCluster = new Cluster(&#34;secondaryCluster&#34;, ClusterArgs.builder()        
+ *             .engine(example.engine())
+ *             .engineVersion(example.engineVersion())
+ *             .clusterIdentifier(&#34;test-secondary-cluster&#34;)
+ *             .globalClusterIdentifier(example.id())
+ *             .skipFinalSnapshot(true)
+ *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(aws.secondary())
+ *                 .dependsOn(primaryClusterInstance)
+ *                 .build());
+ * 
+ *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *             .engine(example.engine())
+ *             .engineVersion(example.engineVersion())
+ *             .identifier(&#34;test-secondary-cluster-instance&#34;)
+ *             .clusterIdentifier(secondaryCluster.id())
+ *             .instanceClass(&#34;db.r4.large&#34;)
+ *             .dbSubnetGroupName(&#34;default&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .provider(aws.secondary())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### New Global Cluster From Existing DB Cluster
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.GlobalCluster;
+ * import com.pulumi.aws.rds.GlobalClusterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;);
+ * 
+ *         var exampleGlobalCluster = new GlobalCluster(&#34;exampleGlobalCluster&#34;, GlobalClusterArgs.builder()        
+ *             .forceDestroy(true)
+ *             .globalClusterIdentifier(&#34;example&#34;)
+ *             .sourceDbClusterIdentifier(exampleCluster.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Upgrading Engine Versions
+ * 
+ * When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws.rds.Cluster`.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.GlobalCluster;
+ * import com.pulumi.aws.rds.GlobalClusterArgs;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import com.pulumi.aws.rds.ClusterInstance;
+ * import com.pulumi.aws.rds.ClusterInstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GlobalCluster(&#34;example&#34;, GlobalClusterArgs.builder()        
+ *             .globalClusterIdentifier(&#34;kyivkharkiv&#34;)
+ *             .engine(&#34;aurora-mysql&#34;)
+ *             .engineVersion(&#34;5.7.mysql_aurora.2.07.5&#34;)
+ *             .build());
+ * 
+ *         var primaryCluster = new Cluster(&#34;primaryCluster&#34;, ClusterArgs.builder()        
+ *             .allowMajorVersionUpgrade(true)
+ *             .applyImmediately(true)
+ *             .clusterIdentifier(&#34;odessadnipro&#34;)
+ *             .databaseName(&#34;totoro&#34;)
+ *             .engine(example.engine())
+ *             .engineVersion(example.engineVersion())
+ *             .globalClusterIdentifier(example.id())
+ *             .masterPassword(&#34;satsukimae&#34;)
+ *             .masterUsername(&#34;maesatsuki&#34;)
+ *             .skipFinalSnapshot(true)
+ *             .build());
+ * 
+ *         var primaryClusterInstance = new ClusterInstance(&#34;primaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *             .applyImmediately(true)
+ *             .clusterIdentifier(primaryCluster.id())
+ *             .engine(primaryCluster.engine())
+ *             .engineVersion(primaryCluster.engineVersion())
+ *             .identifier(&#34;donetsklviv&#34;)
+ *             .instanceClass(&#34;db.r4.large&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * `aws_rds_global_cluster` can be imported by using the RDS Global Cluster identifier, e.g.,
@@ -83,15 +359,31 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> deletionProtection() {
         return Codegen.optional(this.deletionProtection);
     }
+    /**
+     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+     * 
+     */
     @Export(name="engine", type=String.class, parameters={})
     private Output<String> engine;
 
+    /**
+     * @return Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
+     * 
+     */
     public Output<String> engine() {
         return this.engine;
     }
+    /**
+     * Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+     * 
+     */
     @Export(name="engineVersion", type=String.class, parameters={})
     private Output<String> engineVersion;
 
+    /**
+     * @return Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
+     * 
+     */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }

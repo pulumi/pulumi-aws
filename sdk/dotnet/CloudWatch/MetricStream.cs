@@ -248,6 +248,9 @@ namespace Pulumi.Aws.CloudWatch
         [Output("lastUpdateDate")]
         public Output<string> LastUpdateDate { get; private set; } = null!;
 
+        /// <summary>
+        /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -369,6 +372,9 @@ namespace Pulumi.Aws.CloudWatch
             set => _includeFilters = value;
         }
 
+        /// <summary>
+        /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -470,6 +476,9 @@ namespace Pulumi.Aws.CloudWatch
         [Input("lastUpdateDate")]
         public Input<string>? LastUpdateDate { get; set; }
 
+        /// <summary>
+        /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

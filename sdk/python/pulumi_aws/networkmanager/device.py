@@ -35,6 +35,7 @@ class DeviceArgs:
         :param pulumi.Input[str] model: The model of device.
         :param pulumi.Input[str] serial_number: The serial number of the device.
         :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of device.
         :param pulumi.Input[str] vendor: The vendor of the device.
         """
@@ -145,6 +146,9 @@ class DeviceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -201,6 +205,7 @@ class _DeviceState:
         :param pulumi.Input[str] model: The model of device.
         :param pulumi.Input[str] serial_number: The serial number of the device.
         :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of device.
         :param pulumi.Input[str] vendor: The vendor of the device.
@@ -329,6 +334,9 @@ class _DeviceState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -420,6 +428,7 @@ class Device(pulumi.CustomResource):
         :param pulumi.Input[str] model: The model of device.
         :param pulumi.Input[str] serial_number: The serial number of the device.
         :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of device.
         :param pulumi.Input[str] vendor: The vendor of the device.
         """
@@ -537,6 +546,7 @@ class Device(pulumi.CustomResource):
         :param pulumi.Input[str] model: The model of device.
         :param pulumi.Input[str] serial_number: The serial number of the device.
         :param pulumi.Input[str] site_id: The ID of the site.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of device.
         :param pulumi.Input[str] vendor: The vendor of the device.
@@ -626,6 +636,9 @@ class Device(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

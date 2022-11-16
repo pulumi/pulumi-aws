@@ -39,7 +39,7 @@ class DomainArgs:
         :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See Domain Settings below.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "auth_mode", auth_mode)
         pulumi.set(__self__, "default_user_settings", default_user_settings)
@@ -183,7 +183,7 @@ class DomainArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -227,7 +227,7 @@ class _DomainState:
         :param pulumi.Input[str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         :param pulumi.Input[str] single_sign_on_managed_application_instance_id: The SSO managed application instance ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The domain's URL.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -427,7 +427,7 @@ class _DomainState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -572,7 +572,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         """
         ...
@@ -762,7 +762,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         :param pulumi.Input[str] single_sign_on_managed_application_instance_id: The SSO managed application instance ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The domain's URL.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -898,7 +898,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

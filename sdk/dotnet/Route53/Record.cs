@@ -244,6 +244,9 @@ namespace Pulumi.Aws.Route53
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
+        /// </summary>
         [Output("records")]
         public Output<ImmutableArray<string>> Records { get; private set; } = null!;
 
@@ -398,6 +401,10 @@ namespace Pulumi.Aws.Route53
 
         [Input("records")]
         private InputList<string>? _records;
+
+        /// <summary>
+        /// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
+        /// </summary>
         public InputList<string> Records
         {
             get => _records ?? (_records = new InputList<string>());
@@ -529,6 +536,10 @@ namespace Pulumi.Aws.Route53
 
         [Input("records")]
         private InputList<string>? _records;
+
+        /// <summary>
+        /// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
+        /// </summary>
         public InputList<string> Records
         {
             get => _records ?? (_records = new InputList<string>());

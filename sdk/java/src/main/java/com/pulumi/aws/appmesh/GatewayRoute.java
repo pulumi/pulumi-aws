@@ -79,8 +79,6 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
  * ```
  * 
- *  [1]/docs/providers/aws/index.html
- * 
  */
 @ResourceType(type="aws:appmesh/gatewayRoute:GatewayRoute")
 public class GatewayRoute extends com.pulumi.resources.CustomResource {

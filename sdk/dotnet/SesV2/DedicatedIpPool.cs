@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SesV2
 {
     /// <summary>
+    /// Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+    /// 
     /// ## Example Usage
     /// ### Basic Usage
     /// 
@@ -74,6 +76,9 @@ namespace Pulumi.Aws.SesV2
         [Output("scalingMode")]
         public Output<string> ScalingMode { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -140,18 +145,14 @@ namespace Pulumi.Aws.SesV2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public DedicatedIpPoolArgs()
@@ -182,6 +183,10 @@ namespace Pulumi.Aws.SesV2
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

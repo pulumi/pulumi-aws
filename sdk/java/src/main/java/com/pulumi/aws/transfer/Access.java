@@ -158,9 +158,17 @@ public class Access extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> homeDirectoryType() {
         return Codegen.optional(this.homeDirectoryType);
     }
+    /**
+     * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+     * 
+     */
     @Export(name="policy", type=String.class, parameters={})
     private Output</* @Nullable */ String> policy;
 
+    /**
+     * @return An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+     * 
+     */
     public Output<Optional<String>> policy() {
         return Codegen.optional(this.policy);
     }

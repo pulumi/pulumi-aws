@@ -338,6 +338,17 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// 
+    /// For JSON syntax, use an array instead of defining the `queue` key twice.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// S3 bucket notification can be imported using the `bucket`, e.g.,

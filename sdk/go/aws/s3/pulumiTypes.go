@@ -11765,7 +11765,7 @@ func (o BucketV2LoggingArrayOutput) Index(i pulumi.IntInput) BucketV2LoggingOutp
 }
 
 type BucketV2ObjectLockConfiguration struct {
-	// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
+	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	//
 	// Deprecated: Use the top-level parameter object_lock_enabled instead
 	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
@@ -11787,7 +11787,7 @@ type BucketV2ObjectLockConfigurationInput interface {
 }
 
 type BucketV2ObjectLockConfigurationArgs struct {
-	// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
+	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	//
 	// Deprecated: Use the top-level parameter object_lock_enabled instead
 	ObjectLockEnabled pulumi.StringPtrInput `pulumi:"objectLockEnabled"`
@@ -11874,7 +11874,7 @@ func (o BucketV2ObjectLockConfigurationOutput) ToBucketV2ObjectLockConfiguration
 	}).(BucketV2ObjectLockConfigurationPtrOutput)
 }
 
-// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
+// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 //
 // Deprecated: Use the top-level parameter object_lock_enabled instead
 func (o BucketV2ObjectLockConfigurationOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
@@ -11912,7 +11912,7 @@ func (o BucketV2ObjectLockConfigurationPtrOutput) Elem() BucketV2ObjectLockConfi
 	}).(BucketV2ObjectLockConfigurationOutput)
 }
 
-// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
+// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 //
 // Deprecated: Use the top-level parameter object_lock_enabled instead
 func (o BucketV2ObjectLockConfigurationPtrOutput) ObjectLockEnabled() pulumi.StringPtrOutput {

@@ -62,7 +62,7 @@ class GetFirewallPolicyResult:
     @pulumi.getter(name="firewallPolicies")
     def firewall_policies(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyResult']:
         """
-        The [policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy) for the specified firewall policy.
+        The [policy][2] for the specified firewall policy.
         """
         return pulumi.get(self, "firewall_policies")
 

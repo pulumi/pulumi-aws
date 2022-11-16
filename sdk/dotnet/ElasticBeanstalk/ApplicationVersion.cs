@@ -107,6 +107,9 @@ namespace Pulumi.Aws.ElasticBeanstalk
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -268,6 +271,10 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -243,29 +243,21 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-     * 
-     */
     @Export(name="certificateAuthorities", type=List.class, parameters={ClusterCertificateAuthority.class})
     private Output<List<ClusterCertificateAuthority>> certificateAuthorities;
 
-    /**
-     * @return Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-     * 
-     */
     public Output<List<ClusterCertificateAuthority>> certificateAuthorities() {
         return this.certificateAuthorities;
     }
     /**
-     * The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+     * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
     @Export(name="certificateAuthority", type=ClusterCertificateAuthority.class, parameters={})
     private Output<ClusterCertificateAuthority> certificateAuthority;
 
     /**
-     * @return The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
+     * @return Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
     public Output<ClusterCertificateAuthority> certificateAuthority() {
@@ -285,17 +277,9 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * List of addons to remove upon creation. Any addon listed will be &#34;adopted&#34; and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-     * 
-     */
     @Export(name="defaultAddonsToRemoves", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> defaultAddonsToRemoves;
 
-    /**
-     * @return List of addons to remove upon creation. Any addon listed will be &#34;adopted&#34; and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
-     * 
-     */
     public Output<Optional<List<String>>> defaultAddonsToRemoves() {
         return Codegen.optional(this.defaultAddonsToRemoves);
     }
@@ -414,14 +398,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.platformVersion;
     }
     /**
-     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
     @Export(name="roleArn", type=String.class, parameters={})
     private Output<String> roleArn;
 
     /**
-     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
     public Output<String> roleArn() {

@@ -8,6 +8,12 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a resource to manage a domain that has been [registered](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html) and associated with the current AWS account.
+ *
+ * **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
+ *
+ * The `aws.route53domains.RegisteredDomain` resource behaves differently from normal resources in that if a domain has been registered, the provider does not _register_ this domain, but instead "adopts" it into management. A destroy does not delete the domain but does remove the resource from state.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -125,7 +131,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Details about the domain technical contact.
      */
@@ -195,7 +201,6 @@ export class RegisteredDomain extends pulumi.CustomResource {
             resourceInputs["registrantContact"] = args ? args.registrantContact : undefined;
             resourceInputs["registrantPrivacy"] = args ? args.registrantPrivacy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["techContact"] = args ? args.techContact : undefined;
             resourceInputs["techPrivacy"] = args ? args.techPrivacy : undefined;
             resourceInputs["transferLock"] = args ? args.transferLock : undefined;
@@ -207,6 +212,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
             resourceInputs["registrarUrl"] = undefined /*out*/;
             resourceInputs["reseller"] = undefined /*out*/;
             resourceInputs["statusLists"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["updatedDate"] = undefined /*out*/;
             resourceInputs["whoisServer"] = undefined /*out*/;
         }
@@ -345,10 +351,6 @@ export interface RegisteredDomainArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Details about the domain technical contact.
      */

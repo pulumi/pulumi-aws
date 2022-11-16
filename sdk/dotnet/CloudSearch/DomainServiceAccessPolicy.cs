@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudSearch
 {
     /// <summary>
+    /// Provides an CloudSearch domain service access policy resource.
+    /// 
+    /// The provider waits for the domain service access policy to become `Active` when applying a configuration.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

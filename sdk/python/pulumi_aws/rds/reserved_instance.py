@@ -19,13 +19,12 @@ class ReservedInstanceArgs:
                  offering_id: pulumi.Input[str],
                  instance_count: Optional[pulumi.Input[int]] = None,
                  reservation_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReservedInstance resource.
         :param pulumi.Input[str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds.get_reserved_instance_offering` data source.
         :param pulumi.Input[int] instance_count: Number of instances to reserve. Default value is `1`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "offering_id", offering_id)
         if instance_count is not None:
@@ -34,8 +33,6 @@ class ReservedInstanceArgs:
             pulumi.set(__self__, "reservation_id", reservation_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="offeringId")
@@ -74,22 +71,13 @@ class ReservedInstanceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -128,7 +116,8 @@ class _ReservedInstanceState:
         :param pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]] recurring_charges: Recurring price charged to run this reserved DB instance.
         :param pulumi.Input[str] start_time: Time the reservation started.
         :param pulumi.Input[str] state: State of the reserved DB instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[float] usage_price: Hourly price charged for this reserved DB instance.
         """
         if arn is not None:
@@ -346,7 +335,7 @@ class _ReservedInstanceState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -357,6 +346,9 @@ class _ReservedInstanceState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -385,9 +377,14 @@ class ReservedInstance(pulumi.CustomResource):
                  offering_id: Optional[pulumi.Input[str]] = None,
                  reservation_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Manages an RDS DB Reserved Instance.
+
+        > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [RDS Reserved Instances Documentation](https://aws.amazon.com/rds/reserved-instances/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html).
+
+        > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
+
         ## Example Usage
 
         ```python
@@ -417,7 +414,7 @@ class ReservedInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] instance_count: Number of instances to reserve. Default value is `1`.
         :param pulumi.Input[str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds.get_reserved_instance_offering` data source.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -426,6 +423,12 @@ class ReservedInstance(pulumi.CustomResource):
                  args: ReservedInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an RDS DB Reserved Instance.
+
+        > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [RDS Reserved Instances Documentation](https://aws.amazon.com/rds/reserved-instances/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html).
+
+        > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
+
         ## Example Usage
 
         ```python
@@ -470,7 +473,6 @@ class ReservedInstance(pulumi.CustomResource):
                  offering_id: Optional[pulumi.Input[str]] = None,
                  reservation_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -486,7 +488,6 @@ class ReservedInstance(pulumi.CustomResource):
             __props__.__dict__["offering_id"] = offering_id
             __props__.__dict__["reservation_id"] = reservation_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["currency_code"] = None
             __props__.__dict__["db_instance_class"] = None
@@ -499,6 +500,7 @@ class ReservedInstance(pulumi.CustomResource):
             __props__.__dict__["recurring_charges"] = None
             __props__.__dict__["start_time"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["usage_price"] = None
         super(ReservedInstance, __self__).__init__(
             'aws:rds/reservedInstance:ReservedInstance',
@@ -548,7 +550,8 @@ class ReservedInstance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReservedInstanceRecurringChargeArgs']]]] recurring_charges: Recurring price charged to run this reserved DB instance.
         :param pulumi.Input[str] start_time: Time the reservation started.
         :param pulumi.Input[str] state: State of the reserved DB instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[float] usage_price: Hourly price charged for this reserved DB instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -693,13 +696,16 @@ class ReservedInstance(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

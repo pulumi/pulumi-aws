@@ -135,7 +135,8 @@ type EventDataStore struct {
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
 	TerminationProtectionEnabled pulumi.BoolPtrOutput `pulumi:"terminationProtectionEnabled"`
@@ -183,7 +184,8 @@ type eventDataStoreState struct {
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
 	TerminationProtectionEnabled *bool `pulumi:"terminationProtectionEnabled"`
@@ -203,7 +205,8 @@ type EventDataStoreState struct {
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod pulumi.IntPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
 	TerminationProtectionEnabled pulumi.BoolPtrInput
@@ -372,6 +375,7 @@ func (o EventDataStoreOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EventDataStoreOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

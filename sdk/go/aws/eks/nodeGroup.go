@@ -128,17 +128,17 @@ type NodeGroup struct {
 	CapacityType pulumi.StringOutput `pulumi:"capacityType"`
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+	// Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
 	DiskSize pulumi.IntOutput `pulumi:"diskSize"`
 	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
 	ForceUpdateVersion pulumi.BoolPtrOutput `pulumi:"forceUpdateVersion"`
-	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
 	InstanceTypes pulumi.StringArrayOutput `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate NodeGroupLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
-	// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
 	NodeGroupName pulumi.StringOutput `pulumi:"nodeGroupName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix pulumi.StringOutput `pulumi:"nodeGroupNamePrefix"`
@@ -156,14 +156,14 @@ type NodeGroup struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints       NodeGroupTaintArrayOutput   `pulumi:"taints"`
 	UpdateConfig NodeGroupUpdateConfigOutput `pulumi:"updateConfig"`
-	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -216,17 +216,17 @@ type nodeGroupState struct {
 	CapacityType *string `pulumi:"capacityType"`
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName *string `pulumi:"clusterName"`
-	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+	// Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
 	DiskSize *int `pulumi:"diskSize"`
 	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
 	ForceUpdateVersion *bool `pulumi:"forceUpdateVersion"`
-	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate *NodeGroupLaunchTemplate `pulumi:"launchTemplate"`
-	// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
 	NodeGroupName *string `pulumi:"nodeGroupName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix *string `pulumi:"nodeGroupNamePrefix"`
@@ -244,14 +244,14 @@ type nodeGroupState struct {
 	Status *string `pulumi:"status"`
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints       []NodeGroupTaint       `pulumi:"taints"`
 	UpdateConfig *NodeGroupUpdateConfig `pulumi:"updateConfig"`
-	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 	Version *string `pulumi:"version"`
 }
 
@@ -264,17 +264,17 @@ type NodeGroupState struct {
 	CapacityType pulumi.StringPtrInput
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringPtrInput
-	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+	// Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
 	DiskSize pulumi.IntPtrInput
 	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
 	ForceUpdateVersion pulumi.BoolPtrInput
-	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
 	InstanceTypes pulumi.StringArrayInput
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate NodeGroupLaunchTemplatePtrInput
-	// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
 	NodeGroupName pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix pulumi.StringPtrInput
@@ -292,14 +292,14 @@ type NodeGroupState struct {
 	Status pulumi.StringPtrInput
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayInput
-	// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints       NodeGroupTaintArrayInput
 	UpdateConfig NodeGroupUpdateConfigPtrInput
-	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 	Version pulumi.StringPtrInput
 }
 
@@ -314,17 +314,17 @@ type nodeGroupArgs struct {
 	CapacityType *string `pulumi:"capacityType"`
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName string `pulumi:"clusterName"`
-	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+	// Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
 	DiskSize *int `pulumi:"diskSize"`
 	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
 	ForceUpdateVersion *bool `pulumi:"forceUpdateVersion"`
-	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate *NodeGroupLaunchTemplate `pulumi:"launchTemplate"`
-	// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
 	NodeGroupName *string `pulumi:"nodeGroupName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix *string `pulumi:"nodeGroupNamePrefix"`
@@ -338,12 +338,12 @@ type nodeGroupArgs struct {
 	ScalingConfig NodeGroupScalingConfig `pulumi:"scalingConfig"`
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints       []NodeGroupTaint       `pulumi:"taints"`
 	UpdateConfig *NodeGroupUpdateConfig `pulumi:"updateConfig"`
-	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 	Version *string `pulumi:"version"`
 }
 
@@ -355,17 +355,17 @@ type NodeGroupArgs struct {
 	CapacityType pulumi.StringPtrInput
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringInput
-	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+	// Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
 	DiskSize pulumi.IntPtrInput
 	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
 	ForceUpdateVersion pulumi.BoolPtrInput
-	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
 	InstanceTypes pulumi.StringArrayInput
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate NodeGroupLaunchTemplatePtrInput
-	// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
 	NodeGroupName pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix pulumi.StringPtrInput
@@ -379,12 +379,12 @@ type NodeGroupArgs struct {
 	ScalingConfig NodeGroupScalingConfigInput
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayInput
-	// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints       NodeGroupTaintArrayInput
 	UpdateConfig NodeGroupUpdateConfigPtrInput
-	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 	Version pulumi.StringPtrInput
 }
 
@@ -495,7 +495,7 @@ func (o NodeGroupOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+// Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
 func (o NodeGroupOutput) DiskSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.IntOutput { return v.DiskSize }).(pulumi.IntOutput)
 }
@@ -505,7 +505,7 @@ func (o NodeGroupOutput) ForceUpdateVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.BoolPtrOutput { return v.ForceUpdateVersion }).(pulumi.BoolPtrOutput)
 }
 
-// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
 func (o NodeGroupOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringArrayOutput { return v.InstanceTypes }).(pulumi.StringArrayOutput)
 }
@@ -520,7 +520,7 @@ func (o NodeGroupOutput) LaunchTemplate() NodeGroupLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupLaunchTemplatePtrOutput { return v.LaunchTemplate }).(NodeGroupLaunchTemplatePtrOutput)
 }
 
-// Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
 func (o NodeGroupOutput) NodeGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.NodeGroupName }).(pulumi.StringOutput)
 }
@@ -565,7 +565,7 @@ func (o NodeGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NodeGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -584,7 +584,7 @@ func (o NodeGroupOutput) UpdateConfig() NodeGroupUpdateConfigOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupUpdateConfigOutput { return v.UpdateConfig }).(NodeGroupUpdateConfigOutput)
 }
 
-// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 func (o NodeGroupOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

@@ -10,6 +10,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
+// in the current AWS Region.
+//
+// If you created your AWS account after 2013-12-04 you have a default VPC in each AWS Region.
+//
+// **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
+//
+// The `ec2.DefaultVpc` resource behaves differently from normal resources in that if a default VPC exists, this provider does not _create_ this resource, but instead "adopts" it into management.
+// If no default VPC exists, the provider creates a new default VPC, which leads to the implicit creation of [other resources](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#default-vpc-components).
+// By default, `pulumi destroy` does not delete the default VPC but does remove the resource from the state.
+// Set the `forceDestroy` argument to `true` to delete the default VPC.
+//
 // ## Example Usage
 //
 // Basic usage with tags:

@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing a Roles Anywhere Trust Anchor.
+//
 // ## Example Usage
 //
 // ```go
@@ -107,7 +109,8 @@ type TrustAnchor struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The source of trust, documented below
 	Source TrustAnchorSourceOutput `pulumi:"source"`
-	Tags   pulumi.StringMapOutput  `pulumi:"tags"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -152,7 +155,8 @@ type trustAnchorState struct {
 	Name *string `pulumi:"name"`
 	// The source of trust, documented below
 	Source *TrustAnchorSource `pulumi:"source"`
-	Tags   map[string]string  `pulumi:"tags"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -166,7 +170,8 @@ type TrustAnchorState struct {
 	Name pulumi.StringPtrInput
 	// The source of trust, documented below
 	Source TrustAnchorSourcePtrInput
-	Tags   pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -182,7 +187,8 @@ type trustAnchorArgs struct {
 	Name *string `pulumi:"name"`
 	// The source of trust, documented below
 	Source TrustAnchorSource `pulumi:"source"`
-	Tags   map[string]string `pulumi:"tags"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrustAnchor resource.
@@ -193,7 +199,8 @@ type TrustAnchorArgs struct {
 	Name pulumi.StringPtrInput
 	// The source of trust, documented below
 	Source TrustAnchorSourceInput
-	Tags   pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (TrustAnchorArgs) ElementType() reflect.Type {
@@ -303,6 +310,7 @@ func (o TrustAnchorOutput) Source() TrustAnchorSourceOutput {
 	return o.ApplyT(func(v *TrustAnchor) TrustAnchorSourceOutput { return v.Source }).(TrustAnchorSourceOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TrustAnchorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

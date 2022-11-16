@@ -69,8 +69,10 @@ type VpcIngressConnection struct {
 	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// The current status of the VPC Ingress Connection.
-	Status  pulumi.StringOutput    `pulumi:"status"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -120,8 +122,10 @@ type vpcIngressConnectionState struct {
 	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// The current status of the VPC Ingress Connection.
-	Status  *string           `pulumi:"status"`
-	Tags    map[string]string `pulumi:"tags"`
+	Status *string `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -137,8 +141,10 @@ type VpcIngressConnectionState struct {
 	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn pulumi.StringPtrInput
 	// The current status of the VPC Ingress Connection.
-	Status  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Status pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -152,9 +158,9 @@ type vpcIngressConnectionArgs struct {
 	// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
-	ServiceArn string            `pulumi:"serviceArn"`
-	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
+	ServiceArn string `pulumi:"serviceArn"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcIngressConnection resource.
@@ -165,8 +171,8 @@ type VpcIngressConnectionArgs struct {
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn pulumi.StringInput
-	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (VpcIngressConnectionArgs) ElementType() reflect.Type {
@@ -288,10 +294,12 @@ func (o VpcIngressConnectionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcIngressConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcIngressConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

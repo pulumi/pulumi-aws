@@ -403,6 +403,12 @@ class BucketNotification(pulumi.CustomResource):
             ])
         ```
 
+        For JSON syntax, use an array instead of defining the `queue` key twice.
+
+        ```python
+        import pulumi
+        ```
+
         ## Import
 
         S3 bucket notification can be imported using the `bucket`, e.g.,
@@ -627,6 +633,12 @@ class BucketNotification(pulumi.CustomResource):
                     filter_prefix="videos/",
                 ),
             ])
+        ```
+
+        For JSON syntax, use an array instead of defining the `queue` key twice.
+
+        ```python
+        import pulumi
         ```
 
         ## Import

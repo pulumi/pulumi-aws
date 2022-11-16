@@ -51,7 +51,7 @@ namespace Pulumi.Aws.S3
         /// file stored in S3, which is then used to pass the most recent `version_id`
         /// to AWS Lambda for use as a function implementation. More information about
         /// Lambda functions is available in the documentation for
-        /// [`aws.lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html).
+        /// `aws.lambda.Function`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.S3
         /// file stored in S3, which is then used to pass the most recent `version_id`
         /// to AWS Lambda for use as a function implementation. More information about
         /// Lambda functions is available in the documentation for
-        /// [`aws.lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html).
+        /// `aws.lambda.Function`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

@@ -31,9 +31,11 @@ type ServiceRegion struct {
 	// The identifier of the directory to which you want to add Region replication.
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// The name of the Region where you want to add domain controllers for replication.
-	RegionName pulumi.StringOutput    `pulumi:"regionName"`
-	Tags       pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
+	RegionName pulumi.StringOutput `pulumi:"regionName"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// VPC information in the replicated Region. Detailed below.
 	VpcSettings ServiceRegionVpcSettingsOutput `pulumi:"vpcSettings"`
 }
@@ -81,9 +83,11 @@ type serviceRegionState struct {
 	// The identifier of the directory to which you want to add Region replication.
 	DirectoryId *string `pulumi:"directoryId"`
 	// The name of the Region where you want to add domain controllers for replication.
-	RegionName *string           `pulumi:"regionName"`
-	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
+	RegionName *string `pulumi:"regionName"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// VPC information in the replicated Region. Detailed below.
 	VpcSettings *ServiceRegionVpcSettings `pulumi:"vpcSettings"`
 }
@@ -95,8 +99,10 @@ type ServiceRegionState struct {
 	DirectoryId pulumi.StringPtrInput
 	// The name of the Region where you want to add domain controllers for replication.
 	RegionName pulumi.StringPtrInput
-	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// VPC information in the replicated Region. Detailed below.
 	VpcSettings ServiceRegionVpcSettingsPtrInput
 }
@@ -111,8 +117,9 @@ type serviceRegionArgs struct {
 	// The identifier of the directory to which you want to add Region replication.
 	DirectoryId string `pulumi:"directoryId"`
 	// The name of the Region where you want to add domain controllers for replication.
-	RegionName string            `pulumi:"regionName"`
-	Tags       map[string]string `pulumi:"tags"`
+	RegionName string `pulumi:"regionName"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// VPC information in the replicated Region. Detailed below.
 	VpcSettings ServiceRegionVpcSettings `pulumi:"vpcSettings"`
 }
@@ -125,7 +132,8 @@ type ServiceRegionArgs struct {
 	DirectoryId pulumi.StringInput
 	// The name of the Region where you want to add domain controllers for replication.
 	RegionName pulumi.StringInput
-	Tags       pulumi.StringMapInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// VPC information in the replicated Region. Detailed below.
 	VpcSettings ServiceRegionVpcSettingsInput
 }
@@ -232,10 +240,12 @@ func (o ServiceRegionOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringOutput { return v.RegionName }).(pulumi.StringOutput)
 }
 
+// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServiceRegionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServiceRegionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

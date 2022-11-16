@@ -132,6 +132,8 @@ class ArchiveRule(pulumi.CustomResource):
                  rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS AccessAnalyzer Archive Rule.
+
         ## Example Usage
         ### Basic Usage
 
@@ -179,6 +181,8 @@ class ArchiveRule(pulumi.CustomResource):
                  args: ArchiveRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS AccessAnalyzer Archive Rule.
+
         ## Example Usage
         ### Basic Usage
 

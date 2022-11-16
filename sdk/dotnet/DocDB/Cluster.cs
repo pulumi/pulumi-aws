@@ -83,13 +83,13 @@ namespace Pulumi.Aws.DocDB
         public Output<int?> BackupRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        /// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         /// </summary>
         [Output("clusterIdentifierPrefix")]
         public Output<string> ClusterIdentifierPrefix { get; private set; } = null!;
@@ -324,13 +324,13 @@ namespace Pulumi.Aws.DocDB
         public Input<int>? BackupRetentionPeriod { get; set; }
 
         /// <summary>
-        /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        /// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         /// </summary>
         [Input("clusterIdentifierPrefix")]
         public Input<string>? ClusterIdentifierPrefix { get; set; }
@@ -527,13 +527,13 @@ namespace Pulumi.Aws.DocDB
         public Input<int>? BackupRetentionPeriod { get; set; }
 
         /// <summary>
-        /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        /// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         /// </summary>
         [Input("clusterIdentifierPrefix")]
         public Input<string>? ClusterIdentifierPrefix { get; set; }

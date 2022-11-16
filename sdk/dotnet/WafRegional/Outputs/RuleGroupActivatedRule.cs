@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// The ID of a `waf_regional_rule`
+        /// The ID of a rule
         /// </summary>
         public readonly string RuleId;
         /// <summary>

@@ -103,8 +103,8 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         secondary ENI or one attached as the primary interface on an instance.
 
         > **NOTE on instances, interfaces, and security groups:** This provider currently
-        provides the capability to assign security groups via the `ec2.Instance`
-        and the `ec2.NetworkInterface` resources. Using this resource in
+        provides the capability to assign security groups via the [`ec2.Instance`][1]
+        and the [`ec2.NetworkInterface`][2] resources. Using this resource in
         conjunction with security groups provided in-line in those resources will cause
         conflicts, and will lead to spurious diffs and undefined behavior - please use
         one or the other.
@@ -175,8 +175,8 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         secondary ENI or one attached as the primary interface on an instance.
 
         > **NOTE on instances, interfaces, and security groups:** This provider currently
-        provides the capability to assign security groups via the `ec2.Instance`
-        and the `ec2.NetworkInterface` resources. Using this resource in
+        provides the capability to assign security groups via the [`ec2.Instance`][1]
+        and the [`ec2.NetworkInterface`][2] resources. Using this resource in
         conjunction with security groups provided in-line in those resources will cause
         conflicts, and will lead to spurious diffs and undefined behavior - please use
         one or the other.

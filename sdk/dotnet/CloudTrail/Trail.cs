@@ -31,11 +31,16 @@ namespace Pulumi.Aws.CloudTrail
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2");
-    /// 
     ///     var fooBucketV2 = new Aws.S3.BucketV2("fooBucketV2", new()
     ///     {
     ///         ForceDestroy = true,
+    ///     });
+    /// 
+    ///     var foobar = new Aws.CloudTrail.Trail("foobar", new()
+    ///     {
+    ///         S3BucketName = fooBucketV2.Id,
+    ///         S3KeyPrefix = "prefix",
+    ///         IncludeGlobalServiceEvents = false,
     ///     });
     /// 
     ///     var fooBucketPolicy = new Aws.S3.BucketPolicy("fooBucketPolicy", new()
@@ -74,16 +79,8 @@ namespace Pulumi.Aws.CloudTrail
     ///         }}
     ///     ]
     /// }}
-    /// }}
     /// ";
     ///         }),
-    ///     });
-    /// 
-    ///     var foobar = new Aws.CloudTrail.Trail("foobar", new()
-    ///     {
-    ///         S3BucketName = bucketV2.Id,
-    ///         S3KeyPrefix = "prefix",
-    ///         IncludeGlobalServiceEvents = false,
     ///     });
     /// 
     /// });
@@ -103,18 +100,12 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2");
-    /// 
     ///     var example = new Aws.CloudTrail.Trail("example", new()
     ///     {
-    ///         S3BucketName = bucketV2.Id,
-    ///         S3KeyPrefix = "prefix",
     ///         EventSelectors = new[]
     ///         {
     ///             new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///             {
-    ///                 ReadWriteType = "All",
-    ///                 IncludeManagementEvents = true,
     ///                 DataResources = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
@@ -126,6 +117,8 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
+    ///                 IncludeManagementEvents = true,
+    ///                 ReadWriteType = "All",
     ///             },
     ///         },
     ///     });
@@ -141,18 +134,12 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2");
-    /// 
     ///     var example = new Aws.CloudTrail.Trail("example", new()
     ///     {
-    ///         S3BucketName = bucketV2.Id,
-    ///         S3KeyPrefix = "prefix",
     ///         EventSelectors = new[]
     ///         {
     ///             new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///             {
-    ///                 ReadWriteType = "All",
-    ///                 IncludeManagementEvents = true,
     ///                 DataResources = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
@@ -164,6 +151,8 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
+    ///                 IncludeManagementEvents = true,
+    ///                 ReadWriteType = "All",
     ///             },
     ///         },
     ///     });
@@ -186,14 +175,10 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     ///     var example = new Aws.CloudTrail.Trail("example", new()
     ///     {
-    ///         S3BucketName = important_bucket.Apply(getBucketResult =&gt; getBucketResult).Apply(important_bucket =&gt; important_bucket.Apply(getBucketResult =&gt; getBucketResult.Id)),
-    ///         S3KeyPrefix = "prefix",
     ///         EventSelectors = new[]
     ///         {
     ///             new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///             {
-    ///                 ReadWriteType = "All",
-    ///                 IncludeManagementEvents = true,
     ///                 DataResources = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
@@ -205,6 +190,8 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
+    ///                 IncludeManagementEvents = true,
+    ///                 ReadWriteType = "All",
     ///             },
     ///         },
     ///     });
@@ -295,55 +282,10 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetPartition.Invoke();
-    /// 
     ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
-    /// 
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
-    ///     {
-    ///         AssumeRolePolicy = @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Sid"": """",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {{
-    ///         ""Service"": ""cloudtrail.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}""
-    ///       }},
-    ///       ""Action"": ""sts:AssumeRole""
-    ///     }}
-    ///   ]
-    /// }}
-    /// ",
-    ///     });
-    /// 
-    ///     var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new()
-    ///     {
-    ///         Role = testRole.Id,
-    ///         Policy = @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Sid"": ""AWSCloudTrailCreateLogStream"",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Action"": [
-    ///         ""logs:CreateLogStream"",
-    ///         ""logs:PutLogEvents""
-    ///       ],
-    ///       ""Resource"": ""{aws_cloudwatch_log_group.Test.Arn}:*""
-    ///     }}
-    ///   ]
-    /// }}
-    /// ",
-    ///     });
-    /// 
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2");
     /// 
     ///     var exampleTrail = new Aws.CloudTrail.Trail("exampleTrail", new()
     ///     {
-    ///         S3BucketName = data.Aws_s3_bucket.Important_bucket.Id,
-    ///         S3KeyPrefix = "prefix",
-    ///         CloudWatchLogsRoleArn = testRole.Arn,
     ///         CloudWatchLogsGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
     ///     });
     /// 
@@ -465,7 +407,7 @@ namespace Pulumi.Aws.CloudTrail
         public Output<string?> SnsTopicName { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -634,7 +576,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -774,7 +716,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

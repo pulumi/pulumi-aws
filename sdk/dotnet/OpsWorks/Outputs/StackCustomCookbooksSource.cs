@@ -22,7 +22,7 @@ namespace Pulumi.Aws.OpsWorks.Outputs
         /// </summary>
         public readonly string? Revision;
         /// <summary>
-        /// SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+        /// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
         /// </summary>
         public readonly string? SshKey;
         /// <summary>

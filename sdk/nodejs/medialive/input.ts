@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS MediaLive Input.
+ *
  * ## Example Usage
  * ### Basic Usage
  *
@@ -117,7 +119,7 @@ export class Input extends pulumi.CustomResource {
      */
     public readonly sources!: pulumi.Output<outputs.medialive.InputSource[]>;
     /**
-     * A map of tags to assign to the Input. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
@@ -239,7 +241,7 @@ export interface InputState {
      */
     sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSource>[]>;
     /**
-     * A map of tags to assign to the Input. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -286,7 +288,7 @@ export interface InputArgs {
      */
     sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSource>[]>;
     /**
-     * A map of tags to assign to the Input. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

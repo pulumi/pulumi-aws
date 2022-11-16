@@ -90,7 +90,6 @@ export class Application extends pulumi.CustomResource {
     public readonly groupingType!: pulumi.Output<string | undefined>;
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
-     * <<<<<<< HEAD
      */
     public readonly opsCenterEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -103,7 +102,6 @@ export class Application extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * >>>>>>> v4.29.0
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -181,7 +179,6 @@ export interface ApplicationState {
     groupingType?: pulumi.Input<string>;
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
-     * <<<<<<< HEAD
      */
     opsCenterEnabled?: pulumi.Input<boolean>;
     /**
@@ -194,7 +191,6 @@ export interface ApplicationState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * >>>>>>> v4.29.0
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -225,7 +221,6 @@ export interface ApplicationArgs {
     groupingType?: pulumi.Input<string>;
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
-     * <<<<<<< HEAD
      */
     opsCenterEnabled?: pulumi.Input<boolean>;
     /**
@@ -238,7 +233,6 @@ export interface ApplicationArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * >>>>>>> v4.29.0
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

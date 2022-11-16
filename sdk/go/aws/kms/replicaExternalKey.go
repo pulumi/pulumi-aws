@@ -96,7 +96,8 @@ type ReplicaExternalKey struct {
 	KeyState pulumi.StringOutput `pulumi:"keyState"`
 	// The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
 	KeyUsage pulumi.StringOutput `pulumi:"keyUsage"`
-	Policy   pulumi.StringOutput `pulumi:"policy"`
+	// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
 	PrimaryKeyArn pulumi.StringOutput `pulumi:"primaryKeyArn"`
 	// A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -163,7 +164,8 @@ type replicaExternalKeyState struct {
 	KeyState *string `pulumi:"keyState"`
 	// The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
 	KeyUsage *string `pulumi:"keyUsage"`
-	Policy   *string `pulumi:"policy"`
+	// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+	Policy *string `pulumi:"policy"`
 	// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
 	PrimaryKeyArn *string `pulumi:"primaryKeyArn"`
 	// A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -199,7 +201,8 @@ type ReplicaExternalKeyState struct {
 	KeyState pulumi.StringPtrInput
 	// The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
 	KeyUsage pulumi.StringPtrInput
-	Policy   pulumi.StringPtrInput
+	// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+	Policy pulumi.StringPtrInput
 	// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
 	PrimaryKeyArn pulumi.StringPtrInput
 	// A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -229,7 +232,8 @@ type replicaExternalKeyArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Base64 encoded 256-bit symmetric encryption key material to import. The KMS key is permanently associated with this key material. The same key material can be [reimported](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material), but you cannot import different key material.
 	KeyMaterialBase64 *string `pulumi:"keyMaterialBase64"`
-	Policy            *string `pulumi:"policy"`
+	// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+	Policy *string `pulumi:"policy"`
 	// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
 	PrimaryKeyArn string `pulumi:"primaryKeyArn"`
 	// A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -254,7 +258,8 @@ type ReplicaExternalKeyArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Base64 encoded 256-bit symmetric encryption key material to import. The KMS key is permanently associated with this key material. The same key material can be [reimported](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material), but you cannot import different key material.
 	KeyMaterialBase64 pulumi.StringPtrInput
-	Policy            pulumi.StringPtrInput
+	// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+	Policy pulumi.StringPtrInput
 	// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
 	PrimaryKeyArn pulumi.StringInput
 	// A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -404,6 +409,7 @@ func (o ReplicaExternalKeyOutput) KeyUsage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringOutput { return v.KeyUsage }).(pulumi.StringOutput)
 }
 
+// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
 func (o ReplicaExternalKeyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicaExternalKey) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

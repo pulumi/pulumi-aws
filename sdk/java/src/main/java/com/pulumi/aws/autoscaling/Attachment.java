@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * with `load_balancers` and `target_group_arns` defined in-line. These two methods are not
  * mutually-exclusive. If `aws.autoscaling.Attachment` resources are used, either alone or with inline
  * `load_balancers` or `target_group_arns`, the `aws.autoscaling.Group` resource must be configured
- * to [ignore changes](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to the `load_balancers` and `target_group_arns` arguments.
+ * to ignore changes to the `load_balancers` and `target_group_arns` arguments.
  * 
  * ## Example Usage
  * ```java

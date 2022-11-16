@@ -120,7 +120,7 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
                                 version: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficPolicyDocumentResult:
     """
-    Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as [`route53.TrafficPolicy`](https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy.html).
+    Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `route53.TrafficPolicy`.
 
     ## Example Usage
     ### Basic Example
@@ -270,7 +270,7 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
                                        version: Optional[pulumi.Input[Optional[str]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficPolicyDocumentResult]:
     """
-    Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as [`route53.TrafficPolicy`](https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy.html).
+    Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `route53.TrafficPolicy`.
 
     ## Example Usage
     ### Basic Example

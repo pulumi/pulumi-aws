@@ -225,7 +225,7 @@ class Plan(pulumi.CustomResource):
 
         example = aws.backup.Plan("example",
             rules=[aws.backup.PlanRuleArgs(
-                rule_name="tf_example_backup_rule",
+                rule_name="my_example_backup_rule",
                 target_vault_name=aws_backup_vault["test"]["name"],
                 schedule="cron(0 12 * * ? *)",
                 lifecycle=aws.backup.PlanRuleLifecycleArgs(
@@ -272,7 +272,7 @@ class Plan(pulumi.CustomResource):
 
         example = aws.backup.Plan("example",
             rules=[aws.backup.PlanRuleArgs(
-                rule_name="tf_example_backup_rule",
+                rule_name="my_example_backup_rule",
                 target_vault_name=aws_backup_vault["test"]["name"],
                 schedule="cron(0 12 * * ? *)",
                 lifecycle=aws.backup.PlanRuleLifecycleArgs(

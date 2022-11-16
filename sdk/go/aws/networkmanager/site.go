@@ -62,8 +62,9 @@ type Site struct {
 	// The ID of the Global Network to create the site in.
 	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
 	// The site location as documented below.
-	Location SiteLocationPtrOutput  `pulumi:"location"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	Location SiteLocationPtrOutput `pulumi:"location"`
+	// Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -107,8 +108,9 @@ type siteState struct {
 	// The ID of the Global Network to create the site in.
 	GlobalNetworkId *string `pulumi:"globalNetworkId"`
 	// The site location as documented below.
-	Location *SiteLocation     `pulumi:"location"`
-	Tags     map[string]string `pulumi:"tags"`
+	Location *SiteLocation `pulumi:"location"`
+	// Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -122,7 +124,8 @@ type SiteState struct {
 	GlobalNetworkId pulumi.StringPtrInput
 	// The site location as documented below.
 	Location SiteLocationPtrInput
-	Tags     pulumi.StringMapInput
+	// Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -137,8 +140,9 @@ type siteArgs struct {
 	// The ID of the Global Network to create the site in.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The site location as documented below.
-	Location *SiteLocation     `pulumi:"location"`
-	Tags     map[string]string `pulumi:"tags"`
+	Location *SiteLocation `pulumi:"location"`
+	// Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Site resource.
@@ -149,7 +153,8 @@ type SiteArgs struct {
 	GlobalNetworkId pulumi.StringInput
 	// The site location as documented below.
 	Location SiteLocationPtrInput
-	Tags     pulumi.StringMapInput
+	// Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (SiteArgs) ElementType() reflect.Type {
@@ -259,6 +264,7 @@ func (o SiteOutput) Location() SiteLocationPtrOutput {
 	return o.ApplyT(func(v *Site) SiteLocationPtrOutput { return v.Location }).(SiteLocationPtrOutput)
 }
 
+// Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SiteOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Site) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

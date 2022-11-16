@@ -452,8 +452,8 @@ class SecurityGroupRule(pulumi.CustomResource):
             security_group_id="sg-123456")
         ```
 
-        You can also find a specific Prefix List using the [`ec2.get_prefix_list`](https://www.terraform.io/docs/providers/aws/d/prefix_list.html)
-        or [`ec2_managed_prefix_list`](https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list.html) data sources:
+        You can also find a specific Prefix List using the `ec2.get_prefix_list`
+        or `ec2_managed_prefix_list` data sources:
 
         ```python
         import pulumi
@@ -592,8 +592,8 @@ class SecurityGroupRule(pulumi.CustomResource):
             security_group_id="sg-123456")
         ```
 
-        You can also find a specific Prefix List using the [`ec2.get_prefix_list`](https://www.terraform.io/docs/providers/aws/d/prefix_list.html)
-        or [`ec2_managed_prefix_list`](https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list.html) data sources:
+        You can also find a specific Prefix List using the `ec2.get_prefix_list`
+        or `ec2_managed_prefix_list` data sources:
 
         ```python
         import pulumi

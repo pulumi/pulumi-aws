@@ -13,7 +13,7 @@ import (
 
 // Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
 //
-// > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the [`lambda.Invocation`](https://www.terraform.io/docs/providers/aws/d/lambda_invocation.html) data source.
+// > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `lambda.Invocation` data source.
 //
 // ## Example Usage
 // ### Dynamic Invocation Example Using Triggers
@@ -79,7 +79,8 @@ type Invocation struct {
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
 	// String result of the lambda function invocation.
-	Result   pulumi.StringOutput    `pulumi:"result"`
+	Result pulumi.StringOutput `pulumi:"result"`
+	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
 }
 
@@ -125,7 +126,8 @@ type invocationState struct {
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
 	// String result of the lambda function invocation.
-	Result   *string           `pulumi:"result"`
+	Result *string `pulumi:"result"`
+	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers map[string]string `pulumi:"triggers"`
 }
 
@@ -137,7 +139,8 @@ type InvocationState struct {
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrInput
 	// String result of the lambda function invocation.
-	Result   pulumi.StringPtrInput
+	Result pulumi.StringPtrInput
+	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers pulumi.StringMapInput
 }
 
@@ -151,8 +154,9 @@ type invocationArgs struct {
 	// JSON payload to the lambda function.
 	Input string `pulumi:"input"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-	Qualifier *string           `pulumi:"qualifier"`
-	Triggers  map[string]string `pulumi:"triggers"`
+	Qualifier *string `pulumi:"qualifier"`
+	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+	Triggers map[string]string `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a Invocation resource.
@@ -163,7 +167,8 @@ type InvocationArgs struct {
 	Input pulumi.StringInput
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrInput
-	Triggers  pulumi.StringMapInput
+	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+	Triggers pulumi.StringMapInput
 }
 
 func (InvocationArgs) ElementType() reflect.Type {
@@ -273,6 +278,7 @@ func (o InvocationOutput) Result() pulumi.StringOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringOutput { return v.Result }).(pulumi.StringOutput)
 }
 
+// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 func (o InvocationOutput) Triggers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }

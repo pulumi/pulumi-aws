@@ -11,6 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Inspector V2 Organization Configuration.
+//
+// > **NOTE:** In order for this resource to work, the account you use must be an Inspector V2 Delegated Admin Account.
+//
+// > **NOTE:** When this resource is deleted, EC2 and ECR scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
+//
 // ## Example Usage
 // ### Basic Usage
 //

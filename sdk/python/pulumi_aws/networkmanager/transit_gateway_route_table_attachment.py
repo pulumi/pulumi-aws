@@ -21,6 +21,7 @@ class TransitGatewayRouteTableAttachmentArgs:
         The set of arguments for constructing a TransitGatewayRouteTableAttachment resource.
         :param pulumi.Input[str] peering_id: The ID of the peer for the attachment.
         :param pulumi.Input[str] transit_gateway_route_table_arn: The ARN of the transit gateway route table for the attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "peering_id", peering_id)
         pulumi.set(__self__, "transit_gateway_route_table_arn", transit_gateway_route_table_arn)
@@ -54,6 +55,9 @@ class TransitGatewayRouteTableAttachmentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -91,6 +95,7 @@ class _TransitGatewayRouteTableAttachmentState:
         :param pulumi.Input[str] resource_arn: The attachment resource ARN.
         :param pulumi.Input[str] segment_name: The name of the segment attachment.
         :param pulumi.Input[str] state: The state of the attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_route_table_arn: The ARN of the transit gateway route table for the attachment.
         """
@@ -258,6 +263,9 @@ class _TransitGatewayRouteTableAttachmentState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -323,6 +331,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] peering_id: The ID of the peer for the attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] transit_gateway_route_table_arn: The ARN of the transit gateway route table for the attachment.
         """
         ...
@@ -440,6 +449,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_arn: The attachment resource ARN.
         :param pulumi.Input[str] segment_name: The name of the segment attachment.
         :param pulumi.Input[str] state: The state of the attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_route_table_arn: The ARN of the transit gateway route table for the attachment.
         """
@@ -554,6 +564,9 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -12,6 +12,8 @@ namespace Pulumi.Aws.DirectConnect
     public static class GetRouterConfiguration
     {
         /// <summary>
+        /// Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -39,6 +41,8 @@ namespace Pulumi.Aws.DirectConnect
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouterConfigurationResult>("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args ?? new GetRouterConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

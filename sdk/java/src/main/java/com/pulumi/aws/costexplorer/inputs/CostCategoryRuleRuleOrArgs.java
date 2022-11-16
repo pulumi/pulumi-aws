@@ -47,9 +47,17 @@ public final class CostCategoryRuleRuleOrArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.dimension);
     }
 
+    /**
+     * Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<CostCategoryRuleRuleOrTagsArgs> tags;
 
+    /**
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * 
+     */
     public Optional<Output<CostCategoryRuleRuleOrTagsArgs>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -122,11 +130,23 @@ public final class CostCategoryRuleRuleOrArgs extends com.pulumi.resources.Resou
             return dimension(Output.of(dimension));
         }
 
+        /**
+         * @param tags Configuration block for the specific `Tag` to use for `Expression`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<CostCategoryRuleRuleOrTagsArgs> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Configuration block for the specific `Tag` to use for `Expression`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(CostCategoryRuleRuleOrTagsArgs tags) {
             return tags(Output.of(tags));
         }

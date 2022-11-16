@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Cognito
     ///         {
     ///             new Aws.Cognito.Inputs.UserPoolSchemaArgs
     ///             {
-    ///                 Name = "terraform",
+    ///                 Name = "example",
     ///                 AttributeDataType = "Boolean",
     ///                 Mutable = false,
     ///                 Required = false,
@@ -71,9 +71,9 @@ namespace Pulumi.Aws.Cognito
     ///         Username = "example",
     ///         Attributes = 
     ///         {
-    ///             { "terraform", "true" },
+    ///             { "example", "true" },
     ///             { "foo", "bar" },
-    ///             { "email", "no-reply@hashicorp.com" },
+    ///             { "email", "no-reply@domain.example" },
     ///             { "email_verified", "true" },
     ///         },
     ///     });

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.StorageGateway
     /// ## Example Usage
     /// ### Active Directory Authentication
     /// 
-    /// &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creation. e.g. via "SMB Settings" in the AWS Storage Gateway console or `smb_active_directory_settings` in the `aws.storagegateway.Gateway` resource.
+    /// &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_active_directory_settings` in the `aws.storagegateway.Gateway` resource.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.StorageGateway
     /// ```
     /// ### Guest Authentication
     /// 
-    /// &gt; **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creation. e.g. via "SMB Settings" in the AWS Storage Gateway console or `smb_guest_password` in the `aws.storagegateway.Gateway` resource.
+    /// &gt; **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_guest_password` in the `aws.storagegateway.Gateway` resource.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

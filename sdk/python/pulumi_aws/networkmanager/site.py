@@ -25,6 +25,7 @@ class SiteArgs:
         :param pulumi.Input[str] global_network_id: The ID of the Global Network to create the site in.
         :param pulumi.Input[str] description: Description of the Site.
         :param pulumi.Input['SiteLocationArgs'] location: The site location as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
         if description is not None:
@@ -73,6 +74,9 @@ class SiteArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -95,6 +99,7 @@ class _SiteState:
         :param pulumi.Input[str] description: Description of the Site.
         :param pulumi.Input[str] global_network_id: The ID of the Global Network to create the site in.
         :param pulumi.Input['SiteLocationArgs'] location: The site location as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -161,6 +166,9 @@ class _SiteState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -216,6 +224,7 @@ class Site(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the Site.
         :param pulumi.Input[str] global_network_id: The ID of the Global Network to create the site in.
         :param pulumi.Input[pulumi.InputType['SiteLocationArgs']] location: The site location as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -307,6 +316,7 @@ class Site(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the Site.
         :param pulumi.Input[str] global_network_id: The ID of the Global Network to create the site in.
         :param pulumi.Input[pulumi.InputType['SiteLocationArgs']] location: The site location as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -356,6 +366,9 @@ class Site(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

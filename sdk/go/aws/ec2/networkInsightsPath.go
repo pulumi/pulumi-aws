@@ -68,7 +68,8 @@ type NetworkInsightsPath struct {
 	// IP address of the source resource.
 	SourceIp pulumi.StringPtrOutput `pulumi:"sourceIp"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -125,7 +126,8 @@ type networkInsightsPathState struct {
 	// IP address of the source resource.
 	SourceIp *string `pulumi:"sourceIp"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -145,7 +147,8 @@ type NetworkInsightsPathState struct {
 	// IP address of the source resource.
 	SourceIp pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -315,6 +318,7 @@ func (o NetworkInsightsPathOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NetworkInsightsPathOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

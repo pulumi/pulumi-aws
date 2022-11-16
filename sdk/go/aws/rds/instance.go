@@ -25,9 +25,6 @@ import (
 // When upgrading the major version of an engine, `allowMajorVersionUpgrade`
 // must be set to `true`.
 //
-// > **Note:** using `applyImmediately` can result in a brief downtime as the
-// server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
-//
 // ## RDS Instance Class Types
 //
 // Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
@@ -198,7 +195,7 @@ type Instance struct {
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"iamDatabaseAuthenticationEnabled"`
 	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier.
+	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -313,7 +310,7 @@ type Instance struct {
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 	// specified, "gp2" if not.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -452,7 +449,7 @@ type instanceState struct {
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled *bool `pulumi:"iamDatabaseAuthenticationEnabled"`
 	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier.
+	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier *string `pulumi:"identifier"`
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -567,7 +564,7 @@ type instanceState struct {
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 	// specified, "gp2" if not.
 	StorageType *string `pulumi:"storageType"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -675,7 +672,7 @@ type InstanceState struct {
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrInput
 	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier.
+	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier pulumi.StringPtrInput
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -790,7 +787,7 @@ type InstanceState struct {
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 	// specified, "gp2" if not.
 	StorageType pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -891,7 +888,7 @@ type instanceArgs struct {
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled *bool `pulumi:"iamDatabaseAuthenticationEnabled"`
 	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier.
+	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier *string `pulumi:"identifier"`
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -999,7 +996,7 @@ type instanceArgs struct {
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 	// specified, "gp2" if not.
 	StorageType *string `pulumi:"storageType"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -1095,7 +1092,7 @@ type InstanceArgs struct {
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrInput
 	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier.
+	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier pulumi.StringPtrInput
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -1203,7 +1200,7 @@ type InstanceArgs struct {
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
 	// specified, "gp2" if not.
 	StorageType pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -1479,7 +1476,7 @@ func (o InstanceOutput) IamDatabaseAuthenticationEnabled() pulumi.BoolPtrOutput 
 }
 
 // The name of the RDS instance,
-// if omitted, this provider will assign a random, unique identifier.
+// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 func (o InstanceOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }
@@ -1699,7 +1696,7 @@ func (o InstanceOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.StorageType }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

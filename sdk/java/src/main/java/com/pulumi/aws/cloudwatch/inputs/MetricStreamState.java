@@ -110,9 +110,17 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.lastUpdateDate);
     }
 
+    /**
+     * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -405,11 +413,23 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
             return lastUpdateDate(Output.of(lastUpdateDate));
         }
 
+        /**
+         * @param name Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

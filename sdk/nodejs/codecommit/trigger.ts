@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a CodeCommit Trigger Resource.
+ *
  * ## Example Usage
  *
  * ```typescript

@@ -166,7 +166,8 @@ type StateMachine struct {
 	Definition pulumi.StringOutput `pulumi:"definition"`
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration StateMachineLoggingConfigurationOutput `pulumi:"loggingConfiguration"`
-	Name                 pulumi.StringOutput                    `pulumi:"name"`
+	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -226,7 +227,8 @@ type stateMachineState struct {
 	Definition *string `pulumi:"definition"`
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
-	Name                 *string                           `pulumi:"name"`
+	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -252,7 +254,8 @@ type StateMachineState struct {
 	Definition pulumi.StringPtrInput
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration StateMachineLoggingConfigurationPtrInput
-	Name                 pulumi.StringPtrInput
+	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -278,7 +281,8 @@ type stateMachineArgs struct {
 	Definition string `pulumi:"definition"`
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
-	Name                 *string                           `pulumi:"name"`
+	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -297,7 +301,8 @@ type StateMachineArgs struct {
 	Definition pulumi.StringInput
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration StateMachineLoggingConfigurationPtrInput
-	Name                 pulumi.StringPtrInput
+	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -417,6 +422,7 @@ func (o StateMachineOutput) LoggingConfiguration() StateMachineLoggingConfigurat
 	return o.ApplyT(func(v *StateMachine) StateMachineLoggingConfigurationOutput { return v.LoggingConfiguration }).(StateMachineLoggingConfigurationOutput)
 }
 
+// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
 func (o StateMachineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

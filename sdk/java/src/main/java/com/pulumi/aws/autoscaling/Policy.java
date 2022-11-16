@@ -21,6 +21,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an AutoScaling Scaling Policy resource.
+ * 
+ * &gt; **NOTE:** You may want to omit `desired_capacity` attribute from attached `aws.autoscaling.Group`
+ * when using autoscaling policies. It&#39;s good practice to pick either
+ * [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
+ * or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
+ * (policy-based) scaling.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

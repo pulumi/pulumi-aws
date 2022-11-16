@@ -16,6 +16,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java

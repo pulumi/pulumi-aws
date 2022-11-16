@@ -131,8 +131,6 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
  * ```
  * 
- *  [1]/docs/providers/aws/index.html
- * 
  */
 @ResourceType(type="aws:appmesh/virtualGateway:VirtualGateway")
 public class VirtualGateway extends com.pulumi.resources.CustomResource {

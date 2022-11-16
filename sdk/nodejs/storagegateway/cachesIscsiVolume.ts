@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Manages an AWS Storage Gateway cached iSCSI volume.
  *
- * > **NOTE:** The gateway must have cache added (e.g. via the `aws.storagegateway.Cache` resource) before creating volumes otherwise the Storage Gateway API will return an error.
+ * > **NOTE:** The gateway must have cache added (e.g., via the `aws.storagegateway.Cache` resource) before creating volumes otherwise the Storage Gateway API will return an error.
  *
- * > **NOTE:** The gateway must have an upload buffer added (e.g. via the `aws.storagegateway.UploadBuffer` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
+ * > **NOTE:** The gateway must have an upload buffer added (e.g., via the `aws.storagegateway.UploadBuffer` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
  *
  * ## Example Usage
  *
@@ -142,7 +142,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
     public /*out*/ readonly targetArn!: pulumi.Output<string>;
     /**
@@ -150,11 +150,11 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     public readonly targetName!: pulumi.Output<string>;
     /**
-     * Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
     public /*out*/ readonly volumeArn!: pulumi.Output<string>;
     /**
-     * Volume ID, e.g. `vol-12345678`.
+     * Volume ID, e.g., `vol-12345678`.
      */
     public /*out*/ readonly volumeId!: pulumi.Output<string>;
     /**
@@ -282,7 +282,7 @@ export interface CachesIscsiVolumeState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
     targetArn?: pulumi.Input<string>;
     /**
@@ -290,11 +290,11 @@ export interface CachesIscsiVolumeState {
      */
     targetName?: pulumi.Input<string>;
     /**
-     * Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
     volumeArn?: pulumi.Input<string>;
     /**
-     * Volume ID, e.g. `vol-12345678`.
+     * Volume ID, e.g., `vol-12345678`.
      */
     volumeId?: pulumi.Input<string>;
     /**

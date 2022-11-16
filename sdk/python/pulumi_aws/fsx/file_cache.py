@@ -25,8 +25,7 @@ class FileCacheArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FileCache resource.
         :param pulumi.Input[str] file_cache_type: The type of cache that you're creating. The only supported value is `LUSTRE`.
@@ -39,6 +38,7 @@ class FileCacheArgs:
         :param pulumi.Input[str] kms_key_id: Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
         :param pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]] lustre_configurations: See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "file_cache_type", file_cache_type)
         pulumi.set(__self__, "file_cache_type_version", file_cache_type_version)
@@ -56,8 +56,6 @@ class FileCacheArgs:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="fileCacheType")
@@ -171,20 +169,14 @@ class FileCacheArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -225,6 +217,7 @@ class _FileCacheState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         :param pulumi.Input[int] storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of your virtual private cloud (VPC).
         """
         if arn is not None:
@@ -445,6 +438,9 @@ class _FileCacheState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -488,9 +484,10 @@ class FileCache(pulumi.CustomResource):
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS FSx File Cache.
+        See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
         ## Example Usage
 
         ```python
@@ -547,6 +544,7 @@ class FileCache(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         :param pulumi.Input[int] storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -555,6 +553,8 @@ class FileCache(pulumi.CustomResource):
                  args: FileCacheArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS FSx File Cache.
+        See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
         ## Example Usage
 
         ```python
@@ -624,7 +624,6 @@ class FileCache(pulumi.CustomResource):
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -652,13 +651,13 @@ class FileCache(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["data_repository_association_ids"] = None
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["file_cache_id"] = None
             __props__.__dict__["network_interface_ids"] = None
             __props__.__dict__["owner_id"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
         super(FileCache, __self__).__init__(
             'aws:fsx/fileCache:FileCache',
@@ -710,6 +709,7 @@ class FileCache(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         :param pulumi.Input[int] storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of your virtual private cloud (VPC).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -857,6 +857,9 @@ class FileCache(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -150,6 +150,7 @@ class _ApplicationVersionState:
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: Unique name for the this Application Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if application is not None:
             pulumi.set(__self__, "application", application)
@@ -269,6 +270,9 @@ class _ApplicationVersionState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -449,6 +453,7 @@ class ApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: Unique name for the this Application Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -532,5 +537,8 @@ class ApplicationVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

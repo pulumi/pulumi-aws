@@ -152,7 +152,10 @@ def get_objects(bucket: Optional[str] = None,
                 start_after: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObjectsResult:
     """
-    Use this data source to access information about an existing resource.
+    > **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+
+    The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+
 
     :param str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
     :param str delimiter: Character used to group keys (Default: none)
@@ -197,7 +200,10 @@ def get_objects_output(bucket: Optional[pulumi.Input[str]] = None,
                        start_after: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectsResult]:
     """
-    Use this data source to access information about an existing resource.
+    > **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+
+    The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+
 
     :param str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
     :param str delimiter: Character used to group keys (Default: none)

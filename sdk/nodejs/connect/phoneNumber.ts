@@ -114,8 +114,14 @@ export class PhoneNumber extends pulumi.CustomResource {
      * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
      */
     public /*out*/ readonly statuses!: pulumi.Output<outputs.connect.PhoneNumberStatus[]>;
+    /**
+     * Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
      */
@@ -163,12 +169,12 @@ export class PhoneNumber extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["prefix"] = args ? args.prefix : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["targetArn"] = args ? args.targetArn : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["phoneNumber"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PhoneNumber.__pulumiType, name, resourceInputs, opts);
@@ -203,7 +209,13 @@ export interface PhoneNumberState {
      * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
      */
     statuses?: pulumi.Input<pulumi.Input<inputs.connect.PhoneNumberStatus>[]>;
+    /**
+     * Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
@@ -231,8 +243,10 @@ export interface PhoneNumberArgs {
      * The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
      */
     prefix?: pulumi.Input<string>;
+    /**
+     * Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
      */

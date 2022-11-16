@@ -71,6 +71,42 @@ import (
 //					&backup.FrameworkControlArgs{
 //						Name: pulumi.String("BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED"),
 //					},
+//					&backup.FrameworkControlArgs{
+//						InputParameters: backup.FrameworkControlInputParameterArray{
+//							&backup.FrameworkControlInputParameterArgs{
+//								Name:  pulumi.String("maxRetentionDays"),
+//								Value: pulumi.String("100"),
+//							},
+//							&backup.FrameworkControlInputParameterArgs{
+//								Name:  pulumi.String("minRetentionDays"),
+//								Value: pulumi.String("1"),
+//							},
+//						},
+//						Name: pulumi.String("BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK"),
+//						Scope: &backup.FrameworkControlScopeArgs{
+//							ComplianceResourceTypes: pulumi.StringArray{
+//								pulumi.String("EBS"),
+//							},
+//						},
+//					},
+//					&backup.FrameworkControlArgs{
+//						InputParameters: backup.FrameworkControlInputParameterArray{
+//							&backup.FrameworkControlInputParameterArgs{
+//								Name:  pulumi.String("recoveryPointAgeUnit"),
+//								Value: pulumi.String("days"),
+//							},
+//							&backup.FrameworkControlInputParameterArgs{
+//								Name:  pulumi.String("recoveryPointAgeValue"),
+//								Value: pulumi.String("1"),
+//							},
+//						},
+//						Name: pulumi.String("BACKUP_LAST_RECOVERY_POINT_CREATED"),
+//						Scope: &backup.FrameworkControlScopeArgs{
+//							ComplianceResourceTypes: pulumi.StringArray{
+//								pulumi.String("EBS"),
+//							},
+//						},
+//					},
 //				},
 //				Description: pulumi.String("this is an example framework"),
 //				Tags: pulumi.StringMap{

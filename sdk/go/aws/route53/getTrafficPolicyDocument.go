@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as [`route53.TrafficPolicy`](https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy.html).
+// Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `route53.TrafficPolicy`.
 //
 // ## Example Usage
 // ### Basic Example

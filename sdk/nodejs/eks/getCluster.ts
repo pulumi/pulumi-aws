@@ -78,7 +78,7 @@ export interface GetClusterResult {
      */
     readonly enabledClusterLogTypes: string[];
     /**
-     * The endpoint for your Kubernetes API server.
+     * Endpoint for your Kubernetes API server.
      */
     readonly endpoint: string;
     /**

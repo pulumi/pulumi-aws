@@ -24,6 +24,9 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         [Input("dimension")]
         public Input<Inputs.CostCategoryRuleRuleOrDimensionGetArgs>? Dimension { get; set; }
 
+        /// <summary>
+        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
+        /// </summary>
         [Input("tags")]
         public Input<Inputs.CostCategoryRuleRuleOrTagsGetArgs>? Tags { get; set; }
 

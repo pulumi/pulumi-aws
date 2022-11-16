@@ -24,7 +24,6 @@ class DocumentClassifierArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  output_data_config: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  version_name_prefix: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -46,8 +45,14 @@ class DocumentClassifierArgs:
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         :param pulumi.Input['DocumentClassifierOutputDataConfigArgs'] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] version_name: Name for the version of the Document Classifier.
+               Each version must have a unique name within the Document Classifier.
+               If omitted, the provider will assign a random, unique version name.
+               If explicitly set to `""`, no version name will be set.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name_prefix`.
         :param pulumi.Input[str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
                Has a maximum length of 37 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
@@ -70,8 +75,6 @@ class DocumentClassifierArgs:
             pulumi.set(__self__, "output_data_config", output_data_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if version_name is not None:
             pulumi.set(__self__, "version_name", version_name)
         if version_name_prefix is not None:
@@ -177,7 +180,7 @@ class DocumentClassifierArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -186,20 +189,17 @@ class DocumentClassifierArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
-    @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the version of the Document Classifier.
+        Each version must have a unique name within the Document Classifier.
+        If omitted, the provider will assign a random, unique version name.
+        If explicitly set to `""`, no version name will be set.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name_prefix`.
+        """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
@@ -283,8 +283,15 @@ class _DocumentClassifierState:
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         :param pulumi.Input['DocumentClassifierOutputDataConfigArgs'] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] version_name: Name for the version of the Document Classifier.
+               Each version must have a unique name within the Document Classifier.
+               If omitted, the provider will assign a random, unique version name.
+               If explicitly set to `""`, no version name will be set.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name_prefix`.
         :param pulumi.Input[str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
                Has a maximum length of 37 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
@@ -431,7 +438,7 @@ class _DocumentClassifierState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -443,7 +450,7 @@ class _DocumentClassifierState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -454,6 +461,15 @@ class _DocumentClassifierState:
     @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the version of the Document Classifier.
+        Each version must have a unique name within the Document Classifier.
+        If omitted, the provider will assign a random, unique version name.
+        If explicitly set to `""`, no version name will be set.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name_prefix`.
+        """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
@@ -515,13 +531,14 @@ class DocumentClassifier(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  output_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  version_name_prefix: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArgs']]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS Comprehend Document Classifier.
+
         ## Example Usage
         ### Basic Usage
 
@@ -567,8 +584,14 @@ class DocumentClassifier(pulumi.CustomResource):
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         :param pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] version_name: Name for the version of the Document Classifier.
+               Each version must have a unique name within the Document Classifier.
+               If omitted, the provider will assign a random, unique version name.
+               If explicitly set to `""`, no version name will be set.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name_prefix`.
         :param pulumi.Input[str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
                Has a maximum length of 37 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
@@ -585,6 +608,8 @@ class DocumentClassifier(pulumi.CustomResource):
                  args: DocumentClassifierArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS Comprehend Document Classifier.
+
         ## Example Usage
         ### Basic Usage
 
@@ -636,7 +661,6 @@ class DocumentClassifier(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  output_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  version_name_prefix: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -664,12 +688,12 @@ class DocumentClassifier(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["output_data_config"] = output_data_config
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["version_name"] = version_name
             __props__.__dict__["version_name_prefix"] = version_name_prefix
             __props__.__dict__["volume_kms_key_id"] = volume_kms_key_id
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(DocumentClassifier, __self__).__init__(
             'aws:comprehend/documentClassifier:DocumentClassifier',
             resource_name,
@@ -717,8 +741,15 @@ class DocumentClassifier(pulumi.CustomResource):
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         :param pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] version_name: Name for the version of the Document Classifier.
+               Each version must have a unique name within the Document Classifier.
+               If omitted, the provider will assign a random, unique version name.
+               If explicitly set to `""`, no version name will be set.
+               Has a maximum length of 63 characters.
+               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Conflicts with `version_name_prefix`.
         :param pulumi.Input[str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
                Has a maximum length of 37 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
@@ -824,7 +855,7 @@ class DocumentClassifier(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -832,13 +863,22 @@ class DocumentClassifier(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="versionName")
     def version_name(self) -> pulumi.Output[str]:
+        """
+        Name for the version of the Document Classifier.
+        Each version must have a unique name within the Document Classifier.
+        If omitted, the provider will assign a random, unique version name.
+        If explicitly set to `""`, no version name will be set.
+        Has a maximum length of 63 characters.
+        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Conflicts with `version_name_prefix`.
+        """
         return pulumi.get(self, "version_name")
 
     @property

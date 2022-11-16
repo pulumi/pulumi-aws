@@ -94,14 +94,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2transitgateway/peeringAttachment:PeeringAttachment")
 public class PeeringAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
+     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     @Export(name="peerAccountId", type=String.class, parameters={})
     private Output<String> peerAccountId;
 
     /**
-     * @return Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
+     * @return Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
     public Output<String> peerAccountId() {

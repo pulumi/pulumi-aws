@@ -95,6 +95,8 @@ import * as utilities from "../utilities";
  *
  * Security Group's Name [cannot be edited after the resource is created](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group). In fact, the `name` and `name-prefix` arguments force the creation of a new Security Group resource when they change value. In that case, this provider first deletes the existing Security Group resource and then it creates a new one. If the existing Security Group is associated to a Network Interface resource, the deletion cannot complete. The reason is that Network Interface resources cannot be left with no Security Group attached and the new one is not yet available at that point.
  *
+ * You must invert the default behavior of the provider. That is, first the new Security Group resource must be created, then associated to possible Network Interface resources and finally the old Security Group can be detached and deleted. To force this behavior, you must set the createBeforeDestroy property:
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -147,11 +149,11 @@ export class SecurityGroup extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+     * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      */
     public readonly egress!: pulumi.Output<outputs.ec2.SecurityGroupEgress[]>;
     /**
-     * Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+     * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      */
     public readonly ingress!: pulumi.Output<outputs.ec2.SecurityGroupIngress[]>;
     /**
@@ -167,7 +169,7 @@ export class SecurityGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+     * Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
      */
     public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
@@ -240,11 +242,11 @@ export interface SecurityGroupState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+     * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      */
     egress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgress>[]>;
     /**
-     * Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+     * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
     /**
@@ -260,7 +262,7 @@ export interface SecurityGroupState {
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+     * Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
      */
     revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
@@ -287,11 +289,11 @@ export interface SecurityGroupArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+     * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      */
     egress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgress>[]>;
     /**
-     * Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+     * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
     /**
@@ -303,7 +305,7 @@ export interface SecurityGroupArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+     * Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
      */
     revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**

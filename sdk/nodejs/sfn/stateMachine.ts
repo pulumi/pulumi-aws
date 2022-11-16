@@ -141,6 +141,9 @@ export class StateMachine extends pulumi.CustomResource {
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.sfn.StateMachineLoggingConfiguration>;
+    /**
+     * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -242,6 +245,9 @@ export interface StateMachineState {
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
     loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
+    /**
+     * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -285,6 +291,9 @@ export interface StateMachineArgs {
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
     loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
+    /**
+     * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

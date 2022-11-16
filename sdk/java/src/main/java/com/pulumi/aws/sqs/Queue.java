@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraformQueue = new Queue(&#34;terraformQueue&#34;, QueueArgs.builder()        
+ *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
  *             .deduplicationScope(&#34;messageGroup&#34;)
  *             .fifoQueue(true)
  *             .fifoThroughputLimit(&#34;perMessageGroupId&#34;)
@@ -143,11 +143,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraformQueueDeadletter = new Queue(&#34;terraformQueueDeadletter&#34;, QueueArgs.builder()        
+ *         var exampleQueueDeadletter = new Queue(&#34;exampleQueueDeadletter&#34;, QueueArgs.builder()        
  *             .redriveAllowPolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
- *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(aws_sqs_queue.terraform_queue().arn()))
+ *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(aws_sqs_queue.example_queue().arn()))
  *                 )))
  *             .build());
  * 
@@ -179,7 +179,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraformQueue = new Queue(&#34;terraformQueue&#34;, QueueArgs.builder()        
+ *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
  *             .sqsManagedSseEnabled(true)
  *             .build());
  * 
@@ -453,9 +453,17 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<String> redrivePolicy() {
         return this.redrivePolicy;
     }
+    /**
+     * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+     * 
+     */
     @Export(name="sqsManagedSseEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> sqsManagedSseEnabled;
 
+    /**
+     * @return Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+     * 
+     */
     public Output<Boolean> sqsManagedSseEnabled() {
         return this.sqsManagedSseEnabled;
     }

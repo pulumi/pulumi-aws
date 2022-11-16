@@ -94,7 +94,6 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
-     * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
      * 
      */
     @Import(name="opsCenterEnabled")
@@ -102,7 +101,6 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return When set to `true`, creates opsItems for any problems detected on an application.
-     * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
      * 
      */
     public Optional<Output<Boolean>> opsCenterEnabled() {
@@ -141,7 +139,6 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     @Import(name="tags")
@@ -149,7 +146,6 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -311,7 +307,6 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param opsCenterEnabled When set to `true`, creates opsItems for any problems detected on an application.
-         * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
          * 
          * @return builder
          * 
@@ -323,7 +318,6 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param opsCenterEnabled When set to `true`, creates opsItems for any problems detected on an application.
-         * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
          * 
          * @return builder
          * 
@@ -376,7 +370,6 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
          * 
          * @return builder
          * 
@@ -388,7 +381,6 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * &gt; &gt; &gt; &gt; &gt; &gt; &gt; v4.29.0
          * 
          * @return builder
          * 

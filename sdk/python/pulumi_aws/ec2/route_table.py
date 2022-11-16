@@ -25,6 +25,7 @@ class RouteTableArgs:
         :param pulumi.Input[str] vpc_id: The VPC ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: A list of virtual gateways for propagation.
         :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]] routes: A list of route objects. Their keys are documented below.
+               This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -64,6 +65,7 @@ class RouteTableArgs:
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]]:
         """
         A list of route objects. Their keys are documented below.
+        This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         """
         return pulumi.get(self, "routes")
 
@@ -100,6 +102,7 @@ class _RouteTableState:
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: A list of virtual gateways for propagation.
         :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]] routes: A list of route objects. Their keys are documented below.
+               This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC ID.
@@ -160,6 +163,7 @@ class _RouteTableState:
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]]:
         """
         A list of route objects. Their keys are documented below.
+        This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         """
         return pulumi.get(self, "routes")
 
@@ -285,6 +289,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: A list of virtual gateways for propagation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]] routes: A list of route objects. Their keys are documented below.
+               This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The VPC ID.
         """
@@ -426,6 +431,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: A list of virtual gateways for propagation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]] routes: A list of route objects. Their keys are documented below.
+               This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC ID.
@@ -472,6 +478,7 @@ class RouteTable(pulumi.CustomResource):
     def routes(self) -> pulumi.Output[Sequence['outputs.RouteTableRoute']]:
         """
         A list of route objects. Their keys are documented below.
+        This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         """
         return pulumi.get(self, "routes")
 

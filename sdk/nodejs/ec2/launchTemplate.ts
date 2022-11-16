@@ -235,6 +235,9 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * The monitoring option for the instance. See Monitoring below for more details.
      */
     public readonly monitoring!: pulumi.Output<outputs.ec2.LaunchTemplateMonitoring | undefined>;
+    /**
+     * The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -507,6 +510,9 @@ export interface LaunchTemplateState {
      * The monitoring option for the instance. See Monitoring below for more details.
      */
     monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoring>;
+    /**
+     * The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -671,6 +677,9 @@ export interface LaunchTemplateArgs {
      * The monitoring option for the instance. See Monitoring below for more details.
      */
     monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoring>;
+    /**
+     * The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+     */
     name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

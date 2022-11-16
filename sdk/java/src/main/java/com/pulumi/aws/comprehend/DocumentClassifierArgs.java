@@ -141,14 +141,14 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -156,23 +156,28 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     * Name for the version of the Document Classifier.
+     * Each version must have a unique name within the Document Classifier.
+     * If omitted, the provider will assign a random, unique version name.
+     * If explicitly set to `&#34;&#34;`, no version name will be set.
+     * Has a maximum length of 63 characters.
+     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Conflicts with `version_name_prefix`.
      * 
      */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     @Import(name="versionName")
     private @Nullable Output<String> versionName;
 
+    /**
+     * @return Name for the version of the Document Classifier.
+     * Each version must have a unique name within the Document Classifier.
+     * If omitted, the provider will assign a random, unique version name.
+     * If explicitly set to `&#34;&#34;`, no version name will be set.
+     * Has a maximum length of 63 characters.
+     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Conflicts with `version_name_prefix`.
+     * 
+     */
     public Optional<Output<String>> versionName() {
         return Optional.ofNullable(this.versionName);
     }
@@ -243,7 +248,6 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
         this.name = $.name;
         this.outputDataConfig = $.outputDataConfig;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.versionName = $.versionName;
         this.versionNamePrefix = $.versionNamePrefix;
         this.volumeKmsKeyId = $.volumeKmsKeyId;
@@ -432,7 +436,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -443,7 +447,7 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider [`default_tags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -453,31 +457,34 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+         * @param versionName Name for the version of the Document Classifier.
+         * Each version must have a unique name within the Document Classifier.
+         * If omitted, the provider will assign a random, unique version name.
+         * If explicitly set to `&#34;&#34;`, no version name will be set.
+         * Has a maximum length of 63 characters.
+         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Conflicts with `version_name_prefix`.
          * 
          * @return builder
          * 
          */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
-        }
-
         public Builder versionName(@Nullable Output<String> versionName) {
             $.versionName = versionName;
             return this;
         }
 
+        /**
+         * @param versionName Name for the version of the Document Classifier.
+         * Each version must have a unique name within the Document Classifier.
+         * If omitted, the provider will assign a random, unique version name.
+         * If explicitly set to `&#34;&#34;`, no version name will be set.
+         * Has a maximum length of 63 characters.
+         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Conflicts with `version_name_prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionName(String versionName) {
             return versionName(Output.of(versionName));
         }

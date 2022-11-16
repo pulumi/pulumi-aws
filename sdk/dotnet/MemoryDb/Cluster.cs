@@ -72,6 +72,9 @@ namespace Pulumi.Aws.MemoryDb
         [Output("clusterEndpoints")]
         public Output<ImmutableArray<Outputs.ClusterClusterEndpoint>> ClusterEndpoints { get; private set; } = null!;
 
+        /// <summary>
+        /// Description for the cluster.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -106,8 +109,7 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Name of this node.
-        /// * `endpoint`
+        /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -272,6 +274,9 @@ namespace Pulumi.Aws.MemoryDb
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
 
+        /// <summary>
+        /// Description for the cluster.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -300,8 +305,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Name of this node.
-        /// * `endpoint`
+        /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -443,6 +447,9 @@ namespace Pulumi.Aws.MemoryDb
             set => _clusterEndpoints = value;
         }
 
+        /// <summary>
+        /// Description for the cluster.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -477,8 +484,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Name of this node.
-        /// * `endpoint`
+        /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

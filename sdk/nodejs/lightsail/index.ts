@@ -65,6 +65,10 @@ export { LbCertificateAttachmentArgs, LbCertificateAttachmentState } from "./lbC
 export type LbCertificateAttachment = import("./lbCertificateAttachment").LbCertificateAttachment;
 export const LbCertificateAttachment: typeof import("./lbCertificateAttachment").LbCertificateAttachment = null as any;
 
+export { LbHttpsRedirectionPolicyArgs, LbHttpsRedirectionPolicyState } from "./lbHttpsRedirectionPolicy";
+export type LbHttpsRedirectionPolicy = import("./lbHttpsRedirectionPolicy").LbHttpsRedirectionPolicy;
+export const LbHttpsRedirectionPolicy: typeof import("./lbHttpsRedirectionPolicy").LbHttpsRedirectionPolicy = null as any;
+
 export { LbStickinessPolicyArgs, LbStickinessPolicyState } from "./lbStickinessPolicy";
 export type LbStickinessPolicy = import("./lbStickinessPolicy").LbStickinessPolicy;
 export const LbStickinessPolicy: typeof import("./lbStickinessPolicy").LbStickinessPolicy = null as any;
@@ -92,6 +96,7 @@ utilities.lazyLoad(exports, ["Lb"], () => require("./lb"));
 utilities.lazyLoad(exports, ["LbAttachment"], () => require("./lbAttachment"));
 utilities.lazyLoad(exports, ["LbCertificate"], () => require("./lbCertificate"));
 utilities.lazyLoad(exports, ["LbCertificateAttachment"], () => require("./lbCertificateAttachment"));
+utilities.lazyLoad(exports, ["LbHttpsRedirectionPolicy"], () => require("./lbHttpsRedirectionPolicy"));
 utilities.lazyLoad(exports, ["LbStickinessPolicy"], () => require("./lbStickinessPolicy"));
 utilities.lazyLoad(exports, ["StaticIp"], () => require("./staticIp"));
 utilities.lazyLoad(exports, ["StaticIpAttachment"], () => require("./staticIpAttachment"));
@@ -130,6 +135,8 @@ const _module = {
                 return new LbCertificate(name, <any>undefined, { urn })
             case "aws:lightsail/lbCertificateAttachment:LbCertificateAttachment":
                 return new LbCertificateAttachment(name, <any>undefined, { urn })
+            case "aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy":
+                return new LbHttpsRedirectionPolicy(name, <any>undefined, { urn })
             case "aws:lightsail/lbStickinessPolicy:LbStickinessPolicy":
                 return new LbStickinessPolicy(name, <any>undefined, { urn })
             case "aws:lightsail/staticIp:StaticIp":
@@ -156,6 +163,7 @@ pulumi.runtime.registerResourceModule("aws", "lightsail/lb", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/lbAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/lbCertificate", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/lbCertificateAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/lbHttpsRedirectionPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/lbStickinessPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/staticIp", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/staticIpAttachment", _module)

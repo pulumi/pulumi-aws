@@ -162,6 +162,8 @@ class CustomKeyStore(pulumi.CustomResource):
                  trust_anchor_certificate: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS KMS (Key Management) Custom Key Store.
+
         ## Example Usage
         ### Basic Usage
 
@@ -198,6 +200,8 @@ class CustomKeyStore(pulumi.CustomResource):
                  args: CustomKeyStoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS KMS (Key Management) Custom Key Store.
+
         ## Example Usage
         ### Basic Usage
 

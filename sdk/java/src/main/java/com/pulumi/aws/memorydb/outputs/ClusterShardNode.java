@@ -25,8 +25,7 @@ public final class ClusterShardNode {
     private @Nullable String createTime;
     private @Nullable List<ClusterShardNodeEndpoint> endpoints;
     /**
-     * @return Name of this node.
-     * * `endpoint`
+     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     private @Nullable String name;
@@ -50,8 +49,7 @@ public final class ClusterShardNode {
         return this.endpoints == null ? List.of() : this.endpoints;
     }
     /**
-     * @return Name of this node.
-     * * `endpoint`
+     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Optional<String> name() {

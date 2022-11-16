@@ -73,8 +73,6 @@ namespace Pulumi.Aws.AppMesh
     /// ```sh
     ///  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
     /// ```
-    /// 
-    ///  [1]/docs/providers/aws/index.html
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualService:VirtualService")]
     public partial class VirtualService : global::Pulumi.CustomResource

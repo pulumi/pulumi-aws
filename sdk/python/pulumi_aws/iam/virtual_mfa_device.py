@@ -196,6 +196,8 @@ class VirtualMfaDevice(pulumi.CustomResource):
                  virtual_mfa_device_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an IAM Virtual MFA Device.
+
         ## Example Usage
 
         **Using certs on file:**
@@ -228,6 +230,8 @@ class VirtualMfaDevice(pulumi.CustomResource):
                  args: VirtualMfaDeviceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an IAM Virtual MFA Device.
+
         ## Example Usage
 
         **Using certs on file:**

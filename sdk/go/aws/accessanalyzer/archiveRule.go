@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS AccessAnalyzer Archive Rule.
+//
 // ## Example Usage
 // ### Basic Usage
 //

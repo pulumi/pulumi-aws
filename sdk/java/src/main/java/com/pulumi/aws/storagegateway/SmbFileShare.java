@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * ### Active Directory Authentication
  * 
- * &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creation. e.g. via &#34;SMB Settings&#34; in the AWS Storage Gateway console or `smb_active_directory_settings` in the `aws.storagegateway.Gateway` resource.
+ * &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via &#34;SMB Settings&#34; in the AWS Storage Gateway console or `smb_active_directory_settings` in the `aws.storagegateway.Gateway` resource.
  * ```java
  * package generated_program;
  * 
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * ```
  * ### Guest Authentication
  * 
- * &gt; **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creation. e.g. via &#34;SMB Settings&#34; in the AWS Storage Gateway console or `smb_guest_password` in the `aws.storagegateway.Gateway` resource.
+ * &gt; **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via &#34;SMB Settings&#34; in the AWS Storage Gateway console or `smb_guest_password` in the `aws.storagegateway.Gateway` resource.
  * ```java
  * package generated_program;
  * 

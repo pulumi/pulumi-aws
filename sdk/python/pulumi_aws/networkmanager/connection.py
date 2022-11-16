@@ -29,6 +29,7 @@ class ConnectionArgs:
         :param pulumi.Input[str] connected_link_id: The ID of the link for the second device.
         :param pulumi.Input[str] description: A description of the connection.
         :param pulumi.Input[str] link_id: The ID of the link for the first device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "connected_device_id", connected_device_id)
         pulumi.set(__self__, "device_id", device_id)
@@ -117,6 +118,9 @@ class ConnectionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -145,6 +149,7 @@ class _ConnectionState:
         :param pulumi.Input[str] device_id: The ID of the first device in the connection.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] link_id: The ID of the link for the first device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -253,6 +258,9 @@ class _ConnectionState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -317,6 +325,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] device_id: The ID of the first device in the connection.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] link_id: The ID of the link for the first device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -427,6 +436,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] device_id: The ID of the first device in the connection.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] link_id: The ID of the link for the first device.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -503,6 +513,9 @@ class Connection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

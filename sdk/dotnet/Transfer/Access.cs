@@ -92,6 +92,9 @@ namespace Pulumi.Aws.Transfer
         [Output("homeDirectoryType")]
         public Output<string?> HomeDirectoryType { get; private set; } = null!;
 
+        /// <summary>
+        /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        /// </summary>
         [Output("policy")]
         public Output<string?> Policy { get; private set; } = null!;
 
@@ -189,6 +192,9 @@ namespace Pulumi.Aws.Transfer
         [Input("homeDirectoryType")]
         public Input<string>? HomeDirectoryType { get; set; }
 
+        /// <summary>
+        /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
@@ -248,6 +254,9 @@ namespace Pulumi.Aws.Transfer
         [Input("homeDirectoryType")]
         public Input<string>? HomeDirectoryType { get; set; }
 
+        /// <summary>
+        /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

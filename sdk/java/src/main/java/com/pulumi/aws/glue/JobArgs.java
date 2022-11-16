@@ -263,14 +263,14 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+     * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
     /**
-     * @return The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+     * @return The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
      * 
      */
     public Optional<Output<Integer>> timeout() {
@@ -680,7 +680,7 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeout The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+         * @param timeout The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeout The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+         * @param timeout The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
          * 
          * @return builder
          * 

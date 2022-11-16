@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS Kendra Experience.
+ *
  * ## Example Usage
  * ### Basic Usage
  *
@@ -71,6 +73,9 @@ export class Experience extends pulumi.CustomResource {
      * ARN of the Experience.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     */
     public readonly configuration!: pulumi.Output<outputs.kendra.ExperienceConfiguration>;
     /**
      * A description for your Amazon Kendra experience.
@@ -154,6 +159,9 @@ export interface ExperienceState {
      * ARN of the Experience.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     */
     configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration>;
     /**
      * A description for your Amazon Kendra experience.
@@ -189,6 +197,9 @@ export interface ExperienceState {
  * The set of arguments for constructing a Experience resource.
  */
 export interface ExperienceArgs {
+    /**
+     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     */
     configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration>;
     /**
      * A description for your Amazon Kendra experience.

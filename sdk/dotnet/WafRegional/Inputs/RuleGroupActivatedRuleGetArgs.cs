@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// The ID of a `waf_regional_rule`
+        /// The ID of a rule
         /// </summary>
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;

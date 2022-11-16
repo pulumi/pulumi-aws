@@ -42,50 +42,6 @@ import (
 //	}
 //
 // ```
-// ### Key-Value Pairs
-//
-// Secrets Manager also accepts key-value pairs in JSON.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			example := map[string]interface{}{
-//				"key1": "value1",
-//				"key2": "value2",
-//			}
-//			if param := cfg.GetBool("example"); param != nil {
-//				example = param
-//			}
-//			tmpJSON0, err := json.Marshal(example)
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = secretsmanager.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager.SecretVersionArgs{
-//				SecretId:     pulumi.Any(aws_secretsmanager_secret.Example.Id),
-//				SecretString: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

@@ -522,7 +522,9 @@ import * as utilities from "../utilities";
  *  $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
  * ```
  *
- *  Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the resource options configuration block `ignoreChanges` argument available to all provider resources to prevent perpetual differences, e.g. terraform resource "aws_emr_cluster" "example" {
+ *  Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the
+ *
+ * `ignore_changes` option available to all resources to prevent perpetual differences, e.g., terraform resource "aws_emr_cluster" "example" {
  *
  * # ... other configuration ...
  *
@@ -560,6 +562,9 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+     */
     public readonly additionalInfo!: pulumi.Output<string | undefined>;
     /**
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
@@ -781,6 +786,9 @@ export class Cluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cluster resources.
  */
 export interface ClusterState {
+    /**
+     * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+     */
     additionalInfo?: pulumi.Input<string>;
     /**
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
@@ -910,6 +918,9 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+     */
     additionalInfo?: pulumi.Input<string>;
     /**
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).

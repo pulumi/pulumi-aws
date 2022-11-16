@@ -30,14 +30,14 @@ public final class RegexMatchSetRegexMatchTupleArgs extends com.pulumi.resources
     }
 
     /**
-     * The ID of a `WAF Regex Pattern Set`.
+     * The ID of a Regex Pattern Set.
      * 
      */
     @Import(name="regexPatternSetId", required=true)
     private Output<String> regexPatternSetId;
 
     /**
-     * @return The ID of a `WAF Regex Pattern Set`.
+     * @return The ID of a Regex Pattern Set.
      * 
      */
     public Output<String> regexPatternSetId() {
@@ -46,7 +46,7 @@ public final class RegexMatchSetRegexMatchTupleArgs extends com.pulumi.resources
 
     /**
      * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
      * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
      * for all supported values.
      * 
@@ -56,7 +56,7 @@ public final class RegexMatchSetRegexMatchTupleArgs extends com.pulumi.resources
 
     /**
      * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
      * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
      * for all supported values.
      * 
@@ -113,7 +113,7 @@ public final class RegexMatchSetRegexMatchTupleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param regexPatternSetId The ID of a `WAF Regex Pattern Set`.
+         * @param regexPatternSetId The ID of a Regex Pattern Set.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class RegexMatchSetRegexMatchTupleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param regexPatternSetId The ID of a `WAF Regex Pattern Set`.
+         * @param regexPatternSetId The ID of a Regex Pattern Set.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class RegexMatchSetRegexMatchTupleArgs extends com.pulumi.resources
 
         /**
          * @param textTransformation Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
          * for all supported values.
          * 
@@ -149,7 +149,7 @@ public final class RegexMatchSetRegexMatchTupleArgs extends com.pulumi.resources
 
         /**
          * @param textTransformation Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
          * for all supported values.
          * 

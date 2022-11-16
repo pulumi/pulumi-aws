@@ -73,8 +73,9 @@ type TransitGatewayRouteTableAttachment struct {
 	// The name of the segment attachment.
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
 	// The state of the attachment.
-	State pulumi.StringOutput    `pulumi:"state"`
-	Tags  pulumi.StringMapOutput `pulumi:"tags"`
+	State pulumi.StringOutput `pulumi:"state"`
+	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ARN of the transit gateway route table for the attachment.
@@ -137,8 +138,9 @@ type transitGatewayRouteTableAttachmentState struct {
 	// The name of the segment attachment.
 	SegmentName *string `pulumi:"segmentName"`
 	// The state of the attachment.
-	State *string           `pulumi:"state"`
-	Tags  map[string]string `pulumi:"tags"`
+	State *string `pulumi:"state"`
+	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ARN of the transit gateway route table for the attachment.
@@ -168,7 +170,8 @@ type TransitGatewayRouteTableAttachmentState struct {
 	SegmentName pulumi.StringPtrInput
 	// The state of the attachment.
 	State pulumi.StringPtrInput
-	Tags  pulumi.StringMapInput
+	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ARN of the transit gateway route table for the attachment.
@@ -181,8 +184,9 @@ func (TransitGatewayRouteTableAttachmentState) ElementType() reflect.Type {
 
 type transitGatewayRouteTableAttachmentArgs struct {
 	// The ID of the peer for the attachment.
-	PeeringId string            `pulumi:"peeringId"`
-	Tags      map[string]string `pulumi:"tags"`
+	PeeringId string `pulumi:"peeringId"`
+	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The ARN of the transit gateway route table for the attachment.
 	TransitGatewayRouteTableArn string `pulumi:"transitGatewayRouteTableArn"`
 }
@@ -191,7 +195,8 @@ type transitGatewayRouteTableAttachmentArgs struct {
 type TransitGatewayRouteTableAttachmentArgs struct {
 	// The ID of the peer for the attachment.
 	PeeringId pulumi.StringInput
-	Tags      pulumi.StringMapInput
+	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The ARN of the transit gateway route table for the attachment.
 	TransitGatewayRouteTableArn pulumi.StringInput
 }
@@ -338,6 +343,7 @@ func (o TransitGatewayRouteTableAttachmentOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
+// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TransitGatewayRouteTableAttachmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

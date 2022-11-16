@@ -63,8 +63,9 @@ type PlaceIndex struct {
 	// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
 	IndexArn pulumi.StringOutput `pulumi:"indexArn"`
 	// The name of the place index resource.
-	IndexName pulumi.StringOutput    `pulumi:"indexName"`
-	Tags      pulumi.StringMapOutput `pulumi:"tags"`
+	IndexName pulumi.StringOutput `pulumi:"indexName"`
+	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the place index resource was last update in ISO 8601.
@@ -117,8 +118,9 @@ type placeIndexState struct {
 	// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
 	IndexArn *string `pulumi:"indexArn"`
 	// The name of the place index resource.
-	IndexName *string           `pulumi:"indexName"`
-	Tags      map[string]string `pulumi:"tags"`
+	IndexName *string `pulumi:"indexName"`
+	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The timestamp for when the place index resource was last update in ISO 8601.
@@ -138,7 +140,8 @@ type PlaceIndexState struct {
 	IndexArn pulumi.StringPtrInput
 	// The name of the place index resource.
 	IndexName pulumi.StringPtrInput
-	Tags      pulumi.StringMapInput
+	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The timestamp for when the place index resource was last update in ISO 8601.
@@ -157,8 +160,9 @@ type placeIndexArgs struct {
 	// The optional description for the place index resource.
 	Description *string `pulumi:"description"`
 	// The name of the place index resource.
-	IndexName string            `pulumi:"indexName"`
-	Tags      map[string]string `pulumi:"tags"`
+	IndexName string `pulumi:"indexName"`
+	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PlaceIndex resource.
@@ -171,7 +175,8 @@ type PlaceIndexArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the place index resource.
 	IndexName pulumi.StringInput
-	Tags      pulumi.StringMapInput
+	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (PlaceIndexArgs) ElementType() reflect.Type {
@@ -291,6 +296,7 @@ func (o PlaceIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.IndexName }).(pulumi.StringOutput)
 }
 
+// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PlaceIndexOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

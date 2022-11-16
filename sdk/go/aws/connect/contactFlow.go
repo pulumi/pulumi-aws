@@ -68,7 +68,7 @@ import (
 //				Description: pulumi.String("Test Contact Flow Description"),
 //				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //				Tags: pulumi.StringMap{
-//					"Application": pulumi.String("Terraform"),
+//					"Application": pulumi.String("Example"),
 //					"Method":      pulumi.String("Create"),
 //					"Name":        pulumi.String("Test Contact Flow"),
 //				},
@@ -100,7 +100,8 @@ type ContactFlow struct {
 	// The identifier of the Contact Flow.
 	ContactFlowId pulumi.StringOutput `pulumi:"contactFlowId"`
 	// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-	Content     pulumi.StringOutput    `pulumi:"content"`
+	Content pulumi.StringOutput `pulumi:"content"`
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
 	ContentHash pulumi.StringPtrOutput `pulumi:"contentHash"`
 	// Specifies the description of the Contact Flow.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -155,7 +156,8 @@ type contactFlowState struct {
 	// The identifier of the Contact Flow.
 	ContactFlowId *string `pulumi:"contactFlowId"`
 	// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-	Content     *string `pulumi:"content"`
+	Content *string `pulumi:"content"`
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
 	ContentHash *string `pulumi:"contentHash"`
 	// Specifies the description of the Contact Flow.
 	Description *string `pulumi:"description"`
@@ -179,7 +181,8 @@ type ContactFlowState struct {
 	// The identifier of the Contact Flow.
 	ContactFlowId pulumi.StringPtrInput
 	// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-	Content     pulumi.StringPtrInput
+	Content pulumi.StringPtrInput
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
 	ContentHash pulumi.StringPtrInput
 	// Specifies the description of the Contact Flow.
 	Description pulumi.StringPtrInput
@@ -203,7 +206,8 @@ func (ContactFlowState) ElementType() reflect.Type {
 
 type contactFlowArgs struct {
 	// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-	Content     *string `pulumi:"content"`
+	Content *string `pulumi:"content"`
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
 	ContentHash *string `pulumi:"contentHash"`
 	// Specifies the description of the Contact Flow.
 	Description *string `pulumi:"description"`
@@ -222,7 +226,8 @@ type contactFlowArgs struct {
 // The set of arguments for constructing a ContactFlow resource.
 type ContactFlowArgs struct {
 	// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-	Content     pulumi.StringPtrInput
+	Content pulumi.StringPtrInput
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
 	ContentHash pulumi.StringPtrInput
 	// Specifies the description of the Contact Flow.
 	Description pulumi.StringPtrInput
@@ -340,6 +345,7 @@ func (o ContactFlowOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactFlow) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
+// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
 func (o ContactFlowOutput) ContentHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactFlow) pulumi.StringPtrOutput { return v.ContentHash }).(pulumi.StringPtrOutput)
 }

@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
+ * const queue = new aws.sqs.Queue("queue", {
  *     deduplicationScope: "messageGroup",
  *     fifoQueue: true,
  *     fifoThroughputLimit: "perMessageGroupId",
@@ -56,9 +56,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const terraformQueueDeadletter = new aws.sqs.Queue("terraformQueueDeadletter", {redriveAllowPolicy: JSON.stringify({
+ * const exampleQueueDeadletter = new aws.sqs.Queue("exampleQueueDeadletter", {redriveAllowPolicy: JSON.stringify({
  *     redrivePermission: "byQueue",
- *     sourceQueueArns: [aws_sqs_queue.terraform_queue.arn],
+ *     sourceQueueArns: [aws_sqs_queue.example_queue.arn],
  * })});
  * ```
  *
@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
+ * const queue = new aws.sqs.Queue("queue", {
  *     sqsManagedSseEnabled: true,
  * });
  * ```
@@ -187,6 +187,9 @@ export class Queue extends pulumi.CustomResource {
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
      */
     public readonly redrivePolicy!: pulumi.Output<string>;
+    /**
+     * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+     */
     public readonly sqsManagedSseEnabled!: pulumi.Output<boolean>;
     /**
      * A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -336,6 +339,9 @@ export interface QueueState {
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
      */
     redrivePolicy?: pulumi.Input<string>;
+    /**
+     * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+     */
     sqsManagedSseEnabled?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -419,6 +425,9 @@ export interface QueueArgs {
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
      */
     redrivePolicy?: pulumi.Input<string>;
+    /**
+     * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+     */
     sqsManagedSseEnabled?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.

@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;Example Contact Flow Module Description&#34;)
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Application&#34;, &#34;Terraform&#34;),
+ *                 Map.entry(&#34;Application&#34;, &#34;Example&#34;),
  *                 Map.entry(&#34;Method&#34;, &#34;Create&#34;),
  *                 Map.entry(&#34;Name&#34;, &#34;Example Contact Flow Module&#34;)
  *             ))
@@ -158,9 +158,17 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
     public Output<String> content() {
         return this.content;
     }
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
+     * 
+     */
     @Export(name="contentHash", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentHash;
 
+    /**
+     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
+     * 
+     */
     public Output<Optional<String>> contentHash() {
         return Codegen.optional(this.contentHash);
     }

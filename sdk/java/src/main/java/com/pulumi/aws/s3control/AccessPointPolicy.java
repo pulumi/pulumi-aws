@@ -15,6 +15,10 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a resource to manage an S3 Access Point resource policy.
+ * 
+ * &gt; **NOTE on Access Points and Access Point Policies:** The provider provides both a standalone Access Point Policy resource and an Access Point resource with a resource policy defined in-line. You cannot use an Access Point with in-line resource policy in conjunction with an Access Point Policy resource. Doing so will cause a conflict of policies and will overwrite the access point&#39;s resource policy.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

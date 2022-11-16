@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Kendra.Inputs
 
     public sealed class ExperienceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        /// </summary>
         [Input("contentSourceConfiguration")]
         public Input<Inputs.ExperienceConfigurationContentSourceConfigurationArgs>? ContentSourceConfiguration { get; set; }
 

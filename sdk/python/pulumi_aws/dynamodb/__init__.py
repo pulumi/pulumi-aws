@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .contributor_insights import *
 from .get_table import *
+from .get_table_item import *
 from .global_table import *
 from .kinesis_streaming_destination import *
 from .table import *

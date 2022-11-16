@@ -78,9 +78,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ecr/registryPolicy:RegistryPolicy")
 public class RegistryPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The policy document. This is a JSON formatted string.
+     * 
+     */
     @Export(name="policy", type=String.class, parameters={})
     private Output<String> policy;
 
+    /**
+     * @return The policy document. This is a JSON formatted string.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }

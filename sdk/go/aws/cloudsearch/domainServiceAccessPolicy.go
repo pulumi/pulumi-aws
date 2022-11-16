@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an CloudSearch domain service access policy resource.
+//
+// The provider waits for the domain service access policy to become `Active` when applying a configuration.
+//
 // ## Example Usage
 //
 // ```go

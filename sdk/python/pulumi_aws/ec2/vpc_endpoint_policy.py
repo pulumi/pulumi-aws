@@ -19,6 +19,7 @@ class VpcEndpointPolicyArgs:
         """
         The set of arguments for constructing a VpcEndpointPolicy resource.
         :param pulumi.Input[str] vpc_endpoint_id: The VPC Endpoint ID.
+        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         """
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         if policy is not None:
@@ -39,6 +40,9 @@ class VpcEndpointPolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -53,6 +57,7 @@ class _VpcEndpointPolicyState:
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointPolicy resources.
+        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[str] vpc_endpoint_id: The VPC Endpoint ID.
         """
         if policy is not None:
@@ -63,6 +68,9 @@ class _VpcEndpointPolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -131,6 +139,7 @@ class VpcEndpointPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[str] vpc_endpoint_id: The VPC Endpoint ID.
         """
         ...
@@ -227,6 +236,7 @@ class VpcEndpointPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[str] vpc_endpoint_id: The VPC Endpoint ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -240,6 +250,9 @@ class VpcEndpointPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        """
         return pulumi.get(self, "policy")
 
     @property

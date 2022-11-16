@@ -86,7 +86,7 @@ type Policy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The policy's ID.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// Map of resource tags for the IAM Policy If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -139,7 +139,7 @@ type policyState struct {
 	Policy interface{} `pulumi:"policy"`
 	// The policy's ID.
 	PolicyId *string `pulumi:"policyId"`
-	// Map of resource tags for the IAM Policy If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -161,7 +161,7 @@ type PolicyState struct {
 	Policy pulumi.Input
 	// The policy's ID.
 	PolicyId pulumi.StringPtrInput
-	// Map of resource tags for the IAM Policy If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -183,7 +183,7 @@ type policyArgs struct {
 	Path *string `pulumi:"path"`
 	// The policy document. This is a JSON formatted string.
 	Policy interface{} `pulumi:"policy"`
-	// Map of resource tags for the IAM Policy If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -200,7 +200,7 @@ type PolicyArgs struct {
 	Path pulumi.StringPtrInput
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.Input
-	// Map of resource tags for the IAM Policy If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -327,7 +327,7 @@ func (o PolicyOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// Map of resource tags for the IAM Policy If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

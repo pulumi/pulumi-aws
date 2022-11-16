@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFormation
 {
     /// <summary>
+    /// Manages a version of a CloudFormation Type.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

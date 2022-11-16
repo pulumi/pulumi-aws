@@ -150,7 +150,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRestApiEndpointConfigurationResult> EndpointConfigurations;
         /// <summary>
-        /// The execution ARN part to be used in `lambda_permission`'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+        /// Execution ARN part to be used in `lambda_permission`'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         /// </summary>
         public readonly string ExecutionArn;
         /// <summary>

@@ -27,6 +27,7 @@ class VpcAttachmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The subnet ARN of the VPC attachment.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
         :param pulumi.Input['VpcAttachmentOptionsArgs'] options: Options for the VPC attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "subnet_arns", subnet_arns)
@@ -87,6 +88,9 @@ class VpcAttachmentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -126,6 +130,7 @@ class _VpcAttachmentState:
         :param pulumi.Input[str] segment_name: The name of the segment attachment.
         :param pulumi.Input[str] state: The state of the attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The subnet ARN of the VPC attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
         """
@@ -307,6 +312,9 @@ class _VpcAttachmentState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -350,6 +358,8 @@ class VpcAttachment(pulumi.CustomResource):
                  vpc_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS NetworkManager VpcAttachment.
+
         ## Example Usage
         ### Basic Usage
 
@@ -376,6 +386,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] core_network_id: The ID of a core network for the VPC attachment.
         :param pulumi.Input[pulumi.InputType['VpcAttachmentOptionsArgs']] options: Options for the VPC attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The subnet ARN of the VPC attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
         """
         ...
@@ -385,6 +396,8 @@ class VpcAttachment(pulumi.CustomResource):
                  args: VpcAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS NetworkManager VpcAttachment.
+
         ## Example Usage
         ### Basic Usage
 
@@ -500,6 +513,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] segment_name: The name of the segment attachment.
         :param pulumi.Input[str] state: The state of the attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The subnet ARN of the VPC attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
         """
@@ -623,6 +637,9 @@ class VpcAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

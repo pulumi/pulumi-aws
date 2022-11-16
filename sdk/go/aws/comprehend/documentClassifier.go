@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Comprehend Document Classifier.
+//
 // ## Example Usage
 // ### Basic Usage
 //
@@ -93,11 +95,18 @@ type DocumentClassifier struct {
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
 	OutputDataConfig DocumentClassifierOutputDataConfigOutput `pulumi:"outputDataConfig"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
-	VersionName pulumi.StringOutput    `pulumi:"versionName"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Name for the version of the Document Classifier.
+	// Each version must have a unique name within the Document Classifier.
+	// If omitted, the provider will assign a random, unique version name.
+	// If explicitly set to `""`, no version name will be set.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionNamePrefix`.
+	VersionName pulumi.StringOutput `pulumi:"versionName"`
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
@@ -173,11 +182,18 @@ type documentClassifierState struct {
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
 	OutputDataConfig *DocumentClassifierOutputDataConfig `pulumi:"outputDataConfig"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll     map[string]string `pulumi:"tagsAll"`
-	VersionName *string           `pulumi:"versionName"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Name for the version of the Document Classifier.
+	// Each version must have a unique name within the Document Classifier.
+	// If omitted, the provider will assign a random, unique version name.
+	// If explicitly set to `""`, no version name will be set.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionNamePrefix`.
+	VersionName *string `pulumi:"versionName"`
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
@@ -216,10 +232,17 @@ type DocumentClassifierState struct {
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
 	OutputDataConfig DocumentClassifierOutputDataConfigPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll     pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Name for the version of the Document Classifier.
+	// Each version must have a unique name within the Document Classifier.
+	// If omitted, the provider will assign a random, unique version name.
+	// If explicitly set to `""`, no version name will be set.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionNamePrefix`.
 	VersionName pulumi.StringPtrInput
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
@@ -261,11 +284,16 @@ type documentClassifierArgs struct {
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
 	OutputDataConfig *DocumentClassifierOutputDataConfig `pulumi:"outputDataConfig"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll     map[string]string `pulumi:"tagsAll"`
-	VersionName *string           `pulumi:"versionName"`
+	// Name for the version of the Document Classifier.
+	// Each version must have a unique name within the Document Classifier.
+	// If omitted, the provider will assign a random, unique version name.
+	// If explicitly set to `""`, no version name will be set.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionNamePrefix`.
+	VersionName *string `pulumi:"versionName"`
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
@@ -303,10 +331,15 @@ type DocumentClassifierArgs struct {
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
 	OutputDataConfig DocumentClassifierOutputDataConfigPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll     pulumi.StringMapInput
+	// Name for the version of the Document Classifier.
+	// Each version must have a unique name within the Document Classifier.
+	// If omitted, the provider will assign a random, unique version name.
+	// If explicitly set to `""`, no version name will be set.
+	// Has a maximum length of 63 characters.
+	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Conflicts with `versionNamePrefix`.
 	VersionName pulumi.StringPtrInput
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
@@ -456,16 +489,23 @@ func (o DocumentClassifierOutput) OutputDataConfig() DocumentClassifierOutputDat
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierOutputDataConfigOutput { return v.OutputDataConfig }).(DocumentClassifierOutputDataConfigOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider [`defaultTags` Configuration Block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DocumentClassifierOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DocumentClassifierOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Name for the version of the Document Classifier.
+// Each version must have a unique name within the Document Classifier.
+// If omitted, the provider will assign a random, unique version name.
+// If explicitly set to `""`, no version name will be set.
+// Has a maximum length of 63 characters.
+// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+// Conflicts with `versionNamePrefix`.
 func (o DocumentClassifierOutput) VersionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.VersionName }).(pulumi.StringOutput)
 }

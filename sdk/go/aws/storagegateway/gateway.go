@@ -211,7 +211,19 @@ import (
 //
 // ```
 //
-//	Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference.
+//	Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference. terraform resource "aws_storagegateway_gateway" "example" {
+//
+// # ... other configuration ...
+//
+//	gateway_ip_address = aws_instance.sgw.private_ip
+//
+// # There is no Storage Gateway API for reading gateway_ip_address
+//
+//	lifecycle {
+//
+//	ignore_changes = ["gateway_ip_address"]
+//
+//	} }
 type Gateway struct {
 	pulumi.CustomResourceState
 

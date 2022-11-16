@@ -31,6 +31,7 @@ class ProfileArgs:
         :param pulumi.Input[str] name: The name of the Profile.
         :param pulumi.Input[bool] require_instance_properties: Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
         :param pulumi.Input[str] session_policy: A session policy that applies to the trust boundary of the vended session credentials.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "role_arns", role_arns)
         if duration_seconds is not None:
@@ -135,6 +136,9 @@ class ProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -165,6 +169,7 @@ class _ProfileState:
         :param pulumi.Input[bool] require_instance_properties: Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] role_arns: A list of IAM roles that this profile can assume
         :param pulumi.Input[str] session_policy: A session policy that applies to the trust boundary of the vended session credentials.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -287,6 +292,9 @@ class _ProfileState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -321,6 +329,8 @@ class Profile(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Resource for managing a Roles Anywhere Profile.
+
         ## Example Usage
 
         ```python
@@ -365,6 +375,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[bool] require_instance_properties: Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] role_arns: A list of IAM roles that this profile can assume
         :param pulumi.Input[str] session_policy: A session policy that applies to the trust boundary of the vended session credentials.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -373,6 +384,8 @@ class Profile(pulumi.CustomResource):
                  args: ProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing a Roles Anywhere Profile.
+
         ## Example Usage
 
         ```python
@@ -487,6 +500,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[bool] require_instance_properties: Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] role_arns: A list of IAM roles that this profile can assume
         :param pulumi.Input[str] session_policy: A session policy that applies to the trust boundary of the vended session credentials.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -572,6 +586,9 @@ class Profile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

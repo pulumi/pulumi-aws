@@ -32,6 +32,7 @@ class VolumeArgs:
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
         :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[int] size: The size of the drive in GiBs.
@@ -115,6 +116,9 @@ class VolumeArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -230,6 +234,7 @@ class _VolumeState:
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
         :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[int] size: The size of the drive in GiBs.
@@ -331,6 +336,9 @@ class _VolumeState:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -485,6 +493,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
         :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[int] size: The size of the drive in GiBs.
@@ -614,6 +623,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
         :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[int] size: The size of the drive in GiBs.
@@ -686,6 +696,9 @@ class Volume(pulumi.CustomResource):
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[str]:
+        """
+        The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property

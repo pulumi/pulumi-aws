@@ -76,9 +76,9 @@ type Cluster struct {
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
-	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+	// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringOutput `pulumi:"clusterIdentifierPrefix"`
 	// List of DocDB Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayOutput `pulumi:"clusterMembers"`
@@ -178,9 +178,9 @@ type clusterState struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
-	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+	// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
 	// List of DocDB Instances that are a part of this cluster
 	ClusterMembers []string `pulumi:"clusterMembers"`
@@ -252,9 +252,9 @@ type ClusterState struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrInput
-	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+	// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
 	ClusterIdentifier pulumi.StringPtrInput
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringPtrInput
 	// List of DocDB Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayInput
@@ -328,9 +328,9 @@ type clusterArgs struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
-	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+	// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
 	// List of DocDB Instances that are a part of this cluster
 	ClusterMembers []string `pulumi:"clusterMembers"`
@@ -391,9 +391,9 @@ type ClusterArgs struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrInput
-	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+	// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
 	ClusterIdentifier pulumi.StringPtrInput
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringPtrInput
 	// List of DocDB Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayInput
@@ -553,12 +553,12 @@ func (o ClusterOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.BackupRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
-// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
 func (o ClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
+// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 func (o ClusterOutput) ClusterIdentifierPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifierPrefix }).(pulumi.StringOutput)
 }

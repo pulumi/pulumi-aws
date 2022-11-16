@@ -10,6 +10,38 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs
 {
     /// <summary>
+    /// Provides an ECS task set - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
+    /// 
+    /// See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecs.TaskSet("example", new()
+    ///     {
+    ///         Service = aws_ecs_service.Example.Id,
+    ///         Cluster = aws_ecs_cluster.Example.Id,
+    ///         TaskDefinition = aws_ecs_task_definition.Example.Arn,
+    ///         LoadBalancers = new[]
+    ///         {
+    ///             new Aws.Ecs.Inputs.TaskSetLoadBalancerArgs
+    ///             {
+    ///                 TargetGroupArn = aws_lb_target_group.Example.Arn,
+    ///                 ContainerName = "mongo",
+    ///                 ContainerPort = 8080,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.
@@ -45,6 +77,9 @@ namespace Pulumi.Aws.Ecs
         [Output("externalId")]
         public Output<string> ExternalId { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+        /// </summary>
         [Output("forceDelete")]
         public Output<bool?> ForceDelete { get; private set; } = null!;
 
@@ -126,6 +161,9 @@ namespace Pulumi.Aws.Ecs
         [Output("taskSetId")]
         public Output<string> TaskSetId { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the provider should wait until the task set has reached `STEADY_STATE`.
+        /// </summary>
         [Output("waitUntilStable")]
         public Output<bool?> WaitUntilStable { get; private set; } = null!;
 
@@ -205,6 +243,9 @@ namespace Pulumi.Aws.Ecs
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
+        /// <summary>
+        /// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+        /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 
@@ -274,6 +315,9 @@ namespace Pulumi.Aws.Ecs
         [Input("taskDefinition", required: true)]
         public Input<string> TaskDefinition { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the provider should wait until the task set has reached `STEADY_STATE`.
+        /// </summary>
         [Input("waitUntilStable")]
         public Input<bool>? WaitUntilStable { get; set; }
 
@@ -321,6 +365,9 @@ namespace Pulumi.Aws.Ecs
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
+        /// <summary>
+        /// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+        /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 
@@ -420,6 +467,9 @@ namespace Pulumi.Aws.Ecs
         [Input("taskSetId")]
         public Input<string>? TaskSetId { get; set; }
 
+        /// <summary>
+        /// Whether the provider should wait until the task set has reached `STEADY_STATE`.
+        /// </summary>
         [Input("waitUntilStable")]
         public Input<bool>? WaitUntilStable { get; set; }
 

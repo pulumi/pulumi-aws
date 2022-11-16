@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam
 {
     /// <summary>
+    /// Provides an IAM Virtual MFA Device.
+    /// 
     /// ## Example Usage
     /// 
     /// **Using certs on file:**

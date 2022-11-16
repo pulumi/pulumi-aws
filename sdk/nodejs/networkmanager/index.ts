@@ -81,6 +81,10 @@ export { SiteArgs, SiteState } from "./site";
 export type Site = import("./site").Site;
 export const Site: typeof import("./site").Site = null as any;
 
+export { SiteToSiteVpnAttachmentArgs, SiteToSiteVpnAttachmentState } from "./siteToSiteVpnAttachment";
+export type SiteToSiteVpnAttachment = import("./siteToSiteVpnAttachment").SiteToSiteVpnAttachment;
+export const SiteToSiteVpnAttachment: typeof import("./siteToSiteVpnAttachment").SiteToSiteVpnAttachment = null as any;
+
 export { TransitGatewayConnectPeerAssociationArgs, TransitGatewayConnectPeerAssociationState } from "./transitGatewayConnectPeerAssociation";
 export type TransitGatewayConnectPeerAssociation = import("./transitGatewayConnectPeerAssociation").TransitGatewayConnectPeerAssociation;
 export const TransitGatewayConnectPeerAssociation: typeof import("./transitGatewayConnectPeerAssociation").TransitGatewayConnectPeerAssociation = null as any;
@@ -120,6 +124,7 @@ utilities.lazyLoad(exports, ["GlobalNetwork"], () => require("./globalNetwork"))
 utilities.lazyLoad(exports, ["Link"], () => require("./link"));
 utilities.lazyLoad(exports, ["LinkAssociation"], () => require("./linkAssociation"));
 utilities.lazyLoad(exports, ["Site"], () => require("./site"));
+utilities.lazyLoad(exports, ["SiteToSiteVpnAttachment"], () => require("./siteToSiteVpnAttachment"));
 utilities.lazyLoad(exports, ["TransitGatewayConnectPeerAssociation"], () => require("./transitGatewayConnectPeerAssociation"));
 utilities.lazyLoad(exports, ["TransitGatewayPeering"], () => require("./transitGatewayPeering"));
 utilities.lazyLoad(exports, ["TransitGatewayRegistration"], () => require("./transitGatewayRegistration"));
@@ -146,6 +151,8 @@ const _module = {
                 return new LinkAssociation(name, <any>undefined, { urn })
             case "aws:networkmanager/site:Site":
                 return new Site(name, <any>undefined, { urn })
+            case "aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment":
+                return new SiteToSiteVpnAttachment(name, <any>undefined, { urn })
             case "aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation":
                 return new TransitGatewayConnectPeerAssociation(name, <any>undefined, { urn })
             case "aws:networkmanager/transitGatewayPeering:TransitGatewayPeering":
@@ -169,6 +176,7 @@ pulumi.runtime.registerResourceModule("aws", "networkmanager/globalNetwork", _mo
 pulumi.runtime.registerResourceModule("aws", "networkmanager/link", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/linkAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/site", _module)
+pulumi.runtime.registerResourceModule("aws", "networkmanager/siteToSiteVpnAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/transitGatewayConnectPeerAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/transitGatewayPeering", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/transitGatewayRegistration", _module)

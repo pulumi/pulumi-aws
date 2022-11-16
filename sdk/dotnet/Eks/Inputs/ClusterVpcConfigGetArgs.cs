@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Eks.Inputs
         private InputList<string>? _publicAccessCidrs;
 
         /// <summary>
-        /// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+        /// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         public InputList<string> PublicAccessCidrs
         {

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *         var example = new CodeRepository(&#34;example&#34;, CodeRepositoryArgs.builder()        
  *             .codeRepositoryName(&#34;example&#34;)
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
- *                 .repositoryUrl(&#34;https://github.com/hashicorp/terraform-provider-aws.git&#34;)
+ *                 .repositoryUrl(&#34;https://github.com/github/docs.git&#34;)
  *                 .build())
  *             .build());
  * 
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *         var exampleCodeRepository = new CodeRepository(&#34;exampleCodeRepository&#34;, CodeRepositoryArgs.builder()        
  *             .codeRepositoryName(&#34;example&#34;)
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
- *                 .repositoryUrl(&#34;https://github.com/hashicorp/terraform-provider-aws.git&#34;)
+ *                 .repositoryUrl(&#34;https://github.com/github/docs.git&#34;)
  *                 .secretArn(exampleSecret.arn())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()

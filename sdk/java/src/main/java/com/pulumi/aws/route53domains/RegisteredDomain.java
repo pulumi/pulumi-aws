@@ -22,6 +22,12 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a resource to manage a domain that has been [registered](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html) and associated with the current AWS account.
+ * 
+ * **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
+ * 
+ * The `aws.route53domains.RegisteredDomain` resource behaves differently from normal resources in that if a domain has been registered, the provider does not _register_ this domain, but instead &#34;adopts&#34; it into management. A destroy does not delete the domain but does remove the resource from state.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

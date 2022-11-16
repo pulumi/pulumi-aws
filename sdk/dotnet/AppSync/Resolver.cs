@@ -47,7 +47,7 @@ namespace Pulumi.Aws.AppSync
     ///     var testDataSource = new Aws.AppSync.DataSource("testDataSource", new()
     ///     {
     ///         ApiId = testGraphQLApi.Id,
-    ///         Name = "tf_example",
+    ///         Name = "my_example",
     ///         Type = "HTTP",
     ///         HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
     ///         {

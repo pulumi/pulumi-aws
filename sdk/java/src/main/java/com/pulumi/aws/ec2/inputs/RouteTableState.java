@@ -65,6 +65,7 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A list of route objects. Their keys are documented below.
+     * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      * 
      */
     @Import(name="routes")
@@ -72,6 +73,7 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A list of route objects. Their keys are documented below.
+     * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      * 
      */
     public Optional<Output<List<RouteTableRouteArgs>>> routes() {
@@ -228,6 +230,7 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param routes A list of route objects. Their keys are documented below.
+         * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
          * 
          * @return builder
          * 
@@ -239,6 +242,7 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param routes A list of route objects. Their keys are documented below.
+         * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
          * 
          * @return builder
          * 
@@ -249,6 +253,7 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param routes A list of route objects. Their keys are documented below.
+         * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
          * 
          * @return builder
          * 

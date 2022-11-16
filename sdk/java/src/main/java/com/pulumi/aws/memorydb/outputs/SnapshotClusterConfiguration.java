@@ -28,7 +28,7 @@ public final class SnapshotClusterConfiguration {
      */
     private @Nullable String maintenanceWindow;
     /**
-     * @return Name of the cluster.
+     * @return Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     private @Nullable String name;
@@ -101,7 +101,7 @@ public final class SnapshotClusterConfiguration {
         return Optional.ofNullable(this.maintenanceWindow);
     }
     /**
-     * @return Name of the cluster.
+     * @return Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Optional<String> name() {

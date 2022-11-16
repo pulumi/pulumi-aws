@@ -32,7 +32,7 @@ class VpcPeeringConnectionArgs:
                the peering connection (a maximum of one).
         :param pulumi.Input[bool] auto_accept: Accept the peering (both VPCs need to be in the same AWS account and region).
         :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the peer VPC.
-               Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+               Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] peer_region: The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
                and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         :param pulumi.Input['VpcPeeringConnectionRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
@@ -108,7 +108,7 @@ class VpcPeeringConnectionArgs:
     def peer_owner_id(self) -> Optional[pulumi.Input[str]]:
         """
         The AWS account ID of the owner of the peer VPC.
-        Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+        Defaults to the account ID the AWS provider is currently connected to.
         """
         return pulumi.get(self, "peer_owner_id")
 
@@ -175,7 +175,7 @@ class _VpcPeeringConnectionState:
                the peering connection (a maximum of one).
         :param pulumi.Input[bool] auto_accept: Accept the peering (both VPCs need to be in the same AWS account and region).
         :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the peer VPC.
-               Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+               Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] peer_region: The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
                and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         :param pulumi.Input[str] peer_vpc_id: The ID of the VPC with which you are creating the VPC Peering Connection.
@@ -248,7 +248,7 @@ class _VpcPeeringConnectionState:
     def peer_owner_id(self) -> Optional[pulumi.Input[str]]:
         """
         The AWS account ID of the owner of the peer VPC.
-        Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+        Defaults to the account ID the AWS provider is currently connected to.
         """
         return pulumi.get(self, "peer_owner_id")
 
@@ -360,6 +360,8 @@ class VpcPeeringConnection(pulumi.CustomResource):
         VPC Peering Connections use the `ec2.VpcPeeringConnection` resource to manage the requester's side of the
         connection and use the `ec2.VpcPeeringConnectionAccepter` resource to manage the accepter's side of the connection.
 
+        > **Note:** Creating multiple `ec2.VpcPeeringConnection` resources with the same `peer_vpc_id` and `vpc_id` will not produce an error. Instead, AWS will return the connection `id` that already exists, resulting in multiple `ec2.VpcPeeringConnection` resources with the same `id`.
+
         ## Example Usage
 
         ```python
@@ -438,15 +440,13 @@ class VpcPeeringConnection(pulumi.CustomResource):
          $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
         ```
 
-         [1]/docs/providers/aws/index.html
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterArgs']] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
                the peering connection (a maximum of one).
         :param pulumi.Input[bool] auto_accept: Accept the peering (both VPCs need to be in the same AWS account and region).
         :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the peer VPC.
-               Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+               Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] peer_region: The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
                and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         :param pulumi.Input[str] peer_vpc_id: The ID of the VPC with which you are creating the VPC Peering Connection.
@@ -476,6 +476,8 @@ class VpcPeeringConnection(pulumi.CustomResource):
         VPC Peering Connections use the `ec2.VpcPeeringConnection` resource to manage the requester's side of the
         connection and use the `ec2.VpcPeeringConnectionAccepter` resource to manage the accepter's side of the connection.
 
+        > **Note:** Creating multiple `ec2.VpcPeeringConnection` resources with the same `peer_vpc_id` and `vpc_id` will not produce an error. Instead, AWS will return the connection `id` that already exists, resulting in multiple `ec2.VpcPeeringConnection` resources with the same `id`.
+
         ## Example Usage
 
         ```python
@@ -553,8 +555,6 @@ class VpcPeeringConnection(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
         ```
-
-         [1]/docs/providers/aws/index.html
 
         :param str resource_name: The name of the resource.
         :param VpcPeeringConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -634,7 +634,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
                the peering connection (a maximum of one).
         :param pulumi.Input[bool] auto_accept: Accept the peering (both VPCs need to be in the same AWS account and region).
         :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the peer VPC.
-               Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+               Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] peer_region: The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
                and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         :param pulumi.Input[str] peer_vpc_id: The ID of the VPC with which you are creating the VPC Peering Connection.
@@ -690,7 +690,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     def peer_owner_id(self) -> pulumi.Output[str]:
         """
         The AWS account ID of the owner of the peer VPC.
-        Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+        Defaults to the account ID the AWS provider is currently connected to.
         """
         return pulumi.get(self, "peer_owner_id")
 

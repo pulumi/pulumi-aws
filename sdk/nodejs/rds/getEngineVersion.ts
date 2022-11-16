@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Information about an RDS engine version.
  *
  * ## Example Usage
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -18,15 +19,26 @@ import * as utilities from "../utilities";
  *
  * const test = pulumi.output(aws.rds.getEngineVersion({
  *     engine: "mysql",
+ *     preferredVersions: [
+ *         "8.0.27",
+ *         "8.0.26",
+ *     ],
+ * }));
+ * ```
+ * ### With `filter`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = pulumi.output(aws.rds.getEngineVersion({
+ *     engine: "aurora-postgresql",
  *     filters: [{
  *         name: "engine-mode",
- *         values: ["provisioned"],
+ *         values: ["serverless"],
  *     }],
- *     preferredVersions: [
- *         "5.7.42",
- *         "5.7.19",
- *         "5.7.17",
- *     ],
+ *     includeAll: true,
+ *     version: "10.14",
  * }));
  * ```
  */
@@ -37,8 +49,10 @@ export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.Invok
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:rds/getEngineVersion:getEngineVersion", {
+        "defaultOnly": args.defaultOnly,
         "engine": args.engine,
         "filters": args.filters,
+        "includeAll": args.includeAll,
         "parameterGroupFamily": args.parameterGroupFamily,
         "preferredVersions": args.preferredVersions,
         "version": args.version,
@@ -50,10 +64,21 @@ export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.Invok
  */
 export interface GetEngineVersionArgs {
     /**
+     * When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+     */
+    defaultOnly?: boolean;
+    /**
      * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
      */
     engine: string;
+    /**
+     * One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     */
     filters?: inputs.rds.GetEngineVersionFilter[];
+    /**
+     * When set to `true`, the specified `version` or member of `preferredVersions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+     */
+    includeAll?: boolean;
     /**
      * Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
      */
@@ -76,6 +101,7 @@ export interface GetEngineVersionResult {
      * The default character set for new instances of this engine version.
      */
     readonly defaultCharacterSet: string;
+    readonly defaultOnly?: boolean;
     readonly engine: string;
     /**
      * Description of the database engine.
@@ -90,6 +116,7 @@ export interface GetEngineVersionResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly includeAll?: boolean;
     readonly parameterGroupFamily: string;
     readonly preferredVersions?: string[];
     /**
@@ -148,10 +175,21 @@ export function getEngineVersionOutput(args: GetEngineVersionOutputArgs, opts?: 
  */
 export interface GetEngineVersionOutputArgs {
     /**
+     * When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+     */
+    defaultOnly?: pulumi.Input<boolean>;
+    /**
      * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
      */
     engine: pulumi.Input<string>;
+    /**
+     * One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.rds.GetEngineVersionFilterArgs>[]>;
+    /**
+     * When set to `true`, the specified `version` or member of `preferredVersions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+     */
+    includeAll?: pulumi.Input<boolean>;
     /**
      * Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
      */

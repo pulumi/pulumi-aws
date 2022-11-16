@@ -39,7 +39,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string DomainName;
         /// <summary>
-        /// The unique identifier of a [CloudFront origin access control](https://www.terraform.io/docs/providers/aws/r/cloudfront_origin_access_control.html) for this origin.
+        /// The unique identifier of a CloudFront origin access control for this origin.
         /// </summary>
         public readonly string? OriginAccessControlId;
         /// <summary>

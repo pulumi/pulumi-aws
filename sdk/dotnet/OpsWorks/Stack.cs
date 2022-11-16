@@ -169,7 +169,8 @@ namespace Pulumi.Aws.OpsWorks
         public Output<string> StackEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource.
+        /// If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -181,15 +182,13 @@ namespace Pulumi.Aws.OpsWorks
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean value controlling whether the custom cookbook settings are
-        /// enabled.
+        /// Boolean value controlling whether the custom cookbook settings are enabled.
         /// </summary>
         [Output("useCustomCookbooks")]
         public Output<bool?> UseCustomCookbooks { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean value controlling whether the standard OpsWorks
-        /// security groups apply to created instances.
+        /// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         /// </summary>
         [Output("useOpsworksSecurityGroups")]
         public Output<bool?> UseOpsworksSecurityGroups { get; private set; } = null!;
@@ -367,7 +366,8 @@ namespace Pulumi.Aws.OpsWorks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource.
+        /// If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -376,15 +376,13 @@ namespace Pulumi.Aws.OpsWorks
         }
 
         /// <summary>
-        /// Boolean value controlling whether the custom cookbook settings are
-        /// enabled.
+        /// Boolean value controlling whether the custom cookbook settings are enabled.
         /// </summary>
         [Input("useCustomCookbooks")]
         public Input<bool>? UseCustomCookbooks { get; set; }
 
         /// <summary>
-        /// Boolean value controlling whether the standard OpsWorks
-        /// security groups apply to created instances.
+        /// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         /// </summary>
         [Input("useOpsworksSecurityGroups")]
         public Input<bool>? UseOpsworksSecurityGroups { get; set; }
@@ -530,7 +528,8 @@ namespace Pulumi.Aws.OpsWorks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource.
+        /// If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -551,15 +550,13 @@ namespace Pulumi.Aws.OpsWorks
         }
 
         /// <summary>
-        /// Boolean value controlling whether the custom cookbook settings are
-        /// enabled.
+        /// Boolean value controlling whether the custom cookbook settings are enabled.
         /// </summary>
         [Input("useCustomCookbooks")]
         public Input<bool>? UseCustomCookbooks { get; set; }
 
         /// <summary>
-        /// Boolean value controlling whether the standard OpsWorks
-        /// security groups apply to created instances.
+        /// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         /// </summary>
         [Input("useOpsworksSecurityGroups")]
         public Input<bool>? UseOpsworksSecurityGroups { get; set; }

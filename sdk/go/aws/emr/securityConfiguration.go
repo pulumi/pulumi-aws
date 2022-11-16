@@ -38,7 +38,7 @@ import (
 //	      },
 //	      "LocalDiskEncryptionConfiguration": {
 //	        "EncryptionKeyProviderType": "AwsKms",
-//	        "AwsKmsKey": "arn:aws:kms:us-west-2:187416307283:alias/tf_emr_test_key"
+//	        "AwsKmsKey": "arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key"
 //	      }
 //	    },
 //	    "EnableInTransitEncryption": false,

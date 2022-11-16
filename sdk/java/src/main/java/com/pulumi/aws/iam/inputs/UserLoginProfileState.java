@@ -17,9 +17,17 @@ public final class UserLoginProfileState extends com.pulumi.resources.ResourceAr
 
     public static final UserLoginProfileState Empty = new UserLoginProfileState();
 
+    /**
+     * The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+     * 
+     */
     @Import(name="encryptedPassword")
     private @Nullable Output<String> encryptedPassword;
 
+    /**
+     * @return The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+     * 
+     */
     public Optional<Output<String>> encryptedPassword() {
         return Optional.ofNullable(this.encryptedPassword);
     }
@@ -144,11 +152,23 @@ public final class UserLoginProfileState extends com.pulumi.resources.ResourceAr
             $ = new UserLoginProfileState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param encryptedPassword The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptedPassword(@Nullable Output<String> encryptedPassword) {
             $.encryptedPassword = encryptedPassword;
             return this;
         }
 
+        /**
+         * @param encryptedPassword The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptedPassword(String encryptedPassword) {
             return encryptedPassword(Output.of(encryptedPassword));
         }

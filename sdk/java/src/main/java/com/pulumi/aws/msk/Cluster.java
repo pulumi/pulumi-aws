@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an Amazon MSK cluster.
  * 
- * &gt; **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the [`aws.msk.ServerlessCluster`](https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster.html) resource.
+ * &gt; **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the `aws.msk.ServerlessCluster` resource.
  * 
  * ## Example Usage
  * ### Basic

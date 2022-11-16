@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDataSource = new DataSource(&#34;exampleDataSource&#34;, DataSourceArgs.builder()        
  *             .apiId(exampleGraphQLApi.id())
- *             .name(&#34;tf_appsync_example&#34;)
+ *             .name(&#34;my_appsync_example&#34;)
  *             .serviceRoleArn(exampleRole.arn())
  *             .type(&#34;AMAZON_DYNAMODB&#34;)
  *             .dynamodbConfig(DataSourceDynamodbConfigArgs.builder()

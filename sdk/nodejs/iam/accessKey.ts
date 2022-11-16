@@ -88,7 +88,13 @@ export class AccessKey extends pulumi.CustomResource {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
      */
     public /*out*/ readonly createDate!: pulumi.Output<string>;
+    /**
+     * Encrypted secret, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+     */
     public /*out*/ readonly encryptedSecret!: pulumi.Output<string>;
+    /**
+     * Encrypted SES SMTP password, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+     */
     public /*out*/ readonly encryptedSesSmtpPasswordV4!: pulumi.Output<string>;
     /**
      * Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
@@ -165,7 +171,13 @@ export interface AccessKeyState {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
      */
     createDate?: pulumi.Input<string>;
+    /**
+     * Encrypted secret, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+     */
     encryptedSecret?: pulumi.Input<string>;
+    /**
+     * Encrypted SES SMTP password, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+     */
     encryptedSesSmtpPasswordV4?: pulumi.Input<string>;
     /**
      * Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.

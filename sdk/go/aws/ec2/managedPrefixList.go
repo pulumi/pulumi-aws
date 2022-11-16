@@ -11,6 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a managed prefix list resource.
+//
+// > **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
+// currently provides both a standalone Managed Prefix List Entry resource (a single entry),
+// and a Managed Prefix List resource with entries defined in-line. At this time you
+// cannot use a Managed Prefix List with in-line rules in conjunction with any Managed
+// Prefix List Entry resources. Doing so will cause a conflict of entries and will overwrite entries.
+//
+// > **NOTE on `maxEntries`:** When you reference a Prefix List in a resource,
+// the maximum number of entries for the prefix lists counts as the same number of rules
+// or entries for the resource. For example, if you create a prefix list with a maximum
+// of 20 entries and you reference that prefix list in a security group rule, this counts
+// as 20 rules for the security group.
+//
 // ## Example Usage
 //
 // # Basic usage
@@ -78,7 +92,8 @@ type ManagedPrefixList struct {
 	// ID of the AWS account that owns this prefix list.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Latest version of this prefix list.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -132,7 +147,8 @@ type managedPrefixListState struct {
 	// ID of the AWS account that owns this prefix list.
 	OwnerId *string `pulumi:"ownerId"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Latest version of this prefix list.
 	Version *int `pulumi:"version"`
@@ -152,7 +168,8 @@ type ManagedPrefixListState struct {
 	// ID of the AWS account that owns this prefix list.
 	OwnerId pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Latest version of this prefix list.
 	Version pulumi.IntPtrInput
@@ -311,6 +328,7 @@ func (o ManagedPrefixListOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ManagedPrefixList) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ManagedPrefixListOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ManagedPrefixList) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

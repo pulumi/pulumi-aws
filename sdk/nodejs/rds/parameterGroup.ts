@@ -8,6 +8,66 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an RDS DB parameter group resource. Documentation of the available parameters for various RDS engines can be found at:
+ *
+ * * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
+ * * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
+ * * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
+ * * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
+ * * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
+ *
+ * > **NOTE:** After applying your changes, you may encounter a perpetual diff in your preview
+ * output for a `parameter` whose `value` remains unchanged but whose `applyMethod` is changing
+ * (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to `immediate`). If only the
+ * apply method of a parameter is changing, the AWS API will not register this change. To change
+ * the `applyMethod` of a parameter, its value must also change.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const defaultParameterGroup = new aws.rds.ParameterGroup("default", {
+ *     family: "mysql5.6",
+ *     parameters: [
+ *         {
+ *             name: "character_set_server",
+ *             value: "utf8",
+ *         },
+ *         {
+ *             name: "character_set_client",
+ *             value: "utf8",
+ *         },
+ *     ],
+ * });
+ * ```
+ * ### `createBeforeDestroy` Lifecycle Configuration
+ *
+ * The `createBeforeDestroy`
+ * lifecycle configuration is necessary for modifications that force re-creation of an existing,
+ * in-use parameter group. This includes common situations like changing the group `name` or
+ * bumping the `family` version during a major version upgrade. This configuration will prevent destruction
+ * of the deposed parameter group while still in use by the database during upgrade.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleParameterGroup = new aws.rds.ParameterGroup("exampleParameterGroup", {
+ *     family: "postgres13",
+ *     parameters: [{
+ *         name: "log_connections",
+ *         value: "1",
+ *     }],
+ * });
+ * const exampleInstance = new aws.rds.Instance("exampleInstance", {
+ *     parameterGroupName: exampleParameterGroup.name,
+ *     applyImmediately: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * DB Parameter groups can be imported using the `name`, e.g.,

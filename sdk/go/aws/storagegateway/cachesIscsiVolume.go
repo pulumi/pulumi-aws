@@ -13,9 +13,9 @@ import (
 
 // Manages an AWS Storage Gateway cached iSCSI volume.
 //
-// > **NOTE:** The gateway must have cache added (e.g. via the `storagegateway.Cache` resource) before creating volumes otherwise the Storage Gateway API will return an error.
+// > **NOTE:** The gateway must have cache added (e.g., via the `storagegateway.Cache` resource) before creating volumes otherwise the Storage Gateway API will return an error.
 //
-// > **NOTE:** The gateway must have an upload buffer added (e.g. via the `storagegateway.UploadBuffer` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
+// > **NOTE:** The gateway must have an upload buffer added (e.g., via the `storagegateway.UploadBuffer` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
 //
 // ## Example Usage
 //
@@ -143,13 +143,13 @@ type CachesIscsiVolume struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+	// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
 	TargetName pulumi.StringOutput `pulumi:"targetName"`
-	// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 	VolumeArn pulumi.StringOutput `pulumi:"volumeArn"`
-	// Volume ID, e.g. `vol-12345678`.
+	// Volume ID, e.g., `vol-12345678`.
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 	// The size of the volume in bytes.
 	VolumeSizeInBytes pulumi.IntOutput `pulumi:"volumeSizeInBytes"`
@@ -220,13 +220,13 @@ type cachesIscsiVolumeState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+	// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn *string `pulumi:"targetArn"`
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
 	TargetName *string `pulumi:"targetName"`
-	// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 	VolumeArn *string `pulumi:"volumeArn"`
-	// Volume ID, e.g. `vol-12345678`.
+	// Volume ID, e.g., `vol-12345678`.
 	VolumeId *string `pulumi:"volumeId"`
 	// The size of the volume in bytes.
 	VolumeSizeInBytes *int `pulumi:"volumeSizeInBytes"`
@@ -257,13 +257,13 @@ type CachesIscsiVolumeState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+	// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn pulumi.StringPtrInput
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
 	TargetName pulumi.StringPtrInput
-	// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 	VolumeArn pulumi.StringPtrInput
-	// Volume ID, e.g. `vol-12345678`.
+	// Volume ID, e.g., `vol-12345678`.
 	VolumeId pulumi.StringPtrInput
 	// The size of the volume in bytes.
 	VolumeSizeInBytes pulumi.IntPtrInput
@@ -463,7 +463,7 @@ func (o CachesIscsiVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 func (o CachesIscsiVolumeOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }
@@ -473,12 +473,12 @@ func (o CachesIscsiVolumeOutput) TargetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.TargetName }).(pulumi.StringOutput)
 }
 
-// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 func (o CachesIscsiVolumeOutput) VolumeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.VolumeArn }).(pulumi.StringOutput)
 }
 
-// Volume ID, e.g. `vol-12345678`.
+// Volume ID, e.g., `vol-12345678`.
 func (o CachesIscsiVolumeOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
 }

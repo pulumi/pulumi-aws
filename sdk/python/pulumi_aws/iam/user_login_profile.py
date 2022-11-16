@@ -94,6 +94,7 @@ class _UserLoginProfileState:
                  user: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserLoginProfile resources.
+        :param pulumi.Input[str] encrypted_password: The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
         :param pulumi.Input[str] key_fingerprint: The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
         :param pulumi.Input[str] password: The plain text password, only available when `pgp_key` is not provided.
         :param pulumi.Input[int] password_length: The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
@@ -119,6 +120,9 @@ class _UserLoginProfileState:
     @property
     @pulumi.getter(name="encryptedPassword")
     def encrypted_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+        """
         return pulumi.get(self, "encrypted_password")
 
     @encrypted_password.setter
@@ -374,6 +378,7 @@ class UserLoginProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] encrypted_password: The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
         :param pulumi.Input[str] key_fingerprint: The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
         :param pulumi.Input[str] password: The plain text password, only available when `pgp_key` is not provided.
         :param pulumi.Input[int] password_length: The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
@@ -397,6 +402,9 @@ class UserLoginProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptedPassword")
     def encrypted_password(self) -> pulumi.Output[str]:
+        """
+        The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+        """
         return pulumi.get(self, "encrypted_password")
 
     @property

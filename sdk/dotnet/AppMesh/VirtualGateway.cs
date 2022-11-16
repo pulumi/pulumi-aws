@@ -100,8 +100,6 @@ namespace Pulumi.Aws.AppMesh
     /// ```sh
     ///  $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
     /// ```
-    /// 
-    ///  [1]/docs/providers/aws/index.html
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualGateway:VirtualGateway")]
     public partial class VirtualGateway : global::Pulumi.CustomResource

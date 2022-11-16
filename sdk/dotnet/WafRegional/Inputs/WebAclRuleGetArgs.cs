@@ -32,7 +32,7 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// ID of the associated WAF (Regional) rule (e.g. `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
+        /// ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
         /// </summary>
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;

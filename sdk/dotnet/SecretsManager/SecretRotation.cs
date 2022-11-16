@@ -77,9 +77,6 @@ namespace Pulumi.Aws.SecretsManager
         [Output("secretId")]
         public Output<string> SecretId { get; private set; } = null!;
 
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a SecretRotation resource with the given unique name, arguments, and options.
@@ -144,14 +141,6 @@ namespace Pulumi.Aws.SecretsManager
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
         public SecretRotationArgs()
         {
         }
@@ -183,14 +172,6 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Input("secretId")]
         public Input<string>? SecretId { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public SecretRotationState()
         {

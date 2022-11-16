@@ -78,6 +78,9 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.memorydb.ClusterClusterEndpoint[]>;
+    /**
+     * Description for the cluster.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Patch version number of the Redis engine used by the cluster.
@@ -100,8 +103,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly maintenanceWindow!: pulumi.Output<string>;
     /**
-     * Name of this node.
-     * * `endpoint`
+     * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -274,6 +276,9 @@ export interface ClusterState {
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     clusterEndpoints?: pulumi.Input<pulumi.Input<inputs.memorydb.ClusterClusterEndpoint>[]>;
+    /**
+     * Description for the cluster.
+     */
     description?: pulumi.Input<string>;
     /**
      * Patch version number of the Redis engine used by the cluster.
@@ -296,8 +301,7 @@ export interface ClusterState {
      */
     maintenanceWindow?: pulumi.Input<string>;
     /**
-     * Name of this node.
-     * * `endpoint`
+     * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -382,6 +386,9 @@ export interface ClusterArgs {
      * When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    /**
+     * Description for the cluster.
+     */
     description?: pulumi.Input<string>;
     /**
      * Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
@@ -400,8 +407,7 @@ export interface ClusterArgs {
      */
     maintenanceWindow?: pulumi.Input<string>;
     /**
-     * Name of this node.
-     * * `endpoint`
+     * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**

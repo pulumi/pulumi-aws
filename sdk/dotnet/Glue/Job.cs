@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
         /// </summary>
         [Output("timeout")]
         public Output<int> Timeout { get; private set; } = null!;
@@ -407,7 +407,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
@@ -565,7 +565,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

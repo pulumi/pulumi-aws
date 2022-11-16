@@ -100,9 +100,15 @@ namespace Pulumi.Aws.Iam
         [Output("createDate")]
         public Output<string> CreateDate { get; private set; } = null!;
 
+        /// <summary>
+        /// Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+        /// </summary>
         [Output("encryptedSecret")]
         public Output<string> EncryptedSecret { get; private set; } = null!;
 
+        /// <summary>
+        /// Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+        /// </summary>
         [Output("encryptedSesSmtpPasswordV4")]
         public Output<string> EncryptedSesSmtpPasswordV4 { get; private set; } = null!;
 
@@ -220,9 +226,15 @@ namespace Pulumi.Aws.Iam
         [Input("createDate")]
         public Input<string>? CreateDate { get; set; }
 
+        /// <summary>
+        /// Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+        /// </summary>
         [Input("encryptedSecret")]
         public Input<string>? EncryptedSecret { get; set; }
 
+        /// <summary>
+        /// Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+        /// </summary>
         [Input("encryptedSesSmtpPasswordV4")]
         public Input<string>? EncryptedSesSmtpPasswordV4 { get; set; }
 

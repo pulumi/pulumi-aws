@@ -4075,6 +4075,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 }
 
 type ExperienceConfiguration struct {
+	// The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 	ContentSourceConfiguration *ExperienceConfigurationContentSourceConfiguration `pulumi:"contentSourceConfiguration"`
 	// The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
 	UserIdentityConfiguration *ExperienceConfigurationUserIdentityConfiguration `pulumi:"userIdentityConfiguration"`
@@ -4092,6 +4093,7 @@ type ExperienceConfigurationInput interface {
 }
 
 type ExperienceConfigurationArgs struct {
+	// The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 	ContentSourceConfiguration ExperienceConfigurationContentSourceConfigurationPtrInput `pulumi:"contentSourceConfiguration"`
 	// The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
 	UserIdentityConfiguration ExperienceConfigurationUserIdentityConfigurationPtrInput `pulumi:"userIdentityConfiguration"`
@@ -4174,6 +4176,7 @@ func (o ExperienceConfigurationOutput) ToExperienceConfigurationPtrOutputWithCon
 	}).(ExperienceConfigurationPtrOutput)
 }
 
+// The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 func (o ExperienceConfigurationOutput) ContentSourceConfiguration() ExperienceConfigurationContentSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v ExperienceConfiguration) *ExperienceConfigurationContentSourceConfiguration {
 		return v.ContentSourceConfiguration
@@ -4211,6 +4214,7 @@ func (o ExperienceConfigurationPtrOutput) Elem() ExperienceConfigurationOutput {
 	}).(ExperienceConfigurationOutput)
 }
 
+// The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
 func (o ExperienceConfigurationPtrOutput) ContentSourceConfiguration() ExperienceConfigurationContentSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExperienceConfiguration) *ExperienceConfigurationContentSourceConfiguration {
 		if v == nil {

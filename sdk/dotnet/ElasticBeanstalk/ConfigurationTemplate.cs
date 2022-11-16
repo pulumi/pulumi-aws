@@ -28,7 +28,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     ///         Description = "tf-test-desc",
     ///     });
     /// 
-    ///     var tfTemplate = new Aws.ElasticBeanstalk.ConfigurationTemplate("tfTemplate", new()
+    ///     var myTemplate = new Aws.ElasticBeanstalk.ConfigurationTemplate("myTemplate", new()
     ///     {
     ///         Application = tftest.Name,
     ///         SolutionStackName = "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         /// <summary>
         /// A solution stack to base your Template
-        /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+        /// off of. Example stacks can be found in the [Amazon API documentation][1]
         /// </summary>
         [Output("solutionStackName")]
         public Output<string?> SolutionStackName { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         /// <summary>
         /// A solution stack to base your Template
-        /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+        /// off of. Example stacks can be found in the [Amazon API documentation][1]
         /// </summary>
         [Input("solutionStackName")]
         public Input<string>? SolutionStackName { get; set; }
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         /// <summary>
         /// A solution stack to base your Template
-        /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+        /// off of. Example stacks can be found in the [Amazon API documentation][1]
         /// </summary>
         [Input("solutionStackName")]
         public Input<string>? SolutionStackName { get; set; }

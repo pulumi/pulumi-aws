@@ -47,9 +47,17 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.closeOnDeletion);
     }
 
+    /**
+     * Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+     * 
+     */
     @Import(name="createGovcloud")
     private @Nullable Output<Boolean> createGovcloud;
 
+    /**
+     * @return Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+     * 
+     */
     public Optional<Output<Boolean>> createGovcloud() {
         return Optional.ofNullable(this.createGovcloud);
     }
@@ -274,11 +282,23 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             return closeOnDeletion(Output.of(closeOnDeletion));
         }
 
+        /**
+         * @param createGovcloud Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createGovcloud(@Nullable Output<Boolean> createGovcloud) {
             $.createGovcloud = createGovcloud;
             return this;
         }
 
+        /**
+         * @param createGovcloud Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createGovcloud(Boolean createGovcloud) {
             return createGovcloud(Output.of(createGovcloud));
         }

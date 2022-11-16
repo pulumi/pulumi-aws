@@ -30,7 +30,7 @@ import (
 //			_, err := backup.NewPlan(ctx, "example", &backup.PlanArgs{
 //				Rules: backup.PlanRuleArray{
 //					&backup.PlanRuleArgs{
-//						RuleName:        pulumi.String("tf_example_backup_rule"),
+//						RuleName:        pulumi.String("my_example_backup_rule"),
 //						TargetVaultName: pulumi.Any(aws_backup_vault.Test.Name),
 //						Schedule:        pulumi.String("cron(0 12 * * ? *)"),
 //						Lifecycle: &backup.PlanRuleLifecycleArgs{

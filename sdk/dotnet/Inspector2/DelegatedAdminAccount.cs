@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inspector2
 {
     /// <summary>
+    /// Resource for managing an AWS Inspector V2 Delegated Admin Account.
+    /// 
     /// ## Example Usage
     /// ### Basic Usage
     /// 

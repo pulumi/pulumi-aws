@@ -63,6 +63,9 @@ namespace Pulumi.Aws.S3
 
     public sealed class GetAccountPublicAccessBlockArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
 
@@ -74,6 +77,9 @@ namespace Pulumi.Aws.S3
 
     public sealed class GetAccountPublicAccessBlockInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 

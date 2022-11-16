@@ -147,6 +147,8 @@ class SigningCertificate(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an IAM Signing Certificate resource to upload Signing Certificates.
+
         ## Import
 
         IAM Signing Certificates can be imported using the `id`, e.g.,
@@ -168,6 +170,8 @@ class SigningCertificate(pulumi.CustomResource):
                  args: SigningCertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an IAM Signing Certificate resource to upload Signing Certificates.
+
         ## Import
 
         IAM Signing Certificates can be imported using the `id`, e.g.,

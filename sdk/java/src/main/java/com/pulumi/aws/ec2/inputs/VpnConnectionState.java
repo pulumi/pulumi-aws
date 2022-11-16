@@ -249,14 +249,14 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
+     * When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      * 
      */
     @Import(name="transitGatewayAttachmentId")
     private @Nullable Output<String> transitGatewayAttachmentId;
 
     /**
-     * @return When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
+     * @return When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      * 
      */
     public Optional<Output<String>> transitGatewayAttachmentId() {
@@ -1492,7 +1492,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param transitGatewayAttachmentId When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
+         * @param transitGatewayAttachmentId When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
          * 
          * @return builder
          * 
@@ -1503,7 +1503,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param transitGatewayAttachmentId When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
+         * @param transitGatewayAttachmentId When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
          * 
          * @return builder
          * 

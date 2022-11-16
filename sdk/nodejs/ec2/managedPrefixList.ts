@@ -8,6 +8,20 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a managed prefix list resource.
+ *
+ * > **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
+ * currently provides both a standalone Managed Prefix List Entry resource (a single entry),
+ * and a Managed Prefix List resource with entries defined in-line. At this time you
+ * cannot use a Managed Prefix List with in-line rules in conjunction with any Managed
+ * Prefix List Entry resources. Doing so will cause a conflict of entries and will overwrite entries.
+ *
+ * > **NOTE on `maxEntries`:** When you reference a Prefix List in a resource,
+ * the maximum number of entries for the prefix lists counts as the same number of rules
+ * or entries for the resource. For example, if you create a prefix list with a maximum
+ * of 20 entries and you reference that prefix list in a security group rule, this counts
+ * as 20 rules for the security group.
+ *
  * ## Example Usage
  *
  * Basic usage
@@ -99,6 +113,9 @@ export class ManagedPrefixList extends pulumi.CustomResource {
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Latest version of this prefix list.
@@ -182,6 +199,9 @@ export interface ManagedPrefixListState {
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Latest version of this prefix list.

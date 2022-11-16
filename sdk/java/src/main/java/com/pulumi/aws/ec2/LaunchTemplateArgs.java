@@ -427,9 +427,17 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.monitoring);
     }
 
+    /**
+     * The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -1234,11 +1242,23 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
             return monitoring(Output.of(monitoring));
         }
 
+        /**
+         * @param name The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

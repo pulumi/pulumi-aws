@@ -29,7 +29,7 @@ public final class ClusterVpcConfig {
      */
     private @Nullable Boolean endpointPublicAccess;
     /**
-     * @return List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+     * @return List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     private @Nullable List<String> publicAccessCidrs;
@@ -72,7 +72,7 @@ public final class ClusterVpcConfig {
         return Optional.ofNullable(this.endpointPublicAccess);
     }
     /**
-     * @return List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+     * @return List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     public List<String> publicAccessCidrs() {

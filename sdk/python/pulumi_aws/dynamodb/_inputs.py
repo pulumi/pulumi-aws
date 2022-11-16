@@ -93,7 +93,7 @@ class TableGlobalSecondaryIndexArgs:
         """
         :param pulumi.Input[str] hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
         :param pulumi.Input[str] name: Name of the index
-        :param pulumi.Input[str] projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
+        :param pulumi.Input[str] projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] non_key_attributes: Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         :param pulumi.Input[str] range_key: Name of the range key.
         :param pulumi.Input[int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
@@ -139,7 +139,7 @@ class TableGlobalSecondaryIndexArgs:
     @pulumi.getter(name="projectionType")
     def projection_type(self) -> pulumi.Input[str]:
         """
-        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
+        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
         """
         return pulumi.get(self, "projection_type")
 
@@ -205,7 +205,7 @@ class TableLocalSecondaryIndexArgs:
                  non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: Name of the index
-        :param pulumi.Input[str] projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
+        :param pulumi.Input[str] projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
         :param pulumi.Input[str] range_key: Name of the range key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] non_key_attributes: Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         """
@@ -231,7 +231,7 @@ class TableLocalSecondaryIndexArgs:
     @pulumi.getter(name="projectionType")
     def projection_type(self) -> pulumi.Input[str]:
         """
-        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
+        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
         """
         return pulumi.get(self, "projection_type")
 

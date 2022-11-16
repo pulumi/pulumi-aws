@@ -16,14 +16,14 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
     public static final MainRouteTableAssociationState Empty = new MainRouteTableAssociationState();
 
     /**
-     * Used internally, see __Notes__ below
+     * Used internally, see **Notes** below
      * 
      */
     @Import(name="originalRouteTableId")
     private @Nullable Output<String> originalRouteTableId;
 
     /**
-     * @return Used internally, see __Notes__ below
+     * @return Used internally, see **Notes** below
      * 
      */
     public Optional<Output<String>> originalRouteTableId() {
@@ -89,7 +89,7 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param originalRouteTableId Used internally, see __Notes__ below
+         * @param originalRouteTableId Used internally, see **Notes** below
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param originalRouteTableId Used internally, see __Notes__ below
+         * @param originalRouteTableId Used internally, see **Notes** below
          * 
          * @return builder
          * 

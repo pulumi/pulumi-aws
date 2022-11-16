@@ -209,6 +209,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * 
+     */
+    @Export(name="ipAddressType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> ipAddressType;
+
+    /**
+     * @return The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * 
+     */
+    public Output<Optional<String>> ipAddressType() {
+        return Codegen.optional(this.ipAddressType);
+    }
+    /**
      * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
      * 
      * @deprecated

@@ -80,6 +80,7 @@ import (
 type UserLoginProfile struct {
 	pulumi.CustomResourceState
 
+	// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
 	EncryptedPassword pulumi.StringOutput `pulumi:"encryptedPassword"`
 	// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
 	KeyFingerprint pulumi.StringOutput `pulumi:"keyFingerprint"`
@@ -127,6 +128,7 @@ func GetUserLoginProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserLoginProfile resources.
 type userLoginProfileState struct {
+	// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
 	EncryptedPassword *string `pulumi:"encryptedPassword"`
 	// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
 	KeyFingerprint *string `pulumi:"keyFingerprint"`
@@ -143,6 +145,7 @@ type userLoginProfileState struct {
 }
 
 type UserLoginProfileState struct {
+	// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
 	EncryptedPassword pulumi.StringPtrInput
 	// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
 	KeyFingerprint pulumi.StringPtrInput
@@ -272,6 +275,7 @@ func (o UserLoginProfileOutput) ToUserLoginProfileOutputWithContext(ctx context.
 	return o
 }
 
+// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
 func (o UserLoginProfileOutput) EncryptedPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserLoginProfile) pulumi.StringOutput { return v.EncryptedPassword }).(pulumi.StringOutput)
 }

@@ -27,7 +27,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.LookupPlan(ctx, &backup.LookupPlanArgs{
-//				PlanId: "tf_example_backup_plan_id",
+//				PlanId: "my_example_backup_plan_id",
 //			}, nil)
 //			if err != nil {
 //				return err

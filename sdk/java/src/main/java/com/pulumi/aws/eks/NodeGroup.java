@@ -234,14 +234,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.clusterName;
     }
     /**
-     * Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+     * Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="diskSize", type=Integer.class, parameters={})
     private Output<Integer> diskSize;
 
     /**
-     * @return Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+     * @return Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Output<Integer> diskSize() {
@@ -262,14 +262,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceUpdateVersion);
     }
     /**
-     * List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. This provider will only perform drift detection if a configuration value is provided.
+     * List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="instanceTypes", type=List.class, parameters={String.class})
     private Output<List<String>> instanceTypes;
 
     /**
-     * @return List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. This provider will only perform drift detection if a configuration value is provided.
+     * @return List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Output<List<String>> instanceTypes() {
@@ -304,14 +304,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.launchTemplate);
     }
     /**
-     * Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
      * 
      */
     @Export(name="nodeGroupName", type=String.class, parameters={})
     private Output<String> nodeGroupName;
 
     /**
-     * @return Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
+     * @return Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
      * 
      */
     public Output<String> nodeGroupName() {
@@ -430,14 +430,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
-     * Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -478,14 +478,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.updateConfig;
     }
     /**
-     * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+     * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      * 
      */
     @Export(name="version", type=String.class, parameters={})
     private Output<String> version;
 
     /**
-     * @return EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+     * @return EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      * 
      */
     public Output<String> version() {

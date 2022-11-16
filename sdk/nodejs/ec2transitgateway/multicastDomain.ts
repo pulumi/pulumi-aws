@@ -171,6 +171,9 @@ export class MulticastDomain extends pulumi.CustomResource {
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     public readonly staticSourcesSupport!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -245,6 +248,9 @@ export interface MulticastDomainState {
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     staticSourcesSupport?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -272,6 +278,9 @@ export interface MulticastDomainArgs {
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     staticSourcesSupport?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.

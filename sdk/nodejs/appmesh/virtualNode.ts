@@ -162,8 +162,6 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
  * ```
- *
- *  [1]/docs/providers/aws/index.html
  */
 export class VirtualNode extends pulumi.CustomResource {
     /**

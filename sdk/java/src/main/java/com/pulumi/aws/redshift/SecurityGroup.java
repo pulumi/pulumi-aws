@@ -16,6 +16,10 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.
+ * 
+ * !&gt; **WARNING:** With the retirement of EC2-Classic the `aws.redshift.SecurityGroup` resource has been deprecated and will be removed in a future version. Any existing resources can be removed from state manually.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

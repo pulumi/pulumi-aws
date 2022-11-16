@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RolesAnywhere
 {
     /// <summary>
+    /// Resource for managing a Roles Anywhere Profile.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -117,6 +119,9 @@ namespace Pulumi.Aws.RolesAnywhere
         [Output("sessionPolicy")]
         public Output<string?> SessionPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -228,6 +233,10 @@ namespace Pulumi.Aws.RolesAnywhere
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -304,6 +313,10 @@ namespace Pulumi.Aws.RolesAnywhere
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

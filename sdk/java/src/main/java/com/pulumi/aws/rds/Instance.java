@@ -35,9 +35,6 @@ import javax.annotation.Nullable;
  * When upgrading the major version of an engine, `allow_major_version_upgrade`
  * must be set to `true`.
  * 
- * &gt; **Note:** using `apply_immediately` can result in a brief downtime as the
- * server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
- * 
  * ## RDS Instance Class Types
  * 
  * Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
@@ -584,7 +581,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier.
+     * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
      * 
      */
     @Export(name="identifier", type=String.class, parameters={})
@@ -592,7 +589,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier.
+     * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
      * 
      */
     public Output<String> identifier() {
@@ -1159,14 +1156,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.storageType;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

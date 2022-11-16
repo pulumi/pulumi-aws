@@ -16,9 +16,17 @@ public final class MultiRegionAccessPointPolicyArgs extends com.pulumi.resources
 
     public static final MultiRegionAccessPointPolicyArgs Empty = new MultiRegionAccessPointPolicyArgs();
 
+    /**
+     * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
+    /**
+     * @return The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * 
+     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
@@ -63,11 +71,23 @@ public final class MultiRegionAccessPointPolicyArgs extends com.pulumi.resources
             $ = new MultiRegionAccessPointPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountId The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param accountId The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }

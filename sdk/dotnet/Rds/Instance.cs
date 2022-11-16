@@ -24,9 +24,6 @@ namespace Pulumi.Aws.Rds
     /// When upgrading the major version of an engine, `allow_major_version_upgrade`
     /// must be set to `true`.
     /// 
-    /// &gt; **Note:** using `apply_immediately` can result in a brief downtime as the
-    /// server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
-    /// 
     /// ## RDS Instance Class Types
     /// 
     /// Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
@@ -291,7 +288,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The name of the RDS instance,
-        /// if omitted, this provider will assign a random, unique identifier.
+        /// if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
@@ -540,7 +537,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -798,7 +795,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The name of the RDS instance,
-        /// if omitted, this provider will assign a random, unique identifier.
+        /// if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
@@ -1036,7 +1033,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1290,7 +1287,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The name of the RDS instance,
-        /// if omitted, this provider will assign a random, unique identifier.
+        /// if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
@@ -1554,7 +1551,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

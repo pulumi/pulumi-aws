@@ -101,7 +101,7 @@ class RecorderStatus(pulumi.CustomResource):
         """
         Manages status (recording / stopped) of an AWS Config Configuration Recorder.
 
-        > **Note:** Starting Configuration Recorder requires a `Delivery Channel` to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+        > **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
 
         ## Example Usage
 
@@ -173,7 +173,7 @@ class RecorderStatus(pulumi.CustomResource):
         """
         Manages status (recording / stopped) of an AWS Config Configuration Recorder.
 
-        > **Note:** Starting Configuration Recorder requires a `Delivery Channel` to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+        > **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
 
         ## Example Usage
 

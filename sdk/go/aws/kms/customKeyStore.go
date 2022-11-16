@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS KMS (Key Management) Custom Key Store.
+//
 // ## Example Usage
 // ### Basic Usage
 //

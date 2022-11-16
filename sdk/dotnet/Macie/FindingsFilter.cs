@@ -88,6 +88,9 @@ namespace Pulumi.Aws.Macie
         [Output("findingCriteria")]
         public Output<Outputs.FindingsFilterFindingCriteria> FindingCriteria { get; private set; } = null!;
 
+        /// <summary>
+        /// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -176,6 +179,9 @@ namespace Pulumi.Aws.Macie
         [Input("findingCriteria", required: true)]
         public Input<Inputs.FindingsFilterFindingCriteriaArgs> FindingCriteria { get; set; } = null!;
 
+        /// <summary>
+        /// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -235,6 +241,9 @@ namespace Pulumi.Aws.Macie
         [Input("findingCriteria")]
         public Input<Inputs.FindingsFilterFindingCriteriaGetArgs>? FindingCriteria { get; set; }
 
+        /// <summary>
+        /// A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -77,8 +77,10 @@ type CustomActionType struct {
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
 	// The settings for an action type.
 	Settings CustomActionTypeSettingsPtrOutput `pulumi:"settings"`
-	Tags     pulumi.StringMapOutput            `pulumi:"tags"`
-	TagsAll  pulumi.StringMapOutput            `pulumi:"tagsAll"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The version identifier of the custom action.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -143,8 +145,10 @@ type customActionTypeState struct {
 	ProviderName *string `pulumi:"providerName"`
 	// The settings for an action type.
 	Settings *CustomActionTypeSettings `pulumi:"settings"`
-	Tags     map[string]string         `pulumi:"tags"`
-	TagsAll  map[string]string         `pulumi:"tagsAll"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The version identifier of the custom action.
 	Version *string `pulumi:"version"`
 }
@@ -166,8 +170,10 @@ type CustomActionTypeState struct {
 	ProviderName pulumi.StringPtrInput
 	// The settings for an action type.
 	Settings CustomActionTypeSettingsPtrInput
-	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The version identifier of the custom action.
 	Version pulumi.StringPtrInput
 }
@@ -189,8 +195,8 @@ type customActionTypeArgs struct {
 	ProviderName string `pulumi:"providerName"`
 	// The settings for an action type.
 	Settings *CustomActionTypeSettings `pulumi:"settings"`
-	Tags     map[string]string         `pulumi:"tags"`
-	TagsAll  map[string]string         `pulumi:"tagsAll"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The version identifier of the custom action.
 	Version string `pulumi:"version"`
 }
@@ -209,8 +215,8 @@ type CustomActionTypeArgs struct {
 	ProviderName pulumi.StringInput
 	// The settings for an action type.
 	Settings CustomActionTypeSettingsPtrInput
-	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The version identifier of the custom action.
 	Version pulumi.StringInput
 }
@@ -344,10 +350,12 @@ func (o CustomActionTypeOutput) Settings() CustomActionTypeSettingsPtrOutput {
 	return o.ApplyT(func(v *CustomActionType) CustomActionTypeSettingsPtrOutput { return v.Settings }).(CustomActionTypeSettingsPtrOutput)
 }
 
+// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CustomActionTypeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CustomActionTypeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

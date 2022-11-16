@@ -63,7 +63,8 @@ type AccessPoint struct {
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryOutput `pulumi:"rootDirectory"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -111,7 +112,8 @@ type accessPointState struct {
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -128,7 +130,8 @@ type AccessPointState struct {
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -280,6 +283,7 @@ func (o AccessPointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AccessPointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

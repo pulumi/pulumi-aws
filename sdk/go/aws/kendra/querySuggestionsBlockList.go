@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Kendra block list used for query suggestions for an index.
+//
 // ## Example Usage
 // ### Basic Usage
 //
@@ -73,7 +75,8 @@ type QuerySuggestionsBlockList struct {
 	// The S3 path where your block list text file sits in S3. Detailed below.
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathOutput `pulumi:"sourceS3Path"`
 	Status       pulumi.StringOutput                         `pulumi:"status"`
-	Tags         pulumi.StringMapOutput                      `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -131,7 +134,8 @@ type querySuggestionsBlockListState struct {
 	// The S3 path where your block list text file sits in S3. Detailed below.
 	SourceS3Path *QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
 	Status       *string                                `pulumi:"status"`
-	Tags         map[string]string                      `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -152,7 +156,8 @@ type QuerySuggestionsBlockListState struct {
 	// The S3 path where your block list text file sits in S3. Detailed below.
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathPtrInput
 	Status       pulumi.StringPtrInput
-	Tags         pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -172,7 +177,8 @@ type querySuggestionsBlockListArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The S3 path where your block list text file sits in S3. Detailed below.
 	SourceS3Path QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
-	Tags         map[string]string                     `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a QuerySuggestionsBlockList resource.
@@ -187,7 +193,8 @@ type QuerySuggestionsBlockListArgs struct {
 	RoleArn pulumi.StringInput
 	// The S3 path where your block list text file sits in S3. Detailed below.
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathInput
-	Tags         pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (QuerySuggestionsBlockListArgs) ElementType() reflect.Type {
@@ -316,6 +323,7 @@ func (o QuerySuggestionsBlockListOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o QuerySuggestionsBlockListOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

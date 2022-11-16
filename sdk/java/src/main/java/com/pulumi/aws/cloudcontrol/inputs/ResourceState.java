@@ -15,16 +15,32 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
 
     public static final ResourceState Empty = new ResourceState();
 
+    /**
+     * JSON string matching the CloudFormation resource type schema with desired configuration.
+     * 
+     */
     @Import(name="desiredState")
     private @Nullable Output<String> desiredState;
 
+    /**
+     * @return JSON string matching the CloudFormation resource type schema with desired configuration.
+     * 
+     */
     public Optional<Output<String>> desiredState() {
         return Optional.ofNullable(this.desiredState);
     }
 
+    /**
+     * JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)[&#34;example&#34;]`.
+     * 
+     */
     @Import(name="properties")
     private @Nullable Output<String> properties;
 
+    /**
+     * @return JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)[&#34;example&#34;]`.
+     * 
+     */
     public Optional<Output<String>> properties() {
         return Optional.ofNullable(this.properties);
     }
@@ -118,20 +134,44 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
             $ = new ResourceState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param desiredState JSON string matching the CloudFormation resource type schema with desired configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder desiredState(@Nullable Output<String> desiredState) {
             $.desiredState = desiredState;
             return this;
         }
 
+        /**
+         * @param desiredState JSON string matching the CloudFormation resource type schema with desired configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder desiredState(String desiredState) {
             return desiredState(Output.of(desiredState));
         }
 
+        /**
+         * @param properties JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)[&#34;example&#34;]`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder properties(@Nullable Output<String> properties) {
             $.properties = properties;
             return this;
         }
 
+        /**
+         * @param properties JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)[&#34;example&#34;]`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder properties(String properties) {
             return properties(Output.of(properties));
         }

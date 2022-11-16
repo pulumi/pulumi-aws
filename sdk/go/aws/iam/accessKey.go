@@ -116,8 +116,10 @@ type AccessKey struct {
 	pulumi.CustomResourceState
 
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-	CreateDate                 pulumi.StringOutput `pulumi:"createDate"`
-	EncryptedSecret            pulumi.StringOutput `pulumi:"encryptedSecret"`
+	CreateDate pulumi.StringOutput `pulumi:"createDate"`
+	// Encrypted secret, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+	EncryptedSecret pulumi.StringOutput `pulumi:"encryptedSecret"`
+	// Encrypted SES SMTP password, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
 	EncryptedSesSmtpPasswordV4 pulumi.StringOutput `pulumi:"encryptedSesSmtpPasswordV4"`
 	// Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
 	KeyFingerprint pulumi.StringOutput `pulumi:"keyFingerprint"`
@@ -166,8 +168,10 @@ func GetAccessKey(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AccessKey resources.
 type accessKeyState struct {
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-	CreateDate                 *string `pulumi:"createDate"`
-	EncryptedSecret            *string `pulumi:"encryptedSecret"`
+	CreateDate *string `pulumi:"createDate"`
+	// Encrypted secret, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+	EncryptedSecret *string `pulumi:"encryptedSecret"`
+	// Encrypted SES SMTP password, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
 	EncryptedSesSmtpPasswordV4 *string `pulumi:"encryptedSesSmtpPasswordV4"`
 	// Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
 	KeyFingerprint *string `pulumi:"keyFingerprint"`
@@ -185,8 +189,10 @@ type accessKeyState struct {
 
 type AccessKeyState struct {
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
-	CreateDate                 pulumi.StringPtrInput
-	EncryptedSecret            pulumi.StringPtrInput
+	CreateDate pulumi.StringPtrInput
+	// Encrypted secret, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+	EncryptedSecret pulumi.StringPtrInput
+	// Encrypted SES SMTP password, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
 	EncryptedSesSmtpPasswordV4 pulumi.StringPtrInput
 	// Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
 	KeyFingerprint pulumi.StringPtrInput
@@ -317,10 +323,12 @@ func (o AccessKeyOutput) CreateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessKey) pulumi.StringOutput { return v.CreateDate }).(pulumi.StringOutput)
 }
 
+// Encrypted secret, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
 func (o AccessKeyOutput) EncryptedSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessKey) pulumi.StringOutput { return v.EncryptedSecret }).(pulumi.StringOutput)
 }
 
+// Encrypted SES SMTP password, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
 func (o AccessKeyOutput) EncryptedSesSmtpPasswordV4() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessKey) pulumi.StringOutput { return v.EncryptedSesSmtpPasswordV4 }).(pulumi.StringOutput)
 }

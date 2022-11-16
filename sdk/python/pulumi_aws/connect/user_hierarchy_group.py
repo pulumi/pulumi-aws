@@ -25,6 +25,8 @@ class UserHierarchyGroupArgs:
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         :param pulumi.Input[str] parent_group_id: The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the hierarchy group. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         if name is not None:
@@ -73,6 +75,10 @@ class UserHierarchyGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the hierarchy group. If configured with a provider
+        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -101,6 +107,8 @@ class _UserHierarchyGroupState:
         :param pulumi.Input[str] level_id: The identifier of the level in the hierarchy group.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         :param pulumi.Input[str] parent_group_id: The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the hierarchy group. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -209,6 +217,10 @@ class _UserHierarchyGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags to apply to the hierarchy group. If configured with a provider
+        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -289,6 +301,8 @@ class UserHierarchyGroup(pulumi.CustomResource):
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         :param pulumi.Input[str] parent_group_id: The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the hierarchy group. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -414,6 +428,8 @@ class UserHierarchyGroup(pulumi.CustomResource):
         :param pulumi.Input[str] level_id: The identifier of the level in the hierarchy group.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         :param pulumi.Input[str] parent_group_id: The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the hierarchy group. If configured with a provider
+               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -490,6 +506,10 @@ class UserHierarchyGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags to apply to the hierarchy group. If configured with a provider
+        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

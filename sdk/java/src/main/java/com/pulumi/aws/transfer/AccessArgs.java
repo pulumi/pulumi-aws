@@ -78,9 +78,17 @@ public final class AccessArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.homeDirectoryType);
     }
 
+    /**
+     * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+     * 
+     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
+    /**
+     * @return An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+     * 
+     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
@@ -255,11 +263,23 @@ public final class AccessArgs extends com.pulumi.resources.ResourceArgs {
             return homeDirectoryType(Output.of(homeDirectoryType));
         }
 
+        /**
+         * @param policy An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

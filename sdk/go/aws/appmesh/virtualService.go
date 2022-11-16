@@ -88,8 +88,6 @@ import (
 //	$ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
 //
 // ```
-//
-//	[1]/docs/providers/aws/index.html
 type VirtualService struct {
 	pulumi.CustomResourceState
 

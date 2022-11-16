@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS Location Geofence Collection.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -72,6 +74,9 @@ export class GeofenceCollection extends pulumi.CustomResource {
      * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -143,6 +148,9 @@ export interface GeofenceCollectionState {
      * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -167,5 +175,8 @@ export interface GeofenceCollectionArgs {
      * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

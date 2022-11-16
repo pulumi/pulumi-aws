@@ -147,13 +147,13 @@ export class Project extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Tags to apply to the project. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -188,7 +188,6 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["activeExperimentCount"] = undefined /*out*/;
             resourceInputs["activeLaunchCount"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -198,6 +197,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["launchCount"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Project.__pulumiType, name, resourceInputs, opts);
@@ -257,11 +257,11 @@ export interface ProjectState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Tags to apply to the project. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -283,11 +283,7 @@ export interface ProjectArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Tags to apply to the project. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the project. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

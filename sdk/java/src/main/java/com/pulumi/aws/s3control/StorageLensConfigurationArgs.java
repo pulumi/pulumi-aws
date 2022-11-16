@@ -62,18 +62,19 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
         return this.storageLensConfiguration;
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
-    }
-
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
     }
 
     private StorageLensConfigurationArgs() {}
@@ -83,7 +84,6 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
         this.configId = $.configId;
         this.storageLensConfiguration = $.storageLensConfiguration;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -167,22 +167,25 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
             return storageLensConfiguration(Output.of(storageLensConfiguration));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public StorageLensConfigurationArgs build() {

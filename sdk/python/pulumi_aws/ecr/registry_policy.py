@@ -17,12 +17,16 @@ class RegistryPolicyArgs:
                  policy: pulumi.Input[str]):
         """
         The set of arguments for constructing a RegistryPolicy resource.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         """
         pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
+        """
+        The policy document. This is a JSON formatted string.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -37,6 +41,7 @@ class _RegistryPolicyState:
                  registry_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RegistryPolicy resources.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] registry_id: The registry ID where the registry was created.
         """
         if policy is not None:
@@ -47,6 +52,9 @@ class _RegistryPolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy document. This is a JSON formatted string.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -110,6 +118,7 @@ class RegistryPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         """
         ...
     @overload
@@ -200,6 +209,7 @@ class RegistryPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] registry_id: The registry ID where the registry was created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -213,6 +223,9 @@ class RegistryPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        The policy document. This is a JSON formatted string.
+        """
         return pulumi.get(self, "policy")
 
     @property

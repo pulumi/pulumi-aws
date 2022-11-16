@@ -955,6 +955,202 @@ func (o GetResolverEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetResolv
 	}).(GetResolverEndpointFilterOutput)
 }
 
+type GetResolverFirewallRulesFirewallRule struct {
+	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
+	Action string `pulumi:"action"`
+	// The DNS record's type.
+	BlockOverrideDnsType string `pulumi:"blockOverrideDnsType"`
+	// The custom DNS record to send back in response to the query.
+	BlockOverrideDomain string `pulumi:"blockOverrideDomain"`
+	// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
+	BlockOverrideTtl int `pulumi:"blockOverrideTtl"`
+	// The way that you want DNS Firewall to block the request.
+	BlockResponse string `pulumi:"blockResponse"`
+	// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
+	CreationTime string `pulumi:"creationTime"`
+	// A unique string defined by you to identify the request.
+	CreatorRequestId string `pulumi:"creatorRequestId"`
+	// The ID of the domain list that's used in the rule.
+	FirewallDomainListId string `pulumi:"firewallDomainListId"`
+	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
+	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
+	// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
+	ModificationTime string `pulumi:"modificationTime"`
+	// The name of the rule.
+	Name string `pulumi:"name"`
+	// The setting that determines the processing order of the rules in a rule group.
+	Priority int `pulumi:"priority"`
+}
+
+// GetResolverFirewallRulesFirewallRuleInput is an input type that accepts GetResolverFirewallRulesFirewallRuleArgs and GetResolverFirewallRulesFirewallRuleOutput values.
+// You can construct a concrete instance of `GetResolverFirewallRulesFirewallRuleInput` via:
+//
+//	GetResolverFirewallRulesFirewallRuleArgs{...}
+type GetResolverFirewallRulesFirewallRuleInput interface {
+	pulumi.Input
+
+	ToGetResolverFirewallRulesFirewallRuleOutput() GetResolverFirewallRulesFirewallRuleOutput
+	ToGetResolverFirewallRulesFirewallRuleOutputWithContext(context.Context) GetResolverFirewallRulesFirewallRuleOutput
+}
+
+type GetResolverFirewallRulesFirewallRuleArgs struct {
+	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The DNS record's type.
+	BlockOverrideDnsType pulumi.StringInput `pulumi:"blockOverrideDnsType"`
+	// The custom DNS record to send back in response to the query.
+	BlockOverrideDomain pulumi.StringInput `pulumi:"blockOverrideDomain"`
+	// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
+	BlockOverrideTtl pulumi.IntInput `pulumi:"blockOverrideTtl"`
+	// The way that you want DNS Firewall to block the request.
+	BlockResponse pulumi.StringInput `pulumi:"blockResponse"`
+	// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
+	CreationTime pulumi.StringInput `pulumi:"creationTime"`
+	// A unique string defined by you to identify the request.
+	CreatorRequestId pulumi.StringInput `pulumi:"creatorRequestId"`
+	// The ID of the domain list that's used in the rule.
+	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
+	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
+	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
+	// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
+	ModificationTime pulumi.StringInput `pulumi:"modificationTime"`
+	// The name of the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The setting that determines the processing order of the rules in a rule group.
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (GetResolverFirewallRulesFirewallRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverFirewallRulesFirewallRule)(nil)).Elem()
+}
+
+func (i GetResolverFirewallRulesFirewallRuleArgs) ToGetResolverFirewallRulesFirewallRuleOutput() GetResolverFirewallRulesFirewallRuleOutput {
+	return i.ToGetResolverFirewallRulesFirewallRuleOutputWithContext(context.Background())
+}
+
+func (i GetResolverFirewallRulesFirewallRuleArgs) ToGetResolverFirewallRulesFirewallRuleOutputWithContext(ctx context.Context) GetResolverFirewallRulesFirewallRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResolverFirewallRulesFirewallRuleOutput)
+}
+
+// GetResolverFirewallRulesFirewallRuleArrayInput is an input type that accepts GetResolverFirewallRulesFirewallRuleArray and GetResolverFirewallRulesFirewallRuleArrayOutput values.
+// You can construct a concrete instance of `GetResolverFirewallRulesFirewallRuleArrayInput` via:
+//
+//	GetResolverFirewallRulesFirewallRuleArray{ GetResolverFirewallRulesFirewallRuleArgs{...} }
+type GetResolverFirewallRulesFirewallRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetResolverFirewallRulesFirewallRuleArrayOutput() GetResolverFirewallRulesFirewallRuleArrayOutput
+	ToGetResolverFirewallRulesFirewallRuleArrayOutputWithContext(context.Context) GetResolverFirewallRulesFirewallRuleArrayOutput
+}
+
+type GetResolverFirewallRulesFirewallRuleArray []GetResolverFirewallRulesFirewallRuleInput
+
+func (GetResolverFirewallRulesFirewallRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResolverFirewallRulesFirewallRule)(nil)).Elem()
+}
+
+func (i GetResolverFirewallRulesFirewallRuleArray) ToGetResolverFirewallRulesFirewallRuleArrayOutput() GetResolverFirewallRulesFirewallRuleArrayOutput {
+	return i.ToGetResolverFirewallRulesFirewallRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetResolverFirewallRulesFirewallRuleArray) ToGetResolverFirewallRulesFirewallRuleArrayOutputWithContext(ctx context.Context) GetResolverFirewallRulesFirewallRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResolverFirewallRulesFirewallRuleArrayOutput)
+}
+
+type GetResolverFirewallRulesFirewallRuleOutput struct{ *pulumi.OutputState }
+
+func (GetResolverFirewallRulesFirewallRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverFirewallRulesFirewallRule)(nil)).Elem()
+}
+
+func (o GetResolverFirewallRulesFirewallRuleOutput) ToGetResolverFirewallRulesFirewallRuleOutput() GetResolverFirewallRulesFirewallRuleOutput {
+	return o
+}
+
+func (o GetResolverFirewallRulesFirewallRuleOutput) ToGetResolverFirewallRulesFirewallRuleOutputWithContext(ctx context.Context) GetResolverFirewallRulesFirewallRuleOutput {
+	return o
+}
+
+// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
+func (o GetResolverFirewallRulesFirewallRuleOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The DNS record's type.
+func (o GetResolverFirewallRulesFirewallRuleOutput) BlockOverrideDnsType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.BlockOverrideDnsType }).(pulumi.StringOutput)
+}
+
+// The custom DNS record to send back in response to the query.
+func (o GetResolverFirewallRulesFirewallRuleOutput) BlockOverrideDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.BlockOverrideDomain }).(pulumi.StringOutput)
+}
+
+// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
+func (o GetResolverFirewallRulesFirewallRuleOutput) BlockOverrideTtl() pulumi.IntOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) int { return v.BlockOverrideTtl }).(pulumi.IntOutput)
+}
+
+// The way that you want DNS Firewall to block the request.
+func (o GetResolverFirewallRulesFirewallRuleOutput) BlockResponse() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.BlockResponse }).(pulumi.StringOutput)
+}
+
+// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
+func (o GetResolverFirewallRulesFirewallRuleOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// A unique string defined by you to identify the request.
+func (o GetResolverFirewallRulesFirewallRuleOutput) CreatorRequestId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.CreatorRequestId }).(pulumi.StringOutput)
+}
+
+// The ID of the domain list that's used in the rule.
+func (o GetResolverFirewallRulesFirewallRuleOutput) FirewallDomainListId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.FirewallDomainListId }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the firewall rule group that you want to retrieve the rules for.
+func (o GetResolverFirewallRulesFirewallRuleOutput) FirewallRuleGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.FirewallRuleGroupId }).(pulumi.StringOutput)
+}
+
+// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
+func (o GetResolverFirewallRulesFirewallRuleOutput) ModificationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.ModificationTime }).(pulumi.StringOutput)
+}
+
+// The name of the rule.
+func (o GetResolverFirewallRulesFirewallRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The setting that determines the processing order of the rules in a rule group.
+func (o GetResolverFirewallRulesFirewallRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesFirewallRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type GetResolverFirewallRulesFirewallRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResolverFirewallRulesFirewallRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResolverFirewallRulesFirewallRule)(nil)).Elem()
+}
+
+func (o GetResolverFirewallRulesFirewallRuleArrayOutput) ToGetResolverFirewallRulesFirewallRuleArrayOutput() GetResolverFirewallRulesFirewallRuleArrayOutput {
+	return o
+}
+
+func (o GetResolverFirewallRulesFirewallRuleArrayOutput) ToGetResolverFirewallRulesFirewallRuleArrayOutputWithContext(ctx context.Context) GetResolverFirewallRulesFirewallRuleArrayOutput {
+	return o
+}
+
+func (o GetResolverFirewallRulesFirewallRuleArrayOutput) Index(i pulumi.IntInput) GetResolverFirewallRulesFirewallRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResolverFirewallRulesFirewallRule {
+		return vs[0].([]GetResolverFirewallRulesFirewallRule)[vs[1].(int)]
+	}).(GetResolverFirewallRulesFirewallRuleOutput)
+}
+
 type GetTrafficPolicyDocumentEndpoint struct {
 	// ID of a rule you want to assign.
 	Id string `pulumi:"id"`
@@ -2207,6 +2403,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneVpcArrayInput)(nil)).Elem(), ZoneVpcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverEndpointFilterInput)(nil)).Elem(), GetResolverEndpointFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverEndpointFilterArrayInput)(nil)).Elem(), GetResolverEndpointFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverFirewallRulesFirewallRuleInput)(nil)).Elem(), GetResolverFirewallRulesFirewallRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverFirewallRulesFirewallRuleArrayInput)(nil)).Elem(), GetResolverFirewallRulesFirewallRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentEndpointInput)(nil)).Elem(), GetTrafficPolicyDocumentEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentEndpointArrayInput)(nil)).Elem(), GetTrafficPolicyDocumentEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleArgs{})
@@ -2241,6 +2439,8 @@ func init() {
 	pulumi.RegisterOutputType(ZoneVpcArrayOutput{})
 	pulumi.RegisterOutputType(GetResolverEndpointFilterOutput{})
 	pulumi.RegisterOutputType(GetResolverEndpointFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetResolverFirewallRulesFirewallRuleOutput{})
+	pulumi.RegisterOutputType(GetResolverFirewallRulesFirewallRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficPolicyDocumentEndpointOutput{})
 	pulumi.RegisterOutputType(GetTrafficPolicyDocumentEndpointArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleOutput{})

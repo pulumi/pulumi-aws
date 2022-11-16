@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer
 {
     /// <summary>
+    /// Manages an individual Transfer Family resource tag. This resource should only be used in cases where Transfer Family resources are created outside the provider (e.g., Servers without AWS Management Console) or the tag key has the `aws:` prefix.
+    /// 
+    /// &gt; **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.transfer.Server` and `aws.transfer.Tag` to manage tags of the same server will cause a perpetual difference where the `aws.transfer.Server` resource will try to remove the tag being added by the `aws.transfer.Tag` resource.
+    /// 
+    /// &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

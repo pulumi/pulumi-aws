@@ -43,9 +43,17 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.accessPolicies);
     }
 
+    /**
+     * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
+     * 
+     */
     @Import(name="advancedOptions")
     private @Nullable Output<Map<String,String>> advancedOptions;
 
+    /**
+     * @return Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
+     * 
+     */
     public Optional<Output<Map<String,String>>> advancedOptions() {
         return Optional.ofNullable(this.advancedOptions);
     }
@@ -305,9 +313,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -392,11 +412,23 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
             return accessPolicies(Output.of(accessPolicies));
         }
 
+        /**
+         * @param advancedOptions Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder advancedOptions(@Nullable Output<Map<String,String>> advancedOptions) {
             $.advancedOptions = advancedOptions;
             return this;
         }
 
+        /**
+         * @param advancedOptions Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder advancedOptions(Map<String,String> advancedOptions) {
             return advancedOptions(Output.of(advancedOptions));
         }
@@ -768,11 +800,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+         * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+         * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

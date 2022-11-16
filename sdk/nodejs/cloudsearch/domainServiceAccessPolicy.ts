@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an CloudSearch domain service access policy resource.
+ *
+ * The provider waits for the domain service access policy to become `Active` when applying a configuration.
+ *
  * ## Example Usage
  *
  * ```typescript

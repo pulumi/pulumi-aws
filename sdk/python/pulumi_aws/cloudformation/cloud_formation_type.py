@@ -391,6 +391,8 @@ class CloudFormationType(pulumi.CustomResource):
                  type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages a version of a CloudFormation Type.
+
         ## Example Usage
 
         ```python
@@ -430,6 +432,8 @@ class CloudFormationType(pulumi.CustomResource):
                  args: CloudFormationTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a version of a CloudFormation Type.
+
         ## Example Usage
 
         ```python

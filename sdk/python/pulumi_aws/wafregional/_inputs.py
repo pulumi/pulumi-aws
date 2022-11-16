@@ -285,9 +285,9 @@ class RegexMatchSetRegexMatchTupleArgs:
                  text_transformation: pulumi.Input[str]):
         """
         :param pulumi.Input['RegexMatchSetRegexMatchTupleFieldToMatchArgs'] field_to_match: The part of a web request that you want to search, such as a specified header or a query string.
-        :param pulumi.Input[str] regex_pattern_set_id: The ID of a `WAF Regex Pattern Set`.
+        :param pulumi.Input[str] regex_pattern_set_id: The ID of a Regex Pattern Set.
         :param pulumi.Input[str] text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-               e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+               e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
                for all supported values.
         """
@@ -311,7 +311,7 @@ class RegexMatchSetRegexMatchTupleArgs:
     @pulumi.getter(name="regexPatternSetId")
     def regex_pattern_set_id(self) -> pulumi.Input[str]:
         """
-        The ID of a `WAF Regex Pattern Set`.
+        The ID of a Regex Pattern Set.
         """
         return pulumi.get(self, "regex_pattern_set_id")
 
@@ -324,7 +324,7 @@ class RegexMatchSetRegexMatchTupleArgs:
     def text_transformation(self) -> pulumi.Input[str]:
         """
         Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-        e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+        e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
         for all supported values.
         """
@@ -391,7 +391,7 @@ class RuleGroupActivatedRuleArgs:
         """
         :param pulumi.Input['RuleGroupActivatedRuleActionArgs'] action: Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
         :param pulumi.Input[int] priority: Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-        :param pulumi.Input[str] rule_id: The ID of a `waf_regional_rule`
+        :param pulumi.Input[str] rule_id: The ID of a rule
         :param pulumi.Input[str] type: The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         """
         pulumi.set(__self__, "action", action)
@@ -428,7 +428,7 @@ class RuleGroupActivatedRuleArgs:
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Input[str]:
         """
-        The ID of a `waf_regional_rule`
+        The ID of a rule
         """
         return pulumi.get(self, "rule_id")
 
@@ -860,7 +860,7 @@ class WebAclRuleArgs:
         """
         :param pulumi.Input[int] priority: Specifies the order in which the rules in a WebACL are evaluated.
                Rules with a lower value are evaluated before rules with a higher value.
-        :param pulumi.Input[str] rule_id: ID of the associated WAF (Regional) rule (e.g. `wafregional.Rule`). WAF (Global) rules cannot be used.
+        :param pulumi.Input[str] rule_id: ID of the associated WAF (Regional) rule (e.g., `wafregional.Rule`). WAF (Global) rules cannot be used.
         :param pulumi.Input['WebAclRuleActionArgs'] action: Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
         :param pulumi.Input['WebAclRuleOverrideActionArgs'] override_action: Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
         :param pulumi.Input[str] type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
@@ -891,7 +891,7 @@ class WebAclRuleArgs:
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Input[str]:
         """
-        ID of the associated WAF (Regional) rule (e.g. `wafregional.Rule`). WAF (Global) rules cannot be used.
+        ID of the associated WAF (Regional) rule (e.g., `wafregional.Rule`). WAF (Global) rules cannot be used.
         """
         return pulumi.get(self, "rule_id")
 

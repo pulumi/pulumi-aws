@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinkAssociation{}
 	case "aws:networkmanager/site:Site":
 		r = &Site{}
+	case "aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment":
+		r = &SiteToSiteVpnAttachment{}
 	case "aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation":
 		r = &TransitGatewayConnectPeerAssociation{}
 	case "aws:networkmanager/transitGatewayPeering:TransitGatewayPeering":
@@ -98,6 +100,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"networkmanager/site",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networkmanager/siteToSiteVpnAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

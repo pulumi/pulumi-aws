@@ -115,6 +115,9 @@ namespace Pulumi.Aws.Kms
         [Output("keyUsage")]
         public Output<string> KeyUsage { get; private set; } = null!;
 
+        /// <summary>
+        /// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -210,6 +213,9 @@ namespace Pulumi.Aws.Kms
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
@@ -297,6 +303,9 @@ namespace Pulumi.Aws.Kms
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }
 
+        /// <summary>
+        /// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

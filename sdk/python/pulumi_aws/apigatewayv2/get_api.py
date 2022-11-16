@@ -125,7 +125,7 @@ class GetApiResult:
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> str:
         """
-        The ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
+        ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
         or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
         See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         """

@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Kms
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
         /// </summary>
         [Output("enableKeyRotation")]
         public Output<bool?> EnableKeyRotation { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
         /// </summary>
         [Input("enableKeyRotation")]
         public Input<bool>? EnableKeyRotation { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
         /// </summary>
         [Input("enableKeyRotation")]
         public Input<bool>? EnableKeyRotation { get; set; }

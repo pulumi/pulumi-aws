@@ -71,7 +71,7 @@ type LookupApiResult struct {
 	Description string `pulumi:"description"`
 	// Whether clients can invoke the API by using the default `execute-api` endpoint.
 	DisableExecuteApiEndpoint bool `pulumi:"disableExecuteApiEndpoint"`
-	// The ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
+	// ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
 	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 	ExecutionArn string `pulumi:"executionArn"`
@@ -165,7 +165,7 @@ func (o LookupApiResultOutput) DisableExecuteApiEndpoint() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupApiResult) bool { return v.DisableExecuteApiEndpoint }).(pulumi.BoolOutput)
 }
 
-// The ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
+// ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
 // or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 // See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 func (o LookupApiResultOutput) ExecutionArn() pulumi.StringOutput {

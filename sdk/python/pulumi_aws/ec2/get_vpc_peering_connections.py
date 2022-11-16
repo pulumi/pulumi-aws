@@ -81,7 +81,10 @@ def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['Get
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcPeeringConnectionsResult:
     """
     Use this data source to get IDs of Amazon VPC peering connections
-    To get more details on each connection, use the data resource `ec2.VpcPeeringConnection`
+    To get more details on each connection, use the data resource ec2.VpcPeeringConnection
+
+    Note: To use this data source in a count, the resources should exist before trying to access
+    the data source.
 
 
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
@@ -107,7 +110,10 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcPeeringConnectionsResult]:
     """
     Use this data source to get IDs of Amazon VPC peering connections
-    To get more details on each connection, use the data resource `ec2.VpcPeeringConnection`
+    To get more details on each connection, use the data resource ec2.VpcPeeringConnection
+
+    Note: To use this data source in a count, the resources should exist before trying to access
+    the data source.
 
 
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.

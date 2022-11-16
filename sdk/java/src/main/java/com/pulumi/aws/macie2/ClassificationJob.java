@@ -174,9 +174,17 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
     public Output<String> jobType() {
         return this.jobType;
     }
+    /**
+     * A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

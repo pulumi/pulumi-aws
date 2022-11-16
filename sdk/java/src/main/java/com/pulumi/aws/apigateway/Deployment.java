@@ -264,14 +264,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.stageDescription);
     }
     /**
-     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
+     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      * 
      */
     @Export(name="stageName", type=String.class, parameters={})
     private Output</* @Nullable */ String> stageName;
 
     /**
-     * @return Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `aws.apigateway.Stage` resource instead to manage stages.
+     * @return Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      * 
      */
     public Output<Optional<String>> stageName() {

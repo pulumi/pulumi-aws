@@ -75,7 +75,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
+     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      */
     public readonly peerAccountId!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
  */
 export interface PeeringAttachmentState {
     /**
-     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
+     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      */
     peerAccountId?: pulumi.Input<string>;
     /**
@@ -176,7 +176,7 @@ export interface PeeringAttachmentState {
  */
 export interface PeeringAttachmentArgs {
     /**
-     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
+     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      */
     peerAccountId?: pulumi.Input<string>;
     /**

@@ -35,6 +35,7 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
         :param pulumi.Input['DomainAdvancedSecurityOptionsArgs'] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Configuration block for the cluster of the domain. Detailed below.
@@ -98,6 +99,9 @@ class DomainArgs:
     @property
     @pulumi.getter(name="advancedOptions")
     def advanced_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
+        """
         return pulumi.get(self, "advanced_options")
 
     @advanced_options.setter
@@ -300,6 +304,7 @@ class _DomainState:
         """
         Input properties used for looking up and filtering Domain resources.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
         :param pulumi.Input['DomainAdvancedSecurityOptionsArgs'] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input[str] arn: ARN of the domain.
         :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
@@ -317,6 +322,9 @@ class _DomainState:
         :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+               * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+               * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
         :param pulumi.Input['DomainVpcOptionsArgs'] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         """
         if access_policies is not None:
@@ -377,6 +385,9 @@ class _DomainState:
     @property
     @pulumi.getter(name="advancedOptions")
     def advanced_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
+        """
         return pulumi.get(self, "advanced_options")
 
     @advanced_options.setter
@@ -590,6 +601,11 @@ class _DomainState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+        * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -788,6 +804,7 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
         :param pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
@@ -1063,6 +1080,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
         :param pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input[str] arn: ARN of the domain.
         :param pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
@@ -1080,6 +1098,9 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+               * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+               * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
         :param pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1120,6 +1141,9 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter(name="advancedOptions")
     def advanced_options(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
+        """
         return pulumi.get(self, "advanced_options")
 
     @property
@@ -1261,6 +1285,11 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+        * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

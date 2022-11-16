@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraformQueue = new Aws.Sqs.Queue("terraformQueue", new()
+    ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
     ///         DeduplicationScope = "messageGroup",
     ///         FifoQueue = true,
@@ -86,14 +86,14 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraformQueueDeadletter = new Aws.Sqs.Queue("terraformQueueDeadletter", new()
+    ///     var exampleQueueDeadletter = new Aws.Sqs.Queue("exampleQueueDeadletter", new()
     ///     {
     ///         RedriveAllowPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["redrivePermission"] = "byQueue",
     ///             ["sourceQueueArns"] = new[]
     ///             {
-    ///                 aws_sqs_queue.Terraform_queue.Arn,
+    ///                 aws_sqs_queue.Example_queue.Arn,
     ///             },
     ///         }),
     ///     });
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraformQueue = new Aws.Sqs.Queue("terraformQueue", new()
+    ///     var queue = new Aws.Sqs.Queue("queue", new()
     ///     {
     ///         SqsManagedSseEnabled = true,
     ///     });
@@ -245,6 +245,9 @@ namespace Pulumi.Aws.Sqs
         [Output("redrivePolicy")]
         public Output<string> RedrivePolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Output("sqsManagedSseEnabled")]
         public Output<bool> SqsManagedSseEnabled { get; private set; } = null!;
 
@@ -408,6 +411,9 @@ namespace Pulumi.Aws.Sqs
         [Input("redrivePolicy")]
         public Input<string>? RedrivePolicy { get; set; }
 
+        /// <summary>
+        /// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Input("sqsManagedSseEnabled")]
         public Input<bool>? SqsManagedSseEnabled { get; set; }
 
@@ -533,6 +539,9 @@ namespace Pulumi.Aws.Sqs
         [Input("redrivePolicy")]
         public Input<string>? RedrivePolicy { get; set; }
 
+        /// <summary>
+        /// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
         [Input("sqsManagedSseEnabled")]
         public Input<bool>? SqsManagedSseEnabled { get; set; }
 

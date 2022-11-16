@@ -133,9 +133,17 @@ public class Map extends com.pulumi.resources.CustomResource {
     public Output<String> mapName() {
         return this.mapName;
     }
+    /**
+     * Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", type=java.util.Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ java.util.Map<String,String>> tags;
 
+    /**
+     * @return Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<java.util.Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

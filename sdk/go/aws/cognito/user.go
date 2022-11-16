@@ -61,7 +61,7 @@ import (
 //			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
 //				Schemas: cognito.UserPoolSchemaArray{
 //					&cognito.UserPoolSchemaArgs{
-//						Name:                   pulumi.String("terraform"),
+//						Name:                   pulumi.String("example"),
 //						AttributeDataType:      pulumi.String("Boolean"),
 //						Mutable:                pulumi.Bool(false),
 //						Required:               pulumi.Bool(false),
@@ -84,9 +84,9 @@ import (
 //				UserPoolId: exampleUserPool.ID(),
 //				Username:   pulumi.String("example"),
 //				Attributes: pulumi.StringMap{
-//					"terraform":      pulumi.String("true"),
+//					"example":        pulumi.String("true"),
 //					"foo":            pulumi.String("bar"),
-//					"email":          pulumi.String("no-reply@hashicorp.com"),
+//					"email":          pulumi.String("no-reply@domain.example"),
 //					"email_verified": pulumi.String("true"),
 //				},
 //			})

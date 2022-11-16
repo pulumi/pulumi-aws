@@ -695,7 +695,9 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
  * ```
  * 
- *  Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the resource options configuration block `ignoreChanges` argument available to all provider resources to prevent perpetual differences, e.g. terraform resource &#34;aws_emr_cluster&#34; &#34;example&#34; {
+ *  Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the
+ * 
+ * `ignore_changes` option available to all resources to prevent perpetual differences, e.g., terraform resource &#34;aws_emr_cluster&#34; &#34;example&#34; {
  * 
  * # ... other configuration ...
  * 
@@ -708,9 +710,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:emr/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
+    /**
+     * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+     * 
+     */
     @Export(name="additionalInfo", type=String.class, parameters={})
     private Output</* @Nullable */ String> additionalInfo;
 
+    /**
+     * @return JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+     * 
+     */
     public Output<Optional<String>> additionalInfo() {
         return Codegen.optional(this.additionalInfo);
     }

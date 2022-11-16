@@ -82,6 +82,36 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 FrameworkControlArgs.builder()
  *                     .name(&#34;BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED&#34;)
+ *                     .build(),
+ *                 FrameworkControlArgs.builder()
+ *                     .inputParameters(                    
+ *                         FrameworkControlInputParameterArgs.builder()
+ *                             .name(&#34;maxRetentionDays&#34;)
+ *                             .value(&#34;100&#34;)
+ *                             .build(),
+ *                         FrameworkControlInputParameterArgs.builder()
+ *                             .name(&#34;minRetentionDays&#34;)
+ *                             .value(&#34;1&#34;)
+ *                             .build())
+ *                     .name(&#34;BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK&#34;)
+ *                     .scope(FrameworkControlScopeArgs.builder()
+ *                         .complianceResourceTypes(&#34;EBS&#34;)
+ *                         .build())
+ *                     .build(),
+ *                 FrameworkControlArgs.builder()
+ *                     .inputParameters(                    
+ *                         FrameworkControlInputParameterArgs.builder()
+ *                             .name(&#34;recoveryPointAgeUnit&#34;)
+ *                             .value(&#34;days&#34;)
+ *                             .build(),
+ *                         FrameworkControlInputParameterArgs.builder()
+ *                             .name(&#34;recoveryPointAgeValue&#34;)
+ *                             .value(&#34;1&#34;)
+ *                             .build())
+ *                     .name(&#34;BACKUP_LAST_RECOVERY_POINT_CREATED&#34;)
+ *                     .scope(FrameworkControlScopeArgs.builder()
+ *                         .complianceResourceTypes(&#34;EBS&#34;)
+ *                         .build())
  *                     .build())
  *             .description(&#34;this is an example framework&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;Example Framework&#34;))

@@ -83,8 +83,7 @@ class ClusterShard(dict):
                  num_nodes: Optional[int] = None,
                  slots: Optional[str] = None):
         """
-        :param str name: Name of this node.
-               * `endpoint`
+        :param str name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param Sequence['ClusterShardNodeArgs'] nodes: Set of nodes in this shard.
         :param int num_nodes: Number of individual nodes in this shard.
         :param str slots: Keyspace for this shard. Example: `0-16383`.
@@ -102,8 +101,7 @@ class ClusterShard(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of this node.
-        * `endpoint`
+        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -161,8 +159,7 @@ class ClusterShardNode(dict):
         """
         :param str availability_zone: The Availability Zone in which the node resides.
         :param str create_time: The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
-        :param str name: Name of this node.
-               * `endpoint`
+        :param str name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
@@ -198,8 +195,7 @@ class ClusterShardNode(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of this node.
-        * `endpoint`
+        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -319,7 +315,7 @@ class SnapshotClusterConfiguration(dict):
         :param str description: Description for the cluster.
         :param str engine_version: Version number of the Redis engine used by the cluster.
         :param str maintenance_window: The weekly time range during which maintenance on the cluster is performed.
-        :param str name: Name of the cluster.
+        :param str name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param str node_type: Compute and memory capacity of the nodes in the cluster.
         :param int num_shards: Number of shards in the cluster.
         :param str parameter_group_name: Name of the parameter group associated with the cluster.
@@ -385,7 +381,7 @@ class SnapshotClusterConfiguration(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the cluster.
+        Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 

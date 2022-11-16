@@ -9,6 +9,11 @@ from ._enums import *
 from .delegation_set import *
 from .get_delegation_set import *
 from .get_resolver_endpoint import *
+from .get_resolver_firewall_config import *
+from .get_resolver_firewall_domain_list import *
+from .get_resolver_firewall_rule_group import *
+from .get_resolver_firewall_rule_group_association import *
+from .get_resolver_firewall_rules import *
 from .get_resolver_rule import *
 from .get_resolver_rules import *
 from .get_traffic_policy_document import *

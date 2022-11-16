@@ -108,6 +108,8 @@ class Trigger(pulumi.CustomResource):
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
                  __props__=None):
         """
+        Provides a CodeCommit Trigger Resource.
+
         ## Example Usage
 
         ```python
@@ -135,6 +137,8 @@ class Trigger(pulumi.CustomResource):
                  args: TriggerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a CodeCommit Trigger Resource.
+
         ## Example Usage
 
         ```python

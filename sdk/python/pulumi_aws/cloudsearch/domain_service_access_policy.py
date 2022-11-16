@@ -98,6 +98,10 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an CloudSearch domain service access policy resource.
+
+        The provider waits for the domain service access policy to become `Active` when applying a configuration.
+
         ## Example Usage
 
         ```python
@@ -143,6 +147,10 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
                  args: DomainServiceAccessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an CloudSearch domain service access policy resource.
+
+        The provider waits for the domain service access policy to become `Active` when applying a configuration.
+
         ## Example Usage
 
         ```python

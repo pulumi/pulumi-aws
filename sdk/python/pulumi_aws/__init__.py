@@ -217,6 +217,8 @@ if typing.TYPE_CHECKING:
     inspector2 = __inspector2
     import pulumi_aws.iot as __iot
     iot = __iot
+    import pulumi_aws.ivs as __ivs
+    ivs = __ivs
     import pulumi_aws.kendra as __kendra
     kendra = __kendra
     import pulumi_aws.keyspaces as __keyspaces
@@ -472,6 +474,7 @@ else:
     inspector = _utilities.lazy_import('pulumi_aws.inspector')
     inspector2 = _utilities.lazy_import('pulumi_aws.inspector2')
     iot = _utilities.lazy_import('pulumi_aws.iot')
+    ivs = _utilities.lazy_import('pulumi_aws.ivs')
     kendra = _utilities.lazy_import('pulumi_aws.kendra')
     keyspaces = _utilities.lazy_import('pulumi_aws.keyspaces')
     kinesis = _utilities.lazy_import('pulumi_aws.kinesis')
@@ -5686,6 +5689,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ivs/playbackKeyPair",
+  "fqn": "pulumi_aws.ivs",
+  "classes": {
+   "aws:ivs/playbackKeyPair:PlaybackKeyPair": "PlaybackKeyPair"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ivs/recordingConfiguration",
+  "fqn": "pulumi_aws.ivs",
+  "classes": {
+   "aws:ivs/recordingConfiguration:RecordingConfiguration": "RecordingConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "kendra/dataSource",
   "fqn": "pulumi_aws.kendra",
   "classes": {
@@ -6214,6 +6233,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lightsail/lbHttpsRedirectionPolicy",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy": "LbHttpsRedirectionPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lightsail/lbStickinessPolicy",
   "fqn": "pulumi_aws.lightsail",
   "classes": {
@@ -6370,6 +6397,14 @@ _utilities.register(
   "fqn": "pulumi_aws.mediaconvert",
   "classes": {
    "aws:mediaconvert/queue:Queue": "Queue"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "medialive/channel",
+  "fqn": "pulumi_aws.medialive",
+  "classes": {
+   "aws:medialive/channel:Channel": "Channel"
   }
  },
  {
@@ -6714,6 +6749,14 @@ _utilities.register(
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
    "aws:networkmanager/site:Site": "Site"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/siteToSiteVpnAttachment",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment": "SiteToSiteVpnAttachment"
   }
  },
  {
@@ -7350,6 +7393,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "redshift/endpointAuthorization",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/endpointAuthorization:EndpointAuthorization": "EndpointAuthorization"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "redshift/eventSubscription",
   "fqn": "pulumi_aws.redshift",
   "classes": {
@@ -7378,6 +7429,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/parameterGroup:ParameterGroup": "ParameterGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/partner",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/partner:Partner": "Partner"
   }
  },
  {
@@ -7458,6 +7517,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshiftserverless",
   "classes": {
    "aws:redshiftserverless/namespace:Namespace": "Namespace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshiftserverless/snapshot",
+  "fqn": "pulumi_aws.redshiftserverless",
+  "classes": {
+   "aws:redshiftserverless/snapshot:Snapshot": "Snapshot"
   }
  },
  {

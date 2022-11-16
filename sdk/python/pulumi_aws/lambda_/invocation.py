@@ -23,6 +23,7 @@ class InvocationArgs:
         :param pulumi.Input[str] function_name: Name of the lambda function.
         :param pulumi.Input[str] input: JSON payload to the lambda function.
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "input", input)
@@ -70,6 +71,9 @@ class InvocationArgs:
     @property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -91,6 +95,7 @@ class _InvocationState:
         :param pulumi.Input[str] input: JSON payload to the lambda function.
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[str] result: String result of the lambda function invocation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         if function_name is not None:
             pulumi.set(__self__, "function_name", function_name)
@@ -154,6 +159,9 @@ class _InvocationState:
     @property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -174,7 +182,7 @@ class Invocation(pulumi.CustomResource):
         """
         Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
 
-        > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the [`lambda.Invocation`](https://www.terraform.io/docs/providers/aws/d/lambda_invocation.html) data source.
+        > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `lambda.Invocation` data source.
 
         ## Example Usage
         ### Dynamic Invocation Example Using Triggers
@@ -201,6 +209,7 @@ class Invocation(pulumi.CustomResource):
         :param pulumi.Input[str] function_name: Name of the lambda function.
         :param pulumi.Input[str] input: JSON payload to the lambda function.
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         ...
     @overload
@@ -211,7 +220,7 @@ class Invocation(pulumi.CustomResource):
         """
         Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
 
-        > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the [`lambda.Invocation`](https://www.terraform.io/docs/providers/aws/d/lambda_invocation.html) data source.
+        > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `lambda.Invocation` data source.
 
         ## Example Usage
         ### Dynamic Invocation Example Using Triggers
@@ -296,6 +305,7 @@ class Invocation(pulumi.CustomResource):
         :param pulumi.Input[str] input: JSON payload to the lambda function.
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[str] result: String result of the lambda function invocation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -343,5 +353,8 @@ class Invocation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+        """
         return pulumi.get(self, "triggers")
 

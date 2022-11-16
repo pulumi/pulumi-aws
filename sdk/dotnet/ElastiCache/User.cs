@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElastiCache
 {
     /// <summary>
+    /// Provides an ElastiCache user resource.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

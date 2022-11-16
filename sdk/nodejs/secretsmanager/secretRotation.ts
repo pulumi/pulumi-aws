@@ -85,7 +85,6 @@ export class SecretRotation extends pulumi.CustomResource {
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
     public readonly secretId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SecretRotation resource with the given unique name, arguments, and options.
@@ -104,7 +103,6 @@ export class SecretRotation extends pulumi.CustomResource {
             resourceInputs["rotationLambdaArn"] = state ? state.rotationLambdaArn : undefined;
             resourceInputs["rotationRules"] = state ? state.rotationRules : undefined;
             resourceInputs["secretId"] = state ? state.secretId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SecretRotationArgs | undefined;
             if ((!args || args.rotationLambdaArn === undefined) && !opts.urn) {
@@ -119,7 +117,6 @@ export class SecretRotation extends pulumi.CustomResource {
             resourceInputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
             resourceInputs["rotationRules"] = args ? args.rotationRules : undefined;
             resourceInputs["secretId"] = args ? args.secretId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["rotationEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -147,7 +144,6 @@ export interface SecretRotationState {
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
     secretId?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -166,5 +162,4 @@ export interface SecretRotationArgs {
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
     secretId: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

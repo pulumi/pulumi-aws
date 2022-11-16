@@ -27,7 +27,7 @@ class NetworkAclArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]] egress: Specifies an egress rule. Parameters defined below.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if egress is not None:
@@ -91,7 +91,7 @@ class NetworkAclArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -118,7 +118,7 @@ class _NetworkAclState:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the network ACL.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
         """
@@ -203,7 +203,7 @@ class _NetworkAclState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -248,6 +248,19 @@ class NetworkAcl(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an network ACL resource. You might set up network ACLs with rules similar
+        to your security groups in order to add an additional layer of security to your VPC.
+
+        > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
+        provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
+        defined in-line. At this time you cannot use a Network ACL with in-line rules
+        in conjunction with any Network ACL Rule resources. Doing so will cause
+        a conflict of rule settings and will overwrite rules.
+
+        > **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association
+        resource and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
+        resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
+
         ## Example Usage
 
         ```python
@@ -290,7 +303,7 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]] egress: Specifies an egress rule. Parameters defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
         """
         ...
@@ -300,6 +313,19 @@ class NetworkAcl(pulumi.CustomResource):
                  args: NetworkAclArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an network ACL resource. You might set up network ACLs with rules similar
+        to your security groups in order to add an additional layer of security to your VPC.
+
+        > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
+        provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
+        defined in-line. At this time you cannot use a Network ACL with in-line rules
+        in conjunction with any Network ACL Rule resources. Doing so will cause
+        a conflict of rule settings and will overwrite rules.
+
+        > **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association
+        resource and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
+        resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
+
         ## Example Usage
 
         ```python
@@ -406,7 +432,7 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the network ACL.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
         """
@@ -468,7 +494,7 @@ class NetworkAcl(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

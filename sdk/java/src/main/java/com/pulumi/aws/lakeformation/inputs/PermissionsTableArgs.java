@@ -61,9 +61,17 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     */
     @Import(name="wildcard")
     private @Nullable Output<Boolean> wildcard;
 
+    /**
+     * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     */
     public Optional<Output<Boolean>> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }
@@ -158,11 +166,23 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
             return name(Output.of(name));
         }
 
+        /**
+         * @param wildcard Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder wildcard(@Nullable Output<Boolean> wildcard) {
             $.wildcard = wildcard;
             return this;
         }
 
+        /**
+         * @param wildcard Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder wildcard(Boolean wildcard) {
             return wildcard(Output.of(wildcard));
         }

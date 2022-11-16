@@ -95,6 +95,9 @@ namespace Pulumi.Aws.S3Control
     [AwsResourceType("aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy")]
     public partial class MultiRegionAccessPointPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
@@ -162,6 +165,9 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class MultiRegionAccessPointPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
@@ -179,6 +185,9 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class MultiRegionAccessPointPolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 

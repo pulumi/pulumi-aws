@@ -69,7 +69,7 @@ type Key struct {
 	DeletionWindowInDays pulumi.IntPtrOutput `pulumi:"deletionWindowInDays"`
 	// The description of the key as viewed in AWS console.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
 	EnableKeyRotation pulumi.BoolPtrOutput `pulumi:"enableKeyRotation"`
 	// Specifies whether the key is enabled. Defaults to `true`.
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
@@ -135,7 +135,7 @@ type keyState struct {
 	DeletionWindowInDays *int `pulumi:"deletionWindowInDays"`
 	// The description of the key as viewed in AWS console.
 	Description *string `pulumi:"description"`
-	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
 	EnableKeyRotation *bool `pulumi:"enableKeyRotation"`
 	// Specifies whether the key is enabled. Defaults to `true`.
 	IsEnabled *bool `pulumi:"isEnabled"`
@@ -173,7 +173,7 @@ type KeyState struct {
 	DeletionWindowInDays pulumi.IntPtrInput
 	// The description of the key as viewed in AWS console.
 	Description pulumi.StringPtrInput
-	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
 	EnableKeyRotation pulumi.BoolPtrInput
 	// Specifies whether the key is enabled. Defaults to `true`.
 	IsEnabled pulumi.BoolPtrInput
@@ -213,7 +213,7 @@ type keyArgs struct {
 	DeletionWindowInDays *int `pulumi:"deletionWindowInDays"`
 	// The description of the key as viewed in AWS console.
 	Description *string `pulumi:"description"`
-	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
 	EnableKeyRotation *bool `pulumi:"enableKeyRotation"`
 	// Specifies whether the key is enabled. Defaults to `true`.
 	IsEnabled *bool `pulumi:"isEnabled"`
@@ -246,7 +246,7 @@ type KeyArgs struct {
 	DeletionWindowInDays pulumi.IntPtrInput
 	// The description of the key as viewed in AWS console.
 	Description pulumi.StringPtrInput
-	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
 	EnableKeyRotation pulumi.BoolPtrInput
 	// Specifies whether the key is enabled. Defaults to `true`.
 	IsEnabled pulumi.BoolPtrInput
@@ -384,7 +384,7 @@ func (o KeyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
+// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
 func (o KeyOutput) EnableKeyRotation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Key) pulumi.BoolPtrOutput { return v.EnableKeyRotation }).(pulumi.BoolPtrOutput)
 }

@@ -259,6 +259,9 @@ namespace Pulumi.Aws.ElasticSearch
         [Output("accessPolicies")]
         public Output<string> AccessPolicies { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
+        /// </summary>
         [Output("advancedOptions")]
         public Output<ImmutableDictionary<string, string>> AdvancedOptions { get; private set; } = null!;
 
@@ -364,6 +367,11 @@ namespace Pulumi.Aws.ElasticSearch
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+        /// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -427,6 +435,10 @@ namespace Pulumi.Aws.ElasticSearch
 
         [Input("advancedOptions")]
         private InputMap<string>? _advancedOptions;
+
+        /// <summary>
+        /// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
+        /// </summary>
         public InputMap<string> AdvancedOptions
         {
             get => _advancedOptions ?? (_advancedOptions = new InputMap<string>());
@@ -545,6 +557,10 @@ namespace Pulumi.Aws.ElasticSearch
 
         [Input("advancedOptions")]
         private InputMap<string>? _advancedOptions;
+
+        /// <summary>
+        /// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
+        /// </summary>
         public InputMap<string> AdvancedOptions
         {
             get => _advancedOptions ?? (_advancedOptions = new InputMap<string>());
@@ -667,6 +683,12 @@ namespace Pulumi.Aws.ElasticSearch
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+        /// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

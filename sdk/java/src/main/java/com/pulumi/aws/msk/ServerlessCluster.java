@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an Amazon MSK Serverless cluster.
  * 
- * &gt; **Note:** To manage a _provisioned_ Amazon MSK cluster, use the [`aws.msk.Cluster`](https://www.terraform.io/docs/providers/aws/r/msk_cluster.html) resource.
+ * &gt; **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `aws.msk.Cluster` resource.
  * 
  * ## Import
  * 
@@ -76,9 +76,17 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
     public Output<String> clusterName() {
         return this.clusterName;
     }
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

@@ -18,6 +18,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an SSM Parameter resource.
+ * 
+ * &gt; **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that&#39;s not created by the provider before.
+ * 
  * ## Example Usage
  * ### Basic example
  * ```java
@@ -164,9 +168,17 @@ public class Parameter extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+     * 
+     */
     @Export(name="insecureValue", type=String.class, parameters={})
     private Output<String> insecureValue;
 
+    /**
+     * @return Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+     * 
+     */
     public Output<String> insecureValue() {
         return this.insecureValue;
     }
@@ -199,14 +211,14 @@ public class Parameter extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
      * 
      */
     @Export(name="overwrite", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> overwrite;
 
     /**
-     * @return Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+     * @return Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
      * 
      */
     public Output<Optional<Boolean>> overwrite() {

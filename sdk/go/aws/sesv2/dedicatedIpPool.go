@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+//
 // ## Example Usage
 // ### Basic Usage
 //
@@ -81,9 +83,10 @@ type DedicatedIpPool struct {
 	// Name of the dedicated IP pool.
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
-	ScalingMode pulumi.StringOutput    `pulumi:"scalingMode"`
-	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ScalingMode pulumi.StringOutput `pulumi:"scalingMode"`
+	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDedicatedIpPool registers a new resource with the given unique name, arguments, and options.
@@ -123,9 +126,10 @@ type dedicatedIpPoolState struct {
 	// Name of the dedicated IP pool.
 	PoolName *string `pulumi:"poolName"`
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
-	ScalingMode *string           `pulumi:"scalingMode"`
-	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	ScalingMode *string `pulumi:"scalingMode"`
+	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type DedicatedIpPoolState struct {
@@ -135,8 +139,9 @@ type DedicatedIpPoolState struct {
 	PoolName pulumi.StringPtrInput
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (DedicatedIpPoolState) ElementType() reflect.Type {
@@ -147,9 +152,9 @@ type dedicatedIpPoolArgs struct {
 	// Name of the dedicated IP pool.
 	PoolName string `pulumi:"poolName"`
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
-	ScalingMode *string           `pulumi:"scalingMode"`
-	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	ScalingMode *string `pulumi:"scalingMode"`
+	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DedicatedIpPool resource.
@@ -158,8 +163,8 @@ type DedicatedIpPoolArgs struct {
 	PoolName pulumi.StringInput
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode pulumi.StringPtrInput
-	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (DedicatedIpPoolArgs) ElementType() reflect.Type {
@@ -264,6 +269,7 @@ func (o DedicatedIpPoolOutput) ScalingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringOutput { return v.ScalingMode }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DedicatedIpPoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

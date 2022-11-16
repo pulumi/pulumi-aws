@@ -208,9 +208,17 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<CostCategorySplitChargeRule>>> splitChargeRules() {
         return Codegen.optional(this.splitChargeRules);
     }
+    /**
+     * Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

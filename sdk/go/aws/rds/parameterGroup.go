@@ -11,6 +11,101 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an RDS DB parameter group resource. Documentation of the available parameters for various RDS engines can be found at:
+//
+// * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
+// * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
+// * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
+// * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
+// * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
+//
+// > **NOTE:** After applying your changes, you may encounter a perpetual diff in your preview
+// output for a `parameter` whose `value` remains unchanged but whose `applyMethod` is changing
+// (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to `immediate`). If only the
+// apply method of a parameter is changing, the AWS API will not register this change. To change
+// the `applyMethod` of a parameter, its value must also change.
+//
+// ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewParameterGroup(ctx, "default", &rds.ParameterGroupArgs{
+//				Family: pulumi.String("mysql5.6"),
+//				Parameters: rds.ParameterGroupParameterArray{
+//					&rds.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("character_set_server"),
+//						Value: pulumi.String("utf8"),
+//					},
+//					&rds.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("character_set_client"),
+//						Value: pulumi.String("utf8"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### `createBeforeDestroy` Lifecycle Configuration
+//
+// The `createBeforeDestroy`
+// lifecycle configuration is necessary for modifications that force re-creation of an existing,
+// in-use parameter group. This includes common situations like changing the group `name` or
+// bumping the `family` version during a major version upgrade. This configuration will prevent destruction
+// of the deposed parameter group while still in use by the database during upgrade.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleParameterGroup, err := rds.NewParameterGroup(ctx, "exampleParameterGroup", &rds.ParameterGroupArgs{
+//				Family: pulumi.String("postgres13"),
+//				Parameters: rds.ParameterGroupParameterArray{
+//					&rds.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("log_connections"),
+//						Value: pulumi.String("1"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewInstance(ctx, "exampleInstance", &rds.InstanceArgs{
+//				ParameterGroupName: exampleParameterGroup.Name,
+//				ApplyImmediately:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // DB Parameter groups can be imported using the `name`, e.g.,

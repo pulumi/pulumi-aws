@@ -16,6 +16,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS Transcribe MedicalVocabulary.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java

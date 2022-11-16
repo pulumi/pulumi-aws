@@ -145,6 +145,9 @@ namespace Pulumi.Aws.Sfn
         [Output("loggingConfiguration")]
         public Output<Outputs.StateMachineLoggingConfiguration> LoggingConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -248,6 +251,9 @@ namespace Pulumi.Aws.Sfn
         [Input("loggingConfiguration")]
         public Input<Inputs.StateMachineLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
+        /// <summary>
+        /// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -319,6 +325,9 @@ namespace Pulumi.Aws.Sfn
         [Input("loggingConfiguration")]
         public Input<Inputs.StateMachineLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
+        /// <summary>
+        /// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ChannelArgs, ChannelState } from "./channel";
+export type Channel = import("./channel").Channel;
+export const Channel: typeof import("./channel").Channel = null as any;
+
 export { InputArgs, InputState } from "./input";
 export type Input = import("./input").Input;
 export const Input: typeof import("./input").Input = null as any;
@@ -17,6 +21,7 @@ export { MultiplexArgs, MultiplexState } from "./multiplex";
 export type Multiplex = import("./multiplex").Multiplex;
 export const Multiplex: typeof import("./multiplex").Multiplex = null as any;
 
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
 utilities.lazyLoad(exports, ["Input"], () => require("./input"));
 utilities.lazyLoad(exports, ["InputSecurityGroup"], () => require("./inputSecurityGroup"));
 utilities.lazyLoad(exports, ["Multiplex"], () => require("./multiplex"));
@@ -25,6 +30,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:medialive/channel:Channel":
+                return new Channel(name, <any>undefined, { urn })
             case "aws:medialive/input:Input":
                 return new Input(name, <any>undefined, { urn })
             case "aws:medialive/inputSecurityGroup:InputSecurityGroup":
@@ -36,6 +43,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "medialive/channel", _module)
 pulumi.runtime.registerResourceModule("aws", "medialive/input", _module)
 pulumi.runtime.registerResourceModule("aws", "medialive/inputSecurityGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "medialive/multiplex", _module)

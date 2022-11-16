@@ -9,6 +9,7 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,6 +19,7 @@ public final class GetEngineVersionResult {
      * 
      */
     private String defaultCharacterSet;
+    private @Nullable Boolean defaultOnly;
     private String engine;
     /**
      * @return Description of the database engine.
@@ -35,6 +37,7 @@ public final class GetEngineVersionResult {
      * 
      */
     private String id;
+    private @Nullable Boolean includeAll;
     private String parameterGroupFamily;
     private @Nullable List<String> preferredVersions;
     /**
@@ -102,6 +105,9 @@ public final class GetEngineVersionResult {
     public String defaultCharacterSet() {
         return this.defaultCharacterSet;
     }
+    public Optional<Boolean> defaultOnly() {
+        return Optional.ofNullable(this.defaultOnly);
+    }
     public String engine() {
         return this.engine;
     }
@@ -128,6 +134,9 @@ public final class GetEngineVersionResult {
      */
     public String id() {
         return this.id;
+    }
+    public Optional<Boolean> includeAll() {
+        return Optional.ofNullable(this.includeAll);
     }
     public String parameterGroupFamily() {
         return this.parameterGroupFamily;
@@ -226,11 +235,13 @@ public final class GetEngineVersionResult {
     @CustomType.Builder
     public static final class Builder {
         private String defaultCharacterSet;
+        private @Nullable Boolean defaultOnly;
         private String engine;
         private String engineDescription;
         private List<String> exportableLogTypes;
         private @Nullable List<GetEngineVersionFilter> filters;
         private String id;
+        private @Nullable Boolean includeAll;
         private String parameterGroupFamily;
         private @Nullable List<String> preferredVersions;
         private String status;
@@ -249,11 +260,13 @@ public final class GetEngineVersionResult {
         public Builder(GetEngineVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultCharacterSet = defaults.defaultCharacterSet;
+    	      this.defaultOnly = defaults.defaultOnly;
     	      this.engine = defaults.engine;
     	      this.engineDescription = defaults.engineDescription;
     	      this.exportableLogTypes = defaults.exportableLogTypes;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.includeAll = defaults.includeAll;
     	      this.parameterGroupFamily = defaults.parameterGroupFamily;
     	      this.preferredVersions = defaults.preferredVersions;
     	      this.status = defaults.status;
@@ -273,6 +286,11 @@ public final class GetEngineVersionResult {
         @CustomType.Setter
         public Builder defaultCharacterSet(String defaultCharacterSet) {
             this.defaultCharacterSet = Objects.requireNonNull(defaultCharacterSet);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultOnly(@Nullable Boolean defaultOnly) {
+            this.defaultOnly = defaultOnly;
             return this;
         }
         @CustomType.Setter
@@ -304,6 +322,11 @@ public final class GetEngineVersionResult {
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder includeAll(@Nullable Boolean includeAll) {
+            this.includeAll = includeAll;
             return this;
         }
         @CustomType.Setter
@@ -397,11 +420,13 @@ public final class GetEngineVersionResult {
         public GetEngineVersionResult build() {
             final var o = new GetEngineVersionResult();
             o.defaultCharacterSet = defaultCharacterSet;
+            o.defaultOnly = defaultOnly;
             o.engine = engine;
             o.engineDescription = engineDescription;
             o.exportableLogTypes = exportableLogTypes;
             o.filters = filters;
             o.id = id;
+            o.includeAll = includeAll;
             o.parameterGroupFamily = parameterGroupFamily;
             o.preferredVersions = preferredVersions;
             o.status = status;

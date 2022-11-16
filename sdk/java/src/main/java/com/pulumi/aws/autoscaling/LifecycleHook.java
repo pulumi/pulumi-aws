@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * `aws.autoscaling.Group`
  * resource, or via this one. Hooks added via this resource will not be added
  * until the autoscaling group has been created, and depending on your
- * `capacity`
+ * capacity
  * settings, after the initial instances have been launched, creating unintended
  * behavior. If you need hooks to run on all instances, add them with
  * `initial_lifecycle_hook` in

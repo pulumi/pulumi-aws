@@ -20,6 +20,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an CloudSearch domain resource.
+ * 
+ * The provider waits for the domain to become `Active` when applying a configuration.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

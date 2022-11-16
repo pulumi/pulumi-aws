@@ -199,7 +199,7 @@ class VpcLink(pulumi.CustomResource):
         Manages an Amazon API Gateway Version 2 VPC Link.
 
         > **Note:** Amazon API Gateway Version 2 VPC Links enable private integrations that connect HTTP APIs to private resources in a VPC.
-        To enable private integration for REST APIs, use the `Amazon API Gateway Version 1 VPC Link` resource.
+        To enable private integration for REST APIs, use the Amazon API Gateway Version 1 VPC Link resource.
 
         ## Example Usage
 
@@ -240,7 +240,7 @@ class VpcLink(pulumi.CustomResource):
         Manages an Amazon API Gateway Version 2 VPC Link.
 
         > **Note:** Amazon API Gateway Version 2 VPC Links enable private integrations that connect HTTP APIs to private resources in a VPC.
-        To enable private integration for REST APIs, use the `Amazon API Gateway Version 1 VPC Link` resource.
+        To enable private integration for REST APIs, use the Amazon API Gateway Version 1 VPC Link resource.
 
         ## Example Usage
 

@@ -74,7 +74,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
-     * Name of the cluster.
+     * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -157,7 +157,7 @@ export interface SnapshotState {
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Name of the cluster.
+     * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -191,7 +191,7 @@ export interface SnapshotArgs {
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Name of the cluster.
+     * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**

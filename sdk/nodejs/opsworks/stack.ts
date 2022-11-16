@@ -145,7 +145,8 @@ export class Stack extends pulumi.CustomResource {
     public readonly serviceRoleArn!: pulumi.Output<string>;
     public /*out*/ readonly stackEndpoint!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource.
+     * If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -153,13 +154,11 @@ export class Stack extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Boolean value controlling whether the custom cookbook settings are
-     * enabled.
+     * Boolean value controlling whether the custom cookbook settings are enabled.
      */
     public readonly useCustomCookbooks!: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean value controlling whether the standard OpsWorks
-     * security groups apply to created instances.
+     * Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
      */
     public readonly useOpsworksSecurityGroups!: pulumi.Output<boolean | undefined>;
     /**
@@ -329,7 +328,8 @@ export interface StackState {
     serviceRoleArn?: pulumi.Input<string>;
     stackEndpoint?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource.
+     * If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -337,13 +337,11 @@ export interface StackState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Boolean value controlling whether the custom cookbook settings are
-     * enabled.
+     * Boolean value controlling whether the custom cookbook settings are enabled.
      */
     useCustomCookbooks?: pulumi.Input<boolean>;
     /**
-     * Boolean value controlling whether the standard OpsWorks
-     * security groups apply to created instances.
+     * Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
      */
     useOpsworksSecurityGroups?: pulumi.Input<boolean>;
     /**
@@ -432,17 +430,16 @@ export interface StackArgs {
      */
     serviceRoleArn: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource.
+     * If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Boolean value controlling whether the custom cookbook settings are
-     * enabled.
+     * Boolean value controlling whether the custom cookbook settings are enabled.
      */
     useCustomCookbooks?: pulumi.Input<boolean>;
     /**
-     * Boolean value controlling whether the standard OpsWorks
-     * security groups apply to created instances.
+     * Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
      */
     useOpsworksSecurityGroups?: pulumi.Input<boolean>;
     /**

@@ -108,6 +108,9 @@ export class SnapshotCopy extends pulumi.CustomResource {
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      */
     public readonly storageTier!: pulumi.Output<string>;
+    /**
+     * A map of tags for the snapshot.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -233,6 +236,9 @@ export interface SnapshotCopyState {
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      */
     storageTier?: pulumi.Input<string>;
+    /**
+     * A map of tags for the snapshot.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -281,6 +287,9 @@ export interface SnapshotCopyArgs {
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      */
     storageTier?: pulumi.Input<string>;
+    /**
+     * A map of tags for the snapshot.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.

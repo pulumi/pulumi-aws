@@ -68,7 +68,8 @@ type Connection struct {
 	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
 	// The ID of the link for the first device.
 	LinkId pulumi.StringPtrOutput `pulumi:"linkId"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	// Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -124,8 +125,9 @@ type connectionState struct {
 	// The ID of the global network.
 	GlobalNetworkId *string `pulumi:"globalNetworkId"`
 	// The ID of the link for the first device.
-	LinkId *string           `pulumi:"linkId"`
-	Tags   map[string]string `pulumi:"tags"`
+	LinkId *string `pulumi:"linkId"`
+	// Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -145,7 +147,8 @@ type ConnectionState struct {
 	GlobalNetworkId pulumi.StringPtrInput
 	// The ID of the link for the first device.
 	LinkId pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -166,8 +169,9 @@ type connectionArgs struct {
 	// The ID of the global network.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The ID of the link for the first device.
-	LinkId *string           `pulumi:"linkId"`
-	Tags   map[string]string `pulumi:"tags"`
+	LinkId *string `pulumi:"linkId"`
+	// Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
@@ -184,7 +188,8 @@ type ConnectionArgs struct {
 	GlobalNetworkId pulumi.StringInput
 	// The ID of the link for the first device.
 	LinkId pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -309,6 +314,7 @@ func (o ConnectionOutput) LinkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.LinkId }).(pulumi.StringPtrOutput)
 }
 
+// Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

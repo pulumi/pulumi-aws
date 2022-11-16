@@ -115,7 +115,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tfTestSubnet, err := ec2.NewSubnet(ctx, "tfTestSubnet", &ec2.SubnetArgs{
+//			myTestSubnet, err := ec2.NewSubnet(ctx, "myTestSubnet", &ec2.SubnetArgs{
 //				VpcId:               _default.ID(),
 //				CidrBlock:           pulumi.String("10.0.0.0/24"),
 //				MapPublicIpOnLaunch: pulumi.Bool(true),
@@ -129,7 +129,7 @@ import (
 //				Ami:          pulumi.String("ami-5189a661"),
 //				InstanceType: pulumi.String("t2.micro"),
 //				PrivateIp:    pulumi.String("10.0.0.12"),
-//				SubnetId:     tfTestSubnet.ID(),
+//				SubnetId:     myTestSubnet.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -193,8 +193,6 @@ import (
 //	$ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
 //
 // ```
-//
-//	[1]https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html
 type Eip struct {
 	pulumi.CustomResourceState
 
@@ -228,7 +226,8 @@ type Eip struct {
 	PublicDns pulumi.StringOutput `pulumi:"publicDns"`
 	// Contains the public IP address.
 	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
-	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+	// EC2 IPv4 address pool identifier or `amazon`.
+	// This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringOutput `pulumi:"publicIpv4Pool"`
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -298,7 +297,8 @@ type eipState struct {
 	PublicDns *string `pulumi:"publicDns"`
 	// Contains the public IP address.
 	PublicIp *string `pulumi:"publicIp"`
-	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+	// EC2 IPv4 address pool identifier or `amazon`.
+	// This option is only available for VPC EIPs.
 	PublicIpv4Pool *string `pulumi:"publicIpv4Pool"`
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -340,7 +340,8 @@ type EipState struct {
 	PublicDns pulumi.StringPtrInput
 	// Contains the public IP address.
 	PublicIp pulumi.StringPtrInput
-	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+	// EC2 IPv4 address pool identifier or `amazon`.
+	// This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringPtrInput
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -368,7 +369,8 @@ type eipArgs struct {
 	NetworkBorderGroup *string `pulumi:"networkBorderGroup"`
 	// Network interface ID to associate with.
 	NetworkInterface *string `pulumi:"networkInterface"`
-	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+	// EC2 IPv4 address pool identifier or `amazon`.
+	// This option is only available for VPC EIPs.
 	PublicIpv4Pool *string `pulumi:"publicIpv4Pool"`
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -391,7 +393,8 @@ type EipArgs struct {
 	NetworkBorderGroup pulumi.StringPtrInput
 	// Network interface ID to associate with.
 	NetworkInterface pulumi.StringPtrInput
-	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+	// EC2 IPv4 address pool identifier or `amazon`.
+	// This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringPtrInput
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -562,7 +565,8 @@ func (o EipOutput) PublicIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
 }
 
-// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+// EC2 IPv4 address pool identifier or `amazon`.
+// This option is only available for VPC EIPs.
 func (o EipOutput) PublicIpv4Pool() pulumi.StringOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.PublicIpv4Pool }).(pulumi.StringOutput)
 }

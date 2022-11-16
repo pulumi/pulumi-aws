@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;, UserPoolArgs.builder()        
  *             .schemas(            
  *                 UserPoolSchemaArgs.builder()
- *                     .name(&#34;terraform&#34;)
+ *                     .name(&#34;example&#34;)
  *                     .attributeDataType(&#34;Boolean&#34;)
  *                     .mutable(false)
  *                     .required(false)
@@ -103,9 +103,9 @@ import javax.annotation.Nullable;
  *             .userPoolId(exampleUserPool.id())
  *             .username(&#34;example&#34;)
  *             .attributes(Map.ofEntries(
- *                 Map.entry(&#34;terraform&#34;, true),
+ *                 Map.entry(&#34;example&#34;, true),
  *                 Map.entry(&#34;foo&#34;, &#34;bar&#34;),
- *                 Map.entry(&#34;email&#34;, &#34;no-reply@hashicorp.com&#34;),
+ *                 Map.entry(&#34;email&#34;, &#34;no-reply@domain.example&#34;),
  *                 Map.entry(&#34;email_verified&#34;, true)
  *             ))
  *             .build());

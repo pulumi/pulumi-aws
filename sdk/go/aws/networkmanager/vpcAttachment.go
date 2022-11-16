@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS NetworkManager VpcAttachment.
+//
 // ## Example Usage
 // ### Basic Usage
 //
@@ -78,7 +80,8 @@ type VpcAttachment struct {
 	State pulumi.StringOutput `pulumi:"state"`
 	// The subnet ARN of the VPC attachment.
 	SubnetArns pulumi.StringArrayOutput `pulumi:"subnetArns"`
-	Tags       pulumi.StringMapOutput   `pulumi:"tags"`
+	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ARN of the VPC.
@@ -146,8 +149,9 @@ type vpcAttachmentState struct {
 	// The state of the attachment.
 	State *string `pulumi:"state"`
 	// The subnet ARN of the VPC attachment.
-	SubnetArns []string          `pulumi:"subnetArns"`
-	Tags       map[string]string `pulumi:"tags"`
+	SubnetArns []string `pulumi:"subnetArns"`
+	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ARN of the VPC.
@@ -179,7 +183,8 @@ type VpcAttachmentState struct {
 	State pulumi.StringPtrInput
 	// The subnet ARN of the VPC attachment.
 	SubnetArns pulumi.StringArrayInput
-	Tags       pulumi.StringMapInput
+	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ARN of the VPC.
@@ -196,8 +201,9 @@ type vpcAttachmentArgs struct {
 	// Options for the VPC attachment.
 	Options *VpcAttachmentOptions `pulumi:"options"`
 	// The subnet ARN of the VPC attachment.
-	SubnetArns []string          `pulumi:"subnetArns"`
-	Tags       map[string]string `pulumi:"tags"`
+	SubnetArns []string `pulumi:"subnetArns"`
+	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The ARN of the VPC.
 	VpcArn string `pulumi:"vpcArn"`
 }
@@ -210,7 +216,8 @@ type VpcAttachmentArgs struct {
 	Options VpcAttachmentOptionsPtrInput
 	// The subnet ARN of the VPC attachment.
 	SubnetArns pulumi.StringArrayInput
-	Tags       pulumi.StringMapInput
+	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The ARN of the VPC.
 	VpcArn pulumi.StringInput
 }
@@ -362,6 +369,7 @@ func (o VpcAttachmentOutput) SubnetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringArrayOutput { return v.SubnetArns }).(pulumi.StringArrayOutput)
 }
 
+// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcAttachmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

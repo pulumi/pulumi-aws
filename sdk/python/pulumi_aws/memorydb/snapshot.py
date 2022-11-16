@@ -25,7 +25,7 @@ class SnapshotArgs:
         The set of arguments for constructing a Snapshot resource.
         :param pulumi.Input[str] cluster_name: Name of the MemoryDB cluster to take a snapshot of.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the snapshot at rest.
-        :param pulumi.Input[str] name: Name of the cluster.
+        :param pulumi.Input[str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -67,7 +67,7 @@ class SnapshotArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the cluster.
+        Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -118,7 +118,7 @@ class _SnapshotState:
         :param pulumi.Input[Sequence[pulumi.Input['SnapshotClusterConfigurationArgs']]] cluster_configurations: The configuration of the cluster from which the snapshot was taken.
         :param pulumi.Input[str] cluster_name: Name of the MemoryDB cluster to take a snapshot of.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the snapshot at rest.
-        :param pulumi.Input[str] name: Name of the cluster.
+        :param pulumi.Input[str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] source: Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -195,7 +195,7 @@ class _SnapshotState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the cluster.
+        Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -289,7 +289,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the MemoryDB cluster to take a snapshot of.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the snapshot at rest.
-        :param pulumi.Input[str] name: Name of the cluster.
+        :param pulumi.Input[str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -391,7 +391,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnapshotClusterConfigurationArgs']]]] cluster_configurations: The configuration of the cluster from which the snapshot was taken.
         :param pulumi.Input[str] cluster_name: Name of the MemoryDB cluster to take a snapshot of.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the snapshot at rest.
-        :param pulumi.Input[str] name: Name of the cluster.
+        :param pulumi.Input[str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] source: Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -448,7 +448,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the cluster.
+        Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 

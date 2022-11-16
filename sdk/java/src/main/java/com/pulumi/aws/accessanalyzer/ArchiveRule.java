@@ -16,6 +16,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS AccessAnalyzer Archive Rule.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java

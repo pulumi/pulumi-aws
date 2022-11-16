@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
+    /// Manages an RDS DB Reserved Instance.
+    /// 
+    /// &gt; **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [RDS Reserved Instances Documentation](https://aws.amazon.com/rds/reserved-instances/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html).
+    /// 
+    /// &gt; **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -134,11 +140,14 @@ namespace Pulumi.Aws.Rds
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -213,20 +222,12 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public ReservedInstanceArgs()
@@ -331,7 +332,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the DB reservation. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -341,6 +342,10 @@ namespace Pulumi.Aws.Rds
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

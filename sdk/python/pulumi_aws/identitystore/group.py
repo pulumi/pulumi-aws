@@ -165,6 +165,8 @@ class Group(pulumi.CustomResource):
                  identity_store_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS IdentityStore Group.
+
         ## Example Usage
 
         ## Import
@@ -188,6 +190,8 @@ class Group(pulumi.CustomResource):
                  args: GroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS IdentityStore Group.
+
         ## Example Usage
 
         ## Import

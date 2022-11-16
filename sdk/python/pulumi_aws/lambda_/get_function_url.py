@@ -66,7 +66,7 @@ class GetFunctionUrlResult:
     @pulumi.getter
     def cors(self) -> Sequence['outputs.GetFunctionUrlCorResult']:
         """
-        The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the [`lambda.FunctionUrl` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function_url.html) documentation for more details.
+        The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `lambda.FunctionUrl` resource documentation for more details.
         """
         return pulumi.get(self, "cors")
 

@@ -71,9 +71,9 @@ namespace Pulumi.Aws.Iam
     /// **Use in combination with an AWS ELB resource:**
     /// 
     /// Some properties of an IAM Server Certificates cannot be updated while they are
-    /// in use. In order for this provider to effectively manage a Certificate in this situation, it is
+    /// in use. In order for the provider to effectively manage a Certificate in this situation, it is
     /// recommended you utilize the `name_prefix` attribute and enable the
-    /// `create_before_destroy` [lifecycle block][lifecycle]. This will allow this provider
+    /// `create_before_destroy`. This will allow this provider
     /// to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
     /// dependant resources before attempting to destroy the old version.
     /// 
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
     /// ```
     /// 
-    ///  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html [lifecycle]/docs/configuration/resources.html
+    ///  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
     /// </summary>
     [AwsResourceType("aws:iam/serverCertificate:ServerCertificate")]
     public partial class ServerCertificate : global::Pulumi.CustomResource
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Iam
         public Output<string> PrivateKey { get; private set; } = null!;
 
         /// <summary>
-        /// Map of resource tags for the server certificate. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the server certificate. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the server certificate. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

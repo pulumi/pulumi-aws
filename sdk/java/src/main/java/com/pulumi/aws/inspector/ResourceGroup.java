@@ -68,14 +68,14 @@ public class ResourceGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+     * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+     * @return Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
      * 
      */
     public Output<Map<String,String>> tags() {

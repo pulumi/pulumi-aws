@@ -433,14 +433,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+     * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
      * 
      */
     @Export(name="timeout", type=Integer.class, parameters={})
     private Output<Integer> timeout;
 
     /**
-     * @return The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+     * @return The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
      * 
      */
     public Output<Integer> timeout() {

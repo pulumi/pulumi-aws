@@ -15,6 +15,15 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an ElastiCache Security Group to control access to one or more cache
+ * clusters.
+ * 
+ * &gt; **NOTE:** ElastiCache Security Groups are for use only when working with an
+ * ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
+ * ElastiCache Subnet Group resource.
+ * 
+ * !&gt; **WARNING:** With the retirement of EC2-Classic the `aws.elasticache.SecurityGroup` resource has been deprecated and will be removed in a future version.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

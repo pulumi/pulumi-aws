@@ -30,6 +30,14 @@ namespace Pulumi.Aws.LightSail.Inputs
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
 
+        [Input("ipv6Cidrs")]
+        private InputList<string>? _ipv6Cidrs;
+        public InputList<string> Ipv6Cidrs
+        {
+            get => _ipv6Cidrs ?? (_ipv6Cidrs = new InputList<string>());
+            set => _ipv6Cidrs = value;
+        }
+
         /// <summary>
         /// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
         /// </summary>

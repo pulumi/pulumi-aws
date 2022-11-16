@@ -32,6 +32,9 @@ export function getAccountPublicAccessBlock(args?: GetAccountPublicAccessBlockAr
  * A collection of arguments for invoking getAccountPublicAccessBlock.
  */
 export interface GetAccountPublicAccessBlockArgs {
+    /**
+     * AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
+     */
     accountId?: string;
 }
 
@@ -70,5 +73,8 @@ export function getAccountPublicAccessBlockOutput(args?: GetAccountPublicAccessB
  * A collection of arguments for invoking getAccountPublicAccessBlock.
  */
 export interface GetAccountPublicAccessBlockOutputArgs {
+    /**
+     * AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
+     */
     accountId?: pulumi.Input<string>;
 }

@@ -146,6 +146,8 @@ class GroupMembership(pulumi.CustomResource):
                  member_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS IdentityStore Group Membership.
+
         ## Import
 
         `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,
@@ -167,6 +169,8 @@ class GroupMembership(pulumi.CustomResource):
                  args: GroupMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS IdentityStore Group Membership.
+
         ## Import
 
         `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,

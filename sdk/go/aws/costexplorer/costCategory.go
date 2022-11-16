@@ -111,7 +111,8 @@ type CostCategory struct {
 	Rules CostCategoryRuleArrayOutput `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayOutput `pulumi:"splitChargeRules"`
-	Tags             pulumi.StringMapOutput                 `pulumi:"tags"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -167,7 +168,8 @@ type costCategoryState struct {
 	Rules []CostCategoryRule `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules []CostCategorySplitChargeRule `pulumi:"splitChargeRules"`
-	Tags             map[string]string             `pulumi:"tags"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -189,7 +191,8 @@ type CostCategoryState struct {
 	Rules CostCategoryRuleArrayInput
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayInput
-	Tags             pulumi.StringMapInput
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -209,7 +212,8 @@ type costCategoryArgs struct {
 	Rules []CostCategoryRule `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules []CostCategorySplitChargeRule `pulumi:"splitChargeRules"`
-	Tags             map[string]string             `pulumi:"tags"`
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CostCategory resource.
@@ -224,7 +228,8 @@ type CostCategoryArgs struct {
 	Rules CostCategoryRuleArrayInput
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayInput
-	Tags             pulumi.StringMapInput
+	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	Tags pulumi.StringMapInput
 }
 
 func (CostCategoryArgs) ElementType() reflect.Type {
@@ -354,6 +359,7 @@ func (o CostCategoryOutput) SplitChargeRules() CostCategorySplitChargeRuleArrayO
 	return o.ApplyT(func(v *CostCategory) CostCategorySplitChargeRuleArrayOutput { return v.SplitChargeRules }).(CostCategorySplitChargeRuleArrayOutput)
 }
 
+// Configuration block for the specific `Tag` to use for `Expression`. See below.
 func (o CostCategoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

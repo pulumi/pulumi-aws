@@ -32,14 +32,14 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The number of days before the lock date.
+     * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      * 
      */
     @Import(name="changeableForDays")
     private @Nullable Output<Integer> changeableForDays;
 
     /**
-     * @return The number of days before the lock date.
+     * @return The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      * 
      */
     public Optional<Output<Integer>> changeableForDays() {
@@ -125,7 +125,7 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param changeableForDays The number of days before the lock date.
+         * @param changeableForDays The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param changeableForDays The number of days before the lock date.
+         * @param changeableForDays The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
          * 
          * @return builder
          * 

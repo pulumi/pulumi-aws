@@ -21,6 +21,9 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// Configuration block for the specific `Dimension` to use for `Expression`. See below.
         /// </summary>
         public readonly Outputs.CostCategoryRuleRuleNotDimension? Dimension;
+        /// <summary>
+        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
+        /// </summary>
         public readonly Outputs.CostCategoryRuleRuleNotTags? Tags;
 
         [OutputConstructor]

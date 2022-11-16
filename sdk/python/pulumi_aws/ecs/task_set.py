@@ -38,6 +38,7 @@ class TaskSetArgs:
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         :param pulumi.Input[str] external_id: The external ID associated with the task set.
+        :param pulumi.Input[bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
         :param pulumi.Input[str] launch_type: The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
         :param pulumi.Input['TaskSetNetworkConfigurationArgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
@@ -45,6 +46,7 @@ class TaskSetArgs:
         :param pulumi.Input['TaskSetScaleArgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         :param pulumi.Input['TaskSetServiceRegistriesArgs'] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        :param pulumi.Input[bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
         :param pulumi.Input[str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         """
         pulumi.set(__self__, "cluster", cluster)
@@ -138,6 +140,9 @@ class TaskSetArgs:
     @property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+        """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
@@ -231,6 +236,9 @@ class TaskSetArgs:
     @property
     @pulumi.getter(name="waitUntilStable")
     def wait_until_stable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the provider should wait until the task set has reached `STEADY_STATE`.
+        """
         return pulumi.get(self, "wait_until_stable")
 
     @wait_until_stable.setter
@@ -279,6 +287,7 @@ class _TaskSetState:
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         :param pulumi.Input[str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[str] external_id: The external ID associated with the task set.
+        :param pulumi.Input[bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
         :param pulumi.Input[str] launch_type: The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
         :param pulumi.Input['TaskSetNetworkConfigurationArgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
@@ -292,6 +301,7 @@ class _TaskSetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
         :param pulumi.Input[str] task_set_id: The ID of the task set.
+        :param pulumi.Input[bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
         :param pulumi.Input[str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         """
         if arn is not None:
@@ -386,6 +396,9 @@ class _TaskSetState:
     @property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+        """
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
@@ -551,6 +564,9 @@ class _TaskSetState:
     @property
     @pulumi.getter(name="waitUntilStable")
     def wait_until_stable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the provider should wait until the task set has reached `STEADY_STATE`.
+        """
         return pulumi.get(self, "wait_until_stable")
 
     @wait_until_stable.setter
@@ -592,6 +608,27 @@ class TaskSet(pulumi.CustomResource):
                  wait_until_stable_timeout: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an ECS task set - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
+
+        See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.TaskSet("example",
+            service=aws_ecs_service["example"]["id"],
+            cluster=aws_ecs_cluster["example"]["id"],
+            task_definition=aws_ecs_task_definition["example"]["arn"],
+            load_balancers=[aws.ecs.TaskSetLoadBalancerArgs(
+                target_group_arn=aws_lb_target_group["example"]["arn"],
+                container_name="mongo",
+                container_port=8080,
+            )])
+        ```
+
         ## Import
 
         ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.
@@ -605,6 +642,7 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetCapacityProviderStrategyArgs']]]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         :param pulumi.Input[str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[str] external_id: The external ID associated with the task set.
+        :param pulumi.Input[bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
         :param pulumi.Input[str] launch_type: The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
         :param pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
@@ -614,6 +652,7 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TaskSetServiceRegistriesArgs']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        :param pulumi.Input[bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
         :param pulumi.Input[str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         """
         ...
@@ -623,6 +662,27 @@ class TaskSet(pulumi.CustomResource):
                  args: TaskSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an ECS task set - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
+
+        See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.TaskSet("example",
+            service=aws_ecs_service["example"]["id"],
+            cluster=aws_ecs_cluster["example"]["id"],
+            task_definition=aws_ecs_task_definition["example"]["arn"],
+            load_balancers=[aws.ecs.TaskSetLoadBalancerArgs(
+                target_group_arn=aws_lb_target_group["example"]["arn"],
+                container_name="mongo",
+                container_port=8080,
+            )])
+        ```
+
         ## Import
 
         ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.
@@ -737,6 +797,7 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetCapacityProviderStrategyArgs']]]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         :param pulumi.Input[str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[str] external_id: The external ID associated with the task set.
+        :param pulumi.Input[bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
         :param pulumi.Input[str] launch_type: The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
         :param pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
@@ -750,6 +811,7 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
         :param pulumi.Input[str] task_set_id: The ID of the task set.
+        :param pulumi.Input[bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
         :param pulumi.Input[str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -813,6 +875,9 @@ class TaskSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+        """
         return pulumi.get(self, "force_delete")
 
     @property
@@ -922,6 +987,9 @@ class TaskSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="waitUntilStable")
     def wait_until_stable(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the provider should wait until the task set has reached `STEADY_STATE`.
+        """
         return pulumi.get(self, "wait_until_stable")
 
     @property

@@ -27,7 +27,7 @@ class ComputeEnvironmentArgs:
         """
         The set of arguments for constructing a ComputeEnvironment resource.
         :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         :param pulumi.Input['ComputeEnvironmentComputeResourcesArgs'] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input['ComputeEnvironmentEksConfigurationArgs'] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
@@ -67,7 +67,7 @@ class ComputeEnvironmentArgs:
     @pulumi.getter(name="computeEnvironmentName")
     def compute_environment_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+        The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "compute_environment_name")
 
@@ -167,7 +167,7 @@ class _ComputeEnvironmentState:
         """
         Input properties used for looking up and filtering ComputeEnvironment resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the compute environment.
-        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         :param pulumi.Input['ComputeEnvironmentComputeResourcesArgs'] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input[str] ecs_cluster_arn: The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
@@ -223,7 +223,7 @@ class _ComputeEnvironmentState:
     @pulumi.getter(name="computeEnvironmentName")
     def compute_environment_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+        The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "compute_environment_name")
 
@@ -427,15 +427,13 @@ class ComputeEnvironment(pulumi.CustomResource):
         aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
             role=aws_batch_service_role_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
+        sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup", egress=[aws.ec2.SecurityGroupEgressArgs(
+            from_port=0,
+            to_port=0,
+            protocol="-1",
+            cidr_blocks=["0.0.0.0/0"],
+        )])
         sample_vpc = aws.ec2.Vpc("sampleVpc", cidr_block="10.1.0.0/16")
-        sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup",
-            vpc_id=sample_vpc.id,
-            egress=[aws.ec2.SecurityGroupEgressArgs(
-                from_port=0,
-                to_port=0,
-                protocol="-1",
-                cidr_blocks=["0.0.0.0/0"],
-            )])
         sample_subnet = aws.ec2.Subnet("sampleSubnet",
             vpc_id=sample_vpc.id,
             cidr_block="10.1.1.0/24")
@@ -485,7 +483,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         :param pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
@@ -549,15 +547,13 @@ class ComputeEnvironment(pulumi.CustomResource):
         aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
             role=aws_batch_service_role_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
+        sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup", egress=[aws.ec2.SecurityGroupEgressArgs(
+            from_port=0,
+            to_port=0,
+            protocol="-1",
+            cidr_blocks=["0.0.0.0/0"],
+        )])
         sample_vpc = aws.ec2.Vpc("sampleVpc", cidr_block="10.1.0.0/16")
-        sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup",
-            vpc_id=sample_vpc.id,
-            egress=[aws.ec2.SecurityGroupEgressArgs(
-                from_port=0,
-                to_port=0,
-                protocol="-1",
-                cidr_blocks=["0.0.0.0/0"],
-            )])
         sample_subnet = aws.ec2.Subnet("sampleSubnet",
             vpc_id=sample_vpc.id,
             cidr_block="10.1.1.0/24")
@@ -683,7 +679,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the compute environment.
-        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         :param pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input[str] ecs_cluster_arn: The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
@@ -727,7 +723,7 @@ class ComputeEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="computeEnvironmentName")
     def compute_environment_name(self) -> pulumi.Output[str]:
         """
-        The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+        The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "compute_environment_name")
 

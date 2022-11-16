@@ -54,7 +54,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+//	$ pulumi import aws:elasticbeanstalk/application:Application my_test tf-test-name
 //
 // ```
 type Application struct {

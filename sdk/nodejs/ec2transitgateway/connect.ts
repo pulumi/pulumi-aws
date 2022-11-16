@@ -64,6 +64,9 @@ export class Connect extends pulumi.CustomResource {
      * The tunnel protocol. Valida values: `gre`. Default is `gre`.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -135,6 +138,9 @@ export interface ConnectState {
      * The tunnel protocol. Valida values: `gre`. Default is `gre`.
      */
     protocol?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -166,6 +172,9 @@ export interface ConnectArgs {
      * The tunnel protocol. Valida values: `gre`. Default is `gre`.
      */
     protocol?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.

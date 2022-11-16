@@ -70,8 +70,10 @@ type UserGroup struct {
 	// The ARN that identifies the user group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The current supported value is `REDIS`.
-	Engine  pulumi.StringOutput    `pulumi:"engine"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Engine pulumi.StringOutput `pulumi:"engine"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the user group.
 	UserGroupId pulumi.StringOutput `pulumi:"userGroupId"`
@@ -117,8 +119,10 @@ type userGroupState struct {
 	// The ARN that identifies the user group.
 	Arn *string `pulumi:"arn"`
 	// The current supported value is `REDIS`.
-	Engine  *string           `pulumi:"engine"`
-	Tags    map[string]string `pulumi:"tags"`
+	Engine *string `pulumi:"engine"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the user group.
 	UserGroupId *string `pulumi:"userGroupId"`
@@ -130,8 +134,10 @@ type UserGroupState struct {
 	// The ARN that identifies the user group.
 	Arn pulumi.StringPtrInput
 	// The current supported value is `REDIS`.
-	Engine  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Engine pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ID of the user group.
 	UserGroupId pulumi.StringPtrInput
@@ -147,8 +153,9 @@ type userGroupArgs struct {
 	// The ARN that identifies the user group.
 	Arn *string `pulumi:"arn"`
 	// The current supported value is `REDIS`.
-	Engine string            `pulumi:"engine"`
-	Tags   map[string]string `pulumi:"tags"`
+	Engine string `pulumi:"engine"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the user group.
 	UserGroupId string `pulumi:"userGroupId"`
 	// The list of user IDs that belong to the user group.
@@ -161,7 +168,8 @@ type UserGroupArgs struct {
 	Arn pulumi.StringPtrInput
 	// The current supported value is `REDIS`.
 	Engine pulumi.StringInput
-	Tags   pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The ID of the user group.
 	UserGroupId pulumi.StringInput
 	// The list of user IDs that belong to the user group.
@@ -265,10 +273,12 @@ func (o UserGroupOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UserGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UserGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

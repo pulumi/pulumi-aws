@@ -391,6 +391,30 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * For JSON syntax, use an array instead of defining the `queue` key twice.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * S3 bucket notification can be imported using the `bucket`, e.g.,

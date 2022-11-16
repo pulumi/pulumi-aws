@@ -434,8 +434,6 @@ class Route(pulumi.CustomResource):
          $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
         ```
 
-         [1]/docs/providers/aws/index.html
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
@@ -574,8 +572,6 @@ class Route(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
         ```
-
-         [1]/docs/providers/aws/index.html
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

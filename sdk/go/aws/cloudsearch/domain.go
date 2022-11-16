@@ -10,6 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an CloudSearch domain resource.
+//
+// The provider waits for the domain to become `Active` when applying a configuration.
+//
 // ## Example Usage
 //
 // ```go

@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Transcribe Vocabulary.
+//
 // ## Example Usage
 // ### Basic Usage
 //
@@ -87,8 +89,9 @@ type Vocabulary struct {
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayOutput `pulumi:"phrases"`
-	Tags    pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringOutput `pulumi:"vocabularyFileUri"`
 	// The name of the Vocabulary.
@@ -137,7 +140,8 @@ type vocabularyState struct {
 	// The language code you selected for your vocabulary.
 	LanguageCode *string `pulumi:"languageCode"`
 	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
-	Phrases []string          `pulumi:"phrases"`
+	Phrases []string `pulumi:"phrases"`
+	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
@@ -155,6 +159,7 @@ type VocabularyState struct {
 	LanguageCode pulumi.StringPtrInput
 	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayInput
+	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
@@ -171,8 +176,9 @@ type vocabularyArgs struct {
 	// The language code you selected for your vocabulary.
 	LanguageCode string `pulumi:"languageCode"`
 	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
-	Phrases []string          `pulumi:"phrases"`
-	Tags    map[string]string `pulumi:"tags"`
+	Phrases []string `pulumi:"phrases"`
+	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
 	// The name of the Vocabulary.
@@ -185,7 +191,8 @@ type VocabularyArgs struct {
 	LanguageCode pulumi.StringInput
 	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayInput
-	Tags    pulumi.StringMapInput
+	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringPtrInput
 	// The name of the Vocabulary.
@@ -299,6 +306,7 @@ func (o VocabularyOutput) Phrases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringArrayOutput { return v.Phrases }).(pulumi.StringArrayOutput)
 }
 
+// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VocabularyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

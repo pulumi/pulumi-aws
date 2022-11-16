@@ -308,14 +308,16 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource.
+     * If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource.
+     * If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -338,16 +340,14 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean value controlling whether the custom cookbook settings are
-     * enabled.
+     * Boolean value controlling whether the custom cookbook settings are enabled.
      * 
      */
     @Import(name="useCustomCookbooks")
     private @Nullable Output<Boolean> useCustomCookbooks;
 
     /**
-     * @return Boolean value controlling whether the custom cookbook settings are
-     * enabled.
+     * @return Boolean value controlling whether the custom cookbook settings are enabled.
      * 
      */
     public Optional<Output<Boolean>> useCustomCookbooks() {
@@ -355,16 +355,14 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean value controlling whether the standard OpsWorks
-     * security groups apply to created instances.
+     * Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
      * 
      */
     @Import(name="useOpsworksSecurityGroups")
     private @Nullable Output<Boolean> useOpsworksSecurityGroups;
 
     /**
-     * @return Boolean value controlling whether the standard OpsWorks
-     * security groups apply to created instances.
+     * @return Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
      * 
      */
     public Optional<Output<Boolean>> useOpsworksSecurityGroups() {
@@ -847,7 +845,8 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource.
+         * If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -858,7 +857,8 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource.
+         * If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -889,8 +889,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useCustomCookbooks Boolean value controlling whether the custom cookbook settings are
-         * enabled.
+         * @param useCustomCookbooks Boolean value controlling whether the custom cookbook settings are enabled.
          * 
          * @return builder
          * 
@@ -901,8 +900,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useCustomCookbooks Boolean value controlling whether the custom cookbook settings are
-         * enabled.
+         * @param useCustomCookbooks Boolean value controlling whether the custom cookbook settings are enabled.
          * 
          * @return builder
          * 
@@ -912,8 +910,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useOpsworksSecurityGroups Boolean value controlling whether the standard OpsWorks
-         * security groups apply to created instances.
+         * @param useOpsworksSecurityGroups Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
          * 
          * @return builder
          * 
@@ -924,8 +921,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useOpsworksSecurityGroups Boolean value controlling whether the standard OpsWorks
-         * security groups apply to created instances.
+         * @param useOpsworksSecurityGroups Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
          * 
          * @return builder
          * 

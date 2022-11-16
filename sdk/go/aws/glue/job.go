@@ -196,7 +196,7 @@ type Job struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
 	Timeout pulumi.IntOutput `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType pulumi.StringPtrOutput `pulumi:"workerType"`
@@ -273,7 +273,7 @@ type jobState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
 	Timeout *int `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType *string `pulumi:"workerType"`
@@ -316,7 +316,7 @@ type JobState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
 	Timeout pulumi.IntPtrInput
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType pulumi.StringPtrInput
@@ -359,7 +359,7 @@ type jobArgs struct {
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
 	Timeout *int `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType *string `pulumi:"workerType"`
@@ -399,7 +399,7 @@ type JobArgs struct {
 	SecurityConfiguration pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
 	Timeout pulumi.IntPtrInput
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
 	WorkerType pulumi.StringPtrInput
@@ -582,7 +582,7 @@ func (o JobOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimted) for `gluestreaming` jobs.
+// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
 func (o JobOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v *Job) pulumi.IntOutput { return v.Timeout }).(pulumi.IntOutput)
 }

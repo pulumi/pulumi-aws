@@ -122,10 +122,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch Evidently Segment can be imported using the `name`, e.g.,
+ * CloudWatch Evidently Segment can be imported using the `arn`, e.g.,
  * 
  * ```sh
- *  $ pulumi import aws:evidently/segment:Segment example example
+ *  $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
  * ```
  * 
  */
@@ -244,28 +244,28 @@ public class Segment extends com.pulumi.resources.CustomResource {
         return this.pattern;
     }
     /**
-     * Tags to apply to the segment. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Tags to apply to the segment. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -167,6 +167,8 @@ import javax.annotation.Nullable;
  * ### Change of name or name-prefix value
  * 
  * Security Group&#39;s Name [cannot be edited after the resource is created](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group). In fact, the `name` and `name-prefix` arguments force the creation of a new Security Group resource when they change value. In that case, this provider first deletes the existing Security Group resource and then it creates a new one. If the existing Security Group is associated to a Network Interface resource, the deletion cannot complete. The reason is that Network Interface resources cannot be left with no Security Group attached and the new one is not yet available at that point.
+ * 
+ * You must invert the default behavior of the provider. That is, first the new Security Group resource must be created, then associated to possible Network Interface resources and finally the old Security Group can be detached and deleted. To force this behavior, you must set the create_before_destroy property:
  * ```java
  * package generated_program;
  * 
@@ -233,28 +235,28 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+     * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
     @Export(name="egress", type=List.class, parameters={SecurityGroupEgress.class})
     private Output<List<SecurityGroupEgress>> egress;
 
     /**
-     * @return Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+     * @return Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
     public Output<List<SecurityGroupEgress>> egress() {
         return this.egress;
     }
     /**
-     * Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+     * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
     @Export(name="ingress", type=List.class, parameters={SecurityGroupIngress.class})
     private Output<List<SecurityGroupIngress>> ingress;
 
     /**
-     * @return Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+     * @return Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
     public Output<List<SecurityGroupIngress>> ingress() {
@@ -303,14 +305,14 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
         return this.ownerId;
     }
     /**
-     * Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+     * Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
      * 
      */
     @Export(name="revokeRulesOnDelete", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> revokeRulesOnDelete;
 
     /**
-     * @return Instruct this provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
+     * @return Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
      * 
      */
     public Output<Optional<Boolean>> revokeRulesOnDelete() {

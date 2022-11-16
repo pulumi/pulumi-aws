@@ -18,6 +18,7 @@ class RepositoryPolicyArgs:
                  repository_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a RepositoryPolicy resource.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] repository_name: Name of the repository to apply the policy.
         """
         pulumi.set(__self__, "policy", policy)
@@ -26,6 +27,9 @@ class RepositoryPolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
+        """
+        The policy document. This is a JSON formatted string.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -53,6 +57,7 @@ class _RepositoryPolicyState:
                  repository_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RepositoryPolicy resources.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository_name: Name of the repository to apply the policy.
         """
@@ -66,6 +71,9 @@ class _RepositoryPolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy document. This is a JSON formatted string.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -160,6 +168,7 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] repository_name: Name of the repository to apply the policy.
         """
         ...
@@ -274,6 +283,7 @@ class RepositoryPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository_name: Name of the repository to apply the policy.
         """
@@ -289,6 +299,9 @@ class RepositoryPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        The policy document. This is a JSON formatted string.
+        """
         return pulumi.get(self, "policy")
 
     @property

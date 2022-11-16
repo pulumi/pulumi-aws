@@ -10,6 +10,97 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElastiCache
 {
     /// <summary>
+    /// Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
+    /// 
+    /// ## Example Usage
+    /// ### Global replication group with one secondary replication group
+    /// 
+    /// The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primary = new Aws.ElastiCache.ReplicationGroup("primary", new()
+    ///     {
+    ///         ReplicationGroupDescription = "primary replication group",
+    ///         Engine = "redis",
+    ///         EngineVersion = "5.0.6",
+    ///         NodeType = "cache.m5.large",
+    ///         NumberCacheClusters = 1,
+    ///     });
+    /// 
+    ///     var example = new Aws.ElastiCache.GlobalReplicationGroup("example", new()
+    ///     {
+    ///         GlobalReplicationGroupIdSuffix = "example",
+    ///         PrimaryReplicationGroupId = primary.Id,
+    ///     });
+    /// 
+    ///     var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new()
+    ///     {
+    ///         ReplicationGroupDescription = "secondary replication group",
+    ///         GlobalReplicationGroupId = example.GlobalReplicationGroupId,
+    ///         NumberCacheClusters = 1,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Other_region,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Managing Redis Engine Versions
+    /// 
+    /// The initial Redis version is determined by the version set on the primary replication group.
+    /// However, once it is part of a Global Replication Group,
+    /// the Global Replication Group manages the version of all member replication groups.
+    /// 
+    /// The member replication groups must have `lifecycle.ignore_changes[engine_version]` set,
+    /// or the provider will always return a diff.
+    /// 
+    /// In this example,
+    /// the primary replication group will be created with Redis 6.0,
+    /// and then upgraded to Redis 6.2 once added to the Global Replication Group.
+    /// The secondary replication group will be created with Redis 6.2.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primary = new Aws.ElastiCache.ReplicationGroup("primary", new()
+    ///     {
+    ///         ReplicationGroupDescription = "primary replication group",
+    ///         Engine = "redis",
+    ///         EngineVersion = "6.0",
+    ///         NodeType = "cache.m5.large",
+    ///         NumberCacheClusters = 1,
+    ///     });
+    /// 
+    ///     var example = new Aws.ElastiCache.GlobalReplicationGroup("example", new()
+    ///     {
+    ///         GlobalReplicationGroupIdSuffix = "example",
+    ///         PrimaryReplicationGroupId = primary.Id,
+    ///         EngineVersion = "6.2",
+    ///     });
+    /// 
+    ///     var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new()
+    ///     {
+    ///         ReplicationGroupDescription = "secondary replication group",
+    ///         GlobalReplicationGroupId = example.GlobalReplicationGroupId,
+    ///         NumberCacheClusters = 1,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Other_region,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,

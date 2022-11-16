@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kms
 {
     /// <summary>
+    /// Resource for managing an AWS KMS (Key Management) Custom Key Store.
+    /// 
     /// ## Example Usage
     /// ### Basic Usage
     /// 

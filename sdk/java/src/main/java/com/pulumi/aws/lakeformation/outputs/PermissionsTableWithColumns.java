@@ -28,12 +28,20 @@ public final class PermissionsTableWithColumns {
      * 
      */
     private String databaseName;
+    /**
+     * @return Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     */
     private @Nullable List<String> excludedColumnNames;
     /**
      * @return Name of the table resource.
      * 
      */
     private String name;
+    /**
+     * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     */
     private @Nullable Boolean wildcard;
 
     private PermissionsTableWithColumns() {}
@@ -58,6 +66,10 @@ public final class PermissionsTableWithColumns {
     public String databaseName() {
         return this.databaseName;
     }
+    /**
+     * @return Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     */
     public List<String> excludedColumnNames() {
         return this.excludedColumnNames == null ? List.of() : this.excludedColumnNames;
     }
@@ -68,6 +80,10 @@ public final class PermissionsTableWithColumns {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * 
+     */
     public Optional<Boolean> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }

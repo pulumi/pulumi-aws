@@ -89,11 +89,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
-     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     * The cluster identifier. If omitted, the provider will assign a random, unique identifier.
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     public readonly clusterIdentifierPrefix!: pulumi.Output<string>;
     /**
@@ -310,11 +310,11 @@ export interface ClusterState {
      */
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
-     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     * The cluster identifier. If omitted, the provider will assign a random, unique identifier.
      */
     clusterIdentifier?: pulumi.Input<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
@@ -445,11 +445,11 @@ export interface ClusterArgs {
      */
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
-     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     * The cluster identifier. If omitted, the provider will assign a random, unique identifier.
      */
     clusterIdentifier?: pulumi.Input<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     clusterIdentifierPrefix?: pulumi.Input<string>;
     /**

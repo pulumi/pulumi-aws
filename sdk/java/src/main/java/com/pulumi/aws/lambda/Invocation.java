@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
  * 
- * &gt; **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the [`aws.lambda.Invocation`](https://www.terraform.io/docs/providers/aws/d/lambda_invocation.html) data source.
+ * &gt; **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `aws.lambda.Invocation` data source.
  * 
  * ## Example Usage
  * ### Dynamic Invocation Example Using Triggers
@@ -118,9 +118,17 @@ public class Invocation extends com.pulumi.resources.CustomResource {
     public Output<String> result() {
         return this.result;
     }
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+     * 
+     */
     @Export(name="triggers", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> triggers;
 
+    /**
+     * @return Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+     * 
+     */
     public Output<Optional<Map<String,String>>> triggers() {
         return Codegen.optional(this.triggers);
     }

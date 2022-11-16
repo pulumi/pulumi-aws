@@ -69,7 +69,8 @@ type Workgroup struct {
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// An array of VPC subnet IDs to associate with the workgroup.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	Tags      pulumi.StringMapOutput   `pulumi:"tags"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Redshift Workgroup ID.
@@ -129,8 +130,9 @@ type workgroupState struct {
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// An array of VPC subnet IDs to associate with the workgroup.
-	SubnetIds []string          `pulumi:"subnetIds"`
-	Tags      map[string]string `pulumi:"tags"`
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Redshift Workgroup ID.
@@ -157,7 +159,8 @@ type WorkgroupState struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// An array of VPC subnet IDs to associate with the workgroup.
 	SubnetIds pulumi.StringArrayInput
-	Tags      pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The Redshift Workgroup ID.
@@ -183,8 +186,9 @@ type workgroupArgs struct {
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// An array of VPC subnet IDs to associate with the workgroup.
-	SubnetIds []string          `pulumi:"subnetIds"`
-	Tags      map[string]string `pulumi:"tags"`
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the workgroup.
 	WorkgroupName string `pulumi:"workgroupName"`
 }
@@ -204,7 +208,8 @@ type WorkgroupArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// An array of VPC subnet IDs to associate with the workgroup.
 	SubnetIds pulumi.StringArrayInput
-	Tags      pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The name of the workgroup.
 	WorkgroupName pulumi.StringInput
 }
@@ -340,6 +345,7 @@ func (o WorkgroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WorkgroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

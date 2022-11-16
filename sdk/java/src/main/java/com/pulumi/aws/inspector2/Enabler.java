@@ -15,6 +15,10 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for enabling AWS Inspector V2 resource scans.
+ * 
+ * &gt; **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java
@@ -99,9 +103,17 @@ public class Enabler extends com.pulumi.resources.CustomResource {
     public Output<List<String>> accountIds() {
         return this.accountIds;
     }
+    /**
+     * Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     * 
+     */
     @Export(name="resourceTypes", type=List.class, parameters={String.class})
     private Output<List<String>> resourceTypes;
 
+    /**
+     * @return Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     * 
+     */
     public Output<List<String>> resourceTypes() {
         return this.resourceTypes;
     }

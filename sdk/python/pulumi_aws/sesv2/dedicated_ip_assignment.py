@@ -98,6 +98,10 @@ class DedicatedIpAssignment(pulumi.CustomResource):
                  ip: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment.
+
+        This resource is used with "Standard" dedicated IP addresses. This includes addresses [requested and relinquished manually](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-case.html) via an AWS support case, or [Bring Your Own IP](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-byo.html) addresses. Once no longer assigned, this resource returns the IP to the [`ses-default-dedicated-pool`](https://docs.aws.amazon.com/ses/latest/dg/managing-ip-pools.html), managed by AWS.
+
         ## Example Usage
         ### Basic Usage
 
@@ -130,6 +134,10 @@ class DedicatedIpAssignment(pulumi.CustomResource):
                  args: DedicatedIpAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment.
+
+        This resource is used with "Standard" dedicated IP addresses. This includes addresses [requested and relinquished manually](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-case.html) via an AWS support case, or [Bring Your Own IP](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-byo.html) addresses. Once no longer assigned, this resource returns the IP to the [`ses-default-dedicated-pool`](https://docs.aws.amazon.com/ses/latest/dg/managing-ip-pools.html), managed by AWS.
+
         ## Example Usage
         ### Basic Usage
 

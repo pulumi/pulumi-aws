@@ -190,7 +190,7 @@ namespace Pulumi.Aws.WafV2
     ///                             {
     ///                                 RegexMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementArgs
     ///                                 {
-    ///                                     RegexString = "[a-z]([a-z0-9_-]*[a-z0-9])?",
+    ///                                     RegexString = "a-z?",
     ///                                     FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchArgs
     ///                                     {
     ///                                         SingleHeader = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchSingleHeaderArgs

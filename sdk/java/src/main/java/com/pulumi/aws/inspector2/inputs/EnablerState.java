@@ -31,9 +31,17 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.accountIds);
     }
 
+    /**
+     * Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     * 
+     */
     @Import(name="resourceTypes")
     private @Nullable Output<List<String>> resourceTypes;
 
+    /**
+     * @return Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     * 
+     */
     public Optional<Output<List<String>>> resourceTypes() {
         return Optional.ofNullable(this.resourceTypes);
     }
@@ -94,15 +102,33 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
             return accountIds(List.of(accountIds));
         }
 
+        /**
+         * @param resourceTypes Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceTypes(@Nullable Output<List<String>> resourceTypes) {
             $.resourceTypes = resourceTypes;
             return this;
         }
 
+        /**
+         * @param resourceTypes Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceTypes(List<String> resourceTypes) {
             return resourceTypes(Output.of(resourceTypes));
         }
 
+        /**
+         * @param resourceTypes Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceTypes(String... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
         }

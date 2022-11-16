@@ -11,6 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an individual ECS resource tag. This resource should only be used in cases where ECS resources are created outside the provider (e.g., ECS Clusters implicitly created by Batch Compute Environments).
+//
+// > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `ecs.Cluster` and `ecs.Tag` to manage tags of the same ECS Cluster will cause a perpetual difference where the `ecs.Cluster` resource will try to remove the tag being added by the `ecs.Tag` resource.
+//
+// > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
+//
 // ## Example Usage
 //
 // ```go

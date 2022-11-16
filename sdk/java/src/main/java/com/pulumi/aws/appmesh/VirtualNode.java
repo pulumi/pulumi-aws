@@ -272,8 +272,6 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
  * ```
  * 
- *  [1]/docs/providers/aws/index.html
- * 
  */
 @ResourceType(type="aws:appmesh/virtualNode:VirtualNode")
 public class VirtualNode extends com.pulumi.resources.CustomResource {

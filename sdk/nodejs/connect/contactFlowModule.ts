@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *     description: "Example Contact Flow Module Description",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     tags: {
- *         Application: "Terraform",
+ *         Application: "Example",
  *         Method: "Create",
  *         Name: "Example Contact Flow Module",
  *     },
@@ -121,6 +121,9 @@ export class ContactFlowModule extends pulumi.CustomResource {
      * Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      */
     public readonly content!: pulumi.Output<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
+     */
     public readonly contentHash!: pulumi.Output<string | undefined>;
     /**
      * Specifies the description of the Contact Flow Module.
@@ -207,6 +210,9 @@ export interface ContactFlowModuleState {
      * Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      */
     content?: pulumi.Input<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
+     */
     contentHash?: pulumi.Input<string>;
     /**
      * Specifies the description of the Contact Flow Module.
@@ -242,6 +248,9 @@ export interface ContactFlowModuleArgs {
      * Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      */
     content?: pulumi.Input<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
+     */
     contentHash?: pulumi.Input<string>;
     /**
      * Specifies the description of the Contact Flow Module.

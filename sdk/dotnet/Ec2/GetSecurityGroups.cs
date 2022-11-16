@@ -12,8 +12,7 @@ namespace Pulumi.Aws.Ec2
     public static class GetSecurityGroups
     {
         /// <summary>
-        /// Use this data source to get IDs and VPC membership of Security Groups that are created
-        /// outside of this provider.
+        /// Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -77,8 +76,7 @@ namespace Pulumi.Aws.Ec2
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupsResult>("aws:ec2/getSecurityGroups:getSecurityGroups", args ?? new GetSecurityGroupsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get IDs and VPC membership of Security Groups that are created
-        /// outside of this provider.
+        /// Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

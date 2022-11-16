@@ -92,6 +92,7 @@ import (
 type RepositoryPolicy struct {
 	pulumi.CustomResourceState
 
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
@@ -134,6 +135,7 @@ func GetRepositoryPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryPolicy resources.
 type repositoryPolicyState struct {
+	// The policy document. This is a JSON formatted string.
 	Policy *string `pulumi:"policy"`
 	// The registry ID where the repository was created.
 	RegistryId *string `pulumi:"registryId"`
@@ -142,6 +144,7 @@ type repositoryPolicyState struct {
 }
 
 type RepositoryPolicyState struct {
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringPtrInput
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringPtrInput
@@ -154,6 +157,7 @@ func (RepositoryPolicyState) ElementType() reflect.Type {
 }
 
 type repositoryPolicyArgs struct {
+	// The policy document. This is a JSON formatted string.
 	Policy string `pulumi:"policy"`
 	// Name of the repository to apply the policy.
 	RepositoryName string `pulumi:"repositoryName"`
@@ -161,6 +165,7 @@ type repositoryPolicyArgs struct {
 
 // The set of arguments for constructing a RepositoryPolicy resource.
 type RepositoryPolicyArgs struct {
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringInput
 	// Name of the repository to apply the policy.
 	RepositoryName pulumi.StringInput
@@ -253,6 +258,7 @@ func (o RepositoryPolicyOutput) ToRepositoryPolicyOutputWithContext(ctx context.
 	return o
 }
 
+// The policy document. This is a JSON formatted string.
 func (o RepositoryPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

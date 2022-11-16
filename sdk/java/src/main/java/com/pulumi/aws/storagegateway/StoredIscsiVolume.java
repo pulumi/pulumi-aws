@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an AWS Storage Gateway stored iSCSI volume.
  * 
- * &gt; **NOTE:** The gateway must have a working storage added (e.g. via the `aws.storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
+ * &gt; **NOTE:** The gateway must have a working storage added (e.g., via the `aws.storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
  * 
  * ## Example Usage
  * ### Create Empty Stored iSCSI Volume
@@ -285,14 +285,14 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
     @Export(name="targetArn", type=String.class, parameters={})
     private Output<String> targetArn;
 
     /**
-     * @return Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * @return Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
     public Output<String> targetArn() {
@@ -327,14 +327,14 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
         return this.volumeAttachmentStatus;
     }
     /**
-     * Volume ID, e.g. `vol-12345678`.
+     * Volume ID, e.g., `vol-12345678`.
      * 
      */
     @Export(name="volumeId", type=String.class, parameters={})
     private Output<String> volumeId;
 
     /**
-     * @return Volume ID, e.g. `vol-12345678`.
+     * @return Volume ID, e.g., `vol-12345678`.
      * 
      */
     public Output<String> volumeId() {

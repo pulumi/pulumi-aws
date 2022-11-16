@@ -68,8 +68,6 @@ import (
 //	$ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
 //
 // ```
-//
-//	[1]/docs/providers/aws/index.html
 type VirtualRouter struct {
 	pulumi.CustomResourceState
 

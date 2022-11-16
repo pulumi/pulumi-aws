@@ -21,24 +21,6 @@ import * as utilities from "../utilities";
  *     secretString: "example-string-to-protect",
  * });
  * ```
- * ### Key-Value Pairs
- *
- * Secrets Manager also accepts key-value pairs in JSON.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const example = config.getObject("example") || {
- *     key1: "value1",
- *     key2: "value2",
- * };
- * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("exampleSecretVersion", {
- *     secretId: aws_secretsmanager_secret.example.id,
- *     secretString: JSON.stringify(example),
- * });
- * ```
  *
  * ## Import
  *

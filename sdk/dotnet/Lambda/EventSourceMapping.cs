@@ -254,28 +254,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
-    /// ### Managed Streaming for Kafka (MSK)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
-    ///     {
-    ///         EventSourceArn = aws_msk_cluster.Example.Arn,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
-    ///         Topics = new[]
-    ///         {
-    ///             "Example",
-    ///         },
-    ///         StartingPosition = "TRIM_HORIZON",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

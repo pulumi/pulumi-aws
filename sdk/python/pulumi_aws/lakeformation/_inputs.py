@@ -340,6 +340,7 @@ class PermissionsTableArgs:
         :param pulumi.Input[str] database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[str] name: Name of the table resource.
+        :param pulumi.Input[bool] wildcard: Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
         """
         pulumi.set(__self__, "database_name", database_name)
         if catalog_id is not None:
@@ -388,6 +389,9 @@ class PermissionsTableArgs:
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        """
         return pulumi.get(self, "wildcard")
 
     @wildcard.setter
@@ -409,6 +413,8 @@ class PermissionsTableWithColumnsArgs:
         :param pulumi.Input[str] name: Name of the table resource.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: Set of column names for the table.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_column_names: Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        :param pulumi.Input[bool] wildcard: Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
@@ -472,6 +478,9 @@ class PermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="excludedColumnNames")
     def excluded_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        """
         return pulumi.get(self, "excluded_column_names")
 
     @excluded_column_names.setter
@@ -481,6 +490,9 @@ class PermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        """
         return pulumi.get(self, "wildcard")
 
     @wildcard.setter
@@ -590,6 +602,7 @@ class ResourceLfTagsTableArgs:
         :param pulumi.Input[str] database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[str] name: Name of the table resource.
+        :param pulumi.Input[bool] wildcard: Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
         """
         pulumi.set(__self__, "database_name", database_name)
         if catalog_id is not None:
@@ -638,6 +651,9 @@ class ResourceLfTagsTableArgs:
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        """
         return pulumi.get(self, "wildcard")
 
     @wildcard.setter
@@ -659,6 +675,8 @@ class ResourceLfTagsTableWithColumnsArgs:
         :param pulumi.Input[str] name: Name of the table resource.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: Set of column names for the table.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_column_names: Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        :param pulumi.Input[bool] wildcard: Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
@@ -722,6 +740,9 @@ class ResourceLfTagsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="excludedColumnNames")
     def excluded_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        """
         return pulumi.get(self, "excluded_column_names")
 
     @excluded_column_names.setter
@@ -731,6 +752,9 @@ class ResourceLfTagsTableWithColumnsArgs:
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        """
         return pulumi.get(self, "wildcard")
 
     @wildcard.setter

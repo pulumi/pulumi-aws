@@ -99,7 +99,8 @@ type Access struct {
 	HomeDirectoryMappings AccessHomeDirectoryMappingArrayOutput `pulumi:"homeDirectoryMappings"`
 	// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
 	HomeDirectoryType pulumi.StringPtrOutput `pulumi:"homeDirectoryType"`
-	Policy            pulumi.StringPtrOutput `pulumi:"policy"`
+	// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile AccessPosixProfilePtrOutput `pulumi:"posixProfile"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
@@ -151,7 +152,8 @@ type accessState struct {
 	HomeDirectoryMappings []AccessHomeDirectoryMapping `pulumi:"homeDirectoryMappings"`
 	// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
 	HomeDirectoryType *string `pulumi:"homeDirectoryType"`
-	Policy            *string `pulumi:"policy"`
+	// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+	Policy *string `pulumi:"policy"`
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile *AccessPosixProfile `pulumi:"posixProfile"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
@@ -169,7 +171,8 @@ type AccessState struct {
 	HomeDirectoryMappings AccessHomeDirectoryMappingArrayInput
 	// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
 	HomeDirectoryType pulumi.StringPtrInput
-	Policy            pulumi.StringPtrInput
+	// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+	Policy pulumi.StringPtrInput
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile AccessPosixProfilePtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
@@ -191,7 +194,8 @@ type accessArgs struct {
 	HomeDirectoryMappings []AccessHomeDirectoryMapping `pulumi:"homeDirectoryMappings"`
 	// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
 	HomeDirectoryType *string `pulumi:"homeDirectoryType"`
-	Policy            *string `pulumi:"policy"`
+	// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+	Policy *string `pulumi:"policy"`
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile *AccessPosixProfile `pulumi:"posixProfile"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
@@ -210,7 +214,8 @@ type AccessArgs struct {
 	HomeDirectoryMappings AccessHomeDirectoryMappingArrayInput
 	// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
 	HomeDirectoryType pulumi.StringPtrInput
-	Policy            pulumi.StringPtrInput
+	// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+	Policy pulumi.StringPtrInput
 	// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
 	PosixProfile AccessPosixProfilePtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
@@ -326,6 +331,7 @@ func (o AccessOutput) HomeDirectoryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Access) pulumi.StringPtrOutput { return v.HomeDirectoryType }).(pulumi.StringPtrOutput)
 }
 
+// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
 func (o AccessOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Access) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }

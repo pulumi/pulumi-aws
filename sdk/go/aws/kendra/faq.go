@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Kendra FAQ.
+//
 // ## Example Usage
 // ### Basic
 //
@@ -143,8 +145,9 @@ type Faq struct {
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3PathOutput `pulumi:"s3Path"`
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The date and time that the FAQ was last updated.
@@ -212,8 +215,9 @@ type faqState struct {
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path *FaqS3Path `pulumi:"s3Path"`
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
+	Status *string `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The date and time that the FAQ was last updated.
@@ -245,7 +249,8 @@ type FaqState struct {
 	S3Path FaqS3PathPtrInput
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
 	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The date and time that the FAQ was last updated.
@@ -270,8 +275,9 @@ type faqArgs struct {
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn string `pulumi:"roleArn"`
 	// The S3 location of the FAQ input data. Detailed below.
-	S3Path FaqS3Path         `pulumi:"s3Path"`
-	Tags   map[string]string `pulumi:"tags"`
+	S3Path FaqS3Path `pulumi:"s3Path"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Faq resource.
@@ -290,7 +296,8 @@ type FaqArgs struct {
 	RoleArn pulumi.StringInput
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3PathInput
-	Tags   pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (FaqArgs) ElementType() reflect.Type {
@@ -440,6 +447,7 @@ func (o FaqOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FaqOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

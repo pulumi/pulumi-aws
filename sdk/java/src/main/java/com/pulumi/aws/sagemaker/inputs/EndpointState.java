@@ -63,14 +63,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the endpoint.
+     * The name of the endpoint. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the endpoint.
+     * @return The name of the endpoint. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -200,7 +200,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the endpoint.
+         * @param name The name of the endpoint. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the endpoint.
+         * @param name The name of the endpoint. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 

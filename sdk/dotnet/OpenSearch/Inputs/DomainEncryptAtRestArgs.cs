@@ -18,6 +18,9 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 

@@ -81,7 +81,8 @@ class AwaitableGetPartitionResult(GetPartitionResult):
 
 def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartitionResult:
     """
-    Use this data source to lookup current AWS partition in which this provider is working
+    Use this data source to lookup information about the current AWS partition in
+    which the provider is working.
 
     ## Example Usage
 

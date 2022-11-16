@@ -6,6 +6,7 @@ package com.pulumi.aws.rds.inputs;
 import com.pulumi.aws.rds.inputs.GetEngineVersionFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetEngineVersionArgs Empty = new GetEngineVersionArgs();
+
+    /**
+     * When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+     * 
+     */
+    @Import(name="defaultOnly")
+    private @Nullable Output<Boolean> defaultOnly;
+
+    /**
+     * @return When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+     * 
+     */
+    public Optional<Output<Boolean>> defaultOnly() {
+        return Optional.ofNullable(this.defaultOnly);
+    }
 
     /**
      * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
@@ -32,11 +48,34 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         return this.engine;
     }
 
+    /**
+     * One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     * 
+     */
     @Import(name="filters")
     private @Nullable Output<List<GetEngineVersionFilterArgs>> filters;
 
+    /**
+     * @return One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     * 
+     */
     public Optional<Output<List<GetEngineVersionFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    /**
+     * When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+     * 
+     */
+    @Import(name="includeAll")
+    private @Nullable Output<Boolean> includeAll;
+
+    /**
+     * @return When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+     * 
+     */
+    public Optional<Output<Boolean>> includeAll() {
+        return Optional.ofNullable(this.includeAll);
     }
 
     /**
@@ -87,8 +126,10 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
     private GetEngineVersionArgs() {}
 
     private GetEngineVersionArgs(GetEngineVersionArgs $) {
+        this.defaultOnly = $.defaultOnly;
         this.engine = $.engine;
         this.filters = $.filters;
+        this.includeAll = $.includeAll;
         this.parameterGroupFamily = $.parameterGroupFamily;
         this.preferredVersions = $.preferredVersions;
         this.version = $.version;
@@ -113,6 +154,27 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
+         * @param defaultOnly When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultOnly(@Nullable Output<Boolean> defaultOnly) {
+            $.defaultOnly = defaultOnly;
+            return this;
+        }
+
+        /**
+         * @param defaultOnly When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultOnly(Boolean defaultOnly) {
+            return defaultOnly(Output.of(defaultOnly));
+        }
+
+        /**
          * @param engine DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
          * 
          * @return builder
@@ -133,17 +195,56 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
             return engine(Output.of(engine));
         }
 
+        /**
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(@Nullable Output<List<GetEngineVersionFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
+        /**
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(List<GetEngineVersionFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
+        /**
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder filters(GetEngineVersionFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param includeAll When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeAll(@Nullable Output<Boolean> includeAll) {
+            $.includeAll = includeAll;
+            return this;
+        }
+
+        /**
+         * @param includeAll When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeAll(Boolean includeAll) {
+            return includeAll(Output.of(includeAll));
         }
 
         /**

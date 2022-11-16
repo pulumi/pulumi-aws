@@ -257,6 +257,7 @@ class CostCategoryRuleRule(dict):
         :param 'CostCategoryRuleRuleDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
         :param 'CostCategoryRuleRuleNotArgs' not_: Return results that match both `Dimension` object.
         :param Sequence['CostCategoryRuleRuleOrArgs'] ors: Return results that match both `Dimension` object.
+        :param 'CostCategoryRuleRuleTagsArgs' tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
@@ -314,6 +315,9 @@ class CostCategoryRuleRule(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional['outputs.CostCategoryRuleRuleTags']:
+        """
+        Configuration block for the specific `Tag` to use for `Expression`. See below.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -343,6 +347,7 @@ class CostCategoryRuleRuleAnd(dict):
         """
         :param 'CostCategoryRuleRuleAndCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
         :param 'CostCategoryRuleRuleAndDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param 'CostCategoryRuleRuleAndTagsArgs' tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -370,6 +375,9 @@ class CostCategoryRuleRuleAnd(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional['outputs.CostCategoryRuleRuleAndTags']:
+        """
+        Configuration block for the specific `Tag` to use for `Expression`. See below.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -699,6 +707,7 @@ class CostCategoryRuleRuleNot(dict):
         """
         :param 'CostCategoryRuleRuleNotCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
         :param 'CostCategoryRuleRuleNotDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param 'CostCategoryRuleRuleNotTagsArgs' tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -726,6 +735,9 @@ class CostCategoryRuleRuleNot(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional['outputs.CostCategoryRuleRuleNotTags']:
+        """
+        Configuration block for the specific `Tag` to use for `Expression`. See below.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -935,6 +947,7 @@ class CostCategoryRuleRuleOr(dict):
         """
         :param 'CostCategoryRuleRuleOrCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
         :param 'CostCategoryRuleRuleOrDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param 'CostCategoryRuleRuleOrTagsArgs' tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -962,6 +975,9 @@ class CostCategoryRuleRuleOr(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional['outputs.CostCategoryRuleRuleOrTags']:
+        """
+        Configuration block for the specific `Tag` to use for `Expression`. See below.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -1383,7 +1399,7 @@ class GetCostCategoryRuleRuleResult(dict):
         :param Sequence['GetCostCategoryRuleRuleDimensionArgs'] dimensions: Configuration block for the specific `Dimension` to use for `Expression`. See below.
         :param Sequence['GetCostCategoryRuleRuleNotArgs'] nots: Return results that match both `Dimension` object.
         :param Sequence['GetCostCategoryRuleRuleOrArgs'] ors: Return results that match both `Dimension` object.
-        :param Sequence['GetCostCategoryRuleRuleTagArgs'] tags: Resource tags.
+        :param Sequence['GetCostCategoryRuleRuleTagArgs'] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         pulumi.set(__self__, "ands", ands)
         pulumi.set(__self__, "cost_categories", cost_categories)
@@ -1436,7 +1452,7 @@ class GetCostCategoryRuleRuleResult(dict):
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetCostCategoryRuleRuleTagResult']:
         """
-        Resource tags.
+        Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         return pulumi.get(self, "tags")
 
@@ -1450,7 +1466,7 @@ class GetCostCategoryRuleRuleAndResult(dict):
         """
         :param Sequence['GetCostCategoryRuleRuleAndCostCategoryArgs'] cost_categories: Configuration block for the filter that's based on `CostCategory` values. See below.
         :param Sequence['GetCostCategoryRuleRuleAndDimensionArgs'] dimensions: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param Sequence['GetCostCategoryRuleRuleAndTagArgs'] tags: Resource tags.
+        :param Sequence['GetCostCategoryRuleRuleAndTagArgs'] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         pulumi.set(__self__, "cost_categories", cost_categories)
         pulumi.set(__self__, "dimensions", dimensions)
@@ -1476,7 +1492,7 @@ class GetCostCategoryRuleRuleAndResult(dict):
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetCostCategoryRuleRuleAndTagResult']:
         """
-        Resource tags.
+        Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         return pulumi.get(self, "tags")
 
@@ -1690,7 +1706,7 @@ class GetCostCategoryRuleRuleNotResult(dict):
         """
         :param Sequence['GetCostCategoryRuleRuleNotCostCategoryArgs'] cost_categories: Configuration block for the filter that's based on `CostCategory` values. See below.
         :param Sequence['GetCostCategoryRuleRuleNotDimensionArgs'] dimensions: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param Sequence['GetCostCategoryRuleRuleNotTagArgs'] tags: Resource tags.
+        :param Sequence['GetCostCategoryRuleRuleNotTagArgs'] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         pulumi.set(__self__, "cost_categories", cost_categories)
         pulumi.set(__self__, "dimensions", dimensions)
@@ -1716,7 +1732,7 @@ class GetCostCategoryRuleRuleNotResult(dict):
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetCostCategoryRuleRuleNotTagResult']:
         """
-        Resource tags.
+        Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         return pulumi.get(self, "tags")
 
@@ -1850,7 +1866,7 @@ class GetCostCategoryRuleRuleOrResult(dict):
         """
         :param Sequence['GetCostCategoryRuleRuleOrCostCategoryArgs'] cost_categories: Configuration block for the filter that's based on `CostCategory` values. See below.
         :param Sequence['GetCostCategoryRuleRuleOrDimensionArgs'] dimensions: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param Sequence['GetCostCategoryRuleRuleOrTagArgs'] tags: Resource tags.
+        :param Sequence['GetCostCategoryRuleRuleOrTagArgs'] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         pulumi.set(__self__, "cost_categories", cost_categories)
         pulumi.set(__self__, "dimensions", dimensions)
@@ -1876,7 +1892,7 @@ class GetCostCategoryRuleRuleOrResult(dict):
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetCostCategoryRuleRuleOrTagResult']:
         """
-        Resource tags.
+        Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         return pulumi.get(self, "tags")
 

@@ -38,14 +38,14 @@ public final class EventTargetInputTransformerArgs extends com.pulumi.resources.
     }
 
     /**
-     * Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `&#34;\&#34;Your string goes here.\\nA new line.\&#34;&#34;`
+     * Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
      * 
      */
     @Import(name="inputTemplate", required=true)
     private Output<String> inputTemplate;
 
     /**
-     * @return Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `&#34;\&#34;Your string goes here.\\nA new line.\&#34;&#34;`
+     * @return Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
      * 
      */
     public Output<String> inputTemplate() {
@@ -105,7 +105,7 @@ public final class EventTargetInputTransformerArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param inputTemplate Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `&#34;\&#34;Your string goes here.\\nA new line.\&#34;&#34;`
+         * @param inputTemplate Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class EventTargetInputTransformerArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param inputTemplate Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `&#34;\&#34;Your string goes here.\\nA new line.\&#34;&#34;`
+         * @param inputTemplate Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
          * 
          * @return builder
          * 

@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS MediaLive Multiplex.
+//
 // ## Example Usage
 // ### Basic Usage
 //
@@ -80,7 +82,7 @@ type Multiplex struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex pulumi.BoolPtrOutput `pulumi:"startMultiplex"`
-	// A map of tags to assign to the Multiplex. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -127,7 +129,7 @@ type multiplexState struct {
 	Name *string `pulumi:"name"`
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex *bool `pulumi:"startMultiplex"`
-	// A map of tags to assign to the Multiplex. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -143,7 +145,7 @@ type MultiplexState struct {
 	Name pulumi.StringPtrInput
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex pulumi.BoolPtrInput
-	// A map of tags to assign to the Multiplex. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
@@ -161,9 +163,8 @@ type multiplexArgs struct {
 	Name *string `pulumi:"name"`
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex *bool `pulumi:"startMultiplex"`
-	// A map of tags to assign to the Multiplex. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Multiplex resource.
@@ -176,9 +177,8 @@ type MultiplexArgs struct {
 	Name pulumi.StringPtrInput
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex pulumi.BoolPtrInput
-	// A map of tags to assign to the Multiplex. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (MultiplexArgs) ElementType() reflect.Type {
@@ -293,7 +293,7 @@ func (o MultiplexOutput) StartMultiplex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Multiplex) pulumi.BoolPtrOutput { return v.StartMultiplex }).(pulumi.BoolPtrOutput)
 }
 
-// A map of tags to assign to the Multiplex. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MultiplexOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Multiplex) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

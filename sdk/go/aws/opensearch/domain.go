@@ -63,7 +63,7 @@ import (
 // ```
 // ### Access Policy
 //
-// > See also: [`opensearch.DomainPolicy` resource](https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy.html)
+// > See also: `opensearch.DomainPolicy` resource
 //
 // ```go
 // package main
@@ -305,7 +305,8 @@ type Domain struct {
 	pulumi.CustomResourceState
 
 	// IAM policy document specifying the access policies for the domain.
-	AccessPolicies  pulumi.StringOutput    `pulumi:"accessPolicies"`
+	AccessPolicies pulumi.StringOutput `pulumi:"accessPolicies"`
+	// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
 	AdvancedOptions pulumi.StringMapOutput `pulumi:"advancedOptions"`
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsOutput `pulumi:"advancedSecurityOptions"`
@@ -340,7 +341,10 @@ type Domain struct {
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrOutput `pulumi:"snapshotOptions"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
+	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
 	VpcOptions DomainVpcOptionsPtrOutput `pulumi:"vpcOptions"`
@@ -376,7 +380,8 @@ func GetDomain(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
 	// IAM policy document specifying the access policies for the domain.
-	AccessPolicies  *string           `pulumi:"accessPolicies"`
+	AccessPolicies *string `pulumi:"accessPolicies"`
+	// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
@@ -411,7 +416,10 @@ type domainState struct {
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
+	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
@@ -419,7 +427,8 @@ type domainState struct {
 
 type DomainState struct {
 	// IAM policy document specifying the access policies for the domain.
-	AccessPolicies  pulumi.StringPtrInput
+	AccessPolicies pulumi.StringPtrInput
+	// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
 	AdvancedOptions pulumi.StringMapInput
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
@@ -454,7 +463,10 @@ type DomainState struct {
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
+	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
 	VpcOptions DomainVpcOptionsPtrInput
@@ -466,7 +478,8 @@ func (DomainState) ElementType() reflect.Type {
 
 type domainArgs struct {
 	// IAM policy document specifying the access policies for the domain.
-	AccessPolicies  *string           `pulumi:"accessPolicies"`
+	AccessPolicies *string `pulumi:"accessPolicies"`
+	// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
@@ -501,7 +514,8 @@ type domainArgs struct {
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// IAM policy document specifying the access policies for the domain.
-	AccessPolicies  pulumi.StringPtrInput
+	AccessPolicies pulumi.StringPtrInput
+	// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
 	AdvancedOptions pulumi.StringMapInput
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
@@ -625,6 +639,7 @@ func (o DomainOutput) AccessPolicies() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.AccessPolicies }).(pulumi.StringOutput)
 }
 
+// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
 func (o DomainOutput) AdvancedOptions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.AdvancedOptions }).(pulumi.StringMapOutput)
 }
@@ -714,6 +729,9 @@ func (o DomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
+// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
 func (o DomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

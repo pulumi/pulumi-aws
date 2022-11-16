@@ -13,6 +13,10 @@ export { NamespaceArgs, NamespaceState } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
 
+export { SnapshotArgs, SnapshotState } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+
 export { UsageLimitArgs, UsageLimitState } from "./usageLimit";
 export type UsageLimit = import("./usageLimit").UsageLimit;
 export const UsageLimit: typeof import("./usageLimit").UsageLimit = null as any;
@@ -23,6 +27,7 @@ export const Workgroup: typeof import("./workgroup").Workgroup = null as any;
 
 utilities.lazyLoad(exports, ["EndpointAccess"], () => require("./endpointAccess"));
 utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
 utilities.lazyLoad(exports, ["UsageLimit"], () => require("./usageLimit"));
 utilities.lazyLoad(exports, ["Workgroup"], () => require("./workgroup"));
 
@@ -34,6 +39,8 @@ const _module = {
                 return new EndpointAccess(name, <any>undefined, { urn })
             case "aws:redshiftserverless/namespace:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
+            case "aws:redshiftserverless/snapshot:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             case "aws:redshiftserverless/usageLimit:UsageLimit":
                 return new UsageLimit(name, <any>undefined, { urn })
             case "aws:redshiftserverless/workgroup:Workgroup":
@@ -45,5 +52,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "redshiftserverless/endpointAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "redshiftserverless/namespace", _module)
+pulumi.runtime.registerResourceModule("aws", "redshiftserverless/snapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "redshiftserverless/usageLimit", _module)
 pulumi.runtime.registerResourceModule("aws", "redshiftserverless/workgroup", _module)

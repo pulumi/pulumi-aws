@@ -75,6 +75,9 @@ export class RouteCalculation extends pulumi.CustomResource {
      * The optional description for the route calculator resource.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -152,6 +155,9 @@ export interface RouteCalculationState {
      * The optional description for the route calculator resource.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -179,5 +185,8 @@ export interface RouteCalculationArgs {
      * The optional description for the route calculator resource.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -92,8 +92,9 @@ type ExperimentTemplate struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
 	StopConditions ExperimentTemplateStopConditionArrayOutput `pulumi:"stopConditions"`
-	Tags           pulumi.StringMapOutput                     `pulumi:"tags"`
-	TagsAll        pulumi.StringMapOutput                     `pulumi:"tagsAll"`
+	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Action's target, if applicable. See below.
 	Targets ExperimentTemplateTargetArrayOutput `pulumi:"targets"`
 }
@@ -147,8 +148,9 @@ type experimentTemplateState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
-	Tags           map[string]string                 `pulumi:"tags"`
-	TagsAll        map[string]string                 `pulumi:"tagsAll"`
+	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Action's target, if applicable. See below.
 	Targets []ExperimentTemplateTarget `pulumi:"targets"`
 }
@@ -162,8 +164,9 @@ type ExperimentTemplateState struct {
 	RoleArn pulumi.StringPtrInput
 	// When an ongoing experiment should be stopped. See below.
 	StopConditions ExperimentTemplateStopConditionArrayInput
-	Tags           pulumi.StringMapInput
-	TagsAll        pulumi.StringMapInput
+	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Action's target, if applicable. See below.
 	Targets ExperimentTemplateTargetArrayInput
 }
@@ -181,7 +184,8 @@ type experimentTemplateArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
-	Tags           map[string]string                 `pulumi:"tags"`
+	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Action's target, if applicable. See below.
 	Targets []ExperimentTemplateTarget `pulumi:"targets"`
 }
@@ -196,7 +200,8 @@ type ExperimentTemplateArgs struct {
 	RoleArn pulumi.StringInput
 	// When an ongoing experiment should be stopped. See below.
 	StopConditions ExperimentTemplateStopConditionArrayInput
-	Tags           pulumi.StringMapInput
+	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Action's target, if applicable. See below.
 	Targets ExperimentTemplateTargetArrayInput
 }
@@ -308,6 +313,7 @@ func (o ExperimentTemplateOutput) StopConditions() ExperimentTemplateStopConditi
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateStopConditionArrayOutput { return v.StopConditions }).(ExperimentTemplateStopConditionArrayOutput)
 }
 
+// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ExperimentTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

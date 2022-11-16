@@ -104,7 +104,7 @@ type LookupFirewallArgs struct {
 	Arn *string `pulumi:"arn"`
 	// Descriptive name of the firewall.
 	Name *string `pulumi:"name"`
-	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -132,7 +132,7 @@ type LookupFirewallResult struct {
 	SubnetChangeProtection bool `pulumi:"subnetChangeProtection"`
 	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
 	SubnetMappings []GetFirewallSubnetMapping `pulumi:"subnetMappings"`
-	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// String token used when updating a firewall.
 	UpdateToken string `pulumi:"updateToken"`
@@ -159,7 +159,7 @@ type LookupFirewallOutputArgs struct {
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Descriptive name of the firewall.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -237,7 +237,7 @@ func (o LookupFirewallResultOutput) SubnetMappings() GetFirewallSubnetMappingArr
 	return o.ApplyT(func(v LookupFirewallResult) []GetFirewallSubnetMapping { return v.SubnetMappings }).(GetFirewallSubnetMappingArrayOutput)
 }
 
-// Map of resource tags to associate with the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LookupFirewallResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFirewallResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

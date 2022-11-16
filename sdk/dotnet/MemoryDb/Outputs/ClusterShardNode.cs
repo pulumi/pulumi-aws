@@ -23,8 +23,7 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         public readonly string? CreateTime;
         public readonly ImmutableArray<Outputs.ClusterShardNodeEndpoint> Endpoints;
         /// <summary>
-        /// Name of this node.
-        /// * `endpoint`
+        /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         public readonly string? Name;
 

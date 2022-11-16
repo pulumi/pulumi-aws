@@ -132,7 +132,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
-     * Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+     * Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
      */
     public readonly diskSize!: pulumi.Output<number>;
     /**
@@ -140,7 +140,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly forceUpdateVersion!: pulumi.Output<boolean | undefined>;
     /**
-     * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+     * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
      */
     public readonly instanceTypes!: pulumi.Output<string[]>;
     /**
@@ -152,7 +152,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly launchTemplate!: pulumi.Output<outputs.eks.NodeGroupLaunchTemplate | undefined>;
     /**
-     * Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
      */
     public readonly nodeGroupName!: pulumi.Output<string>;
     /**
@@ -188,7 +188,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -201,7 +201,7 @@ export class NodeGroup extends pulumi.CustomResource {
     public readonly taints!: pulumi.Output<outputs.eks.NodeGroupTaint[] | undefined>;
     public readonly updateConfig!: pulumi.Output<outputs.eks.NodeGroupUpdateConfig>;
     /**
-     * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+     * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -305,7 +305,7 @@ export interface NodeGroupState {
      */
     clusterName?: pulumi.Input<string>;
     /**
-     * Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+     * Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
      */
     diskSize?: pulumi.Input<number>;
     /**
@@ -313,7 +313,7 @@ export interface NodeGroupState {
      */
     forceUpdateVersion?: pulumi.Input<boolean>;
     /**
-     * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+     * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
      */
     instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -325,7 +325,7 @@ export interface NodeGroupState {
      */
     launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
-     * Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
      */
     nodeGroupName?: pulumi.Input<string>;
     /**
@@ -361,7 +361,7 @@ export interface NodeGroupState {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -374,7 +374,7 @@ export interface NodeGroupState {
     taints?: pulumi.Input<pulumi.Input<inputs.eks.NodeGroupTaint>[]>;
     updateConfig?: pulumi.Input<inputs.eks.NodeGroupUpdateConfig>;
     /**
-     * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+     * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */
     version?: pulumi.Input<string>;
 }
@@ -396,7 +396,7 @@ export interface NodeGroupArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+     * Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
      */
     diskSize?: pulumi.Input<number>;
     /**
@@ -404,7 +404,7 @@ export interface NodeGroupArgs {
      */
     forceUpdateVersion?: pulumi.Input<boolean>;
     /**
-     * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+     * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
      */
     instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -416,7 +416,7 @@ export interface NodeGroupArgs {
      */
     launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
-     * Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
      */
     nodeGroupName?: pulumi.Input<string>;
     /**
@@ -444,7 +444,7 @@ export interface NodeGroupArgs {
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -453,7 +453,7 @@ export interface NodeGroupArgs {
     taints?: pulumi.Input<pulumi.Input<inputs.eks.NodeGroupTaint>[]>;
     updateConfig?: pulumi.Input<inputs.eks.NodeGroupUpdateConfig>;
     /**
-     * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+     * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */
     version?: pulumi.Input<string>;
 }

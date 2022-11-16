@@ -17,6 +17,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a version of a CloudFormation Type.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

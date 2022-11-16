@@ -15,8 +15,6 @@ import (
 //
 // For information about Lambda and how to use it, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
 //
-// > To give an external source (like a CloudWatch Event Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda ****Permission Model][4] for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
-//
 // > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
 //
 // > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
@@ -246,7 +244,10 @@ import (
 //	}
 //
 // ```
-// ### CloudWatch Logging and Permissions
+// ### Lambda retries
+//
+// Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the lambda.FunctionEventInvokeConfig resource.
+// ## CloudWatch Logging and Permissions
 //
 // For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 //
@@ -322,69 +323,14 @@ import (
 //	}
 //
 // ```
-// ### Lambda with Targetted Architecture
 //
-// ```go
-// package main
+// ## Specifying the Deployment Package
 //
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "lambda.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
-//				Role:    iamForLambda.Arn,
-//				Handler: pulumi.String("index.test"),
-//				Runtime: pulumi.String("nodejs12.x"),
-//				Architectures: pulumi.StringArray{
-//					pulumi.String("arm64"),
-//				},
-//				Environment: &lambda.FunctionEnvironmentArgs{
-//					Variables: pulumi.StringMap{
-//						"foo": pulumi.String("bar"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
 //
 // Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment package via S3 it may be useful to use the `s3.BucketObjectv2` resource to upload it.
+//
+// For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
 //
 // ## Import
 //
@@ -440,7 +386,7 @@ type Function struct {
 	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
 	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
 	QualifiedArn pulumi.StringOutput `pulumi:"qualifiedArn"`
-	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	QualifiedInvokeArn pulumi.StringOutput `pulumi:"qualifiedInvokeArn"`
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions pulumi.IntPtrOutput `pulumi:"reservedConcurrentExecutions"`
@@ -458,7 +404,7 @@ type Function struct {
 	SigningJobArn pulumi.StringOutput `pulumi:"signingJobArn"`
 	// ARN of the signing profile version.
 	SigningProfileVersionArn pulumi.StringOutput `pulumi:"signingProfileVersionArn"`
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
@@ -551,7 +497,7 @@ type functionState struct {
 	Publish *bool `pulumi:"publish"`
 	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
 	QualifiedArn *string `pulumi:"qualifiedArn"`
-	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	QualifiedInvokeArn *string `pulumi:"qualifiedInvokeArn"`
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
@@ -569,7 +515,7 @@ type functionState struct {
 	SigningJobArn *string `pulumi:"signingJobArn"`
 	// ARN of the signing profile version.
 	SigningProfileVersionArn *string `pulumi:"signingProfileVersionArn"`
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize *int `pulumi:"sourceCodeSize"`
@@ -631,7 +577,7 @@ type FunctionState struct {
 	Publish pulumi.BoolPtrInput
 	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
 	QualifiedArn pulumi.StringPtrInput
-	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	QualifiedInvokeArn pulumi.StringPtrInput
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions pulumi.IntPtrInput
@@ -649,7 +595,7 @@ type FunctionState struct {
 	SigningJobArn pulumi.StringPtrInput
 	// ARN of the signing profile version.
 	SigningProfileVersionArn pulumi.StringPtrInput
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash pulumi.StringPtrInput
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntPtrInput
@@ -719,12 +665,10 @@ type functionArgs struct {
 	S3Key *string `pulumi:"s3Key"`
 	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 	Timeout *int `pulumi:"timeout"`
 	// Configuration block. Detailed below.
@@ -781,12 +725,10 @@ type FunctionArgs struct {
 	S3Key pulumi.StringPtrInput
 	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
 	S3ObjectVersion pulumi.StringPtrInput
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 	Timeout pulumi.IntPtrInput
 	// Configuration block. Detailed below.
@@ -987,7 +929,7 @@ func (o FunctionOutput) QualifiedArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.QualifiedArn }).(pulumi.StringOutput)
 }
 
-// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`.
+// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 func (o FunctionOutput) QualifiedInvokeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.QualifiedInvokeArn }).(pulumi.StringOutput)
 }
@@ -1032,7 +974,7 @@ func (o FunctionOutput) SigningProfileVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SigningProfileVersionArn }).(pulumi.StringOutput)
 }
 
-// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")`, where "file.zip" is the local filename of the lambda function source archive.
+// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 func (o FunctionOutput) SourceCodeHash() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SourceCodeHash }).(pulumi.StringOutput)
 }

@@ -592,6 +592,7 @@ class DomainDomainEndpointOptionsArgs:
         :param pulumi.Input[str] custom_endpoint_certificate_arn: ACM certificate ARN for your custom endpoint.
         :param pulumi.Input[bool] custom_endpoint_enabled: Whether to enable custom endpoint for the Elasticsearch domain.
         :param pulumi.Input[bool] enforce_https: Whether or not to require HTTPS. Defaults to `true`.
+        :param pulumi.Input[str] tls_security_policy: Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
         """
         if custom_endpoint is not None:
             pulumi.set(__self__, "custom_endpoint", custom_endpoint)
@@ -655,6 +656,9 @@ class DomainDomainEndpointOptionsArgs:
     @property
     @pulumi.getter(name="tlsSecurityPolicy")
     def tls_security_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+        """
         return pulumi.get(self, "tls_security_policy")
 
     @tls_security_policy.setter
@@ -755,6 +759,7 @@ class DomainEncryptAtRestArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+        :param pulumi.Input[str] kms_key_id: KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
         """
         pulumi.set(__self__, "enabled", enabled)
         if kms_key_id is not None:
@@ -775,6 +780,9 @@ class DomainEncryptAtRestArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter

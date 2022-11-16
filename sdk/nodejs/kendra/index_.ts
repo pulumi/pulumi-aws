@@ -609,6 +609,10 @@ export class Index extends pulumi.CustomResource {
      * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Tags to apply to the Index. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -743,6 +747,10 @@ export interface IndexState {
      * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      */
     status?: pulumi.Input<string>;
+    /**
+     * Tags to apply to the Index. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -798,6 +806,10 @@ export interface IndexArgs {
      * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.kendra.IndexServerSideEncryptionConfiguration>;
+    /**
+     * Tags to apply to the Index. If configured with a provider
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.

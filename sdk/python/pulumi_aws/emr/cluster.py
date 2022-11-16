@@ -49,6 +49,7 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] release_label: Release label for the Amazon EMR release.
         :param pulumi.Input[str] service_role: IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+        :param pulumi.Input[str] additional_info: JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         :param pulumi.Input['ClusterAutoTerminationPolicyArgs'] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
@@ -160,6 +161,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="additionalInfo")
     def additional_info(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+        """
         return pulumi.get(self, "additional_info")
 
     @additional_info.setter
@@ -517,6 +521,7 @@ class _ClusterState:
                  visible_to_all_users: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+        :param pulumi.Input[str] additional_info: JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         :param pulumi.Input['ClusterAutoTerminationPolicyArgs'] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
@@ -618,6 +623,9 @@ class _ClusterState:
     @property
     @pulumi.getter(name="additionalInfo")
     def additional_info(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+        """
         return pulumi.get(self, "additional_info")
 
     @additional_info.setter
@@ -1540,7 +1548,9 @@ class Cluster(pulumi.CustomResource):
          $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
         ```
 
-         Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the resource options configuration block `ignoreChanges` argument available to all provider resources to prevent perpetual differences, e.g. terraform resource "aws_emr_cluster" "example" {
+         Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the
+
+        `ignore_changes` option available to all resources to prevent perpetual differences, e.g., terraform resource "aws_emr_cluster" "example" {
 
         # ... other configuration ...
 
@@ -1552,6 +1562,7 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] additional_info: JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         :param pulumi.Input[pulumi.InputType['ClusterAutoTerminationPolicyArgs']] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
@@ -2089,7 +2100,9 @@ class Cluster(pulumi.CustomResource):
          $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
         ```
 
-         Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the resource options configuration block `ignoreChanges` argument available to all provider resources to prevent perpetual differences, e.g. terraform resource "aws_emr_cluster" "example" {
+         Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the
+
+        `ignore_changes` option available to all resources to prevent perpetual differences, e.g., terraform resource "aws_emr_cluster" "example" {
 
         # ... other configuration ...
 
@@ -2239,6 +2252,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] additional_info: JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         :param pulumi.Input[pulumi.InputType['ClusterAutoTerminationPolicyArgs']] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
@@ -2312,6 +2326,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="additionalInfo")
     def additional_info(self) -> pulumi.Output[Optional[str]]:
+        """
+        JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+        """
         return pulumi.get(self, "additional_info")
 
     @property

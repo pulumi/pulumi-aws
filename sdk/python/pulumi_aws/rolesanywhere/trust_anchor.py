@@ -25,6 +25,7 @@ class TrustAnchorArgs:
         :param pulumi.Input['TrustAnchorSourceArgs'] source: The source of trust, documented below
         :param pulumi.Input[bool] enabled: Whether or not the Trust Anchor should be enabled.
         :param pulumi.Input[str] name: The name of the Trust Anchor.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source", source)
         if enabled is not None:
@@ -73,6 +74,9 @@ class TrustAnchorArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -95,6 +99,7 @@ class _TrustAnchorState:
         :param pulumi.Input[bool] enabled: Whether or not the Trust Anchor should be enabled.
         :param pulumi.Input[str] name: The name of the Trust Anchor.
         :param pulumi.Input['TrustAnchorSourceArgs'] source: The source of trust, documented below
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -161,6 +166,9 @@ class _TrustAnchorState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -191,6 +199,8 @@ class TrustAnchor(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Resource for managing a Roles Anywhere Trust Anchor.
+
         ## Example Usage
 
         ```python
@@ -243,6 +253,7 @@ class TrustAnchor(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether or not the Trust Anchor should be enabled.
         :param pulumi.Input[str] name: The name of the Trust Anchor.
         :param pulumi.Input[pulumi.InputType['TrustAnchorSourceArgs']] source: The source of trust, documented below
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -251,6 +262,8 @@ class TrustAnchor(pulumi.CustomResource):
                  args: TrustAnchorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing a Roles Anywhere Trust Anchor.
+
         ## Example Usage
 
         ```python
@@ -361,6 +374,7 @@ class TrustAnchor(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether or not the Trust Anchor should be enabled.
         :param pulumi.Input[str] name: The name of the Trust Anchor.
         :param pulumi.Input[pulumi.InputType['TrustAnchorSourceArgs']] source: The source of trust, documented below
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -410,6 +424,9 @@ class TrustAnchor(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

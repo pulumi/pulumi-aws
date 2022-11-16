@@ -94,6 +94,9 @@ namespace Pulumi.Aws.Macie
         [Output("maximumMatchDistance")]
         public Output<int> MaximumMatchDistance { get; private set; } = null!;
 
+        /// <summary>
+        /// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -200,6 +203,9 @@ namespace Pulumi.Aws.Macie
         [Input("maximumMatchDistance")]
         public Input<int>? MaximumMatchDistance { get; set; }
 
+        /// <summary>
+        /// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -283,6 +289,9 @@ namespace Pulumi.Aws.Macie
         [Input("maximumMatchDistance")]
         public Input<int>? MaximumMatchDistance { get; set; }
 
+        /// <summary>
+        /// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

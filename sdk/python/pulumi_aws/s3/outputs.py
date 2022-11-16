@@ -4427,7 +4427,7 @@ class BucketV2ObjectLockConfiguration(dict):
                  object_lock_enabled: Optional[str] = None,
                  rules: Optional[Sequence['outputs.BucketV2ObjectLockConfigurationRule']] = None):
         """
-        :param str object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead.
+        :param str object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         :param Sequence['BucketV2ObjectLockConfigurationRuleArgs'] rules: The Object Lock rule in place for this bucket (documented below).
         """
         if object_lock_enabled is not None:
@@ -4439,7 +4439,7 @@ class BucketV2ObjectLockConfiguration(dict):
     @pulumi.getter(name="objectLockEnabled")
     def object_lock_enabled(self) -> Optional[str]:
         """
-        Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead.
+        Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         """
         return pulumi.get(self, "object_lock_enabled")
 

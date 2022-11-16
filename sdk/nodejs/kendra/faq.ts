@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS Kendra FAQ.
+ *
  * ## Example Usage
  * ### Basic
  *
@@ -144,6 +146,9 @@ export class Faq extends pulumi.CustomResource {
      * The status of the FAQ. It is ready to use when the status is ACTIVE.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -266,6 +271,9 @@ export interface FaqState {
      * The status of the FAQ. It is ready to use when the status is ACTIVE.
      */
     status?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -309,5 +317,8 @@ export interface FaqArgs {
      * The S3 location of the FAQ input data. Detailed below.
      */
     s3Path: pulumi.Input<inputs.kendra.FaqS3Path>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

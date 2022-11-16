@@ -442,7 +442,7 @@ class Resolver(pulumi.CustomResource):
         \"\"\")
         test_data_source = aws.appsync.DataSource("testDataSource",
             api_id=test_graph_ql_api.id,
-            name="tf_example",
+            name="my_example",
             type="HTTP",
             http_config=aws.appsync.DataSourceHttpConfigArgs(
                 endpoint="http://example.com",
@@ -551,7 +551,7 @@ class Resolver(pulumi.CustomResource):
         \"\"\")
         test_data_source = aws.appsync.DataSource("testDataSource",
             api_id=test_graph_ql_api.id,
-            name="tf_example",
+            name="my_example",
             type="HTTP",
             http_config=aws.appsync.DataSourceHttpConfigArgs(
                 endpoint="http://example.com",

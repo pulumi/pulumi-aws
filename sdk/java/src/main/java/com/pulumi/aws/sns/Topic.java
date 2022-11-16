@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * Provides an SNS topic resource
  * 
  * ## Example Usage
- * ### Basic Example
  * ```java
  * package generated_program;
  * 
@@ -47,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Example with Delivery Policy
+ * ## Example with Delivery Policy
  * ```java
  * package generated_program;
  * 
@@ -95,7 +94,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Example with Server-side encryption (SSE)
+ * 
+ * ## Example with Server-side encryption (SSE)
  * ```java
  * package generated_program;
  * 
@@ -124,7 +124,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Example with First-In-First-Out (FIFO)
+ * 
+ * ## Example with First-In-First-Out (FIFO)
  * ```java
  * package generated_program;
  * 
@@ -154,6 +155,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * 
  * ## Message Delivery Status Arguments
  * 
  * The `&lt;endpoint&gt;_success_feedback_role_arn` and `&lt;endpoint&gt;_failure_feedback_role_arn` arguments are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `&lt;endpoint&gt;_success_feedback_sample_rate` argument is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the  `&lt;endpoint&gt;_failure_feedback_role_arn` argument, then all failed message deliveries generate CloudWatch Logs.
@@ -520,14 +522,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sqsSuccessFeedbackSampleRate);
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

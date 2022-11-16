@@ -17,6 +17,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS Kendra block list used for query suggestions for an index.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java
@@ -170,9 +172,17 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

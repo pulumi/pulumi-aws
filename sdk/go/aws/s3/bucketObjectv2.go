@@ -235,12 +235,13 @@ type BucketObjectv2 struct {
 	ContentLanguage pulumi.StringPtrOutput `pulumi:"contentLanguage"`
 	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
-	// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+	// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Name of the object once it is in the bucket.
-	Key      pulumi.StringOutput `pulumi:"key"`
+	Key pulumi.StringOutput `pulumi:"key"`
+	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
@@ -253,12 +254,14 @@ type BucketObjectv2 struct {
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringOutput `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
-	Source     pulumi.AssetOrArchiveOutput `pulumi:"source"`
-	SourceHash pulumi.StringPtrOutput      `pulumi:"sourceHash"`
+	Source pulumi.AssetOrArchiveOutput `pulumi:"source"`
+	// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
+	SourceHash pulumi.StringPtrOutput `pulumi:"sourceHash"`
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass pulumi.StringOutput `pulumi:"storageClass"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
@@ -324,12 +327,13 @@ type bucketObjectv2State struct {
 	ContentLanguage *string `pulumi:"contentLanguage"`
 	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType *string `pulumi:"contentType"`
-	// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+	// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
 	Etag *string `pulumi:"etag"`
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the object once it is in the bucket.
-	Key      *string `pulumi:"key"`
+	Key *string `pulumi:"key"`
+	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
@@ -342,12 +346,14 @@ type bucketObjectv2State struct {
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
-	Source     pulumi.AssetOrArchive `pulumi:"source"`
-	SourceHash *string               `pulumi:"sourceHash"`
+	Source pulumi.AssetOrArchive `pulumi:"source"`
+	// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
+	SourceHash *string `pulumi:"sourceHash"`
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass *string `pulumi:"storageClass"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId *string `pulumi:"versionId"`
@@ -376,12 +382,13 @@ type BucketObjectv2State struct {
 	ContentLanguage pulumi.StringPtrInput
 	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType pulumi.StringPtrInput
-	// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+	// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
 	Etag pulumi.StringPtrInput
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the object once it is in the bucket.
-	Key      pulumi.StringPtrInput
+	Key pulumi.StringPtrInput
+	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId pulumi.StringPtrInput
 	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput
@@ -394,12 +401,14 @@ type BucketObjectv2State struct {
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringPtrInput
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
-	Source     pulumi.AssetOrArchiveInput
+	Source pulumi.AssetOrArchiveInput
+	// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
 	SourceHash pulumi.StringPtrInput
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId pulumi.StringPtrInput
@@ -432,12 +441,13 @@ type bucketObjectv2Args struct {
 	ContentLanguage *string `pulumi:"contentLanguage"`
 	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType *string `pulumi:"contentType"`
-	// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+	// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
 	Etag *string `pulumi:"etag"`
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the object once it is in the bucket.
-	Key      *string `pulumi:"key"`
+	Key *string `pulumi:"key"`
+	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
@@ -450,8 +460,9 @@ type bucketObjectv2Args struct {
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
-	Source     pulumi.AssetOrArchive `pulumi:"source"`
-	SourceHash *string               `pulumi:"sourceHash"`
+	Source pulumi.AssetOrArchive `pulumi:"source"`
+	// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
+	SourceHash *string `pulumi:"sourceHash"`
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass *string `pulumi:"storageClass"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -482,12 +493,13 @@ type BucketObjectv2Args struct {
 	ContentLanguage pulumi.StringPtrInput
 	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType pulumi.StringPtrInput
-	// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+	// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
 	Etag pulumi.StringPtrInput
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the object once it is in the bucket.
-	Key      pulumi.StringPtrInput
+	Key pulumi.StringPtrInput
+	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId pulumi.StringPtrInput
 	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput
@@ -500,7 +512,8 @@ type BucketObjectv2Args struct {
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringPtrInput
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
-	Source     pulumi.AssetOrArchiveInput
+	Source pulumi.AssetOrArchiveInput
+	// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
 	SourceHash pulumi.StringPtrInput
 	// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
 	StorageClass pulumi.StringPtrInput
@@ -647,7 +660,7 @@ func (o BucketObjectv2Output) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
 func (o BucketObjectv2Output) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
@@ -662,6 +675,7 @@ func (o BucketObjectv2Output) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
+// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 func (o BucketObjectv2Output) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -696,6 +710,7 @@ func (o BucketObjectv2Output) Source() pulumi.AssetOrArchiveOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.AssetOrArchiveOutput { return v.Source }).(pulumi.AssetOrArchiveOutput)
 }
 
+// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
 func (o BucketObjectv2Output) SourceHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.SourceHash }).(pulumi.StringPtrOutput)
 }
@@ -710,6 +725,7 @@ func (o BucketObjectv2Output) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o BucketObjectv2Output) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

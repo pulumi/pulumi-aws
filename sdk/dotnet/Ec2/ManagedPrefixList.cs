@@ -10,6 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
+    /// Provides a managed prefix list resource.
+    /// 
+    /// &gt; **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
+    /// currently provides both a standalone Managed Prefix List Entry resource (a single entry),
+    /// and a Managed Prefix List resource with entries defined in-line. At this time you
+    /// cannot use a Managed Prefix List with in-line rules in conjunction with any Managed
+    /// Prefix List Entry resources. Doing so will cause a conflict of entries and will overwrite entries.
+    /// 
+    /// &gt; **NOTE on `max_entries`:** When you reference a Prefix List in a resource,
+    /// the maximum number of entries for the prefix lists counts as the same number of rules
+    /// or entries for the resource. For example, if you create a prefix list with a maximum
+    /// of 20 entries and you reference that prefix list in a security group rule, this counts
+    /// as 20 rules for the security group.
+    /// 
     /// ## Example Usage
     /// 
     /// Basic usage
@@ -100,6 +114,9 @@ namespace Pulumi.Aws.Ec2
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -261,6 +278,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

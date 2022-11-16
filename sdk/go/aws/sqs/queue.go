@@ -93,7 +93,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sqs.NewQueue(ctx, "terraformQueue", &sqs.QueueArgs{
+//			_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 //				DeduplicationScope:  pulumi.String("messageGroup"),
 //				FifoQueue:           pulumi.Bool(true),
 //				FifoThroughputLimit: pulumi.String("perMessageGroupId"),
@@ -126,14 +126,14 @@ import (
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"redrivePermission": "byQueue",
 //				"sourceQueueArns": []interface{}{
-//					aws_sqs_queue.Terraform_queue.Arn,
+//					aws_sqs_queue.Example_queue.Arn,
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = sqs.NewQueue(ctx, "terraformQueueDeadletter", &sqs.QueueArgs{
+//			_, err = sqs.NewQueue(ctx, "exampleQueueDeadletter", &sqs.QueueArgs{
 //				RedriveAllowPolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -161,7 +161,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sqs.NewQueue(ctx, "terraformQueue", &sqs.QueueArgs{
+//			_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 //				SqsManagedSseEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -243,8 +243,9 @@ type Queue struct {
 	// The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
 	RedriveAllowPolicy pulumi.StringOutput `pulumi:"redriveAllowPolicy"`
 	// The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-	RedrivePolicy        pulumi.StringOutput `pulumi:"redrivePolicy"`
-	SqsManagedSseEnabled pulumi.BoolOutput   `pulumi:"sqsManagedSseEnabled"`
+	RedrivePolicy pulumi.StringOutput `pulumi:"redrivePolicy"`
+	// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+	SqsManagedSseEnabled pulumi.BoolOutput `pulumi:"sqsManagedSseEnabled"`
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -315,8 +316,9 @@ type queueState struct {
 	// The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
 	RedriveAllowPolicy *string `pulumi:"redriveAllowPolicy"`
 	// The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-	RedrivePolicy        *string `pulumi:"redrivePolicy"`
-	SqsManagedSseEnabled *bool   `pulumi:"sqsManagedSseEnabled"`
+	RedrivePolicy *string `pulumi:"redrivePolicy"`
+	// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+	SqsManagedSseEnabled *bool `pulumi:"sqsManagedSseEnabled"`
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -359,7 +361,8 @@ type QueueState struct {
 	// The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
 	RedriveAllowPolicy pulumi.StringPtrInput
 	// The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-	RedrivePolicy        pulumi.StringPtrInput
+	RedrivePolicy pulumi.StringPtrInput
+	// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
 	SqsManagedSseEnabled pulumi.BoolPtrInput
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -405,8 +408,9 @@ type queueArgs struct {
 	// The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
 	RedriveAllowPolicy *string `pulumi:"redriveAllowPolicy"`
 	// The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-	RedrivePolicy        *string `pulumi:"redrivePolicy"`
-	SqsManagedSseEnabled *bool   `pulumi:"sqsManagedSseEnabled"`
+	RedrivePolicy *string `pulumi:"redrivePolicy"`
+	// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+	SqsManagedSseEnabled *bool `pulumi:"sqsManagedSseEnabled"`
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
@@ -444,7 +448,8 @@ type QueueArgs struct {
 	// The JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
 	RedriveAllowPolicy pulumi.StringPtrInput
 	// The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-	RedrivePolicy        pulumi.StringPtrInput
+	RedrivePolicy pulumi.StringPtrInput
+	// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
 	SqsManagedSseEnabled pulumi.BoolPtrInput
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -619,6 +624,7 @@ func (o QueueOutput) RedrivePolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.RedrivePolicy }).(pulumi.StringOutput)
 }
 
+// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
 func (o QueueOutput) SqsManagedSseEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Queue) pulumi.BoolOutput { return v.SqsManagedSseEnabled }).(pulumi.BoolOutput)
 }

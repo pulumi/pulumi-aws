@@ -346,7 +346,7 @@ public final class ElasticloadbalancingFunctions {
     }
     /**
      * Provides information about a &#34;classic&#34; Elastic Load Balancer (ELB).
-     * See `LB` Data Source if you are looking for &#34;v2&#34;
+     * See LB Data Source if you are looking for &#34;v2&#34;
      * Application Load Balancer (ALB) or Network Load Balancer (NLB).
      * 
      * This data source can prove useful when a module accepts an LB as an input
@@ -395,7 +395,7 @@ public final class ElasticloadbalancingFunctions {
     }
     /**
      * Provides information about a &#34;classic&#34; Elastic Load Balancer (ELB).
-     * See `LB` Data Source if you are looking for &#34;v2&#34;
+     * See LB Data Source if you are looking for &#34;v2&#34;
      * Application Load Balancer (ALB) or Network Load Balancer (NLB).
      * 
      * This data source can prove useful when a module accepts an LB as an input
@@ -444,7 +444,7 @@ public final class ElasticloadbalancingFunctions {
     }
     /**
      * Provides information about a &#34;classic&#34; Elastic Load Balancer (ELB).
-     * See `LB` Data Source if you are looking for &#34;v2&#34;
+     * See LB Data Source if you are looking for &#34;v2&#34;
      * Application Load Balancer (ALB) or Network Load Balancer (NLB).
      * 
      * This data source can prove useful when a module accepts an LB as an input
@@ -493,7 +493,7 @@ public final class ElasticloadbalancingFunctions {
     }
     /**
      * Provides information about a &#34;classic&#34; Elastic Load Balancer (ELB).
-     * See `LB` Data Source if you are looking for &#34;v2&#34;
+     * See LB Data Source if you are looking for &#34;v2&#34;
      * Application Load Balancer (ALB) or Network Load Balancer (NLB).
      * 
      * This data source can prove useful when a module accepts an LB as an input

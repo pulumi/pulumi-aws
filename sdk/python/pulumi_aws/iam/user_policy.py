@@ -22,7 +22,7 @@ class UserPolicyArgs:
         The set of arguments for constructing a UserPolicy resource.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] user: IAM user to which to attach this policy.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         pulumi.set(__self__, "policy", policy)
@@ -60,7 +60,7 @@ class UserPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the policy. If omitted, this provider will assign a random, unique name.
+        The name of the policy. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -90,7 +90,7 @@ class _UserPolicyState:
                  user: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserPolicy resources.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] user: IAM user to which to attach this policy.
@@ -108,7 +108,7 @@ class _UserPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the policy. If omitted, this provider will assign a random, unique name.
+        The name of the policy. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -197,7 +197,7 @@ class UserPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] user: IAM user to which to attach this policy.
@@ -297,7 +297,7 @@ class UserPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] user: IAM user to which to attach this policy.
@@ -316,7 +316,7 @@ class UserPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the policy. If omitted, this provider will assign a random, unique name.
+        The name of the policy. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 

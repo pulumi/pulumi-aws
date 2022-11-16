@@ -18,6 +18,7 @@ class ResourcePolicyArgs:
                  resource_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the rule group or firewall policy.
         """
         pulumi.set(__self__, "policy", policy)
@@ -26,6 +27,9 @@ class ResourcePolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
+        """
+        JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -52,6 +56,7 @@ class _ResourcePolicyState:
                  resource_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
+        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the rule group or firewall policy.
         """
         if policy is not None:
@@ -62,6 +67,9 @@ class _ResourcePolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -155,6 +163,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the rule group or firewall policy.
         """
         ...
@@ -278,6 +287,7 @@ class ResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the rule group or firewall policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -291,6 +301,9 @@ class ResourcePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        JSON formatted policy document that controls access to the Network Firewall resource. The policy must be provided **without whitespaces**.  We recommend using jsonencode for formatting as seen in the examples above. For more details, including available policy statement Actions, see the [Policy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html#API_PutResourcePolicy_RequestSyntax) parameter in the AWS API documentation.
+        """
         return pulumi.get(self, "policy")
 
     @property

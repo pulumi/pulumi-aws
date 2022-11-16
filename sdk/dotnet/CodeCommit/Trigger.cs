@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeCommit
 {
     /// <summary>
+    /// Provides a CodeCommit Trigger Resource.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

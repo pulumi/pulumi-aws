@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  *             .vpcId(default_.id())
  *             .build());
  * 
- *         var tfTestSubnet = new Subnet(&#34;tfTestSubnet&#34;, SubnetArgs.builder()        
+ *         var myTestSubnet = new Subnet(&#34;myTestSubnet&#34;, SubnetArgs.builder()        
  *             .vpcId(default_.id())
  *             .cidrBlock(&#34;10.0.0.0/24&#34;)
  *             .mapPublicIpOnLaunch(true)
@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  *             .ami(&#34;ami-5189a661&#34;)
  *             .instanceType(&#34;t2.micro&#34;)
  *             .privateIp(&#34;10.0.0.12&#34;)
- *             .subnetId(tfTestSubnet.id())
+ *             .subnetId(myTestSubnet.id())
  *             .build());
  * 
  *         var bar = new Eip(&#34;bar&#34;, EipArgs.builder()        
@@ -210,8 +210,6 @@ import javax.annotation.Nullable;
  * ```sh
  *  $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
  * ```
- * 
- *  [1]https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html
  * 
  */
 @ResourceType(type="aws:ec2/eip:Eip")
@@ -427,14 +425,16 @@ public class Eip extends com.pulumi.resources.CustomResource {
         return this.publicIp;
     }
     /**
-     * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+     * EC2 IPv4 address pool identifier or `amazon`.
+     * This option is only available for VPC EIPs.
      * 
      */
     @Export(name="publicIpv4Pool", type=String.class, parameters={})
     private Output<String> publicIpv4Pool;
 
     /**
-     * @return EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+     * @return EC2 IPv4 address pool identifier or `amazon`.
+     * This option is only available for VPC EIPs.
      * 
      */
     public Output<String> publicIpv4Pool() {

@@ -80,6 +80,9 @@ export class UserLoginProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserLoginProfile.__pulumiType;
     }
 
+    /**
+     * The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+     */
     public /*out*/ readonly encryptedPassword!: pulumi.Output<string>;
     /**
      * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
@@ -148,6 +151,9 @@ export class UserLoginProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserLoginProfile resources.
  */
 export interface UserLoginProfileState {
+    /**
+     * The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
+     */
     encryptedPassword?: pulumi.Input<string>;
     /**
      * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.

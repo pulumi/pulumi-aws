@@ -34,14 +34,14 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="computeEnvironmentName")
     private @Nullable Output<String> computeEnvironmentName;
 
     /**
-     * @return The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+     * @return The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> computeEnvironmentName() {
@@ -271,7 +271,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param computeEnvironmentName The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+         * @param computeEnvironmentName The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param computeEnvironmentName The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+         * @param computeEnvironmentName The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 

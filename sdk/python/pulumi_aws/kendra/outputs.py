@@ -1526,6 +1526,7 @@ class ExperienceConfiguration(dict):
                  content_source_configuration: Optional['outputs.ExperienceConfigurationContentSourceConfiguration'] = None,
                  user_identity_configuration: Optional['outputs.ExperienceConfigurationUserIdentityConfiguration'] = None):
         """
+        :param 'ExperienceConfigurationContentSourceConfigurationArgs' content_source_configuration: The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param 'ExperienceConfigurationUserIdentityConfigurationArgs' user_identity_configuration: The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
         """
         if content_source_configuration is not None:
@@ -1536,6 +1537,9 @@ class ExperienceConfiguration(dict):
     @property
     @pulumi.getter(name="contentSourceConfiguration")
     def content_source_configuration(self) -> Optional['outputs.ExperienceConfigurationContentSourceConfiguration']:
+        """
+        The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        """
         return pulumi.get(self, "content_source_configuration")
 
     @property

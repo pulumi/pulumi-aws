@@ -196,10 +196,10 @@ class _StoredIscsiVolumeState:
         :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] target_arn: Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        :param pulumi.Input[str] target_arn: Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         :param pulumi.Input[str] volume_attachment_status: A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
-        :param pulumi.Input[str] volume_id: Volume ID, e.g. `vol-12345678`.
+        :param pulumi.Input[str] volume_id: Volume ID, e.g., `vol-12345678`.
         :param pulumi.Input[int] volume_size_in_bytes: The size of the data stored on the volume in bytes.
         :param pulumi.Input[str] volume_status: indicates the state of the storage volume.
         :param pulumi.Input[str] volume_type: indicates the type of the volume.
@@ -405,7 +405,7 @@ class _StoredIscsiVolumeState:
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         """
         return pulumi.get(self, "target_arn")
 
@@ -441,7 +441,7 @@ class _StoredIscsiVolumeState:
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Volume ID, e.g. `vol-12345678`.
+        Volume ID, e.g., `vol-12345678`.
         """
         return pulumi.get(self, "volume_id")
 
@@ -504,7 +504,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
         """
         Manages an AWS Storage Gateway stored iSCSI volume.
 
-        > **NOTE:** The gateway must have a working storage added (e.g. via the `storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
+        > **NOTE:** The gateway must have a working storage added (e.g., via the `storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
 
         ## Example Usage
         ### Create Empty Stored iSCSI Volume
@@ -564,7 +564,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
         """
         Manages an AWS Storage Gateway stored iSCSI volume.
 
-        > **NOTE:** The gateway must have a working storage added (e.g. via the `storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
+        > **NOTE:** The gateway must have a working storage added (e.g., via the `storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
 
         ## Example Usage
         ### Create Empty Stored iSCSI Volume
@@ -716,10 +716,10 @@ class StoredIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] target_arn: Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        :param pulumi.Input[str] target_arn: Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         :param pulumi.Input[str] volume_attachment_status: A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
-        :param pulumi.Input[str] volume_id: Volume ID, e.g. `vol-12345678`.
+        :param pulumi.Input[str] volume_id: Volume ID, e.g., `vol-12345678`.
         :param pulumi.Input[int] volume_size_in_bytes: The size of the data stored on the volume in bytes.
         :param pulumi.Input[str] volume_status: indicates the state of the storage volume.
         :param pulumi.Input[str] volume_type: indicates the type of the volume.
@@ -858,7 +858,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[str]:
         """
-        Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         """
         return pulumi.get(self, "target_arn")
 
@@ -882,7 +882,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> pulumi.Output[str]:
         """
-        Volume ID, e.g. `vol-12345678`.
+        Volume ID, e.g., `vol-12345678`.
         """
         return pulumi.get(self, "volume_id")
 

@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an IAM Signing Certificate resource to upload Signing Certificates.
+ *
  * ## Import
  *
  * IAM Signing Certificates can be imported using the `id`, e.g.,

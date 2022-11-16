@@ -38,6 +38,10 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
         [Input("excludedColumnNames")]
         private InputList<string>? _excludedColumnNames;
+
+        /// <summary>
+        /// Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        /// </summary>
         public InputList<string> ExcludedColumnNames
         {
             get => _excludedColumnNames ?? (_excludedColumnNames = new InputList<string>());
@@ -50,6 +54,9 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        /// </summary>
         [Input("wildcard")]
         public Input<bool>? Wildcard { get; set; }
 
