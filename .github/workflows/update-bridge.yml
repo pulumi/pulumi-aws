@@ -66,6 +66,10 @@ jobs:
         title: Update pulumi-terraform-bridge to v${{ github.event.inputs.bridge_version
           }}
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
+    - if: steps.create-pr.outputs.pull-request-operation == 'created' &&
+        github.event.inputs.automerge == 'true'
+      run: gh pr merge --auto --squash ${{ steps.create-pr.outputs.pull-request-number
+        }}
     strategy:
       fail-fast: true
       matrix:
@@ -81,6 +85,11 @@ name: Update pulumi-terraform-bridge
 on:
   workflow_dispatch:
     inputs:
+      automerge:
+        default: false
+        description: Mark created PR for auto-merging?
+        required: true
+        type: boolean
       bridge_version:
         description: The version of pulumi/pulumi-terraform-bridge to update to. Do not
           include the 'v' prefix. Must be major version 3.

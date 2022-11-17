@@ -144,6 +144,11 @@ name: Update upstream provider
 on:
   workflow_dispatch:
     inputs:
+      automerge:
+        default: false
+        description: Mark created PR for auto-merging?
+        required: true
+        type: boolean
       linked_issue_number:
         description: The issue number of a PR in this repository to which the generated
           pull request should be linked.

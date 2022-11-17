@@ -40,6 +40,7 @@ build_dotnet:
 
 build_go: 
 	$(WORKING_DIR)/bin/$(TFGEN) go --overlays provider/overlays/go --out sdk/go/
+	cd sdk && go list `grep -e "^module" go.mod | cut -d ' ' -f 2`/go/... | xargs go build
 
 build_java: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
 build_java: bin/pulumi-java-gen
