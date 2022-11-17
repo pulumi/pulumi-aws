@@ -723,22 +723,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
      * 
-     * @deprecated
-     * Use db_name instead
-     * 
      */
-    @Deprecated /* Use db_name instead */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
      * 
-     * @deprecated
-     * Use db_name instead
-     * 
      */
-    @Deprecated /* Use db_name instead */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -2276,11 +2268,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use db_name instead
-         * 
          */
-        @Deprecated /* Use db_name instead */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
@@ -2291,11 +2279,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use db_name instead
-         * 
          */
-        @Deprecated /* Use db_name instead */
         public Builder name(String name) {
             return name(Output.of(name));
         }

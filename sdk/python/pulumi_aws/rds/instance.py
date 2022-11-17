@@ -284,9 +284,6 @@ class InstanceArgs:
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
         if name is not None:
-            warnings.warn("""Use db_name instead""", DeprecationWarning)
-            pulumi.log.warn("""name is deprecated: Use db_name instead""")
-        if name is not None:
             pulumi.set(__self__, "name", name)
         if nchar_character_set_name is not None:
             pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
@@ -1417,9 +1414,6 @@ class _InstanceState:
             pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
-        if name is not None:
-            warnings.warn("""Use db_name instead""", DeprecationWarning)
-            pulumi.log.warn("""name is deprecated: Use db_name instead""")
         if name is not None:
             pulumi.set(__self__, "name", name)
         if nchar_character_set_name is not None:
@@ -2824,9 +2818,6 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["monitoring_interval"] = monitoring_interval
             __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
             __props__.__dict__["multi_az"] = multi_az
-            if name is not None and not opts.urn:
-                warnings.warn("""Use db_name instead""", DeprecationWarning)
-                pulumi.log.warn("""name is deprecated: Use db_name instead""")
             __props__.__dict__["name"] = name
             __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
             __props__.__dict__["network_type"] = network_type
