@@ -253,7 +253,7 @@ jobs:
     continue-on-error: true
     name: publish_java_sdk
     needs: publish
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
