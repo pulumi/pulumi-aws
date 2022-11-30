@@ -17,6 +17,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -273,14 +274,14 @@ public class Channel extends com.pulumi.resources.CustomResource {
         return this.maintenance;
     }
     /**
-     * Custom output group name defined by the user.
+     * The name of the video description.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     public Output<String> name() {
@@ -299,6 +300,20 @@ public class Channel extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
+    }
+    /**
+     * Whether to start/stop channel. Default: `false`
+     * 
+     */
+    @Export(name="startChannel", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> startChannel;
+
+    /**
+     * @return Whether to start/stop channel. Default: `false`
+     * 
+     */
+    public Output<Optional<Boolean>> startChannel() {
+        return Codegen.optional(this.startChannel);
     }
     /**
      * A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

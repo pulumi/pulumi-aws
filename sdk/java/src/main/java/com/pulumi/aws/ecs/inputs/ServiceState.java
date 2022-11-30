@@ -403,6 +403,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * 
+     */
+    @Import(name="triggers")
+    private @Nullable Output<Map<String,String>> triggers;
+
+    /**
+     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> triggers() {
+        return Optional.ofNullable(this.triggers);
+    }
+
+    /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      * 
      */
@@ -445,6 +460,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.taskDefinition = $.taskDefinition;
+        this.triggers = $.triggers;
         this.waitForSteadyState = $.waitForSteadyState;
     }
 
@@ -1029,6 +1045,27 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder taskDefinition(String taskDefinition) {
             return taskDefinition(Output.of(taskDefinition));
+        }
+
+        /**
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(@Nullable Output<Map<String,String>> triggers) {
+            $.triggers = triggers;
+            return this;
+        }
+
+        /**
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(Map<String,String> triggers) {
+            return triggers(Output.of(triggers));
         }
 
         /**

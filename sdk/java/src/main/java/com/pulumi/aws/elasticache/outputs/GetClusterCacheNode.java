@@ -17,6 +17,7 @@ public final class GetClusterCacheNode {
      */
     private String availabilityZone;
     private String id;
+    private String outpostArn;
     /**
      * @return The port number on which each of the cache nodes will
      * accept connections.
@@ -37,6 +38,9 @@ public final class GetClusterCacheNode {
     }
     public String id() {
         return this.id;
+    }
+    public String outpostArn() {
+        return this.outpostArn;
     }
     /**
      * @return The port number on which each of the cache nodes will
@@ -59,6 +63,7 @@ public final class GetClusterCacheNode {
         private String address;
         private String availabilityZone;
         private String id;
+        private String outpostArn;
         private Integer port;
         public Builder() {}
         public Builder(GetClusterCacheNode defaults) {
@@ -66,6 +71,7 @@ public final class GetClusterCacheNode {
     	      this.address = defaults.address;
     	      this.availabilityZone = defaults.availabilityZone;
     	      this.id = defaults.id;
+    	      this.outpostArn = defaults.outpostArn;
     	      this.port = defaults.port;
         }
 
@@ -85,6 +91,11 @@ public final class GetClusterCacheNode {
             return this;
         }
         @CustomType.Setter
+        public Builder outpostArn(String outpostArn) {
+            this.outpostArn = Objects.requireNonNull(outpostArn);
+            return this;
+        }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
@@ -94,6 +105,7 @@ public final class GetClusterCacheNode {
             o.address = address;
             o.availabilityZone = availabilityZone;
             o.id = id;
+            o.outpostArn = outpostArn;
             o.port = port;
             return o;
         }

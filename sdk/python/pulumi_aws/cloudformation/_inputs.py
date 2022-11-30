@@ -97,12 +97,18 @@ class StackSetAutoDeploymentArgs:
 class StackSetInstanceDeploymentTargetsArgs:
     def __init__(__self__, *,
                  organizational_unit_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_unit_ids: The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+        """
         if organizational_unit_ids is not None:
             pulumi.set(__self__, "organizational_unit_ids", organizational_unit_ids)
 
     @property
     @pulumi.getter(name="organizationalUnitIds")
     def organizational_unit_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+        """
         return pulumi.get(self, "organizational_unit_ids")
 
     @organizational_unit_ids.setter
@@ -119,6 +125,14 @@ class StackSetInstanceOperationPreferencesArgs:
                  max_concurrent_percentage: Optional[pulumi.Input[int]] = None,
                  region_concurrency_type: Optional[pulumi.Input[str]] = None,
                  region_orders: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[int] failure_tolerance_count: The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+        :param pulumi.Input[int] failure_tolerance_percentage: The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+        :param pulumi.Input[int] max_concurrent_count: The maximum number of accounts in which to perform this operation at one time.
+        :param pulumi.Input[int] max_concurrent_percentage: The maximum percentage of accounts in which to perform this operation at one time.
+        :param pulumi.Input[str] region_concurrency_type: The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] region_orders: The order of the Regions in where you want to perform the stack operation.
+        """
         if failure_tolerance_count is not None:
             pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
@@ -135,6 +149,9 @@ class StackSetInstanceOperationPreferencesArgs:
     @property
     @pulumi.getter(name="failureToleranceCount")
     def failure_tolerance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+        """
         return pulumi.get(self, "failure_tolerance_count")
 
     @failure_tolerance_count.setter
@@ -144,6 +161,9 @@ class StackSetInstanceOperationPreferencesArgs:
     @property
     @pulumi.getter(name="failureTolerancePercentage")
     def failure_tolerance_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+        """
         return pulumi.get(self, "failure_tolerance_percentage")
 
     @failure_tolerance_percentage.setter
@@ -153,6 +173,9 @@ class StackSetInstanceOperationPreferencesArgs:
     @property
     @pulumi.getter(name="maxConcurrentCount")
     def max_concurrent_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of accounts in which to perform this operation at one time.
+        """
         return pulumi.get(self, "max_concurrent_count")
 
     @max_concurrent_count.setter
@@ -162,6 +185,9 @@ class StackSetInstanceOperationPreferencesArgs:
     @property
     @pulumi.getter(name="maxConcurrentPercentage")
     def max_concurrent_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum percentage of accounts in which to perform this operation at one time.
+        """
         return pulumi.get(self, "max_concurrent_percentage")
 
     @max_concurrent_percentage.setter
@@ -171,6 +197,9 @@ class StackSetInstanceOperationPreferencesArgs:
     @property
     @pulumi.getter(name="regionConcurrencyType")
     def region_concurrency_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+        """
         return pulumi.get(self, "region_concurrency_type")
 
     @region_concurrency_type.setter
@@ -180,6 +209,9 @@ class StackSetInstanceOperationPreferencesArgs:
     @property
     @pulumi.getter(name="regionOrders")
     def region_orders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The order of the Regions in where you want to perform the stack operation.
+        """
         return pulumi.get(self, "region_orders")
 
     @region_orders.setter

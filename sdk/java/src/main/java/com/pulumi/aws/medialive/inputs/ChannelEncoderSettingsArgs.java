@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsAudioDescriptionArgs;
+import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsAvailBlankingArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsTimecodeConfigArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsVideoDescriptionArgs;
@@ -32,6 +33,21 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<List<ChannelEncoderSettingsAudioDescriptionArgs>>> audioDescriptions() {
         return Optional.ofNullable(this.audioDescriptions);
+    }
+
+    /**
+     * Settings for ad avail blanking. See Avail Blanking for more details.
+     * 
+     */
+    @Import(name="availBlanking")
+    private @Nullable Output<ChannelEncoderSettingsAvailBlankingArgs> availBlanking;
+
+    /**
+     * @return Settings for ad avail blanking. See Avail Blanking for more details.
+     * 
+     */
+    public Optional<Output<ChannelEncoderSettingsAvailBlankingArgs>> availBlanking() {
+        return Optional.ofNullable(this.availBlanking);
     }
 
     /**
@@ -83,6 +99,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
 
     private ChannelEncoderSettingsArgs(ChannelEncoderSettingsArgs $) {
         this.audioDescriptions = $.audioDescriptions;
+        this.availBlanking = $.availBlanking;
         this.outputGroups = $.outputGroups;
         this.timecodeConfig = $.timecodeConfig;
         this.videoDescriptions = $.videoDescriptions;
@@ -135,6 +152,27 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
          */
         public Builder audioDescriptions(ChannelEncoderSettingsAudioDescriptionArgs... audioDescriptions) {
             return audioDescriptions(List.of(audioDescriptions));
+        }
+
+        /**
+         * @param availBlanking Settings for ad avail blanking. See Avail Blanking for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availBlanking(@Nullable Output<ChannelEncoderSettingsAvailBlankingArgs> availBlanking) {
+            $.availBlanking = availBlanking;
+            return this;
+        }
+
+        /**
+         * @param availBlanking Settings for ad avail blanking. See Avail Blanking for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availBlanking(ChannelEncoderSettingsAvailBlankingArgs availBlanking) {
+            return availBlanking(Output.of(availBlanking));
         }
 
         /**

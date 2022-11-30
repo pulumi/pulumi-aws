@@ -14,14 +14,14 @@ public final class GetGroupFilterArgs extends com.pulumi.resources.ResourceArgs 
     public static final GetGroupFilterArgs Empty = new GetGroupFilterArgs();
 
     /**
-     * Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+     * Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
      * 
      */
     @Import(name="attributePath", required=true)
     private Output<String> attributePath;
 
     /**
-     * @return Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+     * @return Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
      * 
      */
     public Output<String> attributePath() {
@@ -69,7 +69,7 @@ public final class GetGroupFilterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param attributePath Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+         * @param attributePath Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetGroupFilterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param attributePath Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+         * @param attributePath Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
          * 
          * @return builder
          * 

@@ -4902,7 +4902,7 @@ func (o DistributionRestrictionsPtrOutput) GeoRestriction() DistributionRestrict
 type DistributionRestrictionsGeoRestriction struct {
 	// The [ISO 3166-1-alpha-2 codes][4] for which you
 	// want CloudFront either to distribute your content (`whitelist`) or not
-	// distribute your content (`blacklist`).
+	// distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
 	Locations []string `pulumi:"locations"`
 	// The method that you want to use to restrict
 	// distribution of your content by country: `none`, `whitelist`, or
@@ -4924,7 +4924,7 @@ type DistributionRestrictionsGeoRestrictionInput interface {
 type DistributionRestrictionsGeoRestrictionArgs struct {
 	// The [ISO 3166-1-alpha-2 codes][4] for which you
 	// want CloudFront either to distribute your content (`whitelist`) or not
-	// distribute your content (`blacklist`).
+	// distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
 	// The method that you want to use to restrict
 	// distribution of your content by country: `none`, `whitelist`, or
@@ -5011,7 +5011,7 @@ func (o DistributionRestrictionsGeoRestrictionOutput) ToDistributionRestrictions
 
 // The [ISO 3166-1-alpha-2 codes][4] for which you
 // want CloudFront either to distribute your content (`whitelist`) or not
-// distribute your content (`blacklist`).
+// distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
 func (o DistributionRestrictionsGeoRestrictionOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionRestrictionsGeoRestriction) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
@@ -5049,7 +5049,7 @@ func (o DistributionRestrictionsGeoRestrictionPtrOutput) Elem() DistributionRest
 
 // The [ISO 3166-1-alpha-2 codes][4] for which you
 // want CloudFront either to distribute your content (`whitelist`) or not
-// distribute your content (`blacklist`).
+// distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
 func (o DistributionRestrictionsGeoRestrictionPtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionRestrictionsGeoRestriction) []string {
 		if v == nil {

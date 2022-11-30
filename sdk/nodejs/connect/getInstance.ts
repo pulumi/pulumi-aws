@@ -98,6 +98,10 @@ export interface GetInstanceResult {
     readonly instanceAlias: string;
     readonly instanceId: string;
     /**
+     * Whether multi-party calls/conference is enabled.
+     */
+    readonly multiPartyConferenceEnabled: boolean;
+    /**
      * Whether outbound calls are enabled.
      */
     readonly outboundCallsEnabled: boolean;

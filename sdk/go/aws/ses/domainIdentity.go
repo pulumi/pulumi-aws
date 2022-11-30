@@ -14,6 +14,32 @@ import (
 // Provides an SES domain identity resource
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
+//				Domain: pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Route53 Record
 //
 // ```go
 // package main
@@ -71,9 +97,10 @@ type DomainIdentity struct {
 	// A code which when added to the domain as a TXT record
 	// will signal to SES that the owner of the domain has authorised SES to act on
 	// their behalf. The domain identity will be in state "verification pending"
-	// until this is done. See below for an example of how this might be achieved
-	// when the domain is hosted in Route 53 and managed by this provider.  Find out
-	// more about verifying domains in Amazon SES in the [AWS SES
+	// until this is done. See the With Route53 Record example
+	// for how this might be achieved when the domain is hosted in Route 53 and
+	// managed by this provider.  Find out more about verifying domains in Amazon
+	// SES in the [AWS SES
 	// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 	VerificationToken pulumi.StringOutput `pulumi:"verificationToken"`
 }
@@ -117,9 +144,10 @@ type domainIdentityState struct {
 	// A code which when added to the domain as a TXT record
 	// will signal to SES that the owner of the domain has authorised SES to act on
 	// their behalf. The domain identity will be in state "verification pending"
-	// until this is done. See below for an example of how this might be achieved
-	// when the domain is hosted in Route 53 and managed by this provider.  Find out
-	// more about verifying domains in Amazon SES in the [AWS SES
+	// until this is done. See the With Route53 Record example
+	// for how this might be achieved when the domain is hosted in Route 53 and
+	// managed by this provider.  Find out more about verifying domains in Amazon
+	// SES in the [AWS SES
 	// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 	VerificationToken *string `pulumi:"verificationToken"`
 }
@@ -132,9 +160,10 @@ type DomainIdentityState struct {
 	// A code which when added to the domain as a TXT record
 	// will signal to SES that the owner of the domain has authorised SES to act on
 	// their behalf. The domain identity will be in state "verification pending"
-	// until this is done. See below for an example of how this might be achieved
-	// when the domain is hosted in Route 53 and managed by this provider.  Find out
-	// more about verifying domains in Amazon SES in the [AWS SES
+	// until this is done. See the With Route53 Record example
+	// for how this might be achieved when the domain is hosted in Route 53 and
+	// managed by this provider.  Find out more about verifying domains in Amazon
+	// SES in the [AWS SES
 	// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 	VerificationToken pulumi.StringPtrInput
 }
@@ -254,9 +283,10 @@ func (o DomainIdentityOutput) Domain() pulumi.StringOutput {
 // A code which when added to the domain as a TXT record
 // will signal to SES that the owner of the domain has authorised SES to act on
 // their behalf. The domain identity will be in state "verification pending"
-// until this is done. See below for an example of how this might be achieved
-// when the domain is hosted in Route 53 and managed by this provider.  Find out
-// more about verifying domains in Amazon SES in the [AWS SES
+// until this is done. See the With Route53 Record example
+// for how this might be achieved when the domain is hosted in Route 53 and
+// managed by this provider.  Find out more about verifying domains in Amazon
+// SES in the [AWS SES
 // docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 func (o DomainIdentityOutput) VerificationToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentity) pulumi.StringOutput { return v.VerificationToken }).(pulumi.StringOutput)

@@ -4,12 +4,14 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescription;
+import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAvailBlanking;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroup;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsTimecodeConfig;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsVideoDescription;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,6 +21,11 @@ public final class ChannelEncoderSettings {
      * 
      */
     private @Nullable List<ChannelEncoderSettingsAudioDescription> audioDescriptions;
+    /**
+     * @return Settings for ad avail blanking. See Avail Blanking for more details.
+     * 
+     */
+    private @Nullable ChannelEncoderSettingsAvailBlanking availBlanking;
     /**
      * @return Output groups for the channel. See Output Groups for more details.
      * 
@@ -42,6 +49,13 @@ public final class ChannelEncoderSettings {
      */
     public List<ChannelEncoderSettingsAudioDescription> audioDescriptions() {
         return this.audioDescriptions == null ? List.of() : this.audioDescriptions;
+    }
+    /**
+     * @return Settings for ad avail blanking. See Avail Blanking for more details.
+     * 
+     */
+    public Optional<ChannelEncoderSettingsAvailBlanking> availBlanking() {
+        return Optional.ofNullable(this.availBlanking);
     }
     /**
      * @return Output groups for the channel. See Output Groups for more details.
@@ -75,6 +89,7 @@ public final class ChannelEncoderSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ChannelEncoderSettingsAudioDescription> audioDescriptions;
+        private @Nullable ChannelEncoderSettingsAvailBlanking availBlanking;
         private List<ChannelEncoderSettingsOutputGroup> outputGroups;
         private ChannelEncoderSettingsTimecodeConfig timecodeConfig;
         private @Nullable List<ChannelEncoderSettingsVideoDescription> videoDescriptions;
@@ -82,6 +97,7 @@ public final class ChannelEncoderSettings {
         public Builder(ChannelEncoderSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audioDescriptions = defaults.audioDescriptions;
+    	      this.availBlanking = defaults.availBlanking;
     	      this.outputGroups = defaults.outputGroups;
     	      this.timecodeConfig = defaults.timecodeConfig;
     	      this.videoDescriptions = defaults.videoDescriptions;
@@ -94,6 +110,11 @@ public final class ChannelEncoderSettings {
         }
         public Builder audioDescriptions(ChannelEncoderSettingsAudioDescription... audioDescriptions) {
             return audioDescriptions(List.of(audioDescriptions));
+        }
+        @CustomType.Setter
+        public Builder availBlanking(@Nullable ChannelEncoderSettingsAvailBlanking availBlanking) {
+            this.availBlanking = availBlanking;
+            return this;
         }
         @CustomType.Setter
         public Builder outputGroups(List<ChannelEncoderSettingsOutputGroup> outputGroups) {
@@ -119,6 +140,7 @@ public final class ChannelEncoderSettings {
         public ChannelEncoderSettings build() {
             final var o = new ChannelEncoderSettings();
             o.audioDescriptions = audioDescriptions;
+            o.availBlanking = availBlanking;
             o.outputGroups = outputGroups;
             o.timecodeConfig = timecodeConfig;
             o.videoDescriptions = videoDescriptions;

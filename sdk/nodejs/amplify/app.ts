@@ -217,7 +217,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly oauthToken!: pulumi.Output<string | undefined>;
     /**
-     * Platform or framework for an Amplify app. Valid values: `WEB`.
+     * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      */
     public readonly platform!: pulumi.Output<string | undefined>;
     /**
@@ -375,7 +375,7 @@ export interface AppState {
      */
     oauthToken?: pulumi.Input<string>;
     /**
-     * Platform or framework for an Amplify app. Valid values: `WEB`.
+     * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      */
     platform?: pulumi.Input<string>;
     /**
@@ -461,7 +461,7 @@ export interface AppArgs {
      */
     oauthToken?: pulumi.Input<string>;
     /**
-     * Platform or framework for an Amplify app. Valid values: `WEB`.
+     * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      */
     platform?: pulumi.Input<string>;
     /**

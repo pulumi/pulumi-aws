@@ -21,6 +21,7 @@ class TopicSubscriptionArgs:
                  delivery_policy: Optional[pulumi.Input[str]] = None,
                  endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
                  filter_policy: Optional[pulumi.Input[str]] = None,
+                 filter_policy_scope: Optional[pulumi.Input[str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[pulumi.Input[str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[str]] = None):
@@ -33,6 +34,7 @@ class TopicSubscriptionArgs:
         :param pulumi.Input[str] delivery_policy: JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         :param pulumi.Input[bool] endpoint_auto_confirms: Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         :param pulumi.Input[str] filter_policy: JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
+        :param pulumi.Input[str] filter_policy_scope: Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         :param pulumi.Input[bool] raw_message_delivery: Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
@@ -48,6 +50,8 @@ class TopicSubscriptionArgs:
             pulumi.set(__self__, "endpoint_auto_confirms", endpoint_auto_confirms)
         if filter_policy is not None:
             pulumi.set(__self__, "filter_policy", filter_policy)
+        if filter_policy_scope is not None:
+            pulumi.set(__self__, "filter_policy_scope", filter_policy_scope)
         if raw_message_delivery is not None:
             pulumi.set(__self__, "raw_message_delivery", raw_message_delivery)
         if redrive_policy is not None:
@@ -140,6 +144,18 @@ class TopicSubscriptionArgs:
         pulumi.set(self, "filter_policy", value)
 
     @property
+    @pulumi.getter(name="filterPolicyScope")
+    def filter_policy_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+        """
+        return pulumi.get(self, "filter_policy_scope")
+
+    @filter_policy_scope.setter
+    def filter_policy_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_policy_scope", value)
+
+    @property
     @pulumi.getter(name="rawMessageDelivery")
     def raw_message_delivery(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -186,6 +202,7 @@ class _TopicSubscriptionState:
                  endpoint: Optional[pulumi.Input[str]] = None,
                  endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
                  filter_policy: Optional[pulumi.Input[str]] = None,
+                 filter_policy_scope: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  pending_confirmation: Optional[pulumi.Input[bool]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -202,6 +219,7 @@ class _TopicSubscriptionState:
         :param pulumi.Input[str] endpoint: Endpoint to send data to. The contents vary with the protocol. See details below.
         :param pulumi.Input[bool] endpoint_auto_confirms: Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         :param pulumi.Input[str] filter_policy: JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
+        :param pulumi.Input[str] filter_policy_scope: Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         :param pulumi.Input[str] owner_id: AWS account ID of the subscription's owner.
         :param pulumi.Input[bool] pending_confirmation: Whether the subscription has not been confirmed.
         :param pulumi.Input[str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
@@ -224,6 +242,8 @@ class _TopicSubscriptionState:
             pulumi.set(__self__, "endpoint_auto_confirms", endpoint_auto_confirms)
         if filter_policy is not None:
             pulumi.set(__self__, "filter_policy", filter_policy)
+        if filter_policy_scope is not None:
+            pulumi.set(__self__, "filter_policy_scope", filter_policy_scope)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
         if pending_confirmation is not None:
@@ -324,6 +344,18 @@ class _TopicSubscriptionState:
         pulumi.set(self, "filter_policy", value)
 
     @property
+    @pulumi.getter(name="filterPolicyScope")
+    def filter_policy_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+        """
+        return pulumi.get(self, "filter_policy_scope")
+
+    @filter_policy_scope.setter
+    def filter_policy_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_policy_scope", value)
+
+    @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -418,6 +450,7 @@ class TopicSubscription(pulumi.CustomResource):
                  endpoint: Optional[pulumi.Input[str]] = None,
                  endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
                  filter_policy: Optional[pulumi.Input[str]] = None,
+                 filter_policy_scope: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[pulumi.Input[str]] = None,
@@ -599,6 +632,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: Endpoint to send data to. The contents vary with the protocol. See details below.
         :param pulumi.Input[bool] endpoint_auto_confirms: Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         :param pulumi.Input[str] filter_policy: JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
+        :param pulumi.Input[str] filter_policy_scope: Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         :param pulumi.Input[str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         :param pulumi.Input[bool] raw_message_delivery: Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
@@ -799,6 +833,7 @@ class TopicSubscription(pulumi.CustomResource):
                  endpoint: Optional[pulumi.Input[str]] = None,
                  endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
                  filter_policy: Optional[pulumi.Input[str]] = None,
+                 filter_policy_scope: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[pulumi.Input[str]] = None,
@@ -820,6 +855,7 @@ class TopicSubscription(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["endpoint_auto_confirms"] = endpoint_auto_confirms
             __props__.__dict__["filter_policy"] = filter_policy
+            __props__.__dict__["filter_policy_scope"] = filter_policy_scope
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
@@ -850,6 +886,7 @@ class TopicSubscription(pulumi.CustomResource):
             endpoint: Optional[pulumi.Input[str]] = None,
             endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
             filter_policy: Optional[pulumi.Input[str]] = None,
+            filter_policy_scope: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             pending_confirmation: Optional[pulumi.Input[bool]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
@@ -871,6 +908,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: Endpoint to send data to. The contents vary with the protocol. See details below.
         :param pulumi.Input[bool] endpoint_auto_confirms: Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         :param pulumi.Input[str] filter_policy: JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
+        :param pulumi.Input[str] filter_policy_scope: Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         :param pulumi.Input[str] owner_id: AWS account ID of the subscription's owner.
         :param pulumi.Input[bool] pending_confirmation: Whether the subscription has not been confirmed.
         :param pulumi.Input[str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
@@ -890,6 +928,7 @@ class TopicSubscription(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["endpoint_auto_confirms"] = endpoint_auto_confirms
         __props__.__dict__["filter_policy"] = filter_policy
+        __props__.__dict__["filter_policy_scope"] = filter_policy_scope
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["pending_confirmation"] = pending_confirmation
         __props__.__dict__["protocol"] = protocol
@@ -954,6 +993,14 @@ class TopicSubscription(pulumi.CustomResource):
         JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
         """
         return pulumi.get(self, "filter_policy")
+
+    @property
+    @pulumi.getter(name="filterPolicyScope")
+    def filter_policy_scope(self) -> pulumi.Output[str]:
+        """
+        Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+        """
+        return pulumi.get(self, "filter_policy_scope")
 
     @property
     @pulumi.getter(name="ownerId")

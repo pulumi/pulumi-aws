@@ -82,19 +82,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> ConnectivityType { get; private set; } = null!;
 
         /// <summary>
-        /// The ENI ID of the network interface created by the NAT gateway.
+        /// The ID of the network interface associated with the NAT gateway.
         /// </summary>
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
-        /// The private IP address of the NAT Gateway.
+        /// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         /// </summary>
         [Output("privateIp")]
         public Output<string> PrivateIp { get; private set; } = null!;
 
         /// <summary>
-        /// The public IP address of the NAT Gateway.
+        /// The Elastic IP address associated with the NAT gateway.
         /// </summary>
         [Output("publicIp")]
         public Output<string> PublicIp { get; private set; } = null!;
@@ -176,6 +176,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ConnectivityType { get; set; }
 
         /// <summary>
+        /// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        /// </summary>
+        [Input("privateIp")]
+        public Input<string>? PrivateIp { get; set; }
+
+        /// <summary>
         /// The Subnet ID of the subnet in which to place the gateway.
         /// </summary>
         [Input("subnetId", required: true)]
@@ -214,19 +220,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ConnectivityType { get; set; }
 
         /// <summary>
-        /// The ENI ID of the network interface created by the NAT gateway.
+        /// The ID of the network interface associated with the NAT gateway.
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The private IP address of the NAT Gateway.
+        /// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         /// </summary>
         [Input("privateIp")]
         public Input<string>? PrivateIp { get; set; }
 
         /// <summary>
-        /// The public IP address of the NAT Gateway.
+        /// The Elastic IP address associated with the NAT gateway.
         /// </summary>
         [Input("publicIp")]
         public Input<string>? PublicIp { get; set; }

@@ -28,6 +28,8 @@ __all__ = [
     'DomainSamlOptionsSamlOptionsIdpArgs',
     'DomainSnapshotOptionsArgs',
     'DomainVpcOptionsArgs',
+    'OutboundConnectionLocalDomainInfoArgs',
+    'OutboundConnectionRemoteDomainInfoArgs',
 ]
 
 @pulumi.input_type
@@ -1120,5 +1122,109 @@ class DomainVpcOptionsArgs:
     @vpc_id.setter
     def vpc_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_id", value)
+
+
+@pulumi.input_type
+class OutboundConnectionLocalDomainInfoArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 owner_id: pulumi.Input[str],
+                 region: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] domain_name: The name of the remote domain.
+        :param pulumi.Input[str] owner_id: The Account ID of the owner of the remote domain.
+        :param pulumi.Input[str] region: The region of the remote domain.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "owner_id", owner_id)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The name of the remote domain.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> pulumi.Input[str]:
+        """
+        The Account ID of the owner of the remote domain.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[str]:
+        """
+        The region of the remote domain.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "region", value)
+
+
+@pulumi.input_type
+class OutboundConnectionRemoteDomainInfoArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 owner_id: pulumi.Input[str],
+                 region: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] domain_name: The name of the remote domain.
+        :param pulumi.Input[str] owner_id: The Account ID of the owner of the remote domain.
+        :param pulumi.Input[str] region: The region of the remote domain.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "owner_id", owner_id)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The name of the remote domain.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> pulumi.Input[str]:
+        """
+        The Account ID of the owner of the remote domain.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @owner_id.setter
+    def owner_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[str]:
+        """
+        The region of the remote domain.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "region", value)
 
 

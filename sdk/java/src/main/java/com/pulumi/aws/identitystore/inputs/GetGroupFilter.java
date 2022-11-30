@@ -13,14 +13,14 @@ public final class GetGroupFilter extends com.pulumi.resources.InvokeArgs {
     public static final GetGroupFilter Empty = new GetGroupFilter();
 
     /**
-     * Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+     * Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
      * 
      */
     @Import(name="attributePath", required=true)
     private String attributePath;
 
     /**
-     * @return Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+     * @return Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
      * 
      */
     public String attributePath() {
@@ -68,7 +68,7 @@ public final class GetGroupFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param attributePath Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+         * @param attributePath Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
          * 
          * @return builder
          * 

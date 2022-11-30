@@ -21,6 +21,7 @@ class CertificateArgs:
                  certificate_chain: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  early_renewal_duration: Optional[pulumi.Input[str]] = None,
+                 key_algorithm: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['CertificateOptionsArgs']] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -39,6 +40,7 @@ class CertificateArgs:
                Represented by either
                a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
                or a string such as `2160h`.
+        :param pulumi.Input[str] key_algorithm: Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
         :param pulumi.Input[str] private_key: Certificate's PEM-formatted private key
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
@@ -58,6 +60,8 @@ class CertificateArgs:
             pulumi.set(__self__, "domain_name", domain_name)
         if early_renewal_duration is not None:
             pulumi.set(__self__, "early_renewal_duration", early_renewal_duration)
+        if key_algorithm is not None:
+            pulumi.set(__self__, "key_algorithm", key_algorithm)
         if options is not None:
             pulumi.set(__self__, "options", options)
         if private_key is not None:
@@ -135,6 +139,18 @@ class CertificateArgs:
     @early_renewal_duration.setter
     def early_renewal_duration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "early_renewal_duration", value)
+
+    @property
+    @pulumi.getter(name="keyAlgorithm")
+    def key_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+        """
+        return pulumi.get(self, "key_algorithm")
+
+    @key_algorithm.setter
+    def key_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_algorithm", value)
 
     @property
     @pulumi.getter
@@ -221,6 +237,7 @@ class _CertificateState:
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]] = None,
                  early_renewal_duration: Optional[pulumi.Input[str]] = None,
+                 key_algorithm: Optional[pulumi.Input[str]] = None,
                  not_after: Optional[pulumi.Input[str]] = None,
                  not_before: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['CertificateOptionsArgs']] = None,
@@ -252,6 +269,7 @@ class _CertificateState:
                Represented by either
                a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
                or a string such as `2160h`.
+        :param pulumi.Input[str] key_algorithm: Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         :param pulumi.Input[str] not_after: Expiration date and time of the certificate.
         :param pulumi.Input[str] not_before: Start of the validity period of the certificate.
         :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
@@ -284,6 +302,8 @@ class _CertificateState:
             pulumi.set(__self__, "domain_validation_options", domain_validation_options)
         if early_renewal_duration is not None:
             pulumi.set(__self__, "early_renewal_duration", early_renewal_duration)
+        if key_algorithm is not None:
+            pulumi.set(__self__, "key_algorithm", key_algorithm)
         if not_after is not None:
             pulumi.set(__self__, "not_after", not_after)
         if not_before is not None:
@@ -405,6 +425,18 @@ class _CertificateState:
     @early_renewal_duration.setter
     def early_renewal_duration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "early_renewal_duration", value)
+
+    @property
+    @pulumi.getter(name="keyAlgorithm")
+    def key_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+        """
+        return pulumi.get(self, "key_algorithm")
+
+    @key_algorithm.setter
+    def key_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_algorithm", value)
 
     @property
     @pulumi.getter(name="notAfter")
@@ -599,6 +631,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_chain: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  early_renewal_duration: Optional[pulumi.Input[str]] = None,
+                 key_algorithm: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['CertificateOptionsArgs']]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -741,6 +774,7 @@ class Certificate(pulumi.CustomResource):
                Represented by either
                a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
                or a string such as `2160h`.
+        :param pulumi.Input[str] key_algorithm: Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         :param pulumi.Input[pulumi.InputType['CertificateOptionsArgs']] options: Configuration block used to set certificate options. Detailed below.
         :param pulumi.Input[str] private_key: Certificate's PEM-formatted private key
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
@@ -899,6 +933,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_chain: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  early_renewal_duration: Optional[pulumi.Input[str]] = None,
+                 key_algorithm: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['CertificateOptionsArgs']]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -919,6 +954,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["certificate_chain"] = certificate_chain
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["early_renewal_duration"] = early_renewal_duration
+            __props__.__dict__["key_algorithm"] = key_algorithm
             __props__.__dict__["options"] = options
             __props__.__dict__["private_key"] = private_key
             __props__.__dict__["subject_alternative_names"] = subject_alternative_names
@@ -953,6 +989,7 @@ class Certificate(pulumi.CustomResource):
             domain_name: Optional[pulumi.Input[str]] = None,
             domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]]] = None,
             early_renewal_duration: Optional[pulumi.Input[str]] = None,
+            key_algorithm: Optional[pulumi.Input[str]] = None,
             not_after: Optional[pulumi.Input[str]] = None,
             not_before: Optional[pulumi.Input[str]] = None,
             options: Optional[pulumi.Input[pulumi.InputType['CertificateOptionsArgs']]] = None,
@@ -989,6 +1026,7 @@ class Certificate(pulumi.CustomResource):
                Represented by either
                a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
                or a string such as `2160h`.
+        :param pulumi.Input[str] key_algorithm: Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         :param pulumi.Input[str] not_after: Expiration date and time of the certificate.
         :param pulumi.Input[str] not_before: Start of the validity period of the certificate.
         :param pulumi.Input[pulumi.InputType['CertificateOptionsArgs']] options: Configuration block used to set certificate options. Detailed below.
@@ -1018,6 +1056,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["domain_validation_options"] = domain_validation_options
         __props__.__dict__["early_renewal_duration"] = early_renewal_duration
+        __props__.__dict__["key_algorithm"] = key_algorithm
         __props__.__dict__["not_after"] = not_after
         __props__.__dict__["not_before"] = not_before
         __props__.__dict__["options"] = options
@@ -1097,6 +1136,14 @@ class Certificate(pulumi.CustomResource):
         or a string such as `2160h`.
         """
         return pulumi.get(self, "early_renewal_duration")
+
+    @property
+    @pulumi.getter(name="keyAlgorithm")
+    def key_algorithm(self) -> pulumi.Output[str]:
+        """
+        Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+        """
+        return pulumi.get(self, "key_algorithm")
 
     @property
     @pulumi.getter(name="notAfter")

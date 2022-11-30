@@ -159,13 +159,17 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly maintenance!: pulumi.Output<outputs.medialive.ChannelMaintenance>;
     /**
-     * Custom output group name defined by the user.
+     * The name of the video description.
      */
     public readonly name!: pulumi.Output<string>;
     /**
      * Concise argument description.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * Whether to start/stop channel. Default: `false`
+     */
+    public readonly startChannel!: pulumi.Output<boolean | undefined>;
     /**
      * A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -201,6 +205,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["maintenance"] = state ? state.maintenance : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["startChannel"] = state ? state.startChannel : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["vpc"] = state ? state.vpc : undefined;
@@ -231,6 +236,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["maintenance"] = args ? args.maintenance : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["startChannel"] = args ? args.startChannel : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpc"] = args ? args.vpc : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -287,13 +293,17 @@ export interface ChannelState {
      */
     maintenance?: pulumi.Input<inputs.medialive.ChannelMaintenance>;
     /**
-     * Custom output group name defined by the user.
+     * The name of the video description.
      */
     name?: pulumi.Input<string>;
     /**
      * Concise argument description.
      */
     roleArn?: pulumi.Input<string>;
+    /**
+     * Whether to start/stop channel. Default: `false`
+     */
+    startChannel?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -342,13 +352,17 @@ export interface ChannelArgs {
      */
     maintenance?: pulumi.Input<inputs.medialive.ChannelMaintenance>;
     /**
-     * Custom output group name defined by the user.
+     * The name of the video description.
      */
     name?: pulumi.Input<string>;
     /**
      * Concise argument description.
      */
     roleArn?: pulumi.Input<string>;
+    /**
+     * Whether to start/stop channel. Default: `false`
+     */
+    startChannel?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -17,7 +17,7 @@ class EmailIdentityArgs:
                  email: pulumi.Input[str]):
         """
         The set of arguments for constructing a EmailIdentity resource.
-        :param pulumi.Input[str] email: The email address to assign to SES
+        :param pulumi.Input[str] email: The email address to assign to SES.
         """
         pulumi.set(__self__, "email", email)
 
@@ -25,7 +25,7 @@ class EmailIdentityArgs:
     @pulumi.getter
     def email(self) -> pulumi.Input[str]:
         """
-        The email address to assign to SES
+        The email address to assign to SES.
         """
         return pulumi.get(self, "email")
 
@@ -42,7 +42,7 @@ class _EmailIdentityState:
         """
         Input properties used for looking up and filtering EmailIdentity resources.
         :param pulumi.Input[str] arn: The ARN of the email identity.
-        :param pulumi.Input[str] email: The email address to assign to SES
+        :param pulumi.Input[str] email: The email address to assign to SES.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -65,7 +65,7 @@ class _EmailIdentityState:
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[str]]:
         """
-        The email address to assign to SES
+        The email address to assign to SES.
         """
         return pulumi.get(self, "email")
 
@@ -103,7 +103,7 @@ class EmailIdentity(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] email: The email address to assign to SES
+        :param pulumi.Input[str] email: The email address to assign to SES.
         """
         ...
     @overload
@@ -180,7 +180,7 @@ class EmailIdentity(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the email identity.
-        :param pulumi.Input[str] email: The email address to assign to SES
+        :param pulumi.Input[str] email: The email address to assign to SES.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -202,7 +202,7 @@ class EmailIdentity(pulumi.CustomResource):
     @pulumi.getter
     def email(self) -> pulumi.Output[str]:
         """
-        The email address to assign to SES
+        The email address to assign to SES.
         """
         return pulumi.get(self, "email")
 

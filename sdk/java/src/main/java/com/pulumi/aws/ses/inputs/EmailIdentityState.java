@@ -31,14 +31,14 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The email address to assign to SES
+     * The email address to assign to SES.
      * 
      */
     @Import(name="email")
     private @Nullable Output<String> email;
 
     /**
-     * @return The email address to assign to SES
+     * @return The email address to assign to SES.
      * 
      */
     public Optional<Output<String>> email() {
@@ -92,7 +92,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param email The email address to assign to SES
+         * @param email The email address to assign to SES.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param email The email address to assign to SES
+         * @param email The email address to assign to SES.
          * 
          * @return builder
          * 

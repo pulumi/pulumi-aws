@@ -146,6 +146,12 @@ namespace Pulumi.Aws.Connect
         public Output<string?> InstanceAlias { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        /// </summary>
+        [Output("multiPartyConferenceEnabled")]
+        public Output<bool?> MultiPartyConferenceEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether outbound calls are enabled.
         /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
@@ -259,6 +265,12 @@ namespace Pulumi.Aws.Connect
         public Input<string>? InstanceAlias { get; set; }
 
         /// <summary>
+        /// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("multiPartyConferenceEnabled")]
+        public Input<bool>? MultiPartyConferenceEnabled { get; set; }
+
+        /// <summary>
         /// Specifies whether outbound calls are enabled.
         /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
@@ -332,6 +344,12 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("instanceAlias")]
         public Input<string>? InstanceAlias { get; set; }
+
+        /// <summary>
+        /// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("multiPartyConferenceEnabled")]
+        public Input<bool>? MultiPartyConferenceEnabled { get; set; }
 
         /// <summary>
         /// Specifies whether outbound calls are enabled.

@@ -124,42 +124,42 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.connectivityType);
     }
     /**
-     * The ENI ID of the network interface created by the NAT gateway.
+     * The ID of the network interface associated with the NAT gateway.
      * 
      */
     @Export(name="networkInterfaceId", type=String.class, parameters={})
     private Output<String> networkInterfaceId;
 
     /**
-     * @return The ENI ID of the network interface created by the NAT gateway.
+     * @return The ID of the network interface associated with the NAT gateway.
      * 
      */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
     /**
-     * The private IP address of the NAT Gateway.
+     * The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
      * 
      */
     @Export(name="privateIp", type=String.class, parameters={})
     private Output<String> privateIp;
 
     /**
-     * @return The private IP address of the NAT Gateway.
+     * @return The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
      * 
      */
     public Output<String> privateIp() {
         return this.privateIp;
     }
     /**
-     * The public IP address of the NAT Gateway.
+     * The Elastic IP address associated with the NAT gateway.
      * 
      */
     @Export(name="publicIp", type=String.class, parameters={})
     private Output<String> publicIp;
 
     /**
-     * @return The public IP address of the NAT Gateway.
+     * @return The Elastic IP address associated with the NAT gateway.
      * 
      */
     public Output<String> publicIp() {

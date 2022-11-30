@@ -216,6 +216,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly taskDefinition!: pulumi.Output<string | undefined>;
     /**
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     */
+    public readonly triggers!: pulumi.Output<{[key: string]: string}>;
+    /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */
     public readonly waitForSteadyState!: pulumi.Output<boolean | undefined>;
@@ -258,6 +262,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["taskDefinition"] = state ? state.taskDefinition : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
             resourceInputs["waitForSteadyState"] = state ? state.waitForSteadyState : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
@@ -285,6 +290,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -398,6 +404,10 @@ export interface ServiceState {
      */
     taskDefinition?: pulumi.Input<string>;
     /**
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     */
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */
     waitForSteadyState?: pulumi.Input<boolean>;
@@ -503,6 +513,10 @@ export interface ServiceArgs {
      * Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      */
     taskDefinition?: pulumi.Input<string>;
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     */
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */

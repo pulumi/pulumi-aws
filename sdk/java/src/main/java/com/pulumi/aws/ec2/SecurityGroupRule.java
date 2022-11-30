@@ -306,6 +306,20 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
         return this.securityGroupId;
     }
     /**
+     * If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+     * 
+     */
+    @Export(name="securityGroupRuleId", type=String.class, parameters={})
+    private Output<String> securityGroupRuleId;
+
+    /**
+     * @return If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+     * 
+     */
+    public Output<String> securityGroupRuleId() {
+        return this.securityGroupRuleId;
+    }
+    /**
      * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
      * 
      */

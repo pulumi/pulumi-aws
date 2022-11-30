@@ -138,6 +138,10 @@ namespace Pulumi.Aws.MemoryDb
         public readonly bool AutoMinorVersionUpgrade;
         public readonly ImmutableArray<Outputs.GetClusterClusterEndpointResult> ClusterEndpoints;
         /// <summary>
+        /// True when data tiering is enabled.
+        /// </summary>
+        public readonly bool DataTiering;
+        /// <summary>
         /// Description for the cluster.
         /// </summary>
         public readonly string Description;
@@ -231,6 +235,8 @@ namespace Pulumi.Aws.MemoryDb
 
             ImmutableArray<Outputs.GetClusterClusterEndpointResult> clusterEndpoints,
 
+            bool dataTiering,
+
             string description,
 
             string enginePatchVersion,
@@ -277,6 +283,7 @@ namespace Pulumi.Aws.MemoryDb
             Arn = arn;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
             ClusterEndpoints = clusterEndpoints;
+            DataTiering = dataTiering;
             Description = description;
             EnginePatchVersion = enginePatchVersion;
             EngineVersion = engineVersion;

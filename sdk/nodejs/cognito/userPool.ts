@@ -32,6 +32,7 @@ import * as utilities from "../utilities";
  *     smsConfiguration: {
  *         externalId: "example",
  *         snsCallerArn: aws_iam_role.example.arn,
+ *         snsRegion: "us-east-1",
  *     },
  *     softwareTokenMfaConfiguration: {
  *         enabled: true,

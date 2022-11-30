@@ -2176,7 +2176,7 @@ class DistributionRestrictionsGeoRestrictionArgs:
                `blacklist`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: The [ISO 3166-1-alpha-2 codes][4] for which you
                want CloudFront either to distribute your content (`whitelist`) or not
-               distribute your content (`blacklist`).
+               distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
         """
         pulumi.set(__self__, "restriction_type", restriction_type)
         if locations is not None:
@@ -2202,7 +2202,7 @@ class DistributionRestrictionsGeoRestrictionArgs:
         """
         The [ISO 3166-1-alpha-2 codes][4] for which you
         want CloudFront either to distribute your content (`whitelist`) or not
-        distribute your content (`blacklist`).
+        distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
         """
         return pulumi.get(self, "locations")
 

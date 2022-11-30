@@ -9,6 +9,10 @@ export { AttachmentAccepterArgs, AttachmentAccepterState } from "./attachmentAcc
 export type AttachmentAccepter = import("./attachmentAccepter").AttachmentAccepter;
 export const AttachmentAccepter: typeof import("./attachmentAccepter").AttachmentAccepter = null as any;
 
+export { ConnectAttachmentArgs, ConnectAttachmentState } from "./connectAttachment";
+export type ConnectAttachment = import("./connectAttachment").ConnectAttachment;
+export const ConnectAttachment: typeof import("./connectAttachment").ConnectAttachment = null as any;
+
 export { ConnectionArgs, ConnectionState } from "./connection";
 export type Connection = import("./connection").Connection;
 export const Connection: typeof import("./connection").Connection = null as any;
@@ -106,6 +110,7 @@ export type VpcAttachment = import("./vpcAttachment").VpcAttachment;
 export const VpcAttachment: typeof import("./vpcAttachment").VpcAttachment = null as any;
 
 utilities.lazyLoad(exports, ["AttachmentAccepter"], () => require("./attachmentAccepter"));
+utilities.lazyLoad(exports, ["ConnectAttachment"], () => require("./connectAttachment"));
 utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
 utilities.lazyLoad(exports, ["CustomerGatewayAssociation"], () => require("./customerGatewayAssociation"));
 utilities.lazyLoad(exports, ["Device"], () => require("./device"));
@@ -137,6 +142,8 @@ const _module = {
         switch (type) {
             case "aws:networkmanager/attachmentAccepter:AttachmentAccepter":
                 return new AttachmentAccepter(name, <any>undefined, { urn })
+            case "aws:networkmanager/connectAttachment:ConnectAttachment":
+                return new ConnectAttachment(name, <any>undefined, { urn })
             case "aws:networkmanager/connection:Connection":
                 return new Connection(name, <any>undefined, { urn })
             case "aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation":
@@ -169,6 +176,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "networkmanager/attachmentAccepter", _module)
+pulumi.runtime.registerResourceModule("aws", "networkmanager/connectAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/connection", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/customerGatewayAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/device", _module)

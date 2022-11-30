@@ -54,6 +54,11 @@ public final class GetInstanceResult {
     private String instanceAlias;
     private String instanceId;
     /**
+     * @return Whether multi-party calls/conference is enabled.
+     * 
+     */
+    private Boolean multiPartyConferenceEnabled;
+    /**
      * @return Whether outbound calls are enabled.
      * 
      */
@@ -136,6 +141,13 @@ public final class GetInstanceResult {
         return this.instanceId;
     }
     /**
+     * @return Whether multi-party calls/conference is enabled.
+     * 
+     */
+    public Boolean multiPartyConferenceEnabled() {
+        return this.multiPartyConferenceEnabled;
+    }
+    /**
      * @return Whether outbound calls are enabled.
      * 
      */
@@ -177,6 +189,7 @@ public final class GetInstanceResult {
         private Boolean inboundCallsEnabled;
         private String instanceAlias;
         private String instanceId;
+        private Boolean multiPartyConferenceEnabled;
         private Boolean outboundCallsEnabled;
         private String serviceRole;
         private String status;
@@ -194,6 +207,7 @@ public final class GetInstanceResult {
     	      this.inboundCallsEnabled = defaults.inboundCallsEnabled;
     	      this.instanceAlias = defaults.instanceAlias;
     	      this.instanceId = defaults.instanceId;
+    	      this.multiPartyConferenceEnabled = defaults.multiPartyConferenceEnabled;
     	      this.outboundCallsEnabled = defaults.outboundCallsEnabled;
     	      this.serviceRole = defaults.serviceRole;
     	      this.status = defaults.status;
@@ -255,6 +269,11 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder multiPartyConferenceEnabled(Boolean multiPartyConferenceEnabled) {
+            this.multiPartyConferenceEnabled = Objects.requireNonNull(multiPartyConferenceEnabled);
+            return this;
+        }
+        @CustomType.Setter
         public Builder outboundCallsEnabled(Boolean outboundCallsEnabled) {
             this.outboundCallsEnabled = Objects.requireNonNull(outboundCallsEnabled);
             return this;
@@ -282,6 +301,7 @@ public final class GetInstanceResult {
             o.inboundCallsEnabled = inboundCallsEnabled;
             o.instanceAlias = instanceAlias;
             o.instanceId = instanceId;
+            o.multiPartyConferenceEnabled = multiPartyConferenceEnabled;
             o.outboundCallsEnabled = outboundCallsEnabled;
             o.serviceRole = serviceRole;
             o.status = status;

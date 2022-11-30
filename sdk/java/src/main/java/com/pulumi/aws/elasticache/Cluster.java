@@ -398,6 +398,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.finalSnapshotIdentifier);
     }
     /**
+     * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+     * 
+     */
+    @Export(name="ipDiscovery", type=String.class, parameters={})
+    private Output<String> ipDiscovery;
+
+    /**
+     * @return The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+     * 
+     */
+    public Output<String> ipDiscovery() {
+        return this.ipDiscovery;
+    }
+    /**
      * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
      * 
      */
@@ -428,6 +442,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> maintenanceWindow() {
         return this.maintenanceWindow;
+    }
+    /**
+     * The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+     * 
+     */
+    @Export(name="networkType", type=String.class, parameters={})
+    private Output<String> networkType;
+
+    /**
+     * @return The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+     * 
+     */
+    public Output<String> networkType() {
+        return this.networkType;
     }
     /**
      * The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
@@ -472,6 +500,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.numCacheNodes;
     }
     /**
+     * Specify the outpost mode that will apply to the cache cluster creation. Valid values are `&#34;single-outpost&#34;` and `&#34;cross-outpost&#34;`, however AWS currently only supports `&#34;single-outpost&#34;` mode.
+     * 
+     */
+    @Export(name="outpostMode", type=String.class, parameters={})
+    private Output</* @Nullable */ String> outpostMode;
+
+    /**
+     * @return Specify the outpost mode that will apply to the cache cluster creation. Valid values are `&#34;single-outpost&#34;` and `&#34;cross-outpost&#34;`, however AWS currently only supports `&#34;single-outpost&#34;` mode.
+     * 
+     */
+    public Output<Optional<String>> outpostMode() {
+        return Codegen.optional(this.outpostMode);
+    }
+    /**
      * The name of the parameter group to associate with this cache cluster.
      * 
      */
@@ -512,6 +554,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> preferredAvailabilityZones() {
         return Codegen.optional(this.preferredAvailabilityZones);
+    }
+    /**
+     * The outpost ARN in which the cache cluster will be created.
+     * 
+     */
+    @Export(name="preferredOutpostArn", type=String.class, parameters={})
+    private Output<String> preferredOutpostArn;
+
+    /**
+     * @return The outpost ARN in which the cache cluster will be created.
+     * 
+     */
+    public Output<String> preferredOutpostArn() {
+        return this.preferredOutpostArn;
     }
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.

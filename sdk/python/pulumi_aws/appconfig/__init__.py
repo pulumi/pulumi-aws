@@ -11,6 +11,8 @@ from .deployment import *
 from .deployment_strategy import *
 from .environment import *
 from .event_integration import *
+from .extension import *
+from .extension_association import *
 from .get_configuration_profile import *
 from .get_configuration_profiles import *
 from .get_environment import *

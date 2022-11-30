@@ -40,11 +40,19 @@ public final class ChannelEncoderSettingsAudioDescription {
      * 
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings audioWatermarkSettings;
+    /**
+     * @return The video codec settings. See Video Codec Settings for more details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettings codecSettings;
+    /**
+     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * 
+     */
     private @Nullable String languageCode;
     private @Nullable String languageCodeControl;
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     private String name;
@@ -91,9 +99,17 @@ public final class ChannelEncoderSettingsAudioDescription {
     public Optional<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings> audioWatermarkSettings() {
         return Optional.ofNullable(this.audioWatermarkSettings);
     }
+    /**
+     * @return The video codec settings. See Video Codec Settings for more details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettings> codecSettings() {
         return Optional.ofNullable(this.codecSettings);
     }
+    /**
+     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * 
+     */
     public Optional<String> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
@@ -101,7 +117,7 @@ public final class ChannelEncoderSettingsAudioDescription {
         return Optional.ofNullable(this.languageCodeControl);
     }
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     public String name() {

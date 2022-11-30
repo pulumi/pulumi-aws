@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -180,6 +183,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+     */
+    public readonly serverlessV2ScalingConfiguration!: pulumi.Output<outputs.neptune.ClusterServerlessV2ScalingConfiguration | undefined>;
+    /**
      * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
@@ -244,6 +251,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             resourceInputs["readerEndpoint"] = state ? state.readerEndpoint : undefined;
             resourceInputs["replicationSourceIdentifier"] = state ? state.replicationSourceIdentifier : undefined;
+            resourceInputs["serverlessV2ScalingConfiguration"] = state ? state.serverlessV2ScalingConfiguration : undefined;
             resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
             resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
@@ -273,6 +281,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["replicationSourceIdentifier"] = args ? args.replicationSourceIdentifier : undefined;
+            resourceInputs["serverlessV2ScalingConfiguration"] = args ? args.serverlessV2ScalingConfiguration : undefined;
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
@@ -404,6 +413,10 @@ export interface ClusterState {
      */
     replicationSourceIdentifier?: pulumi.Input<string>;
     /**
+     * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+     */
+    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.neptune.ClusterServerlessV2ScalingConfiguration>;
+    /**
      * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
@@ -517,6 +530,10 @@ export interface ClusterArgs {
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      */
     replicationSourceIdentifier?: pulumi.Input<string>;
+    /**
+     * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+     */
+    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.neptune.ClusterServerlessV2ScalingConfiguration>;
     /**
      * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */

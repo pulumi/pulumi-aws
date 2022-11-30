@@ -137,6 +137,21 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+     * 
+     */
+    @Import(name="multiPartyConferenceEnabled")
+    private @Nullable Output<Boolean> multiPartyConferenceEnabled;
+
+    /**
+     * @return Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> multiPartyConferenceEnabled() {
+        return Optional.ofNullable(this.multiPartyConferenceEnabled);
+    }
+
+    /**
      * Specifies whether outbound calls are enabled.
      * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
@@ -164,6 +179,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.identityManagementType = $.identityManagementType;
         this.inboundCallsEnabled = $.inboundCallsEnabled;
         this.instanceAlias = $.instanceAlias;
+        this.multiPartyConferenceEnabled = $.multiPartyConferenceEnabled;
         this.outboundCallsEnabled = $.outboundCallsEnabled;
     }
 
@@ -351,6 +367,27 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instanceAlias(String instanceAlias) {
             return instanceAlias(Output.of(instanceAlias));
+        }
+
+        /**
+         * @param multiPartyConferenceEnabled Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiPartyConferenceEnabled(@Nullable Output<Boolean> multiPartyConferenceEnabled) {
+            $.multiPartyConferenceEnabled = multiPartyConferenceEnabled;
+            return this;
+        }
+
+        /**
+         * @param multiPartyConferenceEnabled Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiPartyConferenceEnabled(Boolean multiPartyConferenceEnabled) {
+            return multiPartyConferenceEnabled(Output.of(multiPartyConferenceEnabled));
         }
 
         /**

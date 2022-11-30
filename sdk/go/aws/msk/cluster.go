@@ -299,6 +299,8 @@ type Cluster struct {
 	NumberOfBrokerNodes pulumi.IntOutput `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrOutput `pulumi:"openMonitoring"`
+	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+	StorageMode pulumi.StringOutput `pulumi:"storageMode"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -386,6 +388,8 @@ type clusterState struct {
 	NumberOfBrokerNodes *int `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
+	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+	StorageMode *string `pulumi:"storageMode"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -436,6 +440,8 @@ type ClusterState struct {
 	NumberOfBrokerNodes pulumi.IntPtrInput
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrInput
+	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+	StorageMode pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -471,6 +477,8 @@ type clusterArgs struct {
 	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
+	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+	StorageMode *string `pulumi:"storageMode"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -497,6 +505,8 @@ type ClusterArgs struct {
 	NumberOfBrokerNodes pulumi.IntInput
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrInput
+	// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+	StorageMode pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -682,6 +692,11 @@ func (o ClusterOutput) NumberOfBrokerNodes() pulumi.IntOutput {
 // Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 func (o ClusterOutput) OpenMonitoring() ClusterOpenMonitoringPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOpenMonitoringPtrOutput { return v.OpenMonitoring }).(ClusterOpenMonitoringPtrOutput)
+}
+
+// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+func (o ClusterOutput) StorageMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.StorageMode }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

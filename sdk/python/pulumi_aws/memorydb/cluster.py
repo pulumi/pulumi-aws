@@ -19,6 +19,7 @@ class ClusterArgs:
                  acl_name: pulumi.Input[str],
                  node_type: pulumi.Input[str],
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 data_tiering: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +32,7 @@ class ClusterArgs:
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[str]] = None,
+                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,7 @@ class ClusterArgs:
         :param pulumi.Input[str] acl_name: The name of the Access Control List to associate with the cluster.
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
+        :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[str] description: Description for the cluster.
         :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
@@ -56,7 +58,7 @@ class ClusterArgs:
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
-        :param pulumi.Input[str] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
@@ -69,6 +71,8 @@ class ClusterArgs:
         pulumi.set(__self__, "node_type", node_type)
         if auto_minor_version_upgrade is not None:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+        if data_tiering is not None:
+            pulumi.set(__self__, "data_tiering", data_tiering)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if engine_version is not None:
@@ -145,6 +149,18 @@ class ClusterArgs:
     @auto_minor_version_upgrade.setter
     def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
+
+    @property
+    @pulumi.getter(name="dataTiering")
+    def data_tiering(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        """
+        return pulumi.get(self, "data_tiering")
+
+    @data_tiering.setter
+    def data_tiering(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_tiering", value)
 
     @property
     @pulumi.getter
@@ -292,14 +308,14 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="snapshotArns")
-    def snapshot_arns(self) -> Optional[pulumi.Input[str]]:
+    def snapshot_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         """
         return pulumi.get(self, "snapshot_arns")
 
     @snapshot_arns.setter
-    def snapshot_arns(self, value: Optional[pulumi.Input[str]]):
+    def snapshot_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "snapshot_arns", value)
 
     @property
@@ -394,6 +410,7 @@ class _ClusterState:
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArgs']]]] = None,
+                 data_tiering: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_patch_version: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -409,7 +426,7 @@ class _ClusterState:
                  port: Optional[pulumi.Input[int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  shards: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[str]] = None,
+                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
@@ -424,6 +441,7 @@ class _ClusterState:
         :param pulumi.Input[str] arn: The ARN of the cluster.
                * `cluster_endpoint`
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
+        :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[str] description: Description for the cluster.
         :param pulumi.Input[str] engine_patch_version: Patch version number of the Redis engine used by the cluster.
         :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
@@ -439,7 +457,7 @@ class _ClusterState:
         :param pulumi.Input[int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]] shards: Set of shards in this cluster.
-        :param pulumi.Input[str] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
@@ -457,6 +475,8 @@ class _ClusterState:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if cluster_endpoints is not None:
             pulumi.set(__self__, "cluster_endpoints", cluster_endpoints)
+        if data_tiering is not None:
+            pulumi.set(__self__, "data_tiering", data_tiering)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if engine_patch_version is not None:
@@ -551,6 +571,18 @@ class _ClusterState:
     @cluster_endpoints.setter
     def cluster_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArgs']]]]):
         pulumi.set(self, "cluster_endpoints", value)
+
+    @property
+    @pulumi.getter(name="dataTiering")
+    def data_tiering(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        """
+        return pulumi.get(self, "data_tiering")
+
+    @data_tiering.setter
+    def data_tiering(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_tiering", value)
 
     @property
     @pulumi.getter
@@ -734,14 +766,14 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="snapshotArns")
-    def snapshot_arns(self) -> Optional[pulumi.Input[str]]:
+    def snapshot_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         """
         return pulumi.get(self, "snapshot_arns")
 
     @snapshot_arns.setter
-    def snapshot_arns(self, value: Optional[pulumi.Input[str]]):
+    def snapshot_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "snapshot_arns", value)
 
     @property
@@ -848,6 +880,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acl_name: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 data_tiering: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -861,7 +894,7 @@ class Cluster(pulumi.CustomResource):
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[str]] = None,
+                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
@@ -902,6 +935,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acl_name: The name of the Access Control List to associate with the cluster.
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
+        :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[str] description: Description for the cluster.
         :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
@@ -915,7 +949,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
-        :param pulumi.Input[str] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
@@ -975,6 +1009,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acl_name: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 data_tiering: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -988,7 +1023,7 @@ class Cluster(pulumi.CustomResource):
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 snapshot_arns: Optional[pulumi.Input[str]] = None,
+                 snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
@@ -1009,6 +1044,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'acl_name'")
             __props__.__dict__["acl_name"] = acl_name
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            __props__.__dict__["data_tiering"] = data_tiering
             __props__.__dict__["description"] = description
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["final_snapshot_name"] = final_snapshot_name
@@ -1051,6 +1087,7 @@ class Cluster(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
             cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterEndpointArgs']]]]] = None,
+            data_tiering: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             engine_patch_version: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
@@ -1066,7 +1103,7 @@ class Cluster(pulumi.CustomResource):
             port: Optional[pulumi.Input[int]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             shards: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterShardArgs']]]]] = None,
-            snapshot_arns: Optional[pulumi.Input[str]] = None,
+            snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_name: Optional[pulumi.Input[str]] = None,
             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
             snapshot_window: Optional[pulumi.Input[str]] = None,
@@ -1086,6 +1123,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the cluster.
                * `cluster_endpoint`
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
+        :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[str] description: Description for the cluster.
         :param pulumi.Input[str] engine_patch_version: Patch version number of the Redis engine used by the cluster.
         :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
@@ -1101,7 +1139,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterShardArgs']]]] shards: Set of shards in this cluster.
-        :param pulumi.Input[str] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
@@ -1119,6 +1157,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         __props__.__dict__["cluster_endpoints"] = cluster_endpoints
+        __props__.__dict__["data_tiering"] = data_tiering
         __props__.__dict__["description"] = description
         __props__.__dict__["engine_patch_version"] = engine_patch_version
         __props__.__dict__["engine_version"] = engine_version
@@ -1174,6 +1213,14 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterEndpoints")
     def cluster_endpoints(self) -> pulumi.Output[Sequence['outputs.ClusterClusterEndpoint']]:
         return pulumi.get(self, "cluster_endpoints")
+
+    @property
+    @pulumi.getter(name="dataTiering")
+    def data_tiering(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        """
+        return pulumi.get(self, "data_tiering")
 
     @property
     @pulumi.getter
@@ -1297,7 +1344,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotArns")
-    def snapshot_arns(self) -> pulumi.Output[Optional[str]]:
+    def snapshot_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         """

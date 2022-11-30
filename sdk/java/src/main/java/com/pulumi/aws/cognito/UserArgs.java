@@ -153,9 +153,17 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         return this.userPoolId;
     }
 
+    /**
+     * The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+     * 
+     */
     @Import(name="username", required=true)
     private Output<String> username;
 
+    /**
+     * @return The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+     * 
+     */
     public Output<String> username() {
         return this.username;
     }
@@ -408,11 +416,23 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
             return userPoolId(Output.of(userPoolId));
         }
 
+        /**
+         * @param username The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
+        /**
+         * @param username The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

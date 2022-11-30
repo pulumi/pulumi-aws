@@ -19,6 +19,7 @@ public final class ClusterCacheNode {
      */
     private @Nullable String availabilityZone;
     private @Nullable String id;
+    private @Nullable String outpostArn;
     /**
      * @return The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
      * 
@@ -38,6 +39,9 @@ public final class ClusterCacheNode {
     }
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
+    }
+    public Optional<String> outpostArn() {
+        return Optional.ofNullable(this.outpostArn);
     }
     /**
      * @return The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
@@ -59,6 +63,7 @@ public final class ClusterCacheNode {
         private @Nullable String address;
         private @Nullable String availabilityZone;
         private @Nullable String id;
+        private @Nullable String outpostArn;
         private @Nullable Integer port;
         public Builder() {}
         public Builder(ClusterCacheNode defaults) {
@@ -66,6 +71,7 @@ public final class ClusterCacheNode {
     	      this.address = defaults.address;
     	      this.availabilityZone = defaults.availabilityZone;
     	      this.id = defaults.id;
+    	      this.outpostArn = defaults.outpostArn;
     	      this.port = defaults.port;
         }
 
@@ -85,6 +91,11 @@ public final class ClusterCacheNode {
             return this;
         }
         @CustomType.Setter
+        public Builder outpostArn(@Nullable String outpostArn) {
+            this.outpostArn = outpostArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
@@ -94,6 +105,7 @@ public final class ClusterCacheNode {
             o.address = address;
             o.availabilityZone = availabilityZone;
             o.id = id;
+            o.outpostArn = outpostArn;
             o.port = port;
             return o;
         }

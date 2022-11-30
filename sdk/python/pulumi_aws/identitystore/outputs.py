@@ -17,6 +17,10 @@ __all__ = [
     'UserExternalId',
     'UserName',
     'UserPhoneNumbers',
+    'GetGroupAlternateIdentifierResult',
+    'GetGroupAlternateIdentifierExternalIdResult',
+    'GetGroupAlternateIdentifierUniqueAttributeResult',
+    'GetGroupExternalIdResult',
     'GetGroupFilterResult',
     'GetUserAddressResult',
     'GetUserAlternateIdentifierResult',
@@ -402,12 +406,72 @@ class UserPhoneNumbers(dict):
 
 
 @pulumi.output_type
-class GetGroupFilterResult(dict):
+class GetGroupAlternateIdentifierResult(dict):
+    def __init__(__self__, *,
+                 external_id: Optional['outputs.GetGroupAlternateIdentifierExternalIdResult'] = None,
+                 unique_attribute: Optional['outputs.GetGroupAlternateIdentifierUniqueAttributeResult'] = None):
+        """
+        :param 'GetGroupAlternateIdentifierExternalIdArgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+        :param 'GetGroupAlternateIdentifierUniqueAttributeArgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
+        """
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if unique_attribute is not None:
+            pulumi.set(__self__, "unique_attribute", unique_attribute)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional['outputs.GetGroupAlternateIdentifierExternalIdResult']:
+        """
+        Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+        """
+        return pulumi.get(self, "external_id")
+
+    @property
+    @pulumi.getter(name="uniqueAttribute")
+    def unique_attribute(self) -> Optional['outputs.GetGroupAlternateIdentifierUniqueAttributeResult']:
+        """
+        An entity attribute that's unique to a specific entity. Detailed below.
+        """
+        return pulumi.get(self, "unique_attribute")
+
+
+@pulumi.output_type
+class GetGroupAlternateIdentifierExternalIdResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 issuer: str):
+        """
+        :param str id: The identifier issued to this resource by an external identity provider.
+        :param str issuer: The issuer for an external identifier.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "issuer", issuer)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier issued to this resource by an external identity provider.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        """
+        The issuer for an external identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+
+@pulumi.output_type
+class GetGroupAlternateIdentifierUniqueAttributeResult(dict):
     def __init__(__self__, *,
                  attribute_path: str,
                  attribute_value: str):
         """
-        :param str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+        :param str attribute_path: Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
         :param str attribute_value: Value for an attribute.
         """
         pulumi.set(__self__, "attribute_path", attribute_path)
@@ -417,7 +481,65 @@ class GetGroupFilterResult(dict):
     @pulumi.getter(name="attributePath")
     def attribute_path(self) -> str:
         """
-        Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+        Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+        """
+        return pulumi.get(self, "attribute_path")
+
+    @property
+    @pulumi.getter(name="attributeValue")
+    def attribute_value(self) -> str:
+        """
+        Value for an attribute.
+        """
+        return pulumi.get(self, "attribute_value")
+
+
+@pulumi.output_type
+class GetGroupExternalIdResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 issuer: str):
+        """
+        :param str id: The identifier issued to this resource by an external identity provider.
+        :param str issuer: The issuer for an external identifier.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "issuer", issuer)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier issued to this resource by an external identity provider.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        """
+        The issuer for an external identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+
+@pulumi.output_type
+class GetGroupFilterResult(dict):
+    def __init__(__self__, *,
+                 attribute_path: str,
+                 attribute_value: str):
+        """
+        :param str attribute_path: Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+        :param str attribute_value: Value for an attribute.
+        """
+        pulumi.set(__self__, "attribute_path", attribute_path)
+        pulumi.set(__self__, "attribute_value", attribute_value)
+
+    @property
+    @pulumi.getter(name="attributePath")
+    def attribute_path(self) -> str:
+        """
+        Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
         """
         return pulumi.get(self, "attribute_path")
 

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ResourceGroups.Inputs
 
     public sealed class GroupConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("parameters", required: true)]
+        [Input("parameters")]
         private InputList<Inputs.GroupConfigurationParameterGetArgs>? _parameters;
 
         /// <summary>

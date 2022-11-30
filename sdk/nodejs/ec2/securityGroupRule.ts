@@ -188,6 +188,10 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      */
     public readonly securityGroupId!: pulumi.Output<string>;
     /**
+     * If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+     */
+    public /*out*/ readonly securityGroupRuleId!: pulumi.Output<string>;
+    /**
      * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
      */
     public readonly self!: pulumi.Output<boolean | undefined>;
@@ -225,6 +229,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             resourceInputs["prefixListIds"] = state ? state.prefixListIds : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
+            resourceInputs["securityGroupRuleId"] = state ? state.securityGroupRuleId : undefined;
             resourceInputs["self"] = state ? state.self : undefined;
             resourceInputs["sourceSecurityGroupId"] = state ? state.sourceSecurityGroupId : undefined;
             resourceInputs["toPort"] = state ? state.toPort : undefined;
@@ -257,6 +262,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             resourceInputs["sourceSecurityGroupId"] = args ? args.sourceSecurityGroupId : undefined;
             resourceInputs["toPort"] = args ? args.toPort : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["securityGroupRuleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityGroupRule.__pulumiType, name, resourceInputs, opts);
@@ -295,6 +301,10 @@ export interface SecurityGroupRuleState {
      * Security group to apply this rule to.
      */
     securityGroupId?: pulumi.Input<string>;
+    /**
+     * If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+     */
+    securityGroupRuleId?: pulumi.Input<string>;
     /**
      * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
      */

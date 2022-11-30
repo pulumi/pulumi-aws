@@ -98,6 +98,12 @@ namespace Pulumi.Aws.EmrServerless
     public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+        /// </summary>
+        [Output("architecture")]
+        public Output<string?> Architecture { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the cluster.
         /// </summary>
         [Output("arn")]
@@ -125,7 +131,7 @@ namespace Pulumi.Aws.EmrServerless
         /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         /// </summary>
         [Output("maximumCapacity")]
-        public Output<Outputs.ApplicationMaximumCapacity?> MaximumCapacity { get; private set; } = null!;
+        public Output<Outputs.ApplicationMaximumCapacity> MaximumCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The name of the application.
@@ -210,6 +216,12 @@ namespace Pulumi.Aws.EmrServerless
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+        /// </summary>
+        [Input("architecture")]
+        public Input<string>? Architecture { get; set; }
+
+        /// <summary>
         /// The configuration for an application to automatically start on job submission.
         /// </summary>
         [Input("autoStartConfiguration")]
@@ -283,6 +295,12 @@ namespace Pulumi.Aws.EmrServerless
 
     public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+        /// </summary>
+        [Input("architecture")]
+        public Input<string>? Architecture { get; set; }
+
         /// <summary>
         /// ARN of the cluster.
         /// </summary>

@@ -570,6 +570,9 @@ namespace Pulumi.Aws.Inputs
         [Input("ivs")]
         public Input<string>? Ivs { get; set; }
 
+        [Input("ivschat")]
+        public Input<string>? Ivschat { get; set; }
+
         [Input("kafka")]
         public Input<string>? Kafka { get; set; }
 
@@ -953,6 +956,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("savingsplans")]
         public Input<string>? Savingsplans { get; set; }
+
+        [Input("scheduler")]
+        public Input<string>? Scheduler { get; set; }
 
         [Input("schemas")]
         public Input<string>? Schemas { get; set; }

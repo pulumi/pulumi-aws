@@ -12,37 +12,101 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings {
+    /**
+     * @return Average bitrate in bits/second.
+     * 
+     */
     private @Nullable Double bitrate;
+    /**
+     * @return Dolby Digital Plus coding mode.
+     * 
+     */
     private @Nullable String codingMode;
+    /**
+     * @return Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+     * 
+     */
     private @Nullable String inputType;
+    /**
+     * @return H264 profile.
+     * 
+     */
     private @Nullable String profile;
+    /**
+     * @return Sets LATM/LOAS AAC output for raw containers.
+     * 
+     */
     private @Nullable String rawFormat;
+    /**
+     * @return Sample rate in Hz.
+     * 
+     */
     private @Nullable Double sampleRate;
+    /**
+     * @return Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+     * 
+     */
     private @Nullable String spec;
+    /**
+     * @return VBR Quality Level - Only used if rateControlMode is VBR.
+     * 
+     */
     private @Nullable String vbrQuality;
 
     private ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings() {}
+    /**
+     * @return Average bitrate in bits/second.
+     * 
+     */
     public Optional<Double> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
+    /**
+     * @return Dolby Digital Plus coding mode.
+     * 
+     */
     public Optional<String> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
+    /**
+     * @return Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+     * 
+     */
     public Optional<String> inputType() {
         return Optional.ofNullable(this.inputType);
     }
+    /**
+     * @return H264 profile.
+     * 
+     */
     public Optional<String> profile() {
         return Optional.ofNullable(this.profile);
     }
+    /**
+     * @return Sets LATM/LOAS AAC output for raw containers.
+     * 
+     */
     public Optional<String> rawFormat() {
         return Optional.ofNullable(this.rawFormat);
     }
+    /**
+     * @return Sample rate in Hz.
+     * 
+     */
     public Optional<Double> sampleRate() {
         return Optional.ofNullable(this.sampleRate);
     }
+    /**
+     * @return Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+     * 
+     */
     public Optional<String> spec() {
         return Optional.ofNullable(this.spec);
     }
+    /**
+     * @return VBR Quality Level - Only used if rateControlMode is VBR.
+     * 
+     */
     public Optional<String> vbrQuality() {
         return Optional.ofNullable(this.vbrQuality);
     }

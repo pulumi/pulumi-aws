@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings {
+    /**
+     * @return Average bitrate in bits/second.
+     * 
+     */
     private @Nullable Double bitrate;
+    /**
+     * @return Dolby Digital Plus coding mode.
+     * 
+     */
     private @Nullable String codingMode;
+    /**
+     * @return Sample rate in Hz.
+     * 
+     */
     private @Nullable Double sampleRate;
 
     private ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings() {}
+    /**
+     * @return Average bitrate in bits/second.
+     * 
+     */
     public Optional<Double> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
+    /**
+     * @return Dolby Digital Plus coding mode.
+     * 
+     */
     public Optional<String> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
+    /**
+     * @return Sample rate in Hz.
+     * 
+     */
     public Optional<Double> sampleRate() {
         return Optional.ofNullable(this.sampleRate);
     }

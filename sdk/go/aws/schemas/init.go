@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Discoverer{}
 	case "aws:schemas/registry:Registry":
 		r = &Registry{}
+	case "aws:schemas/registryPolicy:RegistryPolicy":
+		r = &RegistryPolicy{}
 	case "aws:schemas/schema:Schema":
 		r = &Schema{}
 	default:
@@ -48,6 +50,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"schemas/registry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"schemas/registryPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

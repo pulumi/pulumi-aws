@@ -18,26 +18,15 @@ __all__ = [
 @pulumi.input_type
 class GroupConfigurationArgs:
     def __init__(__self__, *,
-                 parameters: pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]] parameters: A collection of parameters for this group configuration item. See below for details.
         :param pulumi.Input[str] type: Specifies the type of group configuration item.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]] parameters: A collection of parameters for this group configuration item. See below for details.
         """
-        pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]:
-        """
-        A collection of parameters for this group configuration item. See below for details.
-        """
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]):
-        pulumi.set(self, "parameters", value)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter
@@ -50,6 +39,18 @@ class GroupConfigurationArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]:
+        """
+        A collection of parameters for this group configuration item. See below for details.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type

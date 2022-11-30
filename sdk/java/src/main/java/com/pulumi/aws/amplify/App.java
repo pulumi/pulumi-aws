@@ -443,14 +443,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.oauthToken);
     }
     /**
-     * Platform or framework for an Amplify app. Valid values: `WEB`.
+     * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      * 
      */
     @Export(name="platform", type=String.class, parameters={})
     private Output</* @Nullable */ String> platform;
 
     /**
-     * @return Platform or framework for an Amplify app. Valid values: `WEB`.
+     * @return Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      * 
      */
     public Output<Optional<String>> platform() {

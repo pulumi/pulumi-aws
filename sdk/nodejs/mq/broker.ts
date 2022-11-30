@@ -145,7 +145,7 @@ export class Broker extends pulumi.CustomResource {
     public readonly hostInstanceType!: pulumi.Output<string>;
     /**
      * List of information about allocated brokers (both active & standby).
-     * * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+     * * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engineType`.
      * * `instances.0.ip_address` - IP Address of the broker.
      * * `instances.0.endpoints` - Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
      * * For `ActiveMQ`:
@@ -326,7 +326,7 @@ export interface BrokerState {
     hostInstanceType?: pulumi.Input<string>;
     /**
      * List of information about allocated brokers (both active & standby).
-     * * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+     * * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engineType`.
      * * `instances.0.ip_address` - IP Address of the broker.
      * * `instances.0.endpoints` - Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
      * * For `ActiveMQ`:

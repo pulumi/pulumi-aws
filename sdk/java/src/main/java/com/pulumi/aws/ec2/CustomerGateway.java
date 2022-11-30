@@ -123,14 +123,14 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipAddress", type=String.class, parameters={})
-    private Output<String> ipAddress;
+    private Output</* @Nullable */ String> ipAddress;
 
     /**
      * @return The IPv4 address for the customer gateway device&#39;s outside interface.
      * 
      */
-    public Output<String> ipAddress() {
-        return this.ipAddress;
+    public Output<Optional<String>> ipAddress() {
+        return Codegen.optional(this.ipAddress);
     }
     /**
      * Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

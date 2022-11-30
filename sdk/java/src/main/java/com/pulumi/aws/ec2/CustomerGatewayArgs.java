@@ -65,15 +65,15 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
      * The IPv4 address for the customer gateway device&#39;s outside interface.
      * 
      */
-    @Import(name="ipAddress", required=true)
-    private Output<String> ipAddress;
+    @Import(name="ipAddress")
+    private @Nullable Output<String> ipAddress;
 
     /**
      * @return The IPv4 address for the customer gateway device&#39;s outside interface.
      * 
      */
-    public Output<String> ipAddress() {
-        return this.ipAddress;
+    public Optional<Output<String>> ipAddress() {
+        return Optional.ofNullable(this.ipAddress);
     }
 
     /**
@@ -206,7 +206,7 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder ipAddress(Output<String> ipAddress) {
+        public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
@@ -267,7 +267,6 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
 
         public CustomerGatewayArgs build() {
             $.bgpAsn = Objects.requireNonNull($.bgpAsn, "expected parameter 'bgpAsn' to be non-null");
-            $.ipAddress = Objects.requireNonNull($.ipAddress, "expected parameter 'ipAddress' to be non-null");
             $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
             return $;
         }

@@ -174,6 +174,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+     * 
+     */
+    @Import(name="storageMode")
+    private @Nullable Output<String> storageMode;
+
+    /**
+     * @return Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+     * 
+     */
+    public Optional<Output<String>> storageMode() {
+        return Optional.ofNullable(this.storageMode);
+    }
+
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -201,6 +216,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.loggingInfo = $.loggingInfo;
         this.numberOfBrokerNodes = $.numberOfBrokerNodes;
         this.openMonitoring = $.openMonitoring;
+        this.storageMode = $.storageMode;
         this.tags = $.tags;
     }
 
@@ -430,6 +446,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder openMonitoring(ClusterOpenMonitoringArgs openMonitoring) {
             return openMonitoring(Output.of(openMonitoring));
+        }
+
+        /**
+         * @param storageMode Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageMode(@Nullable Output<String> storageMode) {
+            $.storageMode = storageMode;
+            return this;
+        }
+
+        /**
+         * @param storageMode Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageMode(String storageMode) {
+            return storageMode(Output.of(storageMode));
         }
 
         /**

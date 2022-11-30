@@ -233,6 +233,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+     * 
+     */
+    @Import(name="ipDiscovery")
+    private @Nullable Output<String> ipDiscovery;
+
+    /**
+     * @return The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+     * 
+     */
+    public Optional<Output<String>> ipDiscovery() {
+        return Optional.ofNullable(this.ipDiscovery);
+    }
+
+    /**
      * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
      * 
      */
@@ -264,6 +279,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> maintenanceWindow() {
         return Optional.ofNullable(this.maintenanceWindow);
+    }
+
+    /**
+     * The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
     }
 
     /**
@@ -312,6 +342,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specify the outpost mode that will apply to the cache cluster creation. Valid values are `&#34;single-outpost&#34;` and `&#34;cross-outpost&#34;`, however AWS currently only supports `&#34;single-outpost&#34;` mode.
+     * 
+     */
+    @Import(name="outpostMode")
+    private @Nullable Output<String> outpostMode;
+
+    /**
+     * @return Specify the outpost mode that will apply to the cache cluster creation. Valid values are `&#34;single-outpost&#34;` and `&#34;cross-outpost&#34;`, however AWS currently only supports `&#34;single-outpost&#34;` mode.
+     * 
+     */
+    public Optional<Output<String>> outpostMode() {
+        return Optional.ofNullable(this.outpostMode);
+    }
+
+    /**
      * The name of the parameter group to associate with this cache cluster.
      * 
      */
@@ -354,6 +399,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> preferredAvailabilityZones() {
         return Optional.ofNullable(this.preferredAvailabilityZones);
+    }
+
+    /**
+     * The outpost ARN in which the cache cluster will be created.
+     * 
+     */
+    @Import(name="preferredOutpostArn")
+    private @Nullable Output<String> preferredOutpostArn;
+
+    /**
+     * @return The outpost ARN in which the cache cluster will be created.
+     * 
+     */
+    public Optional<Output<String>> preferredOutpostArn() {
+        return Optional.ofNullable(this.preferredOutpostArn);
     }
 
     /**
@@ -530,14 +590,18 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.engineVersion = $.engineVersion;
         this.engineVersionActual = $.engineVersionActual;
         this.finalSnapshotIdentifier = $.finalSnapshotIdentifier;
+        this.ipDiscovery = $.ipDiscovery;
         this.logDeliveryConfigurations = $.logDeliveryConfigurations;
         this.maintenanceWindow = $.maintenanceWindow;
+        this.networkType = $.networkType;
         this.nodeType = $.nodeType;
         this.notificationTopicArn = $.notificationTopicArn;
         this.numCacheNodes = $.numCacheNodes;
+        this.outpostMode = $.outpostMode;
         this.parameterGroupName = $.parameterGroupName;
         this.port = $.port;
         this.preferredAvailabilityZones = $.preferredAvailabilityZones;
+        this.preferredOutpostArn = $.preferredOutpostArn;
         this.replicationGroupId = $.replicationGroupId;
         this.securityGroupIds = $.securityGroupIds;
         this.securityGroupNames = $.securityGroupNames;
@@ -868,6 +932,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param ipDiscovery The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipDiscovery(@Nullable Output<String> ipDiscovery) {
+            $.ipDiscovery = ipDiscovery;
+            return this;
+        }
+
+        /**
+         * @param ipDiscovery The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipDiscovery(String ipDiscovery) {
+            return ipDiscovery(Output.of(ipDiscovery));
+        }
+
+        /**
          * @param logDeliveryConfigurations Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
          * 
          * @return builder
@@ -921,6 +1006,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder maintenanceWindow(String maintenanceWindow) {
             return maintenanceWindow(Output.of(maintenanceWindow));
+        }
+
+        /**
+         * @param networkType The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
         }
 
         /**
@@ -984,6 +1090,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder numCacheNodes(Integer numCacheNodes) {
             return numCacheNodes(Output.of(numCacheNodes));
+        }
+
+        /**
+         * @param outpostMode Specify the outpost mode that will apply to the cache cluster creation. Valid values are `&#34;single-outpost&#34;` and `&#34;cross-outpost&#34;`, however AWS currently only supports `&#34;single-outpost&#34;` mode.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outpostMode(@Nullable Output<String> outpostMode) {
+            $.outpostMode = outpostMode;
+            return this;
+        }
+
+        /**
+         * @param outpostMode Specify the outpost mode that will apply to the cache cluster creation. Valid values are `&#34;single-outpost&#34;` and `&#34;cross-outpost&#34;`, however AWS currently only supports `&#34;single-outpost&#34;` mode.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outpostMode(String outpostMode) {
+            return outpostMode(Output.of(outpostMode));
         }
 
         /**
@@ -1057,6 +1184,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder preferredAvailabilityZones(String... preferredAvailabilityZones) {
             return preferredAvailabilityZones(List.of(preferredAvailabilityZones));
+        }
+
+        /**
+         * @param preferredOutpostArn The outpost ARN in which the cache cluster will be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredOutpostArn(@Nullable Output<String> preferredOutpostArn) {
+            $.preferredOutpostArn = preferredOutpostArn;
+            return this;
+        }
+
+        /**
+         * @param preferredOutpostArn The outpost ARN in which the cache cluster will be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredOutpostArn(String preferredOutpostArn) {
+            return preferredOutpostArn(Output.of(preferredOutpostArn));
         }
 
         /**

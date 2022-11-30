@@ -5,15 +5,61 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsAudioSelector;
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsCaptionSelector;
+import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsNetworkInputSettings;
+import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsVideoSelector;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettings {
     private @Nullable List<ChannelInputAttachmentInputSettingsAudioSelector> audioSelectors;
     private @Nullable List<ChannelInputAttachmentInputSettingsCaptionSelector> captionSelectors;
+    /**
+     * @return Enable or disable the deblock filter when filtering.
+     * 
+     */
+    private @Nullable String deblockFilter;
+    /**
+     * @return Enable or disable the denoise filter when filtering.
+     * 
+     */
+    private @Nullable String denoiseFilter;
+    /**
+     * @return Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+     * 
+     */
+    private @Nullable Integer filterStrength;
+    /**
+     * @return Turns on the filter for the input.
+     * 
+     */
+    private @Nullable String inputFilter;
+    /**
+     * @return Input settings. See Network Input Settings for more details.
+     * 
+     */
+    private @Nullable ChannelInputAttachmentInputSettingsNetworkInputSettings networkInputSettings;
+    /**
+     * @return PID from which to read SCTE-35 messages.
+     * 
+     */
+    private @Nullable Integer scte35Pid;
+    /**
+     * @return Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+     * 
+     */
+    private @Nullable String smpte2038DataPreference;
+    /**
+     * @return Loop input if it is a file.
+     * 
+     */
+    private @Nullable String sourceEndBehavior;
+    private @Nullable ChannelInputAttachmentInputSettingsVideoSelector videoSelector;
 
     private ChannelInputAttachmentInputSettings() {}
     public List<ChannelInputAttachmentInputSettingsAudioSelector> audioSelectors() {
@@ -21,6 +67,65 @@ public final class ChannelInputAttachmentInputSettings {
     }
     public List<ChannelInputAttachmentInputSettingsCaptionSelector> captionSelectors() {
         return this.captionSelectors == null ? List.of() : this.captionSelectors;
+    }
+    /**
+     * @return Enable or disable the deblock filter when filtering.
+     * 
+     */
+    public Optional<String> deblockFilter() {
+        return Optional.ofNullable(this.deblockFilter);
+    }
+    /**
+     * @return Enable or disable the denoise filter when filtering.
+     * 
+     */
+    public Optional<String> denoiseFilter() {
+        return Optional.ofNullable(this.denoiseFilter);
+    }
+    /**
+     * @return Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+     * 
+     */
+    public Optional<Integer> filterStrength() {
+        return Optional.ofNullable(this.filterStrength);
+    }
+    /**
+     * @return Turns on the filter for the input.
+     * 
+     */
+    public Optional<String> inputFilter() {
+        return Optional.ofNullable(this.inputFilter);
+    }
+    /**
+     * @return Input settings. See Network Input Settings for more details.
+     * 
+     */
+    public Optional<ChannelInputAttachmentInputSettingsNetworkInputSettings> networkInputSettings() {
+        return Optional.ofNullable(this.networkInputSettings);
+    }
+    /**
+     * @return PID from which to read SCTE-35 messages.
+     * 
+     */
+    public Optional<Integer> scte35Pid() {
+        return Optional.ofNullable(this.scte35Pid);
+    }
+    /**
+     * @return Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+     * 
+     */
+    public Optional<String> smpte2038DataPreference() {
+        return Optional.ofNullable(this.smpte2038DataPreference);
+    }
+    /**
+     * @return Loop input if it is a file.
+     * 
+     */
+    public Optional<String> sourceEndBehavior() {
+        return Optional.ofNullable(this.sourceEndBehavior);
+    }
+    public Optional<ChannelInputAttachmentInputSettingsVideoSelector> videoSelector() {
+        return Optional.ofNullable(this.videoSelector);
     }
 
     public static Builder builder() {
@@ -34,11 +139,29 @@ public final class ChannelInputAttachmentInputSettings {
     public static final class Builder {
         private @Nullable List<ChannelInputAttachmentInputSettingsAudioSelector> audioSelectors;
         private @Nullable List<ChannelInputAttachmentInputSettingsCaptionSelector> captionSelectors;
+        private @Nullable String deblockFilter;
+        private @Nullable String denoiseFilter;
+        private @Nullable Integer filterStrength;
+        private @Nullable String inputFilter;
+        private @Nullable ChannelInputAttachmentInputSettingsNetworkInputSettings networkInputSettings;
+        private @Nullable Integer scte35Pid;
+        private @Nullable String smpte2038DataPreference;
+        private @Nullable String sourceEndBehavior;
+        private @Nullable ChannelInputAttachmentInputSettingsVideoSelector videoSelector;
         public Builder() {}
         public Builder(ChannelInputAttachmentInputSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audioSelectors = defaults.audioSelectors;
     	      this.captionSelectors = defaults.captionSelectors;
+    	      this.deblockFilter = defaults.deblockFilter;
+    	      this.denoiseFilter = defaults.denoiseFilter;
+    	      this.filterStrength = defaults.filterStrength;
+    	      this.inputFilter = defaults.inputFilter;
+    	      this.networkInputSettings = defaults.networkInputSettings;
+    	      this.scte35Pid = defaults.scte35Pid;
+    	      this.smpte2038DataPreference = defaults.smpte2038DataPreference;
+    	      this.sourceEndBehavior = defaults.sourceEndBehavior;
+    	      this.videoSelector = defaults.videoSelector;
         }
 
         @CustomType.Setter
@@ -57,10 +180,64 @@ public final class ChannelInputAttachmentInputSettings {
         public Builder captionSelectors(ChannelInputAttachmentInputSettingsCaptionSelector... captionSelectors) {
             return captionSelectors(List.of(captionSelectors));
         }
+        @CustomType.Setter
+        public Builder deblockFilter(@Nullable String deblockFilter) {
+            this.deblockFilter = deblockFilter;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder denoiseFilter(@Nullable String denoiseFilter) {
+            this.denoiseFilter = denoiseFilter;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder filterStrength(@Nullable Integer filterStrength) {
+            this.filterStrength = filterStrength;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inputFilter(@Nullable String inputFilter) {
+            this.inputFilter = inputFilter;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder networkInputSettings(@Nullable ChannelInputAttachmentInputSettingsNetworkInputSettings networkInputSettings) {
+            this.networkInputSettings = networkInputSettings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scte35Pid(@Nullable Integer scte35Pid) {
+            this.scte35Pid = scte35Pid;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder smpte2038DataPreference(@Nullable String smpte2038DataPreference) {
+            this.smpte2038DataPreference = smpte2038DataPreference;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sourceEndBehavior(@Nullable String sourceEndBehavior) {
+            this.sourceEndBehavior = sourceEndBehavior;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder videoSelector(@Nullable ChannelInputAttachmentInputSettingsVideoSelector videoSelector) {
+            this.videoSelector = videoSelector;
+            return this;
+        }
         public ChannelInputAttachmentInputSettings build() {
             final var o = new ChannelInputAttachmentInputSettings();
             o.audioSelectors = audioSelectors;
             o.captionSelectors = captionSelectors;
+            o.deblockFilter = deblockFilter;
+            o.denoiseFilter = denoiseFilter;
+            o.filterStrength = filterStrength;
+            o.inputFilter = inputFilter;
+            o.networkInputSettings = networkInputSettings;
+            o.scte35Pid = scte35Pid;
+            o.smpte2038DataPreference = smpte2038DataPreference;
+            o.sourceEndBehavior = sourceEndBehavior;
+            o.videoSelector = videoSelector;
             return o;
         }
     }

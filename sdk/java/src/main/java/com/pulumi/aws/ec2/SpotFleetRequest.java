@@ -207,6 +207,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var subnets = config.get(&#34;subnets&#34;);
  *         var example = new SpotFleetRequest(&#34;example&#34;, SpotFleetRequestArgs.builder()        
  *             .iamFleetRole(&#34;arn:aws:iam::12345678:role/spot-fleet&#34;)
  *             .targetCapacity(3)
@@ -302,7 +304,7 @@ import javax.annotation.Nullable;
 public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
     /**
      * Indicates how to allocate the target capacity across
-     * the Spot pools specified by the Spot fleet request. The default is
+     * the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
      * `lowestPrice`.
      * 
      */
@@ -311,7 +313,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Indicates how to allocate the target capacity across
-     * the Spot pools specified by the Spot fleet request. The default is
+     * the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
      * `lowestPrice`.
      * 
      */

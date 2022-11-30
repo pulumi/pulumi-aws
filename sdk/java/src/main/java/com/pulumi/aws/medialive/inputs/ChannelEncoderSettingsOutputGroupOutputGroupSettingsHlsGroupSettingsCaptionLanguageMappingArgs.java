@@ -21,9 +21,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return this.captionChannel;
     }
 
+    /**
+     * When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * 
+     */
     @Import(name="languageCode", required=true)
     private Output<String> languageCode;
 
+    /**
+     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * 
+     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
@@ -70,11 +78,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return captionChannel(Output.of(captionChannel));
         }
 
+        /**
+         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
+        /**
+         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }

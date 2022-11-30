@@ -134,6 +134,8 @@ type Instance struct {
 	InboundCallsEnabled pulumi.BoolOutput `pulumi:"inboundCallsEnabled"`
 	// Specifies the name of the instance. Required if `directoryId` not specified.
 	InstanceAlias pulumi.StringPtrOutput `pulumi:"instanceAlias"`
+	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+	MultiPartyConferenceEnabled pulumi.BoolPtrOutput `pulumi:"multiPartyConferenceEnabled"`
 	// Specifies whether outbound calls are enabled.
 	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolOutput `pulumi:"outboundCallsEnabled"`
@@ -201,6 +203,8 @@ type instanceState struct {
 	InboundCallsEnabled *bool `pulumi:"inboundCallsEnabled"`
 	// Specifies the name of the instance. Required if `directoryId` not specified.
 	InstanceAlias *string `pulumi:"instanceAlias"`
+	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+	MultiPartyConferenceEnabled *bool `pulumi:"multiPartyConferenceEnabled"`
 	// Specifies whether outbound calls are enabled.
 	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled *bool `pulumi:"outboundCallsEnabled"`
@@ -231,6 +235,8 @@ type InstanceState struct {
 	InboundCallsEnabled pulumi.BoolPtrInput
 	// Specifies the name of the instance. Required if `directoryId` not specified.
 	InstanceAlias pulumi.StringPtrInput
+	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+	MultiPartyConferenceEnabled pulumi.BoolPtrInput
 	// Specifies whether outbound calls are enabled.
 	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolPtrInput
@@ -261,6 +267,8 @@ type instanceArgs struct {
 	InboundCallsEnabled bool `pulumi:"inboundCallsEnabled"`
 	// Specifies the name of the instance. Required if `directoryId` not specified.
 	InstanceAlias *string `pulumi:"instanceAlias"`
+	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+	MultiPartyConferenceEnabled *bool `pulumi:"multiPartyConferenceEnabled"`
 	// Specifies whether outbound calls are enabled.
 	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled bool `pulumi:"outboundCallsEnabled"`
@@ -284,6 +292,8 @@ type InstanceArgs struct {
 	InboundCallsEnabled pulumi.BoolInput
 	// Specifies the name of the instance. Required if `directoryId` not specified.
 	InstanceAlias pulumi.StringPtrInput
+	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+	MultiPartyConferenceEnabled pulumi.BoolPtrInput
 	// Specifies whether outbound calls are enabled.
 	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolInput
@@ -424,6 +434,11 @@ func (o InstanceOutput) InboundCallsEnabled() pulumi.BoolOutput {
 // Specifies the name of the instance. Required if `directoryId` not specified.
 func (o InstanceOutput) InstanceAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.InstanceAlias }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+func (o InstanceOutput) MultiPartyConferenceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.MultiPartyConferenceEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether outbound calls are enabled.

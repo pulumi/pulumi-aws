@@ -44,6 +44,7 @@ namespace Pulumi.Aws.Cognito
     ///         {
     ///             ExternalId = "example",
     ///             SnsCallerArn = aws_iam_role.Example.Arn,
+    ///             SnsRegion = "us-east-1",
     ///         },
     ///         SoftwareTokenMfaConfiguration = new Aws.Cognito.Inputs.UserPoolSoftwareTokenMfaConfigurationArgs
     ///         {

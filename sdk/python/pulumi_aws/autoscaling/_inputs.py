@@ -222,6 +222,7 @@ class GroupInstanceRefreshPreferencesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] checkpoint_percentages: List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
         :param pulumi.Input[str] instance_warmup: Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
         :param pulumi.Input[int] min_healthy_percentage: Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+        :param pulumi.Input[bool] skip_matching: Replace instances that already have your desired configuration. Defaults to `false`.
         """
         if checkpoint_delay is not None:
             pulumi.set(__self__, "checkpoint_delay", checkpoint_delay)
@@ -285,6 +286,9 @@ class GroupInstanceRefreshPreferencesArgs:
     @property
     @pulumi.getter(name="skipMatching")
     def skip_matching(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Replace instances that already have your desired configuration. Defaults to `false`.
+        """
         return pulumi.get(self, "skip_matching")
 
     @skip_matching.setter
@@ -398,7 +402,7 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
         :param pulumi.Input[str] on_demand_allocation_strategy: Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
         :param pulumi.Input[int] on_demand_base_capacity: Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
         :param pulumi.Input[int] on_demand_percentage_above_base_capacity: Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-        :param pulumi.Input[str] spot_allocation_strategy: How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+        :param pulumi.Input[str] spot_allocation_strategy: How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
         :param pulumi.Input[int] spot_instance_pools: Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
         :param pulumi.Input[str] spot_max_price: Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
         """
@@ -455,7 +459,7 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
     @pulumi.getter(name="spotAllocationStrategy")
     def spot_allocation_strategy(self) -> Optional[pulumi.Input[str]]:
         """
-        How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+        How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
         """
         return pulumi.get(self, "spot_allocation_strategy")
 

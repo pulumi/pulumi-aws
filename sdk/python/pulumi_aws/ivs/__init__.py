@@ -5,6 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .channel import *
+from .get_stream_key import *
 from .playback_key_pair import *
 from .recording_configuration import *
 from ._inputs import *

@@ -59,7 +59,7 @@ export class EmailIdentity extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The email address to assign to SES
+     * The email address to assign to SES.
      */
     public readonly email!: pulumi.Output<string>;
 
@@ -100,7 +100,7 @@ export interface EmailIdentityState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The email address to assign to SES
+     * The email address to assign to SES.
      */
     email?: pulumi.Input<string>;
 }
@@ -110,7 +110,7 @@ export interface EmailIdentityState {
  */
 export interface EmailIdentityArgs {
     /**
-     * The email address to assign to SES
+     * The email address to assign to SES.
      */
     email: pulumi.Input<string>;
 }

@@ -129,7 +129,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
-        /// List of node objects including `id`, `address`, `port` and `availability_zone`.
+        /// List of node objects including `id`, `address`, `port`, `availability_zone` and `outpost_arn`.
         /// Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterCacheNodeResult> CacheNodes;
@@ -155,6 +155,10 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The IP version advertised in the discovery protocol.
+        /// </summary>
+        public readonly string IpDiscovery;
+        /// <summary>
         /// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterLogDeliveryConfigurationResult> LogDeliveryConfigurations;
@@ -163,6 +167,10 @@ namespace Pulumi.Aws.ElastiCache
         /// on the cache cluster is performed.
         /// </summary>
         public readonly string MaintenanceWindow;
+        /// <summary>
+        /// The IP versions for cache cluster connections.
+        /// </summary>
+        public readonly string NetworkType;
         /// <summary>
         /// The cluster node type.
         /// </summary>
@@ -185,6 +193,10 @@ namespace Pulumi.Aws.ElastiCache
         /// accept connections.
         /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// The outpost ARN in which the cache cluster was created if created in outpost.
+        /// </summary>
+        public readonly string PreferredOutpostArn;
         /// <summary>
         /// The replication group to which this cache cluster belongs.
         /// </summary>
@@ -236,9 +248,13 @@ namespace Pulumi.Aws.ElastiCache
 
             string id,
 
+            string ipDiscovery,
+
             ImmutableArray<Outputs.GetClusterLogDeliveryConfigurationResult> logDeliveryConfigurations,
 
             string maintenanceWindow,
+
+            string networkType,
 
             string nodeType,
 
@@ -249,6 +265,8 @@ namespace Pulumi.Aws.ElastiCache
             string parameterGroupName,
 
             int port,
+
+            string preferredOutpostArn,
 
             string replicationGroupId,
 
@@ -273,13 +291,16 @@ namespace Pulumi.Aws.ElastiCache
             Engine = engine;
             EngineVersion = engineVersion;
             Id = id;
+            IpDiscovery = ipDiscovery;
             LogDeliveryConfigurations = logDeliveryConfigurations;
             MaintenanceWindow = maintenanceWindow;
+            NetworkType = networkType;
             NodeType = nodeType;
             NotificationTopicArn = notificationTopicArn;
             NumCacheNodes = numCacheNodes;
             ParameterGroupName = parameterGroupName;
             Port = port;
+            PreferredOutpostArn = preferredOutpostArn;
             ReplicationGroupId = replicationGroupId;
             SecurityGroupIds = securityGroupIds;
             SecurityGroupNames = securityGroupNames;

@@ -170,6 +170,9 @@ namespace Pulumi.Aws.Cognito
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
+        /// <summary>
+        /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -297,6 +300,9 @@ namespace Pulumi.Aws.Cognito
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
+        /// <summary>
+        /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -421,6 +427,9 @@ namespace Pulumi.Aws.Cognito
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }
 
+        /// <summary>
+        /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

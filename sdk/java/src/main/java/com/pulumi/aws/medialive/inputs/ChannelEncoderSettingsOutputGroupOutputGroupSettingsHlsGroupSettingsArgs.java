@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.inputs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs;
+import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -148,6 +149,13 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return Optional.ofNullable(this.hlsId3SegmentTagging);
     }
 
+    @Import(name="iframeOnlyPlaylists")
+    private @Nullable Output<String> iframeOnlyPlaylists;
+
+    public Optional<Output<String>> iframeOnlyPlaylists() {
+        return Optional.ofNullable(this.iframeOnlyPlaylists);
+    }
+
     @Import(name="incompleteSegmentBehavior")
     private @Nullable Output<String> incompleteSegmentBehavior;
 
@@ -191,11 +199,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return Optional.ofNullable(this.ivSource);
     }
 
-    @Import(name="keepSegment")
-    private @Nullable Output<Integer> keepSegment;
+    @Import(name="keepSegments")
+    private @Nullable Output<Integer> keepSegments;
 
-    public Optional<Output<Integer>> keepSegment() {
-        return Optional.ofNullable(this.keepSegment);
+    public Optional<Output<Integer>> keepSegments() {
+        return Optional.ofNullable(this.keepSegments);
     }
 
     @Import(name="keyFormat")
@@ -210,6 +218,13 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
     public Optional<Output<String>> keyFormatVersions() {
         return Optional.ofNullable(this.keyFormatVersions);
+    }
+
+    @Import(name="keyProviderSettings")
+    private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs> keyProviderSettings;
+
+    public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs>> keyProviderSettings() {
+        return Optional.ofNullable(this.keyProviderSettings);
     }
 
     @Import(name="manifestCompression")
@@ -238,6 +253,13 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
     public Optional<Output<String>> mode() {
         return Optional.ofNullable(this.mode);
+    }
+
+    @Import(name="outputSelection")
+    private @Nullable Output<String> outputSelection;
+
+    public Optional<Output<String>> outputSelection() {
+        return Optional.ofNullable(this.outputSelection);
     }
 
     @Import(name="programDateTime")
@@ -289,11 +311,26 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return Optional.ofNullable(this.streamInfResolution);
     }
 
-    @Import(name="timeMetadataId3Frame")
-    private @Nullable Output<String> timeMetadataId3Frame;
+    /**
+     * Indicates ID3 frame that has the timecode.
+     * 
+     */
+    @Import(name="timedMetadataId3Frame")
+    private @Nullable Output<String> timedMetadataId3Frame;
 
-    public Optional<Output<String>> timeMetadataId3Frame() {
-        return Optional.ofNullable(this.timeMetadataId3Frame);
+    /**
+     * @return Indicates ID3 frame that has the timecode.
+     * 
+     */
+    public Optional<Output<String>> timedMetadataId3Frame() {
+        return Optional.ofNullable(this.timedMetadataId3Frame);
+    }
+
+    @Import(name="timedMetadataId3Period")
+    private @Nullable Output<Integer> timedMetadataId3Period;
+
+    public Optional<Output<Integer>> timedMetadataId3Period() {
+        return Optional.ofNullable(this.timedMetadataId3Period);
     }
 
     @Import(name="timestampDeltaMilliseconds")
@@ -329,18 +366,21 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         this.encryptionType = $.encryptionType;
         this.hlsCdnSettings = $.hlsCdnSettings;
         this.hlsId3SegmentTagging = $.hlsId3SegmentTagging;
+        this.iframeOnlyPlaylists = $.iframeOnlyPlaylists;
         this.incompleteSegmentBehavior = $.incompleteSegmentBehavior;
         this.indexNSegments = $.indexNSegments;
         this.inputLossAction = $.inputLossAction;
         this.ivInManifest = $.ivInManifest;
         this.ivSource = $.ivSource;
-        this.keepSegment = $.keepSegment;
+        this.keepSegments = $.keepSegments;
         this.keyFormat = $.keyFormat;
         this.keyFormatVersions = $.keyFormatVersions;
+        this.keyProviderSettings = $.keyProviderSettings;
         this.manifestCompression = $.manifestCompression;
         this.manifestDurationFormat = $.manifestDurationFormat;
         this.minSegmentLength = $.minSegmentLength;
         this.mode = $.mode;
+        this.outputSelection = $.outputSelection;
         this.programDateTime = $.programDateTime;
         this.programDateTimeClock = $.programDateTimeClock;
         this.programDateTimePeriod = $.programDateTimePeriod;
@@ -348,7 +388,8 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         this.segmentLength = $.segmentLength;
         this.segmentsPerSubdirectory = $.segmentsPerSubdirectory;
         this.streamInfResolution = $.streamInfResolution;
-        this.timeMetadataId3Frame = $.timeMetadataId3Frame;
+        this.timedMetadataId3Frame = $.timedMetadataId3Frame;
+        this.timedMetadataId3Period = $.timedMetadataId3Period;
         this.timestampDeltaMilliseconds = $.timestampDeltaMilliseconds;
         this.tsFileMode = $.tsFileMode;
     }
@@ -557,6 +598,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return hlsId3SegmentTagging(Output.of(hlsId3SegmentTagging));
         }
 
+        public Builder iframeOnlyPlaylists(@Nullable Output<String> iframeOnlyPlaylists) {
+            $.iframeOnlyPlaylists = iframeOnlyPlaylists;
+            return this;
+        }
+
+        public Builder iframeOnlyPlaylists(String iframeOnlyPlaylists) {
+            return iframeOnlyPlaylists(Output.of(iframeOnlyPlaylists));
+        }
+
         public Builder incompleteSegmentBehavior(@Nullable Output<String> incompleteSegmentBehavior) {
             $.incompleteSegmentBehavior = incompleteSegmentBehavior;
             return this;
@@ -614,13 +664,13 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return ivSource(Output.of(ivSource));
         }
 
-        public Builder keepSegment(@Nullable Output<Integer> keepSegment) {
-            $.keepSegment = keepSegment;
+        public Builder keepSegments(@Nullable Output<Integer> keepSegments) {
+            $.keepSegments = keepSegments;
             return this;
         }
 
-        public Builder keepSegment(Integer keepSegment) {
-            return keepSegment(Output.of(keepSegment));
+        public Builder keepSegments(Integer keepSegments) {
+            return keepSegments(Output.of(keepSegments));
         }
 
         public Builder keyFormat(@Nullable Output<String> keyFormat) {
@@ -639,6 +689,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
         public Builder keyFormatVersions(String keyFormatVersions) {
             return keyFormatVersions(Output.of(keyFormatVersions));
+        }
+
+        public Builder keyProviderSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs> keyProviderSettings) {
+            $.keyProviderSettings = keyProviderSettings;
+            return this;
+        }
+
+        public Builder keyProviderSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs keyProviderSettings) {
+            return keyProviderSettings(Output.of(keyProviderSettings));
         }
 
         public Builder manifestCompression(@Nullable Output<String> manifestCompression) {
@@ -675,6 +734,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
         public Builder mode(String mode) {
             return mode(Output.of(mode));
+        }
+
+        public Builder outputSelection(@Nullable Output<String> outputSelection) {
+            $.outputSelection = outputSelection;
+            return this;
+        }
+
+        public Builder outputSelection(String outputSelection) {
+            return outputSelection(Output.of(outputSelection));
         }
 
         public Builder programDateTime(@Nullable Output<String> programDateTime) {
@@ -740,13 +808,34 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return streamInfResolution(Output.of(streamInfResolution));
         }
 
-        public Builder timeMetadataId3Frame(@Nullable Output<String> timeMetadataId3Frame) {
-            $.timeMetadataId3Frame = timeMetadataId3Frame;
+        /**
+         * @param timedMetadataId3Frame Indicates ID3 frame that has the timecode.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timedMetadataId3Frame(@Nullable Output<String> timedMetadataId3Frame) {
+            $.timedMetadataId3Frame = timedMetadataId3Frame;
             return this;
         }
 
-        public Builder timeMetadataId3Frame(String timeMetadataId3Frame) {
-            return timeMetadataId3Frame(Output.of(timeMetadataId3Frame));
+        /**
+         * @param timedMetadataId3Frame Indicates ID3 frame that has the timecode.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timedMetadataId3Frame(String timedMetadataId3Frame) {
+            return timedMetadataId3Frame(Output.of(timedMetadataId3Frame));
+        }
+
+        public Builder timedMetadataId3Period(@Nullable Output<Integer> timedMetadataId3Period) {
+            $.timedMetadataId3Period = timedMetadataId3Period;
+            return this;
+        }
+
+        public Builder timedMetadataId3Period(Integer timedMetadataId3Period) {
+            return timedMetadataId3Period(Output.of(timedMetadataId3Period));
         }
 
         public Builder timestampDeltaMilliseconds(@Nullable Output<Integer> timestampDeltaMilliseconds) {

@@ -22,14 +22,30 @@ import (
 // to instruct the service to apply the change immediately (see documentation
 // below).
 //
-// When upgrading the major version of an engine, `allowMajorVersionUpgrade`
-// must be set to `true`.
+// When upgrading the major version of an engine, `allowMajorVersionUpgrade` must be set to `true`.
+//
+// > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
+// See the AWS Docs on [RDS Instance Maintenance][instance-maintenance] for more information.
+//
+// > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+// Read more about sensitive data instate.
 //
 // ## RDS Instance Class Types
 //
-// Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
-// and Burstable Performance. For more information please read the AWS RDS documentation
-// about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
+// Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
+// For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
+//
+// ## Low-Downtime Updates
+//
+// By default, RDS applies updates to DB Instances in-place, which can lead to service interruptions.
+// Low-downtime updates minimize service interruptions by performing the updates with an [RDS Blue/Green deployment][blue-green] and switching over the instances when complete.
+//
+// Low-downtime updates are only available for DB Instances using MySQL and MariaDB,
+// as other engines are not supported by RDS Blue/Green deployments.
+//
+// Backups must be enabled to use low-downtime updates.
+//
+// Enable low-downtime updates by setting `blue_green_update.enabled` to `true`.
 //
 // ## Example Usage
 // ### Basic Usage
@@ -127,13 +143,19 @@ type Instance struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// The AZ for the RDS instance.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// The days to retain backups for. Must be
-	// between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+	// The days to retain backups for.
+	// Must be between `0` and `35`.
+	// Default is `0`.
+	// Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+	// uses low-downtime updates,
+	// or will use [RDS Blue/Green deployments][blue-green].
 	BackupRetentionPeriod pulumi.IntOutput `pulumi:"backupRetentionPeriod"`
-	// The daily time range (in UTC) during which
-	// automated backups are created if they are enabled. Example: "09:46-10:16". Must
-	// not overlap with `maintenanceWindow`.
+	// The daily time range (in UTC) during which automated backups are created if they are enabled.
+	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow pulumi.StringOutput `pulumi:"backupWindow"`
+	// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+	// See blueGreenUpdate below
+	BlueGreenUpdate InstanceBlueGreenUpdatePtrOutput `pulumi:"blueGreenUpdate"`
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringOutput `pulumi:"caCertIdentifier"`
 	// The character set name to use for DB
@@ -271,7 +293,7 @@ type Instance struct {
 	// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
 	// cross-region). Note that if you are
 	// creating a cross-region replica of an encrypted database you will also need to
-	// specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
+	// specify a `kmsKeyId`. See [DB Instance Replication][instance-replication] and [Working with
 	// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
 	// for more information on using Replication.
 	ReplicateSourceDb pulumi.StringPtrOutput `pulumi:"replicateSourceDb"`
@@ -379,13 +401,19 @@ type instanceState struct {
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The AZ for the RDS instance.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The days to retain backups for. Must be
-	// between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+	// The days to retain backups for.
+	// Must be between `0` and `35`.
+	// Default is `0`.
+	// Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+	// uses low-downtime updates,
+	// or will use [RDS Blue/Green deployments][blue-green].
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
-	// The daily time range (in UTC) during which
-	// automated backups are created if they are enabled. Example: "09:46-10:16". Must
-	// not overlap with `maintenanceWindow`.
+	// The daily time range (in UTC) during which automated backups are created if they are enabled.
+	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow *string `pulumi:"backupWindow"`
+	// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+	// See blueGreenUpdate below
+	BlueGreenUpdate *InstanceBlueGreenUpdate `pulumi:"blueGreenUpdate"`
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
 	// The character set name to use for DB
@@ -523,7 +551,7 @@ type instanceState struct {
 	// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
 	// cross-region). Note that if you are
 	// creating a cross-region replica of an encrypted database you will also need to
-	// specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
+	// specify a `kmsKeyId`. See [DB Instance Replication][instance-replication] and [Working with
 	// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
 	// for more information on using Replication.
 	ReplicateSourceDb *string `pulumi:"replicateSourceDb"`
@@ -600,13 +628,19 @@ type InstanceState struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// The AZ for the RDS instance.
 	AvailabilityZone pulumi.StringPtrInput
-	// The days to retain backups for. Must be
-	// between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+	// The days to retain backups for.
+	// Must be between `0` and `35`.
+	// Default is `0`.
+	// Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+	// uses low-downtime updates,
+	// or will use [RDS Blue/Green deployments][blue-green].
 	BackupRetentionPeriod pulumi.IntPtrInput
-	// The daily time range (in UTC) during which
-	// automated backups are created if they are enabled. Example: "09:46-10:16". Must
-	// not overlap with `maintenanceWindow`.
+	// The daily time range (in UTC) during which automated backups are created if they are enabled.
+	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow pulumi.StringPtrInput
+	// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+	// See blueGreenUpdate below
+	BlueGreenUpdate InstanceBlueGreenUpdatePtrInput
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
 	// The character set name to use for DB
@@ -744,7 +778,7 @@ type InstanceState struct {
 	// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
 	// cross-region). Note that if you are
 	// creating a cross-region replica of an encrypted database you will also need to
-	// specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
+	// specify a `kmsKeyId`. See [DB Instance Replication][instance-replication] and [Working with
 	// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
 	// for more information on using Replication.
 	ReplicateSourceDb pulumi.StringPtrInput
@@ -821,13 +855,19 @@ type instanceArgs struct {
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The AZ for the RDS instance.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The days to retain backups for. Must be
-	// between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+	// The days to retain backups for.
+	// Must be between `0` and `35`.
+	// Default is `0`.
+	// Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+	// uses low-downtime updates,
+	// or will use [RDS Blue/Green deployments][blue-green].
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
-	// The daily time range (in UTC) during which
-	// automated backups are created if they are enabled. Example: "09:46-10:16". Must
-	// not overlap with `maintenanceWindow`.
+	// The daily time range (in UTC) during which automated backups are created if they are enabled.
+	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow *string `pulumi:"backupWindow"`
+	// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+	// See blueGreenUpdate below
+	BlueGreenUpdate *InstanceBlueGreenUpdate `pulumi:"blueGreenUpdate"`
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
 	// The character set name to use for DB
@@ -955,7 +995,7 @@ type instanceArgs struct {
 	// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
 	// cross-region). Note that if you are
 	// creating a cross-region replica of an encrypted database you will also need to
-	// specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
+	// specify a `kmsKeyId`. See [DB Instance Replication][instance-replication] and [Working with
 	// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
 	// for more information on using Replication.
 	ReplicateSourceDb *string `pulumi:"replicateSourceDb"`
@@ -1023,13 +1063,19 @@ type InstanceArgs struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// The AZ for the RDS instance.
 	AvailabilityZone pulumi.StringPtrInput
-	// The days to retain backups for. Must be
-	// between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+	// The days to retain backups for.
+	// Must be between `0` and `35`.
+	// Default is `0`.
+	// Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+	// uses low-downtime updates,
+	// or will use [RDS Blue/Green deployments][blue-green].
 	BackupRetentionPeriod pulumi.IntPtrInput
-	// The daily time range (in UTC) during which
-	// automated backups are created if they are enabled. Example: "09:46-10:16". Must
-	// not overlap with `maintenanceWindow`.
+	// The daily time range (in UTC) during which automated backups are created if they are enabled.
+	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow pulumi.StringPtrInput
+	// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+	// See blueGreenUpdate below
+	BlueGreenUpdate InstanceBlueGreenUpdatePtrInput
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
 	// The character set name to use for DB
@@ -1157,7 +1203,7 @@ type InstanceArgs struct {
 	// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
 	// cross-region). Note that if you are
 	// creating a cross-region replica of an encrypted database you will also need to
-	// specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
+	// specify a `kmsKeyId`. See [DB Instance Replication][instance-replication] and [Working with
 	// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
 	// for more information on using Replication.
 	ReplicateSourceDb pulumi.StringPtrInput
@@ -1335,17 +1381,26 @@ func (o InstanceOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The days to retain backups for. Must be
-// between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+// The days to retain backups for.
+// Must be between `0` and `35`.
+// Default is `0`.
+// Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+// uses low-downtime updates,
+// or will use [RDS Blue/Green deployments][blue-green].
 func (o InstanceOutput) BackupRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.BackupRetentionPeriod }).(pulumi.IntOutput)
 }
 
-// The daily time range (in UTC) during which
-// automated backups are created if they are enabled. Example: "09:46-10:16". Must
-// not overlap with `maintenanceWindow`.
+// The daily time range (in UTC) during which automated backups are created if they are enabled.
+// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 func (o InstanceOutput) BackupWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.BackupWindow }).(pulumi.StringOutput)
+}
+
+// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+// See blueGreenUpdate below
+func (o InstanceOutput) BlueGreenUpdate() InstanceBlueGreenUpdatePtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceBlueGreenUpdatePtrOutput { return v.BlueGreenUpdate }).(InstanceBlueGreenUpdatePtrOutput)
 }
 
 // The identifier of the CA certificate for the DB instance.
@@ -1617,7 +1672,7 @@ func (o InstanceOutput) Replicas() pulumi.StringArrayOutput {
 // a single region) or ARN of the Amazon RDS Database to replicate (if replicating
 // cross-region). Note that if you are
 // creating a cross-region replica of an encrypted database you will also need to
-// specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
+// specify a `kmsKeyId`. See [DB Instance Replication][instance-replication] and [Working with
 // PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
 // for more information on using Replication.
 func (o InstanceOutput) ReplicateSourceDb() pulumi.StringPtrOutput {

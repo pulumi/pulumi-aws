@@ -116,6 +116,12 @@ namespace Pulumi.Aws.DocDB
         public Output<string> DbiResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+        /// </summary>
+        [Output("enablePerformanceInsights")]
+        public Output<bool> EnablePerformanceInsights { get; private set; } = null!;
+
+        /// <summary>
         /// The DNS address for this instance. May not be writable
         /// </summary>
         [Output("endpoint")]
@@ -170,6 +176,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+        /// </summary>
+        [Output("performanceInsightsKmsKeyId")]
+        public Output<string> PerformanceInsightsKmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The database port
@@ -301,6 +313,12 @@ namespace Pulumi.Aws.DocDB
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
         /// <summary>
+        /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+        /// </summary>
+        [Input("enablePerformanceInsights")]
+        public Input<bool>? EnablePerformanceInsights { get; set; }
+
+        /// <summary>
         /// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         /// </summary>
         [Input("engine")]
@@ -337,6 +355,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("instanceClass", required: true)]
         public Input<string> InstanceClass { get; set; } = null!;
+
+        /// <summary>
+        /// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+        /// </summary>
+        [Input("performanceInsightsKmsKeyId")]
+        public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
         /// The window to perform maintenance in.
@@ -421,6 +445,12 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? DbiResourceId { get; set; }
 
         /// <summary>
+        /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+        /// </summary>
+        [Input("enablePerformanceInsights")]
+        public Input<bool>? EnablePerformanceInsights { get; set; }
+
+        /// <summary>
         /// The DNS address for this instance. May not be writable
         /// </summary>
         [Input("endpoint")]
@@ -475,6 +505,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+        /// </summary>
+        [Input("performanceInsightsKmsKeyId")]
+        public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
         /// The database port

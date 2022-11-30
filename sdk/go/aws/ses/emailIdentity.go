@@ -53,7 +53,7 @@ type EmailIdentity struct {
 
 	// The ARN of the email identity.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The email address to assign to SES
+	// The email address to assign to SES.
 	Email pulumi.StringOutput `pulumi:"email"`
 }
 
@@ -91,14 +91,14 @@ func GetEmailIdentity(ctx *pulumi.Context,
 type emailIdentityState struct {
 	// The ARN of the email identity.
 	Arn *string `pulumi:"arn"`
-	// The email address to assign to SES
+	// The email address to assign to SES.
 	Email *string `pulumi:"email"`
 }
 
 type EmailIdentityState struct {
 	// The ARN of the email identity.
 	Arn pulumi.StringPtrInput
-	// The email address to assign to SES
+	// The email address to assign to SES.
 	Email pulumi.StringPtrInput
 }
 
@@ -107,13 +107,13 @@ func (EmailIdentityState) ElementType() reflect.Type {
 }
 
 type emailIdentityArgs struct {
-	// The email address to assign to SES
+	// The email address to assign to SES.
 	Email string `pulumi:"email"`
 }
 
 // The set of arguments for constructing a EmailIdentity resource.
 type EmailIdentityArgs struct {
-	// The email address to assign to SES
+	// The email address to assign to SES.
 	Email pulumi.StringInput
 }
 
@@ -209,7 +209,7 @@ func (o EmailIdentityOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The email address to assign to SES
+// The email address to assign to SES.
 func (o EmailIdentityOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }

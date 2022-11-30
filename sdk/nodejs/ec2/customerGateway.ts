@@ -78,7 +78,7 @@ export class CustomerGateway extends pulumi.CustomResource {
     /**
      * The IPv4 address for the customer gateway device's outside interface.
      */
-    public readonly ipAddress!: pulumi.Output<string>;
+    public readonly ipAddress!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -118,9 +118,6 @@ export class CustomerGateway extends pulumi.CustomResource {
             const args = argsOrState as CustomerGatewayArgs | undefined;
             if ((!args || args.bgpAsn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bgpAsn'");
-            }
-            if ((!args || args.ipAddress === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ipAddress'");
             }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
@@ -197,7 +194,7 @@ export interface CustomerGatewayArgs {
     /**
      * The IPv4 address for the customer gateway device's outside interface.
      */
-    ipAddress: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

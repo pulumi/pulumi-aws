@@ -110,6 +110,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly dbiResourceId!: pulumi.Output<string>;
     /**
+     * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     */
+    public readonly enablePerformanceInsights!: pulumi.Output<boolean>;
+    /**
      * The DNS address for this instance. May not be writable
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
@@ -151,6 +155,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      * The ARN for the KMS encryption key if one is set to the cluster.
      */
     public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
+    /**
+     * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     */
+    public readonly performanceInsightsKmsKeyId!: pulumi.Output<string>;
     /**
      * The database port
      */
@@ -207,6 +215,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             resourceInputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
             resourceInputs["dbiResourceId"] = state ? state.dbiResourceId : undefined;
+            resourceInputs["enablePerformanceInsights"] = state ? state.enablePerformanceInsights : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
@@ -214,6 +223,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["identifierPrefix"] = state ? state.identifierPrefix : undefined;
             resourceInputs["instanceClass"] = state ? state.instanceClass : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["performanceInsightsKmsKeyId"] = state ? state.performanceInsightsKmsKeyId : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
@@ -236,10 +246,12 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["enablePerformanceInsights"] = args ? args.enablePerformanceInsights : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["identifier"] = args ? args.identifier : undefined;
             resourceInputs["identifierPrefix"] = args ? args.identifierPrefix : undefined;
             resourceInputs["instanceClass"] = args ? args.instanceClass : undefined;
+            resourceInputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["promotionTier"] = args ? args.promotionTier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -299,6 +311,10 @@ export interface ClusterInstanceState {
      */
     dbiResourceId?: pulumi.Input<string>;
     /**
+     * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     */
+    enablePerformanceInsights?: pulumi.Input<boolean>;
+    /**
      * The DNS address for this instance. May not be writable
      */
     endpoint?: pulumi.Input<string>;
@@ -340,6 +356,10 @@ export interface ClusterInstanceState {
      * The ARN for the KMS encryption key if one is set to the cluster.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     */
+    performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
      * The database port
      */
@@ -402,6 +422,10 @@ export interface ClusterInstanceArgs {
      */
     clusterIdentifier: pulumi.Input<string>;
     /**
+     * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     */
+    enablePerformanceInsights?: pulumi.Input<boolean>;
+    /**
      * The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      */
     engine?: pulumi.Input<string>;
@@ -431,6 +455,10 @@ export interface ClusterInstanceArgs {
      * - db.t3.medium
      */
     instanceClass: pulumi.Input<string>;
+    /**
+     * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     */
+    performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".

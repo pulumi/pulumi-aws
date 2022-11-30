@@ -96,6 +96,10 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
+     * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+     */
+    public readonly architecture!: pulumi.Output<string | undefined>;
+    /**
      * ARN of the cluster.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -114,7 +118,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */
-    public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumCapacity | undefined>;
+    public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumCapacity>;
     /**
      * The name of the application.
      */
@@ -153,6 +157,7 @@ export class Application extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
+            resourceInputs["architecture"] = state ? state.architecture : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["autoStartConfiguration"] = state ? state.autoStartConfiguration : undefined;
             resourceInputs["autoStopConfiguration"] = state ? state.autoStopConfiguration : undefined;
@@ -172,6 +177,7 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["architecture"] = args ? args.architecture : undefined;
             resourceInputs["autoStartConfiguration"] = args ? args.autoStartConfiguration : undefined;
             resourceInputs["autoStopConfiguration"] = args ? args.autoStopConfiguration : undefined;
             resourceInputs["initialCapacities"] = args ? args.initialCapacities : undefined;
@@ -193,6 +199,10 @@ export class Application extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Application resources.
  */
 export interface ApplicationState {
+    /**
+     * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+     */
+    architecture?: pulumi.Input<string>;
     /**
      * ARN of the cluster.
      */
@@ -243,6 +253,10 @@ export interface ApplicationState {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+     */
+    architecture?: pulumi.Input<string>;
     /**
      * The configuration for an application to automatically start on job submission.
      */

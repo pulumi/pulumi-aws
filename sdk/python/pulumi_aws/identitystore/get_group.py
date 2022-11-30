@@ -23,13 +23,26 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, display_name=None, filters=None, group_id=None, id=None, identity_store_id=None):
+    def __init__(__self__, alternate_identifier=None, description=None, display_name=None, external_ids=None, filter=None, group_id=None, id=None, identity_store_id=None):
+        if alternate_identifier and not isinstance(alternate_identifier, dict):
+            raise TypeError("Expected argument 'alternate_identifier' to be a dict")
+        pulumi.set(__self__, "alternate_identifier", alternate_identifier)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
-        if filters and not isinstance(filters, list):
-            raise TypeError("Expected argument 'filters' to be a list")
-        pulumi.set(__self__, "filters", filters)
+        if external_ids and not isinstance(external_ids, list):
+            raise TypeError("Expected argument 'external_ids' to be a list")
+        pulumi.set(__self__, "external_ids", external_ids)
+        if filter and not isinstance(filter, dict):
+            raise TypeError("Expected argument 'filter' to be a dict")
+        if filter is not None:
+            warnings.warn("""Use the alternate_identifier attribute instead.""", DeprecationWarning)
+            pulumi.log.warn("""filter is deprecated: Use the alternate_identifier attribute instead.""")
+
+        pulumi.set(__self__, "filter", filter)
         if group_id and not isinstance(group_id, str):
             raise TypeError("Expected argument 'group_id' to be a str")
         pulumi.set(__self__, "group_id", group_id)
@@ -41,6 +54,19 @@ class GetGroupResult:
         pulumi.set(__self__, "identity_store_id", identity_store_id)
 
     @property
+    @pulumi.getter(name="alternateIdentifier")
+    def alternate_identifier(self) -> Optional['outputs.GetGroupAlternateIdentifierResult']:
+        return pulumi.get(self, "alternate_identifier")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the specified group.
+        """
+        return pulumi.get(self, "description")
+
+    @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
         """
@@ -49,9 +75,17 @@ class GetGroupResult:
         return pulumi.get(self, "display_name")
 
     @property
+    @pulumi.getter(name="externalIds")
+    def external_ids(self) -> Sequence['outputs.GetGroupExternalIdResult']:
+        """
+        List of identifiers issued to this resource by an external identity provider.
+        """
+        return pulumi.get(self, "external_ids")
+
+    @property
     @pulumi.getter
-    def filters(self) -> Sequence['outputs.GetGroupFilterResult']:
-        return pulumi.get(self, "filters")
+    def filter(self) -> Optional['outputs.GetGroupFilterResult']:
+        return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter(name="groupId")
@@ -78,14 +112,18 @@ class AwaitableGetGroupResult(GetGroupResult):
         if False:
             yield self
         return GetGroupResult(
+            alternate_identifier=self.alternate_identifier,
+            description=self.description,
             display_name=self.display_name,
-            filters=self.filters,
+            external_ids=self.external_ids,
+            filter=self.filter,
             group_id=self.group_id,
             id=self.id,
             identity_store_id=self.identity_store_id)
 
 
-def get_group(filters: Optional[Sequence[pulumi.InputType['GetGroupFilterArgs']]] = None,
+def get_group(alternate_identifier: Optional[pulumi.InputType['GetGroupAlternateIdentifierArgs']] = None,
+              filter: Optional[pulumi.InputType['GetGroupFilterArgs']] = None,
               group_id: Optional[str] = None,
               identity_store_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
@@ -93,27 +131,33 @@ def get_group(filters: Optional[Sequence[pulumi.InputType['GetGroupFilterArgs']]
     Use this data source to get an Identity Store Group.
 
 
-    :param Sequence[pulumi.InputType['GetGroupFilterArgs']] filters: Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+    :param pulumi.InputType['GetGroupAlternateIdentifierArgs'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+    :param pulumi.InputType['GetGroupFilterArgs'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
     :param str group_id: The identifier for a group in the Identity Store.
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
     """
     __args__ = dict()
-    __args__['filters'] = filters
+    __args__['alternateIdentifier'] = alternate_identifier
+    __args__['filter'] = filter
     __args__['groupId'] = group_id
     __args__['identityStoreId'] = identity_store_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:identitystore/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
+        alternate_identifier=__ret__.alternate_identifier,
+        description=__ret__.description,
         display_name=__ret__.display_name,
-        filters=__ret__.filters,
+        external_ids=__ret__.external_ids,
+        filter=__ret__.filter,
         group_id=__ret__.group_id,
         id=__ret__.id,
         identity_store_id=__ret__.identity_store_id)
 
 
 @_utilities.lift_output_func(get_group)
-def get_group_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType['GetGroupFilterArgs']]]] = None,
+def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi.InputType['GetGroupAlternateIdentifierArgs']]]] = None,
+                     filter: Optional[pulumi.Input[Optional[pulumi.InputType['GetGroupFilterArgs']]]] = None,
                      group_id: Optional[pulumi.Input[Optional[str]]] = None,
                      identity_store_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
@@ -121,7 +165,8 @@ def get_group_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType['G
     Use this data source to get an Identity Store Group.
 
 
-    :param Sequence[pulumi.InputType['GetGroupFilterArgs']] filters: Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+    :param pulumi.InputType['GetGroupAlternateIdentifierArgs'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+    :param pulumi.InputType['GetGroupFilterArgs'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
     :param str group_id: The identifier for a group in the Identity Store.
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
     """

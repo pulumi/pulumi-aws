@@ -30,22 +30,30 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
         return Optional.ofNullable(this.passwordParam);
     }
 
+    /**
+     * Path to a file accessible to the live stream.
+     * 
+     */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
+    /**
+     * @return Path to a file accessible to the live stream.
+     * 
+     */
     public Output<String> uri() {
         return this.uri;
     }
 
     /**
-     * Username for destination.
+     * . Username to be used.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return Username for destination.
+     * @return . Username to be used.
      * 
      */
     public Optional<Output<String>> username() {
@@ -99,17 +107,29 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             return passwordParam(Output.of(passwordParam));
         }
 
+        /**
+         * @param uri Path to a file accessible to the live stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uri(Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
+        /**
+         * @param uri Path to a file accessible to the live stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }
 
         /**
-         * @param username Username for destination.
+         * @param username . Username to be used.
          * 
          * @return builder
          * 
@@ -120,7 +140,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
         }
 
         /**
-         * @param username Username for destination.
+         * @param username . Username to be used.
          * 
          * @return builder
          * 

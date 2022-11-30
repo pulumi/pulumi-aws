@@ -558,6 +558,7 @@ namespace Pulumi.Aws
                 public string? Iottwinmaker { get; set; } = null!;
                 public string? Iotwireless { get; set; } = null!;
                 public string? Ivs { get; set; } = null!;
+                public string? Ivschat { get; set; } = null!;
                 public string? Kafka { get; set; } = null!;
                 public string? Kafkaconnect { get; set; } = null!;
                 public string? Kendra { get; set; } = null!;
@@ -686,6 +687,7 @@ namespace Pulumi.Aws
                 public string? Sagemakerfeaturestoreruntime { get; set; } = null!;
                 public string? Sagemakerruntime { get; set; } = null!;
                 public string? Savingsplans { get; set; } = null!;
+                public string? Scheduler { get; set; } = null!;
                 public string? Schemas { get; set; } = null!;
                 public string? Sdb { get; set; } = null!;
                 public string? Secretsmanager { get; set; } = null!;

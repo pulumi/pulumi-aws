@@ -5228,6 +5228,8 @@ type UserPoolSmsConfiguration struct {
 	ExternalId string `pulumi:"externalId"`
 	// ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
 	SnsCallerArn string `pulumi:"snsCallerArn"`
+	// The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+	SnsRegion *string `pulumi:"snsRegion"`
 }
 
 // UserPoolSmsConfigurationInput is an input type that accepts UserPoolSmsConfigurationArgs and UserPoolSmsConfigurationOutput values.
@@ -5246,6 +5248,8 @@ type UserPoolSmsConfigurationArgs struct {
 	ExternalId pulumi.StringInput `pulumi:"externalId"`
 	// ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
 	SnsCallerArn pulumi.StringInput `pulumi:"snsCallerArn"`
+	// The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+	SnsRegion pulumi.StringPtrInput `pulumi:"snsRegion"`
 }
 
 func (UserPoolSmsConfigurationArgs) ElementType() reflect.Type {
@@ -5335,6 +5339,11 @@ func (o UserPoolSmsConfigurationOutput) SnsCallerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolSmsConfiguration) string { return v.SnsCallerArn }).(pulumi.StringOutput)
 }
 
+// The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+func (o UserPoolSmsConfigurationOutput) SnsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolSmsConfiguration) *string { return v.SnsRegion }).(pulumi.StringPtrOutput)
+}
+
 type UserPoolSmsConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (UserPoolSmsConfigurationPtrOutput) ElementType() reflect.Type {
@@ -5376,6 +5385,16 @@ func (o UserPoolSmsConfigurationPtrOutput) SnsCallerArn() pulumi.StringPtrOutput
 			return nil
 		}
 		return &v.SnsCallerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+func (o UserPoolSmsConfigurationPtrOutput) SnsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnsRegion
 	}).(pulumi.StringPtrOutput)
 }
 

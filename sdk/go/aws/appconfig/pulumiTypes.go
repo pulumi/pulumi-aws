@@ -359,6 +359,351 @@ func (o EventIntegrationEventFilterPtrOutput) Source() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ExtensionActionPoint struct {
+	// An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+	Actions []ExtensionActionPointAction `pulumi:"actions"`
+	// The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+	Point string `pulumi:"point"`
+}
+
+// ExtensionActionPointInput is an input type that accepts ExtensionActionPointArgs and ExtensionActionPointOutput values.
+// You can construct a concrete instance of `ExtensionActionPointInput` via:
+//
+//	ExtensionActionPointArgs{...}
+type ExtensionActionPointInput interface {
+	pulumi.Input
+
+	ToExtensionActionPointOutput() ExtensionActionPointOutput
+	ToExtensionActionPointOutputWithContext(context.Context) ExtensionActionPointOutput
+}
+
+type ExtensionActionPointArgs struct {
+	// An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+	Actions ExtensionActionPointActionArrayInput `pulumi:"actions"`
+	// The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+	Point pulumi.StringInput `pulumi:"point"`
+}
+
+func (ExtensionActionPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionActionPoint)(nil)).Elem()
+}
+
+func (i ExtensionActionPointArgs) ToExtensionActionPointOutput() ExtensionActionPointOutput {
+	return i.ToExtensionActionPointOutputWithContext(context.Background())
+}
+
+func (i ExtensionActionPointArgs) ToExtensionActionPointOutputWithContext(ctx context.Context) ExtensionActionPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionActionPointOutput)
+}
+
+// ExtensionActionPointArrayInput is an input type that accepts ExtensionActionPointArray and ExtensionActionPointArrayOutput values.
+// You can construct a concrete instance of `ExtensionActionPointArrayInput` via:
+//
+//	ExtensionActionPointArray{ ExtensionActionPointArgs{...} }
+type ExtensionActionPointArrayInput interface {
+	pulumi.Input
+
+	ToExtensionActionPointArrayOutput() ExtensionActionPointArrayOutput
+	ToExtensionActionPointArrayOutputWithContext(context.Context) ExtensionActionPointArrayOutput
+}
+
+type ExtensionActionPointArray []ExtensionActionPointInput
+
+func (ExtensionActionPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionActionPoint)(nil)).Elem()
+}
+
+func (i ExtensionActionPointArray) ToExtensionActionPointArrayOutput() ExtensionActionPointArrayOutput {
+	return i.ToExtensionActionPointArrayOutputWithContext(context.Background())
+}
+
+func (i ExtensionActionPointArray) ToExtensionActionPointArrayOutputWithContext(ctx context.Context) ExtensionActionPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionActionPointArrayOutput)
+}
+
+type ExtensionActionPointOutput struct{ *pulumi.OutputState }
+
+func (ExtensionActionPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionActionPoint)(nil)).Elem()
+}
+
+func (o ExtensionActionPointOutput) ToExtensionActionPointOutput() ExtensionActionPointOutput {
+	return o
+}
+
+func (o ExtensionActionPointOutput) ToExtensionActionPointOutputWithContext(ctx context.Context) ExtensionActionPointOutput {
+	return o
+}
+
+// An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+func (o ExtensionActionPointOutput) Actions() ExtensionActionPointActionArrayOutput {
+	return o.ApplyT(func(v ExtensionActionPoint) []ExtensionActionPointAction { return v.Actions }).(ExtensionActionPointActionArrayOutput)
+}
+
+// The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+func (o ExtensionActionPointOutput) Point() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionActionPoint) string { return v.Point }).(pulumi.StringOutput)
+}
+
+type ExtensionActionPointArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtensionActionPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionActionPoint)(nil)).Elem()
+}
+
+func (o ExtensionActionPointArrayOutput) ToExtensionActionPointArrayOutput() ExtensionActionPointArrayOutput {
+	return o
+}
+
+func (o ExtensionActionPointArrayOutput) ToExtensionActionPointArrayOutputWithContext(ctx context.Context) ExtensionActionPointArrayOutput {
+	return o
+}
+
+func (o ExtensionActionPointArrayOutput) Index(i pulumi.IntInput) ExtensionActionPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtensionActionPoint {
+		return vs[0].([]ExtensionActionPoint)[vs[1].(int)]
+	}).(ExtensionActionPointOutput)
+}
+
+type ExtensionActionPointAction struct {
+	// Information about the action.
+	Description *string `pulumi:"description"`
+	// The action name.
+	Name string `pulumi:"name"`
+	// An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+	RoleArn string `pulumi:"roleArn"`
+	// The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+	Uri string `pulumi:"uri"`
+}
+
+// ExtensionActionPointActionInput is an input type that accepts ExtensionActionPointActionArgs and ExtensionActionPointActionOutput values.
+// You can construct a concrete instance of `ExtensionActionPointActionInput` via:
+//
+//	ExtensionActionPointActionArgs{...}
+type ExtensionActionPointActionInput interface {
+	pulumi.Input
+
+	ToExtensionActionPointActionOutput() ExtensionActionPointActionOutput
+	ToExtensionActionPointActionOutputWithContext(context.Context) ExtensionActionPointActionOutput
+}
+
+type ExtensionActionPointActionArgs struct {
+	// Information about the action.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The action name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (ExtensionActionPointActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionActionPointAction)(nil)).Elem()
+}
+
+func (i ExtensionActionPointActionArgs) ToExtensionActionPointActionOutput() ExtensionActionPointActionOutput {
+	return i.ToExtensionActionPointActionOutputWithContext(context.Background())
+}
+
+func (i ExtensionActionPointActionArgs) ToExtensionActionPointActionOutputWithContext(ctx context.Context) ExtensionActionPointActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionActionPointActionOutput)
+}
+
+// ExtensionActionPointActionArrayInput is an input type that accepts ExtensionActionPointActionArray and ExtensionActionPointActionArrayOutput values.
+// You can construct a concrete instance of `ExtensionActionPointActionArrayInput` via:
+//
+//	ExtensionActionPointActionArray{ ExtensionActionPointActionArgs{...} }
+type ExtensionActionPointActionArrayInput interface {
+	pulumi.Input
+
+	ToExtensionActionPointActionArrayOutput() ExtensionActionPointActionArrayOutput
+	ToExtensionActionPointActionArrayOutputWithContext(context.Context) ExtensionActionPointActionArrayOutput
+}
+
+type ExtensionActionPointActionArray []ExtensionActionPointActionInput
+
+func (ExtensionActionPointActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionActionPointAction)(nil)).Elem()
+}
+
+func (i ExtensionActionPointActionArray) ToExtensionActionPointActionArrayOutput() ExtensionActionPointActionArrayOutput {
+	return i.ToExtensionActionPointActionArrayOutputWithContext(context.Background())
+}
+
+func (i ExtensionActionPointActionArray) ToExtensionActionPointActionArrayOutputWithContext(ctx context.Context) ExtensionActionPointActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionActionPointActionArrayOutput)
+}
+
+type ExtensionActionPointActionOutput struct{ *pulumi.OutputState }
+
+func (ExtensionActionPointActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionActionPointAction)(nil)).Elem()
+}
+
+func (o ExtensionActionPointActionOutput) ToExtensionActionPointActionOutput() ExtensionActionPointActionOutput {
+	return o
+}
+
+func (o ExtensionActionPointActionOutput) ToExtensionActionPointActionOutputWithContext(ctx context.Context) ExtensionActionPointActionOutput {
+	return o
+}
+
+// Information about the action.
+func (o ExtensionActionPointActionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionActionPointAction) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The action name.
+func (o ExtensionActionPointActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionActionPointAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+func (o ExtensionActionPointActionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionActionPointAction) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+func (o ExtensionActionPointActionOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionActionPointAction) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type ExtensionActionPointActionArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtensionActionPointActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionActionPointAction)(nil)).Elem()
+}
+
+func (o ExtensionActionPointActionArrayOutput) ToExtensionActionPointActionArrayOutput() ExtensionActionPointActionArrayOutput {
+	return o
+}
+
+func (o ExtensionActionPointActionArrayOutput) ToExtensionActionPointActionArrayOutputWithContext(ctx context.Context) ExtensionActionPointActionArrayOutput {
+	return o
+}
+
+func (o ExtensionActionPointActionArrayOutput) Index(i pulumi.IntInput) ExtensionActionPointActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtensionActionPointAction {
+		return vs[0].([]ExtensionActionPointAction)[vs[1].(int)]
+	}).(ExtensionActionPointActionOutput)
+}
+
+type ExtensionParameter struct {
+	// Information about the parameter.
+	Description *string `pulumi:"description"`
+	// The parameter name.
+	Name string `pulumi:"name"`
+	// Determines if a parameter value must be specified in the extension association.
+	Required *bool `pulumi:"required"`
+}
+
+// ExtensionParameterInput is an input type that accepts ExtensionParameterArgs and ExtensionParameterOutput values.
+// You can construct a concrete instance of `ExtensionParameterInput` via:
+//
+//	ExtensionParameterArgs{...}
+type ExtensionParameterInput interface {
+	pulumi.Input
+
+	ToExtensionParameterOutput() ExtensionParameterOutput
+	ToExtensionParameterOutputWithContext(context.Context) ExtensionParameterOutput
+}
+
+type ExtensionParameterArgs struct {
+	// Information about the parameter.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The parameter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Determines if a parameter value must be specified in the extension association.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+}
+
+func (ExtensionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionParameter)(nil)).Elem()
+}
+
+func (i ExtensionParameterArgs) ToExtensionParameterOutput() ExtensionParameterOutput {
+	return i.ToExtensionParameterOutputWithContext(context.Background())
+}
+
+func (i ExtensionParameterArgs) ToExtensionParameterOutputWithContext(ctx context.Context) ExtensionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionParameterOutput)
+}
+
+// ExtensionParameterArrayInput is an input type that accepts ExtensionParameterArray and ExtensionParameterArrayOutput values.
+// You can construct a concrete instance of `ExtensionParameterArrayInput` via:
+//
+//	ExtensionParameterArray{ ExtensionParameterArgs{...} }
+type ExtensionParameterArrayInput interface {
+	pulumi.Input
+
+	ToExtensionParameterArrayOutput() ExtensionParameterArrayOutput
+	ToExtensionParameterArrayOutputWithContext(context.Context) ExtensionParameterArrayOutput
+}
+
+type ExtensionParameterArray []ExtensionParameterInput
+
+func (ExtensionParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionParameter)(nil)).Elem()
+}
+
+func (i ExtensionParameterArray) ToExtensionParameterArrayOutput() ExtensionParameterArrayOutput {
+	return i.ToExtensionParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ExtensionParameterArray) ToExtensionParameterArrayOutputWithContext(ctx context.Context) ExtensionParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionParameterArrayOutput)
+}
+
+type ExtensionParameterOutput struct{ *pulumi.OutputState }
+
+func (ExtensionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionParameter)(nil)).Elem()
+}
+
+func (o ExtensionParameterOutput) ToExtensionParameterOutput() ExtensionParameterOutput {
+	return o
+}
+
+func (o ExtensionParameterOutput) ToExtensionParameterOutputWithContext(ctx context.Context) ExtensionParameterOutput {
+	return o
+}
+
+// Information about the parameter.
+func (o ExtensionParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The parameter name.
+func (o ExtensionParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtensionParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Determines if a parameter value must be specified in the extension association.
+func (o ExtensionParameterOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExtensionParameter) *bool { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+type ExtensionParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtensionParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionParameter)(nil)).Elem()
+}
+
+func (o ExtensionParameterArrayOutput) ToExtensionParameterArrayOutput() ExtensionParameterArrayOutput {
+	return o
+}
+
+func (o ExtensionParameterArrayOutput) ToExtensionParameterArrayOutputWithContext(ctx context.Context) ExtensionParameterArrayOutput {
+	return o
+}
+
+func (o ExtensionParameterArrayOutput) Index(i pulumi.IntInput) ExtensionParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtensionParameter {
+		return vs[0].([]ExtensionParameter)[vs[1].(int)]
+	}).(ExtensionParameterOutput)
+}
+
 type GetConfigurationProfileValidator struct {
 	// Either the JSON Schema content or the ARN of an AWS Lambda function.
 	Content string `pulumi:"content"`
@@ -578,6 +923,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorArrayInput)(nil)).Elem(), EnvironmentMonitorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterPtrInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionPointInput)(nil)).Elem(), ExtensionActionPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionPointArrayInput)(nil)).Elem(), ExtensionActionPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionPointActionInput)(nil)).Elem(), ExtensionActionPointActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionPointActionArrayInput)(nil)).Elem(), ExtensionActionPointActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionParameterInput)(nil)).Elem(), ExtensionParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionParameterArrayInput)(nil)).Elem(), ExtensionParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationProfileValidatorInput)(nil)).Elem(), GetConfigurationProfileValidatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationProfileValidatorArrayInput)(nil)).Elem(), GetConfigurationProfileValidatorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentMonitorInput)(nil)).Elem(), GetEnvironmentMonitorArgs{})
@@ -588,6 +939,12 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentMonitorArrayOutput{})
 	pulumi.RegisterOutputType(EventIntegrationEventFilterOutput{})
 	pulumi.RegisterOutputType(EventIntegrationEventFilterPtrOutput{})
+	pulumi.RegisterOutputType(ExtensionActionPointOutput{})
+	pulumi.RegisterOutputType(ExtensionActionPointArrayOutput{})
+	pulumi.RegisterOutputType(ExtensionActionPointActionOutput{})
+	pulumi.RegisterOutputType(ExtensionActionPointActionArrayOutput{})
+	pulumi.RegisterOutputType(ExtensionParameterOutput{})
+	pulumi.RegisterOutputType(ExtensionParameterArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationProfileValidatorOutput{})
 	pulumi.RegisterOutputType(GetConfigurationProfileValidatorArrayOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentMonitorOutput{})

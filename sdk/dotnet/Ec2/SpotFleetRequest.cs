@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Indicates how to allocate the target capacity across
-        /// the Spot pools specified by the Spot fleet request. The default is
+        /// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
         /// `lowestPrice`.
         /// </summary>
         [Output("allocationStrategy")]
@@ -419,7 +419,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Indicates how to allocate the target capacity across
-        /// the Spot pools specified by the Spot fleet request. The default is
+        /// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
         /// `lowestPrice`.
         /// </summary>
         [Input("allocationStrategy")]
@@ -623,7 +623,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Indicates how to allocate the target capacity across
-        /// the Spot pools specified by the Spot fleet request. The default is
+        /// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
         /// `lowestPrice`.
         /// </summary>
         [Input("allocationStrategy")]

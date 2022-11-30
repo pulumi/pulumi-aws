@@ -115,6 +115,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Network Interface Security Group attachments can be imported using the associated network interface ID and security group ID, separated by an underscore (`_`). For example
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment")]
     public partial class NetworkInterfaceSecurityGroupAttachment : global::Pulumi.CustomResource

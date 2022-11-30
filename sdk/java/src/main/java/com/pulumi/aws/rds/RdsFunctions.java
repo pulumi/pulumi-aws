@@ -10,6 +10,8 @@ import com.pulumi.aws.rds.inputs.GetClusterArgs;
 import com.pulumi.aws.rds.inputs.GetClusterPlainArgs;
 import com.pulumi.aws.rds.inputs.GetClusterSnapshotArgs;
 import com.pulumi.aws.rds.inputs.GetClusterSnapshotPlainArgs;
+import com.pulumi.aws.rds.inputs.GetClustersArgs;
+import com.pulumi.aws.rds.inputs.GetClustersPlainArgs;
 import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
 import com.pulumi.aws.rds.inputs.GetEngineVersionPlainArgs;
 import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
@@ -29,6 +31,7 @@ import com.pulumi.aws.rds.inputs.GetSubnetGroupPlainArgs;
 import com.pulumi.aws.rds.outputs.GetCertificateResult;
 import com.pulumi.aws.rds.outputs.GetClusterResult;
 import com.pulumi.aws.rds.outputs.GetClusterSnapshotResult;
+import com.pulumi.aws.rds.outputs.GetClustersResult;
 import com.pulumi.aws.rds.outputs.GetEngineVersionResult;
 import com.pulumi.aws.rds.outputs.GetEventCategoriesResult;
 import com.pulumi.aws.rds.outputs.GetInstanceResult;
@@ -755,6 +758,216 @@ public final class RdsFunctions {
      */
     public static CompletableFuture<GetClusterSnapshotResult> getClusterSnapshotPlain(GetClusterSnapshotPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:rds/getClusterSnapshot:getClusterSnapshot", TypeShape.of(GetClusterSnapshotResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS RDS (Relational Database) Clusters.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetClustersResult> getClusters() {
+        return getClusters(GetClustersArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS RDS (Relational Database) Clusters.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetClustersResult> getClustersPlain() {
+        return getClustersPlain(GetClustersPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS RDS (Relational Database) Clusters.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetClustersResult> getClusters(GetClustersArgs args) {
+        return getClusters(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS RDS (Relational Database) Clusters.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetClustersResult> getClustersPlain(GetClustersPlainArgs args) {
+        return getClustersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS RDS (Relational Database) Clusters.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetClustersResult> getClusters(GetClustersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:rds/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS RDS (Relational Database) Clusters.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetClustersResult> getClustersPlain(GetClustersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:rds/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Information about an RDS engine version.

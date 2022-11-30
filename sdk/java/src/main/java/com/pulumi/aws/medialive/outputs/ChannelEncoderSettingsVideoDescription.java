@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsVideoDescription {
+    /**
+     * @return The video codec settings. See Video Codec Settings for more details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettings codecSettings;
     /**
      * @return Output video height in pixels.
@@ -20,7 +24,7 @@ public final class ChannelEncoderSettingsVideoDescription {
      */
     private @Nullable Integer height;
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     private String name;
@@ -46,6 +50,10 @@ public final class ChannelEncoderSettingsVideoDescription {
     private @Nullable Integer width;
 
     private ChannelEncoderSettingsVideoDescription() {}
+    /**
+     * @return The video codec settings. See Video Codec Settings for more details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettings> codecSettings() {
         return Optional.ofNullable(this.codecSettings);
     }
@@ -57,7 +65,7 @@ public final class ChannelEncoderSettingsVideoDescription {
         return Optional.ofNullable(this.height);
     }
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     public String name() {

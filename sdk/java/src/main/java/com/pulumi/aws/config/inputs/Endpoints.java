@@ -197,6 +197,7 @@ public final class Endpoints {
     private @Nullable String iottwinmaker;
     private @Nullable String iotwireless;
     private @Nullable String ivs;
+    private @Nullable String ivschat;
     private @Nullable String kafka;
     private @Nullable String kafkaconnect;
     private @Nullable String kendra;
@@ -325,6 +326,7 @@ public final class Endpoints {
     private @Nullable String sagemakerfeaturestoreruntime;
     private @Nullable String sagemakerruntime;
     private @Nullable String savingsplans;
+    private @Nullable String scheduler;
     private @Nullable String schemas;
     private @Nullable String sdb;
     private @Nullable String secretsmanager;
@@ -941,6 +943,9 @@ public final class Endpoints {
     public Optional<String> ivs() {
         return Optional.ofNullable(this.ivs);
     }
+    public Optional<String> ivschat() {
+        return Optional.ofNullable(this.ivschat);
+    }
     public Optional<String> kafka() {
         return Optional.ofNullable(this.kafka);
     }
@@ -1325,6 +1330,9 @@ public final class Endpoints {
     public Optional<String> savingsplans() {
         return Optional.ofNullable(this.savingsplans);
     }
+    public Optional<String> scheduler() {
+        return Optional.ofNullable(this.scheduler);
+    }
     public Optional<String> schemas() {
         return Optional.ofNullable(this.schemas);
     }
@@ -1689,6 +1697,7 @@ public final class Endpoints {
         private @Nullable String iottwinmaker;
         private @Nullable String iotwireless;
         private @Nullable String ivs;
+        private @Nullable String ivschat;
         private @Nullable String kafka;
         private @Nullable String kafkaconnect;
         private @Nullable String kendra;
@@ -1817,6 +1826,7 @@ public final class Endpoints {
         private @Nullable String sagemakerfeaturestoreruntime;
         private @Nullable String sagemakerruntime;
         private @Nullable String savingsplans;
+        private @Nullable String scheduler;
         private @Nullable String schemas;
         private @Nullable String sdb;
         private @Nullable String secretsmanager;
@@ -2062,6 +2072,7 @@ public final class Endpoints {
     	      this.iottwinmaker = defaults.iottwinmaker;
     	      this.iotwireless = defaults.iotwireless;
     	      this.ivs = defaults.ivs;
+    	      this.ivschat = defaults.ivschat;
     	      this.kafka = defaults.kafka;
     	      this.kafkaconnect = defaults.kafkaconnect;
     	      this.kendra = defaults.kendra;
@@ -2190,6 +2201,7 @@ public final class Endpoints {
     	      this.sagemakerfeaturestoreruntime = defaults.sagemakerfeaturestoreruntime;
     	      this.sagemakerruntime = defaults.sagemakerruntime;
     	      this.savingsplans = defaults.savingsplans;
+    	      this.scheduler = defaults.scheduler;
     	      this.schemas = defaults.schemas;
     	      this.sdb = defaults.sdb;
     	      this.secretsmanager = defaults.secretsmanager;
@@ -3179,6 +3191,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder ivschat(@Nullable String ivschat) {
+            this.ivschat = ivschat;
+            return this;
+        }
+        @CustomType.Setter
         public Builder kafka(@Nullable String kafka) {
             this.kafka = kafka;
             return this;
@@ -3819,6 +3836,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder scheduler(@Nullable String scheduler) {
+            this.scheduler = scheduler;
+            return this;
+        }
+        @CustomType.Setter
         public Builder schemas(@Nullable String schemas) {
             this.schemas = schemas;
             return this;
@@ -4286,6 +4308,7 @@ public final class Endpoints {
             o.iottwinmaker = iottwinmaker;
             o.iotwireless = iotwireless;
             o.ivs = ivs;
+            o.ivschat = ivschat;
             o.kafka = kafka;
             o.kafkaconnect = kafkaconnect;
             o.kendra = kendra;
@@ -4414,6 +4437,7 @@ public final class Endpoints {
             o.sagemakerfeaturestoreruntime = sagemakerfeaturestoreruntime;
             o.sagemakerruntime = sagemakerruntime;
             o.savingsplans = savingsplans;
+            o.scheduler = scheduler;
             o.schemas = schemas;
             o.sdb = sdb;
             o.secretsmanager = secretsmanager;

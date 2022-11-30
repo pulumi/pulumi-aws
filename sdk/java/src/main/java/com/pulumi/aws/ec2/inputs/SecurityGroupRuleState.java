@@ -126,6 +126,21 @@ public final class SecurityGroupRuleState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+     * 
+     */
+    @Import(name="securityGroupRuleId")
+    private @Nullable Output<String> securityGroupRuleId;
+
+    /**
+     * @return If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+     * 
+     */
+    public Optional<Output<String>> securityGroupRuleId() {
+        return Optional.ofNullable(this.securityGroupRuleId);
+    }
+
+    /**
      * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
      * 
      */
@@ -197,6 +212,7 @@ public final class SecurityGroupRuleState extends com.pulumi.resources.ResourceA
         this.prefixListIds = $.prefixListIds;
         this.protocol = $.protocol;
         this.securityGroupId = $.securityGroupId;
+        this.securityGroupRuleId = $.securityGroupRuleId;
         this.self = $.self;
         this.sourceSecurityGroupId = $.sourceSecurityGroupId;
         this.toPort = $.toPort;
@@ -416,6 +432,27 @@ public final class SecurityGroupRuleState extends com.pulumi.resources.ResourceA
          */
         public Builder securityGroupId(String securityGroupId) {
             return securityGroupId(Output.of(securityGroupId));
+        }
+
+        /**
+         * @param securityGroupRuleId If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupRuleId(@Nullable Output<String> securityGroupRuleId) {
+            $.securityGroupRuleId = securityGroupRuleId;
+            return this;
+        }
+
+        /**
+         * @param securityGroupRuleId If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupRuleId(String securityGroupRuleId) {
+            return securityGroupRuleId(Output.of(securityGroupRuleId));
         }
 
         /**

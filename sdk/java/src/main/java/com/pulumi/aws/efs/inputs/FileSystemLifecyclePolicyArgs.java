@@ -16,14 +16,14 @@ public final class FileSystemLifecyclePolicyArgs extends com.pulumi.resources.Re
     public static final FileSystemLifecyclePolicyArgs Empty = new FileSystemLifecyclePolicyArgs();
 
     /**
-     * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+     * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
      * 
      */
     @Import(name="transitionToIa")
     private @Nullable Output<String> transitionToIa;
 
     /**
-     * @return Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+     * @return Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
      * 
      */
     public Optional<Output<String>> transitionToIa() {
@@ -71,7 +71,7 @@ public final class FileSystemLifecyclePolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param transitionToIa Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+         * @param transitionToIa Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FileSystemLifecyclePolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param transitionToIa Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+         * @param transitionToIa Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
          * 
          * @return builder
          * 

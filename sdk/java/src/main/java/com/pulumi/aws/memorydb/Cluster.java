@@ -122,6 +122,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterEndpoints;
     }
     /**
+     * Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+     * 
+     */
+    @Export(name="dataTiering", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> dataTiering;
+
+    /**
+     * @return Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+     * 
+     */
+    public Output<Optional<Boolean>> dataTiering() {
+        return Codegen.optional(this.dataTiering);
+    }
+    /**
      * Description for the cluster.
      * 
      */
@@ -335,14 +349,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
      * 
      */
-    @Export(name="snapshotArns", type=String.class, parameters={})
-    private Output</* @Nullable */ String> snapshotArns;
+    @Export(name="snapshotArns", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> snapshotArns;
 
     /**
      * @return List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
      * 
      */
-    public Output<Optional<String>> snapshotArns() {
+    public Output<Optional<List<String>>> snapshotArns() {
         return Codegen.optional(this.snapshotArns);
     }
     /**

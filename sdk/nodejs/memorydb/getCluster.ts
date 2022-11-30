@@ -66,6 +66,10 @@ export interface GetClusterResult {
     readonly autoMinorVersionUpgrade: boolean;
     readonly clusterEndpoints: outputs.memorydb.GetClusterClusterEndpoint[];
     /**
+     * True when data tiering is enabled.
+     */
+    readonly dataTiering: boolean;
+    /**
      * Description for the cluster.
      */
     readonly description: string;

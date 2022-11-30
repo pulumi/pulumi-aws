@@ -1317,6 +1317,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.ivs);
     }
 
+    @Import(name="ivschat")
+    private @Nullable Output<String> ivschat;
+
+    public Optional<Output<String>> ivschat() {
+        return Optional.ofNullable(this.ivschat);
+    }
+
     @Import(name="kafka")
     private @Nullable Output<String> kafka;
 
@@ -2213,6 +2220,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.savingsplans);
     }
 
+    @Import(name="scheduler")
+    private @Nullable Output<String> scheduler;
+
+    public Optional<Output<String>> scheduler() {
+        return Optional.ofNullable(this.scheduler);
+    }
+
     @Import(name="schemas")
     private @Nullable Output<String> schemas;
 
@@ -2794,6 +2808,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.iottwinmaker = $.iottwinmaker;
         this.iotwireless = $.iotwireless;
         this.ivs = $.ivs;
+        this.ivschat = $.ivschat;
         this.kafka = $.kafka;
         this.kafkaconnect = $.kafkaconnect;
         this.kendra = $.kendra;
@@ -2922,6 +2937,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.sagemakerfeaturestoreruntime = $.sagemakerfeaturestoreruntime;
         this.sagemakerruntime = $.sagemakerruntime;
         this.savingsplans = $.savingsplans;
+        this.scheduler = $.scheduler;
         this.schemas = $.schemas;
         this.sdb = $.sdb;
         this.secretsmanager = $.secretsmanager;
@@ -4672,6 +4688,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return ivs(Output.of(ivs));
         }
 
+        public Builder ivschat(@Nullable Output<String> ivschat) {
+            $.ivschat = ivschat;
+            return this;
+        }
+
+        public Builder ivschat(String ivschat) {
+            return ivschat(Output.of(ivschat));
+        }
+
         public Builder kafka(@Nullable Output<String> kafka) {
             $.kafka = kafka;
             return this;
@@ -5822,6 +5847,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder savingsplans(String savingsplans) {
             return savingsplans(Output.of(savingsplans));
+        }
+
+        public Builder scheduler(@Nullable Output<String> scheduler) {
+            $.scheduler = scheduler;
+            return this;
+        }
+
+        public Builder scheduler(String scheduler) {
+            return scheduler(Output.of(scheduler));
         }
 
         public Builder schemas(@Nullable Output<String> schemas) {

@@ -185,6 +185,10 @@ namespace Pulumi.Aws.Connect
         public readonly string InstanceAlias;
         public readonly string InstanceId;
         /// <summary>
+        /// Whether multi-party calls/conference is enabled.
+        /// </summary>
+        public readonly bool MultiPartyConferenceEnabled;
+        /// <summary>
         /// Whether outbound calls are enabled.
         /// </summary>
         public readonly bool OutboundCallsEnabled;
@@ -221,6 +225,8 @@ namespace Pulumi.Aws.Connect
 
             string instanceId,
 
+            bool multiPartyConferenceEnabled,
+
             bool outboundCallsEnabled,
 
             string serviceRole,
@@ -238,6 +244,7 @@ namespace Pulumi.Aws.Connect
             InboundCallsEnabled = inboundCallsEnabled;
             InstanceAlias = instanceAlias;
             InstanceId = instanceId;
+            MultiPartyConferenceEnabled = multiPartyConferenceEnabled;
             OutboundCallsEnabled = outboundCallsEnabled;
             ServiceRole = serviceRole;
             Status = status;

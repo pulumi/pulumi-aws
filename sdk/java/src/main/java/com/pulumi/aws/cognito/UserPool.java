@@ -90,6 +90,7 @@ import javax.annotation.Nullable;
  *             .smsConfiguration(UserPoolSmsConfigurationArgs.builder()
  *                 .externalId(&#34;example&#34;)
  *                 .snsCallerArn(aws_iam_role.example().arn())
+ *                 .snsRegion(&#34;us-east-1&#34;)
  *                 .build())
  *             .softwareTokenMfaConfiguration(UserPoolSoftwareTokenMfaConfigurationArgs.builder()
  *                 .enabled(true)

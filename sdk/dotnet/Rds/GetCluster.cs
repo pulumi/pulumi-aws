@@ -128,6 +128,7 @@ namespace Pulumi.Aws.Rds
         public readonly ImmutableArray<string> EnabledCloudwatchLogsExports;
         public readonly string Endpoint;
         public readonly string Engine;
+        public readonly string EngineMode;
         public readonly string EngineVersion;
         public readonly string FinalSnapshotIdentifier;
         public readonly string HostedZoneId;
@@ -177,6 +178,8 @@ namespace Pulumi.Aws.Rds
 
             string engine,
 
+            string engineMode,
+
             string engineVersion,
 
             string finalSnapshotIdentifier,
@@ -224,6 +227,7 @@ namespace Pulumi.Aws.Rds
             EnabledCloudwatchLogsExports = enabledCloudwatchLogsExports;
             Endpoint = endpoint;
             Engine = engine;
+            EngineMode = engineMode;
             EngineVersion = engineVersion;
             FinalSnapshotIdentifier = finalSnapshotIdentifier;
             HostedZoneId = hostedZoneId;

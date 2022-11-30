@@ -68,6 +68,7 @@ type LookupClusterResult struct {
 	EnabledCloudwatchLogsExports     []string `pulumi:"enabledCloudwatchLogsExports"`
 	Endpoint                         string   `pulumi:"endpoint"`
 	Engine                           string   `pulumi:"engine"`
+	EngineMode                       string   `pulumi:"engineMode"`
 	EngineVersion                    string   `pulumi:"engineVersion"`
 	FinalSnapshotIdentifier          string   `pulumi:"finalSnapshotIdentifier"`
 	HostedZoneId                     string   `pulumi:"hostedZoneId"`
@@ -177,6 +178,10 @@ func (o LookupClusterResultOutput) Endpoint() pulumi.StringOutput {
 
 func (o LookupClusterResultOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Engine }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) EngineMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.EngineMode }).(pulumi.StringOutput)
 }
 
 func (o LookupClusterResultOutput) EngineVersion() pulumi.StringOutput {

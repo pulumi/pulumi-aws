@@ -3,10 +3,10 @@
 
 package com.pulumi.aws.identitystore.inputs;
 
+import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifier;
 import com.pulumi.aws.identitystore.inputs.GetGroupFilter;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,18 +17,41 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetGroupPlainArgs Empty = new GetGroupPlainArgs();
 
     /**
-     * Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+     * A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
      * 
      */
-    @Import(name="filters", required=true)
-    private List<GetGroupFilter> filters;
+    @Import(name="alternateIdentifier")
+    private @Nullable GetGroupAlternateIdentifier alternateIdentifier;
 
     /**
-     * @return Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+     * @return A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
      * 
      */
-    public List<GetGroupFilter> filters() {
-        return this.filters;
+    public Optional<GetGroupAlternateIdentifier> alternateIdentifier() {
+        return Optional.ofNullable(this.alternateIdentifier);
+    }
+
+    /**
+     * Configuration block for filtering by a unique attribute of the group. Detailed below.
+     * 
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    @Import(name="filter")
+    private @Nullable GetGroupFilter filter;
+
+    /**
+     * @return Configuration block for filtering by a unique attribute of the group. Detailed below.
+     * 
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    public Optional<GetGroupFilter> filter() {
+        return Optional.ofNullable(this.filter);
     }
 
     /**
@@ -64,7 +87,8 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetGroupPlainArgs() {}
 
     private GetGroupPlainArgs(GetGroupPlainArgs $) {
-        this.filters = $.filters;
+        this.alternateIdentifier = $.alternateIdentifier;
+        this.filter = $.filter;
         this.groupId = $.groupId;
         this.identityStoreId = $.identityStoreId;
     }
@@ -88,24 +112,29 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder filters(List<GetGroupFilter> filters) {
-            $.filters = filters;
+        public Builder alternateIdentifier(@Nullable GetGroupAlternateIdentifier alternateIdentifier) {
+            $.alternateIdentifier = alternateIdentifier;
             return this;
         }
 
         /**
-         * @param filters Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+         * @param filter Configuration block for filtering by a unique attribute of the group. Detailed below.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the alternate_identifier attribute instead.
+         * 
          */
-        public Builder filters(GetGroupFilter... filters) {
-            return filters(List.of(filters));
+        @Deprecated /* Use the alternate_identifier attribute instead. */
+        public Builder filter(@Nullable GetGroupFilter filter) {
+            $.filter = filter;
+            return this;
         }
 
         /**
@@ -131,7 +160,6 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetGroupPlainArgs build() {
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
             $.identityStoreId = Objects.requireNonNull($.identityStoreId, "expected parameter 'identityStoreId' to be non-null");
             return $;
         }

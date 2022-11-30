@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.outputs;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting;
+import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -40,6 +41,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     private @Nullable String encryptionType;
     private @Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting> hlsCdnSettings;
     private @Nullable String hlsId3SegmentTagging;
+    private @Nullable String iframeOnlyPlaylists;
     private @Nullable String incompleteSegmentBehavior;
     private @Nullable Integer indexNSegments;
     /**
@@ -49,13 +51,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     private @Nullable String inputLossAction;
     private @Nullable String ivInManifest;
     private @Nullable String ivSource;
-    private @Nullable Integer keepSegment;
+    private @Nullable Integer keepSegments;
     private @Nullable String keyFormat;
     private @Nullable String keyFormatVersions;
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings keyProviderSettings;
     private @Nullable String manifestCompression;
     private @Nullable String manifestDurationFormat;
     private @Nullable Integer minSegmentLength;
     private @Nullable String mode;
+    private @Nullable String outputSelection;
     private @Nullable String programDateTime;
     private @Nullable String programDateTimeClock;
     private @Nullable Integer programDateTimePeriod;
@@ -63,7 +67,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     private @Nullable Integer segmentLength;
     private @Nullable Integer segmentsPerSubdirectory;
     private @Nullable String streamInfResolution;
-    private @Nullable String timeMetadataId3Frame;
+    /**
+     * @return Indicates ID3 frame that has the timecode.
+     * 
+     */
+    private @Nullable String timedMetadataId3Frame;
+    private @Nullable Integer timedMetadataId3Period;
     private @Nullable Integer timestampDeltaMilliseconds;
     private @Nullable String tsFileMode;
 
@@ -124,6 +133,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public Optional<String> hlsId3SegmentTagging() {
         return Optional.ofNullable(this.hlsId3SegmentTagging);
     }
+    public Optional<String> iframeOnlyPlaylists() {
+        return Optional.ofNullable(this.iframeOnlyPlaylists);
+    }
     public Optional<String> incompleteSegmentBehavior() {
         return Optional.ofNullable(this.incompleteSegmentBehavior);
     }
@@ -143,14 +155,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public Optional<String> ivSource() {
         return Optional.ofNullable(this.ivSource);
     }
-    public Optional<Integer> keepSegment() {
-        return Optional.ofNullable(this.keepSegment);
+    public Optional<Integer> keepSegments() {
+        return Optional.ofNullable(this.keepSegments);
     }
     public Optional<String> keyFormat() {
         return Optional.ofNullable(this.keyFormat);
     }
     public Optional<String> keyFormatVersions() {
         return Optional.ofNullable(this.keyFormatVersions);
+    }
+    public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings> keyProviderSettings() {
+        return Optional.ofNullable(this.keyProviderSettings);
     }
     public Optional<String> manifestCompression() {
         return Optional.ofNullable(this.manifestCompression);
@@ -163,6 +178,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     }
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
+    }
+    public Optional<String> outputSelection() {
+        return Optional.ofNullable(this.outputSelection);
     }
     public Optional<String> programDateTime() {
         return Optional.ofNullable(this.programDateTime);
@@ -185,8 +203,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public Optional<String> streamInfResolution() {
         return Optional.ofNullable(this.streamInfResolution);
     }
-    public Optional<String> timeMetadataId3Frame() {
-        return Optional.ofNullable(this.timeMetadataId3Frame);
+    /**
+     * @return Indicates ID3 frame that has the timecode.
+     * 
+     */
+    public Optional<String> timedMetadataId3Frame() {
+        return Optional.ofNullable(this.timedMetadataId3Frame);
+    }
+    public Optional<Integer> timedMetadataId3Period() {
+        return Optional.ofNullable(this.timedMetadataId3Period);
     }
     public Optional<Integer> timestampDeltaMilliseconds() {
         return Optional.ofNullable(this.timestampDeltaMilliseconds);
@@ -220,18 +245,21 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         private @Nullable String encryptionType;
         private @Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting> hlsCdnSettings;
         private @Nullable String hlsId3SegmentTagging;
+        private @Nullable String iframeOnlyPlaylists;
         private @Nullable String incompleteSegmentBehavior;
         private @Nullable Integer indexNSegments;
         private @Nullable String inputLossAction;
         private @Nullable String ivInManifest;
         private @Nullable String ivSource;
-        private @Nullable Integer keepSegment;
+        private @Nullable Integer keepSegments;
         private @Nullable String keyFormat;
         private @Nullable String keyFormatVersions;
+        private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings keyProviderSettings;
         private @Nullable String manifestCompression;
         private @Nullable String manifestDurationFormat;
         private @Nullable Integer minSegmentLength;
         private @Nullable String mode;
+        private @Nullable String outputSelection;
         private @Nullable String programDateTime;
         private @Nullable String programDateTimeClock;
         private @Nullable Integer programDateTimePeriod;
@@ -239,7 +267,8 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         private @Nullable Integer segmentLength;
         private @Nullable Integer segmentsPerSubdirectory;
         private @Nullable String streamInfResolution;
-        private @Nullable String timeMetadataId3Frame;
+        private @Nullable String timedMetadataId3Frame;
+        private @Nullable Integer timedMetadataId3Period;
         private @Nullable Integer timestampDeltaMilliseconds;
         private @Nullable String tsFileMode;
         public Builder() {}
@@ -261,18 +290,21 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     	      this.encryptionType = defaults.encryptionType;
     	      this.hlsCdnSettings = defaults.hlsCdnSettings;
     	      this.hlsId3SegmentTagging = defaults.hlsId3SegmentTagging;
+    	      this.iframeOnlyPlaylists = defaults.iframeOnlyPlaylists;
     	      this.incompleteSegmentBehavior = defaults.incompleteSegmentBehavior;
     	      this.indexNSegments = defaults.indexNSegments;
     	      this.inputLossAction = defaults.inputLossAction;
     	      this.ivInManifest = defaults.ivInManifest;
     	      this.ivSource = defaults.ivSource;
-    	      this.keepSegment = defaults.keepSegment;
+    	      this.keepSegments = defaults.keepSegments;
     	      this.keyFormat = defaults.keyFormat;
     	      this.keyFormatVersions = defaults.keyFormatVersions;
+    	      this.keyProviderSettings = defaults.keyProviderSettings;
     	      this.manifestCompression = defaults.manifestCompression;
     	      this.manifestDurationFormat = defaults.manifestDurationFormat;
     	      this.minSegmentLength = defaults.minSegmentLength;
     	      this.mode = defaults.mode;
+    	      this.outputSelection = defaults.outputSelection;
     	      this.programDateTime = defaults.programDateTime;
     	      this.programDateTimeClock = defaults.programDateTimeClock;
     	      this.programDateTimePeriod = defaults.programDateTimePeriod;
@@ -280,7 +312,8 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     	      this.segmentLength = defaults.segmentLength;
     	      this.segmentsPerSubdirectory = defaults.segmentsPerSubdirectory;
     	      this.streamInfResolution = defaults.streamInfResolution;
-    	      this.timeMetadataId3Frame = defaults.timeMetadataId3Frame;
+    	      this.timedMetadataId3Frame = defaults.timedMetadataId3Frame;
+    	      this.timedMetadataId3Period = defaults.timedMetadataId3Period;
     	      this.timestampDeltaMilliseconds = defaults.timestampDeltaMilliseconds;
     	      this.tsFileMode = defaults.tsFileMode;
         }
@@ -375,6 +408,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return this;
         }
         @CustomType.Setter
+        public Builder iframeOnlyPlaylists(@Nullable String iframeOnlyPlaylists) {
+            this.iframeOnlyPlaylists = iframeOnlyPlaylists;
+            return this;
+        }
+        @CustomType.Setter
         public Builder incompleteSegmentBehavior(@Nullable String incompleteSegmentBehavior) {
             this.incompleteSegmentBehavior = incompleteSegmentBehavior;
             return this;
@@ -400,8 +438,8 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return this;
         }
         @CustomType.Setter
-        public Builder keepSegment(@Nullable Integer keepSegment) {
-            this.keepSegment = keepSegment;
+        public Builder keepSegments(@Nullable Integer keepSegments) {
+            this.keepSegments = keepSegments;
             return this;
         }
         @CustomType.Setter
@@ -412,6 +450,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         @CustomType.Setter
         public Builder keyFormatVersions(@Nullable String keyFormatVersions) {
             this.keyFormatVersions = keyFormatVersions;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder keyProviderSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings keyProviderSettings) {
+            this.keyProviderSettings = keyProviderSettings;
             return this;
         }
         @CustomType.Setter
@@ -432,6 +475,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
             this.mode = mode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder outputSelection(@Nullable String outputSelection) {
+            this.outputSelection = outputSelection;
             return this;
         }
         @CustomType.Setter
@@ -470,8 +518,13 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return this;
         }
         @CustomType.Setter
-        public Builder timeMetadataId3Frame(@Nullable String timeMetadataId3Frame) {
-            this.timeMetadataId3Frame = timeMetadataId3Frame;
+        public Builder timedMetadataId3Frame(@Nullable String timedMetadataId3Frame) {
+            this.timedMetadataId3Frame = timedMetadataId3Frame;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder timedMetadataId3Period(@Nullable Integer timedMetadataId3Period) {
+            this.timedMetadataId3Period = timedMetadataId3Period;
             return this;
         }
         @CustomType.Setter
@@ -502,18 +555,21 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             o.encryptionType = encryptionType;
             o.hlsCdnSettings = hlsCdnSettings;
             o.hlsId3SegmentTagging = hlsId3SegmentTagging;
+            o.iframeOnlyPlaylists = iframeOnlyPlaylists;
             o.incompleteSegmentBehavior = incompleteSegmentBehavior;
             o.indexNSegments = indexNSegments;
             o.inputLossAction = inputLossAction;
             o.ivInManifest = ivInManifest;
             o.ivSource = ivSource;
-            o.keepSegment = keepSegment;
+            o.keepSegments = keepSegments;
             o.keyFormat = keyFormat;
             o.keyFormatVersions = keyFormatVersions;
+            o.keyProviderSettings = keyProviderSettings;
             o.manifestCompression = manifestCompression;
             o.manifestDurationFormat = manifestDurationFormat;
             o.minSegmentLength = minSegmentLength;
             o.mode = mode;
+            o.outputSelection = outputSelection;
             o.programDateTime = programDateTime;
             o.programDateTimeClock = programDateTimeClock;
             o.programDateTimePeriod = programDateTimePeriod;
@@ -521,7 +577,8 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             o.segmentLength = segmentLength;
             o.segmentsPerSubdirectory = segmentsPerSubdirectory;
             o.streamInfResolution = streamInfResolution;
-            o.timeMetadataId3Frame = timeMetadataId3Frame;
+            o.timedMetadataId3Frame = timedMetadataId3Frame;
+            o.timedMetadataId3Period = timedMetadataId3Period;
             o.timestampDeltaMilliseconds = timestampDeltaMilliseconds;
             o.tsFileMode = tsFileMode;
             return o;

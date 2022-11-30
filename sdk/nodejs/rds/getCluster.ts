@@ -58,6 +58,7 @@ export interface GetClusterResult {
     readonly enabledCloudwatchLogsExports: string[];
     readonly endpoint: string;
     readonly engine: string;
+    readonly engineMode: string;
     readonly engineVersion: string;
     readonly finalSnapshotIdentifier: string;
     readonly hostedZoneId: string;

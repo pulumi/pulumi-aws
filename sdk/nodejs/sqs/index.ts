@@ -9,6 +9,10 @@ export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
 export const getQueue: typeof import("./getQueue").getQueue = null as any;
 export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
 
+export { GetQueuesArgs, GetQueuesResult, GetQueuesOutputArgs } from "./getQueues";
+export const getQueues: typeof import("./getQueues").getQueues = null as any;
+export const getQueuesOutput: typeof import("./getQueues").getQueuesOutput = null as any;
+
 export { QueueArgs, QueueState } from "./queue";
 export type Queue = import("./queue").Queue;
 export const Queue: typeof import("./queue").Queue = null as any;
@@ -28,6 +32,7 @@ export const RedrivePolicy: typeof import("./redrivePolicy").RedrivePolicy = nul
 
 export * from "./sqsMixins";
 utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
+utilities.lazyLoad(exports, ["getQueues","getQueuesOutput"], () => require("./getQueues"));
 utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
 utilities.lazyLoad(exports, ["QueuePolicy"], () => require("./queuePolicy"));
 utilities.lazyLoad(exports, ["RedriveAllowPolicy"], () => require("./redriveAllowPolicy"));

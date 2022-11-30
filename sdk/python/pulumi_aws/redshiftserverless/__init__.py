@@ -6,7 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .endpoint_access import *
+from .get_credentials import *
 from .namespace import *
+from .resource_policy import *
 from .snapshot import *
 from .usage_limit import *
 from .workgroup import *

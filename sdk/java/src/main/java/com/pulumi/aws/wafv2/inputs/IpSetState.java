@@ -33,14 +33,14 @@ public final class IpSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the cluster.
+     * The Amazon Resource Name (ARN) of the IP set.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the cluster.
+     * @return The Amazon Resource Name (ARN) of the IP set.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -208,7 +208,7 @@ public final class IpSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the cluster.
+         * @param arn The Amazon Resource Name (ARN) of the IP set.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class IpSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the cluster.
+         * @param arn The Amazon Resource Name (ARN) of the IP set.
          * 
          * @return builder
          * 

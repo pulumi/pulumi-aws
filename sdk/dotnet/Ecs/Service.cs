@@ -286,6 +286,12 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> TaskDefinition { get; private set; } = null!;
 
         /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+        /// </summary>
+        [Output("triggers")]
+        public Output<ImmutableDictionary<string, string>> Triggers { get; private set; } = null!;
+
+        /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         /// </summary>
         [Output("waitForSteadyState")]
@@ -511,6 +517,18 @@ namespace Pulumi.Aws.Ecs
         [Input("taskDefinition")]
         public Input<string>? TaskDefinition { get; set; }
 
+        [Input("triggers")]
+        private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+        /// </summary>
+        public InputMap<string> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputMap<string>());
+            set => _triggers = value;
+        }
+
         /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         /// </summary>
@@ -710,6 +728,18 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("taskDefinition")]
         public Input<string>? TaskDefinition { get; set; }
+
+        [Input("triggers")]
+        private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+        /// </summary>
+        public InputMap<string> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputMap<string>());
+            set => _triggers = value;
+        }
 
         /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.

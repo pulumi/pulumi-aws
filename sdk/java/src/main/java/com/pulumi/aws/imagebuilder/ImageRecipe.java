@@ -186,14 +186,14 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
         return this.owner;
     }
     /**
-     * Platform of the image recipe.
+     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      * 
      */
     @Export(name="parentImage", type=String.class, parameters={})
     private Output<String> parentImage;
 
     /**
-     * @return Platform of the image recipe.
+     * @return The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      * 
      */
     public Output<String> parentImage() {
@@ -270,14 +270,14 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
         return this.userDataBase64;
     }
     /**
-     * Version of the image recipe.
+     * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      * 
      */
     @Export(name="version", type=String.class, parameters={})
     private Output<String> version;
 
     /**
-     * @return Version of the image recipe.
+     * @return The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      * 
      */
     public Output<String> version() {

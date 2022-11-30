@@ -8,11 +8,15 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ConfigurationProfileValidator',
     'EnvironmentMonitor',
     'EventIntegrationEventFilter',
+    'ExtensionActionPoint',
+    'ExtensionActionPointAction',
+    'ExtensionParameter',
     'GetConfigurationProfileValidatorResult',
     'GetEnvironmentMonitorResult',
 ]
@@ -112,6 +116,146 @@ class EventIntegrationEventFilter(dict):
         Source of the events.
         """
         return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class ExtensionActionPoint(dict):
+    def __init__(__self__, *,
+                 actions: Sequence['outputs.ExtensionActionPointAction'],
+                 point: str):
+        """
+        :param Sequence['ExtensionActionPointActionArgs'] actions: An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+        :param str point: The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "point", point)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence['outputs.ExtensionActionPointAction']:
+        """
+        An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def point(self) -> str:
+        """
+        The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+        """
+        return pulumi.get(self, "point")
+
+
+@pulumi.output_type
+class ExtensionActionPointAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtensionActionPointAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtensionActionPointAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtensionActionPointAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 role_arn: str,
+                 uri: str,
+                 description: Optional[str] = None):
+        """
+        :param str name: The action name.
+        :param str role_arn: An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+        :param str uri: The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+        :param str description: Information about the action.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "uri", uri)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The action name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Information about the action.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ExtensionParameter(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 description: Optional[str] = None,
+                 required: Optional[bool] = None):
+        """
+        :param str name: The parameter name.
+        :param str description: Information about the parameter.
+        :param bool required: Determines if a parameter value must be specified in the extension association.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Information about the parameter.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[bool]:
+        """
+        Determines if a parameter value must be specified in the extension association.
+        """
+        return pulumi.get(self, "required")
 
 
 @pulumi.output_type

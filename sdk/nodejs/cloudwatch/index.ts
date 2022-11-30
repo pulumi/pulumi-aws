@@ -67,6 +67,10 @@ export { GetLogGroupsArgs, GetLogGroupsResult, GetLogGroupsOutputArgs } from "./
 export const getLogGroups: typeof import("./getLogGroups").getLogGroups = null as any;
 export const getLogGroupsOutput: typeof import("./getLogGroups").getLogGroupsOutput = null as any;
 
+export { LogDataProtectionPolicyArgs, LogDataProtectionPolicyState } from "./logDataProtectionPolicy";
+export type LogDataProtectionPolicy = import("./logDataProtectionPolicy").LogDataProtectionPolicy;
+export const LogDataProtectionPolicy: typeof import("./logDataProtectionPolicy").LogDataProtectionPolicy = null as any;
+
 export { LogDestinationArgs, LogDestinationState } from "./logDestination";
 export type LogDestination = import("./logDestination").LogDestination;
 export const LogDestination: typeof import("./logDestination").LogDestination = null as any;
@@ -123,6 +127,7 @@ utilities.lazyLoad(exports, ["getEventConnection","getEventConnectionOutput"], (
 utilities.lazyLoad(exports, ["getEventSource","getEventSourceOutput"], () => require("./getEventSource"));
 utilities.lazyLoad(exports, ["getLogGroup","getLogGroupOutput"], () => require("./getLogGroup"));
 utilities.lazyLoad(exports, ["getLogGroups","getLogGroupsOutput"], () => require("./getLogGroups"));
+utilities.lazyLoad(exports, ["LogDataProtectionPolicy"], () => require("./logDataProtectionPolicy"));
 utilities.lazyLoad(exports, ["LogDestination"], () => require("./logDestination"));
 utilities.lazyLoad(exports, ["LogDestinationPolicy"], () => require("./logDestinationPolicy"));
 utilities.lazyLoad(exports, ["LogGroup"], () => require("./logGroup"));
@@ -158,6 +163,8 @@ const _module = {
                 return new EventRule(name, <any>undefined, { urn })
             case "aws:cloudwatch/eventTarget:EventTarget":
                 return new EventTarget(name, <any>undefined, { urn })
+            case "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy":
+                return new LogDataProtectionPolicy(name, <any>undefined, { urn })
             case "aws:cloudwatch/logDestination:LogDestination":
                 return new LogDestination(name, <any>undefined, { urn })
             case "aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy":
@@ -193,6 +200,7 @@ pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventConnection", _modu
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventTarget", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDataProtectionPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDestinationPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logGroup", _module)

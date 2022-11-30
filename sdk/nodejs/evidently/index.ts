@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { FeatureArgs, FeatureState } from "./feature";
+export type Feature = import("./feature").Feature;
+export const Feature: typeof import("./feature").Feature = null as any;
+
 export { ProjectArgs, ProjectState } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
@@ -13,6 +17,7 @@ export { SegmentArgs, SegmentState } from "./segment";
 export type Segment = import("./segment").Segment;
 export const Segment: typeof import("./segment").Segment = null as any;
 
+utilities.lazyLoad(exports, ["Feature"], () => require("./feature"));
 utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 utilities.lazyLoad(exports, ["Segment"], () => require("./segment"));
 
@@ -20,6 +25,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:evidently/feature:Feature":
+                return new Feature(name, <any>undefined, { urn })
             case "aws:evidently/project:Project":
                 return new Project(name, <any>undefined, { urn })
             case "aws:evidently/segment:Segment":
@@ -29,5 +36,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "evidently/feature", _module)
 pulumi.runtime.registerResourceModule("aws", "evidently/project", _module)
 pulumi.runtime.registerResourceModule("aws", "evidently/segment", _module)

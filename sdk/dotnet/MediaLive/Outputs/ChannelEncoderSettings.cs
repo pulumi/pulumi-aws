@@ -18,6 +18,10 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsAudioDescription> AudioDescriptions;
         /// <summary>
+        /// Settings for ad avail blanking. See Avail Blanking for more details.
+        /// </summary>
+        public readonly Outputs.ChannelEncoderSettingsAvailBlanking? AvailBlanking;
+        /// <summary>
         /// Output groups for the channel. See Output Groups for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroup> OutputGroups;
@@ -34,6 +38,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
         private ChannelEncoderSettings(
             ImmutableArray<Outputs.ChannelEncoderSettingsAudioDescription> audioDescriptions,
 
+            Outputs.ChannelEncoderSettingsAvailBlanking? availBlanking,
+
             ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroup> outputGroups,
 
             Outputs.ChannelEncoderSettingsTimecodeConfig timecodeConfig,
@@ -41,6 +47,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
             ImmutableArray<Outputs.ChannelEncoderSettingsVideoDescription> videoDescriptions)
         {
             AudioDescriptions = audioDescriptions;
+            AvailBlanking = availBlanking;
             OutputGroups = outputGroups;
             TimecodeConfig = timecodeConfig;
             VideoDescriptions = videoDescriptions;

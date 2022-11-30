@@ -1017,6 +1017,147 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) Gl
 	}).(GlobalClusterGlobalClusterMemberOutput)
 }
 
+type InstanceBlueGreenUpdate struct {
+	// Enables low-downtime updates when `true`.
+	// Default is `false`.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// InstanceBlueGreenUpdateInput is an input type that accepts InstanceBlueGreenUpdateArgs and InstanceBlueGreenUpdateOutput values.
+// You can construct a concrete instance of `InstanceBlueGreenUpdateInput` via:
+//
+//	InstanceBlueGreenUpdateArgs{...}
+type InstanceBlueGreenUpdateInput interface {
+	pulumi.Input
+
+	ToInstanceBlueGreenUpdateOutput() InstanceBlueGreenUpdateOutput
+	ToInstanceBlueGreenUpdateOutputWithContext(context.Context) InstanceBlueGreenUpdateOutput
+}
+
+type InstanceBlueGreenUpdateArgs struct {
+	// Enables low-downtime updates when `true`.
+	// Default is `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (InstanceBlueGreenUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceBlueGreenUpdate)(nil)).Elem()
+}
+
+func (i InstanceBlueGreenUpdateArgs) ToInstanceBlueGreenUpdateOutput() InstanceBlueGreenUpdateOutput {
+	return i.ToInstanceBlueGreenUpdateOutputWithContext(context.Background())
+}
+
+func (i InstanceBlueGreenUpdateArgs) ToInstanceBlueGreenUpdateOutputWithContext(ctx context.Context) InstanceBlueGreenUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceBlueGreenUpdateOutput)
+}
+
+func (i InstanceBlueGreenUpdateArgs) ToInstanceBlueGreenUpdatePtrOutput() InstanceBlueGreenUpdatePtrOutput {
+	return i.ToInstanceBlueGreenUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i InstanceBlueGreenUpdateArgs) ToInstanceBlueGreenUpdatePtrOutputWithContext(ctx context.Context) InstanceBlueGreenUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceBlueGreenUpdateOutput).ToInstanceBlueGreenUpdatePtrOutputWithContext(ctx)
+}
+
+// InstanceBlueGreenUpdatePtrInput is an input type that accepts InstanceBlueGreenUpdateArgs, InstanceBlueGreenUpdatePtr and InstanceBlueGreenUpdatePtrOutput values.
+// You can construct a concrete instance of `InstanceBlueGreenUpdatePtrInput` via:
+//
+//	        InstanceBlueGreenUpdateArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceBlueGreenUpdatePtrInput interface {
+	pulumi.Input
+
+	ToInstanceBlueGreenUpdatePtrOutput() InstanceBlueGreenUpdatePtrOutput
+	ToInstanceBlueGreenUpdatePtrOutputWithContext(context.Context) InstanceBlueGreenUpdatePtrOutput
+}
+
+type instanceBlueGreenUpdatePtrType InstanceBlueGreenUpdateArgs
+
+func InstanceBlueGreenUpdatePtr(v *InstanceBlueGreenUpdateArgs) InstanceBlueGreenUpdatePtrInput {
+	return (*instanceBlueGreenUpdatePtrType)(v)
+}
+
+func (*instanceBlueGreenUpdatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceBlueGreenUpdate)(nil)).Elem()
+}
+
+func (i *instanceBlueGreenUpdatePtrType) ToInstanceBlueGreenUpdatePtrOutput() InstanceBlueGreenUpdatePtrOutput {
+	return i.ToInstanceBlueGreenUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i *instanceBlueGreenUpdatePtrType) ToInstanceBlueGreenUpdatePtrOutputWithContext(ctx context.Context) InstanceBlueGreenUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceBlueGreenUpdatePtrOutput)
+}
+
+type InstanceBlueGreenUpdateOutput struct{ *pulumi.OutputState }
+
+func (InstanceBlueGreenUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceBlueGreenUpdate)(nil)).Elem()
+}
+
+func (o InstanceBlueGreenUpdateOutput) ToInstanceBlueGreenUpdateOutput() InstanceBlueGreenUpdateOutput {
+	return o
+}
+
+func (o InstanceBlueGreenUpdateOutput) ToInstanceBlueGreenUpdateOutputWithContext(ctx context.Context) InstanceBlueGreenUpdateOutput {
+	return o
+}
+
+func (o InstanceBlueGreenUpdateOutput) ToInstanceBlueGreenUpdatePtrOutput() InstanceBlueGreenUpdatePtrOutput {
+	return o.ToInstanceBlueGreenUpdatePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceBlueGreenUpdateOutput) ToInstanceBlueGreenUpdatePtrOutputWithContext(ctx context.Context) InstanceBlueGreenUpdatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceBlueGreenUpdate) *InstanceBlueGreenUpdate {
+		return &v
+	}).(InstanceBlueGreenUpdatePtrOutput)
+}
+
+// Enables low-downtime updates when `true`.
+// Default is `false`.
+func (o InstanceBlueGreenUpdateOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceBlueGreenUpdate) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceBlueGreenUpdatePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceBlueGreenUpdatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceBlueGreenUpdate)(nil)).Elem()
+}
+
+func (o InstanceBlueGreenUpdatePtrOutput) ToInstanceBlueGreenUpdatePtrOutput() InstanceBlueGreenUpdatePtrOutput {
+	return o
+}
+
+func (o InstanceBlueGreenUpdatePtrOutput) ToInstanceBlueGreenUpdatePtrOutputWithContext(ctx context.Context) InstanceBlueGreenUpdatePtrOutput {
+	return o
+}
+
+func (o InstanceBlueGreenUpdatePtrOutput) Elem() InstanceBlueGreenUpdateOutput {
+	return o.ApplyT(func(v *InstanceBlueGreenUpdate) InstanceBlueGreenUpdate {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceBlueGreenUpdate
+		return ret
+	}).(InstanceBlueGreenUpdateOutput)
+}
+
+// Enables low-downtime updates when `true`.
+// Default is `false`.
+func (o InstanceBlueGreenUpdatePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceBlueGreenUpdate) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type InstanceRestoreToPointInTime struct {
 	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
 	RestoreTime *string `pulumi:"restoreTime"`
@@ -2385,6 +2526,112 @@ func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupI
 	}).(SecurityGroupIngressOutput)
 }
 
+type GetClustersFilter struct {
+	// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetClustersFilterInput is an input type that accepts GetClustersFilterArgs and GetClustersFilterOutput values.
+// You can construct a concrete instance of `GetClustersFilterInput` via:
+//
+//	GetClustersFilterArgs{...}
+type GetClustersFilterInput interface {
+	pulumi.Input
+
+	ToGetClustersFilterOutput() GetClustersFilterOutput
+	ToGetClustersFilterOutputWithContext(context.Context) GetClustersFilterOutput
+}
+
+type GetClustersFilterArgs struct {
+	// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetClustersFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClustersFilter)(nil)).Elem()
+}
+
+func (i GetClustersFilterArgs) ToGetClustersFilterOutput() GetClustersFilterOutput {
+	return i.ToGetClustersFilterOutputWithContext(context.Background())
+}
+
+func (i GetClustersFilterArgs) ToGetClustersFilterOutputWithContext(ctx context.Context) GetClustersFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClustersFilterOutput)
+}
+
+// GetClustersFilterArrayInput is an input type that accepts GetClustersFilterArray and GetClustersFilterArrayOutput values.
+// You can construct a concrete instance of `GetClustersFilterArrayInput` via:
+//
+//	GetClustersFilterArray{ GetClustersFilterArgs{...} }
+type GetClustersFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetClustersFilterArrayOutput() GetClustersFilterArrayOutput
+	ToGetClustersFilterArrayOutputWithContext(context.Context) GetClustersFilterArrayOutput
+}
+
+type GetClustersFilterArray []GetClustersFilterInput
+
+func (GetClustersFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClustersFilter)(nil)).Elem()
+}
+
+func (i GetClustersFilterArray) ToGetClustersFilterArrayOutput() GetClustersFilterArrayOutput {
+	return i.ToGetClustersFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetClustersFilterArray) ToGetClustersFilterArrayOutputWithContext(ctx context.Context) GetClustersFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClustersFilterArrayOutput)
+}
+
+type GetClustersFilterOutput struct{ *pulumi.OutputState }
+
+func (GetClustersFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClustersFilter)(nil)).Elem()
+}
+
+func (o GetClustersFilterOutput) ToGetClustersFilterOutput() GetClustersFilterOutput {
+	return o
+}
+
+func (o GetClustersFilterOutput) ToGetClustersFilterOutputWithContext(ctx context.Context) GetClustersFilterOutput {
+	return o
+}
+
+// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+func (o GetClustersFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClustersFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetClustersFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClustersFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetClustersFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClustersFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClustersFilter)(nil)).Elem()
+}
+
+func (o GetClustersFilterArrayOutput) ToGetClustersFilterArrayOutput() GetClustersFilterArrayOutput {
+	return o
+}
+
+func (o GetClustersFilterArrayOutput) ToGetClustersFilterArrayOutputWithContext(ctx context.Context) GetClustersFilterArrayOutput {
+	return o
+}
+
+func (o GetClustersFilterArrayOutput) Index(i pulumi.IntInput) GetClustersFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClustersFilter {
+		return vs[0].([]GetClustersFilter)[vs[1].(int)]
+	}).(GetClustersFilterOutput)
+}
+
 type GetEngineVersionFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -2616,6 +2863,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerlessv2ScalingConfigurationPtrInput)(nil)).Elem(), ClusterServerlessv2ScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberArrayInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlueGreenUpdateInput)(nil)).Elem(), InstanceBlueGreenUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlueGreenUpdatePtrInput)(nil)).Elem(), InstanceBlueGreenUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRestoreToPointInTimeInput)(nil)).Elem(), InstanceRestoreToPointInTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRestoreToPointInTimePtrInput)(nil)).Elem(), InstanceRestoreToPointInTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceS3ImportInput)(nil)).Elem(), InstanceS3ImportArgs{})
@@ -2634,6 +2883,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReservedInstanceRecurringChargeArrayInput)(nil)).Elem(), ReservedInstanceRecurringChargeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressInput)(nil)).Elem(), SecurityGroupIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressArrayInput)(nil)).Elem(), SecurityGroupIngressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClustersFilterInput)(nil)).Elem(), GetClustersFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClustersFilterArrayInput)(nil)).Elem(), GetClustersFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterInput)(nil)).Elem(), GetEngineVersionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterArrayInput)(nil)).Elem(), GetEngineVersionFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProxyAuthInput)(nil)).Elem(), GetProxyAuthArgs{})
@@ -2650,6 +2901,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterServerlessv2ScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberArrayOutput{})
+	pulumi.RegisterOutputType(InstanceBlueGreenUpdateOutput{})
+	pulumi.RegisterOutputType(InstanceBlueGreenUpdatePtrOutput{})
 	pulumi.RegisterOutputType(InstanceRestoreToPointInTimeOutput{})
 	pulumi.RegisterOutputType(InstanceRestoreToPointInTimePtrOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportOutput{})
@@ -2668,6 +2921,8 @@ func init() {
 	pulumi.RegisterOutputType(ReservedInstanceRecurringChargeArrayOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
+	pulumi.RegisterOutputType(GetClustersFilterOutput{})
+	pulumi.RegisterOutputType(GetClustersFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetEngineVersionFilterOutput{})
 	pulumi.RegisterOutputType(GetEngineVersionFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetProxyAuthOutput{})

@@ -213,6 +213,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SecurityGroupId { get; private set; } = null!;
 
         /// <summary>
+        /// If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+        /// </summary>
+        [Output("securityGroupRuleId")]
+        public Output<string> SecurityGroupRuleId { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         /// </summary>
         [Output("self")]
@@ -435,6 +441,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("securityGroupId")]
         public Input<string>? SecurityGroupId { get; set; }
+
+        /// <summary>
+        /// If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+        /// </summary>
+        [Input("securityGroupRuleId")]
+        public Input<string>? SecurityGroupRuleId { get; set; }
 
         /// <summary>
         /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.

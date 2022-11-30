@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:evidently/feature:Feature":
+		r = &Feature{}
 	case "aws:evidently/project:Project":
 		r = &Project{}
 	case "aws:evidently/segment:Segment":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"evidently/feature",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"evidently/project",

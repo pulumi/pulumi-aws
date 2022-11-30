@@ -318,6 +318,8 @@ type TopicSubscription struct {
 	EndpointAutoConfirms pulumi.BoolPtrOutput `pulumi:"endpointAutoConfirms"`
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy pulumi.StringPtrOutput `pulumi:"filterPolicy"`
+	// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+	FilterPolicyScope pulumi.StringOutput `pulumi:"filterPolicyScope"`
 	// AWS account ID of the subscription's owner.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Whether the subscription has not been confirmed.
@@ -386,6 +388,8 @@ type topicSubscriptionState struct {
 	EndpointAutoConfirms *bool `pulumi:"endpointAutoConfirms"`
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy *string `pulumi:"filterPolicy"`
+	// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+	FilterPolicyScope *string `pulumi:"filterPolicyScope"`
 	// AWS account ID of the subscription's owner.
 	OwnerId *string `pulumi:"ownerId"`
 	// Whether the subscription has not been confirmed.
@@ -417,6 +421,8 @@ type TopicSubscriptionState struct {
 	EndpointAutoConfirms pulumi.BoolPtrInput
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy pulumi.StringPtrInput
+	// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+	FilterPolicyScope pulumi.StringPtrInput
 	// AWS account ID of the subscription's owner.
 	OwnerId pulumi.StringPtrInput
 	// Whether the subscription has not been confirmed.
@@ -448,6 +454,8 @@ type topicSubscriptionArgs struct {
 	EndpointAutoConfirms *bool `pulumi:"endpointAutoConfirms"`
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy *string `pulumi:"filterPolicy"`
+	// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+	FilterPolicyScope *string `pulumi:"filterPolicyScope"`
 	// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
 	Protocol string `pulumi:"protocol"`
 	// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
@@ -472,6 +480,8 @@ type TopicSubscriptionArgs struct {
 	EndpointAutoConfirms pulumi.BoolPtrInput
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy pulumi.StringPtrInput
+	// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+	FilterPolicyScope pulumi.StringPtrInput
 	// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
 	Protocol pulumi.StringInput
 	// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
@@ -604,6 +614,11 @@ func (o TopicSubscriptionOutput) EndpointAutoConfirms() pulumi.BoolPtrOutput {
 // JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 func (o TopicSubscriptionOutput) FilterPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicSubscription) pulumi.StringPtrOutput { return v.FilterPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+func (o TopicSubscriptionOutput) FilterPolicyScope() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicSubscription) pulumi.StringOutput { return v.FilterPolicyScope }).(pulumi.StringOutput)
 }
 
 // AWS account ID of the subscription's owner.

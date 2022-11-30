@@ -24,6 +24,9 @@ namespace Pulumi.Aws.ElastiCache.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
+
         /// <summary>
         /// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         /// </summary>

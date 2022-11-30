@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroup {
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     private @Nullable String name;
@@ -32,7 +32,7 @@ public final class ChannelEncoderSettingsOutputGroup {
 
     private ChannelEncoderSettingsOutputGroup() {}
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     public Optional<String> name() {

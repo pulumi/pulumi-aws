@@ -18,11 +18,14 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("passwordParam")]
         public Input<string>? PasswordParam { get; set; }
 
+        /// <summary>
+        /// Path to a file accessible to the live stream.
+        /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;
 
         /// <summary>
-        /// Username for destination.
+        /// . Username to be used.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

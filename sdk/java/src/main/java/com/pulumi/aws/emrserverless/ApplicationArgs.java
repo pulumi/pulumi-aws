@@ -23,6 +23,21 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     public static final ApplicationArgs Empty = new ApplicationArgs();
 
     /**
+     * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+     * 
+     */
+    @Import(name="architecture")
+    private @Nullable Output<String> architecture;
+
+    /**
+     * @return The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+     * 
+     */
+    public Optional<Output<String>> architecture() {
+        return Optional.ofNullable(this.architecture);
+    }
+
+    /**
      * The configuration for an application to automatically start on job submission.
      * 
      */
@@ -160,6 +175,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     private ApplicationArgs() {}
 
     private ApplicationArgs(ApplicationArgs $) {
+        this.architecture = $.architecture;
         this.autoStartConfiguration = $.autoStartConfiguration;
         this.autoStopConfiguration = $.autoStopConfiguration;
         this.initialCapacities = $.initialCapacities;
@@ -187,6 +203,27 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ApplicationArgs defaults) {
             $ = new ApplicationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param architecture The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder architecture(@Nullable Output<String> architecture) {
+            $.architecture = architecture;
+            return this;
+        }
+
+        /**
+         * @param architecture The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder architecture(String architecture) {
+            return architecture(Output.of(architecture));
         }
 
         /**

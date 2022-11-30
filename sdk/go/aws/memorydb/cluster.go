@@ -68,6 +68,8 @@ type Cluster struct {
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput              `pulumi:"autoMinorVersionUpgrade"`
 	ClusterEndpoints        ClusterClusterEndpointArrayOutput `pulumi:"clusterEndpoints"`
+	// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+	DataTiering pulumi.BoolPtrOutput `pulumi:"dataTiering"`
 	// Description for the cluster.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Patch version number of the Redis engine used by the cluster.
@@ -99,7 +101,7 @@ type Cluster struct {
 	// Set of shards in this cluster.
 	Shards ClusterShardArrayOutput `pulumi:"shards"`
 	// List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
-	SnapshotArns pulumi.StringPtrOutput `pulumi:"snapshotArns"`
+	SnapshotArns pulumi.StringArrayOutput `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new cluster.
 	SnapshotName pulumi.StringPtrOutput `pulumi:"snapshotName"`
 	// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
@@ -161,6 +163,8 @@ type clusterState struct {
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade *bool                    `pulumi:"autoMinorVersionUpgrade"`
 	ClusterEndpoints        []ClusterClusterEndpoint `pulumi:"clusterEndpoints"`
+	// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+	DataTiering *bool `pulumi:"dataTiering"`
 	// Description for the cluster.
 	Description *string `pulumi:"description"`
 	// Patch version number of the Redis engine used by the cluster.
@@ -192,7 +196,7 @@ type clusterState struct {
 	// Set of shards in this cluster.
 	Shards []ClusterShard `pulumi:"shards"`
 	// List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
-	SnapshotArns *string `pulumi:"snapshotArns"`
+	SnapshotArns []string `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new cluster.
 	SnapshotName *string `pulumi:"snapshotName"`
 	// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
@@ -220,6 +224,8 @@ type ClusterState struct {
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	ClusterEndpoints        ClusterClusterEndpointArrayInput
+	// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+	DataTiering pulumi.BoolPtrInput
 	// Description for the cluster.
 	Description pulumi.StringPtrInput
 	// Patch version number of the Redis engine used by the cluster.
@@ -251,7 +257,7 @@ type ClusterState struct {
 	// Set of shards in this cluster.
 	Shards ClusterShardArrayInput
 	// List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
-	SnapshotArns pulumi.StringPtrInput
+	SnapshotArns pulumi.StringArrayInput
 	// The name of a snapshot from which to restore data into the new cluster.
 	SnapshotName pulumi.StringPtrInput
 	// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
@@ -279,6 +285,8 @@ type clusterArgs struct {
 	AclName string `pulumi:"aclName"`
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
+	// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+	DataTiering *bool `pulumi:"dataTiering"`
 	// Description for the cluster.
 	Description *string `pulumi:"description"`
 	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
@@ -306,7 +314,7 @@ type clusterArgs struct {
 	// Set of VPC Security Group ID-s to associate with this cluster.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
-	SnapshotArns *string `pulumi:"snapshotArns"`
+	SnapshotArns []string `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new cluster.
 	SnapshotName *string `pulumi:"snapshotName"`
 	// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
@@ -329,6 +337,8 @@ type ClusterArgs struct {
 	AclName pulumi.StringInput
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
+	// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+	DataTiering pulumi.BoolPtrInput
 	// Description for the cluster.
 	Description pulumi.StringPtrInput
 	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
@@ -356,7 +366,7 @@ type ClusterArgs struct {
 	// Set of VPC Security Group ID-s to associate with this cluster.
 	SecurityGroupIds pulumi.StringArrayInput
 	// List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
-	SnapshotArns pulumi.StringPtrInput
+	SnapshotArns pulumi.StringArrayInput
 	// The name of a snapshot from which to restore data into the new cluster.
 	SnapshotName pulumi.StringPtrInput
 	// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
@@ -480,6 +490,11 @@ func (o ClusterOutput) ClusterEndpoints() ClusterClusterEndpointArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterClusterEndpointArrayOutput { return v.ClusterEndpoints }).(ClusterClusterEndpointArrayOutput)
 }
 
+// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+func (o ClusterOutput) DataTiering() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DataTiering }).(pulumi.BoolPtrOutput)
+}
+
 // Description for the cluster.
 func (o ClusterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -556,8 +571,8 @@ func (o ClusterOutput) Shards() ClusterShardArrayOutput {
 }
 
 // List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
-func (o ClusterOutput) SnapshotArns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotArns }).(pulumi.StringPtrOutput)
+func (o ClusterOutput) SnapshotArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.SnapshotArns }).(pulumi.StringArrayOutput)
 }
 
 // The name of a snapshot from which to restore data into the new cluster.

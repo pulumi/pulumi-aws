@@ -96,6 +96,8 @@ type ClusterInstance struct {
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
 	// The region-unique, immutable identifier for the DB instance.
 	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
+	// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+	EnablePerformanceInsights pulumi.BoolOutput `pulumi:"enablePerformanceInsights"`
 	// The DNS address for this instance. May not be writable
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
@@ -124,6 +126,8 @@ type ClusterInstance struct {
 	InstanceClass pulumi.StringOutput `pulumi:"instanceClass"`
 	// The ARN for the KMS encryption key if one is set to the cluster.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+	PerformanceInsightsKmsKeyId pulumi.StringOutput `pulumi:"performanceInsightsKmsKeyId"`
 	// The database port
 	Port pulumi.IntOutput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled.
@@ -196,6 +200,8 @@ type clusterInstanceState struct {
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// The region-unique, immutable identifier for the DB instance.
 	DbiResourceId *string `pulumi:"dbiResourceId"`
+	// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+	EnablePerformanceInsights *bool `pulumi:"enablePerformanceInsights"`
 	// The DNS address for this instance. May not be writable
 	Endpoint *string `pulumi:"endpoint"`
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
@@ -224,6 +230,8 @@ type clusterInstanceState struct {
 	InstanceClass *string `pulumi:"instanceClass"`
 	// The ARN for the KMS encryption key if one is set to the cluster.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
 	// The database port
 	Port *int `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled.
@@ -262,6 +270,8 @@ type ClusterInstanceState struct {
 	DbSubnetGroupName pulumi.StringPtrInput
 	// The region-unique, immutable identifier for the DB instance.
 	DbiResourceId pulumi.StringPtrInput
+	// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+	EnablePerformanceInsights pulumi.BoolPtrInput
 	// The DNS address for this instance. May not be writable
 	Endpoint pulumi.StringPtrInput
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
@@ -290,6 +300,8 @@ type ClusterInstanceState struct {
 	InstanceClass pulumi.StringPtrInput
 	// The ARN for the KMS encryption key if one is set to the cluster.
 	KmsKeyId pulumi.StringPtrInput
+	// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
 	// The database port
 	Port pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled.
@@ -326,6 +338,8 @@ type clusterInstanceArgs struct {
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+	EnablePerformanceInsights *bool `pulumi:"enablePerformanceInsights"`
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine *string `pulumi:"engine"`
 	// The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
@@ -348,6 +362,8 @@ type clusterInstanceArgs struct {
 	// - db.r4.16xlarge
 	// - db.t3.medium
 	InstanceClass string `pulumi:"instanceClass"`
+	// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
@@ -370,6 +386,8 @@ type ClusterInstanceArgs struct {
 	CaCertIdentifier pulumi.StringPtrInput
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringInput
+	// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+	EnablePerformanceInsights pulumi.BoolPtrInput
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine pulumi.StringPtrInput
 	// The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
@@ -392,6 +410,8 @@ type ClusterInstanceArgs struct {
 	// - db.r4.16xlarge
 	// - db.t3.medium
 	InstanceClass pulumi.StringInput
+	// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
 	PreferredMaintenanceWindow pulumi.StringPtrInput
@@ -529,6 +549,11 @@ func (o ClusterInstanceOutput) DbiResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.DbiResourceId }).(pulumi.StringOutput)
 }
 
+// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+func (o ClusterInstanceOutput) EnablePerformanceInsights() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.EnablePerformanceInsights }).(pulumi.BoolOutput)
+}
+
 // The DNS address for this instance. May not be writable
 func (o ClusterInstanceOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
@@ -576,6 +601,11 @@ func (o ClusterInstanceOutput) InstanceClass() pulumi.StringOutput {
 // The ARN for the KMS encryption key if one is set to the cluster.
 func (o ClusterInstanceOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+func (o ClusterInstanceOutput) PerformanceInsightsKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.PerformanceInsightsKmsKeyId }).(pulumi.StringOutput)
 }
 
 // The database port

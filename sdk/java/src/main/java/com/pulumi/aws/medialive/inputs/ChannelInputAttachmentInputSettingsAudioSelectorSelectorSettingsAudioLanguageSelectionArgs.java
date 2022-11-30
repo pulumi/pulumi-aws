@@ -15,9 +15,17 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs();
 
+    /**
+     * When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * 
+     */
     @Import(name="languageCode", required=true)
     private Output<String> languageCode;
 
+    /**
+     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * 
+     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
@@ -54,11 +62,23 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             $ = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
+        /**
+         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }

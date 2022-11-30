@@ -25,6 +25,10 @@ export { EmailIdentityFeedbackAttributesArgs, EmailIdentityFeedbackAttributesSta
 export type EmailIdentityFeedbackAttributes = import("./emailIdentityFeedbackAttributes").EmailIdentityFeedbackAttributes;
 export const EmailIdentityFeedbackAttributes: typeof import("./emailIdentityFeedbackAttributes").EmailIdentityFeedbackAttributes = null as any;
 
+export { EmailIdentityMailFromAttributesArgs, EmailIdentityMailFromAttributesState } from "./emailIdentityMailFromAttributes";
+export type EmailIdentityMailFromAttributes = import("./emailIdentityMailFromAttributes").EmailIdentityMailFromAttributes;
+export const EmailIdentityMailFromAttributes: typeof import("./emailIdentityMailFromAttributes").EmailIdentityMailFromAttributes = null as any;
+
 export { GetDedicatedIpPoolArgs, GetDedicatedIpPoolResult, GetDedicatedIpPoolOutputArgs } from "./getDedicatedIpPool";
 export const getDedicatedIpPool: typeof import("./getDedicatedIpPool").getDedicatedIpPool = null as any;
 export const getDedicatedIpPoolOutput: typeof import("./getDedicatedIpPool").getDedicatedIpPoolOutput = null as any;
@@ -34,6 +38,7 @@ utilities.lazyLoad(exports, ["DedicatedIpAssignment"], () => require("./dedicate
 utilities.lazyLoad(exports, ["DedicatedIpPool"], () => require("./dedicatedIpPool"));
 utilities.lazyLoad(exports, ["EmailIdentity"], () => require("./emailIdentity"));
 utilities.lazyLoad(exports, ["EmailIdentityFeedbackAttributes"], () => require("./emailIdentityFeedbackAttributes"));
+utilities.lazyLoad(exports, ["EmailIdentityMailFromAttributes"], () => require("./emailIdentityMailFromAttributes"));
 utilities.lazyLoad(exports, ["getDedicatedIpPool","getDedicatedIpPoolOutput"], () => require("./getDedicatedIpPool"));
 
 const _module = {
@@ -50,6 +55,8 @@ const _module = {
                 return new EmailIdentity(name, <any>undefined, { urn })
             case "aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes":
                 return new EmailIdentityFeedbackAttributes(name, <any>undefined, { urn })
+            case "aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes":
+                return new EmailIdentityMailFromAttributes(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -60,3 +67,4 @@ pulumi.runtime.registerResourceModule("aws", "sesv2/dedicatedIpAssignment", _mod
 pulumi.runtime.registerResourceModule("aws", "sesv2/dedicatedIpPool", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentity", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentityFeedbackAttributes", _module)
+pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentityMailFromAttributes", _module)

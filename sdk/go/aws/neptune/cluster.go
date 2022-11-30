@@ -121,6 +121,8 @@ type Cluster struct {
 	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrOutput `pulumi:"replicationSourceIdentifier"`
+	// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+	ServerlessV2ScalingConfiguration ClusterServerlessV2ScalingConfigurationPtrOutput `pulumi:"serverlessV2ScalingConfiguration"`
 	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrOutput `pulumi:"skipFinalSnapshot"`
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
@@ -218,6 +220,8 @@ type clusterState struct {
 	ReaderEndpoint *string `pulumi:"readerEndpoint"`
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
+	// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+	ServerlessV2ScalingConfiguration *ClusterServerlessV2ScalingConfiguration `pulumi:"serverlessV2ScalingConfiguration"`
 	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
@@ -287,6 +291,8 @@ type ClusterState struct {
 	ReaderEndpoint pulumi.StringPtrInput
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
+	// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+	ServerlessV2ScalingConfiguration ClusterServerlessV2ScalingConfigurationPtrInput
 	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrInput
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
@@ -348,6 +354,8 @@ type clusterArgs struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
+	// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+	ServerlessV2ScalingConfiguration *ClusterServerlessV2ScalingConfiguration `pulumi:"serverlessV2ScalingConfiguration"`
 	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
@@ -404,6 +412,8 @@ type ClusterArgs struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
+	// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+	ServerlessV2ScalingConfiguration ClusterServerlessV2ScalingConfigurationPtrInput
 	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrInput
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
@@ -636,6 +646,13 @@ func (o ClusterOutput) ReaderEndpoint() pulumi.StringOutput {
 // ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 func (o ClusterOutput) ReplicationSourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ReplicationSourceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+func (o ClusterOutput) ServerlessV2ScalingConfiguration() ClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterServerlessV2ScalingConfigurationPtrOutput {
+		return v.ServerlessV2ScalingConfiguration
+	}).(ClusterServerlessV2ScalingConfigurationPtrOutput)
 }
 
 // Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.

@@ -76,6 +76,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+     * 
+     */
+    @Import(name="dataTiering")
+    private @Nullable Output<Boolean> dataTiering;
+
+    /**
+     * @return Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+     * 
+     */
+    public Optional<Output<Boolean>> dataTiering() {
+        return Optional.ofNullable(this.dataTiering);
+    }
+
+    /**
      * Description for the cluster.
      * 
      */
@@ -305,13 +320,13 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="snapshotArns")
-    private @Nullable Output<String> snapshotArns;
+    private @Nullable Output<List<String>> snapshotArns;
 
     /**
      * @return List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
      * 
      */
-    public Optional<Output<String>> snapshotArns() {
+    public Optional<Output<List<String>>> snapshotArns() {
         return Optional.ofNullable(this.snapshotArns);
     }
 
@@ -442,6 +457,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.autoMinorVersionUpgrade = $.autoMinorVersionUpgrade;
         this.clusterEndpoints = $.clusterEndpoints;
+        this.dataTiering = $.dataTiering;
         this.description = $.description;
         this.enginePatchVersion = $.enginePatchVersion;
         this.engineVersion = $.engineVersion;
@@ -562,6 +578,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         public Builder clusterEndpoints(ClusterClusterEndpointArgs... clusterEndpoints) {
             return clusterEndpoints(List.of(clusterEndpoints));
+        }
+
+        /**
+         * @param dataTiering Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataTiering(@Nullable Output<Boolean> dataTiering) {
+            $.dataTiering = dataTiering;
+            return this;
+        }
+
+        /**
+         * @param dataTiering Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataTiering(Boolean dataTiering) {
+            return dataTiering(Output.of(dataTiering));
         }
 
         /**
@@ -905,7 +942,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder snapshotArns(@Nullable Output<String> snapshotArns) {
+        public Builder snapshotArns(@Nullable Output<List<String>> snapshotArns) {
             $.snapshotArns = snapshotArns;
             return this;
         }
@@ -916,8 +953,18 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder snapshotArns(String snapshotArns) {
+        public Builder snapshotArns(List<String> snapshotArns) {
             return snapshotArns(Output.of(snapshotArns));
+        }
+
+        /**
+         * @param snapshotArns List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotArns(String... snapshotArns) {
+            return snapshotArns(List.of(snapshotArns));
         }
 
         /**

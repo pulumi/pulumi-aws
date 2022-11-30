@@ -11,10 +11,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection {
+    /**
+     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * 
+     */
     private String languageCode;
     private @Nullable String languageSelectionPolicy;
 
     private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection() {}
+    /**
+     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * 
+     */
     public String languageCode() {
         return this.languageCode;
     }

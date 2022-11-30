@@ -11,7 +11,7 @@ import java.util.Objects;
 public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection {
     private String groupId;
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     private String name;
@@ -21,7 +21,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         return this.groupId;
     }
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     public String name() {

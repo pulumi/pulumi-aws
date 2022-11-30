@@ -63,7 +63,7 @@ type IpSet struct {
 
 	// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
 	Addresses pulumi.StringArrayOutput `pulumi:"addresses"`
-	// The Amazon Resource Name (ARN) that identifies the cluster.
+	// The Amazon Resource Name (ARN) of the IP set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A friendly description of the IP set.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -117,7 +117,7 @@ func GetIpSet(ctx *pulumi.Context,
 type ipSetState struct {
 	// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
 	Addresses []string `pulumi:"addresses"`
-	// The Amazon Resource Name (ARN) that identifies the cluster.
+	// The Amazon Resource Name (ARN) of the IP set.
 	Arn *string `pulumi:"arn"`
 	// A friendly description of the IP set.
 	Description *string `pulumi:"description"`
@@ -137,7 +137,7 @@ type ipSetState struct {
 type IpSetState struct {
 	// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
 	Addresses pulumi.StringArrayInput
-	// The Amazon Resource Name (ARN) that identifies the cluster.
+	// The Amazon Resource Name (ARN) of the IP set.
 	Arn pulumi.StringPtrInput
 	// A friendly description of the IP set.
 	Description pulumi.StringPtrInput
@@ -281,7 +281,7 @@ func (o IpSetOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringArrayOutput { return v.Addresses }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) that identifies the cluster.
+// The Amazon Resource Name (ARN) of the IP set.
 func (o IpSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

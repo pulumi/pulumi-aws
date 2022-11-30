@@ -142,6 +142,21 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+     * 
+     */
+    @Import(name="keyAlgorithm")
+    private @Nullable Output<String> keyAlgorithm;
+
+    /**
+     * @return Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+     * 
+     */
+    public Optional<Output<String>> keyAlgorithm() {
+        return Optional.ofNullable(this.keyAlgorithm);
+    }
+
+    /**
      * Expiration date and time of the certificate.
      * 
      */
@@ -380,6 +395,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         this.domainName = $.domainName;
         this.domainValidationOptions = $.domainValidationOptions;
         this.earlyRenewalDuration = $.earlyRenewalDuration;
+        this.keyAlgorithm = $.keyAlgorithm;
         this.notAfter = $.notAfter;
         this.notBefore = $.notBefore;
         this.options = $.options;
@@ -586,6 +602,27 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder earlyRenewalDuration(String earlyRenewalDuration) {
             return earlyRenewalDuration(Output.of(earlyRenewalDuration));
+        }
+
+        /**
+         * @param keyAlgorithm Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyAlgorithm(@Nullable Output<String> keyAlgorithm) {
+            $.keyAlgorithm = keyAlgorithm;
+            return this;
+        }
+
+        /**
+         * @param keyAlgorithm Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyAlgorithm(String keyAlgorithm) {
+            return keyAlgorithm(Output.of(keyAlgorithm));
         }
 
         /**

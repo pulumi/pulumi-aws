@@ -15,6 +15,7 @@ type ClusterCacheNode struct {
 	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	Id               *string `pulumi:"id"`
+	OutpostArn       *string `pulumi:"outpostArn"`
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port *int `pulumi:"port"`
 }
@@ -35,6 +36,7 @@ type ClusterCacheNodeArgs struct {
 	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	Id               pulumi.StringPtrInput `pulumi:"id"`
+	OutpostArn       pulumi.StringPtrInput `pulumi:"outpostArn"`
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
@@ -101,6 +103,10 @@ func (o ClusterCacheNodeOutput) AvailabilityZone() pulumi.StringPtrOutput {
 
 func (o ClusterCacheNodeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterCacheNodeOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCacheNode) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 // The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
@@ -765,6 +771,7 @@ type GetClusterCacheNode struct {
 	// Availability Zone for the cache cluster.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	Id               string `pulumi:"id"`
+	OutpostArn       string `pulumi:"outpostArn"`
 	// The port number on which each of the cache nodes will
 	// accept connections.
 	Port int `pulumi:"port"`
@@ -786,6 +793,7 @@ type GetClusterCacheNodeArgs struct {
 	// Availability Zone for the cache cluster.
 	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	Id               pulumi.StringInput `pulumi:"id"`
+	OutpostArn       pulumi.StringInput `pulumi:"outpostArn"`
 	// The port number on which each of the cache nodes will
 	// accept connections.
 	Port pulumi.IntInput `pulumi:"port"`
@@ -853,6 +861,10 @@ func (o GetClusterCacheNodeOutput) AvailabilityZone() pulumi.StringOutput {
 
 func (o GetClusterCacheNodeOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCacheNode) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetClusterCacheNodeOutput) OutpostArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterCacheNode) string { return v.OutpostArn }).(pulumi.StringOutput)
 }
 
 // The port number on which each of the cache nodes will

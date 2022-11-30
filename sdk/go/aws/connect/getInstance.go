@@ -103,6 +103,8 @@ type LookupInstanceResult struct {
 	InboundCallsEnabled bool   `pulumi:"inboundCallsEnabled"`
 	InstanceAlias       string `pulumi:"instanceAlias"`
 	InstanceId          string `pulumi:"instanceId"`
+	// Whether multi-party calls/conference is enabled.
+	MultiPartyConferenceEnabled bool `pulumi:"multiPartyConferenceEnabled"`
 	// Whether outbound calls are enabled.
 	OutboundCallsEnabled bool `pulumi:"outboundCallsEnabled"`
 	// Service role of the instance.
@@ -201,6 +203,11 @@ func (o LookupInstanceResultOutput) InstanceAlias() pulumi.StringOutput {
 
 func (o LookupInstanceResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// Whether multi-party calls/conference is enabled.
+func (o LookupInstanceResultOutput) MultiPartyConferenceEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupInstanceResult) bool { return v.MultiPartyConferenceEnabled }).(pulumi.BoolOutput)
 }
 
 // Whether outbound calls are enabled.

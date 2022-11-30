@@ -980,6 +980,7 @@ class UserPool(pulumi.CustomResource):
             sms_configuration=aws.cognito.UserPoolSmsConfigurationArgs(
                 external_id="example",
                 sns_caller_arn=aws_iam_role["example"]["arn"],
+                sns_region="us-east-1",
             ),
             software_token_mfa_configuration=aws.cognito.UserPoolSoftwareTokenMfaConfigurationArgs(
                 enabled=True,
@@ -1071,6 +1072,7 @@ class UserPool(pulumi.CustomResource):
             sms_configuration=aws.cognito.UserPoolSmsConfigurationArgs(
                 external_id="example",
                 sns_caller_arn=aws_iam_role["example"]["arn"],
+                sns_region="us-east-1",
             ),
             software_token_mfa_configuration=aws.cognito.UserPoolSoftwareTokenMfaConfigurationArgs(
                 enabled=True,

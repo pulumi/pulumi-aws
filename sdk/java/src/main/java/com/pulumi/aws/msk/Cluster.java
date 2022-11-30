@@ -538,6 +538,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.openMonitoring);
     }
     /**
+     * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+     * 
+     */
+    @Export(name="storageMode", type=String.class, parameters={})
+    private Output<String> storageMode;
+
+    /**
+     * @return Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+     * 
+     */
+    public Output<String> storageMode() {
+        return this.storageMode;
+    }
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

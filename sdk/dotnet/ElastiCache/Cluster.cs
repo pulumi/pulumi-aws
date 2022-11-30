@@ -226,6 +226,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+        /// </summary>
+        [Output("ipDiscovery")]
+        public Output<string> IpDiscovery { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         /// </summary>
         [Output("logDeliveryConfigurations")]
@@ -238,6 +244,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("maintenanceWindow")]
         public Output<string> MaintenanceWindow { get; private set; } = null!;
+
+        /// <summary>
+        /// The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        /// </summary>
+        [Output("networkType")]
+        public Output<string> NetworkType { get; private set; } = null!;
 
         /// <summary>
         /// The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
@@ -258,6 +270,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<int> NumCacheNodes { get; private set; } = null!;
 
         /// <summary>
+        /// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
+        /// </summary>
+        [Output("outpostMode")]
+        public Output<string?> OutpostMode { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
         /// </summary>
         [Output("parameterGroupName")]
@@ -274,6 +292,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("preferredAvailabilityZones")]
         public Output<ImmutableArray<string>> PreferredAvailabilityZones { get; private set; } = null!;
+
+        /// <summary>
+        /// The outpost ARN in which the cache cluster will be created.
+        /// </summary>
+        [Output("preferredOutpostArn")]
+        public Output<string> PreferredOutpostArn { get; private set; } = null!;
 
         /// <summary>
         /// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
@@ -437,6 +461,12 @@ namespace Pulumi.Aws.ElastiCache
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
+        /// <summary>
+        /// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+        /// </summary>
+        [Input("ipDiscovery")]
+        public Input<string>? IpDiscovery { get; set; }
+
         [Input("logDeliveryConfigurations")]
         private InputList<Inputs.ClusterLogDeliveryConfigurationArgs>? _logDeliveryConfigurations;
 
@@ -458,6 +488,12 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
+        /// The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
+
+        /// <summary>
         /// The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
         /// </summary>
         [Input("nodeType")]
@@ -474,6 +510,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("numCacheNodes")]
         public Input<int>? NumCacheNodes { get; set; }
+
+        /// <summary>
+        /// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
+        /// </summary>
+        [Input("outpostMode")]
+        public Input<string>? OutpostMode { get; set; }
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
@@ -498,6 +540,12 @@ namespace Pulumi.Aws.ElastiCache
             get => _preferredAvailabilityZones ?? (_preferredAvailabilityZones = new InputList<string>());
             set => _preferredAvailabilityZones = value;
         }
+
+        /// <summary>
+        /// The outpost ARN in which the cache cluster will be created.
+        /// </summary>
+        [Input("preferredOutpostArn")]
+        public Input<string>? PreferredOutpostArn { get; set; }
 
         /// <summary>
         /// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
@@ -672,6 +720,12 @@ namespace Pulumi.Aws.ElastiCache
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
+        /// <summary>
+        /// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+        /// </summary>
+        [Input("ipDiscovery")]
+        public Input<string>? IpDiscovery { get; set; }
+
         [Input("logDeliveryConfigurations")]
         private InputList<Inputs.ClusterLogDeliveryConfigurationGetArgs>? _logDeliveryConfigurations;
 
@@ -693,6 +747,12 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
+        /// The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
+
+        /// <summary>
         /// The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
         /// </summary>
         [Input("nodeType")]
@@ -709,6 +769,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("numCacheNodes")]
         public Input<int>? NumCacheNodes { get; set; }
+
+        /// <summary>
+        /// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
+        /// </summary>
+        [Input("outpostMode")]
+        public Input<string>? OutpostMode { get; set; }
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
@@ -733,6 +799,12 @@ namespace Pulumi.Aws.ElastiCache
             get => _preferredAvailabilityZones ?? (_preferredAvailabilityZones = new InputList<string>());
             set => _preferredAvailabilityZones = value;
         }
+
+        /// <summary>
+        /// The outpost ARN in which the cache cluster will be created.
+        /// </summary>
+        [Input("preferredOutpostArn")]
+        public Input<string>? PreferredOutpostArn { get; set; }
 
         /// <summary>
         /// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.

@@ -21,7 +21,7 @@ public final class GetClusterResult {
      */
     private String availabilityZone;
     /**
-     * @return List of node objects including `id`, `address`, `port` and `availability_zone`.
+     * @return List of node objects including `id`, `address`, `port`, `availability_zone` and `outpost_arn`.
      * Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
      * 
      */
@@ -53,6 +53,11 @@ public final class GetClusterResult {
      */
     private String id;
     /**
+     * @return The IP version advertised in the discovery protocol.
+     * 
+     */
+    private String ipDiscovery;
+    /**
      * @return Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
      * 
      */
@@ -63,6 +68,11 @@ public final class GetClusterResult {
      * 
      */
     private String maintenanceWindow;
+    /**
+     * @return The IP versions for cache cluster connections.
+     * 
+     */
+    private String networkType;
     /**
      * @return The cluster node type.
      * 
@@ -90,6 +100,11 @@ public final class GetClusterResult {
      * 
      */
     private Integer port;
+    /**
+     * @return The outpost ARN in which the cache cluster was created if created in outpost.
+     * 
+     */
+    private String preferredOutpostArn;
     /**
      * @return The replication group to which this cache cluster belongs.
      * 
@@ -140,7 +155,7 @@ public final class GetClusterResult {
         return this.availabilityZone;
     }
     /**
-     * @return List of node objects including `id`, `address`, `port` and `availability_zone`.
+     * @return List of node objects including `id`, `address`, `port`, `availability_zone` and `outpost_arn`.
      * Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
      * 
      */
@@ -186,6 +201,13 @@ public final class GetClusterResult {
         return this.id;
     }
     /**
+     * @return The IP version advertised in the discovery protocol.
+     * 
+     */
+    public String ipDiscovery() {
+        return this.ipDiscovery;
+    }
+    /**
      * @return Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
      * 
      */
@@ -199,6 +221,13 @@ public final class GetClusterResult {
      */
     public String maintenanceWindow() {
         return this.maintenanceWindow;
+    }
+    /**
+     * @return The IP versions for cache cluster connections.
+     * 
+     */
+    public String networkType() {
+        return this.networkType;
     }
     /**
      * @return The cluster node type.
@@ -236,6 +265,13 @@ public final class GetClusterResult {
      */
     public Integer port() {
         return this.port;
+    }
+    /**
+     * @return The outpost ARN in which the cache cluster was created if created in outpost.
+     * 
+     */
+    public String preferredOutpostArn() {
+        return this.preferredOutpostArn;
     }
     /**
      * @return The replication group to which this cache cluster belongs.
@@ -307,13 +343,16 @@ public final class GetClusterResult {
         private String engine;
         private String engineVersion;
         private String id;
+        private String ipDiscovery;
         private List<GetClusterLogDeliveryConfiguration> logDeliveryConfigurations;
         private String maintenanceWindow;
+        private String networkType;
         private String nodeType;
         private String notificationTopicArn;
         private Integer numCacheNodes;
         private String parameterGroupName;
         private Integer port;
+        private String preferredOutpostArn;
         private String replicationGroupId;
         private List<String> securityGroupIds;
         private List<String> securityGroupNames;
@@ -333,13 +372,16 @@ public final class GetClusterResult {
     	      this.engine = defaults.engine;
     	      this.engineVersion = defaults.engineVersion;
     	      this.id = defaults.id;
+    	      this.ipDiscovery = defaults.ipDiscovery;
     	      this.logDeliveryConfigurations = defaults.logDeliveryConfigurations;
     	      this.maintenanceWindow = defaults.maintenanceWindow;
+    	      this.networkType = defaults.networkType;
     	      this.nodeType = defaults.nodeType;
     	      this.notificationTopicArn = defaults.notificationTopicArn;
     	      this.numCacheNodes = defaults.numCacheNodes;
     	      this.parameterGroupName = defaults.parameterGroupName;
     	      this.port = defaults.port;
+    	      this.preferredOutpostArn = defaults.preferredOutpostArn;
     	      this.replicationGroupId = defaults.replicationGroupId;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.securityGroupNames = defaults.securityGroupNames;
@@ -398,6 +440,11 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ipDiscovery(String ipDiscovery) {
+            this.ipDiscovery = Objects.requireNonNull(ipDiscovery);
+            return this;
+        }
+        @CustomType.Setter
         public Builder logDeliveryConfigurations(List<GetClusterLogDeliveryConfiguration> logDeliveryConfigurations) {
             this.logDeliveryConfigurations = Objects.requireNonNull(logDeliveryConfigurations);
             return this;
@@ -408,6 +455,11 @@ public final class GetClusterResult {
         @CustomType.Setter
         public Builder maintenanceWindow(String maintenanceWindow) {
             this.maintenanceWindow = Objects.requireNonNull(maintenanceWindow);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder networkType(String networkType) {
+            this.networkType = Objects.requireNonNull(networkType);
             return this;
         }
         @CustomType.Setter
@@ -433,6 +485,11 @@ public final class GetClusterResult {
         @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder preferredOutpostArn(String preferredOutpostArn) {
+            this.preferredOutpostArn = Objects.requireNonNull(preferredOutpostArn);
             return this;
         }
         @CustomType.Setter
@@ -487,13 +544,16 @@ public final class GetClusterResult {
             o.engine = engine;
             o.engineVersion = engineVersion;
             o.id = id;
+            o.ipDiscovery = ipDiscovery;
             o.logDeliveryConfigurations = logDeliveryConfigurations;
             o.maintenanceWindow = maintenanceWindow;
+            o.networkType = networkType;
             o.nodeType = nodeType;
             o.notificationTopicArn = notificationTopicArn;
             o.numCacheNodes = numCacheNodes;
             o.parameterGroupName = parameterGroupName;
             o.port = port;
+            o.preferredOutpostArn = preferredOutpostArn;
             o.replicationGroupId = replicationGroupId;
             o.securityGroupIds = securityGroupIds;
             o.securityGroupNames = securityGroupNames;

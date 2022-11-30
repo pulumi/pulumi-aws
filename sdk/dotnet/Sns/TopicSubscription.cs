@@ -340,6 +340,12 @@ namespace Pulumi.Aws.Sns
         public Output<string?> FilterPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+        /// </summary>
+        [Output("filterPolicyScope")]
+        public Output<string> FilterPolicyScope { get; private set; } = null!;
+
+        /// <summary>
         /// AWS account ID of the subscription's owner.
         /// </summary>
         [Output("ownerId")]
@@ -458,6 +464,12 @@ namespace Pulumi.Aws.Sns
         public Input<string>? FilterPolicy { get; set; }
 
         /// <summary>
+        /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+        /// </summary>
+        [Input("filterPolicyScope")]
+        public Input<string>? FilterPolicyScope { get; set; }
+
+        /// <summary>
         /// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         /// </summary>
         [Input("protocol", required: true)]
@@ -536,6 +548,12 @@ namespace Pulumi.Aws.Sns
         /// </summary>
         [Input("filterPolicy")]
         public Input<string>? FilterPolicy { get; set; }
+
+        /// <summary>
+        /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+        /// </summary>
+        [Input("filterPolicyScope")]
+        public Input<string>? FilterPolicyScope { get; set; }
 
         /// <summary>
         /// AWS account ID of the subscription's owner.

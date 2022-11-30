@@ -17,9 +17,17 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
 
     public static final ChannelEncoderSettingsVideoDescriptionArgs Empty = new ChannelEncoderSettingsVideoDescriptionArgs();
 
+    /**
+     * The video codec settings. See Video Codec Settings for more details.
+     * 
+     */
     @Import(name="codecSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs> codecSettings;
 
+    /**
+     * @return The video codec settings. See Video Codec Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs>> codecSettings() {
         return Optional.ofNullable(this.codecSettings);
     }
@@ -40,14 +48,14 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
     }
 
     /**
-     * Custom output group name defined by the user.
+     * The name of the video description.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     public Output<String> name() {
@@ -144,11 +152,23 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
             $ = new ChannelEncoderSettingsVideoDescriptionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param codecSettings The video codec settings. See Video Codec Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codecSettings(@Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs> codecSettings) {
             $.codecSettings = codecSettings;
             return this;
         }
 
+        /**
+         * @param codecSettings The video codec settings. See Video Codec Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codecSettings(ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs codecSettings) {
             return codecSettings(Output.of(codecSettings));
         }
@@ -175,7 +195,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param name Custom output group name defined by the user.
+         * @param name The name of the video description.
          * 
          * @return builder
          * 
@@ -186,7 +206,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param name Custom output group name defined by the user.
+         * @param name The name of the video description.
          * 
          * @return builder
          * 

@@ -16,23 +16,47 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
 
     public static final ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs();
 
+    /**
+     * Average bitrate in bits/second.
+     * 
+     */
     @Import(name="bitrate")
     private @Nullable Output<Double> bitrate;
 
+    /**
+     * @return Average bitrate in bits/second.
+     * 
+     */
     public Optional<Output<Double>> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
 
+    /**
+     * Dolby Digital Plus coding mode.
+     * 
+     */
     @Import(name="codingMode")
     private @Nullable Output<String> codingMode;
 
+    /**
+     * @return Dolby Digital Plus coding mode.
+     * 
+     */
     public Optional<Output<String>> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
 
+    /**
+     * Sample rate in Hz.
+     * 
+     */
     @Import(name="sampleRate")
     private @Nullable Output<Double> sampleRate;
 
+    /**
+     * @return Sample rate in Hz.
+     * 
+     */
     public Optional<Output<Double>> sampleRate() {
         return Optional.ofNullable(this.sampleRate);
     }
@@ -63,29 +87,65 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
             $ = new ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bitrate Average bitrate in bits/second.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bitrate(@Nullable Output<Double> bitrate) {
             $.bitrate = bitrate;
             return this;
         }
 
+        /**
+         * @param bitrate Average bitrate in bits/second.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bitrate(Double bitrate) {
             return bitrate(Output.of(bitrate));
         }
 
+        /**
+         * @param codingMode Dolby Digital Plus coding mode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codingMode(@Nullable Output<String> codingMode) {
             $.codingMode = codingMode;
             return this;
         }
 
+        /**
+         * @param codingMode Dolby Digital Plus coding mode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codingMode(String codingMode) {
             return codingMode(Output.of(codingMode));
         }
 
+        /**
+         * @param sampleRate Sample rate in Hz.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sampleRate(@Nullable Output<Double> sampleRate) {
             $.sampleRate = sampleRate;
             return this;
         }
 
+        /**
+         * @param sampleRate Sample rate in Hz.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sampleRate(Double sampleRate) {
             return sampleRate(Output.of(sampleRate));
         }

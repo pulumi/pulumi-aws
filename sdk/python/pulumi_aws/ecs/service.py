@@ -40,6 +40,7 @@ class ServiceArgs:
                  service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Service resource.
@@ -67,6 +68,7 @@ class ServiceArgs:
         :param pulumi.Input['ServiceServiceRegistriesArgs'] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
         if capacity_provider_strategies is not None:
@@ -117,6 +119,8 @@ class ServiceArgs:
             pulumi.set(__self__, "tags", tags)
         if task_definition is not None:
             pulumi.set(__self__, "task_definition", task_definition)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
         if wait_for_steady_state is not None:
             pulumi.set(__self__, "wait_for_steady_state", wait_for_steady_state)
 
@@ -409,6 +413,18 @@ class ServiceArgs:
         pulumi.set(self, "task_definition", value)
 
     @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+        """
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "triggers", value)
+
+    @property
     @pulumi.getter(name="waitForSteadyState")
     def wait_for_steady_state(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -449,6 +465,7 @@ class _ServiceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Service resources.
@@ -477,6 +494,7 @@ class _ServiceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
         if capacity_provider_strategies is not None:
@@ -529,6 +547,8 @@ class _ServiceState:
             pulumi.set(__self__, "tags_all", tags_all)
         if task_definition is not None:
             pulumi.set(__self__, "task_definition", task_definition)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
         if wait_for_steady_state is not None:
             pulumi.set(__self__, "wait_for_steady_state", wait_for_steady_state)
 
@@ -833,6 +853,18 @@ class _ServiceState:
         pulumi.set(self, "task_definition", value)
 
     @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+        """
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "triggers", value)
+
+    @property
     @pulumi.getter(name="waitForSteadyState")
     def wait_for_steady_state(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -874,6 +906,7 @@ class Service(pulumi.CustomResource):
                  service_registries: Optional[pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -978,6 +1011,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArgs']] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
         ...
@@ -1101,6 +1135,7 @@ class Service(pulumi.CustomResource):
                  service_registries: Optional[pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1135,6 +1170,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["service_registries"] = service_registries
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_definition"] = task_definition
+            __props__.__dict__["triggers"] = triggers
             __props__.__dict__["wait_for_steady_state"] = wait_for_steady_state
             __props__.__dict__["tags_all"] = None
         super(Service, __self__).__init__(
@@ -1172,6 +1208,7 @@ class Service(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             task_definition: Optional[pulumi.Input[str]] = None,
+            triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             wait_for_steady_state: Optional[pulumi.Input[bool]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
@@ -1205,6 +1242,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1236,6 +1274,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["task_definition"] = task_definition
+        __props__.__dict__["triggers"] = triggers
         __props__.__dict__["wait_for_steady_state"] = wait_for_steady_state
         return Service(resource_name, opts=opts, __props__=__props__)
 
@@ -1438,6 +1477,14 @@ class Service(pulumi.CustomResource):
         Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         """
         return pulumi.get(self, "task_definition")
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+        """
+        return pulumi.get(self, "triggers")
 
     @property
     @pulumi.getter(name="waitForSteadyState")

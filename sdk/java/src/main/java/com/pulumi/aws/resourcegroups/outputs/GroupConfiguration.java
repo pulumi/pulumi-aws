@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupConfiguration {
@@ -15,7 +16,7 @@ public final class GroupConfiguration {
      * @return A collection of parameters for this group configuration item. See below for details.
      * 
      */
-    private List<GroupConfigurationParameter> parameters;
+    private @Nullable List<GroupConfigurationParameter> parameters;
     /**
      * @return Specifies the type of group configuration item.
      * 
@@ -28,7 +29,7 @@ public final class GroupConfiguration {
      * 
      */
     public List<GroupConfigurationParameter> parameters() {
-        return this.parameters;
+        return this.parameters == null ? List.of() : this.parameters;
     }
     /**
      * @return Specifies the type of group configuration item.
@@ -47,7 +48,7 @@ public final class GroupConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GroupConfigurationParameter> parameters;
+        private @Nullable List<GroupConfigurationParameter> parameters;
         private String type;
         public Builder() {}
         public Builder(GroupConfiguration defaults) {
@@ -57,8 +58,8 @@ public final class GroupConfiguration {
         }
 
         @CustomType.Setter
-        public Builder parameters(List<GroupConfigurationParameter> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+        public Builder parameters(@Nullable List<GroupConfigurationParameter> parameters) {
+            this.parameters = parameters;
             return this;
         }
         public Builder parameters(GroupConfigurationParameter... parameters) {

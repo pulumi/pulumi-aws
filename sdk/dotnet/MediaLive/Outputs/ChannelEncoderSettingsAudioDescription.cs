@@ -33,11 +33,17 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings? AudioWatermarkSettings;
+        /// <summary>
+        /// The video codec settings. See Video Codec Settings for more details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettings? CodecSettings;
+        /// <summary>
+        /// When specified this field indicates the three letter language code of the caption track to extract from the source.
+        /// </summary>
         public readonly string? LanguageCode;
         public readonly string? LanguageCodeControl;
         /// <summary>
-        /// Custom output group name defined by the user.
+        /// The name of the video description.
         /// </summary>
         public readonly string Name;
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettings? RemixSettings;

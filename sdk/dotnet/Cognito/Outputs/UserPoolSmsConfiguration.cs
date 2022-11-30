@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
         /// </summary>
         public readonly string SnsCallerArn;
+        /// <summary>
+        /// The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+        /// </summary>
+        public readonly string? SnsRegion;
 
         [OutputConstructor]
         private UserPoolSmsConfiguration(
             string externalId,
 
-            string snsCallerArn)
+            string snsCallerArn,
+
+            string? snsRegion)
         {
             ExternalId = externalId;
             SnsCallerArn = snsCallerArn;
+            SnsRegion = snsRegion;
         }
     }
 }

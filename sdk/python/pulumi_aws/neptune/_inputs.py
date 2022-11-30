@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'ClusterParameterGroupParameterArgs',
+    'ClusterServerlessV2ScalingConfigurationArgs',
     'ParameterGroupParameterArgs',
 ]
 
@@ -65,6 +66,35 @@ class ClusterParameterGroupParameterArgs:
     @apply_method.setter
     def apply_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "apply_method", value)
+
+
+@pulumi.input_type
+class ClusterServerlessV2ScalingConfigurationArgs:
+    def __init__(__self__, *,
+                 max_capacity: Optional[pulumi.Input[float]] = None,
+                 min_capacity: Optional[pulumi.Input[float]] = None):
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+        if min_capacity is not None:
+            pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max_capacity")
+
+    @max_capacity.setter
+    def max_capacity(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_capacity", value)
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "min_capacity")
+
+    @min_capacity.setter
+    def min_capacity(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_capacity", value)
 
 
 @pulumi.input_type

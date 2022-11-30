@@ -17,7 +17,8 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:identitystore/getGroup:getGroup", {
-        "filters": args.filters,
+        "alternateIdentifier": args.alternateIdentifier,
+        "filter": args.filter,
         "groupId": args.groupId,
         "identityStoreId": args.identityStoreId,
     }, opts);
@@ -28,9 +29,15 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetGroupArgs {
     /**
-     * Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+     * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
      */
-    filters: inputs.identitystore.GetGroupFilter[];
+    alternateIdentifier?: inputs.identitystore.GetGroupAlternateIdentifier;
+    /**
+     * Configuration block for filtering by a unique attribute of the group. Detailed below.
+     *
+     * @deprecated Use the alternate_identifier attribute instead.
+     */
+    filter?: inputs.identitystore.GetGroupFilter;
     /**
      * The identifier for a group in the Identity Store.
      */
@@ -45,11 +52,23 @@ export interface GetGroupArgs {
  * A collection of values returned by getGroup.
  */
 export interface GetGroupResult {
+    readonly alternateIdentifier?: outputs.identitystore.GetGroupAlternateIdentifier;
+    /**
+     * Description of the specified group.
+     */
+    readonly description: string;
     /**
      * Group's display name value.
      */
     readonly displayName: string;
-    readonly filters: outputs.identitystore.GetGroupFilter[];
+    /**
+     * List of identifiers issued to this resource by an external identity provider.
+     */
+    readonly externalIds: outputs.identitystore.GetGroupExternalId[];
+    /**
+     * @deprecated Use the alternate_identifier attribute instead.
+     */
+    readonly filter?: outputs.identitystore.GetGroupFilter;
     readonly groupId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -67,9 +86,15 @@ export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetGroupOutputArgs {
     /**
-     * Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+     * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
      */
-    filters: pulumi.Input<pulumi.Input<inputs.identitystore.GetGroupFilterArgs>[]>;
+    alternateIdentifier?: pulumi.Input<inputs.identitystore.GetGroupAlternateIdentifierArgs>;
+    /**
+     * Configuration block for filtering by a unique attribute of the group. Detailed below.
+     *
+     * @deprecated Use the alternate_identifier attribute instead.
+     */
+    filter?: pulumi.Input<inputs.identitystore.GetGroupFilterArgs>;
     /**
      * The identifier for a group in the Identity Store.
      */

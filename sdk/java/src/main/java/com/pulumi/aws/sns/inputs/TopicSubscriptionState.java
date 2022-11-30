@@ -123,6 +123,21 @@ public final class TopicSubscriptionState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+     * 
+     */
+    @Import(name="filterPolicyScope")
+    private @Nullable Output<String> filterPolicyScope;
+
+    /**
+     * @return Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+     * 
+     */
+    public Optional<Output<String>> filterPolicyScope() {
+        return Optional.ofNullable(this.filterPolicyScope);
+    }
+
+    /**
      * AWS account ID of the subscription&#39;s owner.
      * 
      */
@@ -237,6 +252,7 @@ public final class TopicSubscriptionState extends com.pulumi.resources.ResourceA
         this.endpoint = $.endpoint;
         this.endpointAutoConfirms = $.endpointAutoConfirms;
         this.filterPolicy = $.filterPolicy;
+        this.filterPolicyScope = $.filterPolicyScope;
         this.ownerId = $.ownerId;
         this.pendingConfirmation = $.pendingConfirmation;
         this.protocol = $.protocol;
@@ -409,6 +425,27 @@ public final class TopicSubscriptionState extends com.pulumi.resources.ResourceA
          */
         public Builder filterPolicy(String filterPolicy) {
             return filterPolicy(Output.of(filterPolicy));
+        }
+
+        /**
+         * @param filterPolicyScope Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterPolicyScope(@Nullable Output<String> filterPolicyScope) {
+            $.filterPolicyScope = filterPolicyScope;
+            return this;
+        }
+
+        /**
+         * @param filterPolicyScope Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterPolicyScope(String filterPolicyScope) {
+            return filterPolicyScope(Output.of(filterPolicyScope));
         }
 
         /**

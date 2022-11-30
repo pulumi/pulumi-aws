@@ -117,7 +117,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// Platform of the image recipe.
+        /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         /// </summary>
         [Output("parentImage")]
         public Output<string> ParentImage { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> UserDataBase64 { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the image recipe.
+        /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Platform of the image recipe.
+        /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         /// </summary>
         [Input("parentImage", required: true)]
         public Input<string> ParentImage { get; set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? UserDataBase64 { get; set; }
 
         /// <summary>
-        /// Version of the image recipe.
+        /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Owner { get; set; }
 
         /// <summary>
-        /// Platform of the image recipe.
+        /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         /// </summary>
         [Input("parentImage")]
         public Input<string>? ParentImage { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? UserDataBase64 { get; set; }
 
         /// <summary>
-        /// Version of the image recipe.
+        /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

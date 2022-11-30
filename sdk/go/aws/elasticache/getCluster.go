@@ -59,7 +59,7 @@ type LookupClusterResult struct {
 	Arn string `pulumi:"arn"`
 	// Availability Zone for the cache cluster.
 	AvailabilityZone string `pulumi:"availabilityZone"`
-	// List of node objects including `id`, `address`, `port` and `availabilityZone`.
+	// List of node objects including `id`, `address`, `port`, `availabilityZone` and `outpostArn`.
 	// Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
 	CacheNodes []GetClusterCacheNode `pulumi:"cacheNodes"`
 	// (Memcached only) DNS name of the cache cluster without the port appended.
@@ -73,11 +73,15 @@ type LookupClusterResult struct {
 	EngineVersion string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The IP version advertised in the discovery protocol.
+	IpDiscovery string `pulumi:"ipDiscovery"`
 	// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
 	LogDeliveryConfigurations []GetClusterLogDeliveryConfiguration `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed.
 	MaintenanceWindow string `pulumi:"maintenanceWindow"`
+	// The IP versions for cache cluster connections.
+	NetworkType string `pulumi:"networkType"`
 	// The cluster node type.
 	NodeType string `pulumi:"nodeType"`
 	// An ARN of an
@@ -90,6 +94,8 @@ type LookupClusterResult struct {
 	// The port number on which each of the cache nodes will
 	// accept connections.
 	Port int `pulumi:"port"`
+	// The outpost ARN in which the cache cluster was created if created in outpost.
+	PreferredOutpostArn string `pulumi:"preferredOutpostArn"`
 	// The replication group to which this cache cluster belongs.
 	ReplicationGroupId string `pulumi:"replicationGroupId"`
 	// List VPC security groups associated with the cache cluster.
@@ -157,7 +163,7 @@ func (o LookupClusterResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// List of node objects including `id`, `address`, `port` and `availabilityZone`.
+// List of node objects including `id`, `address`, `port`, `availabilityZone` and `outpostArn`.
 // Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
 func (o LookupClusterResultOutput) CacheNodes() GetClusterCacheNodeArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterCacheNode { return v.CacheNodes }).(GetClusterCacheNodeArrayOutput)
@@ -192,6 +198,11 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The IP version advertised in the discovery protocol.
+func (o LookupClusterResultOutput) IpDiscovery() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.IpDiscovery }).(pulumi.StringOutput)
+}
+
 // Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
 func (o LookupClusterResultOutput) LogDeliveryConfigurations() GetClusterLogDeliveryConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterLogDeliveryConfiguration { return v.LogDeliveryConfigurations }).(GetClusterLogDeliveryConfigurationArrayOutput)
@@ -201,6 +212,11 @@ func (o LookupClusterResultOutput) LogDeliveryConfigurations() GetClusterLogDeli
 // on the cache cluster is performed.
 func (o LookupClusterResultOutput) MaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MaintenanceWindow }).(pulumi.StringOutput)
+}
+
+// The IP versions for cache cluster connections.
+func (o LookupClusterResultOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // The cluster node type.
@@ -228,6 +244,11 @@ func (o LookupClusterResultOutput) ParameterGroupName() pulumi.StringOutput {
 // accept connections.
 func (o LookupClusterResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The outpost ARN in which the cache cluster was created if created in outpost.
+func (o LookupClusterResultOutput) PreferredOutpostArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.PreferredOutpostArn }).(pulumi.StringOutput)
 }
 
 // The replication group to which this cache cluster belongs.

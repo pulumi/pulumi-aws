@@ -51,6 +51,10 @@ export { GetClusterSnapshotArgs, GetClusterSnapshotResult, GetClusterSnapshotOut
 export const getClusterSnapshot: typeof import("./getClusterSnapshot").getClusterSnapshot = null as any;
 export const getClusterSnapshotOutput: typeof import("./getClusterSnapshot").getClusterSnapshotOutput = null as any;
 
+export { GetClustersArgs, GetClustersResult, GetClustersOutputArgs } from "./getClusters";
+export const getClusters: typeof import("./getClusters").getClusters = null as any;
+export const getClustersOutput: typeof import("./getClusters").getClustersOutput = null as any;
+
 export { GetEngineVersionArgs, GetEngineVersionResult, GetEngineVersionOutputArgs } from "./getEngineVersion";
 export const getEngineVersion: typeof import("./getEngineVersion").getEngineVersion = null as any;
 export const getEngineVersionOutput: typeof import("./getEngineVersion").getEngineVersionOutput = null as any;
@@ -156,6 +160,7 @@ utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscri
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 utilities.lazyLoad(exports, ["getClusterSnapshot","getClusterSnapshotOutput"], () => require("./getClusterSnapshot"));
+utilities.lazyLoad(exports, ["getClusters","getClustersOutput"], () => require("./getClusters"));
 utilities.lazyLoad(exports, ["getEngineVersion","getEngineVersionOutput"], () => require("./getEngineVersion"));
 utilities.lazyLoad(exports, ["getEventCategories","getEventCategoriesOutput"], () => require("./getEventCategories"));
 utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));

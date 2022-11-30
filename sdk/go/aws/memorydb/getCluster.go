@@ -64,6 +64,8 @@ type LookupClusterResult struct {
 	// * `clusterEndpoint`
 	AutoMinorVersionUpgrade bool                        `pulumi:"autoMinorVersionUpgrade"`
 	ClusterEndpoints        []GetClusterClusterEndpoint `pulumi:"clusterEndpoints"`
+	// True when data tiering is enabled.
+	DataTiering bool `pulumi:"dataTiering"`
 	// Description for the cluster.
 	Description string `pulumi:"description"`
 	// Patch version number of the Redis engine used by the cluster.
@@ -167,6 +169,11 @@ func (o LookupClusterResultOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 
 func (o LookupClusterResultOutput) ClusterEndpoints() GetClusterClusterEndpointArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterClusterEndpoint { return v.ClusterEndpoints }).(GetClusterClusterEndpointArrayOutput)
+}
+
+// True when data tiering is enabled.
+func (o LookupClusterResultOutput) DataTiering() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupClusterResult) bool { return v.DataTiering }).(pulumi.BoolOutput)
 }
 
 // Description for the cluster.

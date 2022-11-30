@@ -146,6 +146,7 @@ import * as cognito from "./cognito";
 import * as comprehend from "./comprehend";
 import * as config from "./config";
 import * as connect from "./connect";
+import * as controltower from "./controltower";
 import * as costexplorer from "./costexplorer";
 import * as cur from "./cur";
 import * as dataexchange from "./dataexchange";
@@ -196,6 +197,7 @@ import * as inspector from "./inspector";
 import * as inspector2 from "./inspector2";
 import * as iot from "./iot";
 import * as ivs from "./ivs";
+import * as ivschat from "./ivschat";
 import * as kendra from "./kendra";
 import * as keyspaces from "./keyspaces";
 import * as kinesis from "./kinesis";
@@ -247,6 +249,7 @@ import * as s3 from "./s3";
 import * as s3control from "./s3control";
 import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
+import * as scheduler from "./scheduler";
 import * as schemas from "./schemas";
 import * as secretsmanager from "./secretsmanager";
 import * as securityhub from "./securityhub";
@@ -325,6 +328,7 @@ export {
     comprehend,
     config,
     connect,
+    controltower,
     costexplorer,
     cur,
     dataexchange,
@@ -375,6 +379,7 @@ export {
     inspector2,
     iot,
     ivs,
+    ivschat,
     kendra,
     keyspaces,
     kinesis,
@@ -426,6 +431,7 @@ export {
     s3control,
     s3outposts,
     sagemaker,
+    scheduler,
     schemas,
     secretsmanager,
     securityhub,

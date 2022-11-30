@@ -119,6 +119,8 @@ if typing.TYPE_CHECKING:
     config = __config
     import pulumi_aws.connect as __connect
     connect = __connect
+    import pulumi_aws.controltower as __controltower
+    controltower = __controltower
     import pulumi_aws.costexplorer as __costexplorer
     costexplorer = __costexplorer
     import pulumi_aws.cur as __cur
@@ -219,6 +221,8 @@ if typing.TYPE_CHECKING:
     iot = __iot
     import pulumi_aws.ivs as __ivs
     ivs = __ivs
+    import pulumi_aws.ivschat as __ivschat
+    ivschat = __ivschat
     import pulumi_aws.kendra as __kendra
     kendra = __kendra
     import pulumi_aws.keyspaces as __keyspaces
@@ -321,6 +325,8 @@ if typing.TYPE_CHECKING:
     s3outposts = __s3outposts
     import pulumi_aws.sagemaker as __sagemaker
     sagemaker = __sagemaker
+    import pulumi_aws.scheduler as __scheduler
+    scheduler = __scheduler
     import pulumi_aws.schemas as __schemas
     schemas = __schemas
     import pulumi_aws.secretsmanager as __secretsmanager
@@ -425,6 +431,7 @@ else:
     comprehend = _utilities.lazy_import('pulumi_aws.comprehend')
     config = _utilities.lazy_import('pulumi_aws.config')
     connect = _utilities.lazy_import('pulumi_aws.connect')
+    controltower = _utilities.lazy_import('pulumi_aws.controltower')
     costexplorer = _utilities.lazy_import('pulumi_aws.costexplorer')
     cur = _utilities.lazy_import('pulumi_aws.cur')
     dataexchange = _utilities.lazy_import('pulumi_aws.dataexchange')
@@ -475,6 +482,7 @@ else:
     inspector2 = _utilities.lazy_import('pulumi_aws.inspector2')
     iot = _utilities.lazy_import('pulumi_aws.iot')
     ivs = _utilities.lazy_import('pulumi_aws.ivs')
+    ivschat = _utilities.lazy_import('pulumi_aws.ivschat')
     kendra = _utilities.lazy_import('pulumi_aws.kendra')
     keyspaces = _utilities.lazy_import('pulumi_aws.keyspaces')
     kinesis = _utilities.lazy_import('pulumi_aws.kinesis')
@@ -526,6 +534,7 @@ else:
     s3control = _utilities.lazy_import('pulumi_aws.s3control')
     s3outposts = _utilities.lazy_import('pulumi_aws.s3outposts')
     sagemaker = _utilities.lazy_import('pulumi_aws.sagemaker')
+    scheduler = _utilities.lazy_import('pulumi_aws.scheduler')
     schemas = _utilities.lazy_import('pulumi_aws.schemas')
     secretsmanager = _utilities.lazy_import('pulumi_aws.secretsmanager')
     securityhub = _utilities.lazy_import('pulumi_aws.securityhub')
@@ -1109,6 +1118,22 @@ _utilities.register(
   "fqn": "pulumi_aws.appconfig",
   "classes": {
    "aws:appconfig/eventIntegration:EventIntegration": "EventIntegration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appconfig/extension",
+  "fqn": "pulumi_aws.appconfig",
+  "classes": {
+   "aws:appconfig/extension:Extension": "Extension"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appconfig/extensionAssociation",
+  "fqn": "pulumi_aws.appconfig",
+  "classes": {
+   "aws:appconfig/extensionAssociation:ExtensionAssociation": "ExtensionAssociation"
   }
  },
  {
@@ -2081,6 +2106,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudwatch/logDataProtectionPolicy",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy": "LogDataProtectionPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudwatch/logDestination",
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
@@ -2581,6 +2614,14 @@ _utilities.register(
   "fqn": "pulumi_aws.connect",
   "classes": {
    "aws:connect/vocabulary:Vocabulary": "Vocabulary"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "controltower/controlTowerControl",
+  "fqn": "pulumi_aws.controltower",
+  "classes": {
+   "aws:controltower/controlTowerControl:ControlTowerControl": "ControlTowerControl"
   }
  },
  {
@@ -4761,6 +4802,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "evidently/feature",
+  "fqn": "pulumi_aws.evidently",
+  "classes": {
+   "aws:evidently/feature:Feature": "Feature"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "evidently/project",
   "fqn": "pulumi_aws.evidently",
   "classes": {
@@ -5689,6 +5738,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ivs/channel",
+  "fqn": "pulumi_aws.ivs",
+  "classes": {
+   "aws:ivs/channel:Channel": "Channel"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ivs/playbackKeyPair",
   "fqn": "pulumi_aws.ivs",
   "classes": {
@@ -5701,6 +5758,22 @@ _utilities.register(
   "fqn": "pulumi_aws.ivs",
   "classes": {
    "aws:ivs/recordingConfiguration:RecordingConfiguration": "RecordingConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ivschat/loggingConfiguration",
+  "fqn": "pulumi_aws.ivschat",
+  "classes": {
+   "aws:ivschat/loggingConfiguration:LoggingConfiguration": "LoggingConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ivschat/room",
+  "fqn": "pulumi_aws.ivschat",
+  "classes": {
+   "aws:ivschat/room:Room": "Room"
   }
  },
  {
@@ -6697,6 +6770,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networkmanager/connectAttachment",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/connectAttachment:ConnectAttachment": "ConnectAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "networkmanager/connection",
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
@@ -6821,6 +6902,22 @@ _utilities.register(
   "fqn": "pulumi_aws.opensearch",
   "classes": {
    "aws:opensearch/domainSamlOptions:DomainSamlOptions": "DomainSamlOptions"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearch/inboundConnectionAccepter",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter": "InboundConnectionAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearch/outboundConnection",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/outboundConnection:OutboundConnection": "OutboundConnection"
   }
  },
  {
@@ -7517,6 +7614,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshiftserverless",
   "classes": {
    "aws:redshiftserverless/namespace:Namespace": "Namespace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshiftserverless/resourcePolicy",
+  "fqn": "pulumi_aws.redshiftserverless",
+  "classes": {
+   "aws:redshiftserverless/resourcePolicy:ResourcePolicy": "ResourcePolicy"
   }
  },
  {
@@ -8313,6 +8418,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "scheduler/schedule",
+  "fqn": "pulumi_aws.scheduler",
+  "classes": {
+   "aws:scheduler/schedule:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "scheduler/scheduleGroup",
+  "fqn": "pulumi_aws.scheduler",
+  "classes": {
+   "aws:scheduler/scheduleGroup:ScheduleGroup": "ScheduleGroup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "schemas/discoverer",
   "fqn": "pulumi_aws.schemas",
   "classes": {
@@ -8325,6 +8446,14 @@ _utilities.register(
   "fqn": "pulumi_aws.schemas",
   "classes": {
    "aws:schemas/registry:Registry": "Registry"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "schemas/registryPolicy",
+  "fqn": "pulumi_aws.schemas",
+  "classes": {
+   "aws:schemas/registryPolicy:RegistryPolicy": "RegistryPolicy"
   }
  },
  {
@@ -8773,6 +8902,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sesv2",
   "classes": {
    "aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes": "EmailIdentityFeedbackAttributes"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sesv2/emailIdentityMailFromAttributes",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes": "EmailIdentityMailFromAttributes"
   }
  },
  {

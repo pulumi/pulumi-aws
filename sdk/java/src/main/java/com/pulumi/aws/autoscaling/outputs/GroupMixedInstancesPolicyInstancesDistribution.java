@@ -28,7 +28,7 @@ public final class GroupMixedInstancesPolicyInstancesDistribution {
      */
     private @Nullable Integer onDemandPercentageAboveBaseCapacity;
     /**
-     * @return How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+     * @return How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
      * 
      */
     private @Nullable String spotAllocationStrategy;
@@ -66,7 +66,7 @@ public final class GroupMixedInstancesPolicyInstancesDistribution {
         return Optional.ofNullable(this.onDemandPercentageAboveBaseCapacity);
     }
     /**
-     * @return How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+     * @return How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
      * 
      */
     public Optional<String> spotAllocationStrategy() {

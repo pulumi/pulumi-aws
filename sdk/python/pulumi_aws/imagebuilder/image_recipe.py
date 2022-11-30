@@ -29,8 +29,8 @@ class ImageRecipeArgs:
         """
         The set of arguments for constructing a ImageRecipe resource.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
-        :param pulumi.Input[str] parent_image: Platform of the image recipe.
-        :param pulumi.Input[str] version: Version of the image recipe.
+        :param pulumi.Input[str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+        :param pulumi.Input[str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
         :param pulumi.Input[str] description: Description of the image recipe.
         :param pulumi.Input[str] name: The name of the component parameter.
@@ -73,7 +73,7 @@ class ImageRecipeArgs:
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> pulumi.Input[str]:
         """
-        Platform of the image recipe.
+        The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         """
         return pulumi.get(self, "parent_image")
 
@@ -85,7 +85,7 @@ class ImageRecipeArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        Version of the image recipe.
+        The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
         """
         return pulumi.get(self, "version")
 
@@ -205,13 +205,13 @@ class _ImageRecipeState:
         :param pulumi.Input[str] description: Description of the image recipe.
         :param pulumi.Input[str] name: The name of the component parameter.
         :param pulumi.Input[str] owner: Owner of the image recipe.
-        :param pulumi.Input[str] parent_image: Platform of the image recipe.
+        :param pulumi.Input[str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         :param pulumi.Input[str] platform: Platform of the image recipe.
         :param pulumi.Input['ImageRecipeSystemsManagerAgentArgs'] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-        :param pulumi.Input[str] version: Version of the image recipe.
+        :param pulumi.Input[str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         if arn is not None:
@@ -333,7 +333,7 @@ class _ImageRecipeState:
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> Optional[pulumi.Input[str]]:
         """
-        Platform of the image recipe.
+        The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         """
         return pulumi.get(self, "parent_image")
 
@@ -405,7 +405,7 @@ class _ImageRecipeState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version of the image recipe.
+        The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
         """
         return pulumi.get(self, "version")
 
@@ -491,11 +491,11 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[str] description: Description of the image recipe.
         :param pulumi.Input[str] name: The name of the component parameter.
-        :param pulumi.Input[str] parent_image: Platform of the image recipe.
+        :param pulumi.Input[str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         :param pulumi.Input[pulumi.InputType['ImageRecipeSystemsManagerAgentArgs']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-        :param pulumi.Input[str] version: Version of the image recipe.
+        :param pulumi.Input[str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         ...
@@ -641,13 +641,13 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the image recipe.
         :param pulumi.Input[str] name: The name of the component parameter.
         :param pulumi.Input[str] owner: Owner of the image recipe.
-        :param pulumi.Input[str] parent_image: Platform of the image recipe.
+        :param pulumi.Input[str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         :param pulumi.Input[str] platform: Platform of the image recipe.
         :param pulumi.Input[pulumi.InputType['ImageRecipeSystemsManagerAgentArgs']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-        :param pulumi.Input[str] version: Version of the image recipe.
+        :param pulumi.Input[str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -731,7 +731,7 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> pulumi.Output[str]:
         """
-        Platform of the image recipe.
+        The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         """
         return pulumi.get(self, "parent_image")
 
@@ -779,7 +779,7 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        Version of the image recipe.
+        The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
         """
         return pulumi.get(self, "version")
 
