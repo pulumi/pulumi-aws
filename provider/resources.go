@@ -2530,7 +2530,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_rds_cluster_role_association": {Tok: awsResource(rdsMod, "ClusterRoleAssociation")},
 			"aws_rds_cluster_activity_stream":  {Tok: awsResource(rdsMod, "ClusterActivityStream")},
 			"aws_rds_reserved_instance":        {Tok: awsResource(rdsMod, "ReservedInstance")},
-			"aws_rds_clusters":                 {Tok: awsResource(rdsMod, "Clusters")},
 			"aws_db_cluster_snapshot":          {Tok: awsResource(rdsMod, "ClusterSnapshot")},
 			"aws_db_event_subscription":        {Tok: awsResource(rdsMod, "EventSubscription")},
 			"aws_db_instance": {
@@ -3204,7 +3203,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_sqs_queues": {Tok: awsResource(sqsMod, "Queues")},
 			// Storage Gateway
 			"aws_storagegateway_gateway":             {Tok: awsResource(storagegatewayMod, "Gateway")},
 			"aws_storagegateway_cache":               {Tok: awsResource(storagegatewayMod, "Cache")},
