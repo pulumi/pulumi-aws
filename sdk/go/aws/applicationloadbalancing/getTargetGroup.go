@@ -42,7 +42,7 @@ import (
 //			if param := cfg.Get("lbTgName"); param != "" {
 //				lbTgName = param
 //			}
-//			_, err := lb.LookupTargetGroup(ctx, &lb.LookupTargetGroupArgs{
+//			_, err = lb.LookupTargetGroup(ctx, &lb.LookupTargetGroupArgs{
 //				Arn:  pulumi.StringRef(lbTgArn),
 //				Name: pulumi.StringRef(lbTgName),
 //			}, nil)

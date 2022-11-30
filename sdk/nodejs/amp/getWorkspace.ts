@@ -14,17 +14,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.amp.getWorkspace({
+ * const example = aws.amp.getWorkspace({
  *     workspaceId: "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
- * }));
+ * });
  * ```
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:amp/getWorkspace:getWorkspace", {
         "tags": args.tags,
         "workspaceId": args.workspaceId,

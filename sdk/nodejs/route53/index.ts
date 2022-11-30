@@ -8,174 +8,174 @@ import * as utilities from "../utilities";
 export { DelegationSetArgs, DelegationSetState } from "./delegationSet";
 export type DelegationSet = import("./delegationSet").DelegationSet;
 export const DelegationSet: typeof import("./delegationSet").DelegationSet = null as any;
+utilities.lazyLoad(exports, ["DelegationSet"], () => require("./delegationSet"));
 
 export { GetDelegationSetArgs, GetDelegationSetResult, GetDelegationSetOutputArgs } from "./getDelegationSet";
 export const getDelegationSet: typeof import("./getDelegationSet").getDelegationSet = null as any;
 export const getDelegationSetOutput: typeof import("./getDelegationSet").getDelegationSetOutput = null as any;
+utilities.lazyLoad(exports, ["getDelegationSet","getDelegationSetOutput"], () => require("./getDelegationSet"));
 
 export { GetResolverEndpointArgs, GetResolverEndpointResult, GetResolverEndpointOutputArgs } from "./getResolverEndpoint";
 export const getResolverEndpoint: typeof import("./getResolverEndpoint").getResolverEndpoint = null as any;
 export const getResolverEndpointOutput: typeof import("./getResolverEndpoint").getResolverEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverEndpoint","getResolverEndpointOutput"], () => require("./getResolverEndpoint"));
 
 export { GetResolverFirewallConfigArgs, GetResolverFirewallConfigResult, GetResolverFirewallConfigOutputArgs } from "./getResolverFirewallConfig";
 export const getResolverFirewallConfig: typeof import("./getResolverFirewallConfig").getResolverFirewallConfig = null as any;
 export const getResolverFirewallConfigOutput: typeof import("./getResolverFirewallConfig").getResolverFirewallConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverFirewallConfig","getResolverFirewallConfigOutput"], () => require("./getResolverFirewallConfig"));
 
 export { GetResolverFirewallDomainListArgs, GetResolverFirewallDomainListResult, GetResolverFirewallDomainListOutputArgs } from "./getResolverFirewallDomainList";
 export const getResolverFirewallDomainList: typeof import("./getResolverFirewallDomainList").getResolverFirewallDomainList = null as any;
 export const getResolverFirewallDomainListOutput: typeof import("./getResolverFirewallDomainList").getResolverFirewallDomainListOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverFirewallDomainList","getResolverFirewallDomainListOutput"], () => require("./getResolverFirewallDomainList"));
 
 export { GetResolverFirewallRuleGroupArgs, GetResolverFirewallRuleGroupResult, GetResolverFirewallRuleGroupOutputArgs } from "./getResolverFirewallRuleGroup";
 export const getResolverFirewallRuleGroup: typeof import("./getResolverFirewallRuleGroup").getResolverFirewallRuleGroup = null as any;
 export const getResolverFirewallRuleGroupOutput: typeof import("./getResolverFirewallRuleGroup").getResolverFirewallRuleGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverFirewallRuleGroup","getResolverFirewallRuleGroupOutput"], () => require("./getResolverFirewallRuleGroup"));
 
 export { GetResolverFirewallRuleGroupAssociationArgs, GetResolverFirewallRuleGroupAssociationResult, GetResolverFirewallRuleGroupAssociationOutputArgs } from "./getResolverFirewallRuleGroupAssociation";
 export const getResolverFirewallRuleGroupAssociation: typeof import("./getResolverFirewallRuleGroupAssociation").getResolverFirewallRuleGroupAssociation = null as any;
 export const getResolverFirewallRuleGroupAssociationOutput: typeof import("./getResolverFirewallRuleGroupAssociation").getResolverFirewallRuleGroupAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverFirewallRuleGroupAssociation","getResolverFirewallRuleGroupAssociationOutput"], () => require("./getResolverFirewallRuleGroupAssociation"));
 
 export { GetResolverFirewallRulesArgs, GetResolverFirewallRulesResult, GetResolverFirewallRulesOutputArgs } from "./getResolverFirewallRules";
 export const getResolverFirewallRules: typeof import("./getResolverFirewallRules").getResolverFirewallRules = null as any;
 export const getResolverFirewallRulesOutput: typeof import("./getResolverFirewallRules").getResolverFirewallRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverFirewallRules","getResolverFirewallRulesOutput"], () => require("./getResolverFirewallRules"));
 
 export { GetResolverRuleArgs, GetResolverRuleResult, GetResolverRuleOutputArgs } from "./getResolverRule";
 export const getResolverRule: typeof import("./getResolverRule").getResolverRule = null as any;
 export const getResolverRuleOutput: typeof import("./getResolverRule").getResolverRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverRule","getResolverRuleOutput"], () => require("./getResolverRule"));
 
 export { GetResolverRulesArgs, GetResolverRulesResult, GetResolverRulesOutputArgs } from "./getResolverRules";
 export const getResolverRules: typeof import("./getResolverRules").getResolverRules = null as any;
 export const getResolverRulesOutput: typeof import("./getResolverRules").getResolverRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getResolverRules","getResolverRulesOutput"], () => require("./getResolverRules"));
 
 export { GetTrafficPolicyDocumentArgs, GetTrafficPolicyDocumentResult, GetTrafficPolicyDocumentOutputArgs } from "./getTrafficPolicyDocument";
 export const getTrafficPolicyDocument: typeof import("./getTrafficPolicyDocument").getTrafficPolicyDocument = null as any;
 export const getTrafficPolicyDocumentOutput: typeof import("./getTrafficPolicyDocument").getTrafficPolicyDocumentOutput = null as any;
+utilities.lazyLoad(exports, ["getTrafficPolicyDocument","getTrafficPolicyDocumentOutput"], () => require("./getTrafficPolicyDocument"));
 
 export { GetZoneArgs, GetZoneResult, GetZoneOutputArgs } from "./getZone";
 export const getZone: typeof import("./getZone").getZone = null as any;
 export const getZoneOutput: typeof import("./getZone").getZoneOutput = null as any;
+utilities.lazyLoad(exports, ["getZone","getZoneOutput"], () => require("./getZone"));
 
 export { HealthCheckArgs, HealthCheckState } from "./healthCheck";
 export type HealthCheck = import("./healthCheck").HealthCheck;
 export const HealthCheck: typeof import("./healthCheck").HealthCheck = null as any;
+utilities.lazyLoad(exports, ["HealthCheck"], () => require("./healthCheck"));
 
 export { HostedZoneDnsSecArgs, HostedZoneDnsSecState } from "./hostedZoneDnsSec";
 export type HostedZoneDnsSec = import("./hostedZoneDnsSec").HostedZoneDnsSec;
 export const HostedZoneDnsSec: typeof import("./hostedZoneDnsSec").HostedZoneDnsSec = null as any;
+utilities.lazyLoad(exports, ["HostedZoneDnsSec"], () => require("./hostedZoneDnsSec"));
 
 export { KeySigningKeyArgs, KeySigningKeyState } from "./keySigningKey";
 export type KeySigningKey = import("./keySigningKey").KeySigningKey;
 export const KeySigningKey: typeof import("./keySigningKey").KeySigningKey = null as any;
+utilities.lazyLoad(exports, ["KeySigningKey"], () => require("./keySigningKey"));
 
 export { QueryLogArgs, QueryLogState } from "./queryLog";
 export type QueryLog = import("./queryLog").QueryLog;
 export const QueryLog: typeof import("./queryLog").QueryLog = null as any;
+utilities.lazyLoad(exports, ["QueryLog"], () => require("./queryLog"));
 
 export { RecordArgs, RecordState } from "./record";
 export type Record = import("./record").Record;
 export const Record: typeof import("./record").Record = null as any;
+utilities.lazyLoad(exports, ["Record"], () => require("./record"));
 
 export * from "./recordType";
 export { ResolverConfigArgs, ResolverConfigState } from "./resolverConfig";
 export type ResolverConfig = import("./resolverConfig").ResolverConfig;
 export const ResolverConfig: typeof import("./resolverConfig").ResolverConfig = null as any;
+utilities.lazyLoad(exports, ["ResolverConfig"], () => require("./resolverConfig"));
 
 export { ResolverDnsSecConfigArgs, ResolverDnsSecConfigState } from "./resolverDnsSecConfig";
 export type ResolverDnsSecConfig = import("./resolverDnsSecConfig").ResolverDnsSecConfig;
 export const ResolverDnsSecConfig: typeof import("./resolverDnsSecConfig").ResolverDnsSecConfig = null as any;
+utilities.lazyLoad(exports, ["ResolverDnsSecConfig"], () => require("./resolverDnsSecConfig"));
 
 export { ResolverEndpointArgs, ResolverEndpointState } from "./resolverEndpoint";
 export type ResolverEndpoint = import("./resolverEndpoint").ResolverEndpoint;
 export const ResolverEndpoint: typeof import("./resolverEndpoint").ResolverEndpoint = null as any;
+utilities.lazyLoad(exports, ["ResolverEndpoint"], () => require("./resolverEndpoint"));
 
 export { ResolverFirewallConfigArgs, ResolverFirewallConfigState } from "./resolverFirewallConfig";
 export type ResolverFirewallConfig = import("./resolverFirewallConfig").ResolverFirewallConfig;
 export const ResolverFirewallConfig: typeof import("./resolverFirewallConfig").ResolverFirewallConfig = null as any;
+utilities.lazyLoad(exports, ["ResolverFirewallConfig"], () => require("./resolverFirewallConfig"));
 
 export { ResolverFirewallDomainListArgs, ResolverFirewallDomainListState } from "./resolverFirewallDomainList";
 export type ResolverFirewallDomainList = import("./resolverFirewallDomainList").ResolverFirewallDomainList;
 export const ResolverFirewallDomainList: typeof import("./resolverFirewallDomainList").ResolverFirewallDomainList = null as any;
+utilities.lazyLoad(exports, ["ResolverFirewallDomainList"], () => require("./resolverFirewallDomainList"));
 
 export { ResolverFirewallRuleArgs, ResolverFirewallRuleState } from "./resolverFirewallRule";
 export type ResolverFirewallRule = import("./resolverFirewallRule").ResolverFirewallRule;
 export const ResolverFirewallRule: typeof import("./resolverFirewallRule").ResolverFirewallRule = null as any;
+utilities.lazyLoad(exports, ["ResolverFirewallRule"], () => require("./resolverFirewallRule"));
 
 export { ResolverFirewallRuleGroupArgs, ResolverFirewallRuleGroupState } from "./resolverFirewallRuleGroup";
 export type ResolverFirewallRuleGroup = import("./resolverFirewallRuleGroup").ResolverFirewallRuleGroup;
 export const ResolverFirewallRuleGroup: typeof import("./resolverFirewallRuleGroup").ResolverFirewallRuleGroup = null as any;
+utilities.lazyLoad(exports, ["ResolverFirewallRuleGroup"], () => require("./resolverFirewallRuleGroup"));
 
 export { ResolverFirewallRuleGroupAssociationArgs, ResolverFirewallRuleGroupAssociationState } from "./resolverFirewallRuleGroupAssociation";
 export type ResolverFirewallRuleGroupAssociation = import("./resolverFirewallRuleGroupAssociation").ResolverFirewallRuleGroupAssociation;
 export const ResolverFirewallRuleGroupAssociation: typeof import("./resolverFirewallRuleGroupAssociation").ResolverFirewallRuleGroupAssociation = null as any;
+utilities.lazyLoad(exports, ["ResolverFirewallRuleGroupAssociation"], () => require("./resolverFirewallRuleGroupAssociation"));
 
 export { ResolverQueryLogConfigArgs, ResolverQueryLogConfigState } from "./resolverQueryLogConfig";
 export type ResolverQueryLogConfig = import("./resolverQueryLogConfig").ResolverQueryLogConfig;
 export const ResolverQueryLogConfig: typeof import("./resolverQueryLogConfig").ResolverQueryLogConfig = null as any;
+utilities.lazyLoad(exports, ["ResolverQueryLogConfig"], () => require("./resolverQueryLogConfig"));
 
 export { ResolverQueryLogConfigAssociationArgs, ResolverQueryLogConfigAssociationState } from "./resolverQueryLogConfigAssociation";
 export type ResolverQueryLogConfigAssociation = import("./resolverQueryLogConfigAssociation").ResolverQueryLogConfigAssociation;
 export const ResolverQueryLogConfigAssociation: typeof import("./resolverQueryLogConfigAssociation").ResolverQueryLogConfigAssociation = null as any;
+utilities.lazyLoad(exports, ["ResolverQueryLogConfigAssociation"], () => require("./resolverQueryLogConfigAssociation"));
 
 export { ResolverRuleArgs, ResolverRuleState } from "./resolverRule";
 export type ResolverRule = import("./resolverRule").ResolverRule;
 export const ResolverRule: typeof import("./resolverRule").ResolverRule = null as any;
+utilities.lazyLoad(exports, ["ResolverRule"], () => require("./resolverRule"));
 
 export { ResolverRuleAssociationArgs, ResolverRuleAssociationState } from "./resolverRuleAssociation";
 export type ResolverRuleAssociation = import("./resolverRuleAssociation").ResolverRuleAssociation;
 export const ResolverRuleAssociation: typeof import("./resolverRuleAssociation").ResolverRuleAssociation = null as any;
+utilities.lazyLoad(exports, ["ResolverRuleAssociation"], () => require("./resolverRuleAssociation"));
 
 export { TrafficPolicyArgs, TrafficPolicyState } from "./trafficPolicy";
 export type TrafficPolicy = import("./trafficPolicy").TrafficPolicy;
 export const TrafficPolicy: typeof import("./trafficPolicy").TrafficPolicy = null as any;
+utilities.lazyLoad(exports, ["TrafficPolicy"], () => require("./trafficPolicy"));
 
 export { TrafficPolicyInstanceArgs, TrafficPolicyInstanceState } from "./trafficPolicyInstance";
 export type TrafficPolicyInstance = import("./trafficPolicyInstance").TrafficPolicyInstance;
 export const TrafficPolicyInstance: typeof import("./trafficPolicyInstance").TrafficPolicyInstance = null as any;
+utilities.lazyLoad(exports, ["TrafficPolicyInstance"], () => require("./trafficPolicyInstance"));
 
 export { VpcAssociationAuthorizationArgs, VpcAssociationAuthorizationState } from "./vpcAssociationAuthorization";
 export type VpcAssociationAuthorization = import("./vpcAssociationAuthorization").VpcAssociationAuthorization;
 export const VpcAssociationAuthorization: typeof import("./vpcAssociationAuthorization").VpcAssociationAuthorization = null as any;
+utilities.lazyLoad(exports, ["VpcAssociationAuthorization"], () => require("./vpcAssociationAuthorization"));
 
 export { ZoneArgs, ZoneState } from "./zone";
 export type Zone = import("./zone").Zone;
 export const Zone: typeof import("./zone").Zone = null as any;
+utilities.lazyLoad(exports, ["Zone"], () => require("./zone"));
 
 export { ZoneAssociationArgs, ZoneAssociationState } from "./zoneAssociation";
 export type ZoneAssociation = import("./zoneAssociation").ZoneAssociation;
 export const ZoneAssociation: typeof import("./zoneAssociation").ZoneAssociation = null as any;
-
-utilities.lazyLoad(exports, ["DelegationSet"], () => require("./delegationSet"));
-utilities.lazyLoad(exports, ["getDelegationSet","getDelegationSetOutput"], () => require("./getDelegationSet"));
-utilities.lazyLoad(exports, ["getResolverEndpoint","getResolverEndpointOutput"], () => require("./getResolverEndpoint"));
-utilities.lazyLoad(exports, ["getResolverFirewallConfig","getResolverFirewallConfigOutput"], () => require("./getResolverFirewallConfig"));
-utilities.lazyLoad(exports, ["getResolverFirewallDomainList","getResolverFirewallDomainListOutput"], () => require("./getResolverFirewallDomainList"));
-utilities.lazyLoad(exports, ["getResolverFirewallRuleGroup","getResolverFirewallRuleGroupOutput"], () => require("./getResolverFirewallRuleGroup"));
-utilities.lazyLoad(exports, ["getResolverFirewallRuleGroupAssociation","getResolverFirewallRuleGroupAssociationOutput"], () => require("./getResolverFirewallRuleGroupAssociation"));
-utilities.lazyLoad(exports, ["getResolverFirewallRules","getResolverFirewallRulesOutput"], () => require("./getResolverFirewallRules"));
-utilities.lazyLoad(exports, ["getResolverRule","getResolverRuleOutput"], () => require("./getResolverRule"));
-utilities.lazyLoad(exports, ["getResolverRules","getResolverRulesOutput"], () => require("./getResolverRules"));
-utilities.lazyLoad(exports, ["getTrafficPolicyDocument","getTrafficPolicyDocumentOutput"], () => require("./getTrafficPolicyDocument"));
-utilities.lazyLoad(exports, ["getZone","getZoneOutput"], () => require("./getZone"));
-utilities.lazyLoad(exports, ["HealthCheck"], () => require("./healthCheck"));
-utilities.lazyLoad(exports, ["HostedZoneDnsSec"], () => require("./hostedZoneDnsSec"));
-utilities.lazyLoad(exports, ["KeySigningKey"], () => require("./keySigningKey"));
-utilities.lazyLoad(exports, ["QueryLog"], () => require("./queryLog"));
-utilities.lazyLoad(exports, ["Record"], () => require("./record"));
-utilities.lazyLoad(exports, ["ResolverConfig"], () => require("./resolverConfig"));
-utilities.lazyLoad(exports, ["ResolverDnsSecConfig"], () => require("./resolverDnsSecConfig"));
-utilities.lazyLoad(exports, ["ResolverEndpoint"], () => require("./resolverEndpoint"));
-utilities.lazyLoad(exports, ["ResolverFirewallConfig"], () => require("./resolverFirewallConfig"));
-utilities.lazyLoad(exports, ["ResolverFirewallDomainList"], () => require("./resolverFirewallDomainList"));
-utilities.lazyLoad(exports, ["ResolverFirewallRule"], () => require("./resolverFirewallRule"));
-utilities.lazyLoad(exports, ["ResolverFirewallRuleGroup"], () => require("./resolverFirewallRuleGroup"));
-utilities.lazyLoad(exports, ["ResolverFirewallRuleGroupAssociation"], () => require("./resolverFirewallRuleGroupAssociation"));
-utilities.lazyLoad(exports, ["ResolverQueryLogConfig"], () => require("./resolverQueryLogConfig"));
-utilities.lazyLoad(exports, ["ResolverQueryLogConfigAssociation"], () => require("./resolverQueryLogConfigAssociation"));
-utilities.lazyLoad(exports, ["ResolverRule"], () => require("./resolverRule"));
-utilities.lazyLoad(exports, ["ResolverRuleAssociation"], () => require("./resolverRuleAssociation"));
-utilities.lazyLoad(exports, ["TrafficPolicy"], () => require("./trafficPolicy"));
-utilities.lazyLoad(exports, ["TrafficPolicyInstance"], () => require("./trafficPolicyInstance"));
-utilities.lazyLoad(exports, ["VpcAssociationAuthorization"], () => require("./vpcAssociationAuthorization"));
-utilities.lazyLoad(exports, ["Zone"], () => require("./zone"));
 utilities.lazyLoad(exports, ["ZoneAssociation"], () => require("./zoneAssociation"));
+
 
 // Export enums:
 export * from "../types/enums/route53";

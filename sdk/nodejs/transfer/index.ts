@@ -8,38 +8,38 @@ import * as utilities from "../utilities";
 export { AccessArgs, AccessState } from "./access";
 export type Access = import("./access").Access;
 export const Access: typeof import("./access").Access = null as any;
+utilities.lazyLoad(exports, ["Access"], () => require("./access"));
 
 export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
 export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 
 export { ServerArgs, ServerState } from "./server";
 export type Server = import("./server").Server;
 export const Server: typeof import("./server").Server = null as any;
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
 
 export { SshKeyArgs, SshKeyState } from "./sshKey";
 export type SshKey = import("./sshKey").SshKey;
 export const SshKey: typeof import("./sshKey").SshKey = null as any;
+utilities.lazyLoad(exports, ["SshKey"], () => require("./sshKey"));
 
 export { TagArgs, TagState } from "./tag";
 export type Tag = import("./tag").Tag;
 export const Tag: typeof import("./tag").Tag = null as any;
+utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
 
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
 export { WorkflowArgs, WorkflowState } from "./workflow";
 export type Workflow = import("./workflow").Workflow;
 export const Workflow: typeof import("./workflow").Workflow = null as any;
-
-utilities.lazyLoad(exports, ["Access"], () => require("./access"));
-utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
-utilities.lazyLoad(exports, ["Server"], () => require("./server"));
-utilities.lazyLoad(exports, ["SshKey"], () => require("./sshKey"));
-utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
-utilities.lazyLoad(exports, ["User"], () => require("./user"));
 utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
+
 
 const _module = {
     version: utilities.getVersion(),

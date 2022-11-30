@@ -16,17 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.location.getPlaceIndex({
+ * const example = aws.location.getPlaceIndex({
  *     indexName: "example",
- * }));
+ * });
  * ```
  */
 export function getPlaceIndex(args: GetPlaceIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaceIndexResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getPlaceIndex:getPlaceIndex", {
         "indexName": args.indexName,
         "tags": args.tags,

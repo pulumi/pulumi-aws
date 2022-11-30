@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const by_arn = pulumi.output(aws.secretsmanager.getSecret({
+ * const by-arn = aws.secretsmanager.getSecret({
  *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
- * }));
+ * });
  * ```
  * ### Name
  *
@@ -27,18 +27,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const by_name = pulumi.output(aws.secretsmanager.getSecret({
+ * const by-name = aws.secretsmanager.getSecret({
  *     name: "example",
- * }));
+ * });
  * ```
  */
 export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getSecret:getSecret", {
         "arn": args.arn,
         "name": args.name,

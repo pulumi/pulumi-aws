@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Outposts
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAssetsResult> InvokeAsync(GetAssetsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetsResult>("aws:outposts/getAssets:getAssets", args ?? new GetAssetsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetsResult>("aws:outposts/getAssets:getAssets", args ?? new GetAssetsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about hardware assets in an Outpost.
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Outposts
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAssetsResult> Invoke(GetAssetsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssetsResult>("aws:outposts/getAssets:getAssets", args ?? new GetAssetsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetsResult>("aws:outposts/getAssets:getAssets", args ?? new GetAssetsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -17,17 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dset = pulumi.output(aws.route53.getDelegationSet({
+ * const dset = aws.route53.getDelegationSet({
  *     id: "MQWGHCBFAKEID",
- * }));
+ * });
  * ```
  */
 export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegationSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getDelegationSet:getDelegationSet", {
         "id": args.id,
     }, opts);

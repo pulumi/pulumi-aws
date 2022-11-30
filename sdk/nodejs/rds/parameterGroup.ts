@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultParameterGroup = new aws.rds.ParameterGroup("default", {
+ * const _default = new aws.rds.ParameterGroup("default", {
  *     family: "mysql5.6",
  *     parameters: [
  *         {

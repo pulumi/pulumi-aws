@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Sqs
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetQueuesResult> InvokeAsync(GetQueuesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueuesResult>("aws:sqs/getQueues:getQueues", args ?? new GetQueuesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueuesResult>("aws:sqs/getQueues:getQueues", args ?? new GetQueuesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS SQS (Simple Queue) Queues.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Sqs
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetQueuesResult> Invoke(GetQueuesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueuesResult>("aws:sqs/getQueues:getQueues", args ?? new GetQueuesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueuesResult>("aws:sqs/getQueues:getQueues", args ?? new GetQueuesInvokeArgs(), options.WithDefaults());
     }
 
 

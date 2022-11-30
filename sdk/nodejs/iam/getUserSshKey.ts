@@ -13,19 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.iam.getUserSshKey({
+ * const example = aws.iam.getUserSshKey({
  *     encoding: "SSH",
  *     sshPublicKeyId: "APKARUZ32GUTKIGARLXE",
  *     username: "test-user",
- * }));
+ * });
  * ```
  */
 export function getUserSshKey(args: GetUserSshKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSshKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getUserSshKey:getUserSshKey", {
         "encoding": args.encoding,
         "sshPublicKeyId": args.sshPublicKeyId,

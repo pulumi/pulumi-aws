@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { ClusterArgs, ClusterState } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
 export { ConfigurationArgs, ConfigurationState } from "./configuration";
 export type Configuration = import("./configuration").Configuration;
 export const Configuration: typeof import("./configuration").Configuration = null as any;
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
 
 export { GetBrokerNodesArgs, GetBrokerNodesResult, GetBrokerNodesOutputArgs } from "./getBrokerNodes";
 export const getBrokerNodes: typeof import("./getBrokerNodes").getBrokerNodes = null as any;
 export const getBrokerNodesOutput: typeof import("./getBrokerNodes").getBrokerNodesOutput = null as any;
+utilities.lazyLoad(exports, ["getBrokerNodes","getBrokerNodesOutput"], () => require("./getBrokerNodes"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
 export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
 export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
 export const getConfigurationOutput: typeof import("./getConfiguration").getConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
 
 export { GetKafkaVersionArgs, GetKafkaVersionResult, GetKafkaVersionOutputArgs } from "./getKafkaVersion";
 export const getKafkaVersion: typeof import("./getKafkaVersion").getKafkaVersion = null as any;
 export const getKafkaVersionOutput: typeof import("./getKafkaVersion").getKafkaVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getKafkaVersion","getKafkaVersionOutput"], () => require("./getKafkaVersion"));
 
 export { ScramSecretAssociationArgs, ScramSecretAssociationState } from "./scramSecretAssociation";
 export type ScramSecretAssociation = import("./scramSecretAssociation").ScramSecretAssociation;
 export const ScramSecretAssociation: typeof import("./scramSecretAssociation").ScramSecretAssociation = null as any;
+utilities.lazyLoad(exports, ["ScramSecretAssociation"], () => require("./scramSecretAssociation"));
 
 export { ServerlessClusterArgs, ServerlessClusterState } from "./serverlessCluster";
 export type ServerlessCluster = import("./serverlessCluster").ServerlessCluster;
 export const ServerlessCluster: typeof import("./serverlessCluster").ServerlessCluster = null as any;
-
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
-utilities.lazyLoad(exports, ["getBrokerNodes","getBrokerNodesOutput"], () => require("./getBrokerNodes"));
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
-utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
-utilities.lazyLoad(exports, ["getKafkaVersion","getKafkaVersionOutput"], () => require("./getKafkaVersion"));
-utilities.lazyLoad(exports, ["ScramSecretAssociation"], () => require("./scramSecretAssociation"));
 utilities.lazyLoad(exports, ["ServerlessCluster"], () => require("./serverlessCluster"));
+
 
 const _module = {
     version: utilities.getVersion(),

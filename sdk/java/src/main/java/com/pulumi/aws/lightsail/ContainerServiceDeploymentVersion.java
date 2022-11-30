@@ -57,24 +57,23 @@ import javax.annotation.Nullable;
  *                 .image(&#34;amazon/amazon-lightsail:hello-world&#34;)
  *                 .commands()
  *                 .environment(Map.of(&#34;MY_ENVIRONMENT_VARIABLE&#34;, &#34;my_value&#34;))
- *                 .ports(Map.of(&#34;80&#34;, &#34;HTTP&#34;))
- *                 .build())
- *             .publicEndpoint(ContainerServiceDeploymentVersionPublicEndpointArgs.builder()
- *                 .containerName(&#34;hello-world&#34;)
- *                 .containerPort(80)
- *                 .healthCheck(ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.builder()
- *                     .healthyThreshold(2)
- *                     .unhealthyThreshold(2)
- *                     .timeoutSeconds(2)
- *                     .intervalSeconds(5)
- *                     .path(&#34;/&#34;)
- *                     .successCodes(&#34;200-499&#34;)
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                 .publicEndpoint(ContainerServiceDeploymentVersionPublicEndpointArgs.builder()
+ *                     .containerName(&#34;hello-world&#34;)
+ *                     .containerPort(80)
+ *                     .healthCheck(ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.builder()
+ *                         .healthyThreshold(2)
+ *                         .unhealthyThreshold(2)
+ *                         .timeoutSeconds(2)
+ *                         .intervalSeconds(5)
+ *                         .path(&#34;/&#34;)
+ *                         .successCodes(&#34;200-499&#34;)
+ *                         .build())
  *                     .build())
- *                 .build())
- *             .serviceName(aws_lightsail_container_service.example().name())
- *             .build());
+ *                 .serviceName(aws_lightsail_container_service.example().name())
+ *                 .build());
  * 
- *     }
+ *         }
  * }
  * ```
  * 

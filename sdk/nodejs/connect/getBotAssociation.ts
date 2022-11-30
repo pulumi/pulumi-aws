@@ -17,20 +17,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.connect.getBotAssociation({
+ * const example = aws.connect.getBotAssociation({
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     lexBot: {
  *         name: "Test",
  *     },
- * }));
+ * });
  * ```
  */
 export function getBotAssociation(args: GetBotAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getBotAssociation:getBotAssociation", {
         "instanceId": args.instanceId,
         "lexBot": args.lexBot,

@@ -132,6 +132,13 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.EngineName == nil {
 		return nil, errors.New("invalid value for required argument 'EngineName'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws:dms/endpoint:Endpoint", name, args, &resource, opts...)
 	if err != nil {

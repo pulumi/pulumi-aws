@@ -16,18 +16,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const flowerTypes = pulumi.output(aws.lex.getSlotType({
+ * const flowerTypes = aws.lex.getSlotType({
  *     name: "FlowerTypes",
  *     version: "1",
- * }));
+ * });
  * ```
  */
 export function getSlotType(args: GetSlotTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSlotTypeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lex/getSlotType:getSlotType", {
         "name": args.name,
         "version": args.version,

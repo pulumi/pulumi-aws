@@ -15,14 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const available = pulumi.output(aws.getAvailabilityZones());
- * const currentRegion = pulumi.output(aws.getRegion());
- * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity());
- * const exampleEip = new aws.ec2.Eip("example", {
- *     vpc: true,
- * });
- * const exampleProtection = new aws.shield.Protection("example", {
- *     resourceArn: pulumi.interpolate`arn:aws:ec2:${currentRegion.name!}:${currentCallerIdentity.accountId}:eip-allocation/${exampleEip.id}`,
+ * const available = aws.getAvailabilityZones({});
+ * const currentRegion = aws.getRegion({});
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const exampleEip = new aws.ec2.Eip("exampleEip", {vpc: true});
+ * const exampleProtection = new aws.shield.Protection("exampleProtection", {
+ *     resourceArn: pulumi.all([currentRegion, currentCallerIdentity, exampleEip.id]).apply(([currentRegion, currentCallerIdentity, id]) => `arn:aws:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${id}`),
  *     tags: {
  *         Environment: "Dev",
  *     },

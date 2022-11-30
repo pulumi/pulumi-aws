@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { ClusterArgs, ClusterState } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
 export { ControlPanelArgs, ControlPanelState } from "./controlPanel";
 export type ControlPanel = import("./controlPanel").ControlPanel;
 export const ControlPanel: typeof import("./controlPanel").ControlPanel = null as any;
+utilities.lazyLoad(exports, ["ControlPanel"], () => require("./controlPanel"));
 
 export { RoutingControlArgs, RoutingControlState } from "./routingControl";
 export type RoutingControl = import("./routingControl").RoutingControl;
 export const RoutingControl: typeof import("./routingControl").RoutingControl = null as any;
+utilities.lazyLoad(exports, ["RoutingControl"], () => require("./routingControl"));
 
 export { SafetyRuleArgs, SafetyRuleState } from "./safetyRule";
 export type SafetyRule = import("./safetyRule").SafetyRule;
 export const SafetyRule: typeof import("./safetyRule").SafetyRule = null as any;
-
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["ControlPanel"], () => require("./controlPanel"));
-utilities.lazyLoad(exports, ["RoutingControl"], () => require("./routingControl"));
 utilities.lazyLoad(exports, ["SafetyRule"], () => require("./safetyRule"));
+
 
 const _module = {
     version: utilities.getVersion(),

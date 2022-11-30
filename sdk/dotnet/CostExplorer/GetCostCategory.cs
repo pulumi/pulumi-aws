@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CostExplorer
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCostCategoryResult> InvokeAsync(GetCostCategoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCostCategoryResult>("aws:costexplorer/getCostCategory:getCostCategory", args ?? new GetCostCategoryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCostCategoryResult>("aws:costexplorer/getCostCategory:getCostCategory", args ?? new GetCostCategoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific CostExplorer Cost Category.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.CostExplorer
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCostCategoryResult> Invoke(GetCostCategoryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCostCategoryResult>("aws:costexplorer/getCostCategory:getCostCategory", args ?? new GetCostCategoryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCostCategoryResult>("aws:costexplorer/getCostCategory:getCostCategory", args ?? new GetCostCategoryInvokeArgs(), options.WithDefaults());
     }
 
 

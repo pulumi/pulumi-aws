@@ -41,11 +41,21 @@ namespace Pulumi.Aws.StorageGateway.Inputs
         [Input("organizationalUnit")]
         public Input<string>? OrganizationalUnit { get; set; }
 
+        [Input("password", required: true)]
+        private Input<string>? _password;
+
         /// <summary>
         /// The password of the user who has permission to add the gateway to the Active Directory domain.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.

@@ -287,14 +287,16 @@ class SecretVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecretVersionArgs.__new__(SecretVersionArgs)
 
-            __props__.__dict__["secret_binary"] = secret_binary
+            __props__.__dict__["secret_binary"] = None if secret_binary is None else pulumi.Output.secret(secret_binary)
             if secret_id is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_id'")
             __props__.__dict__["secret_id"] = secret_id
-            __props__.__dict__["secret_string"] = secret_string
+            __props__.__dict__["secret_string"] = None if secret_string is None else pulumi.Output.secret(secret_string)
             __props__.__dict__["version_stages"] = version_stages
             __props__.__dict__["arn"] = None
             __props__.__dict__["version_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secretBinary", "secretString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SecretVersion, __self__).__init__(
             'aws:secretsmanager/secretVersion:SecretVersion',
             resource_name,

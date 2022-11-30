@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Waf
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubscribedRuleGroupResult> InvokeAsync(GetSubscribedRuleGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscribedRuleGroupResult>("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", args ?? new GetSubscribedRuleGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscribedRuleGroupResult>("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", args ?? new GetSubscribedRuleGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.waf.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Waf
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSubscribedRuleGroupResult> Invoke(GetSubscribedRuleGroupInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubscribedRuleGroupResult>("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", args ?? new GetSubscribedRuleGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscribedRuleGroupResult>("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", args ?? new GetSubscribedRuleGroupInvokeArgs(), options.WithDefaults());
     }
 
 

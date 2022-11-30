@@ -73,6 +73,13 @@ func NewRdsDbInstance(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	if args.DbPassword != nil {
+		args.DbPassword = pulumi.ToSecret(args.DbPassword).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"dbPassword",
+	})
+	opts = append(opts, secrets)
 	var resource RdsDbInstance
 	err := ctx.RegisterResource("aws:opsworks/rdsDbInstance:RdsDbInstance", name, args, &resource, opts...)
 	if err != nil {

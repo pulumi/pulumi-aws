@@ -84,6 +84,13 @@ func NewResource(ctx *pulumi.Context,
 	if args.TypeName == nil {
 		return nil, errors.New("invalid value for required argument 'TypeName'")
 	}
+	if args.Schema != nil {
+		args.Schema = pulumi.ToSecret(args.Schema).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"schema",
+	})
+	opts = append(opts, secrets)
 	var resource Resource
 	err := ctx.RegisterResource("aws:cloudcontrol/resource:Resource", name, args, &resource, opts...)
 	if err != nil {

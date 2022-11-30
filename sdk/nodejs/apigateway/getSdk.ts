@@ -25,11 +25,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSdk(args: GetSdkArgs, opts?: pulumi.InvokeOptions): Promise<GetSdkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getSdk:getSdk", {
         "parameters": args.parameters,
         "restApiId": args.restApiId,

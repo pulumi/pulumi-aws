@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.GetInstances(ctx, &ssm.GetInstancesArgs{
+//			_, err = ssm.GetInstances(ctx, &ssm.GetInstancesArgs{
 //				Filters: []ssm.GetInstancesFilter{
 //					ssm.GetInstancesFilter{
 //						Name: "PlatformTypes",

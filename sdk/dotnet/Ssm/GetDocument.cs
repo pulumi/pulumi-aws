@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Ssm
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDocumentResult> InvokeAsync(GetDocumentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the contents of the specified Systems Manager document.
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Ssm
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDocumentResult> Invoke(GetDocumentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentInvokeArgs(), options.WithDefaults());
     }
 
 

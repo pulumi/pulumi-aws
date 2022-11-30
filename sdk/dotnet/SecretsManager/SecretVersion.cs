@@ -103,6 +103,11 @@ namespace Pulumi.Aws.SecretsManager
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "secretBinary",
+                    "secretString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -126,11 +131,21 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class SecretVersionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("secretBinary")]
+        private Input<string>? _secretBinary;
+
         /// <summary>
         /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
         /// </summary>
-        [Input("secretBinary")]
-        public Input<string>? SecretBinary { get; set; }
+        public Input<string>? SecretBinary
+        {
+            get => _secretBinary;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretBinary = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
@@ -138,11 +153,21 @@ namespace Pulumi.Aws.SecretsManager
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
 
+        [Input("secretString")]
+        private Input<string>? _secretString;
+
         /// <summary>
         /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
         /// </summary>
-        [Input("secretString")]
-        public Input<string>? SecretString { get; set; }
+        public Input<string>? SecretString
+        {
+            get => _secretString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("versionStages")]
         private InputList<string>? _versionStages;
@@ -170,11 +195,21 @@ namespace Pulumi.Aws.SecretsManager
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        [Input("secretBinary")]
+        private Input<string>? _secretBinary;
+
         /// <summary>
         /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
         /// </summary>
-        [Input("secretBinary")]
-        public Input<string>? SecretBinary { get; set; }
+        public Input<string>? SecretBinary
+        {
+            get => _secretBinary;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretBinary = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
@@ -182,11 +217,21 @@ namespace Pulumi.Aws.SecretsManager
         [Input("secretId")]
         public Input<string>? SecretId { get; set; }
 
+        [Input("secretString")]
+        private Input<string>? _secretString;
+
         /// <summary>
         /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
         /// </summary>
-        [Input("secretString")]
-        public Input<string>? SecretString { get; set; }
+        public Input<string>? SecretString
+        {
+            get => _secretString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the version of the secret.

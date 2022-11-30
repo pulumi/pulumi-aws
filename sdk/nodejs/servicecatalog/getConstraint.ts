@@ -14,18 +14,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.servicecatalog.getConstraint({
+ * const example = aws.servicecatalog.getConstraint({
  *     acceptLanguage: "en",
  *     id: "cons-hrvy0335",
- * }));
+ * });
  * ```
  */
 export function getConstraint(args: GetConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetConstraintResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getConstraint:getConstraint", {
         "acceptLanguage": args.acceptLanguage,
         "description": args.description,

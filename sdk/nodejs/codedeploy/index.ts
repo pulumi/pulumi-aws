@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 export { ApplicationArgs, ApplicationState } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
 export { DeploymentConfigArgs, DeploymentConfigState } from "./deploymentConfig";
 export type DeploymentConfig = import("./deploymentConfig").DeploymentConfig;
 export const DeploymentConfig: typeof import("./deploymentConfig").DeploymentConfig = null as any;
+utilities.lazyLoad(exports, ["DeploymentConfig"], () => require("./deploymentConfig"));
 
 export { DeploymentGroupArgs, DeploymentGroupState } from "./deploymentGroup";
 export type DeploymentGroup = import("./deploymentGroup").DeploymentGroup;
 export const DeploymentGroup: typeof import("./deploymentGroup").DeploymentGroup = null as any;
-
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
-utilities.lazyLoad(exports, ["DeploymentConfig"], () => require("./deploymentConfig"));
 utilities.lazyLoad(exports, ["DeploymentGroup"], () => require("./deploymentGroup"));
+
 
 const _module = {
     version: utilities.getVersion(),

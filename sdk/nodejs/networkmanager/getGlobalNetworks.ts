@@ -13,20 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.networkmanager.getGlobalNetworks({
+ * const example = aws.networkmanager.getGlobalNetworks({
  *     tags: {
  *         Env: "test",
  *     },
- * }));
+ * });
  * ```
  */
 export function getGlobalNetworks(args?: GetGlobalNetworksArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalNetworksResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", {
         "tags": args.tags,
     }, opts);

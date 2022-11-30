@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.LookupApi(ctx, &apigatewayv2.LookupApiArgs{
+//			_, err = apigatewayv2.LookupApi(ctx, &apigatewayv2.LookupApiArgs{
 //				ApiId: "aabbccddee",
 //			}, nil)
 //			if err != nil {

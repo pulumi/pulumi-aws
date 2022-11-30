@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { DataLakeSettingsArgs, DataLakeSettingsState } from "./dataLakeSettings";
 export type DataLakeSettings = import("./dataLakeSettings").DataLakeSettings;
 export const DataLakeSettings: typeof import("./dataLakeSettings").DataLakeSettings = null as any;
+utilities.lazyLoad(exports, ["DataLakeSettings"], () => require("./dataLakeSettings"));
 
 export { GetDataLakeSettingsArgs, GetDataLakeSettingsResult, GetDataLakeSettingsOutputArgs } from "./getDataLakeSettings";
 export const getDataLakeSettings: typeof import("./getDataLakeSettings").getDataLakeSettings = null as any;
 export const getDataLakeSettingsOutput: typeof import("./getDataLakeSettings").getDataLakeSettingsOutput = null as any;
+utilities.lazyLoad(exports, ["getDataLakeSettings","getDataLakeSettingsOutput"], () => require("./getDataLakeSettings"));
 
 export { GetPermissionsArgs, GetPermissionsResult, GetPermissionsOutputArgs } from "./getPermissions";
 export const getPermissions: typeof import("./getPermissions").getPermissions = null as any;
 export const getPermissionsOutput: typeof import("./getPermissions").getPermissionsOutput = null as any;
+utilities.lazyLoad(exports, ["getPermissions","getPermissionsOutput"], () => require("./getPermissions"));
 
 export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
 export const getResource: typeof import("./getResource").getResource = null as any;
 export const getResourceOutput: typeof import("./getResource").getResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
 
 export { LfTagArgs, LfTagState } from "./lfTag";
 export type LfTag = import("./lfTag").LfTag;
 export const LfTag: typeof import("./lfTag").LfTag = null as any;
+utilities.lazyLoad(exports, ["LfTag"], () => require("./lfTag"));
 
 export { PermissionsArgs, PermissionsState } from "./permissions";
 export type Permissions = import("./permissions").Permissions;
 export const Permissions: typeof import("./permissions").Permissions = null as any;
+utilities.lazyLoad(exports, ["Permissions"], () => require("./permissions"));
 
 export { ResourceArgs, ResourceState } from "./resource";
 export type Resource = import("./resource").Resource;
 export const Resource: typeof import("./resource").Resource = null as any;
+utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
 
 export { ResourceLfTagsArgs, ResourceLfTagsState } from "./resourceLfTags";
 export type ResourceLfTags = import("./resourceLfTags").ResourceLfTags;
 export const ResourceLfTags: typeof import("./resourceLfTags").ResourceLfTags = null as any;
-
-utilities.lazyLoad(exports, ["DataLakeSettings"], () => require("./dataLakeSettings"));
-utilities.lazyLoad(exports, ["getDataLakeSettings","getDataLakeSettingsOutput"], () => require("./getDataLakeSettings"));
-utilities.lazyLoad(exports, ["getPermissions","getPermissionsOutput"], () => require("./getPermissions"));
-utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
-utilities.lazyLoad(exports, ["LfTag"], () => require("./lfTag"));
-utilities.lazyLoad(exports, ["Permissions"], () => require("./permissions"));
-utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
 utilities.lazyLoad(exports, ["ResourceLfTags"], () => require("./resourceLfTags"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -54,7 +54,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetListenerResult> InvokeAsync(GetListenerArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:applicationloadbalancing/getListener:getListener", args ?? new GetListenerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:applicationloadbalancing/getListener:getListener", args ?? new GetListenerArgs(), options.WithDefaults());
 
         /// <summary>
         /// &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws:applicationloadbalancing/getListener:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws:applicationloadbalancing/getListener:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
     }
 
 

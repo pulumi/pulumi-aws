@@ -30,8 +30,8 @@ import (
 //			_, err := route53.NewResolverEndpoint(ctx, "foo", &route53.ResolverEndpointArgs{
 //				Direction: pulumi.String("INBOUND"),
 //				SecurityGroupIds: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Sg1.Id),
-//					pulumi.Any(aws_security_group.Sg2.Id),
+//					aws_security_group.Sg1.Id,
+//					aws_security_group.Sg2.Id,
 //				},
 //				IpAddresses: route53.ResolverEndpointIpAddressArray{
 //					&route53.ResolverEndpointIpAddressArgs{

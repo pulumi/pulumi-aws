@@ -54,7 +54,7 @@ namespace Pulumi.Aws.AppMesh
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMeshResult> InvokeAsync(GetMeshArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshArgs(), options.WithDefaults());
 
         /// <summary>
         /// The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.AppMesh
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMeshResult> Invoke(GetMeshInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshInvokeArgs(), options.WithDefaults());
     }
 
 

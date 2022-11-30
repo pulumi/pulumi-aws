@@ -93,6 +93,10 @@ namespace Pulumi.Aws.Kms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "plaintext",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -134,11 +138,21 @@ namespace Pulumi.Aws.Kms
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
+        [Input("plaintext", required: true)]
+        private Input<string>? _plaintext;
+
         /// <summary>
         /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         /// </summary>
-        [Input("plaintext", required: true)]
-        public Input<string> Plaintext { get; set; } = null!;
+        public Input<string>? Plaintext
+        {
+            get => _plaintext;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _plaintext = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public CiphertextArgs()
         {
@@ -172,11 +186,21 @@ namespace Pulumi.Aws.Kms
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
+        [Input("plaintext")]
+        private Input<string>? _plaintext;
+
         /// <summary>
         /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         /// </summary>
-        [Input("plaintext")]
-        public Input<string>? Plaintext { get; set; }
+        public Input<string>? Plaintext
+        {
+            get => _plaintext;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _plaintext = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public CiphertextState()
         {

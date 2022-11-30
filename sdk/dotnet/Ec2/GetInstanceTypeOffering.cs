@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstanceTypeOfferingResult> InvokeAsync(GetInstanceTypeOfferingArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceTypeOfferingResult>("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args ?? new GetInstanceTypeOfferingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceTypeOfferingResult>("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args ?? new GetInstanceTypeOfferingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about single EC2 Instance Type Offering.
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetInstanceTypeOfferingResult> Invoke(GetInstanceTypeOfferingInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInstanceTypeOfferingResult>("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args ?? new GetInstanceTypeOfferingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceTypeOfferingResult>("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args ?? new GetInstanceTypeOfferingInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -316,7 +316,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["copyIfNoneMatch"] = args ? args.copyIfNoneMatch : undefined;
             resourceInputs["copyIfUnmodifiedSince"] = args ? args.copyIfUnmodifiedSince : undefined;
             resourceInputs["customerAlgorithm"] = args ? args.customerAlgorithm : undefined;
-            resourceInputs["customerKey"] = args ? args.customerKey : undefined;
+            resourceInputs["customerKey"] = args?.customerKey ? pulumi.secret(args.customerKey) : undefined;
             resourceInputs["customerKeyMd5"] = args ? args.customerKeyMd5 : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["expectedSourceBucketOwner"] = args ? args.expectedSourceBucketOwner : undefined;
@@ -324,8 +324,8 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["grants"] = args ? args.grants : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["kmsEncryptionContext"] = args ? args.kmsEncryptionContext : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["kmsEncryptionContext"] = args?.kmsEncryptionContext ? pulumi.secret(args.kmsEncryptionContext) : undefined;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId ? pulumi.secret(args.kmsKeyId) : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["metadataDirective"] = args ? args.metadataDirective : undefined;
             resourceInputs["objectLockLegalHoldStatus"] = args ? args.objectLockLegalHoldStatus : undefined;
@@ -335,7 +335,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceCustomerAlgorithm"] = args ? args.sourceCustomerAlgorithm : undefined;
-            resourceInputs["sourceCustomerKey"] = args ? args.sourceCustomerKey : undefined;
+            resourceInputs["sourceCustomerKey"] = args?.sourceCustomerKey ? pulumi.secret(args.sourceCustomerKey) : undefined;
             resourceInputs["sourceCustomerKeyMd5"] = args ? args.sourceCustomerKeyMd5 : undefined;
             resourceInputs["storageClass"] = args ? args.storageClass : undefined;
             resourceInputs["taggingDirective"] = args ? args.taggingDirective : undefined;
@@ -350,6 +350,8 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["versionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["customerKey", "kmsEncryptionContext", "kmsKeyId", "sourceCustomerKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ObjectCopy.__pulumiType, name, resourceInputs, opts);
     }
 }

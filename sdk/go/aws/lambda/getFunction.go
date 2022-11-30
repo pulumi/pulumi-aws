@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
 //			functionName := cfg.Require("functionName")
-//			_, err := lambda.LookupFunction(ctx, &lambda.LookupFunctionArgs{
+//			_, err = lambda.LookupFunction(ctx, &lambda.LookupFunctionArgs{
 //				FunctionName: functionName,
 //			}, nil)
 //			if err != nil {

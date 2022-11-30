@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.LookupMesh(ctx, &appmesh.LookupMeshArgs{
+//			_, err = appmesh.LookupMesh(ctx, &appmesh.LookupMeshArgs{
 //				Name: "simpleapp",
 //			}, nil)
 //			if err != nil {

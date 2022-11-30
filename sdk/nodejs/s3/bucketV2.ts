@@ -111,7 +111,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("b", {
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {
  *     acl: "public-read",
  *     corsRules: [{
  *         allowedHeaders: ["*"],
@@ -131,7 +131,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("b", {
+ * const bucketV2 = new aws.s3.BucketV2("bucketV2", {
  *     acl: "private",
  *     versionings: [{
  *         enabled: true,
@@ -176,7 +176,7 @@ import * as utilities from "../utilities";
  *             transitions: [
  *                 {
  *                     days: 30,
- *                     storageClass: "STANDARD_IA", // or "ONEZONE_IA"
+ *                     storageClass: "STANDARD_IA",
  *                 },
  *                 {
  *                     days: 60,
@@ -194,7 +194,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const versioningBucket = new aws.s3.BucketV2("versioning_bucket", {
+ * const versioningBucket = new aws.s3.BucketV2("versioningBucket", {
  *     acl: "private",
  *     lifecycleRules: [{
  *         enabled: true,
@@ -216,24 +216,6 @@ import * as utilities from "../utilities";
  *     versionings: [{
  *         enabled: true,
  *     }],
- * });
- * ```
- * ### Using object lock configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.BucketV2("example", {
- *     objectLockConfiguration: {
- *         objectLockEnabled: "Enabled",
- *         rules: [{
- *             defaultRetentions: [{
- *                 days: 5,
- *                 mode: "COMPLIANCE",
- *             }],
- *         }],
- *     },
  * });
  * ```
  * ### Using replication configuration

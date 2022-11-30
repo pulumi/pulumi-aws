@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { ScheduleArgs, ScheduleState } from "./schedule";
 export type Schedule = import("./schedule").Schedule;
 export const Schedule: typeof import("./schedule").Schedule = null as any;
+utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
 
 export { ScheduleGroupArgs, ScheduleGroupState } from "./scheduleGroup";
 export type ScheduleGroup = import("./scheduleGroup").ScheduleGroup;
 export const ScheduleGroup: typeof import("./scheduleGroup").ScheduleGroup = null as any;
-
-utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
 utilities.lazyLoad(exports, ["ScheduleGroup"], () => require("./scheduleGroup"));
+
 
 const _module = {
     version: utilities.getVersion(),

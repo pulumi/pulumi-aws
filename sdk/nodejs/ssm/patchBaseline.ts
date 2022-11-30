@@ -23,9 +23,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const production = new aws.ssm.PatchBaseline("production", {
- *     approvedPatches: ["KB123456"],
- * });
+ * const production = new aws.ssm.PatchBaseline("production", {approvedPatches: ["KB123456"]});
  * ```
  * ### Advanced Usage, specifying patch filters
  *
@@ -97,7 +95,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const windowsOsApps = new aws.ssm.PatchBaseline("windows_os_apps", {
+ * const windowsOsApps = new aws.ssm.PatchBaseline("windowsOsApps", {
  *     approvalRules: [
  *         {
  *             approveAfterDays: 7,
@@ -125,7 +123,6 @@ import * as utilities from "../utilities";
  *                     key: "PATCH_SET",
  *                     values: ["APPLICATION"],
  *                 },
- *                 // Filter on Microsoft product if necessary
  *                 {
  *                     key: "PRODUCT",
  *                     values: [
@@ -146,7 +143,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const al201709 = new aws.ssm.PatchBaseline("al_2017_09", {
+ * const al201709 = new aws.ssm.PatchBaseline("al201709", {
  *     approvalRules: [{}],
  *     description: "My patch repository for Amazon Linux 2017.09",
  *     operatingSystem: "AMAZON_LINUX",
@@ -165,6 +162,7 @@ import * as utilities from "../utilities";
  * retries=3
  * timeout=5
  * report_instanceid=yes
+ *
  * `,
  *         name: "My-AL2017.09",
  *         products: ["AmazonLinux2017.09"],

@@ -142,13 +142,15 @@ export class HsmConfiguration extends pulumi.CustomResource {
             resourceInputs["hsmConfigurationIdentifier"] = args ? args.hsmConfigurationIdentifier : undefined;
             resourceInputs["hsmIpAddress"] = args ? args.hsmIpAddress : undefined;
             resourceInputs["hsmPartitionName"] = args ? args.hsmPartitionName : undefined;
-            resourceInputs["hsmPartitionPassword"] = args ? args.hsmPartitionPassword : undefined;
+            resourceInputs["hsmPartitionPassword"] = args?.hsmPartitionPassword ? pulumi.secret(args.hsmPartitionPassword) : undefined;
             resourceInputs["hsmServerPublicCertificate"] = args ? args.hsmServerPublicCertificate : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["hsmPartitionPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(HsmConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

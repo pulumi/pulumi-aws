@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         ApprovalRules = new[]
     ///         {
-    ///             ,
+    ///             null,
     ///         },
     ///         Description = "My patch repository for Amazon Linux 2017.09",
     ///         OperatingSystem = "AMAZON_LINUX",

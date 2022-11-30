@@ -9,27 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Quantum Ledger Database (QLDB) Stream resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.qldb.Stream("example", {
- *     inclusiveStartTime: "2021-01-01T00:00:00Z",
- *     kinesisConfiguration: {
- *         aggegationEnabled: false,
- *         streamArn: "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
- *     },
- *     ledgerName: "existing-ledger-name",
- *     roleArn: "sample-role-arn",
- *     streamName: "sample-ledger-stream",
- *     tags: {
- *         example: "tag",
- *     },
- * });
- * ```
  */
 export class Stream extends pulumi.CustomResource {
     /**

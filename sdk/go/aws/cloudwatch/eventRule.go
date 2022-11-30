@@ -14,57 +14,6 @@ import (
 //
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
-//				Description:  pulumi.String("Capture each AWS Console Sign In"),
-//				EventPattern: pulumi.String(fmt.Sprintf("{\n  \"detail-type\": [\n    \"AWS Console Sign In via CloudTrail\"\n  ]\n}\n")),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			awsLogins, err := sns.NewTopic(ctx, "awsLogins", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewEventTarget(ctx, "sns", &cloudwatch.EventTargetArgs{
-//				Rule: console.Name,
-//				Arn:  awsLogins.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
-//				Arn: awsLogins.Arn,
-//				Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (string, error) {
-//					return snsTopicPolicy.Json, nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // EventBridge Rules can be imported using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,

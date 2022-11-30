@@ -16,21 +16,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.emr.getReleaseLabels({
+ * const example = aws.emr.getReleaseLabels({
  *     filters: {
  *         application: "spark@2.1.0",
  *         prefix: "emr-5",
  *     },
- * }));
+ * });
  * ```
  */
 export function getReleaseLabels(args?: GetReleaseLabelsArgs, opts?: pulumi.InvokeOptions): Promise<GetReleaseLabelsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:emr/getReleaseLabels:getReleaseLabels", {
         "filters": args.filters,
     }, opts);

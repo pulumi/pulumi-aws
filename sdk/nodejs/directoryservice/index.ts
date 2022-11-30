@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { ConditionalForwaderArgs, ConditionalForwaderState } from "./conditionalForwader";
 export type ConditionalForwader = import("./conditionalForwader").ConditionalForwader;
 export const ConditionalForwader: typeof import("./conditionalForwader").ConditionalForwader = null as any;
+utilities.lazyLoad(exports, ["ConditionalForwader"], () => require("./conditionalForwader"));
 
 export { DirectoryArgs, DirectoryState } from "./directory";
 export type Directory = import("./directory").Directory;
 export const Directory: typeof import("./directory").Directory = null as any;
+utilities.lazyLoad(exports, ["Directory"], () => require("./directory"));
 
 export { GetDirectoryArgs, GetDirectoryResult, GetDirectoryOutputArgs } from "./getDirectory";
 export const getDirectory: typeof import("./getDirectory").getDirectory = null as any;
 export const getDirectoryOutput: typeof import("./getDirectory").getDirectoryOutput = null as any;
+utilities.lazyLoad(exports, ["getDirectory","getDirectoryOutput"], () => require("./getDirectory"));
 
 export { LogServiceArgs, LogServiceState } from "./logService";
 export type LogService = import("./logService").LogService;
 export const LogService: typeof import("./logService").LogService = null as any;
+utilities.lazyLoad(exports, ["LogService"], () => require("./logService"));
 
 export { RadiusSettingsArgs, RadiusSettingsState } from "./radiusSettings";
 export type RadiusSettings = import("./radiusSettings").RadiusSettings;
 export const RadiusSettings: typeof import("./radiusSettings").RadiusSettings = null as any;
+utilities.lazyLoad(exports, ["RadiusSettings"], () => require("./radiusSettings"));
 
 export { ServiceRegionArgs, ServiceRegionState } from "./serviceRegion";
 export type ServiceRegion = import("./serviceRegion").ServiceRegion;
 export const ServiceRegion: typeof import("./serviceRegion").ServiceRegion = null as any;
+utilities.lazyLoad(exports, ["ServiceRegion"], () => require("./serviceRegion"));
 
 export { SharedDirectoryArgs, SharedDirectoryState } from "./sharedDirectory";
 export type SharedDirectory = import("./sharedDirectory").SharedDirectory;
 export const SharedDirectory: typeof import("./sharedDirectory").SharedDirectory = null as any;
+utilities.lazyLoad(exports, ["SharedDirectory"], () => require("./sharedDirectory"));
 
 export { SharedDirectoryAccepterArgs, SharedDirectoryAccepterState } from "./sharedDirectoryAccepter";
 export type SharedDirectoryAccepter = import("./sharedDirectoryAccepter").SharedDirectoryAccepter;
 export const SharedDirectoryAccepter: typeof import("./sharedDirectoryAccepter").SharedDirectoryAccepter = null as any;
-
-utilities.lazyLoad(exports, ["ConditionalForwader"], () => require("./conditionalForwader"));
-utilities.lazyLoad(exports, ["Directory"], () => require("./directory"));
-utilities.lazyLoad(exports, ["getDirectory","getDirectoryOutput"], () => require("./getDirectory"));
-utilities.lazyLoad(exports, ["LogService"], () => require("./logService"));
-utilities.lazyLoad(exports, ["RadiusSettings"], () => require("./radiusSettings"));
-utilities.lazyLoad(exports, ["ServiceRegion"], () => require("./serviceRegion"));
-utilities.lazyLoad(exports, ["SharedDirectory"], () => require("./sharedDirectory"));
 utilities.lazyLoad(exports, ["SharedDirectoryAccepter"], () => require("./sharedDirectoryAccepter"));
+
 
 const _module = {
     version: utilities.getVersion(),

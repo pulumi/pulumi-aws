@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Signer
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSigningProfileResult> InvokeAsync(GetSigningProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSigningProfileResult>("aws:signer/getSigningProfile:getSigningProfile", args ?? new GetSigningProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSigningProfileResult>("aws:signer/getSigningProfile:getSigningProfile", args ?? new GetSigningProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a Signer Signing Profile.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Signer
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSigningProfileResult> Invoke(GetSigningProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSigningProfileResult>("aws:signer/getSigningProfile:getSigningProfile", args ?? new GetSigningProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSigningProfileResult>("aws:signer/getSigningProfile:getSigningProfile", args ?? new GetSigningProfileInvokeArgs(), options.WithDefaults());
     }
 
 

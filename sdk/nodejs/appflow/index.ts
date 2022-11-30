@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { ConnectorProfileArgs, ConnectorProfileState } from "./connectorProfile";
 export type ConnectorProfile = import("./connectorProfile").ConnectorProfile;
 export const ConnectorProfile: typeof import("./connectorProfile").ConnectorProfile = null as any;
+utilities.lazyLoad(exports, ["ConnectorProfile"], () => require("./connectorProfile"));
 
 export { FlowArgs, FlowState } from "./flow";
 export type Flow = import("./flow").Flow;
 export const Flow: typeof import("./flow").Flow = null as any;
-
-utilities.lazyLoad(exports, ["ConnectorProfile"], () => require("./connectorProfile"));
 utilities.lazyLoad(exports, ["Flow"], () => require("./flow"));
+
 
 const _module = {
     version: utilities.getVersion(),

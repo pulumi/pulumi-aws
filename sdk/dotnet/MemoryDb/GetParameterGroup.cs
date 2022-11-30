@@ -36,7 +36,7 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetParameterGroupResult> InvokeAsync(GetParameterGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetParameterGroupResult>("aws:memorydb/getParameterGroup:getParameterGroup", args ?? new GetParameterGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetParameterGroupResult>("aws:memorydb/getParameterGroup:getParameterGroup", args ?? new GetParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a MemoryDB Parameter Group.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws:memorydb/getParameterGroup:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws:memorydb/getParameterGroup:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 

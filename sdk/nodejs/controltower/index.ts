@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { ControlTowerControlArgs, ControlTowerControlState } from "./controlTowerControl";
 export type ControlTowerControl = import("./controlTowerControl").ControlTowerControl;
 export const ControlTowerControl: typeof import("./controlTowerControl").ControlTowerControl = null as any;
+utilities.lazyLoad(exports, ["ControlTowerControl"], () => require("./controlTowerControl"));
 
 export { GetControlsArgs, GetControlsResult, GetControlsOutputArgs } from "./getControls";
 export const getControls: typeof import("./getControls").getControls = null as any;
 export const getControlsOutput: typeof import("./getControls").getControlsOutput = null as any;
-
-utilities.lazyLoad(exports, ["ControlTowerControl"], () => require("./controlTowerControl"));
 utilities.lazyLoad(exports, ["getControls","getControlsOutput"], () => require("./getControls"));
+
 
 const _module = {
     version: utilities.getVersion(),

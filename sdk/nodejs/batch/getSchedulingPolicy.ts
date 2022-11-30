@@ -16,17 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.batch.getSchedulingPolicy({
+ * const test = aws.batch.getSchedulingPolicy({
  *     arn: "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
- * }));
+ * });
  * ```
  */
 export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSchedulingPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:batch/getSchedulingPolicy:getSchedulingPolicy", {
         "arn": args.arn,
         "tags": args.tags,

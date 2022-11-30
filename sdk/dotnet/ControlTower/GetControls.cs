@@ -15,13 +15,13 @@ namespace Pulumi.Aws.ControlTower
         /// List of Control Tower controls applied to an OU.
         /// </summary>
         public static Task<GetControlsResult> InvokeAsync(GetControlsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetControlsResult>("aws:controltower/getControls:getControls", args ?? new GetControlsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetControlsResult>("aws:controltower/getControls:getControls", args ?? new GetControlsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of Control Tower controls applied to an OU.
         /// </summary>
         public static Output<GetControlsResult> Invoke(GetControlsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetControlsResult>("aws:controltower/getControls:getControls", args ?? new GetControlsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetControlsResult>("aws:controltower/getControls:getControls", args ?? new GetControlsInvokeArgs(), options.WithDefaults());
     }
 
 

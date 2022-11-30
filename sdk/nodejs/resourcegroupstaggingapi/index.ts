@@ -7,5 +7,5 @@ import * as utilities from "../utilities";
 export { GetResourcesArgs, GetResourcesResult, GetResourcesOutputArgs } from "./getResources";
 export const getResources: typeof import("./getResources").getResources = null as any;
 export const getResourcesOutput: typeof import("./getResources").getResourcesOutput = null as any;
-
 utilities.lazyLoad(exports, ["getResources","getResourcesOutput"], () => require("./getResources"));
+

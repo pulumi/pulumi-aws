@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := batch.LookupSchedulingPolicy(ctx, &batch.LookupSchedulingPolicyArgs{
+//			_, err = batch.LookupSchedulingPolicy(ctx, &batch.LookupSchedulingPolicyArgs{
 //				Arn: "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
 //			}, nil)
 //			if err != nil {

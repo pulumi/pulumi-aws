@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.resourcegroupstaggingapi.getResources());
+ * const test = aws.resourcegroupstaggingapi.getResources({});
  * ```
  * ### Filter By Tag Key and Value
  *
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.resourcegroupstaggingapi.getResources({
+ * const test = aws.resourcegroupstaggingapi.getResources({
  *     tagFilters: [{
  *         key: "tag-key",
  *         values: [
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *             "tag-value-2",
  *         ],
  *     }],
- * }));
+ * });
  * ```
  * ### Filter By Resource Type
  *
@@ -41,18 +41,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.resourcegroupstaggingapi.getResources({
+ * const test = aws.resourcegroupstaggingapi.getResources({
  *     resourceTypeFilters: ["ec2:instance"],
- * }));
+ * });
  * ```
  */
 export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:resourcegroupstaggingapi/getResources:getResources", {
         "excludeCompliantResources": args.excludeCompliantResources,
         "includeComplianceDetails": args.includeComplianceDetails,

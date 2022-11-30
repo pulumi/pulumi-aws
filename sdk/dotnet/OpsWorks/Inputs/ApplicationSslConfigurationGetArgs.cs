@@ -24,11 +24,21 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         [Input("chain")]
         public Input<string>? Chain { get; set; }
 
+        [Input("privateKey", required: true)]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// The private key; the contents of the certificate's domain.key file.
         /// </summary>
-        [Input("privateKey", required: true)]
-        public Input<string> PrivateKey { get; set; } = null!;
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ApplicationSslConfigurationGetArgs()
         {

@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
  */
 export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getBucketObjects:getBucketObjects", {
         "bucket": args.bucket,
         "delimiter": args.delimiter,

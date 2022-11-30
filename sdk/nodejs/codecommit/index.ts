@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { ApprovalRuleTemplateArgs, ApprovalRuleTemplateState } from "./approvalRuleTemplate";
 export type ApprovalRuleTemplate = import("./approvalRuleTemplate").ApprovalRuleTemplate;
 export const ApprovalRuleTemplate: typeof import("./approvalRuleTemplate").ApprovalRuleTemplate = null as any;
+utilities.lazyLoad(exports, ["ApprovalRuleTemplate"], () => require("./approvalRuleTemplate"));
 
 export { ApprovalRuleTemplateAssociationArgs, ApprovalRuleTemplateAssociationState } from "./approvalRuleTemplateAssociation";
 export type ApprovalRuleTemplateAssociation = import("./approvalRuleTemplateAssociation").ApprovalRuleTemplateAssociation;
 export const ApprovalRuleTemplateAssociation: typeof import("./approvalRuleTemplateAssociation").ApprovalRuleTemplateAssociation = null as any;
+utilities.lazyLoad(exports, ["ApprovalRuleTemplateAssociation"], () => require("./approvalRuleTemplateAssociation"));
 
 export { GetApprovalRuleTemplateArgs, GetApprovalRuleTemplateResult, GetApprovalRuleTemplateOutputArgs } from "./getApprovalRuleTemplate";
 export const getApprovalRuleTemplate: typeof import("./getApprovalRuleTemplate").getApprovalRuleTemplate = null as any;
 export const getApprovalRuleTemplateOutput: typeof import("./getApprovalRuleTemplate").getApprovalRuleTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getApprovalRuleTemplate","getApprovalRuleTemplateOutput"], () => require("./getApprovalRuleTemplate"));
 
 export { GetRepositoryArgs, GetRepositoryResult, GetRepositoryOutputArgs } from "./getRepository";
 export const getRepository: typeof import("./getRepository").getRepository = null as any;
 export const getRepositoryOutput: typeof import("./getRepository").getRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
 
 export { RepositoryArgs, RepositoryState } from "./repository";
 export type Repository = import("./repository").Repository;
 export const Repository: typeof import("./repository").Repository = null as any;
+utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
 
 export { TriggerArgs, TriggerState } from "./trigger";
 export type Trigger = import("./trigger").Trigger;
 export const Trigger: typeof import("./trigger").Trigger = null as any;
-
-utilities.lazyLoad(exports, ["ApprovalRuleTemplate"], () => require("./approvalRuleTemplate"));
-utilities.lazyLoad(exports, ["ApprovalRuleTemplateAssociation"], () => require("./approvalRuleTemplateAssociation"));
-utilities.lazyLoad(exports, ["getApprovalRuleTemplate","getApprovalRuleTemplateOutput"], () => require("./getApprovalRuleTemplate"));
-utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
-utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
 utilities.lazyLoad(exports, ["Trigger"], () => require("./trigger"));
+
 
 const _module = {
     version: utilities.getVersion(),

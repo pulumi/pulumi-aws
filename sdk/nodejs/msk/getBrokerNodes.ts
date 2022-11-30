@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBrokerNodes(args: GetBrokerNodesArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerNodesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getBrokerNodes:getBrokerNodes", {
         "clusterArn": args.clusterArn,
     }, opts);

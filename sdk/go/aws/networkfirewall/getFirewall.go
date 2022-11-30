@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
+//			_, err = networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
 //				Arn: pulumi.StringRef(aws_networkfirewall_firewall.Arn),
 //			}, nil)
 //			if err != nil {
@@ -52,7 +52,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
+//			_, err = networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
 //				Name: pulumi.StringRef("Test"),
 //			}, nil)
 //			if err != nil {
@@ -77,7 +77,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
+//			_, err = networkfirewall.LookupFirewall(ctx, &networkfirewall.LookupFirewallArgs{
 //				Arn:  pulumi.StringRef(aws_networkfirewall_firewall.Arn),
 //				Name: pulumi.StringRef("Test"),
 //			}, nil)

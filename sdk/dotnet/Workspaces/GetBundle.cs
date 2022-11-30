@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Workspaces
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBundleResult> InvokeAsync(GetBundleArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBundleResult>("aws:workspaces/getBundle:getBundle", args ?? new GetBundleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBundleResult>("aws:workspaces/getBundle:getBundle", args ?? new GetBundleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about an AWS WorkSpaces bundle.
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Workspaces
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBundleResult> Invoke(GetBundleInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBundleResult>("aws:workspaces/getBundle:getBundle", args ?? new GetBundleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBundleResult>("aws:workspaces/getBundle:getBundle", args ?? new GetBundleInvokeArgs(), options.WithDefaults());
     }
 
 

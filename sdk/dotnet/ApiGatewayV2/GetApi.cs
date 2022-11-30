@@ -36,7 +36,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("aws:apigatewayv2/getApi:getApi", args ?? new GetApiArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("aws:apigatewayv2/getApi:getApi", args ?? new GetApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon API Gateway Version 2 API.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiResult>("aws:apigatewayv2/getApi:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiResult>("aws:apigatewayv2/getApi:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
     }
 
 

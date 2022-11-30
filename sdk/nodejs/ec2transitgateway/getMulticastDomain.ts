@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2transitgateway.getMulticastDomain({
+ * const example = aws.ec2transitgateway.getMulticastDomain({
  *     filters: [{
  *         name: "transit-gateway-multicast-domain-id",
  *         values: ["tgw-mcast-domain-12345678"],
  *     }],
- * }));
+ * });
  * ```
  * ### By Identifier
  *
@@ -30,18 +30,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2transitgateway.getMulticastDomain({
+ * const example = aws.ec2transitgateway.getMulticastDomain({
  *     transitGatewayMulticastDomainId: "tgw-mcast-domain-12345678",
- * }));
+ * });
  * ```
  */
 export function getMulticastDomain(args?: GetMulticastDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetMulticastDomainResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", {
         "filters": args.filters,
         "tags": args.tags,

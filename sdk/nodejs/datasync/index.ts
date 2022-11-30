@@ -8,53 +8,53 @@ import * as utilities from "../utilities";
 export { AgentArgs, AgentState } from "./agent";
 export type Agent = import("./agent").Agent;
 export const Agent: typeof import("./agent").Agent = null as any;
+utilities.lazyLoad(exports, ["Agent"], () => require("./agent"));
 
 export { EfsLocationArgs, EfsLocationState } from "./efsLocation";
 export type EfsLocation = import("./efsLocation").EfsLocation;
 export const EfsLocation: typeof import("./efsLocation").EfsLocation = null as any;
+utilities.lazyLoad(exports, ["EfsLocation"], () => require("./efsLocation"));
 
 export { FsxOpenZfsFileSystemArgs, FsxOpenZfsFileSystemState } from "./fsxOpenZfsFileSystem";
 export type FsxOpenZfsFileSystem = import("./fsxOpenZfsFileSystem").FsxOpenZfsFileSystem;
 export const FsxOpenZfsFileSystem: typeof import("./fsxOpenZfsFileSystem").FsxOpenZfsFileSystem = null as any;
+utilities.lazyLoad(exports, ["FsxOpenZfsFileSystem"], () => require("./fsxOpenZfsFileSystem"));
 
 export { LocationFsxLustreArgs, LocationFsxLustreState } from "./locationFsxLustre";
 export type LocationFsxLustre = import("./locationFsxLustre").LocationFsxLustre;
 export const LocationFsxLustre: typeof import("./locationFsxLustre").LocationFsxLustre = null as any;
+utilities.lazyLoad(exports, ["LocationFsxLustre"], () => require("./locationFsxLustre"));
 
 export { LocationFsxWindowsArgs, LocationFsxWindowsState } from "./locationFsxWindows";
 export type LocationFsxWindows = import("./locationFsxWindows").LocationFsxWindows;
 export const LocationFsxWindows: typeof import("./locationFsxWindows").LocationFsxWindows = null as any;
+utilities.lazyLoad(exports, ["LocationFsxWindows"], () => require("./locationFsxWindows"));
 
 export { LocationHdfsArgs, LocationHdfsState } from "./locationHdfs";
 export type LocationHdfs = import("./locationHdfs").LocationHdfs;
 export const LocationHdfs: typeof import("./locationHdfs").LocationHdfs = null as any;
+utilities.lazyLoad(exports, ["LocationHdfs"], () => require("./locationHdfs"));
 
 export { LocationSmbArgs, LocationSmbState } from "./locationSmb";
 export type LocationSmb = import("./locationSmb").LocationSmb;
 export const LocationSmb: typeof import("./locationSmb").LocationSmb = null as any;
+utilities.lazyLoad(exports, ["LocationSmb"], () => require("./locationSmb"));
 
 export { NfsLocationArgs, NfsLocationState } from "./nfsLocation";
 export type NfsLocation = import("./nfsLocation").NfsLocation;
 export const NfsLocation: typeof import("./nfsLocation").NfsLocation = null as any;
+utilities.lazyLoad(exports, ["NfsLocation"], () => require("./nfsLocation"));
 
 export { S3LocationArgs, S3LocationState } from "./s3location";
 export type S3Location = import("./s3location").S3Location;
 export const S3Location: typeof import("./s3location").S3Location = null as any;
+utilities.lazyLoad(exports, ["S3Location"], () => require("./s3location"));
 
 export { TaskArgs, TaskState } from "./task";
 export type Task = import("./task").Task;
 export const Task: typeof import("./task").Task = null as any;
-
-utilities.lazyLoad(exports, ["Agent"], () => require("./agent"));
-utilities.lazyLoad(exports, ["EfsLocation"], () => require("./efsLocation"));
-utilities.lazyLoad(exports, ["FsxOpenZfsFileSystem"], () => require("./fsxOpenZfsFileSystem"));
-utilities.lazyLoad(exports, ["LocationFsxLustre"], () => require("./locationFsxLustre"));
-utilities.lazyLoad(exports, ["LocationFsxWindows"], () => require("./locationFsxWindows"));
-utilities.lazyLoad(exports, ["LocationHdfs"], () => require("./locationHdfs"));
-utilities.lazyLoad(exports, ["LocationSmb"], () => require("./locationSmb"));
-utilities.lazyLoad(exports, ["NfsLocation"], () => require("./nfsLocation"));
-utilities.lazyLoad(exports, ["S3Location"], () => require("./s3location"));
 utilities.lazyLoad(exports, ["Task"], () => require("./task"));
+
 
 const _module = {
     version: utilities.getVersion(),

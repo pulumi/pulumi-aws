@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRepositoryEndpoint(args: GetRepositoryEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", {
         "domain": args.domain,
         "domainOwner": args.domainOwner,

@@ -16,17 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const productionSigningProfile = pulumi.output(aws.signer.getSigningProfile({
+ * const productionSigningProfile = aws.signer.getSigningProfile({
  *     name: "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
- * }));
+ * });
  * ```
  */
 export function getSigningProfile(args: GetSigningProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:signer/getSigningProfile:getSigningProfile", {
         "name": args.name,
         "tags": args.tags,

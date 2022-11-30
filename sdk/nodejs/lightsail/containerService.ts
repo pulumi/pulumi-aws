@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myContainerService = new aws.lightsail.ContainerService("my_container_service", {
+ * const myContainerService = new aws.lightsail.ContainerService("myContainerService", {
  *     isDisabled: false,
  *     power: "nano",
  *     scale: 1,
@@ -38,14 +38,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myContainerService = new aws.lightsail.ContainerService("my_container_service", {
- *     publicDomainNames: {
- *         certificates: [{
- *             certificateName: "example-certificate",
- *             domainNames: ["www.example.com"],
- *         }],
- *     },
- * });
+ * const myContainerService = new aws.lightsail.ContainerService("myContainerService", {publicDomainNames: {
+ *     certificates: [{
+ *         certificateName: "example-certificate",
+ *         domainNames: ["www.example.com"],
+ *     }],
+ * }});
  * ```
  * ### Private Registry Access
  *

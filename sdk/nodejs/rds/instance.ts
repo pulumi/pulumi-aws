@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultInstance = new aws.rds.Instance("default", {
+ * const _default = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
  *     dbName: "mydb",
  *     engine: "mysql",
@@ -601,7 +601,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["optionGroupName"] = args ? args.optionGroupName : undefined;
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["performanceInsightsEnabled"] = args ? args.performanceInsightsEnabled : undefined;
             resourceInputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
             resourceInputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
@@ -632,6 +632,8 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }

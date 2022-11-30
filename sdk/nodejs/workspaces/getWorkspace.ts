@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.workspaces.getWorkspace({
+ * const example = aws.workspaces.getWorkspace({
  *     workspaceId: "ws-cj5xcxsz5",
- * }));
+ * });
  * ```
  * ### Filter By Directory ID & User Name
  *
@@ -27,19 +27,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.workspaces.getWorkspace({
+ * const example = aws.workspaces.getWorkspace({
  *     directoryId: "d-9967252f57",
  *     userName: "Example",
- * }));
+ * });
  * ```
  */
 export function getWorkspace(args?: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:workspaces/getWorkspace:getWorkspace", {
         "directoryId": args.directoryId,
         "tags": args.tags,

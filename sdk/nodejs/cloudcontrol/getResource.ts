@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.cloudcontrol.getResource({
+ * const example = aws.cloudcontrol.getResource({
  *     identifier: "example",
  *     typeName: "AWS::ECS::Cluster",
- * }));
+ * });
  * ```
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudcontrol/getResource:getResource", {
         "identifier": args.identifier,
         "roleArn": args.roleArn,

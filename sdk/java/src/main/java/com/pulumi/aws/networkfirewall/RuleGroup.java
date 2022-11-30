@@ -112,6 +112,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Stateful Inspection for blocking packets from going to an intended destination
+ * 
  * ```java
  * package generated_program;
  * 
@@ -256,6 +257,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Stateless Inspection with a Custom Action
+ * 
  * ```java
  * package generated_program;
  * 

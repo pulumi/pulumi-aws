@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Neptune
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrderableDbInstanceResult> InvokeAsync(GetOrderableDbInstanceArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderableDbInstanceResult>("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderableDbInstanceResult>("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about Neptune orderable DB instances.
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Neptune
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOrderableDbInstanceResult> Invoke(GetOrderableDbInstanceInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOrderableDbInstanceResult>("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrderableDbInstanceResult>("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -17,18 +17,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.sagemaker.getPrebuiltEcrImage({
+ * const test = aws.sagemaker.getPrebuiltEcrImage({
  *     imageTag: "2.2-1.0.11.0",
  *     repositoryName: "sagemaker-scikit-learn",
- * }));
+ * });
  * ```
  */
 export function getPrebuiltEcrImage(args: GetPrebuiltEcrImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPrebuiltEcrImageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", {
         "dnsSuffix": args.dnsSuffix,
         "imageTag": args.imageTag,

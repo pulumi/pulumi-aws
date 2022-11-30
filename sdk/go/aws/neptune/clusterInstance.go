@@ -45,7 +45,9 @@ import (
 //				return err
 //			}
 //			var example []*neptune.ClusterInstance
-//			for key0, _ := range 2 {
+//			for index := 0; index < 2; index++ {
+//				key0 := index
+//				_ := index
 //				__res, err := neptune.NewClusterInstance(ctx, fmt.Sprintf("example-%v", key0), &neptune.ClusterInstanceArgs{
 //					ClusterIdentifier: _default.ID(),
 //					Engine:            pulumi.String("neptune"),

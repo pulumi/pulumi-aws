@@ -149,13 +149,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			}, pulumi.Provider(aws.Us-west-2))
+//			}, pulumi.Provider(aws.UsWest2))
 //			if err != nil {
 //				return err
 //			}
 //			bar, err := ec2.NewVpc(ctx, "bar", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.2.0.0/16"),
-//			}, pulumi.Provider(aws.Us-east-1))
+//			}, pulumi.Provider(aws.UsEast1))
 //			if err != nil {
 //				return err
 //			}

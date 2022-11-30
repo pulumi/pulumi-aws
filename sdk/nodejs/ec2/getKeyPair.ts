@@ -33,11 +33,8 @@ import * as utilities from "../utilities";
  */
 export function getKeyPair(args?: GetKeyPairArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyPairResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getKeyPair:getKeyPair", {
         "filters": args.filters,
         "includePublicKey": args.includePublicKey,

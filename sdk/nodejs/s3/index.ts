@@ -8,175 +8,175 @@ import * as utilities from "../utilities";
 export { AccessPointArgs, AccessPointState } from "./accessPoint";
 export type AccessPoint = import("./accessPoint").AccessPoint;
 export const AccessPoint: typeof import("./accessPoint").AccessPoint = null as any;
+utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
 
 export { AccountPublicAccessBlockArgs, AccountPublicAccessBlockState } from "./accountPublicAccessBlock";
 export type AccountPublicAccessBlock = import("./accountPublicAccessBlock").AccountPublicAccessBlock;
 export const AccountPublicAccessBlock: typeof import("./accountPublicAccessBlock").AccountPublicAccessBlock = null as any;
+utilities.lazyLoad(exports, ["AccountPublicAccessBlock"], () => require("./accountPublicAccessBlock"));
 
 export { AnalyticsConfigurationArgs, AnalyticsConfigurationState } from "./analyticsConfiguration";
 export type AnalyticsConfiguration = import("./analyticsConfiguration").AnalyticsConfiguration;
 export const AnalyticsConfiguration: typeof import("./analyticsConfiguration").AnalyticsConfiguration = null as any;
+utilities.lazyLoad(exports, ["AnalyticsConfiguration"], () => require("./analyticsConfiguration"));
 
 export { BucketArgs, BucketState } from "./bucket";
 export type Bucket = import("./bucket").Bucket;
 export const Bucket: typeof import("./bucket").Bucket = null as any;
+utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
 
 export { BucketAccelerateConfigurationV2Args, BucketAccelerateConfigurationV2State } from "./bucketAccelerateConfigurationV2";
 export type BucketAccelerateConfigurationV2 = import("./bucketAccelerateConfigurationV2").BucketAccelerateConfigurationV2;
 export const BucketAccelerateConfigurationV2: typeof import("./bucketAccelerateConfigurationV2").BucketAccelerateConfigurationV2 = null as any;
+utilities.lazyLoad(exports, ["BucketAccelerateConfigurationV2"], () => require("./bucketAccelerateConfigurationV2"));
 
 export { BucketAclV2Args, BucketAclV2State } from "./bucketAclV2";
 export type BucketAclV2 = import("./bucketAclV2").BucketAclV2;
 export const BucketAclV2: typeof import("./bucketAclV2").BucketAclV2 = null as any;
+utilities.lazyLoad(exports, ["BucketAclV2"], () => require("./bucketAclV2"));
 
 export { BucketCorsConfigurationV2Args, BucketCorsConfigurationV2State } from "./bucketCorsConfigurationV2";
 export type BucketCorsConfigurationV2 = import("./bucketCorsConfigurationV2").BucketCorsConfigurationV2;
 export const BucketCorsConfigurationV2: typeof import("./bucketCorsConfigurationV2").BucketCorsConfigurationV2 = null as any;
+utilities.lazyLoad(exports, ["BucketCorsConfigurationV2"], () => require("./bucketCorsConfigurationV2"));
 
 export { BucketIntelligentTieringConfigurationArgs, BucketIntelligentTieringConfigurationState } from "./bucketIntelligentTieringConfiguration";
 export type BucketIntelligentTieringConfiguration = import("./bucketIntelligentTieringConfiguration").BucketIntelligentTieringConfiguration;
 export const BucketIntelligentTieringConfiguration: typeof import("./bucketIntelligentTieringConfiguration").BucketIntelligentTieringConfiguration = null as any;
+utilities.lazyLoad(exports, ["BucketIntelligentTieringConfiguration"], () => require("./bucketIntelligentTieringConfiguration"));
 
 export { BucketLifecycleConfigurationV2Args, BucketLifecycleConfigurationV2State } from "./bucketLifecycleConfigurationV2";
 export type BucketLifecycleConfigurationV2 = import("./bucketLifecycleConfigurationV2").BucketLifecycleConfigurationV2;
 export const BucketLifecycleConfigurationV2: typeof import("./bucketLifecycleConfigurationV2").BucketLifecycleConfigurationV2 = null as any;
+utilities.lazyLoad(exports, ["BucketLifecycleConfigurationV2"], () => require("./bucketLifecycleConfigurationV2"));
 
 export { BucketLoggingV2Args, BucketLoggingV2State } from "./bucketLoggingV2";
 export type BucketLoggingV2 = import("./bucketLoggingV2").BucketLoggingV2;
 export const BucketLoggingV2: typeof import("./bucketLoggingV2").BucketLoggingV2 = null as any;
+utilities.lazyLoad(exports, ["BucketLoggingV2"], () => require("./bucketLoggingV2"));
 
 export { BucketMetricArgs, BucketMetricState } from "./bucketMetric";
 export type BucketMetric = import("./bucketMetric").BucketMetric;
 export const BucketMetric: typeof import("./bucketMetric").BucketMetric = null as any;
+utilities.lazyLoad(exports, ["BucketMetric"], () => require("./bucketMetric"));
 
 export { BucketNotificationArgs, BucketNotificationState } from "./bucketNotification";
 export type BucketNotification = import("./bucketNotification").BucketNotification;
 export const BucketNotification: typeof import("./bucketNotification").BucketNotification = null as any;
+utilities.lazyLoad(exports, ["BucketNotification"], () => require("./bucketNotification"));
 
 export { BucketObjectArgs, BucketObjectState } from "./bucketObject";
 export type BucketObject = import("./bucketObject").BucketObject;
 export const BucketObject: typeof import("./bucketObject").BucketObject = null as any;
+utilities.lazyLoad(exports, ["BucketObject"], () => require("./bucketObject"));
 
 export { BucketObjectLockConfigurationV2Args, BucketObjectLockConfigurationV2State } from "./bucketObjectLockConfigurationV2";
 export type BucketObjectLockConfigurationV2 = import("./bucketObjectLockConfigurationV2").BucketObjectLockConfigurationV2;
 export const BucketObjectLockConfigurationV2: typeof import("./bucketObjectLockConfigurationV2").BucketObjectLockConfigurationV2 = null as any;
+utilities.lazyLoad(exports, ["BucketObjectLockConfigurationV2"], () => require("./bucketObjectLockConfigurationV2"));
 
 export { BucketObjectv2Args, BucketObjectv2State } from "./bucketObjectv2";
 export type BucketObjectv2 = import("./bucketObjectv2").BucketObjectv2;
 export const BucketObjectv2: typeof import("./bucketObjectv2").BucketObjectv2 = null as any;
+utilities.lazyLoad(exports, ["BucketObjectv2"], () => require("./bucketObjectv2"));
 
 export { BucketOwnershipControlsArgs, BucketOwnershipControlsState } from "./bucketOwnershipControls";
 export type BucketOwnershipControls = import("./bucketOwnershipControls").BucketOwnershipControls;
 export const BucketOwnershipControls: typeof import("./bucketOwnershipControls").BucketOwnershipControls = null as any;
+utilities.lazyLoad(exports, ["BucketOwnershipControls"], () => require("./bucketOwnershipControls"));
 
 export { BucketPolicyArgs, BucketPolicyState } from "./bucketPolicy";
 export type BucketPolicy = import("./bucketPolicy").BucketPolicy;
 export const BucketPolicy: typeof import("./bucketPolicy").BucketPolicy = null as any;
+utilities.lazyLoad(exports, ["BucketPolicy"], () => require("./bucketPolicy"));
 
 export { BucketPublicAccessBlockArgs, BucketPublicAccessBlockState } from "./bucketPublicAccessBlock";
 export type BucketPublicAccessBlock = import("./bucketPublicAccessBlock").BucketPublicAccessBlock;
 export const BucketPublicAccessBlock: typeof import("./bucketPublicAccessBlock").BucketPublicAccessBlock = null as any;
+utilities.lazyLoad(exports, ["BucketPublicAccessBlock"], () => require("./bucketPublicAccessBlock"));
 
 export { BucketReplicationConfigArgs, BucketReplicationConfigState } from "./bucketReplicationConfig";
 export type BucketReplicationConfig = import("./bucketReplicationConfig").BucketReplicationConfig;
 export const BucketReplicationConfig: typeof import("./bucketReplicationConfig").BucketReplicationConfig = null as any;
+utilities.lazyLoad(exports, ["BucketReplicationConfig"], () => require("./bucketReplicationConfig"));
 
 export { BucketRequestPaymentConfigurationV2Args, BucketRequestPaymentConfigurationV2State } from "./bucketRequestPaymentConfigurationV2";
 export type BucketRequestPaymentConfigurationV2 = import("./bucketRequestPaymentConfigurationV2").BucketRequestPaymentConfigurationV2;
 export const BucketRequestPaymentConfigurationV2: typeof import("./bucketRequestPaymentConfigurationV2").BucketRequestPaymentConfigurationV2 = null as any;
+utilities.lazyLoad(exports, ["BucketRequestPaymentConfigurationV2"], () => require("./bucketRequestPaymentConfigurationV2"));
 
 export { BucketServerSideEncryptionConfigurationV2Args, BucketServerSideEncryptionConfigurationV2State } from "./bucketServerSideEncryptionConfigurationV2";
 export type BucketServerSideEncryptionConfigurationV2 = import("./bucketServerSideEncryptionConfigurationV2").BucketServerSideEncryptionConfigurationV2;
 export const BucketServerSideEncryptionConfigurationV2: typeof import("./bucketServerSideEncryptionConfigurationV2").BucketServerSideEncryptionConfigurationV2 = null as any;
+utilities.lazyLoad(exports, ["BucketServerSideEncryptionConfigurationV2"], () => require("./bucketServerSideEncryptionConfigurationV2"));
 
 export { BucketV2Args, BucketV2State } from "./bucketV2";
 export type BucketV2 = import("./bucketV2").BucketV2;
 export const BucketV2: typeof import("./bucketV2").BucketV2 = null as any;
+utilities.lazyLoad(exports, ["BucketV2"], () => require("./bucketV2"));
 
 export { BucketVersioningV2Args, BucketVersioningV2State } from "./bucketVersioningV2";
 export type BucketVersioningV2 = import("./bucketVersioningV2").BucketVersioningV2;
 export const BucketVersioningV2: typeof import("./bucketVersioningV2").BucketVersioningV2 = null as any;
+utilities.lazyLoad(exports, ["BucketVersioningV2"], () => require("./bucketVersioningV2"));
 
 export { BucketWebsiteConfigurationV2Args, BucketWebsiteConfigurationV2State } from "./bucketWebsiteConfigurationV2";
 export type BucketWebsiteConfigurationV2 = import("./bucketWebsiteConfigurationV2").BucketWebsiteConfigurationV2;
 export const BucketWebsiteConfigurationV2: typeof import("./bucketWebsiteConfigurationV2").BucketWebsiteConfigurationV2 = null as any;
+utilities.lazyLoad(exports, ["BucketWebsiteConfigurationV2"], () => require("./bucketWebsiteConfigurationV2"));
 
 export * from "./cannedAcl";
 export { GetAccountPublicAccessBlockArgs, GetAccountPublicAccessBlockResult, GetAccountPublicAccessBlockOutputArgs } from "./getAccountPublicAccessBlock";
 export const getAccountPublicAccessBlock: typeof import("./getAccountPublicAccessBlock").getAccountPublicAccessBlock = null as any;
 export const getAccountPublicAccessBlockOutput: typeof import("./getAccountPublicAccessBlock").getAccountPublicAccessBlockOutput = null as any;
+utilities.lazyLoad(exports, ["getAccountPublicAccessBlock","getAccountPublicAccessBlockOutput"], () => require("./getAccountPublicAccessBlock"));
 
 export { GetBucketArgs, GetBucketResult, GetBucketOutputArgs } from "./getBucket";
 export const getBucket: typeof import("./getBucket").getBucket = null as any;
 export const getBucketOutput: typeof import("./getBucket").getBucketOutput = null as any;
+utilities.lazyLoad(exports, ["getBucket","getBucketOutput"], () => require("./getBucket"));
 
 export { GetBucketObjectArgs, GetBucketObjectResult, GetBucketObjectOutputArgs } from "./getBucketObject";
 export const getBucketObject: typeof import("./getBucketObject").getBucketObject = null as any;
 export const getBucketObjectOutput: typeof import("./getBucketObject").getBucketObjectOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketObject","getBucketObjectOutput"], () => require("./getBucketObject"));
 
 export { GetBucketObjectsArgs, GetBucketObjectsResult, GetBucketObjectsOutputArgs } from "./getBucketObjects";
 export const getBucketObjects: typeof import("./getBucketObjects").getBucketObjects = null as any;
 export const getBucketObjectsOutput: typeof import("./getBucketObjects").getBucketObjectsOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketObjects","getBucketObjectsOutput"], () => require("./getBucketObjects"));
 
 export { GetBucketPolicyArgs, GetBucketPolicyResult, GetBucketPolicyOutputArgs } from "./getBucketPolicy";
 export const getBucketPolicy: typeof import("./getBucketPolicy").getBucketPolicy = null as any;
 export const getBucketPolicyOutput: typeof import("./getBucketPolicy").getBucketPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketPolicy","getBucketPolicyOutput"], () => require("./getBucketPolicy"));
 
 export { GetCanonicalUserIdResult } from "./getCanonicalUserId";
 export const getCanonicalUserId: typeof import("./getCanonicalUserId").getCanonicalUserId = null as any;
+utilities.lazyLoad(exports, ["getCanonicalUserId"], () => require("./getCanonicalUserId"));
 
 export { GetObjectArgs, GetObjectResult, GetObjectOutputArgs } from "./getObject";
 export const getObject: typeof import("./getObject").getObject = null as any;
 export const getObjectOutput: typeof import("./getObject").getObjectOutput = null as any;
+utilities.lazyLoad(exports, ["getObject","getObjectOutput"], () => require("./getObject"));
 
 export { GetObjectsArgs, GetObjectsResult, GetObjectsOutputArgs } from "./getObjects";
 export const getObjects: typeof import("./getObjects").getObjects = null as any;
 export const getObjectsOutput: typeof import("./getObjects").getObjectsOutput = null as any;
+utilities.lazyLoad(exports, ["getObjects","getObjectsOutput"], () => require("./getObjects"));
 
 export { InventoryArgs, InventoryState } from "./inventory";
 export type Inventory = import("./inventory").Inventory;
 export const Inventory: typeof import("./inventory").Inventory = null as any;
+utilities.lazyLoad(exports, ["Inventory"], () => require("./inventory"));
 
 export { ObjectCopyArgs, ObjectCopyState } from "./objectCopy";
 export type ObjectCopy = import("./objectCopy").ObjectCopy;
 export const ObjectCopy: typeof import("./objectCopy").ObjectCopy = null as any;
+utilities.lazyLoad(exports, ["ObjectCopy"], () => require("./objectCopy"));
 
 export * from "./routingRules";
 export * from "./s3Mixins";
-utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
-utilities.lazyLoad(exports, ["AccountPublicAccessBlock"], () => require("./accountPublicAccessBlock"));
-utilities.lazyLoad(exports, ["AnalyticsConfiguration"], () => require("./analyticsConfiguration"));
-utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
-utilities.lazyLoad(exports, ["BucketAccelerateConfigurationV2"], () => require("./bucketAccelerateConfigurationV2"));
-utilities.lazyLoad(exports, ["BucketAclV2"], () => require("./bucketAclV2"));
-utilities.lazyLoad(exports, ["BucketCorsConfigurationV2"], () => require("./bucketCorsConfigurationV2"));
-utilities.lazyLoad(exports, ["BucketIntelligentTieringConfiguration"], () => require("./bucketIntelligentTieringConfiguration"));
-utilities.lazyLoad(exports, ["BucketLifecycleConfigurationV2"], () => require("./bucketLifecycleConfigurationV2"));
-utilities.lazyLoad(exports, ["BucketLoggingV2"], () => require("./bucketLoggingV2"));
-utilities.lazyLoad(exports, ["BucketMetric"], () => require("./bucketMetric"));
-utilities.lazyLoad(exports, ["BucketNotification"], () => require("./bucketNotification"));
-utilities.lazyLoad(exports, ["BucketObject"], () => require("./bucketObject"));
-utilities.lazyLoad(exports, ["BucketObjectLockConfigurationV2"], () => require("./bucketObjectLockConfigurationV2"));
-utilities.lazyLoad(exports, ["BucketObjectv2"], () => require("./bucketObjectv2"));
-utilities.lazyLoad(exports, ["BucketOwnershipControls"], () => require("./bucketOwnershipControls"));
-utilities.lazyLoad(exports, ["BucketPolicy"], () => require("./bucketPolicy"));
-utilities.lazyLoad(exports, ["BucketPublicAccessBlock"], () => require("./bucketPublicAccessBlock"));
-utilities.lazyLoad(exports, ["BucketReplicationConfig"], () => require("./bucketReplicationConfig"));
-utilities.lazyLoad(exports, ["BucketRequestPaymentConfigurationV2"], () => require("./bucketRequestPaymentConfigurationV2"));
-utilities.lazyLoad(exports, ["BucketServerSideEncryptionConfigurationV2"], () => require("./bucketServerSideEncryptionConfigurationV2"));
-utilities.lazyLoad(exports, ["BucketV2"], () => require("./bucketV2"));
-utilities.lazyLoad(exports, ["BucketVersioningV2"], () => require("./bucketVersioningV2"));
-utilities.lazyLoad(exports, ["BucketWebsiteConfigurationV2"], () => require("./bucketWebsiteConfigurationV2"));
-utilities.lazyLoad(exports, ["getAccountPublicAccessBlock","getAccountPublicAccessBlockOutput"], () => require("./getAccountPublicAccessBlock"));
-utilities.lazyLoad(exports, ["getBucket","getBucketOutput"], () => require("./getBucket"));
-utilities.lazyLoad(exports, ["getBucketObject","getBucketObjectOutput"], () => require("./getBucketObject"));
-utilities.lazyLoad(exports, ["getBucketObjects","getBucketObjectsOutput"], () => require("./getBucketObjects"));
-utilities.lazyLoad(exports, ["getBucketPolicy","getBucketPolicyOutput"], () => require("./getBucketPolicy"));
-utilities.lazyLoad(exports, ["getCanonicalUserId"], () => require("./getCanonicalUserId"));
-utilities.lazyLoad(exports, ["getObject","getObjectOutput"], () => require("./getObject"));
-utilities.lazyLoad(exports, ["getObjects","getObjectsOutput"], () => require("./getObjects"));
-utilities.lazyLoad(exports, ["Inventory"], () => require("./inventory"));
-utilities.lazyLoad(exports, ["ObjectCopy"], () => require("./objectCopy"));
 
 // Export enums:
 export * from "../types/enums/s3";

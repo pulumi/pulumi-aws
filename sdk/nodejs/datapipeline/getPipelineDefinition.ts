@@ -16,17 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.datapipeline.getPipelineDefinition({
+ * const example = aws.datapipeline.getPipelineDefinition({
  *     pipelineId: "pipelineID",
- * }));
+ * });
  * ```
  */
 export function getPipelineDefinition(args: GetPipelineDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", {
         "parameterValues": args.parameterValues,
         "pipelineId": args.pipelineId,

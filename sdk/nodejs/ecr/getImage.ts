@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const serviceImage = pulumi.output(aws.ecr.getImage({
+ * const serviceImage = aws.ecr.getImage({
  *     imageTag: "latest",
  *     repositoryName: "my/service",
- * }));
+ * });
  * ```
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getImage:getImage", {
         "imageDigest": args.imageDigest,
         "imageTag": args.imageTag,

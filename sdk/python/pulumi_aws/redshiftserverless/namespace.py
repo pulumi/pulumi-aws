@@ -468,8 +468,8 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
-            __props__.__dict__["admin_user_password"] = admin_user_password
-            __props__.__dict__["admin_username"] = admin_username
+            __props__.__dict__["admin_user_password"] = None if admin_user_password is None else pulumi.Output.secret(admin_user_password)
+            __props__.__dict__["admin_username"] = None if admin_username is None else pulumi.Output.secret(admin_username)
             __props__.__dict__["db_name"] = db_name
             __props__.__dict__["default_iam_role_arn"] = default_iam_role_arn
             __props__.__dict__["iam_roles"] = iam_roles
@@ -482,6 +482,8 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["namespace_id"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminUserPassword", "adminUsername"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Namespace, __self__).__init__(
             'aws:redshiftserverless/namespace:Namespace',
             resource_name,

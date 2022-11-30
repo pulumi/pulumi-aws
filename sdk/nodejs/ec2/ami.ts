@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *         snapshotId: "snap-xxxxxxxx",
  *         volumeSize: 8,
  *     }],
- *     imdsSupport: "v2.0", // Enforce usage of IMDSv2. You can safely remove this line if your application explicitly doesn't support it.
+ *     imdsSupport: "v2.0",
  *     rootDeviceName: "/dev/xvda",
  *     virtualizationType: "hvm",
  * });

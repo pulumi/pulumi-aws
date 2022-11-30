@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { ExperimentTemplateArgs, ExperimentTemplateState } from "./experimentTemplate";
 export type ExperimentTemplate = import("./experimentTemplate").ExperimentTemplate;
 export const ExperimentTemplate: typeof import("./experimentTemplate").ExperimentTemplate = null as any;
-
 utilities.lazyLoad(exports, ["ExperimentTemplate"], () => require("./experimentTemplate"));
+
 
 const _module = {
     version: utilities.getVersion(),

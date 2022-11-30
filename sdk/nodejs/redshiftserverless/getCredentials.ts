@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshiftserverless/getCredentials:getCredentials", {
         "dbName": args.dbName,
         "durationSeconds": args.durationSeconds,

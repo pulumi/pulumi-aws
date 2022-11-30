@@ -259,6 +259,13 @@ func NewDirectory(ctx *pulumi.Context,
 	if args.Password == nil {
 		return nil, errors.New("invalid value for required argument 'Password'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource Directory
 	err := ctx.RegisterResource("aws:directoryservice/directory:Directory", name, args, &resource, opts...)
 	if err != nil {

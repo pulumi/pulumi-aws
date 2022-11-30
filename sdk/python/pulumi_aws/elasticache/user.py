@@ -412,7 +412,7 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'engine'")
             __props__.__dict__["engine"] = engine
             __props__.__dict__["no_password_required"] = no_password_required
-            __props__.__dict__["passwords"] = passwords
+            __props__.__dict__["passwords"] = None if passwords is None else pulumi.Output.secret(passwords)
             __props__.__dict__["tags"] = tags
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
@@ -421,6 +421,8 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["passwords"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
             'aws:elasticache/user:User',
             resource_name,

@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLocalGatewayResult> InvokeAsync(GetLocalGatewayArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayResult>("aws:ec2/getLocalGateway:getLocalGateway", args ?? new GetLocalGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayResult>("aws:ec2/getLocalGateway:getLocalGateway", args ?? new GetLocalGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about an EC2 Local Gateway.
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLocalGatewayResult> Invoke(GetLocalGatewayInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocalGatewayResult>("aws:ec2/getLocalGateway:getLocalGateway", args ?? new GetLocalGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayResult>("aws:ec2/getLocalGateway:getLocalGateway", args ?? new GetLocalGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

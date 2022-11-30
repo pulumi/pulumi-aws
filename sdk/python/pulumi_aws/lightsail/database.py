@@ -926,7 +926,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["master_database_name"] = master_database_name
             if master_password is None and not opts.urn:
                 raise TypeError("Missing required property 'master_password'")
-            __props__.__dict__["master_password"] = master_password
+            __props__.__dict__["master_password"] = None if master_password is None else pulumi.Output.secret(master_password)
             if master_username is None and not opts.urn:
                 raise TypeError("Missing required property 'master_username'")
             __props__.__dict__["master_username"] = master_username
@@ -951,6 +951,8 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["secondary_availability_zone"] = None
             __props__.__dict__["support_code"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Database, __self__).__init__(
             'aws:lightsail/database:Database',
             resource_name,

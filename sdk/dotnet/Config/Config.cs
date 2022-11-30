@@ -30,7 +30,7 @@ namespace Pulumi.Aws
             }
         }
 
-        private static readonly Pulumi.Config __config = new Pulumi.Config("aws");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("aws");
 
         private static readonly __Value<string?> _accessKey = new __Value<string?>(() => __config.Get("accessKey"));
         /// <summary>

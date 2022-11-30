@@ -16,20 +16,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.costexplorer.getTags({
+ * const test = aws.costexplorer.getTags({
  *     timePeriod: {
  *         end: "2022-12-01",
  *         start: "2021-01-01",
  *     },
- * }));
+ * });
  * ```
  */
 export function getTags(args: GetTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetTagsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:costexplorer/getTags:getTags", {
         "filter": args.filter,
         "searchString": args.searchString,

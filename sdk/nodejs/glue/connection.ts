@@ -17,13 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Connection("example", {
- *     connectionProperties: {
- *         JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
- *         PASSWORD: "examplepassword",
- *         USERNAME: "exampleusername",
- *     },
- * });
+ * const example = new aws.glue.Connection("example", {connectionProperties: {
+ *     JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
+ *     PASSWORD: "examplepassword",
+ *     USERNAME: "exampleusername",
+ * }});
  * ```
  * ### VPC Connection
  *
@@ -150,7 +148,7 @@ export class Connection extends pulumi.CustomResource {
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["connectionProperties"] = args ? args.connectionProperties : undefined;
+            resourceInputs["connectionProperties"] = args?.connectionProperties ? pulumi.secret(args.connectionProperties) : undefined;
             resourceInputs["connectionType"] = args ? args.connectionType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["matchCriterias"] = args ? args.matchCriterias : undefined;
@@ -161,6 +159,8 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["connectionProperties"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }
 }

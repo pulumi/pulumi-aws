@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecommit.LookupRepository(ctx, &codecommit.LookupRepositoryArgs{
+//			_, err = codecommit.LookupRepository(ctx, &codecommit.LookupRepositoryArgs{
 //				RepositoryName: "MyTestRepository",
 //			}, nil)
 //			if err != nil {

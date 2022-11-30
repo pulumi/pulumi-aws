@@ -7,39 +7,39 @@ import * as utilities from "../utilities";
 export { GetAssetArgs, GetAssetResult, GetAssetOutputArgs } from "./getAsset";
 export const getAsset: typeof import("./getAsset").getAsset = null as any;
 export const getAssetOutput: typeof import("./getAsset").getAssetOutput = null as any;
+utilities.lazyLoad(exports, ["getAsset","getAssetOutput"], () => require("./getAsset"));
 
 export { GetAssetsArgs, GetAssetsResult, GetAssetsOutputArgs } from "./getAssets";
 export const getAssets: typeof import("./getAssets").getAssets = null as any;
 export const getAssetsOutput: typeof import("./getAssets").getAssetsOutput = null as any;
+utilities.lazyLoad(exports, ["getAssets","getAssetsOutput"], () => require("./getAssets"));
 
 export { GetOutpostArgs, GetOutpostResult, GetOutpostOutputArgs } from "./getOutpost";
 export const getOutpost: typeof import("./getOutpost").getOutpost = null as any;
 export const getOutpostOutput: typeof import("./getOutpost").getOutpostOutput = null as any;
+utilities.lazyLoad(exports, ["getOutpost","getOutpostOutput"], () => require("./getOutpost"));
 
 export { GetOutpostInstanceTypeArgs, GetOutpostInstanceTypeResult, GetOutpostInstanceTypeOutputArgs } from "./getOutpostInstanceType";
 export const getOutpostInstanceType: typeof import("./getOutpostInstanceType").getOutpostInstanceType = null as any;
 export const getOutpostInstanceTypeOutput: typeof import("./getOutpostInstanceType").getOutpostInstanceTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getOutpostInstanceType","getOutpostInstanceTypeOutput"], () => require("./getOutpostInstanceType"));
 
 export { GetOutpostInstanceTypesArgs, GetOutpostInstanceTypesResult, GetOutpostInstanceTypesOutputArgs } from "./getOutpostInstanceTypes";
 export const getOutpostInstanceTypes: typeof import("./getOutpostInstanceTypes").getOutpostInstanceTypes = null as any;
 export const getOutpostInstanceTypesOutput: typeof import("./getOutpostInstanceTypes").getOutpostInstanceTypesOutput = null as any;
+utilities.lazyLoad(exports, ["getOutpostInstanceTypes","getOutpostInstanceTypesOutput"], () => require("./getOutpostInstanceTypes"));
 
 export { GetOutpostsArgs, GetOutpostsResult, GetOutpostsOutputArgs } from "./getOutposts";
 export const getOutposts: typeof import("./getOutposts").getOutposts = null as any;
 export const getOutpostsOutput: typeof import("./getOutposts").getOutpostsOutput = null as any;
+utilities.lazyLoad(exports, ["getOutposts","getOutpostsOutput"], () => require("./getOutposts"));
 
 export { GetSiteArgs, GetSiteResult, GetSiteOutputArgs } from "./getSite";
 export const getSite: typeof import("./getSite").getSite = null as any;
 export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
+utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
 
 export { GetSitesResult } from "./getSites";
 export const getSites: typeof import("./getSites").getSites = null as any;
-
-utilities.lazyLoad(exports, ["getAsset","getAssetOutput"], () => require("./getAsset"));
-utilities.lazyLoad(exports, ["getAssets","getAssetsOutput"], () => require("./getAssets"));
-utilities.lazyLoad(exports, ["getOutpost","getOutpostOutput"], () => require("./getOutpost"));
-utilities.lazyLoad(exports, ["getOutpostInstanceType","getOutpostInstanceTypeOutput"], () => require("./getOutpostInstanceType"));
-utilities.lazyLoad(exports, ["getOutpostInstanceTypes","getOutpostInstanceTypesOutput"], () => require("./getOutpostInstanceTypes"));
-utilities.lazyLoad(exports, ["getOutposts","getOutpostsOutput"], () => require("./getOutposts"));
-utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
 utilities.lazyLoad(exports, ["getSites"], () => require("./getSites"));
+

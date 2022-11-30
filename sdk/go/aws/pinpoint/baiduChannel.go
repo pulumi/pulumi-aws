@@ -83,6 +83,17 @@ func NewBaiduChannel(ctx *pulumi.Context,
 	if args.SecretKey == nil {
 		return nil, errors.New("invalid value for required argument 'SecretKey'")
 	}
+	if args.ApiKey != nil {
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringOutput)
+	}
+	if args.SecretKey != nil {
+		args.SecretKey = pulumi.ToSecret(args.SecretKey).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiKey",
+		"secretKey",
+	})
+	opts = append(opts, secrets)
 	var resource BaiduChannel
 	err := ctx.RegisterResource("aws:pinpoint/baiduChannel:BaiduChannel", name, args, &resource, opts...)
 	if err != nil {

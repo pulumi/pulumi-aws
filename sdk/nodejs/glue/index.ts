@@ -8,108 +8,108 @@ import * as utilities from "../utilities";
 export { CatalogDatabaseArgs, CatalogDatabaseState } from "./catalogDatabase";
 export type CatalogDatabase = import("./catalogDatabase").CatalogDatabase;
 export const CatalogDatabase: typeof import("./catalogDatabase").CatalogDatabase = null as any;
+utilities.lazyLoad(exports, ["CatalogDatabase"], () => require("./catalogDatabase"));
 
 export { CatalogTableArgs, CatalogTableState } from "./catalogTable";
 export type CatalogTable = import("./catalogTable").CatalogTable;
 export const CatalogTable: typeof import("./catalogTable").CatalogTable = null as any;
+utilities.lazyLoad(exports, ["CatalogTable"], () => require("./catalogTable"));
 
 export { ClassifierArgs, ClassifierState } from "./classifier";
 export type Classifier = import("./classifier").Classifier;
 export const Classifier: typeof import("./classifier").Classifier = null as any;
+utilities.lazyLoad(exports, ["Classifier"], () => require("./classifier"));
 
 export { ConnectionArgs, ConnectionState } from "./connection";
 export type Connection = import("./connection").Connection;
 export const Connection: typeof import("./connection").Connection = null as any;
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
 
 export { CrawlerArgs, CrawlerState } from "./crawler";
 export type Crawler = import("./crawler").Crawler;
 export const Crawler: typeof import("./crawler").Crawler = null as any;
+utilities.lazyLoad(exports, ["Crawler"], () => require("./crawler"));
 
 export { DataCatalogEncryptionSettingsArgs, DataCatalogEncryptionSettingsState } from "./dataCatalogEncryptionSettings";
 export type DataCatalogEncryptionSettings = import("./dataCatalogEncryptionSettings").DataCatalogEncryptionSettings;
 export const DataCatalogEncryptionSettings: typeof import("./dataCatalogEncryptionSettings").DataCatalogEncryptionSettings = null as any;
+utilities.lazyLoad(exports, ["DataCatalogEncryptionSettings"], () => require("./dataCatalogEncryptionSettings"));
 
 export { DevEndpointArgs, DevEndpointState } from "./devEndpoint";
 export type DevEndpoint = import("./devEndpoint").DevEndpoint;
 export const DevEndpoint: typeof import("./devEndpoint").DevEndpoint = null as any;
+utilities.lazyLoad(exports, ["DevEndpoint"], () => require("./devEndpoint"));
 
 export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
 export const getConnection: typeof import("./getConnection").getConnection = null as any;
 export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
 
 export { GetDataCatalogEncryptionSettingsArgs, GetDataCatalogEncryptionSettingsResult, GetDataCatalogEncryptionSettingsOutputArgs } from "./getDataCatalogEncryptionSettings";
 export const getDataCatalogEncryptionSettings: typeof import("./getDataCatalogEncryptionSettings").getDataCatalogEncryptionSettings = null as any;
 export const getDataCatalogEncryptionSettingsOutput: typeof import("./getDataCatalogEncryptionSettings").getDataCatalogEncryptionSettingsOutput = null as any;
+utilities.lazyLoad(exports, ["getDataCatalogEncryptionSettings","getDataCatalogEncryptionSettingsOutput"], () => require("./getDataCatalogEncryptionSettings"));
 
 export { GetScriptArgs, GetScriptResult, GetScriptOutputArgs } from "./getScript";
 export const getScript: typeof import("./getScript").getScript = null as any;
 export const getScriptOutput: typeof import("./getScript").getScriptOutput = null as any;
+utilities.lazyLoad(exports, ["getScript","getScriptOutput"], () => require("./getScript"));
 
 export { JobArgs, JobState } from "./job";
 export type Job = import("./job").Job;
 export const Job: typeof import("./job").Job = null as any;
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
 
 export { MLTransformArgs, MLTransformState } from "./mltransform";
 export type MLTransform = import("./mltransform").MLTransform;
 export const MLTransform: typeof import("./mltransform").MLTransform = null as any;
+utilities.lazyLoad(exports, ["MLTransform"], () => require("./mltransform"));
 
 export { PartitionArgs, PartitionState } from "./partition";
 export type Partition = import("./partition").Partition;
 export const Partition: typeof import("./partition").Partition = null as any;
+utilities.lazyLoad(exports, ["Partition"], () => require("./partition"));
 
 export { PartitionIndexArgs, PartitionIndexState } from "./partitionIndex";
 export type PartitionIndex = import("./partitionIndex").PartitionIndex;
 export const PartitionIndex: typeof import("./partitionIndex").PartitionIndex = null as any;
+utilities.lazyLoad(exports, ["PartitionIndex"], () => require("./partitionIndex"));
 
 export { RegistryArgs, RegistryState } from "./registry";
 export type Registry = import("./registry").Registry;
 export const Registry: typeof import("./registry").Registry = null as any;
+utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
 
 export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
 export { SchemaArgs, SchemaState } from "./schema";
 export type Schema = import("./schema").Schema;
 export const Schema: typeof import("./schema").Schema = null as any;
+utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
 
 export { SecurityConfigurationArgs, SecurityConfigurationState } from "./securityConfiguration";
 export type SecurityConfiguration = import("./securityConfiguration").SecurityConfiguration;
 export const SecurityConfiguration: typeof import("./securityConfiguration").SecurityConfiguration = null as any;
+utilities.lazyLoad(exports, ["SecurityConfiguration"], () => require("./securityConfiguration"));
 
 export { TriggerArgs, TriggerState } from "./trigger";
 export type Trigger = import("./trigger").Trigger;
 export const Trigger: typeof import("./trigger").Trigger = null as any;
+utilities.lazyLoad(exports, ["Trigger"], () => require("./trigger"));
 
 export { UserDefinedFunctionArgs, UserDefinedFunctionState } from "./userDefinedFunction";
 export type UserDefinedFunction = import("./userDefinedFunction").UserDefinedFunction;
 export const UserDefinedFunction: typeof import("./userDefinedFunction").UserDefinedFunction = null as any;
+utilities.lazyLoad(exports, ["UserDefinedFunction"], () => require("./userDefinedFunction"));
 
 export { WorkflowArgs, WorkflowState } from "./workflow";
 export type Workflow = import("./workflow").Workflow;
 export const Workflow: typeof import("./workflow").Workflow = null as any;
-
-utilities.lazyLoad(exports, ["CatalogDatabase"], () => require("./catalogDatabase"));
-utilities.lazyLoad(exports, ["CatalogTable"], () => require("./catalogTable"));
-utilities.lazyLoad(exports, ["Classifier"], () => require("./classifier"));
-utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
-utilities.lazyLoad(exports, ["Crawler"], () => require("./crawler"));
-utilities.lazyLoad(exports, ["DataCatalogEncryptionSettings"], () => require("./dataCatalogEncryptionSettings"));
-utilities.lazyLoad(exports, ["DevEndpoint"], () => require("./devEndpoint"));
-utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
-utilities.lazyLoad(exports, ["getDataCatalogEncryptionSettings","getDataCatalogEncryptionSettingsOutput"], () => require("./getDataCatalogEncryptionSettings"));
-utilities.lazyLoad(exports, ["getScript","getScriptOutput"], () => require("./getScript"));
-utilities.lazyLoad(exports, ["Job"], () => require("./job"));
-utilities.lazyLoad(exports, ["MLTransform"], () => require("./mltransform"));
-utilities.lazyLoad(exports, ["Partition"], () => require("./partition"));
-utilities.lazyLoad(exports, ["PartitionIndex"], () => require("./partitionIndex"));
-utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
-utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
-utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
-utilities.lazyLoad(exports, ["SecurityConfiguration"], () => require("./securityConfiguration"));
-utilities.lazyLoad(exports, ["Trigger"], () => require("./trigger"));
-utilities.lazyLoad(exports, ["UserDefinedFunction"], () => require("./userDefinedFunction"));
 utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
+
 
 const _module = {
     version: utilities.getVersion(),

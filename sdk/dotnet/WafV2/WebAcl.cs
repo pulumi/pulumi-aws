@@ -29,7 +29,7 @@ namespace Pulumi.Aws.WafV2
     ///     {
     ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
     ///         {
-    ///             Allow = ,
+    ///             Allow = null,
     ///         },
     ///         Description = "Example of a Cloudfront rate based statement.",
     ///         Rules = new[]
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.WafV2
     ///             {
     ///                 Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
     ///                 {
-    ///                     Block = ,
+    ///                     Block = null,
     ///                 },
     ///                 Name = "rule-1",
     ///                 Priority = 1,
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.WafV2
     ///                 Priority = 1,
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
-    ///                     Count = ,
+    ///                     Count = null,
     ///                 },
     ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
     ///                 {
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.WafV2
     ///                 Priority = 10,
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
-    ///                     Allow = ,
+    ///                     Allow = null,
     ///                 },
     ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
     ///                 {
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.WafV2
     ///                 Priority = 15,
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
-    ///                     Allow = ,
+    ///                     Allow = null,
     ///                 },
     ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
     ///                 {
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.WafV2
     ///         Scope = "REGIONAL",
     ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
     ///         {
-    ///             Block = ,
+    ///             Block = null,
     ///         },
     ///         Rules = new[]
     ///         {
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.WafV2
     ///                 Priority = 1,
     ///                 OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
     ///                 {
-    ///                     Count = ,
+    ///                     Count = null,
     ///                 },
     ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
     ///                 {

@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Rds
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetProxyResult> InvokeAsync(GetProxyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProxyResult>("aws:rds/getProxy:getProxy", args ?? new GetProxyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProxyResult>("aws:rds/getProxy:getProxy", args ?? new GetProxyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a DB Proxy.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Rds
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetProxyResult> Invoke(GetProxyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProxyResult>("aws:rds/getProxy:getProxy", args ?? new GetProxyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProxyResult>("aws:rds/getProxy:getProxy", args ?? new GetProxyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -20,7 +20,7 @@ namespace Pulumi.Aws.AppConfig
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfigurationProfilesResult> InvokeAsync(GetConfigurationProfilesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilesResult>("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args ?? new GetConfigurationProfilesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilesResult>("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args ?? new GetConfigurationProfilesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppConfig
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConfigurationProfilesResult> Invoke(GetConfigurationProfilesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilesResult>("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args ?? new GetConfigurationProfilesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilesResult>("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args ?? new GetConfigurationProfilesInvokeArgs(), options.WithDefaults());
     }
 
 

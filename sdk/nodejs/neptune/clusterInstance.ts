@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     iamDatabaseAuthenticationEnabled: true,
  *     applyImmediately: true,
  * });
- * const example: aws.neptune.ClusterInstance[];
+ * const example: aws.neptune.ClusterInstance[] = [];
  * for (const range = {value: 0}; range.value < 2; range.value++) {
  *     example.push(new aws.neptune.ClusterInstance(`example-${range.value}`, {
  *         clusterIdentifier: _default.id,

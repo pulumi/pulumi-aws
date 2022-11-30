@@ -76,7 +76,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupSubnet(ctx, &ec2.LookupSubnetArgs{
+//			_, err = ec2.LookupSubnet(ctx, &ec2.LookupSubnetArgs{
 //				Filters: []ec2.GetSubnetFilter{
 //					ec2.GetSubnetFilter{
 //						Name: "tag:Name",

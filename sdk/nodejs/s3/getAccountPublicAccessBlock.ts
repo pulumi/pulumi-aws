@@ -13,16 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.s3.getAccountPublicAccessBlock());
+ * const example = aws.s3.getAccountPublicAccessBlock({});
  * ```
  */
 export function getAccountPublicAccessBlock(args?: GetAccountPublicAccessBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountPublicAccessBlockResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", {
         "accountId": args.accountId,
     }, opts);

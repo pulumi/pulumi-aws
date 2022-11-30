@@ -358,6 +358,10 @@ namespace Pulumi.Aws.Mwaa
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "airflowConfigurationOptions",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -390,7 +394,11 @@ namespace Pulumi.Aws.Mwaa
         public InputMap<string> AirflowConfigurationOptions
         {
             get => _airflowConfigurationOptions ?? (_airflowConfigurationOptions = new InputMap<string>());
-            set => _airflowConfigurationOptions = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _airflowConfigurationOptions = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>
@@ -530,7 +538,11 @@ namespace Pulumi.Aws.Mwaa
         public InputMap<string> AirflowConfigurationOptions
         {
             get => _airflowConfigurationOptions ?? (_airflowConfigurationOptions = new InputMap<string>());
-            set => _airflowConfigurationOptions = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _airflowConfigurationOptions = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

@@ -16,21 +16,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.imagebuilder.getImagePipelines({
+ * const example = aws.imagebuilder.getImagePipelines({
  *     filters: [{
  *         name: "name",
  *         values: ["example"],
  *     }],
- * }));
+ * });
  * ```
  */
 export function getImagePipelines(args?: GetImagePipelinesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelinesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getImagePipelines:getImagePipelines", {
         "filters": args.filters,
     }, opts);

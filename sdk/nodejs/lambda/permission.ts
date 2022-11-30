@@ -88,12 +88,10 @@ import {Function} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
- *     description: "This is my API for demonstration purposes",
- * });
- * const lambdaPermission = new aws.lambda.Permission("lambda_permission", {
+ * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
+ * const lambdaPermission = new aws.lambda.Permission("lambdaPermission", {
  *     action: "lambda:InvokeFunction",
- *     function: "MyDemoFunction",
+ *     "function": "MyDemoFunction",
  *     principal: "apigateway.amazonaws.com",
  *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*&#47;*&#47;*`,
  * });

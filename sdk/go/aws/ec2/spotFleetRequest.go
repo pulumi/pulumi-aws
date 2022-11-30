@@ -108,7 +108,7 @@ import (
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_policy_attachment.Test - attach,
+//				aws_iam_policy_attachment.TestAttach,
 //			}))
 //			if err != nil {
 //				return err
@@ -135,7 +135,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
+//			_, err = ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
 //				VpcId: _var.Vpc_id,
 //			}, nil)
 //			if err != nil {
@@ -174,7 +174,7 @@ import (
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_policy_attachment.Test - attach,
+//				aws_iam_policy_attachment.TestAttach,
 //			}))
 //			if err != nil {
 //				return err

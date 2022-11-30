@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConnectPeerResult> InvokeAsync(GetConnectPeerArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectPeerResult>("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args ?? new GetConnectPeerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectPeerResult>("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args ?? new GetConnectPeerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information on an EC2 Transit Gateway Connect Peer.
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConnectPeerResult> Invoke(GetConnectPeerInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectPeerResult>("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args ?? new GetConnectPeerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectPeerResult>("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args ?? new GetConnectPeerInvokeArgs(), options.WithDefaults());
     }
 
 

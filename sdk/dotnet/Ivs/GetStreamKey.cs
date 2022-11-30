@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Ivs
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetStreamKeyResult> InvokeAsync(GetStreamKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamKeyResult>("aws:ivs/getStreamKey:getStreamKey", args ?? new GetStreamKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamKeyResult>("aws:ivs/getStreamKey:getStreamKey", args ?? new GetStreamKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS IVS (Interactive Video) Stream Key.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ivs
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetStreamKeyResult> Invoke(GetStreamKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStreamKeyResult>("aws:ivs/getStreamKey:getStreamKey", args ?? new GetStreamKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamKeyResult>("aws:ivs/getStreamKey:getStreamKey", args ?? new GetStreamKeyInvokeArgs(), options.WithDefaults());
     }
 
 

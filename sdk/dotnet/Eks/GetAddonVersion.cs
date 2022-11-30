@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Eks
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAddonVersionResult> InvokeAsync(GetAddonVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAddonVersionResult>("aws:eks/getAddonVersion:getAddonVersion", args ?? new GetAddonVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddonVersionResult>("aws:eks/getAddonVersion:getAddonVersion", args ?? new GetAddonVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Eks
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAddonVersionResult> Invoke(GetAddonVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAddonVersionResult>("aws:eks/getAddonVersion:getAddonVersion", args ?? new GetAddonVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAddonVersionResult>("aws:eks/getAddonVersion:getAddonVersion", args ?? new GetAddonVersionInvokeArgs(), options.WithDefaults());
     }
 
 

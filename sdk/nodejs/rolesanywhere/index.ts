@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { ProfileArgs, ProfileState } from "./profile";
 export type Profile = import("./profile").Profile;
 export const Profile: typeof import("./profile").Profile = null as any;
+utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
 
 export { TrustAnchorArgs, TrustAnchorState } from "./trustAnchor";
 export type TrustAnchor = import("./trustAnchor").TrustAnchor;
 export const TrustAnchor: typeof import("./trustAnchor").TrustAnchor = null as any;
-
-utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
 utilities.lazyLoad(exports, ["TrustAnchor"], () => require("./trustAnchor"));
+
 
 const _module = {
     version: utilities.getVersion(),

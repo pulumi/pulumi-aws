@@ -152,10 +152,12 @@ export class RadiusSettings extends pulumi.CustomResource {
             resourceInputs["radiusRetries"] = args ? args.radiusRetries : undefined;
             resourceInputs["radiusServers"] = args ? args.radiusServers : undefined;
             resourceInputs["radiusTimeout"] = args ? args.radiusTimeout : undefined;
-            resourceInputs["sharedSecret"] = args ? args.sharedSecret : undefined;
+            resourceInputs["sharedSecret"] = args?.sharedSecret ? pulumi.secret(args.sharedSecret) : undefined;
             resourceInputs["useSameUsername"] = args ? args.useSameUsername : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sharedSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RadiusSettings.__pulumiType, name, resourceInputs, opts);
     }
 }

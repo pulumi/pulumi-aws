@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *     queryString: `fields @timestamp, @message
  * | sort @timestamp desc
  * | limit 25
+ *
  * `,
  * });
  * ```

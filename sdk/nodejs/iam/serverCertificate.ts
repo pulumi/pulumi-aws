@@ -37,14 +37,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCertAlt = new aws.iam.ServerCertificate("test_cert_alt", {
+ * const testCertAlt = new aws.iam.ServerCertificate("testCertAlt", {
  *     certificateBody: `-----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----
+ *
  * `,
  *     privateKey: `-----BEGIN RSA PRIVATE KEY-----
  * [......] # cert contents
  * -----END RSA PRIVATE KEY-----
+ *
  * `,
  * });
  * ```
@@ -209,7 +211,7 @@ export class ServerCertificate extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["expiration"] = undefined /*out*/;
@@ -217,6 +219,8 @@ export class ServerCertificate extends pulumi.CustomResource {
             resourceInputs["uploadDate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["privateKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServerCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }

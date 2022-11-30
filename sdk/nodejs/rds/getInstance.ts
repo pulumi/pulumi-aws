@@ -13,17 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const database = pulumi.output(aws.rds.getInstance({
+ * const database = aws.rds.getInstance({
  *     dbInstanceIdentifier: "my-test-database",
- * }));
+ * });
  * ```
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
         "tags": args.tags,

@@ -236,7 +236,7 @@ class RdsDbInstance(pulumi.CustomResource):
 
             if db_password is None and not opts.urn:
                 raise TypeError("Missing required property 'db_password'")
-            __props__.__dict__["db_password"] = db_password
+            __props__.__dict__["db_password"] = None if db_password is None else pulumi.Output.secret(db_password)
             if db_user is None and not opts.urn:
                 raise TypeError("Missing required property 'db_user'")
             __props__.__dict__["db_user"] = db_user
@@ -246,6 +246,8 @@ class RdsDbInstance(pulumi.CustomResource):
             if stack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_id'")
             __props__.__dict__["stack_id"] = stack_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["dbPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RdsDbInstance, __self__).__init__(
             'aws:opsworks/rdsDbInstance:RdsDbInstance',
             resource_name,

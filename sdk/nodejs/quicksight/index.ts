@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { DataSourceArgs, DataSourceState } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
+utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
 
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
 export { GroupMembershipArgs, GroupMembershipState } from "./groupMembership";
 export type GroupMembership = import("./groupMembership").GroupMembership;
 export const GroupMembership: typeof import("./groupMembership").GroupMembership = null as any;
+utilities.lazyLoad(exports, ["GroupMembership"], () => require("./groupMembership"));
 
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
-
-utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
-utilities.lazyLoad(exports, ["Group"], () => require("./group"));
-utilities.lazyLoad(exports, ["GroupMembership"], () => require("./groupMembership"));
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
 
 const _module = {
     version: utilities.getVersion(),

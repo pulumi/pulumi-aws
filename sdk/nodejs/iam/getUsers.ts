@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const users = pulumi.output(aws.iam.getUsers());
+ * const users = aws.iam.getUsers({});
  * ```
  * ### Users filtered by name regex
  *
@@ -24,9 +24,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const users = pulumi.output(aws.iam.getUsers({
+ * const users = aws.iam.getUsers({
  *     nameRegex: ".*abc.*",
- * }));
+ * });
  * ```
  * ### Users filtered by path prefix
  *
@@ -34,18 +34,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const users = pulumi.output(aws.iam.getUsers({
+ * const users = aws.iam.getUsers({
  *     pathPrefix: "/custom-path",
- * }));
+ * });
  * ```
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getUsers:getUsers", {
         "nameRegex": args.nameRegex,
         "pathPrefix": args.pathPrefix,

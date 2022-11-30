@@ -527,7 +527,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tunnel1Phase2EncryptionAlgorithms"] = args ? args.tunnel1Phase2EncryptionAlgorithms : undefined;
             resourceInputs["tunnel1Phase2IntegrityAlgorithms"] = args ? args.tunnel1Phase2IntegrityAlgorithms : undefined;
             resourceInputs["tunnel1Phase2LifetimeSeconds"] = args ? args.tunnel1Phase2LifetimeSeconds : undefined;
-            resourceInputs["tunnel1PresharedKey"] = args ? args.tunnel1PresharedKey : undefined;
+            resourceInputs["tunnel1PresharedKey"] = args?.tunnel1PresharedKey ? pulumi.secret(args.tunnel1PresharedKey) : undefined;
             resourceInputs["tunnel1RekeyFuzzPercentage"] = args ? args.tunnel1RekeyFuzzPercentage : undefined;
             resourceInputs["tunnel1RekeyMarginTimeSeconds"] = args ? args.tunnel1RekeyMarginTimeSeconds : undefined;
             resourceInputs["tunnel1ReplayWindowSize"] = args ? args.tunnel1ReplayWindowSize : undefined;
@@ -546,7 +546,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tunnel2Phase2EncryptionAlgorithms"] = args ? args.tunnel2Phase2EncryptionAlgorithms : undefined;
             resourceInputs["tunnel2Phase2IntegrityAlgorithms"] = args ? args.tunnel2Phase2IntegrityAlgorithms : undefined;
             resourceInputs["tunnel2Phase2LifetimeSeconds"] = args ? args.tunnel2Phase2LifetimeSeconds : undefined;
-            resourceInputs["tunnel2PresharedKey"] = args ? args.tunnel2PresharedKey : undefined;
+            resourceInputs["tunnel2PresharedKey"] = args?.tunnel2PresharedKey ? pulumi.secret(args.tunnel2PresharedKey) : undefined;
             resourceInputs["tunnel2RekeyFuzzPercentage"] = args ? args.tunnel2RekeyFuzzPercentage : undefined;
             resourceInputs["tunnel2RekeyMarginTimeSeconds"] = args ? args.tunnel2RekeyMarginTimeSeconds : undefined;
             resourceInputs["tunnel2ReplayWindowSize"] = args ? args.tunnel2ReplayWindowSize : undefined;
@@ -574,6 +574,8 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["vgwTelemetries"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["customerGatewayConfiguration", "tunnel1PresharedKey", "tunnel2PresharedKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpnConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

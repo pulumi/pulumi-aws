@@ -507,7 +507,7 @@ class ExternalKey(pulumi.CustomResource):
             __props__.__dict__["deletion_window_in_days"] = deletion_window_in_days
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
-            __props__.__dict__["key_material_base64"] = key_material_base64
+            __props__.__dict__["key_material_base64"] = None if key_material_base64 is None else pulumi.Output.secret(key_material_base64)
             __props__.__dict__["multi_region"] = multi_region
             __props__.__dict__["policy"] = policy
             __props__.__dict__["tags"] = tags
@@ -517,6 +517,8 @@ class ExternalKey(pulumi.CustomResource):
             __props__.__dict__["key_state"] = None
             __props__.__dict__["key_usage"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["keyMaterialBase64"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ExternalKey, __self__).__init__(
             'aws:kms/externalKey:ExternalKey',
             resource_name,

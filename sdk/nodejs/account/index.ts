@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { AlternativeContactArgs, AlternativeContactState } from "./alternativeContact";
 export type AlternativeContact = import("./alternativeContact").AlternativeContact;
 export const AlternativeContact: typeof import("./alternativeContact").AlternativeContact = null as any;
-
 utilities.lazyLoad(exports, ["AlternativeContact"], () => require("./alternativeContact"));
+
 
 const _module = {
     version: utilities.getVersion(),

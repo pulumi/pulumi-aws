@@ -45,7 +45,9 @@ import (
 //				return err
 //			}
 //			var exampleAmazonsesDkimRecord []*route53.Record
-//			for key0, val0 := range 3 {
+//			for index := 0; index < 3; index++ {
+//				key0 := index
+//				val0 := index
 //				__res, err := route53.NewRecord(ctx, fmt.Sprintf("exampleAmazonsesDkimRecord-%v", key0), &route53.RecordArgs{
 //					ZoneId: pulumi.String("ABCDEFGHIJ123"),
 //					Name: exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens []string) (string, error) {

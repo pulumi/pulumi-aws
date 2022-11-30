@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleMultipleConditionKeysAndValues = pulumi.output(aws.iam.getPolicyDocument({
+ * const exampleMultipleConditionKeysAndValues = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "kms:Decrypt",
@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *         ],
  *         resources: ["*"],
  *     }],
- * }));
+ * });
  * ```
  *
  * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
@@ -345,11 +345,8 @@ import * as utilities from "../utilities";
  */
 export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getPolicyDocument:getPolicyDocument", {
         "overrideJson": args.overrideJson,
         "overridePolicyDocuments": args.overridePolicyDocuments,

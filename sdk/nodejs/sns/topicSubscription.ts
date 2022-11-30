@@ -27,7 +27,7 @@ import {Topic} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("user_updates_sqs_target", {
+ * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("userUpdatesSqsTarget", {
  *     endpoint: "arn:aws:sqs:us-west-2:432981146916:queue-too",
  *     protocol: "sqs",
  *     topic: "arn:aws:sns:us-west-2:432981146916:user-updates-topic",

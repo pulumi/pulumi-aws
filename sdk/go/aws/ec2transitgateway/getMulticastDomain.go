@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.LookupMulticastDomain(ctx, &ec2transitgateway.LookupMulticastDomainArgs{
+//			_, err = ec2transitgateway.LookupMulticastDomain(ctx, &ec2transitgateway.LookupMulticastDomainArgs{
 //				Filters: []ec2transitgateway.GetMulticastDomainFilter{
 //					ec2transitgateway.GetMulticastDomainFilter{
 //						Name: "transit-gateway-multicast-domain-id",
@@ -59,7 +59,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.LookupMulticastDomain(ctx, &ec2transitgateway.LookupMulticastDomainArgs{
+//			_, err = ec2transitgateway.LookupMulticastDomain(ctx, &ec2transitgateway.LookupMulticastDomainArgs{
 //				TransitGatewayMulticastDomainId: pulumi.StringRef("tgw-mcast-domain-12345678"),
 //			}, nil)
 //			if err != nil {

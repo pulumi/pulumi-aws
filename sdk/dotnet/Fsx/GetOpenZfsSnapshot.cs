@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Fsx
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOpenZfsSnapshotResult> InvokeAsync(GetOpenZfsSnapshotArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenZfsSnapshotResult>("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args ?? new GetOpenZfsSnapshotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenZfsSnapshotResult>("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args ?? new GetOpenZfsSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Fsx
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOpenZfsSnapshotResult> Invoke(GetOpenZfsSnapshotInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOpenZfsSnapshotResult>("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args ?? new GetOpenZfsSnapshotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOpenZfsSnapshotResult>("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args ?? new GetOpenZfsSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

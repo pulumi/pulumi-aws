@@ -18,10 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.connect.getRoutingProfile({
+ * const example = aws.connect.getRoutingProfile({
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     name: "Example",
- * }));
+ * });
  * ```
  *
  * By `routingProfileId`
@@ -30,18 +30,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.connect.getRoutingProfile({
+ * const example = aws.connect.getRoutingProfile({
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     routingProfileId: "cccccccc-bbbb-cccc-dddd-111111111111",
- * }));
+ * });
  * ```
  */
 export function getRoutingProfile(args: GetRoutingProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getRoutingProfile:getRoutingProfile", {
         "instanceId": args.instanceId,
         "name": args.name,

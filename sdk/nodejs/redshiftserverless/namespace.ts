@@ -13,9 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshiftserverless.Namespace("example", {
- *     namespaceName: "concurrency-scaling",
- * });
+ * const example = new aws.redshiftserverless.Namespace("example", {namespaceName: "concurrency-scaling"});
  * ```
  *
  * ## Import
@@ -133,8 +131,8 @@ export class Namespace extends pulumi.CustomResource {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            resourceInputs["adminUserPassword"] = args ? args.adminUserPassword : undefined;
-            resourceInputs["adminUsername"] = args ? args.adminUsername : undefined;
+            resourceInputs["adminUserPassword"] = args?.adminUserPassword ? pulumi.secret(args.adminUserPassword) : undefined;
+            resourceInputs["adminUsername"] = args?.adminUsername ? pulumi.secret(args.adminUsername) : undefined;
             resourceInputs["dbName"] = args ? args.dbName : undefined;
             resourceInputs["defaultIamRoleArn"] = args ? args.defaultIamRoleArn : undefined;
             resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
@@ -147,6 +145,8 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["adminUserPassword", "adminUsername"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }
 }

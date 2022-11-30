@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstanceStorageConfigResult> InvokeAsync(GetInstanceStorageConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceStorageConfigResult>("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", args ?? new GetInstanceStorageConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceStorageConfigResult>("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", args ?? new GetInstanceStorageConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Connect Instance Storage Config.
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetInstanceStorageConfigResult> Invoke(GetInstanceStorageConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInstanceStorageConfigResult>("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", args ?? new GetInstanceStorageConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceStorageConfigResult>("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", args ?? new GetInstanceStorageConfigInvokeArgs(), options.WithDefaults());
     }
 
 

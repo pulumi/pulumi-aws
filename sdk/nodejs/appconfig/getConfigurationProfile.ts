@@ -17,18 +17,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.appconfig.getConfigurationProfile({
+ * const example = aws.appconfig.getConfigurationProfile({
  *     applicationId: "b5d5gpj",
  *     configurationProfileId: "qrbb1c1",
- * }));
+ * });
  * ```
  */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appconfig/getConfigurationProfile:getConfigurationProfile", {
         "applicationId": args.applicationId,
         "configurationProfileId": args.configurationProfileId,

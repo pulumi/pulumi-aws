@@ -36,9 +36,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const custome = pulumi.output(aws.ec2.getVpcEndpointService({
+ * const custome = aws.ec2.getVpcEndpointService({
  *     serviceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
- * }));
+ * });
  * ```
  * ### Filter
  *
@@ -46,21 +46,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.ec2.getVpcEndpointService({
+ * const test = aws.ec2.getVpcEndpointService({
  *     filters: [{
  *         name: "service-name",
  *         values: ["some-service"],
  *     }],
- * }));
+ * });
  * ```
  */
 export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
         "filters": args.filters,
         "service": args.service,

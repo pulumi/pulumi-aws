@@ -149,7 +149,7 @@ export class LocationSmb extends pulumi.CustomResource {
             resourceInputs["agentArns"] = args ? args.agentArns : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -159,6 +159,8 @@ export class LocationSmb extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LocationSmb.__pulumiType, name, resourceInputs, opts);
     }
 }

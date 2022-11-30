@@ -38,7 +38,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOriginAccessIdentityResult> InvokeAsync(GetOriginAccessIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information for an Amazon CloudFront origin access identity.
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOriginAccessIdentityResult> Invoke(GetOriginAccessIdentityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentityResult>("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args ?? new GetOriginAccessIdentityInvokeArgs(), options.WithDefaults());
     }
 
 

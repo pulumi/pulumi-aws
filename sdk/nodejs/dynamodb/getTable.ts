@@ -16,17 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const tableName = pulumi.output(aws.dynamodb.getTable({
+ * const tableName = aws.dynamodb.getTable({
  *     name: "tableName",
- * }));
+ * });
  * ```
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dynamodb/getTable:getTable", {
         "name": args.name,
         "serverSideEncryption": args.serverSideEncryption,

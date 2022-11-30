@@ -31,7 +31,7 @@ namespace Pulumi.Aws.WafV2
     ///             {
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
-    ///                     Allow = ,
+    ///                     Allow = null,
     ///                 },
     ///                 Name = "rule-1",
     ///                 Priority = 1,
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.WafV2
     ///                 Priority = 1,
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
-    ///                     Block = ,
+    ///                     Block = null,
     ///                 },
     ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
     ///                 {
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.WafV2
     ///                                                 SearchString = "word",
     ///                                                 FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchArgs
     ///                                                 {
-    ///                                                     AllQueryArguments = ,
+    ///                                                     AllQueryArguments = null,
     ///                                                 },
     ///                                                 TextTransformations = new[]
     ///                                                 {
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.WafV2
     ///                 Priority = 2,
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
-    ///                     Count = ,
+    ///                     Count = null,
     ///                 },
     ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
     ///                 {
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.WafV2
     ///                                 {
     ///                                     FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs
     ///                                     {
-    ///                                         Body = ,
+    ///                                         Body = null,
     ///                                     },
     ///                                     TextTransformations = new[]
     ///                                     {
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.WafV2
     ///                                 {
     ///                                     FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchArgs
     ///                                     {
-    ///                                         Method = ,
+    ///                                         Method = null,
     ///                                     },
     ///                                     TextTransformations = new[]
     ///                                     {
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.WafV2
     ///                 Priority = 3,
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
-    ///                     Block = ,
+    ///                     Block = null,
     ///                 },
     ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
     ///                 {
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.WafV2
     ///                 Priority = 4,
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
-    ///                     Block = ,
+    ///                     Block = null,
     ///                 },
     ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
     ///                 {

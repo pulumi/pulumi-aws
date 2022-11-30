@@ -18,11 +18,21 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        [Input("value", required: true)]
+        private Input<string>? _value;
+
         /// <summary>
         /// Header Value. Created and stored in AWS Secrets Manager.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public EventConnectionAuthParametersApiKeyArgs()
         {

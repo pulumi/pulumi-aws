@@ -142,6 +142,13 @@ namespace Pulumi.Aws.Iot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "caPem",
+                    "certificatePem",
+                    "privateKey",
+                    "publicKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -171,11 +178,24 @@ namespace Pulumi.Aws.Iot
         [Input("active", required: true)]
         public Input<bool> Active { get; set; } = null!;
 
+        [Input("caPem")]
+        private Input<string>? _caPem;
+
         /// <summary>
         /// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
         /// </summary>
-        [Input("caPem")]
-        public Input<string>? CaPem { get; set; }
+        public Input<string>? CaPem
+        {
+            get => _caPem;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _caPem = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("certificatePem")]
+        private Input<string>? _certificatePem;
 
         /// <summary>
         /// The certificate to be registered. If `ca_pem` is unspecified, review
@@ -184,8 +204,15 @@ namespace Pulumi.Aws.Iot
         /// [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
         /// for more information on registering a certificate.
         /// </summary>
-        [Input("certificatePem")]
-        public Input<string>? CertificatePem { get; set; }
+        public Input<string>? CertificatePem
+        {
+            get => _certificatePem;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificatePem = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The certificate signing request. Review
@@ -217,11 +244,24 @@ namespace Pulumi.Aws.Iot
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        [Input("caPem")]
+        private Input<string>? _caPem;
+
         /// <summary>
         /// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
         /// </summary>
-        [Input("caPem")]
-        public Input<string>? CaPem { get; set; }
+        public Input<string>? CaPem
+        {
+            get => _caPem;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _caPem = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("certificatePem")]
+        private Input<string>? _certificatePem;
 
         /// <summary>
         /// The certificate to be registered. If `ca_pem` is unspecified, review
@@ -230,8 +270,15 @@ namespace Pulumi.Aws.Iot
         /// [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
         /// for more information on registering a certificate.
         /// </summary>
-        [Input("certificatePem")]
-        public Input<string>? CertificatePem { get; set; }
+        public Input<string>? CertificatePem
+        {
+            get => _certificatePem;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificatePem = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The certificate signing request. Review
@@ -243,17 +290,37 @@ namespace Pulumi.Aws.Iot
         [Input("csr")]
         public Input<string>? Csr { get; set; }
 
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// When neither CSR nor certificate is provided, the private key.
         /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("publicKey")]
+        private Input<string>? _publicKey;
 
         /// <summary>
         /// When neither CSR nor certificate is provided, the public key.
         /// </summary>
-        [Input("publicKey")]
-        public Input<string>? PublicKey { get; set; }
+        public Input<string>? PublicKey
+        {
+            get => _publicKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _publicKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public CertificateState()
         {

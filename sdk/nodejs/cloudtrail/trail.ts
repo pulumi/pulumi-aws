@@ -76,16 +76,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudtrail.Trail("example", {
- *     eventSelectors: [{
- *         dataResources: [{
- *             type: "AWS::Lambda::Function",
- *             values: ["arn:aws:lambda"],
- *         }],
- *         includeManagementEvents: true,
- *         readWriteType: "All",
+ * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
+ *     dataResources: [{
+ *         type: "AWS::Lambda::Function",
+ *         values: ["arn:aws:lambda"],
  *     }],
- * });
+ *     includeManagementEvents: true,
+ *     readWriteType: "All",
+ * }]});
  * ```
  * ### Logging All S3 Object Events By Using Basic Event Selectors
  *
@@ -93,16 +91,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudtrail.Trail("example", {
- *     eventSelectors: [{
- *         dataResources: [{
- *             type: "AWS::S3::Object",
- *             values: ["arn:aws:s3"],
- *         }],
- *         includeManagementEvents: true,
- *         readWriteType: "All",
+ * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
+ *     dataResources: [{
+ *         type: "AWS::S3::Object",
+ *         values: ["arn:aws:s3"],
  *     }],
- * });
+ *     includeManagementEvents: true,
+ *     readWriteType: "All",
+ * }]});
  * ```
  * ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
  *
@@ -110,21 +106,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const important_bucket = pulumi.output(aws.s3.getBucket({
+ * const important-bucket = aws.s3.getBucket({
  *     bucket: "important-bucket",
- * }));
- * const example = new aws.cloudtrail.Trail("example", {
- *     eventSelectors: [{
- *         dataResources: [{
- *             type: "AWS::S3::Object",
- *             // Make sure to append a trailing '/' to your ARN if you want
- *             // to monitor all objects in a bucket.
- *             values: [pulumi.interpolate`${important_bucket.arn}/`],
- *         }],
- *         includeManagementEvents: true,
- *         readWriteType: "All",
- *     }],
  * });
+ * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
+ *     dataResources: [{
+ *         type: "AWS::S3::Object",
+ *         values: [important_bucket.then(important_bucket => `${important_bucket.arn}/`)],
+ *     }],
+ *     includeManagementEvents: true,
+ *     readWriteType: "All",
+ * }]});
  * ```
  * ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
  *
@@ -132,121 +124,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const not_important_bucket_1 = pulumi.output(aws.s3.getBucket({
+ * const not-important-bucket-1 = aws.s3.getBucket({
  *     bucket: "not-important-bucket-1",
- * }));
- * const not_important_bucket_2 = pulumi.output(aws.s3.getBucket({
+ * });
+ * const not-important-bucket-2 = aws.s3.getBucket({
  *     bucket: "not-important-bucket-2",
- * }));
- * const example = new aws.cloudtrail.Trail("example", {
- *     advancedEventSelectors: [
- *         {
- *             fieldSelectors: [
- *                 {
- *                     equals: ["Data"],
- *                     field: "eventCategory",
- *                 },
- *                 {
- *                     field: "resources.ARN",
- *                     notEquals: [
- *                         pulumi.interpolate`${not_important_bucket_1.arn}/`,
- *                         pulumi.interpolate`${not_important_bucket_2.arn}/`,
- *                     ],
- *                 },
- *                 {
- *                     equals: ["AWS::S3::Object"],
- *                     field: "resources.type",
- *                 },
- *             ],
- *             name: "Log all S3 objects events except for two S3 buckets",
- *         },
- *         {
- *             fieldSelectors: [{
- *                 equals: ["Management"],
+ * });
+ * const example = new aws.cloudtrail.Trail("example", {advancedEventSelectors: [
+ *     {
+ *         fieldSelectors: [
+ *             {
+ *                 equals: ["Data"],
  *                 field: "eventCategory",
- *             }],
- *             name: "Log readOnly and writeOnly management events",
- *         },
- *     ],
- * });
- * ```
- * ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const important_bucket_1 = pulumi.output(aws.s3.getBucket({
- *     bucket: "important-bucket-1",
- * }));
- * const important_bucket_2 = pulumi.output(aws.s3.getBucket({
- *     bucket: "important-bucket-2",
- * }));
- * const important_bucket_3 = pulumi.output(aws.s3.getBucket({
- *     bucket: "important-bucket-3",
- * }));
- * const example = new aws.cloudtrail.Trail("example", {
- *     advancedEventSelectors: [
- *         {
- *             fieldSelectors: [
- *                 {
- *                     equals: ["Data"],
- *                     field: "eventCategory",
- *                 },
- *                 {
- *                     equals: [
- *                         "PutObject",
- *                         "DeleteObject",
- *                     ],
- *                     field: "eventName",
- *                 },
- *                 {
- *                     //The trailing slash is intentional; do not exclude it.
- *                     equals: [
- *                         pulumi.interpolate`${important_bucket_1.arn}/`,
- *                         pulumi.interpolate`${important_bucket_2.arn}/`,
- *                     ],
- *                     field: "resources.ARN",
- *                 },
- *                 {
- *                     equals: ["false"],
- *                     field: "readOnly",
- *                 },
- *                 {
- *                     equals: ["AWS::S3::Object"],
- *                     field: "resources.type",
- *                 },
- *             ],
- *             name: "Log PutObject and DeleteObject events for two S3 buckets",
- *         },
- *         {
- *             fieldSelectors: [
- *                 {
- *                     equals: ["Data"],
- *                     field: "eventCategory",
- *                 },
- *                 {
- *                     field: "eventName",
- *                     startsWiths: ["Delete"],
- *                 },
- *                 {
- *                     //The trailing slash is intentional; do not exclude it.
- *                     equals: [pulumi.interpolate`${important_bucket_3.arn}/important-prefix`],
- *                     field: "resources.ARN",
- *                 },
- *                 {
- *                     equals: ["false"],
- *                     field: "readOnly",
- *                 },
- *                 {
- *                     equals: ["AWS::S3::Object"],
- *                     field: "resources.type",
- *                 },
- *             ],
- *             name: "Log Delete* events for one S3 bucket",
- *         },
- *     ],
- * });
+ *             },
+ *             {
+ *                 field: "resources.ARN",
+ *                 notEquals: [
+ *                     not_important_bucket_1.then(not_important_bucket_1 => `${not_important_bucket_1.arn}/`),
+ *                     not_important_bucket_2.then(not_important_bucket_2 => `${not_important_bucket_2.arn}/`),
+ *                 ],
+ *             },
+ *             {
+ *                 equals: ["AWS::S3::Object"],
+ *                 field: "resources.type",
+ *             },
+ *         ],
+ *         name: "Log all S3 objects events except for two S3 buckets",
+ *     },
+ *     {
+ *         fieldSelectors: [{
+ *             equals: ["Management"],
+ *             field: "eventCategory",
+ *         }],
+ *         name: "Log readOnly and writeOnly management events",
+ *     },
+ * ]});
  * ```
  * ### Sending Events to CloudWatch Logs
  *
@@ -254,10 +166,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
- * const exampleTrail = new aws.cloudtrail.Trail("example", {
- *     cloudWatchLogsGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
- * });
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {cloudWatchLogsGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`});
+ * // CloudTrail requires the Log Stream wildcard
  * ```
  *
  * ## Import

@@ -621,6 +621,10 @@ namespace Pulumi.Aws.Rds
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -943,13 +947,23 @@ namespace Pulumi.Aws.Rds
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// (Required unless a `snapshot_identifier` or `replicate_source_db`
         /// is provided) Password for the master DB user. Note that this may show up in
         /// logs, and it will be stored in the state file.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -1451,13 +1465,23 @@ namespace Pulumi.Aws.Rds
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// (Required unless a `snapshot_identifier` or `replicate_source_db`
         /// is provided) Password for the master DB user. Note that this may show up in
         /// logs, and it will be stored in the state file.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies whether Performance Insights are enabled. Defaults to false.

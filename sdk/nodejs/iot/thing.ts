@@ -13,11 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iot.Thing("example", {
- *     attributes: {
- *         First: "examplevalue",
- *     },
- * });
+ * const example = new aws.iot.Thing("example", {attributes: {
+ *     First: "examplevalue",
+ * }});
  * ```
  *
  * ## Import

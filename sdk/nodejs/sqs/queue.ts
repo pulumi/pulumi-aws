@@ -70,9 +70,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const queue = new aws.sqs.Queue("queue", {
- *     sqsManagedSseEnabled: true,
- * });
+ * const queue = new aws.sqs.Queue("queue", {sqsManagedSseEnabled: true});
  * ```
  *
  * Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):

@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConnectResult> InvokeAsync(GetConnectArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectResult>("aws:ec2transitgateway/getConnect:getConnect", args ?? new GetConnectArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectResult>("aws:ec2transitgateway/getConnect:getConnect", args ?? new GetConnectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information on an EC2 Transit Gateway Connect.
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConnectResult> Invoke(GetConnectInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectResult>("aws:ec2transitgateway/getConnect:getConnect", args ?? new GetConnectInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectResult>("aws:ec2transitgateway/getConnect:getConnect", args ?? new GetConnectInvokeArgs(), options.WithDefaults());
     }
 
 

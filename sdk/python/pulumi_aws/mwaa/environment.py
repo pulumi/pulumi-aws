@@ -1088,7 +1088,7 @@ class Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
 
-            __props__.__dict__["airflow_configuration_options"] = airflow_configuration_options
+            __props__.__dict__["airflow_configuration_options"] = None if airflow_configuration_options is None else pulumi.Output.secret(airflow_configuration_options)
             __props__.__dict__["airflow_version"] = airflow_version
             if dag_s3_path is None and not opts.urn:
                 raise TypeError("Missing required property 'dag_s3_path'")
@@ -1123,6 +1123,8 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["webserver_url"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["airflowConfigurationOptions"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Environment, __self__).__init__(
             'aws:mwaa/environment:Environment',
             resource_name,

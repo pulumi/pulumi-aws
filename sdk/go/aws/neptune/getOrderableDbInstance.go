@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := neptune.GetOrderableDbInstance(ctx, &neptune.GetOrderableDbInstanceArgs{
+//			_, err = neptune.GetOrderableDbInstance(ctx, &neptune.GetOrderableDbInstanceArgs{
 //				EngineVersion: pulumi.StringRef("1.0.3.0"),
 //				PreferredInstanceClasses: []string{
 //					"db.r5.large",

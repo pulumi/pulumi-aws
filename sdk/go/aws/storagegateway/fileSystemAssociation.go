@@ -72,7 +72,7 @@ import (
 //				AssociatePublicIpAddress: pulumi.Bool(true),
 //				InstanceType:             ec2.InstanceType(data.Aws_ec2_instance_type_offering.Available.Instance_type),
 //				VpcSecurityGroupIds: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Test.Id),
+//					aws_security_group.Test.Id,
 //				},
 //				SubnetId: pulumi.Any(aws_subnet.Test[0].Id),
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -99,12 +99,12 @@ import (
 //			testWindowsFileSystem, err := fsx.NewWindowsFileSystem(ctx, "testWindowsFileSystem", &fsx.WindowsFileSystemArgs{
 //				ActiveDirectoryId: pulumi.Any(aws_directory_service_directory.Test.Id),
 //				SecurityGroupIds: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Test.Id),
+//					aws_security_group.Test.Id,
 //				},
 //				SkipFinalBackup: pulumi.Bool(true),
 //				StorageCapacity: pulumi.Int(32),
 //				SubnetIds: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Test[0].Id),
+//					aws_subnet.Test[0].Id,
 //				},
 //				ThroughputCapacity: pulumi.Int(8),
 //			})
@@ -181,6 +181,13 @@ func NewFileSystemAssociation(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource FileSystemAssociation
 	err := ctx.RegisterResource("aws:storagegateway/fileSystemAssociation:FileSystemAssociation", name, args, &resource, opts...)
 	if err != nil {

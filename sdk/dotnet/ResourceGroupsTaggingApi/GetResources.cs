@@ -84,7 +84,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetResourcesResult> InvokeAsync(GetResourcesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about resource tagging.
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetResourcesResult> Invoke(GetResourcesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -12,11 +12,21 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("input")]
+        private Input<string>? _input;
+
         /// <summary>
         /// The inputs for the STEP_FUNCTION task.
         /// </summary>
-        [Input("input")]
-        public Input<string>? Input { get; set; }
+        public Input<string>? Input
+        {
+            get => _input;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _input = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the STEP_FUNCTION task.

@@ -50,7 +50,9 @@ import (
 //				return err
 //			}
 //			var clusterInstances []*docdb.ClusterInstance
-//			for key0, val0 := range 2 {
+//			for index := 0; index < 2; index++ {
+//				key0 := index
+//				val0 := index
 //				__res, err := docdb.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &docdb.ClusterInstanceArgs{
 //					Identifier:        pulumi.String(fmt.Sprintf("docdb-cluster-demo-%v", val0)),
 //					ClusterIdentifier: _default.ID(),

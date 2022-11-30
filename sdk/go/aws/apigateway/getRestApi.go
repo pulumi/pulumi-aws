@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.LookupRestApi(ctx, &apigateway.LookupRestApiArgs{
+//			_, err = apigateway.LookupRestApi(ctx, &apigateway.LookupRestApiArgs{
 //				Name: "my-rest-api",
 //			}, nil)
 //			if err != nil {

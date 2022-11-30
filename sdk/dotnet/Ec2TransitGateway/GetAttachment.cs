@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAttachmentResult> InvokeAsync(GetAttachmentArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttachmentResult>("aws:ec2transitgateway/getAttachment:getAttachment", args ?? new GetAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachmentResult>("aws:ec2transitgateway/getAttachment:getAttachment", args ?? new GetAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information on an EC2 Transit Gateway's attachment to a resource.
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAttachmentResult> Invoke(GetAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAttachmentResult>("aws:ec2transitgateway/getAttachment:getAttachment", args ?? new GetAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAttachmentResult>("aws:ec2transitgateway/getAttachment:getAttachment", args ?? new GetAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.SecretsManager
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecretsResult> InvokeAsync(GetSecretsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("aws:secretsmanager/getSecrets:getSecrets", args ?? new GetSecretsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("aws:secretsmanager/getSecrets:getSecrets", args ?? new GetSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.SecretsManager
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecretsResult> Invoke(GetSecretsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("aws:secretsmanager/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("aws:secretsmanager/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

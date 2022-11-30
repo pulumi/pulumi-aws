@@ -191,13 +191,15 @@ export class FileSystemAssociation extends pulumi.CustomResource {
             resourceInputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
             resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
             resourceInputs["locationArn"] = args ? args.locationArn : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(FileSystemAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

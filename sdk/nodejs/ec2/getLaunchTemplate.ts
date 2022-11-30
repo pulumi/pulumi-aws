@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultLaunchTemplate = pulumi.output(aws.ec2.getLaunchTemplate({
+ * const default = aws.ec2.getLaunchTemplate({
  *     name: "my-launch-template",
- * }));
+ * });
  * ```
  * ### Filter
  *
@@ -26,21 +26,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.ec2.getLaunchTemplate({
+ * const test = aws.ec2.getLaunchTemplate({
  *     filters: [{
  *         name: "launch-template-name",
  *         values: ["some-template"],
  *     }],
- * }));
+ * });
  * ```
  */
 export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
         "filters": args.filters,
         "id": args.id,

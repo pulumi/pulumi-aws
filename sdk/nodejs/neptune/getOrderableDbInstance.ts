@@ -13,23 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.neptune.getOrderableDbInstance({
+ * const test = aws.neptune.getOrderableDbInstance({
  *     engineVersion: "1.0.3.0",
  *     preferredInstanceClasses: [
  *         "db.r5.large",
  *         "db.r4.large",
  *         "db.t3.medium",
  *     ],
- * }));
+ * });
  * ```
  */
 export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", {
         "engine": args.engine,
         "engineVersion": args.engineVersion,

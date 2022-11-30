@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.LookupImage(ctx, &imagebuilder.LookupImageArgs{
+//			_, err = imagebuilder.LookupImage(ctx, &imagebuilder.LookupImageArgs{
 //				Arn: "arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x",
 //			}, nil)
 //			if err != nil {

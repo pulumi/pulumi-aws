@@ -227,7 +227,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
             resourceInputs["diskIopsConfiguration"] = args ? args.diskIopsConfiguration : undefined;
             resourceInputs["endpointIpAddressRange"] = args ? args.endpointIpAddressRange : undefined;
-            resourceInputs["fsxAdminPassword"] = args ? args.fsxAdminPassword : undefined;
+            resourceInputs["fsxAdminPassword"] = args?.fsxAdminPassword ? pulumi.secret(args.fsxAdminPassword) : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
@@ -247,6 +247,8 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["fsxAdminPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OntapFileSystem.__pulumiType, name, resourceInputs, opts);
     }
 }

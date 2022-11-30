@@ -8,35 +8,35 @@ import * as utilities from "../utilities";
 export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
 export const getQueue: typeof import("./getQueue").getQueue = null as any;
 export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
+utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
 
 export { GetQueuesArgs, GetQueuesResult, GetQueuesOutputArgs } from "./getQueues";
 export const getQueues: typeof import("./getQueues").getQueues = null as any;
 export const getQueuesOutput: typeof import("./getQueues").getQueuesOutput = null as any;
+utilities.lazyLoad(exports, ["getQueues","getQueuesOutput"], () => require("./getQueues"));
 
 export { QueueArgs, QueueState } from "./queue";
 export type Queue = import("./queue").Queue;
 export const Queue: typeof import("./queue").Queue = null as any;
+utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
 
 export { QueuePolicyArgs, QueuePolicyState } from "./queuePolicy";
 export type QueuePolicy = import("./queuePolicy").QueuePolicy;
 export const QueuePolicy: typeof import("./queuePolicy").QueuePolicy = null as any;
+utilities.lazyLoad(exports, ["QueuePolicy"], () => require("./queuePolicy"));
 
 export * from "./redrive";
 export { RedriveAllowPolicyArgs, RedriveAllowPolicyState } from "./redriveAllowPolicy";
 export type RedriveAllowPolicy = import("./redriveAllowPolicy").RedriveAllowPolicy;
 export const RedriveAllowPolicy: typeof import("./redriveAllowPolicy").RedriveAllowPolicy = null as any;
+utilities.lazyLoad(exports, ["RedriveAllowPolicy"], () => require("./redriveAllowPolicy"));
 
 export { RedrivePolicyArgs, RedrivePolicyState } from "./redrivePolicy";
 export type RedrivePolicy = import("./redrivePolicy").RedrivePolicy;
 export const RedrivePolicy: typeof import("./redrivePolicy").RedrivePolicy = null as any;
+utilities.lazyLoad(exports, ["RedrivePolicy"], () => require("./redrivePolicy"));
 
 export * from "./sqsMixins";
-utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
-utilities.lazyLoad(exports, ["getQueues","getQueuesOutput"], () => require("./getQueues"));
-utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
-utilities.lazyLoad(exports, ["QueuePolicy"], () => require("./queuePolicy"));
-utilities.lazyLoad(exports, ["RedriveAllowPolicy"], () => require("./redriveAllowPolicy"));
-utilities.lazyLoad(exports, ["RedrivePolicy"], () => require("./redrivePolicy"));
 
 const _module = {
     version: utilities.getVersion(),

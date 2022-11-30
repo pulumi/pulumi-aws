@@ -8,22 +8,22 @@ import * as utilities from "../utilities";
 export { AssessmentTargetArgs, AssessmentTargetState } from "./assessmentTarget";
 export type AssessmentTarget = import("./assessmentTarget").AssessmentTarget;
 export const AssessmentTarget: typeof import("./assessmentTarget").AssessmentTarget = null as any;
+utilities.lazyLoad(exports, ["AssessmentTarget"], () => require("./assessmentTarget"));
 
 export { AssessmentTemplateArgs, AssessmentTemplateState } from "./assessmentTemplate";
 export type AssessmentTemplate = import("./assessmentTemplate").AssessmentTemplate;
 export const AssessmentTemplate: typeof import("./assessmentTemplate").AssessmentTemplate = null as any;
+utilities.lazyLoad(exports, ["AssessmentTemplate"], () => require("./assessmentTemplate"));
 
 export { GetRulesPackagesResult } from "./getRulesPackages";
 export const getRulesPackages: typeof import("./getRulesPackages").getRulesPackages = null as any;
+utilities.lazyLoad(exports, ["getRulesPackages"], () => require("./getRulesPackages"));
 
 export { ResourceGroupArgs, ResourceGroupState } from "./resourceGroup";
 export type ResourceGroup = import("./resourceGroup").ResourceGroup;
 export const ResourceGroup: typeof import("./resourceGroup").ResourceGroup = null as any;
-
-utilities.lazyLoad(exports, ["AssessmentTarget"], () => require("./assessmentTarget"));
-utilities.lazyLoad(exports, ["AssessmentTemplate"], () => require("./assessmentTemplate"));
-utilities.lazyLoad(exports, ["getRulesPackages"], () => require("./getRulesPackages"));
 utilities.lazyLoad(exports, ["ResourceGroup"], () => require("./resourceGroup"));
+
 
 const _module = {
     version: utilities.getVersion(),

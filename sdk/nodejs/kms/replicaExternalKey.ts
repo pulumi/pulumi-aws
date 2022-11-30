@@ -171,7 +171,7 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
             resourceInputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["keyMaterialBase64"] = args ? args.keyMaterialBase64 : undefined;
+            resourceInputs["keyMaterialBase64"] = args?.keyMaterialBase64 ? pulumi.secret(args.keyMaterialBase64) : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["primaryKeyArn"] = args ? args.primaryKeyArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -184,6 +184,8 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["keyMaterialBase64"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ReplicaExternalKey.__pulumiType, name, resourceInputs, opts);
     }
 }

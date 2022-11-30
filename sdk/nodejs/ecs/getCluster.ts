@@ -17,17 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecs_mongo = pulumi.output(aws.ecs.getCluster({
+ * const ecs-mongo = aws.ecs.getCluster({
  *     clusterName: "ecs-mongo-production",
- * }));
+ * });
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getCluster:getCluster", {
         "clusterName": args.clusterName,
     }, opts);

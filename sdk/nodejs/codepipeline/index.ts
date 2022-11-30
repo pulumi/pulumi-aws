@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 export { CustomActionTypeArgs, CustomActionTypeState } from "./customActionType";
 export type CustomActionType = import("./customActionType").CustomActionType;
 export const CustomActionType: typeof import("./customActionType").CustomActionType = null as any;
+utilities.lazyLoad(exports, ["CustomActionType"], () => require("./customActionType"));
 
 export { PipelineArgs, PipelineState } from "./pipeline";
 export type Pipeline = import("./pipeline").Pipeline;
 export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
+utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
 
 export { WebhookArgs, WebhookState } from "./webhook";
 export type Webhook = import("./webhook").Webhook;
 export const Webhook: typeof import("./webhook").Webhook = null as any;
-
-utilities.lazyLoad(exports, ["CustomActionType"], () => require("./customActionType"));
-utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
 utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -8,78 +8,78 @@ import * as utilities from "../utilities";
 export { FrameworkArgs, FrameworkState } from "./framework";
 export type Framework = import("./framework").Framework;
 export const Framework: typeof import("./framework").Framework = null as any;
+utilities.lazyLoad(exports, ["Framework"], () => require("./framework"));
 
 export { GetFrameworkArgs, GetFrameworkResult, GetFrameworkOutputArgs } from "./getFramework";
 export const getFramework: typeof import("./getFramework").getFramework = null as any;
 export const getFrameworkOutput: typeof import("./getFramework").getFrameworkOutput = null as any;
+utilities.lazyLoad(exports, ["getFramework","getFrameworkOutput"], () => require("./getFramework"));
 
 export { GetPlanArgs, GetPlanResult, GetPlanOutputArgs } from "./getPlan";
 export const getPlan: typeof import("./getPlan").getPlan = null as any;
 export const getPlanOutput: typeof import("./getPlan").getPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getPlan","getPlanOutput"], () => require("./getPlan"));
 
 export { GetReportPlanArgs, GetReportPlanResult, GetReportPlanOutputArgs } from "./getReportPlan";
 export const getReportPlan: typeof import("./getReportPlan").getReportPlan = null as any;
 export const getReportPlanOutput: typeof import("./getReportPlan").getReportPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getReportPlan","getReportPlanOutput"], () => require("./getReportPlan"));
 
 export { GetSelectionArgs, GetSelectionResult, GetSelectionOutputArgs } from "./getSelection";
 export const getSelection: typeof import("./getSelection").getSelection = null as any;
 export const getSelectionOutput: typeof import("./getSelection").getSelectionOutput = null as any;
+utilities.lazyLoad(exports, ["getSelection","getSelectionOutput"], () => require("./getSelection"));
 
 export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
 export const getVault: typeof import("./getVault").getVault = null as any;
 export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
 
 export { GlobalSettingsArgs, GlobalSettingsState } from "./globalSettings";
 export type GlobalSettings = import("./globalSettings").GlobalSettings;
 export const GlobalSettings: typeof import("./globalSettings").GlobalSettings = null as any;
+utilities.lazyLoad(exports, ["GlobalSettings"], () => require("./globalSettings"));
 
 export { PlanArgs, PlanState } from "./plan";
 export type Plan = import("./plan").Plan;
 export const Plan: typeof import("./plan").Plan = null as any;
+utilities.lazyLoad(exports, ["Plan"], () => require("./plan"));
 
 export { RegionSettingsArgs, RegionSettingsState } from "./regionSettings";
 export type RegionSettings = import("./regionSettings").RegionSettings;
 export const RegionSettings: typeof import("./regionSettings").RegionSettings = null as any;
+utilities.lazyLoad(exports, ["RegionSettings"], () => require("./regionSettings"));
 
 export { ReportPlanArgs, ReportPlanState } from "./reportPlan";
 export type ReportPlan = import("./reportPlan").ReportPlan;
 export const ReportPlan: typeof import("./reportPlan").ReportPlan = null as any;
+utilities.lazyLoad(exports, ["ReportPlan"], () => require("./reportPlan"));
 
 export { SelectionArgs, SelectionState } from "./selection";
 export type Selection = import("./selection").Selection;
 export const Selection: typeof import("./selection").Selection = null as any;
+utilities.lazyLoad(exports, ["Selection"], () => require("./selection"));
 
 export { VaultArgs, VaultState } from "./vault";
 export type Vault = import("./vault").Vault;
 export const Vault: typeof import("./vault").Vault = null as any;
+utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
 
 export { VaultLockConfigurationArgs, VaultLockConfigurationState } from "./vaultLockConfiguration";
 export type VaultLockConfiguration = import("./vaultLockConfiguration").VaultLockConfiguration;
 export const VaultLockConfiguration: typeof import("./vaultLockConfiguration").VaultLockConfiguration = null as any;
+utilities.lazyLoad(exports, ["VaultLockConfiguration"], () => require("./vaultLockConfiguration"));
 
 export { VaultNotificationsArgs, VaultNotificationsState } from "./vaultNotifications";
 export type VaultNotifications = import("./vaultNotifications").VaultNotifications;
 export const VaultNotifications: typeof import("./vaultNotifications").VaultNotifications = null as any;
+utilities.lazyLoad(exports, ["VaultNotifications"], () => require("./vaultNotifications"));
 
 export { VaultPolicyArgs, VaultPolicyState } from "./vaultPolicy";
 export type VaultPolicy = import("./vaultPolicy").VaultPolicy;
 export const VaultPolicy: typeof import("./vaultPolicy").VaultPolicy = null as any;
-
-utilities.lazyLoad(exports, ["Framework"], () => require("./framework"));
-utilities.lazyLoad(exports, ["getFramework","getFrameworkOutput"], () => require("./getFramework"));
-utilities.lazyLoad(exports, ["getPlan","getPlanOutput"], () => require("./getPlan"));
-utilities.lazyLoad(exports, ["getReportPlan","getReportPlanOutput"], () => require("./getReportPlan"));
-utilities.lazyLoad(exports, ["getSelection","getSelectionOutput"], () => require("./getSelection"));
-utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
-utilities.lazyLoad(exports, ["GlobalSettings"], () => require("./globalSettings"));
-utilities.lazyLoad(exports, ["Plan"], () => require("./plan"));
-utilities.lazyLoad(exports, ["RegionSettings"], () => require("./regionSettings"));
-utilities.lazyLoad(exports, ["ReportPlan"], () => require("./reportPlan"));
-utilities.lazyLoad(exports, ["Selection"], () => require("./selection"));
-utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
-utilities.lazyLoad(exports, ["VaultLockConfiguration"], () => require("./vaultLockConfiguration"));
-utilities.lazyLoad(exports, ["VaultNotifications"], () => require("./vaultNotifications"));
 utilities.lazyLoad(exports, ["VaultPolicy"], () => require("./vaultPolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),

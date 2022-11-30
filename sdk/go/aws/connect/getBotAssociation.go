@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupBotAssociation(ctx, &connect.LookupBotAssociationArgs{
+//			_, err = connect.LookupBotAssociation(ctx, &connect.LookupBotAssociationArgs{
 //				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
 //				LexBot: connect.GetBotAssociationLexBot{
 //					Name: "Test",

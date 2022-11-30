@@ -126,16 +126,18 @@ export class ApnsSandboxChannel extends pulumi.CustomResource {
                 throw new Error("Missing required property 'applicationId'");
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["bundleId"] = args?.bundleId ? pulumi.secret(args.bundleId) : undefined;
+            resourceInputs["certificate"] = args?.certificate ? pulumi.secret(args.certificate) : undefined;
             resourceInputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
-            resourceInputs["tokenKey"] = args ? args.tokenKey : undefined;
-            resourceInputs["tokenKeyId"] = args ? args.tokenKeyId : undefined;
+            resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
+            resourceInputs["teamId"] = args?.teamId ? pulumi.secret(args.teamId) : undefined;
+            resourceInputs["tokenKey"] = args?.tokenKey ? pulumi.secret(args.tokenKey) : undefined;
+            resourceInputs["tokenKeyId"] = args?.tokenKeyId ? pulumi.secret(args.tokenKeyId) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["bundleId", "certificate", "privateKey", "teamId", "tokenKey", "tokenKeyId"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ApnsSandboxChannel.__pulumiType, name, resourceInputs, opts);
     }
 }

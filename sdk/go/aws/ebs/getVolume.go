@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.LookupVolume(ctx, &ebs.LookupVolumeArgs{
+//			_, err = ebs.LookupVolume(ctx, &ebs.LookupVolumeArgs{
 //				Filters: []ebs.GetVolumeFilter{
 //					ebs.GetVolumeFilter{
 //						Name: "volume-type",

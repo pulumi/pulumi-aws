@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 export { FeatureArgs, FeatureState } from "./feature";
 export type Feature = import("./feature").Feature;
 export const Feature: typeof import("./feature").Feature = null as any;
+utilities.lazyLoad(exports, ["Feature"], () => require("./feature"));
 
 export { ProjectArgs, ProjectState } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 
 export { SegmentArgs, SegmentState } from "./segment";
 export type Segment = import("./segment").Segment;
 export const Segment: typeof import("./segment").Segment = null as any;
-
-utilities.lazyLoad(exports, ["Feature"], () => require("./feature"));
-utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 utilities.lazyLoad(exports, ["Segment"], () => require("./segment"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Location
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTrackerAssociationsResult> InvokeAsync(GetTrackerAssociationsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrackerAssociationsResult>("aws:location/getTrackerAssociations:getTrackerAssociations", args ?? new GetTrackerAssociationsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrackerAssociationsResult>("aws:location/getTrackerAssociations:getTrackerAssociations", args ?? new GetTrackerAssociationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about Location Service Tracker Associations.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Location
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTrackerAssociationsResult> Invoke(GetTrackerAssociationsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrackerAssociationsResult>("aws:location/getTrackerAssociations:getTrackerAssociations", args ?? new GetTrackerAssociationsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrackerAssociationsResult>("aws:location/getTrackerAssociations:getTrackerAssociations", args ?? new GetTrackerAssociationsInvokeArgs(), options.WithDefaults());
     }
 
 

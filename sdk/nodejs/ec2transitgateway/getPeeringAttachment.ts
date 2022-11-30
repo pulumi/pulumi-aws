@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2transitgateway.getPeeringAttachment({
+ * const example = aws.ec2transitgateway.getPeeringAttachment({
  *     filters: [{
  *         name: "transit-gateway-attachment-id",
  *         values: ["tgw-attach-12345678"],
  *     }],
- * }));
+ * });
  * ```
  * ### By Identifier
  *
@@ -30,18 +30,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const attachment = pulumi.output(aws.ec2transitgateway.getPeeringAttachment({
+ * const attachment = aws.ec2transitgateway.getPeeringAttachment({
  *     id: "tgw-attach-12345678",
- * }));
+ * });
  * ```
  */
 export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringAttachmentResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", {
         "filters": args.filters,
         "id": args.id,

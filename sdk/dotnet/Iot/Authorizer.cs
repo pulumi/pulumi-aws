@@ -119,6 +119,10 @@ namespace Pulumi.Aws.Iot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "tokenSigningPublicKeys",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -187,7 +191,11 @@ namespace Pulumi.Aws.Iot
         public InputMap<string> TokenSigningPublicKeys
         {
             get => _tokenSigningPublicKeys ?? (_tokenSigningPublicKeys = new InputMap<string>());
-            set => _tokenSigningPublicKeys = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _tokenSigningPublicKeys = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         public AuthorizerArgs()
@@ -249,7 +257,11 @@ namespace Pulumi.Aws.Iot
         public InputMap<string> TokenSigningPublicKeys
         {
             get => _tokenSigningPublicKeys ?? (_tokenSigningPublicKeys = new InputMap<string>());
-            set => _tokenSigningPublicKeys = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _tokenSigningPublicKeys = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         public AuthorizerState()

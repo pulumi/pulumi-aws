@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.GetResourceTags(ctx, &organizations.GetResourceTagsArgs{
+//			_, err = organizations.GetResourceTags(ctx, &organizations.GetResourceTagsArgs{
 //				ResourceId: "123456123846",
 //			}, nil)
 //			if err != nil {

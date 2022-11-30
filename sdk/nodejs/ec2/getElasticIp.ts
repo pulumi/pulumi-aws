@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byAllocationId = pulumi.output(aws.ec2.getElasticIp({
+ * const byAllocationId = aws.ec2.getElasticIp({
  *     id: "eipalloc-12345678",
- * }));
+ * });
  * ```
  * ### Search By Filters (EC2-Classic or VPC)
  *
@@ -27,12 +27,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byFilter = pulumi.output(aws.ec2.getElasticIp({
+ * const byFilter = aws.ec2.getElasticIp({
  *     filters: [{
  *         name: "tag:Name",
  *         values: ["exampleNameTagValue"],
  *     }],
- * }));
+ * });
  * ```
  * ### Search By Public IP (EC2-Classic or VPC)
  *
@@ -40,9 +40,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byPublicIp = pulumi.output(aws.ec2.getElasticIp({
+ * const byPublicIp = aws.ec2.getElasticIp({
  *     publicIp: "1.2.3.4",
- * }));
+ * });
  * ```
  * ### Search By Tags (EC2-Classic or VPC)
  *
@@ -50,20 +50,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byTags = pulumi.output(aws.ec2.getElasticIp({
+ * const byTags = aws.ec2.getElasticIp({
  *     tags: {
  *         Name: "exampleNameTagValue",
  *     },
- * }));
+ * });
  * ```
  */
 export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getElasticIp:getElasticIp", {
         "filters": args.filters,
         "id": args.id,

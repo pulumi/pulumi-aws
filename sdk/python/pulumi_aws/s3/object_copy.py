@@ -1553,7 +1553,7 @@ class ObjectCopy(pulumi.CustomResource):
             __props__.__dict__["copy_if_none_match"] = copy_if_none_match
             __props__.__dict__["copy_if_unmodified_since"] = copy_if_unmodified_since
             __props__.__dict__["customer_algorithm"] = customer_algorithm
-            __props__.__dict__["customer_key"] = customer_key
+            __props__.__dict__["customer_key"] = None if customer_key is None else pulumi.Output.secret(customer_key)
             __props__.__dict__["customer_key_md5"] = customer_key_md5
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
             __props__.__dict__["expected_source_bucket_owner"] = expected_source_bucket_owner
@@ -1563,8 +1563,8 @@ class ObjectCopy(pulumi.CustomResource):
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
-            __props__.__dict__["kms_encryption_context"] = kms_encryption_context
-            __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["kms_encryption_context"] = None if kms_encryption_context is None else pulumi.Output.secret(kms_encryption_context)
+            __props__.__dict__["kms_key_id"] = None if kms_key_id is None else pulumi.Output.secret(kms_key_id)
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["metadata_directive"] = metadata_directive
             __props__.__dict__["object_lock_legal_hold_status"] = object_lock_legal_hold_status
@@ -1576,7 +1576,7 @@ class ObjectCopy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
             __props__.__dict__["source_customer_algorithm"] = source_customer_algorithm
-            __props__.__dict__["source_customer_key"] = source_customer_key
+            __props__.__dict__["source_customer_key"] = None if source_customer_key is None else pulumi.Output.secret(source_customer_key)
             __props__.__dict__["source_customer_key_md5"] = source_customer_key_md5
             __props__.__dict__["storage_class"] = storage_class
             __props__.__dict__["tagging_directive"] = tagging_directive
@@ -1589,6 +1589,8 @@ class ObjectCopy(pulumi.CustomResource):
             __props__.__dict__["source_version_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customerKey", "kmsEncryptionContext", "kmsKeyId", "sourceCustomerKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ObjectCopy, __self__).__init__(
             'aws:s3/objectCopy:ObjectCopy',
             resource_name,

@@ -982,7 +982,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["kinesis_settings"] = kinesis_settings
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["mongodb_settings"] = mongodb_settings
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["port"] = port
             __props__.__dict__["redis_settings"] = redis_settings
             __props__.__dict__["redshift_settings"] = redshift_settings
@@ -996,6 +996,8 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["username"] = username
             __props__.__dict__["endpoint_arn"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Endpoint, __self__).__init__(
             'aws:dms/endpoint:Endpoint',
             resource_name,

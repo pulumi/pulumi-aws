@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * 
  * This resource is based on `aws.wafv2.RuleGroup`, check the documentation of the `aws.wafv2.RuleGroup` resource to see examples of the various available statements.
  * ### Managed Rule
+ * 
  * ```java
  * package generated_program;
  * 

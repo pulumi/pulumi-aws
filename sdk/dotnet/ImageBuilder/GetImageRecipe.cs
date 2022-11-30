@@ -36,7 +36,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetImageRecipeResult> InvokeAsync(GetImageRecipeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageRecipeResult>("aws:imagebuilder/getImageRecipe:getImageRecipe", args ?? new GetImageRecipeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageRecipeResult>("aws:imagebuilder/getImageRecipe:getImageRecipe", args ?? new GetImageRecipeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about an Image Builder Image Recipe.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetImageRecipeResult> Invoke(GetImageRecipeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetImageRecipeResult>("aws:imagebuilder/getImageRecipe:getImageRecipe", args ?? new GetImageRecipeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageRecipeResult>("aws:imagebuilder/getImageRecipe:getImageRecipe", args ?? new GetImageRecipeInvokeArgs(), options.WithDefaults());
     }
 
 

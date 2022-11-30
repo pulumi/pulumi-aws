@@ -38,7 +38,7 @@ import (
 //			_, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
 //				AcceptanceRequired: pulumi.Bool(false),
 //				NetworkLoadBalancerArns: pulumi.StringArray{
-//					pulumi.Any(aws_lb.Example.Arn),
+//					aws_lb.Example.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -66,7 +66,7 @@ import (
 //			_, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
 //				AcceptanceRequired: pulumi.Bool(false),
 //				GatewayLoadBalancerArns: pulumi.StringArray{
-//					pulumi.Any(aws_lb.Example.Arn),
+//					aws_lb.Example.Arn,
 //				},
 //			})
 //			if err != nil {

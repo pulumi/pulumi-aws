@@ -15,18 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.connect.getPrompt({
+ * const example = aws.connect.getPrompt({
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     name: "Beep.wav",
- * }));
+ * });
  * ```
  */
 export function getPrompt(args: GetPromptArgs, opts?: pulumi.InvokeOptions): Promise<GetPromptResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getPrompt:getPrompt", {
         "instanceId": args.instanceId,
         "name": args.name,

@@ -88,6 +88,13 @@ func NewExternalKey(ctx *pulumi.Context,
 		args = &ExternalKeyArgs{}
 	}
 
+	if args.KeyMaterialBase64 != nil {
+		args.KeyMaterialBase64 = pulumi.ToSecret(args.KeyMaterialBase64).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"keyMaterialBase64",
+	})
+	opts = append(opts, secrets)
 	var resource ExternalKey
 	err := ctx.RegisterResource("aws:kms/externalKey:ExternalKey", name, args, &resource, opts...)
 	if err != nil {

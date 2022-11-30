@@ -55,7 +55,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOriginRequestPolicyResult> InvokeAsync(GetOriginRequestPolicyArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginRequestPolicyResult>("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginRequestPolicyResult>("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOriginRequestPolicyResult> Invoke(GetOriginRequestPolicyInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOriginRequestPolicyResult>("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOriginRequestPolicyResult>("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

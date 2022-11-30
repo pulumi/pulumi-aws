@@ -49,11 +49,8 @@ import * as utilities from "../utilities";
  */
 export function getFirewallPolicy(args?: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", {
         "arn": args.arn,
         "name": args.name,

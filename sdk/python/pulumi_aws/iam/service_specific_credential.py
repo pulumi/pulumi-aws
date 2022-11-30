@@ -273,6 +273,8 @@ class ServiceSpecificCredential(pulumi.CustomResource):
             __props__.__dict__["service_password"] = None
             __props__.__dict__["service_specific_credential_id"] = None
             __props__.__dict__["service_user_name"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["servicePassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceSpecificCredential, __self__).__init__(
             'aws:iam/serviceSpecificCredential:ServiceSpecificCredential',
             resource_name,

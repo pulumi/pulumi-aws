@@ -8,37 +8,37 @@ import * as utilities from "../utilities";
 export { AccountAssignmentArgs, AccountAssignmentState } from "./accountAssignment";
 export type AccountAssignment = import("./accountAssignment").AccountAssignment;
 export const AccountAssignment: typeof import("./accountAssignment").AccountAssignment = null as any;
+utilities.lazyLoad(exports, ["AccountAssignment"], () => require("./accountAssignment"));
 
 export { CustomerManagedPolicyAttachmentArgs, CustomerManagedPolicyAttachmentState } from "./customerManagedPolicyAttachment";
 export type CustomerManagedPolicyAttachment = import("./customerManagedPolicyAttachment").CustomerManagedPolicyAttachment;
 export const CustomerManagedPolicyAttachment: typeof import("./customerManagedPolicyAttachment").CustomerManagedPolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["CustomerManagedPolicyAttachment"], () => require("./customerManagedPolicyAttachment"));
 
 export { GetInstancesResult } from "./getInstances";
 export const getInstances: typeof import("./getInstances").getInstances = null as any;
+utilities.lazyLoad(exports, ["getInstances"], () => require("./getInstances"));
 
 export { GetPermissionSetArgs, GetPermissionSetResult, GetPermissionSetOutputArgs } from "./getPermissionSet";
 export const getPermissionSet: typeof import("./getPermissionSet").getPermissionSet = null as any;
 export const getPermissionSetOutput: typeof import("./getPermissionSet").getPermissionSetOutput = null as any;
+utilities.lazyLoad(exports, ["getPermissionSet","getPermissionSetOutput"], () => require("./getPermissionSet"));
 
 export { ManagedPolicyAttachmentArgs, ManagedPolicyAttachmentState } from "./managedPolicyAttachment";
 export type ManagedPolicyAttachment = import("./managedPolicyAttachment").ManagedPolicyAttachment;
 export const ManagedPolicyAttachment: typeof import("./managedPolicyAttachment").ManagedPolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["ManagedPolicyAttachment"], () => require("./managedPolicyAttachment"));
 
 export { PermissionSetArgs, PermissionSetState } from "./permissionSet";
 export type PermissionSet = import("./permissionSet").PermissionSet;
 export const PermissionSet: typeof import("./permissionSet").PermissionSet = null as any;
+utilities.lazyLoad(exports, ["PermissionSet"], () => require("./permissionSet"));
 
 export { PermissionSetInlinePolicyArgs, PermissionSetInlinePolicyState } from "./permissionSetInlinePolicy";
 export type PermissionSetInlinePolicy = import("./permissionSetInlinePolicy").PermissionSetInlinePolicy;
 export const PermissionSetInlinePolicy: typeof import("./permissionSetInlinePolicy").PermissionSetInlinePolicy = null as any;
-
-utilities.lazyLoad(exports, ["AccountAssignment"], () => require("./accountAssignment"));
-utilities.lazyLoad(exports, ["CustomerManagedPolicyAttachment"], () => require("./customerManagedPolicyAttachment"));
-utilities.lazyLoad(exports, ["getInstances"], () => require("./getInstances"));
-utilities.lazyLoad(exports, ["getPermissionSet","getPermissionSetOutput"], () => require("./getPermissionSet"));
-utilities.lazyLoad(exports, ["ManagedPolicyAttachment"], () => require("./managedPolicyAttachment"));
-utilities.lazyLoad(exports, ["PermissionSet"], () => require("./permissionSet"));
 utilities.lazyLoad(exports, ["PermissionSetInlinePolicy"], () => require("./permissionSetInlinePolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -15,22 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byQuotaCode = pulumi.output(aws.servicequotas.getServiceQuota({
+ * const byQuotaCode = aws.servicequotas.getServiceQuota({
  *     quotaCode: "L-F678F1CE",
  *     serviceCode: "vpc",
- * }));
- * const byQuotaName = pulumi.output(aws.servicequotas.getServiceQuota({
+ * });
+ * const byQuotaName = aws.servicequotas.getServiceQuota({
  *     quotaName: "VPCs per Region",
  *     serviceCode: "vpc",
- * }));
+ * });
  * ```
  */
 export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceQuotaResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicequotas/getServiceQuota:getServiceQuota", {
         "quotaCode": args.quotaCode,
         "quotaName": args.quotaName,

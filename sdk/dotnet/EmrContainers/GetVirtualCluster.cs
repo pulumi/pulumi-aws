@@ -41,7 +41,7 @@ namespace Pulumi.Aws.EmrContainers
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualClusterResult> InvokeAsync(GetVirtualClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualClusterResult>("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args ?? new GetVirtualClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualClusterResult>("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args ?? new GetVirtualClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.EmrContainers
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualClusterResult> Invoke(GetVirtualClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualClusterResult>("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args ?? new GetVirtualClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualClusterResult>("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args ?? new GetVirtualClusterInvokeArgs(), options.WithDefaults());
     }
 
 

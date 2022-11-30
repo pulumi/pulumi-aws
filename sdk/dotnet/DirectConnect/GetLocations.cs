@@ -36,7 +36,7 @@ namespace Pulumi.Aws.DirectConnect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLocationsResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocationsResult>("aws:directconnect/getLocations:getLocations", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationsResult>("aws:directconnect/getLocations:getLocations", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

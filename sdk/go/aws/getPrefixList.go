@@ -84,7 +84,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetPrefixList(ctx, &ec2.GetPrefixListArgs{
+//			_, err = ec2.GetPrefixList(ctx, &ec2.GetPrefixListArgs{
 //				Filters: []ec2.GetPrefixListFilter{
 //					ec2.GetPrefixListFilter{
 //						Name: "prefix-list-id",

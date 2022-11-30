@@ -33,7 +33,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetHostedZoneResult> InvokeAsync(GetHostedZoneArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args ?? new GetHostedZoneArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args ?? new GetHostedZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetHostedZoneResult> Invoke(GetHostedZoneInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args ?? new GetHostedZoneInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args ?? new GetHostedZoneInvokeArgs(), options.WithDefaults());
     }
 
 

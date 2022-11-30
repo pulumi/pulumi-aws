@@ -87,6 +87,17 @@ func NewNamespace(ctx *pulumi.Context,
 	if args.NamespaceName == nil {
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
+	if args.AdminUserPassword != nil {
+		args.AdminUserPassword = pulumi.ToSecret(args.AdminUserPassword).(pulumi.StringPtrOutput)
+	}
+	if args.AdminUsername != nil {
+		args.AdminUsername = pulumi.ToSecret(args.AdminUsername).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"adminUserPassword",
+		"adminUsername",
+	})
+	opts = append(opts, secrets)
 	var resource Namespace
 	err := ctx.RegisterResource("aws:redshiftserverless/namespace:Namespace", name, args, &resource, opts...)
 	if err != nil {

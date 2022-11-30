@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2.getInstanceTypeOfferings({
+ * const example = aws.ec2.getInstanceTypeOfferings({
  *     filters: [
  *         {
  *             name: "instance-type",
@@ -31,16 +31,13 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     locationType: "availability-zone-id",
- * }));
+ * });
  * ```
  */
 export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", {
         "filters": args.filters,
         "locationType": args.locationType,

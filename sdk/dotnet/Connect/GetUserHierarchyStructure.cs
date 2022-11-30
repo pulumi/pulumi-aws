@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserHierarchyStructureResult> InvokeAsync(GetUserHierarchyStructureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserHierarchyStructureResult>("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", args ?? new GetUserHierarchyStructureArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserHierarchyStructureResult>("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", args ?? new GetUserHierarchyStructureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Connect User Hierarchy Structure
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserHierarchyStructureResult> Invoke(GetUserHierarchyStructureInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserHierarchyStructureResult>("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", args ?? new GetUserHierarchyStructureInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserHierarchyStructureResult>("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", args ?? new GetUserHierarchyStructureInvokeArgs(), options.WithDefaults());
     }
 
 

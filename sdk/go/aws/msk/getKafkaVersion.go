@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := msk.GetKafkaVersion(ctx, &msk.GetKafkaVersionArgs{
+//			_, err = msk.GetKafkaVersion(ctx, &msk.GetKafkaVersionArgs{
 //				PreferredVersions: []string{
 //					"2.4.1.1",
 //					"2.4.1",

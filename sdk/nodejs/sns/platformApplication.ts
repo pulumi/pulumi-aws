@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const apnsApplication = new aws.sns.PlatformApplication("apns_application", {
+ * const apnsApplication = new aws.sns.PlatformApplication("apnsApplication", {
  *     platform: "APNS",
  *     platformCredential: "<APNS PRIVATE KEY>",
  *     platformPrincipal: "<APNS CERTIFICATE>",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const apnsApplication = new aws.sns.PlatformApplication("apns_application", {
+ * const apnsApplication = new aws.sns.PlatformApplication("apnsApplication", {
  *     applePlatformBundleId: "<APPLE BUNDLE ID>",
  *     applePlatformTeamId: "<APPLE TEAM ID>",
  *     platform: "APNS",
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const gcmApplication = new aws.sns.PlatformApplication("gcm_application", {
+ * const gcmApplication = new aws.sns.PlatformApplication("gcmApplication", {
  *     platform: "GCM",
  *     platformCredential: "<GCM API KEY>",
  * });
@@ -183,13 +183,15 @@ export class PlatformApplication extends pulumi.CustomResource {
             resourceInputs["failureFeedbackRoleArn"] = args ? args.failureFeedbackRoleArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["platformCredential"] = args ? args.platformCredential : undefined;
-            resourceInputs["platformPrincipal"] = args ? args.platformPrincipal : undefined;
+            resourceInputs["platformCredential"] = args?.platformCredential ? pulumi.secret(args.platformCredential) : undefined;
+            resourceInputs["platformPrincipal"] = args?.platformPrincipal ? pulumi.secret(args.platformPrincipal) : undefined;
             resourceInputs["successFeedbackRoleArn"] = args ? args.successFeedbackRoleArn : undefined;
             resourceInputs["successFeedbackSampleRate"] = args ? args.successFeedbackSampleRate : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["platformCredential", "platformPrincipal"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(PlatformApplication.__pulumiType, name, resourceInputs, opts);
     }
 }

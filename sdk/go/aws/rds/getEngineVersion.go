@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.GetEngineVersion(ctx, &rds.GetEngineVersionArgs{
+//			_, err = rds.GetEngineVersion(ctx, &rds.GetEngineVersionArgs{
 //				Engine: "mysql",
 //				PreferredVersions: []string{
 //					"8.0.27",
@@ -56,7 +56,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.GetEngineVersion(ctx, &rds.GetEngineVersionArgs{
+//			_, err = rds.GetEngineVersion(ctx, &rds.GetEngineVersionArgs{
 //				Engine: "aurora-postgresql",
 //				Filters: []rds.GetEngineVersionFilter{
 //					rds.GetEngineVersionFilter{

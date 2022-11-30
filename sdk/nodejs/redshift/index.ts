@@ -8,113 +8,113 @@ import * as utilities from "../utilities";
 export { AuthenticationProfileArgs, AuthenticationProfileState } from "./authenticationProfile";
 export type AuthenticationProfile = import("./authenticationProfile").AuthenticationProfile;
 export const AuthenticationProfile: typeof import("./authenticationProfile").AuthenticationProfile = null as any;
+utilities.lazyLoad(exports, ["AuthenticationProfile"], () => require("./authenticationProfile"));
 
 export { ClusterArgs, ClusterState } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
 export { ClusterIamRolesArgs, ClusterIamRolesState } from "./clusterIamRoles";
 export type ClusterIamRoles = import("./clusterIamRoles").ClusterIamRoles;
 export const ClusterIamRoles: typeof import("./clusterIamRoles").ClusterIamRoles = null as any;
+utilities.lazyLoad(exports, ["ClusterIamRoles"], () => require("./clusterIamRoles"));
 
 export { EndpointAccessArgs, EndpointAccessState } from "./endpointAccess";
 export type EndpointAccess = import("./endpointAccess").EndpointAccess;
 export const EndpointAccess: typeof import("./endpointAccess").EndpointAccess = null as any;
+utilities.lazyLoad(exports, ["EndpointAccess"], () => require("./endpointAccess"));
 
 export { EndpointAuthorizationArgs, EndpointAuthorizationState } from "./endpointAuthorization";
 export type EndpointAuthorization = import("./endpointAuthorization").EndpointAuthorization;
 export const EndpointAuthorization: typeof import("./endpointAuthorization").EndpointAuthorization = null as any;
+utilities.lazyLoad(exports, ["EndpointAuthorization"], () => require("./endpointAuthorization"));
 
 export { EventSubscriptionArgs, EventSubscriptionState } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
+utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
 export { GetClusterCredentialsArgs, GetClusterCredentialsResult, GetClusterCredentialsOutputArgs } from "./getClusterCredentials";
 export const getClusterCredentials: typeof import("./getClusterCredentials").getClusterCredentials = null as any;
 export const getClusterCredentialsOutput: typeof import("./getClusterCredentials").getClusterCredentialsOutput = null as any;
+utilities.lazyLoad(exports, ["getClusterCredentials","getClusterCredentialsOutput"], () => require("./getClusterCredentials"));
 
 export { GetOrderableClusterArgs, GetOrderableClusterResult, GetOrderableClusterOutputArgs } from "./getOrderableCluster";
 export const getOrderableCluster: typeof import("./getOrderableCluster").getOrderableCluster = null as any;
 export const getOrderableClusterOutput: typeof import("./getOrderableCluster").getOrderableClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getOrderableCluster","getOrderableClusterOutput"], () => require("./getOrderableCluster"));
 
 export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutputArgs } from "./getServiceAccount";
 export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
 export const getServiceAccountOutput: typeof import("./getServiceAccount").getServiceAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceAccount","getServiceAccountOutput"], () => require("./getServiceAccount"));
 
 export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
 export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
 export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getSubnetGroup","getSubnetGroupOutput"], () => require("./getSubnetGroup"));
 
 export { HsmClientCertificateArgs, HsmClientCertificateState } from "./hsmClientCertificate";
 export type HsmClientCertificate = import("./hsmClientCertificate").HsmClientCertificate;
 export const HsmClientCertificate: typeof import("./hsmClientCertificate").HsmClientCertificate = null as any;
+utilities.lazyLoad(exports, ["HsmClientCertificate"], () => require("./hsmClientCertificate"));
 
 export { HsmConfigurationArgs, HsmConfigurationState } from "./hsmConfiguration";
 export type HsmConfiguration = import("./hsmConfiguration").HsmConfiguration;
 export const HsmConfiguration: typeof import("./hsmConfiguration").HsmConfiguration = null as any;
+utilities.lazyLoad(exports, ["HsmConfiguration"], () => require("./hsmConfiguration"));
 
 export { ParameterGroupArgs, ParameterGroupState } from "./parameterGroup";
 export type ParameterGroup = import("./parameterGroup").ParameterGroup;
 export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
+utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
 
 export { PartnerArgs, PartnerState } from "./partner";
 export type Partner = import("./partner").Partner;
 export const Partner: typeof import("./partner").Partner = null as any;
+utilities.lazyLoad(exports, ["Partner"], () => require("./partner"));
 
 export { ScheduledActionArgs, ScheduledActionState } from "./scheduledAction";
 export type ScheduledAction = import("./scheduledAction").ScheduledAction;
 export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
+utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
 
 export { SecurityGroupArgs, SecurityGroupState } from "./securityGroup";
 export type SecurityGroup = import("./securityGroup").SecurityGroup;
 export const SecurityGroup: typeof import("./securityGroup").SecurityGroup = null as any;
+utilities.lazyLoad(exports, ["SecurityGroup"], () => require("./securityGroup"));
 
 export { SnapshotCopyGrantArgs, SnapshotCopyGrantState } from "./snapshotCopyGrant";
 export type SnapshotCopyGrant = import("./snapshotCopyGrant").SnapshotCopyGrant;
 export const SnapshotCopyGrant: typeof import("./snapshotCopyGrant").SnapshotCopyGrant = null as any;
+utilities.lazyLoad(exports, ["SnapshotCopyGrant"], () => require("./snapshotCopyGrant"));
 
 export { SnapshotScheduleArgs, SnapshotScheduleState } from "./snapshotSchedule";
 export type SnapshotSchedule = import("./snapshotSchedule").SnapshotSchedule;
 export const SnapshotSchedule: typeof import("./snapshotSchedule").SnapshotSchedule = null as any;
+utilities.lazyLoad(exports, ["SnapshotSchedule"], () => require("./snapshotSchedule"));
 
 export { SnapshotScheduleAssociationArgs, SnapshotScheduleAssociationState } from "./snapshotScheduleAssociation";
 export type SnapshotScheduleAssociation = import("./snapshotScheduleAssociation").SnapshotScheduleAssociation;
 export const SnapshotScheduleAssociation: typeof import("./snapshotScheduleAssociation").SnapshotScheduleAssociation = null as any;
+utilities.lazyLoad(exports, ["SnapshotScheduleAssociation"], () => require("./snapshotScheduleAssociation"));
 
 export { SubnetGroupArgs, SubnetGroupState } from "./subnetGroup";
 export type SubnetGroup = import("./subnetGroup").SubnetGroup;
 export const SubnetGroup: typeof import("./subnetGroup").SubnetGroup = null as any;
+utilities.lazyLoad(exports, ["SubnetGroup"], () => require("./subnetGroup"));
 
 export { UsageLimitArgs, UsageLimitState } from "./usageLimit";
 export type UsageLimit = import("./usageLimit").UsageLimit;
 export const UsageLimit: typeof import("./usageLimit").UsageLimit = null as any;
-
-utilities.lazyLoad(exports, ["AuthenticationProfile"], () => require("./authenticationProfile"));
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["ClusterIamRoles"], () => require("./clusterIamRoles"));
-utilities.lazyLoad(exports, ["EndpointAccess"], () => require("./endpointAccess"));
-utilities.lazyLoad(exports, ["EndpointAuthorization"], () => require("./endpointAuthorization"));
-utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
-utilities.lazyLoad(exports, ["getClusterCredentials","getClusterCredentialsOutput"], () => require("./getClusterCredentials"));
-utilities.lazyLoad(exports, ["getOrderableCluster","getOrderableClusterOutput"], () => require("./getOrderableCluster"));
-utilities.lazyLoad(exports, ["getServiceAccount","getServiceAccountOutput"], () => require("./getServiceAccount"));
-utilities.lazyLoad(exports, ["getSubnetGroup","getSubnetGroupOutput"], () => require("./getSubnetGroup"));
-utilities.lazyLoad(exports, ["HsmClientCertificate"], () => require("./hsmClientCertificate"));
-utilities.lazyLoad(exports, ["HsmConfiguration"], () => require("./hsmConfiguration"));
-utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
-utilities.lazyLoad(exports, ["Partner"], () => require("./partner"));
-utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
-utilities.lazyLoad(exports, ["SecurityGroup"], () => require("./securityGroup"));
-utilities.lazyLoad(exports, ["SnapshotCopyGrant"], () => require("./snapshotCopyGrant"));
-utilities.lazyLoad(exports, ["SnapshotSchedule"], () => require("./snapshotSchedule"));
-utilities.lazyLoad(exports, ["SnapshotScheduleAssociation"], () => require("./snapshotScheduleAssociation"));
-utilities.lazyLoad(exports, ["SubnetGroup"], () => require("./subnetGroup"));
 utilities.lazyLoad(exports, ["UsageLimit"], () => require("./usageLimit"));
+
 
 const _module = {
     version: utilities.getVersion(),

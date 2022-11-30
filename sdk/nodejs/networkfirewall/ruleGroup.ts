@@ -35,39 +35,6 @@ import * as utilities from "../utilities";
  *     type: "STATEFUL",
  * });
  * ```
- * ### Stateful Inspection for blocking packets from going to an intended destination
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.RuleGroup("example", {
- *     capacity: 100,
- *     ruleGroup: {
- *         rulesSource: {
- *             statefulRules: [{
- *                 action: "DROP",
- *                 header: {
- *                     destination: "124.1.1.24/32",
- *                     destinationPort: "53",
- *                     direction: "ANY",
- *                     protocol: "TCP",
- *                     source: "1.2.3.4/32",
- *                     sourcePort: "53",
- *                 },
- *                 ruleOptions: [{
- *                     keyword: "sid:1",
- *                 }],
- *             }],
- *         },
- *     },
- *     tags: {
- *         Tag1: "Value1",
- *         Tag2: "Value2",
- *     },
- *     type: "STATEFUL",
- * });
- * ```
  * ### Stateful Inspection from rules specifications defined in Suricata flat format
  *
  * ```typescript
@@ -133,71 +100,6 @@ import * as utilities from "../utilities";
  *         Tag1: "Value1",
  *         Tag2: "Value2",
  *     },
- * });
- * ```
- * ### Stateless Inspection with a Custom Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.RuleGroup("example", {
- *     capacity: 100,
- *     description: "Stateless Rate Limiting Rule",
- *     ruleGroup: {
- *         rulesSource: {
- *             statelessRulesAndCustomActions: {
- *                 customActions: [{
- *                     actionDefinition: {
- *                         publishMetricAction: {
- *                             dimensions: [{
- *                                 value: "2",
- *                             }],
- *                         },
- *                     },
- *                     actionName: "ExampleMetricsAction",
- *                 }],
- *                 statelessRules: [{
- *                     priority: 1,
- *                     ruleDefinition: {
- *                         actions: [
- *                             "aws:pass",
- *                             "ExampleMetricsAction",
- *                         ],
- *                         matchAttributes: {
- *                             destinations: [{
- *                                 addressDefinition: "124.1.1.5/32",
- *                             }],
- *                             destinationPorts: [{
- *                                 fromPort: 443,
- *                                 toPort: 443,
- *                             }],
- *                             protocols: [6],
- *                             sources: [{
- *                                 addressDefinition: "1.2.3.4/32",
- *                             }],
- *                             sourcePorts: [{
- *                                 fromPort: 443,
- *                                 toPort: 443,
- *                             }],
- *                             tcpFlags: [{
- *                                 flags: ["SYN"],
- *                                 masks: [
- *                                     "SYN",
- *                                     "ACK",
- *                                 ],
- *                             }],
- *                         },
- *                     },
- *                 }],
- *             },
- *         },
- *     },
- *     tags: {
- *         Tag1: "Value1",
- *         Tag2: "Value2",
- *     },
- *     type: "STATELESS",
  * });
  * ```
  *

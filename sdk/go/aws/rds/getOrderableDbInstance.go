@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
+//			_, err = rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
 //				Engine:        "mysql",
 //				EngineVersion: pulumi.StringRef("5.7.22"),
 //				LicenseModel:  pulumi.StringRef("general-public-license"),
@@ -60,7 +60,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
+//			_, err = rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
 //				Engine:       "mysql",
 //				LicenseModel: pulumi.StringRef("general-public-license"),
 //				PreferredEngineVersions: []string{

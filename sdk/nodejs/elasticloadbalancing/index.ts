@@ -8,58 +8,58 @@ import * as utilities from "../utilities";
 export { AppCookieStickinessPolicyArgs, AppCookieStickinessPolicyState } from "./appCookieStickinessPolicy";
 export type AppCookieStickinessPolicy = import("./appCookieStickinessPolicy").AppCookieStickinessPolicy;
 export const AppCookieStickinessPolicy: typeof import("./appCookieStickinessPolicy").AppCookieStickinessPolicy = null as any;
+utilities.lazyLoad(exports, ["AppCookieStickinessPolicy"], () => require("./appCookieStickinessPolicy"));
 
 export { AttachmentArgs, AttachmentState } from "./attachment";
 export type Attachment = import("./attachment").Attachment;
 export const Attachment: typeof import("./attachment").Attachment = null as any;
+utilities.lazyLoad(exports, ["Attachment"], () => require("./attachment"));
 
 export { GetHostedZoneIdArgs, GetHostedZoneIdResult, GetHostedZoneIdOutputArgs } from "./getHostedZoneId";
 export const getHostedZoneId: typeof import("./getHostedZoneId").getHostedZoneId = null as any;
 export const getHostedZoneIdOutput: typeof import("./getHostedZoneId").getHostedZoneIdOutput = null as any;
+utilities.lazyLoad(exports, ["getHostedZoneId","getHostedZoneIdOutput"], () => require("./getHostedZoneId"));
 
 export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
 export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
 export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
+utilities.lazyLoad(exports, ["getLoadBalancer","getLoadBalancerOutput"], () => require("./getLoadBalancer"));
 
 export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutputArgs } from "./getServiceAccount";
 export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
 export const getServiceAccountOutput: typeof import("./getServiceAccount").getServiceAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceAccount","getServiceAccountOutput"], () => require("./getServiceAccount"));
 
 export { ListenerPolicyArgs, ListenerPolicyState } from "./listenerPolicy";
 export type ListenerPolicy = import("./listenerPolicy").ListenerPolicy;
 export const ListenerPolicy: typeof import("./listenerPolicy").ListenerPolicy = null as any;
+utilities.lazyLoad(exports, ["ListenerPolicy"], () => require("./listenerPolicy"));
 
 export { LoadBalancerArgs, LoadBalancerState } from "./loadBalancer";
 export type LoadBalancer = import("./loadBalancer").LoadBalancer;
 export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
+utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
 
 export { LoadBalancerBackendServerPolicyArgs, LoadBalancerBackendServerPolicyState } from "./loadBalancerBackendServerPolicy";
 export type LoadBalancerBackendServerPolicy = import("./loadBalancerBackendServerPolicy").LoadBalancerBackendServerPolicy;
 export const LoadBalancerBackendServerPolicy: typeof import("./loadBalancerBackendServerPolicy").LoadBalancerBackendServerPolicy = null as any;
+utilities.lazyLoad(exports, ["LoadBalancerBackendServerPolicy"], () => require("./loadBalancerBackendServerPolicy"));
 
 export { LoadBalancerCookieStickinessPolicyArgs, LoadBalancerCookieStickinessPolicyState } from "./loadBalancerCookieStickinessPolicy";
 export type LoadBalancerCookieStickinessPolicy = import("./loadBalancerCookieStickinessPolicy").LoadBalancerCookieStickinessPolicy;
 export const LoadBalancerCookieStickinessPolicy: typeof import("./loadBalancerCookieStickinessPolicy").LoadBalancerCookieStickinessPolicy = null as any;
+utilities.lazyLoad(exports, ["LoadBalancerCookieStickinessPolicy"], () => require("./loadBalancerCookieStickinessPolicy"));
 
 export { LoadBalancerPolicyArgs, LoadBalancerPolicyState } from "./loadBalancerPolicy";
 export type LoadBalancerPolicy = import("./loadBalancerPolicy").LoadBalancerPolicy;
 export const LoadBalancerPolicy: typeof import("./loadBalancerPolicy").LoadBalancerPolicy = null as any;
+utilities.lazyLoad(exports, ["LoadBalancerPolicy"], () => require("./loadBalancerPolicy"));
 
 export { SslNegotiationPolicyArgs, SslNegotiationPolicyState } from "./sslNegotiationPolicy";
 export type SslNegotiationPolicy = import("./sslNegotiationPolicy").SslNegotiationPolicy;
 export const SslNegotiationPolicy: typeof import("./sslNegotiationPolicy").SslNegotiationPolicy = null as any;
-
-utilities.lazyLoad(exports, ["AppCookieStickinessPolicy"], () => require("./appCookieStickinessPolicy"));
-utilities.lazyLoad(exports, ["Attachment"], () => require("./attachment"));
-utilities.lazyLoad(exports, ["getHostedZoneId","getHostedZoneIdOutput"], () => require("./getHostedZoneId"));
-utilities.lazyLoad(exports, ["getLoadBalancer","getLoadBalancerOutput"], () => require("./getLoadBalancer"));
-utilities.lazyLoad(exports, ["getServiceAccount","getServiceAccountOutput"], () => require("./getServiceAccount"));
-utilities.lazyLoad(exports, ["ListenerPolicy"], () => require("./listenerPolicy"));
-utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
-utilities.lazyLoad(exports, ["LoadBalancerBackendServerPolicy"], () => require("./loadBalancerBackendServerPolicy"));
-utilities.lazyLoad(exports, ["LoadBalancerCookieStickinessPolicy"], () => require("./loadBalancerCookieStickinessPolicy"));
-utilities.lazyLoad(exports, ["LoadBalancerPolicy"], () => require("./loadBalancerPolicy"));
 utilities.lazyLoad(exports, ["SslNegotiationPolicy"], () => require("./sslNegotiationPolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),

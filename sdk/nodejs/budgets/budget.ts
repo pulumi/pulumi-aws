@@ -44,7 +44,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const cost = new aws.budgets.Budget("cost", {
- *     // ...
  *     budgetType: "COST",
  *     limitAmount: "100",
  *     limitUnit: "USD",
@@ -57,20 +56,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cost = new aws.budgets.Budget("cost", {
- *     plannedLimits: [
- *         {
- *             amount: "100",
- *             startTime: "2017-07-01_00:00",
- *             unit: "USD",
- *         },
- *         {
- *             amount: "200",
- *             startTime: "2017-08-01_00:00",
- *             unit: "USD",
- *         },
- *     ],
- * });
+ * const cost = new aws.budgets.Budget("cost", {plannedLimits: [
+ *     {
+ *         amount: "100",
+ *         startTime: "2017-07-01_00:00",
+ *         unit: "USD",
+ *     },
+ *     {
+ *         amount: "200",
+ *         startTime: "2017-08-01_00:00",
+ *         unit: "USD",
+ *     },
+ * ]});
  * ```
  *
  * Create a budget for s3 with a limit of *3 GB* of storage.
@@ -80,7 +77,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const s3 = new aws.budgets.Budget("s3", {
- *     // ...
  *     budgetType: "USAGE",
  *     limitAmount: "3",
  *     limitUnit: "GB",
@@ -93,8 +89,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const savingsPlanUtilization = new aws.budgets.Budget("savings_plan_utilization", {
- *     // ...
+ * const savingsPlanUtilization = new aws.budgets.Budget("savingsPlanUtilization", {
  *     budgetType: "SAVINGS_PLANS_UTILIZATION",
  *     costTypes: {
  *         includeCredit: false,
@@ -119,15 +114,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const riUtilization = new aws.budgets.Budget("ri_utilization", {
- *     // ...
+ * const riUtilization = new aws.budgets.Budget("riUtilization", {
  *     budgetType: "RI_UTILIZATION",
- *     // RI Utilization plans require a service cost filter to be set
  *     costFilters: [{
  *         name: "Service",
  *         values: ["Amazon Relational Database Service"],
  *     }],
- *     //Cost types must be defined for RI budgets because the settings conflict with the defaults
  *     costTypes: {
  *         includeCredit: false,
  *         includeDiscount: false,
@@ -140,7 +132,7 @@ import * as utilities from "../utilities";
  *         includeUpfront: false,
  *         useBlended: false,
  *     },
- *     limitAmount: "100.0", // RI utilization must be 100
+ *     limitAmount: "100.0",
  *     limitUnit: "PERCENTAGE",
  * });
  * ```

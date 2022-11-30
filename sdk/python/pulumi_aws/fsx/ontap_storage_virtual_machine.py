@@ -472,13 +472,15 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["file_system_id"] = file_system_id
             __props__.__dict__["name"] = name
             __props__.__dict__["root_volume_security_style"] = root_volume_security_style
-            __props__.__dict__["svm_admin_password"] = svm_admin_password
+            __props__.__dict__["svm_admin_password"] = None if svm_admin_password is None else pulumi.Output.secret(svm_admin_password)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoints"] = None
             __props__.__dict__["subtype"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["uuid"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["svmAdminPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OntapStorageVirtualMachine, __self__).__init__(
             'aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine',
             resource_name,

@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 export { CertificateArgs, CertificateState } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
 export { CertificateValidationArgs, CertificateValidationState } from "./certificateValidation";
 export type CertificateValidation = import("./certificateValidation").CertificateValidation;
 export const CertificateValidation: typeof import("./certificateValidation").CertificateValidation = null as any;
+utilities.lazyLoad(exports, ["CertificateValidation"], () => require("./certificateValidation"));
 
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
-
-utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
-utilities.lazyLoad(exports, ["CertificateValidation"], () => require("./certificateValidation"));
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
 
 const _module = {
     version: utilities.getVersion(),

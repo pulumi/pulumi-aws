@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const centos = pulumi.output(aws.ssm.getPatchBaseline({
+ * const centos = aws.ssm.getPatchBaseline({
  *     namePrefix: "AWS-",
  *     operatingSystem: "CENTOS",
  *     owner: "AWS",
- * }));
+ * });
  * ```
  *
  * To retrieve a baseline on your account:
@@ -31,20 +31,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultCustom = pulumi.output(aws.ssm.getPatchBaseline({
+ * const defaultCustom = aws.ssm.getPatchBaseline({
  *     defaultBaseline: true,
  *     namePrefix: "MyCustomBaseline",
  *     operatingSystem: "WINDOWS",
  *     owner: "Self",
- * }));
+ * });
  * ```
  */
 export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getPatchBaseline:getPatchBaseline", {
         "defaultBaseline": args.defaultBaseline,
         "namePrefix": args.namePrefix,

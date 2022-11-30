@@ -13,22 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.neptune.getEngineVersion({
+ * const test = aws.neptune.getEngineVersion({
  *     preferredVersions: [
  *         "1.0.3.0",
  *         "1.0.2.2",
  *         "1.0.2.1",
  *     ],
- * }));
+ * });
  * ```
  */
 export function getEngineVersion(args?: GetEngineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEngineVersionResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:neptune/getEngineVersion:getEngineVersion", {
         "engine": args.engine,
         "parameterGroupFamily": args.parameterGroupFamily,

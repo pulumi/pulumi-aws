@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetManagedPrefixListResult> InvokeAsync(GetManagedPrefixListArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrefixListResult>("aws:ec2/getManagedPrefixList:getManagedPrefixList", args ?? new GetManagedPrefixListArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrefixListResult>("aws:ec2/getManagedPrefixList:getManagedPrefixList", args ?? new GetManagedPrefixListArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetManagedPrefixListResult> Invoke(GetManagedPrefixListInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedPrefixListResult>("aws:ec2/getManagedPrefixList:getManagedPrefixList", args ?? new GetManagedPrefixListInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrefixListResult>("aws:ec2/getManagedPrefixList:getManagedPrefixList", args ?? new GetManagedPrefixListInvokeArgs(), options.WithDefaults());
     }
 
 

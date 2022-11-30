@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.GetReleaseLabels(ctx, &emr.GetReleaseLabelsArgs{
+//			_, err = emr.GetReleaseLabels(ctx, &emr.GetReleaseLabelsArgs{
 //				Filters: emr.GetReleaseLabelsFilters{
 //					Application: pulumi.StringRef("spark@2.1.0"),
 //					Prefix:      pulumi.StringRef("emr-5"),

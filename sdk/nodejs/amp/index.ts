@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { AlertManagerDefinitionArgs, AlertManagerDefinitionState } from "./alertManagerDefinition";
 export type AlertManagerDefinition = import("./alertManagerDefinition").AlertManagerDefinition;
 export const AlertManagerDefinition: typeof import("./alertManagerDefinition").AlertManagerDefinition = null as any;
+utilities.lazyLoad(exports, ["AlertManagerDefinition"], () => require("./alertManagerDefinition"));
 
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
 export { RuleGroupNamespaceArgs, RuleGroupNamespaceState } from "./ruleGroupNamespace";
 export type RuleGroupNamespace = import("./ruleGroupNamespace").RuleGroupNamespace;
 export const RuleGroupNamespace: typeof import("./ruleGroupNamespace").RuleGroupNamespace = null as any;
+utilities.lazyLoad(exports, ["RuleGroupNamespace"], () => require("./ruleGroupNamespace"));
 
 export { WorkspaceArgs, WorkspaceState } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
-
-utilities.lazyLoad(exports, ["AlertManagerDefinition"], () => require("./alertManagerDefinition"));
-utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
-utilities.lazyLoad(exports, ["RuleGroupNamespace"], () => require("./ruleGroupNamespace"));
 utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+
 
 const _module = {
     version: utilities.getVersion(),

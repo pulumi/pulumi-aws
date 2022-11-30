@@ -13,17 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ses.getDomainIdentity({
+ * const example = aws.ses.getDomainIdentity({
  *     domain: "example.com",
- * }));
+ * });
  * ```
  */
 export function getDomainIdentity(args: GetDomainIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainIdentityResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ses/getDomainIdentity:getDomainIdentity", {
         "domain": args.domain,
     }, opts);

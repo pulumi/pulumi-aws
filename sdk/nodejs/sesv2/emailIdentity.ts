@@ -19,9 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sesv2.EmailIdentity("example", {
- *     emailIdentity: "testing@example.com",
- * });
+ * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "testing@example.com"});
  * ```
  * ### Domain Identity
  *
@@ -29,9 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sesv2.EmailIdentity("example", {
- *     emailIdentity: "example.com",
- * });
+ * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "example.com"});
  * ```
  * ### Configuration Set
  *

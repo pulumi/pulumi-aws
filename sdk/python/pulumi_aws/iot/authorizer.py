@@ -388,8 +388,10 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["signing_disabled"] = signing_disabled
             __props__.__dict__["status"] = status
             __props__.__dict__["token_key_name"] = token_key_name
-            __props__.__dict__["token_signing_public_keys"] = token_signing_public_keys
+            __props__.__dict__["token_signing_public_keys"] = None if token_signing_public_keys is None else pulumi.Output.secret(token_signing_public_keys)
             __props__.__dict__["arn"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tokenSigningPublicKeys"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Authorizer, __self__).__init__(
             'aws:iot/authorizer:Authorizer',
             resource_name,

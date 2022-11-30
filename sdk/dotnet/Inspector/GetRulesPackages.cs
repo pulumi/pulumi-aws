@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Inspector
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRulesPackagesResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

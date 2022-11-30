@@ -91,7 +91,7 @@ import (
 //					pulumi.String("push"),
 //				},
 //				Repository: pulumi.Any(github_repository.Example.Name),
-//				Configuration: &RepositoryWebhookConfigurationArgs{
+//				Configuration: &github.RepositoryWebhookConfigurationArgs{
 //					Url:         exampleWebhook.PayloadUrl,
 //					Secret:      exampleWebhook.Secret,
 //					ContentType: pulumi.String("json"),
@@ -145,6 +145,10 @@ func NewWebhook(ctx *pulumi.Context,
 	if args.ProjectName == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"secret",
+	})
+	opts = append(opts, secrets)
 	var resource Webhook
 	err := ctx.RegisterResource("aws:codebuild/webhook:Webhook", name, args, &resource, opts...)
 	if err != nil {

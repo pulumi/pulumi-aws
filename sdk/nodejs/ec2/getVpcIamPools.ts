@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.ec2.getVpcIamPools({
+ * const test = aws.ec2.getVpcIamPools({
  *     filters: [
  *         {
  *             name: "description",
@@ -31,16 +31,13 @@ import * as utilities from "../utilities";
  *             values: ["ipv4"],
  *         },
  *     ],
- * }));
+ * });
  * ```
  */
 export function getVpcIamPools(args?: GetVpcIamPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcIamPools:getVpcIamPools", {
         "filters": args.filters,
     }, opts);

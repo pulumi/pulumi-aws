@@ -142,7 +142,7 @@ export class LocationFsxWindows extends pulumi.CustomResource {
             }
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -153,6 +153,8 @@ export class LocationFsxWindows extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LocationFsxWindows.__pulumiType, name, resourceInputs, opts);
     }
 }

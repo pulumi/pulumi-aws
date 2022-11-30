@@ -17,9 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "API_KEY",
- * });
+ * const example = new aws.appsync.GraphQLApi("example", {authenticationType: "API_KEY"});
  * ```
  * ### AWS IAM Authentication
  *
@@ -27,9 +25,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "AWS_IAM",
- * });
+ * const example = new aws.appsync.GraphQLApi("example", {authenticationType: "AWS_IAM"});
  * ```
  * ### AWS Cognito User Pool Authentication
  *
@@ -105,6 +101,7 @@ import * as utilities from "../utilities";
  * type Query {
  *   test: Int
  * }
+ *
  * `,
  * });
  * ```

@@ -65,7 +65,7 @@ import {Topic} from "../sns";
  * import * as aws from "@pulumi/aws";
  *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
- *     alarmDescription: "Request error rate has exceeded 10%",
+ *     alarmDescription: `Request error rate has exceeded 10%`,
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     evaluationPeriods: 2,
  *     insufficientDataActions: [],
@@ -111,7 +111,7 @@ import {Topic} from "../sns";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const xxAnomalyDetection = new aws.cloudwatch.MetricAlarm("xx_anomaly_detection", {
+ * const xxAnomalyDetection = new aws.cloudwatch.MetricAlarm("xxAnomalyDetection", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     comparisonOperator: "GreaterThanUpperThreshold",
  *     evaluationPeriods: 2,

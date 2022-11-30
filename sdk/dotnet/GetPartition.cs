@@ -53,7 +53,7 @@ namespace Pulumi.Aws
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPartitionResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

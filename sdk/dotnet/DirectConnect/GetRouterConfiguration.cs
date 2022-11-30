@@ -38,7 +38,7 @@ namespace Pulumi.Aws.DirectConnect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRouterConfigurationResult> InvokeAsync(GetRouterConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouterConfigurationResult>("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args ?? new GetRouterConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouterConfigurationResult>("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args ?? new GetRouterConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.DirectConnect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRouterConfigurationResult> Invoke(GetRouterConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRouterConfigurationResult>("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args ?? new GetRouterConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouterConfigurationResult>("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args ?? new GetRouterConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

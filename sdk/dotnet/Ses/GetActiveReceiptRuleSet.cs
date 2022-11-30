@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ses
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetActiveReceiptRuleSetResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

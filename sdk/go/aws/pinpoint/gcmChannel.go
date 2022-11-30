@@ -77,6 +77,13 @@ func NewGcmChannel(ctx *pulumi.Context,
 	if args.ApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
+	if args.ApiKey != nil {
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiKey",
+	})
+	opts = append(opts, secrets)
 	var resource GcmChannel
 	err := ctx.RegisterResource("aws:pinpoint/gcmChannel:GcmChannel", name, args, &resource, opts...)
 	if err != nil {

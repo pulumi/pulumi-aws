@@ -27,9 +27,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.networkfirewall.getFirewall({
+ * const example = aws.networkfirewall.getFirewall({
  *     name: "Test",
- * }));
+ * });
  * ```
  * ### Find firewall policy by ARN and Name
  *
@@ -45,11 +45,8 @@ import * as utilities from "../utilities";
  */
 export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkfirewall/getFirewall:getFirewall", {
         "arn": args.arn,
         "name": args.name,

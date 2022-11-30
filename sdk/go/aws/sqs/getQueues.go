@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sqs.GetQueues(ctx, &sqs.GetQueuesArgs{
+//			_, err = sqs.GetQueues(ctx, &sqs.GetQueuesArgs{
 //				QueueNamePrefix: pulumi.StringRef("example"),
 //			}, nil)
 //			if err != nil {

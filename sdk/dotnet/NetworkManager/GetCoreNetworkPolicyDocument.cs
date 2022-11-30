@@ -145,7 +145,7 @@ namespace Pulumi.Aws.NetworkManager
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCoreNetworkPolicyDocumentResult> InvokeAsync(GetCoreNetworkPolicyDocumentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCoreNetworkPolicyDocumentResult>("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args ?? new GetCoreNetworkPolicyDocumentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCoreNetworkPolicyDocumentResult>("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args ?? new GetCoreNetworkPolicyDocumentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awscc_networkmanager_core_network`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.NetworkManager
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCoreNetworkPolicyDocumentResult> Invoke(GetCoreNetworkPolicyDocumentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCoreNetworkPolicyDocumentResult>("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args ?? new GetCoreNetworkPolicyDocumentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCoreNetworkPolicyDocumentResult>("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args ?? new GetCoreNetworkPolicyDocumentInvokeArgs(), options.WithDefaults());
     }
 
 

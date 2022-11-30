@@ -285,7 +285,7 @@ namespace Pulumi.Aws.Glue
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetScriptResult> InvokeAsync(GetScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("aws:glue/getScript:getScript", args ?? new GetScriptArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("aws:glue/getScript:getScript", args ?? new GetScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
@@ -561,7 +561,7 @@ namespace Pulumi.Aws.Glue
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetScriptResult> Invoke(GetScriptInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScriptResult>("aws:glue/getScript:getScript", args ?? new GetScriptInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScriptResult>("aws:glue/getScript:getScript", args ?? new GetScriptInvokeArgs(), options.WithDefaults());
     }
 
 

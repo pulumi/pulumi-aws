@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEipsResult> InvokeAsync(GetEipsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEipsResult>("aws:ec2/getEips:getEips", args ?? new GetEipsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEipsResult>("aws:ec2/getEips:getEips", args ?? new GetEipsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a list of Elastic IPs in a region.
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEipsResult> Invoke(GetEipsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEipsResult>("aws:ec2/getEips:getEips", args ?? new GetEipsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEipsResult>("aws:ec2/getEips:getEips", args ?? new GetEipsInvokeArgs(), options.WithDefaults());
     }
 
 

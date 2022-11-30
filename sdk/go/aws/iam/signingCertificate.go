@@ -13,6 +13,74 @@ import (
 
 // Provides an IAM Signing Certificate resource to upload Signing Certificates.
 //
+// ## Example Usage
+//
+// **Using certs on file:**
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewSigningCertificate(ctx, "testCert", &iam.SigningCertificateArgs{
+//				Username:        pulumi.String("some_test_cert"),
+//				CertificateBody: readFileOrPanic("self-ca-cert.pem"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// **Example with cert in-line:**
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewSigningCertificate(ctx, "testCertAlt", &iam.SigningCertificateArgs{
+//				CertificateBody: pulumi.String(fmt.Sprintf("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n\n")),
+//				Username:        pulumi.String("some_test_cert"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // IAM Signing Certificates can be imported using the `id`, e.g.,

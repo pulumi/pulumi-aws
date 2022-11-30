@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { ClusterArgs, ClusterState } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
 export { GetReleaseLabelsArgs, GetReleaseLabelsResult, GetReleaseLabelsOutputArgs } from "./getReleaseLabels";
 export const getReleaseLabels: typeof import("./getReleaseLabels").getReleaseLabels = null as any;
 export const getReleaseLabelsOutput: typeof import("./getReleaseLabels").getReleaseLabelsOutput = null as any;
+utilities.lazyLoad(exports, ["getReleaseLabels","getReleaseLabelsOutput"], () => require("./getReleaseLabels"));
 
 export { InstanceFleetArgs, InstanceFleetState } from "./instanceFleet";
 export type InstanceFleet = import("./instanceFleet").InstanceFleet;
 export const InstanceFleet: typeof import("./instanceFleet").InstanceFleet = null as any;
+utilities.lazyLoad(exports, ["InstanceFleet"], () => require("./instanceFleet"));
 
 export { InstanceGroupArgs, InstanceGroupState } from "./instanceGroup";
 export type InstanceGroup = import("./instanceGroup").InstanceGroup;
 export const InstanceGroup: typeof import("./instanceGroup").InstanceGroup = null as any;
+utilities.lazyLoad(exports, ["InstanceGroup"], () => require("./instanceGroup"));
 
 export { ManagedScalingPolicyArgs, ManagedScalingPolicyState } from "./managedScalingPolicy";
 export type ManagedScalingPolicy = import("./managedScalingPolicy").ManagedScalingPolicy;
 export const ManagedScalingPolicy: typeof import("./managedScalingPolicy").ManagedScalingPolicy = null as any;
+utilities.lazyLoad(exports, ["ManagedScalingPolicy"], () => require("./managedScalingPolicy"));
 
 export { SecurityConfigurationArgs, SecurityConfigurationState } from "./securityConfiguration";
 export type SecurityConfiguration = import("./securityConfiguration").SecurityConfiguration;
 export const SecurityConfiguration: typeof import("./securityConfiguration").SecurityConfiguration = null as any;
+utilities.lazyLoad(exports, ["SecurityConfiguration"], () => require("./securityConfiguration"));
 
 export { StudioArgs, StudioState } from "./studio";
 export type Studio = import("./studio").Studio;
 export const Studio: typeof import("./studio").Studio = null as any;
+utilities.lazyLoad(exports, ["Studio"], () => require("./studio"));
 
 export { StudioSessionMappingArgs, StudioSessionMappingState } from "./studioSessionMapping";
 export type StudioSessionMapping = import("./studioSessionMapping").StudioSessionMapping;
 export const StudioSessionMapping: typeof import("./studioSessionMapping").StudioSessionMapping = null as any;
-
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["getReleaseLabels","getReleaseLabelsOutput"], () => require("./getReleaseLabels"));
-utilities.lazyLoad(exports, ["InstanceFleet"], () => require("./instanceFleet"));
-utilities.lazyLoad(exports, ["InstanceGroup"], () => require("./instanceGroup"));
-utilities.lazyLoad(exports, ["ManagedScalingPolicy"], () => require("./managedScalingPolicy"));
-utilities.lazyLoad(exports, ["SecurityConfiguration"], () => require("./securityConfiguration"));
-utilities.lazyLoad(exports, ["Studio"], () => require("./studio"));
 utilities.lazyLoad(exports, ["StudioSessionMapping"], () => require("./studioSessionMapping"));
+
 
 const _module = {
     version: utilities.getVersion(),

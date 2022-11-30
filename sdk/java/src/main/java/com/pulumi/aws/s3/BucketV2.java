@@ -364,6 +364,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Using object lock configuration
+ * 
  * ```java
  * package generated_program;
  * 

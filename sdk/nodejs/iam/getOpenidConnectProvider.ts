@@ -15,27 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.iam.getOpenidConnectProvider({
+ * const example = aws.iam.getOpenidConnectProvider({
  *     arn: "arn:aws:iam::123456789012:oidc-provider/accounts.google.com",
- * }));
+ * });
  * ```
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.iam.getOpenidConnectProvider({
+ * const example = aws.iam.getOpenidConnectProvider({
  *     url: "https://accounts.google.com",
- * }));
+ * });
  * ```
  */
 export function getOpenidConnectProvider(args?: GetOpenidConnectProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenidConnectProviderResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getOpenidConnectProvider:getOpenidConnectProvider", {
         "arn": args.arn,
         "tags": args.tags,

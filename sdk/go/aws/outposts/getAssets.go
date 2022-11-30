@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetAssets(ctx, &outposts.GetAssetsArgs{
+//			_, err = outposts.GetAssets(ctx, &outposts.GetAssetsArgs{
 //				Arn: data.Aws_outposts_outpost.Example.Arn,
 //			}, nil)
 //			if err != nil {
@@ -52,7 +52,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetAssets(ctx, &outposts.GetAssetsArgs{
+//			_, err = outposts.GetAssets(ctx, &outposts.GetAssetsArgs{
 //				Arn: data.Aws_outposts_outpost.Example.Arn,
 //				HostIdFilters: []string{
 //					"h-x38g5n0yd2a0ueb61",
@@ -80,7 +80,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetAssets(ctx, &outposts.GetAssetsArgs{
+//			_, err = outposts.GetAssets(ctx, &outposts.GetAssetsArgs{
 //				Arn: data.Aws_outposts_outpost.Example.Arn,
 //				StatusIdFilters: []string{
 //					"ACTIVE",

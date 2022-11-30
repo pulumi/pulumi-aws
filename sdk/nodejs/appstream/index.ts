@@ -8,38 +8,38 @@ import * as utilities from "../utilities";
 export { DirectoryConfigArgs, DirectoryConfigState } from "./directoryConfig";
 export type DirectoryConfig = import("./directoryConfig").DirectoryConfig;
 export const DirectoryConfig: typeof import("./directoryConfig").DirectoryConfig = null as any;
+utilities.lazyLoad(exports, ["DirectoryConfig"], () => require("./directoryConfig"));
 
 export { FleetArgs, FleetState } from "./fleet";
 export type Fleet = import("./fleet").Fleet;
 export const Fleet: typeof import("./fleet").Fleet = null as any;
+utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
 
 export { FleetStackAssociationArgs, FleetStackAssociationState } from "./fleetStackAssociation";
 export type FleetStackAssociation = import("./fleetStackAssociation").FleetStackAssociation;
 export const FleetStackAssociation: typeof import("./fleetStackAssociation").FleetStackAssociation = null as any;
+utilities.lazyLoad(exports, ["FleetStackAssociation"], () => require("./fleetStackAssociation"));
 
 export { ImageBuilderArgs, ImageBuilderState } from "./imageBuilder";
 export type ImageBuilder = import("./imageBuilder").ImageBuilder;
 export const ImageBuilder: typeof import("./imageBuilder").ImageBuilder = null as any;
+utilities.lazyLoad(exports, ["ImageBuilder"], () => require("./imageBuilder"));
 
 export { StackArgs, StackState } from "./stack";
 export type Stack = import("./stack").Stack;
 export const Stack: typeof import("./stack").Stack = null as any;
+utilities.lazyLoad(exports, ["Stack"], () => require("./stack"));
 
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
 export { UserStackAssociationArgs, UserStackAssociationState } from "./userStackAssociation";
 export type UserStackAssociation = import("./userStackAssociation").UserStackAssociation;
 export const UserStackAssociation: typeof import("./userStackAssociation").UserStackAssociation = null as any;
-
-utilities.lazyLoad(exports, ["DirectoryConfig"], () => require("./directoryConfig"));
-utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
-utilities.lazyLoad(exports, ["FleetStackAssociation"], () => require("./fleetStackAssociation"));
-utilities.lazyLoad(exports, ["ImageBuilder"], () => require("./imageBuilder"));
-utilities.lazyLoad(exports, ["Stack"], () => require("./stack"));
-utilities.lazyLoad(exports, ["User"], () => require("./user"));
 utilities.lazyLoad(exports, ["UserStackAssociation"], () => require("./userStackAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),

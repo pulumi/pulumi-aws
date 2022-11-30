@@ -50,6 +50,13 @@ func NewSharedDirectory(ctx *pulumi.Context,
 	if args.Target == nil {
 		return nil, errors.New("invalid value for required argument 'Target'")
 	}
+	if args.Notes != nil {
+		args.Notes = pulumi.ToSecret(args.Notes).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"notes",
+	})
+	opts = append(opts, secrets)
 	var resource SharedDirectory
 	err := ctx.RegisterResource("aws:directoryservice/sharedDirectory:SharedDirectory", name, args, &resource, opts...)
 	if err != nil {

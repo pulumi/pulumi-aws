@@ -93,11 +93,13 @@ export class GcmChannel extends pulumi.CustomResource {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["apiKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(GcmChannel.__pulumiType, name, resourceInputs, opts);
     }
 }

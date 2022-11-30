@@ -292,11 +292,13 @@ class Certificate(pulumi.CustomResource):
             if certificate_id is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_id'")
             __props__.__dict__["certificate_id"] = certificate_id
-            __props__.__dict__["certificate_pem"] = certificate_pem
-            __props__.__dict__["certificate_wallet"] = certificate_wallet
+            __props__.__dict__["certificate_pem"] = None if certificate_pem is None else pulumi.Output.secret(certificate_pem)
+            __props__.__dict__["certificate_wallet"] = None if certificate_wallet is None else pulumi.Output.secret(certificate_wallet)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["certificate_arn"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["certificatePem", "certificateWallet"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'aws:dms/certificate:Certificate',
             resource_name,

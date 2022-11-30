@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testFleet = new aws.appstream.Fleet("test_fleet", {
+ * const testFleet = new aws.appstream.Fleet("testFleet", {
  *     computeCapacity: {
  *         desiredInstances: 1,
  *     },

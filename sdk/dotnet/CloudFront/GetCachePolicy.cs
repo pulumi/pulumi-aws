@@ -57,7 +57,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCachePolicyResult> InvokeAsync(GetCachePolicyArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCachePolicyResult>("aws:cloudfront/getCachePolicy:getCachePolicy", args ?? new GetCachePolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCachePolicyResult>("aws:cloudfront/getCachePolicy:getCachePolicy", args ?? new GetCachePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about a CloudFront cache policy.
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCachePolicyResult> Invoke(GetCachePolicyInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCachePolicyResult>("aws:cloudfront/getCachePolicy:getCachePolicy", args ?? new GetCachePolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCachePolicyResult>("aws:cloudfront/getCachePolicy:getCachePolicy", args ?? new GetCachePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

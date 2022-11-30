@@ -16,17 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cluster = pulumi.output(aws.cloudhsmv2.getCluster({
+ * const cluster = aws.cloudhsmv2.getCluster({
  *     clusterId: "cluster-testclusterid",
- * }));
+ * });
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudhsmv2/getCluster:getCluster", {
         "clusterId": args.clusterId,
         "clusterState": args.clusterState,

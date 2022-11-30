@@ -16,19 +16,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.cloudformation.getCloudFormationType({
+ * const example = aws.cloudformation.getCloudFormationType({
  *     type: "RESOURCE",
  *     typeName: "AWS::Athena::WorkGroup",
- * }));
+ * });
  * ```
  */
 export function getCloudFormationType(args?: GetCloudFormationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationTypeResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudformation/getCloudFormationType:getCloudFormationType", {
         "arn": args.arn,
         "type": args.type,

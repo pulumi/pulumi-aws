@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Emr
     ///         {
     ///             InstanceCount = 3,
     ///         },
-    ///         CoreInstanceGroup = ,
+    ///         CoreInstanceGroup = null,
     ///     });
     /// 
     /// });

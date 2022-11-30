@@ -111,7 +111,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example: aws.route53.Record[];
+ * const example: aws.route53.Record[] = [];
  * for (const range of Object.entries(.reduce((__obj, dvo) => { ...__obj, [dvo.domainName]: {
  *     name: dvo.resourceRecordName,
  *     record: dvo.resourceRecordValue,
@@ -311,7 +311,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["earlyRenewalDuration"] = args ? args.earlyRenewalDuration : undefined;
             resourceInputs["keyAlgorithm"] = args ? args.keyAlgorithm : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["validationMethod"] = args ? args.validationMethod : undefined;
@@ -329,6 +329,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["validationEmails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["privateKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

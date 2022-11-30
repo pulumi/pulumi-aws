@@ -69,7 +69,7 @@ namespace Pulumi.Aws
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAutoscalingGroupsResult> InvokeAsync(GetAutoscalingGroupsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAutoscalingGroupsResult>("aws:index/getAutoscalingGroups:getAutoscalingGroups", args ?? new GetAutoscalingGroupsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutoscalingGroupsResult>("aws:index/getAutoscalingGroups:getAutoscalingGroups", args ?? new GetAutoscalingGroupsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Autoscaling Groups data source allows access to the list of AWS
@@ -128,7 +128,7 @@ namespace Pulumi.Aws
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAutoscalingGroupsResult> Invoke(GetAutoscalingGroupsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAutoscalingGroupsResult>("aws:index/getAutoscalingGroups:getAutoscalingGroups", args ?? new GetAutoscalingGroupsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutoscalingGroupsResult>("aws:index/getAutoscalingGroups:getAutoscalingGroups", args ?? new GetAutoscalingGroupsInvokeArgs(), options.WithDefaults());
     }
 
 

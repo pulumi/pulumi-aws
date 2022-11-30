@@ -91,6 +91,11 @@ namespace Pulumi.Aws.Pinpoint
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "apiKey",
+                    "secretKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -114,11 +119,21 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class BaiduChannelArgs : global::Pulumi.ResourceArgs
     {
+        [Input("apiKey", required: true)]
+        private Input<string>? _apiKey;
+
         /// <summary>
         /// Platform credential API key from Baidu.
         /// </summary>
-        [Input("apiKey", required: true)]
-        public Input<string> ApiKey { get; set; } = null!;
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The application ID.
@@ -132,11 +147,21 @@ namespace Pulumi.Aws.Pinpoint
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("secretKey", required: true)]
+        private Input<string>? _secretKey;
+
         /// <summary>
         /// Platform credential Secret key from Baidu.
         /// </summary>
-        [Input("secretKey", required: true)]
-        public Input<string> SecretKey { get; set; } = null!;
+        public Input<string>? SecretKey
+        {
+            get => _secretKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public BaiduChannelArgs()
         {
@@ -146,11 +171,21 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class BaiduChannelState : global::Pulumi.ResourceArgs
     {
+        [Input("apiKey")]
+        private Input<string>? _apiKey;
+
         /// <summary>
         /// Platform credential API key from Baidu.
         /// </summary>
-        [Input("apiKey")]
-        public Input<string>? ApiKey { get; set; }
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The application ID.
@@ -164,11 +199,21 @@ namespace Pulumi.Aws.Pinpoint
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("secretKey")]
+        private Input<string>? _secretKey;
+
         /// <summary>
         /// Platform credential Secret key from Baidu.
         /// </summary>
-        [Input("secretKey")]
-        public Input<string>? SecretKey { get; set; }
+        public Input<string>? SecretKey
+        {
+            get => _secretKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public BaiduChannelState()
         {

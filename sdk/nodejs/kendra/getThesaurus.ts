@@ -16,18 +16,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.kendra.getThesaurus({
+ * const example = aws.kendra.getThesaurus({
  *     indexId: "12345678-1234-1234-1234-123456789123",
  *     thesaurusId: "87654321-1234-4321-4321-321987654321",
- * }));
+ * });
  * ```
  */
 export function getThesaurus(args: GetThesaurusArgs, opts?: pulumi.InvokeOptions): Promise<GetThesaurusResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kendra/getThesaurus:getThesaurus", {
         "indexId": args.indexId,
         "tags": args.tags,

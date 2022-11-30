@@ -1169,7 +1169,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
             __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
             __props__.__dict__["kms_key_id"] = kms_key_id
-            __props__.__dict__["master_password"] = master_password
+            __props__.__dict__["master_password"] = None if master_password is None else pulumi.Output.secret(master_password)
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
@@ -1185,6 +1185,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["reader_endpoint"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:docdb/cluster:Cluster',
             resource_name,

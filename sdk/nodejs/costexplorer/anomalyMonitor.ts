@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const serviceMonitor = new aws.costexplorer.AnomalyMonitor("service_monitor", {
+ * const serviceMonitor = new aws.costexplorer.AnomalyMonitor("serviceMonitor", {
  *     monitorDimension: "SERVICE",
  *     monitorType: "DIMENSIONAL",
  * });
@@ -42,6 +42,7 @@ import * as utilities from "../utilities";
  * 		]
  * 	}
  * }
+ *
  * `,
  *     monitorType: "CUSTOM",
  * });

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.LookupConnection(ctx, &directconnect.LookupConnectionArgs{
+//			_, err = directconnect.LookupConnection(ctx, &directconnect.LookupConnectionArgs{
 //				Name: "tf-dx-connection",
 //			}, nil)
 //			if err != nil {

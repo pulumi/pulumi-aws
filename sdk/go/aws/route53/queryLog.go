@@ -44,7 +44,7 @@ import (
 //			}
 //			awsRoute53ExampleCom, err := cloudwatch.NewLogGroup(ctx, "awsRoute53ExampleCom", &cloudwatch.LogGroupArgs{
 //				RetentionInDays: pulumi.Int(30),
-//			}, pulumi.Provider(aws.Us-east-1))
+//			}, pulumi.Provider(aws.UsEast1))
 //			if err != nil {
 //				return err
 //			}
@@ -75,7 +75,7 @@ import (
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
 //				PolicyDocument: pulumi.String(route53_query_logging_policyPolicyDocument.Json),
 //				PolicyName:     pulumi.String("route53-query-logging-policy"),
-//			}, pulumi.Provider(aws.Us-east-1))
+//			}, pulumi.Provider(aws.UsEast1))
 //			if err != nil {
 //				return err
 //			}

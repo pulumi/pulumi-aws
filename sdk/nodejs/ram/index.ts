@@ -8,28 +8,28 @@ import * as utilities from "../utilities";
 export { GetResourceShareArgs, GetResourceShareResult, GetResourceShareOutputArgs } from "./getResourceShare";
 export const getResourceShare: typeof import("./getResourceShare").getResourceShare = null as any;
 export const getResourceShareOutput: typeof import("./getResourceShare").getResourceShareOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceShare","getResourceShareOutput"], () => require("./getResourceShare"));
 
 export { PrincipalAssociationArgs, PrincipalAssociationState } from "./principalAssociation";
 export type PrincipalAssociation = import("./principalAssociation").PrincipalAssociation;
 export const PrincipalAssociation: typeof import("./principalAssociation").PrincipalAssociation = null as any;
+utilities.lazyLoad(exports, ["PrincipalAssociation"], () => require("./principalAssociation"));
 
 export { ResourceAssociationArgs, ResourceAssociationState } from "./resourceAssociation";
 export type ResourceAssociation = import("./resourceAssociation").ResourceAssociation;
 export const ResourceAssociation: typeof import("./resourceAssociation").ResourceAssociation = null as any;
+utilities.lazyLoad(exports, ["ResourceAssociation"], () => require("./resourceAssociation"));
 
 export { ResourceShareArgs, ResourceShareState } from "./resourceShare";
 export type ResourceShare = import("./resourceShare").ResourceShare;
 export const ResourceShare: typeof import("./resourceShare").ResourceShare = null as any;
+utilities.lazyLoad(exports, ["ResourceShare"], () => require("./resourceShare"));
 
 export { ResourceShareAccepterArgs, ResourceShareAccepterState } from "./resourceShareAccepter";
 export type ResourceShareAccepter = import("./resourceShareAccepter").ResourceShareAccepter;
 export const ResourceShareAccepter: typeof import("./resourceShareAccepter").ResourceShareAccepter = null as any;
-
-utilities.lazyLoad(exports, ["getResourceShare","getResourceShareOutput"], () => require("./getResourceShare"));
-utilities.lazyLoad(exports, ["PrincipalAssociation"], () => require("./principalAssociation"));
-utilities.lazyLoad(exports, ["ResourceAssociation"], () => require("./resourceAssociation"));
-utilities.lazyLoad(exports, ["ResourceShare"], () => require("./resourceShare"));
 utilities.lazyLoad(exports, ["ResourceShareAccepter"], () => require("./resourceShareAccepter"));
+
 
 const _module = {
     version: utilities.getVersion(),

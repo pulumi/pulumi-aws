@@ -385,6 +385,13 @@ func NewCluster(ctx *pulumi.Context,
 		args = &ClusterArgs{}
 	}
 
+	if args.MasterPassword != nil {
+		args.MasterPassword = pulumi.ToSecret(args.MasterPassword).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"masterPassword",
+	})
+	opts = append(opts, secrets)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:rds/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {

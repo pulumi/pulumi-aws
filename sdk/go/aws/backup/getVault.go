@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.LookupVault(ctx, &backup.LookupVaultArgs{
+//			_, err = backup.LookupVault(ctx, &backup.LookupVaultArgs{
 //				Name: "example_backup_vault",
 //			}, nil)
 //			if err != nil {

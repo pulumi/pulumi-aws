@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const simple = pulumi.output(aws.appmesh.getMesh({
+ * const simple = aws.appmesh.getMesh({
  *     name: "simpleapp",
- * }));
+ * });
  * ```
  *
  * ```typescript
@@ -33,11 +33,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMesh(args: GetMeshArgs, opts?: pulumi.InvokeOptions): Promise<GetMeshResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appmesh/getMesh:getMesh", {
         "meshOwner": args.meshOwner,
         "name": args.name,

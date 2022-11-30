@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.GetClusters(ctx, &rds.GetClustersArgs{
+//			_, err = rds.GetClusters(ctx, &rds.GetClustersArgs{
 //				Filters: []rds.GetClustersFilter{
 //					rds.GetClustersFilter{
 //						Name: "engine",

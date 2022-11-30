@@ -933,7 +933,7 @@ class Branch(pulumi.CustomResource):
                 raise TypeError("Missing required property 'app_id'")
             __props__.__dict__["app_id"] = app_id
             __props__.__dict__["backend_environment_arn"] = backend_environment_arn
-            __props__.__dict__["basic_auth_credentials"] = basic_auth_credentials
+            __props__.__dict__["basic_auth_credentials"] = None if basic_auth_credentials is None else pulumi.Output.secret(basic_auth_credentials)
             if branch_name is None and not opts.urn:
                 raise TypeError("Missing required property 'branch_name'")
             __props__.__dict__["branch_name"] = branch_name
@@ -956,6 +956,8 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["destination_branch"] = None
             __props__.__dict__["source_branch"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["basicAuthCredentials"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Branch, __self__).__init__(
             'aws:amplify/branch:Branch',
             resource_name,

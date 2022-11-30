@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ram
         /// ```
         /// </summary>
         public static Task<GetResourceShareResult> InvokeAsync(GetResourceShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Ram
         /// ```
         /// </summary>
         public static Output<GetResourceShareResult> Invoke(GetResourceShareInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareInvokeArgs(), options.WithDefaults());
     }
 
 

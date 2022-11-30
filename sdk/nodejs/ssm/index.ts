@@ -8,94 +8,94 @@ import * as utilities from "../utilities";
 export { ActivationArgs, ActivationState } from "./activation";
 export type Activation = import("./activation").Activation;
 export const Activation: typeof import("./activation").Activation = null as any;
+utilities.lazyLoad(exports, ["Activation"], () => require("./activation"));
 
 export { AssociationArgs, AssociationState } from "./association";
 export type Association = import("./association").Association;
 export const Association: typeof import("./association").Association = null as any;
+utilities.lazyLoad(exports, ["Association"], () => require("./association"));
 
 export { DefaultPatchBaselineArgs, DefaultPatchBaselineState } from "./defaultPatchBaseline";
 export type DefaultPatchBaseline = import("./defaultPatchBaseline").DefaultPatchBaseline;
 export const DefaultPatchBaseline: typeof import("./defaultPatchBaseline").DefaultPatchBaseline = null as any;
+utilities.lazyLoad(exports, ["DefaultPatchBaseline"], () => require("./defaultPatchBaseline"));
 
 export { DocumentArgs, DocumentState } from "./document";
 export type Document = import("./document").Document;
 export const Document: typeof import("./document").Document = null as any;
+utilities.lazyLoad(exports, ["Document"], () => require("./document"));
 
 export { GetDocumentArgs, GetDocumentResult, GetDocumentOutputArgs } from "./getDocument";
 export const getDocument: typeof import("./getDocument").getDocument = null as any;
 export const getDocumentOutput: typeof import("./getDocument").getDocumentOutput = null as any;
+utilities.lazyLoad(exports, ["getDocument","getDocumentOutput"], () => require("./getDocument"));
 
 export { GetInstancesArgs, GetInstancesResult, GetInstancesOutputArgs } from "./getInstances";
 export const getInstances: typeof import("./getInstances").getInstances = null as any;
 export const getInstancesOutput: typeof import("./getInstances").getInstancesOutput = null as any;
+utilities.lazyLoad(exports, ["getInstances","getInstancesOutput"], () => require("./getInstances"));
 
 export { GetMaintenanceWindowsArgs, GetMaintenanceWindowsResult, GetMaintenanceWindowsOutputArgs } from "./getMaintenanceWindows";
 export const getMaintenanceWindows: typeof import("./getMaintenanceWindows").getMaintenanceWindows = null as any;
 export const getMaintenanceWindowsOutput: typeof import("./getMaintenanceWindows").getMaintenanceWindowsOutput = null as any;
+utilities.lazyLoad(exports, ["getMaintenanceWindows","getMaintenanceWindowsOutput"], () => require("./getMaintenanceWindows"));
 
 export { GetParameterArgs, GetParameterResult, GetParameterOutputArgs } from "./getParameter";
 export const getParameter: typeof import("./getParameter").getParameter = null as any;
 export const getParameterOutput: typeof import("./getParameter").getParameterOutput = null as any;
+utilities.lazyLoad(exports, ["getParameter","getParameterOutput"], () => require("./getParameter"));
 
 export { GetParametersByPathArgs, GetParametersByPathResult, GetParametersByPathOutputArgs } from "./getParametersByPath";
 export const getParametersByPath: typeof import("./getParametersByPath").getParametersByPath = null as any;
 export const getParametersByPathOutput: typeof import("./getParametersByPath").getParametersByPathOutput = null as any;
+utilities.lazyLoad(exports, ["getParametersByPath","getParametersByPathOutput"], () => require("./getParametersByPath"));
 
 export { GetPatchBaselineArgs, GetPatchBaselineResult, GetPatchBaselineOutputArgs } from "./getPatchBaseline";
 export const getPatchBaseline: typeof import("./getPatchBaseline").getPatchBaseline = null as any;
 export const getPatchBaselineOutput: typeof import("./getPatchBaseline").getPatchBaselineOutput = null as any;
+utilities.lazyLoad(exports, ["getPatchBaseline","getPatchBaselineOutput"], () => require("./getPatchBaseline"));
 
 export { MaintenanceWindowArgs, MaintenanceWindowState } from "./maintenanceWindow";
 export type MaintenanceWindow = import("./maintenanceWindow").MaintenanceWindow;
 export const MaintenanceWindow: typeof import("./maintenanceWindow").MaintenanceWindow = null as any;
+utilities.lazyLoad(exports, ["MaintenanceWindow"], () => require("./maintenanceWindow"));
 
 export { MaintenanceWindowTargetArgs, MaintenanceWindowTargetState } from "./maintenanceWindowTarget";
 export type MaintenanceWindowTarget = import("./maintenanceWindowTarget").MaintenanceWindowTarget;
 export const MaintenanceWindowTarget: typeof import("./maintenanceWindowTarget").MaintenanceWindowTarget = null as any;
+utilities.lazyLoad(exports, ["MaintenanceWindowTarget"], () => require("./maintenanceWindowTarget"));
 
 export { MaintenanceWindowTaskArgs, MaintenanceWindowTaskState } from "./maintenanceWindowTask";
 export type MaintenanceWindowTask = import("./maintenanceWindowTask").MaintenanceWindowTask;
 export const MaintenanceWindowTask: typeof import("./maintenanceWindowTask").MaintenanceWindowTask = null as any;
+utilities.lazyLoad(exports, ["MaintenanceWindowTask"], () => require("./maintenanceWindowTask"));
 
 export { ParameterArgs, ParameterState } from "./parameter";
 export type Parameter = import("./parameter").Parameter;
 export const Parameter: typeof import("./parameter").Parameter = null as any;
+utilities.lazyLoad(exports, ["Parameter"], () => require("./parameter"));
 
 export * from "./parameterType";
 export { PatchBaselineArgs, PatchBaselineState } from "./patchBaseline";
 export type PatchBaseline = import("./patchBaseline").PatchBaseline;
 export const PatchBaseline: typeof import("./patchBaseline").PatchBaseline = null as any;
+utilities.lazyLoad(exports, ["PatchBaseline"], () => require("./patchBaseline"));
 
 export { PatchGroupArgs, PatchGroupState } from "./patchGroup";
 export type PatchGroup = import("./patchGroup").PatchGroup;
 export const PatchGroup: typeof import("./patchGroup").PatchGroup = null as any;
+utilities.lazyLoad(exports, ["PatchGroup"], () => require("./patchGroup"));
 
 export { ResourceDataSyncArgs, ResourceDataSyncState } from "./resourceDataSync";
 export type ResourceDataSync = import("./resourceDataSync").ResourceDataSync;
 export const ResourceDataSync: typeof import("./resourceDataSync").ResourceDataSync = null as any;
+utilities.lazyLoad(exports, ["ResourceDataSync"], () => require("./resourceDataSync"));
 
 export { ServiceSettingArgs, ServiceSettingState } from "./serviceSetting";
 export type ServiceSetting = import("./serviceSetting").ServiceSetting;
 export const ServiceSetting: typeof import("./serviceSetting").ServiceSetting = null as any;
-
-utilities.lazyLoad(exports, ["Activation"], () => require("./activation"));
-utilities.lazyLoad(exports, ["Association"], () => require("./association"));
-utilities.lazyLoad(exports, ["DefaultPatchBaseline"], () => require("./defaultPatchBaseline"));
-utilities.lazyLoad(exports, ["Document"], () => require("./document"));
-utilities.lazyLoad(exports, ["getDocument","getDocumentOutput"], () => require("./getDocument"));
-utilities.lazyLoad(exports, ["getInstances","getInstancesOutput"], () => require("./getInstances"));
-utilities.lazyLoad(exports, ["getMaintenanceWindows","getMaintenanceWindowsOutput"], () => require("./getMaintenanceWindows"));
-utilities.lazyLoad(exports, ["getParameter","getParameterOutput"], () => require("./getParameter"));
-utilities.lazyLoad(exports, ["getParametersByPath","getParametersByPathOutput"], () => require("./getParametersByPath"));
-utilities.lazyLoad(exports, ["getPatchBaseline","getPatchBaselineOutput"], () => require("./getPatchBaseline"));
-utilities.lazyLoad(exports, ["MaintenanceWindow"], () => require("./maintenanceWindow"));
-utilities.lazyLoad(exports, ["MaintenanceWindowTarget"], () => require("./maintenanceWindowTarget"));
-utilities.lazyLoad(exports, ["MaintenanceWindowTask"], () => require("./maintenanceWindowTask"));
-utilities.lazyLoad(exports, ["Parameter"], () => require("./parameter"));
-utilities.lazyLoad(exports, ["PatchBaseline"], () => require("./patchBaseline"));
-utilities.lazyLoad(exports, ["PatchGroup"], () => require("./patchGroup"));
-utilities.lazyLoad(exports, ["ResourceDataSync"], () => require("./resourceDataSync"));
 utilities.lazyLoad(exports, ["ServiceSetting"], () => require("./serviceSetting"));
+
 
 // Export enums:
 export * from "../types/enums/ssm";

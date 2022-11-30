@@ -31,7 +31,7 @@ import (
 //			exampleVpcEndpointService, err := ec2.NewVpcEndpointService(ctx, "exampleVpcEndpointService", &ec2.VpcEndpointServiceArgs{
 //				AcceptanceRequired: pulumi.Bool(false),
 //				NetworkLoadBalancerArns: pulumi.StringArray{
-//					pulumi.Any(aws_lb.Example.Arn),
+//					aws_lb.Example.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -43,7 +43,7 @@ import (
 //				VpcEndpointType:   pulumi.String("Interface"),
 //				PrivateDnsEnabled: pulumi.Bool(false),
 //				SecurityGroupIds: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Test.Id),
+//					aws_security_group.Test.Id,
 //				},
 //			}, pulumi.Provider("aws.alternate"))
 //			if err != nil {

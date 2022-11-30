@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Backup
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFrameworkResult> InvokeAsync(GetFrameworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFrameworkResult>("aws:backup/getFramework:getFramework", args ?? new GetFrameworkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrameworkResult>("aws:backup/getFramework:getFramework", args ?? new GetFrameworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information on an existing backup framework.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Backup
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws:backup/getFramework:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws:backup/getFramework:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
     }
 
 

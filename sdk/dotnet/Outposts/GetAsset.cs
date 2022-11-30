@@ -15,13 +15,13 @@ namespace Pulumi.Aws.Outposts
         /// Information about a specific hardware asset in an Outpost.
         /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("aws:outposts/getAsset:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("aws:outposts/getAsset:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about a specific hardware asset in an Outpost.
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssetResult>("aws:outposts/getAsset:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("aws:outposts/getAsset:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
     }
 
 

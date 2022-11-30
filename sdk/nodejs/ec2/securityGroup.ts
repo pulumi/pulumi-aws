@@ -58,15 +58,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.SecurityGroup("example", {
- *     egress: [{
- *         cidrBlocks: ["0.0.0.0/0"],
- *         fromPort: 0,
- *         ipv6CidrBlocks: ["::/0"],
- *         protocol: "-1",
- *         toPort: 0,
- *     }],
- * });
+ * const example = new aws.ec2.SecurityGroup("example", {egress: [{
+ *     cidrBlocks: ["0.0.0.0/0"],
+ *     fromPort: 0,
+ *     ipv6CidrBlocks: ["::/0"],
+ *     protocol: "-1",
+ *     toPort: 0,
+ * }]});
  * ```
  * ### Usage With Prefix List IDs
  *
@@ -101,7 +99,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const sgWithChangeableName = new aws.ec2.SecurityGroup("sg_with_changeable_name", {});
+ * const sgWithChangeableName = new aws.ec2.SecurityGroup("sgWithChangeableName", {});
  * ```
  *
  * ## Import

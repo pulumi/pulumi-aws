@@ -239,8 +239,10 @@ class Ciphertext(pulumi.CustomResource):
             __props__.__dict__["key_id"] = key_id
             if plaintext is None and not opts.urn:
                 raise TypeError("Missing required property 'plaintext'")
-            __props__.__dict__["plaintext"] = plaintext
+            __props__.__dict__["plaintext"] = None if plaintext is None else pulumi.Output.secret(plaintext)
             __props__.__dict__["ciphertext_blob"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["plaintext"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Ciphertext, __self__).__init__(
             'aws:kms/ciphertext:Ciphertext',
             resource_name,

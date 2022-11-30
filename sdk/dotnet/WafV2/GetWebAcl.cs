@@ -37,7 +37,7 @@ namespace Pulumi.Aws.WafV2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetWebAclResult> InvokeAsync(GetWebAclArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:wafv2/getWebAcl:getWebAcl", args ?? new GetWebAclArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:wafv2/getWebAcl:getWebAcl", args ?? new GetWebAclArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the summary of a WAFv2 Web ACL.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.WafV2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetWebAclResult> Invoke(GetWebAclInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws:wafv2/getWebAcl:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws:wafv2/getWebAcl:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithDefaults());
     }
 
 

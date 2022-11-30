@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
+//			_, err = kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
 //				KeyId: "alias/my-key",
 //			}, nil)
 //			if err != nil {

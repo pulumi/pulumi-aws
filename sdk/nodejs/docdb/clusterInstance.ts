@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     masterUsername: "foo",
  *     masterPassword: "barbut8chars",
  * });
- * const clusterInstances: aws.docdb.ClusterInstance[];
+ * const clusterInstances: aws.docdb.ClusterInstance[] = [];
  * for (const range = {value: 0}; range.value < 2; range.value++) {
  *     clusterInstances.push(new aws.docdb.ClusterInstance(`clusterInstances-${range.value}`, {
  *         identifier: `docdb-cluster-demo-${range.value}`,

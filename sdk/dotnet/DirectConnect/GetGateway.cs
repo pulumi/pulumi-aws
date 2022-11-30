@@ -36,7 +36,7 @@ namespace Pulumi.Aws.DirectConnect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("aws:directconnect/getGateway:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("aws:directconnect/getGateway:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about a Direct Connect Gateway.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.DirectConnect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("aws:directconnect/getGateway:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("aws:directconnect/getGateway:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

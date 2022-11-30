@@ -238,6 +238,21 @@ func NewApp(ctx *pulumi.Context,
 		args = &AppArgs{}
 	}
 
+	if args.AccessToken != nil {
+		args.AccessToken = pulumi.ToSecret(args.AccessToken).(pulumi.StringPtrOutput)
+	}
+	if args.BasicAuthCredentials != nil {
+		args.BasicAuthCredentials = pulumi.ToSecret(args.BasicAuthCredentials).(pulumi.StringPtrOutput)
+	}
+	if args.OauthToken != nil {
+		args.OauthToken = pulumi.ToSecret(args.OauthToken).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"accessToken",
+		"basicAuthCredentials",
+		"oauthToken",
+	})
+	opts = append(opts, secrets)
 	var resource App
 	err := ctx.RegisterResource("aws:amplify/app:App", name, args, &resource, opts...)
 	if err != nil {

@@ -26,9 +26,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const s3 = pulumi.output(aws.getService({
+ * const s3 = aws.getService({
  *     reverseDnsName: "cn.com.amazonaws.cn-north-1.s3",
- * }));
+ * });
  * ```
  * ### Determine Regional Support for a Service
  *
@@ -36,18 +36,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const s3 = pulumi.output(aws.getService({
+ * const s3 = aws.getService({
  *     reverseDnsName: "com.amazonaws.us-gov-west-1.waf",
- * }));
+ * });
  * ```
  */
 export function getService(args?: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getService:getService", {
         "dnsName": args.dnsName,
         "region": args.region,

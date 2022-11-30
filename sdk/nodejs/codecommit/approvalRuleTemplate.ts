@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *         "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"]
  *     }]
  * }
+ *
  * `,
  *     description: "This is an example approval rule template",
  * });

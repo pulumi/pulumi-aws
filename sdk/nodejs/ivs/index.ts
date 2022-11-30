@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { ChannelArgs, ChannelState } from "./channel";
 export type Channel = import("./channel").Channel;
 export const Channel: typeof import("./channel").Channel = null as any;
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
 
 export { GetStreamKeyArgs, GetStreamKeyResult, GetStreamKeyOutputArgs } from "./getStreamKey";
 export const getStreamKey: typeof import("./getStreamKey").getStreamKey = null as any;
 export const getStreamKeyOutput: typeof import("./getStreamKey").getStreamKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getStreamKey","getStreamKeyOutput"], () => require("./getStreamKey"));
 
 export { PlaybackKeyPairArgs, PlaybackKeyPairState } from "./playbackKeyPair";
 export type PlaybackKeyPair = import("./playbackKeyPair").PlaybackKeyPair;
 export const PlaybackKeyPair: typeof import("./playbackKeyPair").PlaybackKeyPair = null as any;
+utilities.lazyLoad(exports, ["PlaybackKeyPair"], () => require("./playbackKeyPair"));
 
 export { RecordingConfigurationArgs, RecordingConfigurationState } from "./recordingConfiguration";
 export type RecordingConfiguration = import("./recordingConfiguration").RecordingConfiguration;
 export const RecordingConfiguration: typeof import("./recordingConfiguration").RecordingConfiguration = null as any;
-
-utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
-utilities.lazyLoad(exports, ["getStreamKey","getStreamKeyOutput"], () => require("./getStreamKey"));
-utilities.lazyLoad(exports, ["PlaybackKeyPair"], () => require("./playbackKeyPair"));
 utilities.lazyLoad(exports, ["RecordingConfiguration"], () => require("./recordingConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),

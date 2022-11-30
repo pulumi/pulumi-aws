@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetInfrastructureConfigurationsResult> InvokeAsync(GetInfrastructureConfigurationsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetInfrastructureConfigurationsResult> Invoke(GetInfrastructureConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsInvokeArgs(), options.WithDefaults());
     }
 
 

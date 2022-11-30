@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = pulumi.output(aws.connect.getInstance({
+ * const foo = aws.connect.getInstance({
  *     instanceAlias: "foo",
- * }));
+ * });
  * ```
  *
  * By instanceId
@@ -26,18 +26,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = pulumi.output(aws.connect.getInstance({
+ * const foo = aws.connect.getInstance({
  *     instanceId: "97afc98d-101a-ba98-ab97-ae114fc115ec",
- * }));
+ * });
  * ```
  */
 export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getInstance:getInstance", {
         "instanceAlias": args.instanceAlias,
         "instanceId": args.instanceId,

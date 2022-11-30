@@ -126,10 +126,12 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["signingDisabled"] = args ? args.signingDisabled : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tokenKeyName"] = args ? args.tokenKeyName : undefined;
-            resourceInputs["tokenSigningPublicKeys"] = args ? args.tokenSigningPublicKeys : undefined;
+            resourceInputs["tokenSigningPublicKeys"] = args?.tokenSigningPublicKeys ? pulumi.secret(args.tokenSigningPublicKeys) : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["tokenSigningPublicKeys"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Authorizer.__pulumiType, name, resourceInputs, opts);
     }
 }

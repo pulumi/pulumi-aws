@@ -14,6 +14,7 @@ import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -27,6 +28,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic mysql blueprint
+ * 
  * ```java
  * package generated_program;
  * 
@@ -62,6 +64,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Basic postrgres blueprint
+ * 
  * ```java
  * package generated_program;
  * 
@@ -99,6 +102,7 @@ import javax.annotation.Nullable;
  * ### Custom backup and maintenance windows
  * 
  * Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
+ * 
  * ```java
  * package generated_program;
  * 
@@ -138,6 +142,7 @@ import javax.annotation.Nullable;
  * ### Final Snapshots
  * 
  * To enable creating a final snapshot of your database on deletion, use the `final_snapshot_name` argument to provide a name to be used for the snapshot.
+ * 
  * ```java
  * package generated_program;
  * 
@@ -178,6 +183,7 @@ import javax.annotation.Nullable;
  * ### Apply Immediately
  * 
  * To enable applying changes immediately instead of waiting for a maintiance window, use the `apply_immediately` argument.
+ * 
  * ```java
  * package generated_program;
  * 
@@ -688,6 +694,9 @@ public class Database extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "masterPassword"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

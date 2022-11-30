@@ -92,6 +92,11 @@ namespace Pulumi.Aws.Pinpoint
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "clientId",
+                    "clientSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -121,17 +126,37 @@ namespace Pulumi.Aws.Pinpoint
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        [Input("clientId", required: true)]
+        private Input<string>? _clientId;
+
         /// <summary>
         /// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         /// </summary>
-        [Input("clientId", required: true)]
-        public Input<string> ClientId { get; set; } = null!;
+        public Input<string>? ClientId
+        {
+            get => _clientId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientSecret", required: true)]
+        private Input<string>? _clientSecret;
 
         /// <summary>
         /// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         /// </summary>
-        [Input("clientSecret", required: true)]
-        public Input<string> ClientSecret { get; set; } = null!;
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies whether to enable the channel. Defaults to `true`.
@@ -153,17 +178,37 @@ namespace Pulumi.Aws.Pinpoint
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
+        [Input("clientId")]
+        private Input<string>? _clientId;
+
         /// <summary>
         /// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         /// </summary>
-        [Input("clientId")]
-        public Input<string>? ClientId { get; set; }
+        public Input<string>? ClientId
+        {
+            get => _clientId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
 
         /// <summary>
         /// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies whether to enable the channel. Defaults to `true`.

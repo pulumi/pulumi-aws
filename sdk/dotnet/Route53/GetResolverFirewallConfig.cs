@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Route53
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetResolverFirewallConfigResult> InvokeAsync(GetResolverFirewallConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverFirewallConfigResult>("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args ?? new GetResolverFirewallConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverFirewallConfigResult>("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args ?? new GetResolverFirewallConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Route53
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetResolverFirewallConfigResult> Invoke(GetResolverFirewallConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResolverFirewallConfigResult>("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args ?? new GetResolverFirewallConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallConfigResult>("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args ?? new GetResolverFirewallConfigInvokeArgs(), options.WithDefaults());
     }
 
 

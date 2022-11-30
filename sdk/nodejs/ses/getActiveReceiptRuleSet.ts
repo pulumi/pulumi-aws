@@ -13,15 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = pulumi.output(aws.ses.getActiveReceiptRuleSet());
+ * const main = aws.ses.getActiveReceiptRuleSet({});
  * ```
  */
 export function getActiveReceiptRuleSet(opts?: pulumi.InvokeOptions): Promise<GetActiveReceiptRuleSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", {
     }, opts);
 }

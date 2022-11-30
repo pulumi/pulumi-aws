@@ -14,6 +14,65 @@ namespace Pulumi.Aws.Fsx
     /// See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
     /// 
     /// ## Example Usage
+    /// ### Root volume Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
+    ///     {
+    ///         StorageCapacity = 64,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         DeploymentType = "SINGLE_AZ_1",
+    ///         ThroughputCapacity = 64,
+    ///     });
+    /// 
+    ///     var exampleOpenZfsSnapshot = new Aws.Fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", new()
+    ///     {
+    ///         VolumeId = exampleOpenZfsFileSystem.RootVolumeId,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Child volume Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
+    ///     {
+    ///         StorageCapacity = 64,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         DeploymentType = "SINGLE_AZ_1",
+    ///         ThroughputCapacity = 64,
+    ///     });
+    /// 
+    ///     var exampleOpenZfsVolume = new Aws.Fsx.OpenZfsVolume("exampleOpenZfsVolume", new()
+    ///     {
+    ///         ParentVolumeId = exampleOpenZfsFileSystem.RootVolumeId,
+    ///     });
+    /// 
+    ///     var exampleOpenZfsSnapshot = new Aws.Fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", new()
+    ///     {
+    ///         VolumeId = exampleOpenZfsVolume.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { LoggingConfigurationArgs, LoggingConfigurationState } from "./loggingConfiguration";
 export type LoggingConfiguration = import("./loggingConfiguration").LoggingConfiguration;
 export const LoggingConfiguration: typeof import("./loggingConfiguration").LoggingConfiguration = null as any;
+utilities.lazyLoad(exports, ["LoggingConfiguration"], () => require("./loggingConfiguration"));
 
 export { RoomArgs, RoomState } from "./room";
 export type Room = import("./room").Room;
 export const Room: typeof import("./room").Room = null as any;
-
-utilities.lazyLoad(exports, ["LoggingConfiguration"], () => require("./loggingConfiguration"));
 utilities.lazyLoad(exports, ["Room"], () => require("./room"));
+
 
 const _module = {
     version: utilities.getVersion(),

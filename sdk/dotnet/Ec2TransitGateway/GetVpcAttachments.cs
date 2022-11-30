@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcAttachmentsResult> InvokeAsync(GetVpcAttachmentsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcAttachmentsResult>("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args ?? new GetVpcAttachmentsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcAttachmentsResult>("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args ?? new GetVpcAttachmentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information on EC2 Transit Gateway VPC Attachments.
@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVpcAttachmentsResult> Invoke(GetVpcAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVpcAttachmentsResult>("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args ?? new GetVpcAttachmentsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcAttachmentsResult>("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args ?? new GetVpcAttachmentsInvokeArgs(), options.WithDefaults());
     }
 
 

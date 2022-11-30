@@ -8,83 +8,83 @@ import * as utilities from "../utilities";
 export { AuthorizerArgs, AuthorizerState } from "./authorizer";
 export type Authorizer = import("./authorizer").Authorizer;
 export const Authorizer: typeof import("./authorizer").Authorizer = null as any;
+utilities.lazyLoad(exports, ["Authorizer"], () => require("./authorizer"));
 
 export { CertificateArgs, CertificateState } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
 export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
 export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
 
 export { IndexingConfigurationArgs, IndexingConfigurationState } from "./indexingConfiguration";
 export type IndexingConfiguration = import("./indexingConfiguration").IndexingConfiguration;
 export const IndexingConfiguration: typeof import("./indexingConfiguration").IndexingConfiguration = null as any;
+utilities.lazyLoad(exports, ["IndexingConfiguration"], () => require("./indexingConfiguration"));
 
 export { LoggingOptionsArgs, LoggingOptionsState } from "./loggingOptions";
 export type LoggingOptions = import("./loggingOptions").LoggingOptions;
 export const LoggingOptions: typeof import("./loggingOptions").LoggingOptions = null as any;
+utilities.lazyLoad(exports, ["LoggingOptions"], () => require("./loggingOptions"));
 
 export { PolicyArgs, PolicyState } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
 export { PolicyAttachmentArgs, PolicyAttachmentState } from "./policyAttachment";
 export type PolicyAttachment = import("./policyAttachment").PolicyAttachment;
 export const PolicyAttachment: typeof import("./policyAttachment").PolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["PolicyAttachment"], () => require("./policyAttachment"));
 
 export { ProvisioningTemplateArgs, ProvisioningTemplateState } from "./provisioningTemplate";
 export type ProvisioningTemplate = import("./provisioningTemplate").ProvisioningTemplate;
 export const ProvisioningTemplate: typeof import("./provisioningTemplate").ProvisioningTemplate = null as any;
+utilities.lazyLoad(exports, ["ProvisioningTemplate"], () => require("./provisioningTemplate"));
 
 export { RoleAliasArgs, RoleAliasState } from "./roleAlias";
 export type RoleAlias = import("./roleAlias").RoleAlias;
 export const RoleAlias: typeof import("./roleAlias").RoleAlias = null as any;
+utilities.lazyLoad(exports, ["RoleAlias"], () => require("./roleAlias"));
 
 export { ThingArgs, ThingState } from "./thing";
 export type Thing = import("./thing").Thing;
 export const Thing: typeof import("./thing").Thing = null as any;
+utilities.lazyLoad(exports, ["Thing"], () => require("./thing"));
 
 export { ThingGroupArgs, ThingGroupState } from "./thingGroup";
 export type ThingGroup = import("./thingGroup").ThingGroup;
 export const ThingGroup: typeof import("./thingGroup").ThingGroup = null as any;
+utilities.lazyLoad(exports, ["ThingGroup"], () => require("./thingGroup"));
 
 export { ThingGroupMembershipArgs, ThingGroupMembershipState } from "./thingGroupMembership";
 export type ThingGroupMembership = import("./thingGroupMembership").ThingGroupMembership;
 export const ThingGroupMembership: typeof import("./thingGroupMembership").ThingGroupMembership = null as any;
+utilities.lazyLoad(exports, ["ThingGroupMembership"], () => require("./thingGroupMembership"));
 
 export { ThingPrincipalAttachmentArgs, ThingPrincipalAttachmentState } from "./thingPrincipalAttachment";
 export type ThingPrincipalAttachment = import("./thingPrincipalAttachment").ThingPrincipalAttachment;
 export const ThingPrincipalAttachment: typeof import("./thingPrincipalAttachment").ThingPrincipalAttachment = null as any;
+utilities.lazyLoad(exports, ["ThingPrincipalAttachment"], () => require("./thingPrincipalAttachment"));
 
 export { ThingTypeArgs, ThingTypeState } from "./thingType";
 export type ThingType = import("./thingType").ThingType;
 export const ThingType: typeof import("./thingType").ThingType = null as any;
+utilities.lazyLoad(exports, ["ThingType"], () => require("./thingType"));
 
 export { TopicRuleArgs, TopicRuleState } from "./topicRule";
 export type TopicRule = import("./topicRule").TopicRule;
 export const TopicRule: typeof import("./topicRule").TopicRule = null as any;
+utilities.lazyLoad(exports, ["TopicRule"], () => require("./topicRule"));
 
 export { TopicRuleDestinationArgs, TopicRuleDestinationState } from "./topicRuleDestination";
 export type TopicRuleDestination = import("./topicRuleDestination").TopicRuleDestination;
 export const TopicRuleDestination: typeof import("./topicRuleDestination").TopicRuleDestination = null as any;
-
-utilities.lazyLoad(exports, ["Authorizer"], () => require("./authorizer"));
-utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
-utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
-utilities.lazyLoad(exports, ["IndexingConfiguration"], () => require("./indexingConfiguration"));
-utilities.lazyLoad(exports, ["LoggingOptions"], () => require("./loggingOptions"));
-utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
-utilities.lazyLoad(exports, ["PolicyAttachment"], () => require("./policyAttachment"));
-utilities.lazyLoad(exports, ["ProvisioningTemplate"], () => require("./provisioningTemplate"));
-utilities.lazyLoad(exports, ["RoleAlias"], () => require("./roleAlias"));
-utilities.lazyLoad(exports, ["Thing"], () => require("./thing"));
-utilities.lazyLoad(exports, ["ThingGroup"], () => require("./thingGroup"));
-utilities.lazyLoad(exports, ["ThingGroupMembership"], () => require("./thingGroupMembership"));
-utilities.lazyLoad(exports, ["ThingPrincipalAttachment"], () => require("./thingPrincipalAttachment"));
-utilities.lazyLoad(exports, ["ThingType"], () => require("./thingType"));
-utilities.lazyLoad(exports, ["TopicRule"], () => require("./topicRule"));
 utilities.lazyLoad(exports, ["TopicRuleDestination"], () => require("./topicRuleDestination"));
+
 
 const _module = {
     version: utilities.getVersion(),

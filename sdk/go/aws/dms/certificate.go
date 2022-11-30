@@ -79,6 +79,17 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.CertificateId == nil {
 		return nil, errors.New("invalid value for required argument 'CertificateId'")
 	}
+	if args.CertificatePem != nil {
+		args.CertificatePem = pulumi.ToSecret(args.CertificatePem).(pulumi.StringPtrOutput)
+	}
+	if args.CertificateWallet != nil {
+		args.CertificateWallet = pulumi.ToSecret(args.CertificateWallet).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"certificatePem",
+		"certificateWallet",
+	})
+	opts = append(opts, secrets)
 	var resource Certificate
 	err := ctx.RegisterResource("aws:dms/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {

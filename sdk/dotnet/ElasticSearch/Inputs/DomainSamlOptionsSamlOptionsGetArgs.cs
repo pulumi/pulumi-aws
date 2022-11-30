@@ -30,11 +30,21 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         [Input("masterBackendRole")]
         public Input<string>? MasterBackendRole { get; set; }
 
+        [Input("masterUserName")]
+        private Input<string>? _masterUserName;
+
         /// <summary>
         /// This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
         /// </summary>
-        [Input("masterUserName")]
-        public Input<string>? MasterUserName { get; set; }
+        public Input<string>? MasterUserName
+        {
+            get => _masterUserName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _masterUserName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Element of the SAML assertion to use for backend roles. Default is roles.

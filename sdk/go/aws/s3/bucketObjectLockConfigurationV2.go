@@ -174,6 +174,13 @@ func NewBucketObjectLockConfigurationV2(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	if args.Token != nil {
+		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"token",
+	})
+	opts = append(opts, secrets)
 	var resource BucketObjectLockConfigurationV2
 	err := ctx.RegisterResource("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2", name, args, &resource, opts...)
 	if err != nil {

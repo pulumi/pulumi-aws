@@ -36,7 +36,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDistributionConfigurationResult> InvokeAsync(GetDistributionConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDistributionConfigurationResult>("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args ?? new GetDistributionConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionConfigurationResult>("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args ?? new GetDistributionConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about an Image Builder Distribution Configuration.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDistributionConfigurationResult> Invoke(GetDistributionConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDistributionConfigurationResult>("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args ?? new GetDistributionConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDistributionConfigurationResult>("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args ?? new GetDistributionConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

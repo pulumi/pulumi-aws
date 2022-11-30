@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.LookupConfigurationProfile(ctx, &appconfig.LookupConfigurationProfileArgs{
+//			_, err = appconfig.LookupConfigurationProfile(ctx, &appconfig.LookupConfigurationProfileArgs{
 //				ApplicationId:          "b5d5gpj",
 //				ConfigurationProfileId: "qrbb1c1",
 //			}, nil)

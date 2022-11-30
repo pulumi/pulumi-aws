@@ -67,7 +67,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
+//			_, err = ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
 //				ServiceName: pulumi.StringRef("com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8"),
 //			}, nil)
 //			if err != nil {
@@ -92,7 +92,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
+//			_, err = ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
 //				Filters: []ec2.GetVpcEndpointServiceFilter{
 //					ec2.GetVpcEndpointServiceFilter{
 //						Name: "service-name",

@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 2,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -279,7 +279,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -403,7 +403,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 2,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -454,7 +454,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -471,7 +471,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -524,7 +524,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -541,7 +541,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
@@ -575,7 +575,7 @@ namespace Pulumi.Aws.Kendra
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
     ///                     Importance = 1,
-    ///                     ValuesImportanceMap = ,
+    ///                     ValuesImportanceMap = null,
     ///                 },
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs

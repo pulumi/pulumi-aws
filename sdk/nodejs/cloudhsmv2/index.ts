@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 export { ClusterArgs, ClusterState } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
 export { HsmArgs, HsmState } from "./hsm";
 export type Hsm = import("./hsm").Hsm;
 export const Hsm: typeof import("./hsm").Hsm = null as any;
-
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 utilities.lazyLoad(exports, ["Hsm"], () => require("./hsm"));
+
 
 const _module = {
     version: utilities.getVersion(),

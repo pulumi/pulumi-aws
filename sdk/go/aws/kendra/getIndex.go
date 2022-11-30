@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.LookupIndex(ctx, &kendra.LookupIndexArgs{
+//			_, err = kendra.LookupIndex(ctx, &kendra.LookupIndexArgs{
 //				Id: "12345678-1234-1234-1234-123456789123",
 //			}, nil)
 //			if err != nil {

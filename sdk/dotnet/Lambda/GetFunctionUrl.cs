@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Lambda
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFunctionUrlResult> InvokeAsync(GetFunctionUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionUrlResult>("aws:lambda/getFunctionUrl:getFunctionUrl", args ?? new GetFunctionUrlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionUrlResult>("aws:lambda/getFunctionUrl:getFunctionUrl", args ?? new GetFunctionUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a Lambda function URL.
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Lambda
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFunctionUrlResult> Invoke(GetFunctionUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFunctionUrlResult>("aws:lambda/getFunctionUrl:getFunctionUrl", args ?? new GetFunctionUrlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionUrlResult>("aws:lambda/getFunctionUrl:getFunctionUrl", args ?? new GetFunctionUrlInvokeArgs(), options.WithDefaults());
     }
 
 

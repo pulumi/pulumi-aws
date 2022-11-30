@@ -49,7 +49,7 @@ namespace Pulumi.Aws.LB
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetHostedZoneIdResult> InvokeAsync(GetHostedZoneIdArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:lb/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:lb/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.LB
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetHostedZoneIdResult> Invoke(GetHostedZoneIdInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHostedZoneIdResult>("aws:lb/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHostedZoneIdResult>("aws:lb/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdInvokeArgs(), options.WithDefaults());
     }
 
 

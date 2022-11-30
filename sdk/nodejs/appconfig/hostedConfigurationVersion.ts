@@ -183,13 +183,15 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["content"] = args?.content ? pulumi.secret(args.content) : undefined;
             resourceInputs["contentType"] = args ? args.contentType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["versionNumber"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["content"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(HostedConfigurationVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

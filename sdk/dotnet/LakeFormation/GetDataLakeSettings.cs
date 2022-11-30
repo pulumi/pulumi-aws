@@ -36,7 +36,7 @@ namespace Pulumi.Aws.LakeFormation
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDataLakeSettingsResult> InvokeAsync(GetDataLakeSettingsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataLakeSettingsResult>("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args ?? new GetDataLakeSettingsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataLakeSettingsResult>("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args ?? new GetDataLakeSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.LakeFormation
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDataLakeSettingsResult> Invoke(GetDataLakeSettingsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataLakeSettingsResult>("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args ?? new GetDataLakeSettingsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataLakeSettingsResult>("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args ?? new GetDataLakeSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

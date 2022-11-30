@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetElasticIpResult> InvokeAsync(GetElasticIpArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticIpResult>("aws:ec2/getElasticIp:getElasticIp", args ?? new GetElasticIpArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticIpResult>("aws:ec2/getElasticIp:getElasticIp", args ?? new GetElasticIpArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.ec2.Eip` provides details about a specific Elastic IP.
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetElasticIpResult> Invoke(GetElasticIpInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetElasticIpResult>("aws:ec2/getElasticIp:getElasticIp", args ?? new GetElasticIpInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetElasticIpResult>("aws:ec2/getElasticIp:getElasticIp", args ?? new GetElasticIpInvokeArgs(), options.WithDefaults());
     }
 
 

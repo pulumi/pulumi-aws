@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { CanaryArgs, CanaryState } from "./canary";
 export type Canary = import("./canary").Canary;
 export const Canary: typeof import("./canary").Canary = null as any;
-
 utilities.lazyLoad(exports, ["Canary"], () => require("./canary"));
+
 
 const _module = {
     version: utilities.getVersion(),

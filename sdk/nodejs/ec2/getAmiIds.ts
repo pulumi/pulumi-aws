@@ -16,21 +16,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ubuntu = pulumi.output(aws.ec2.getAmiIds({
+ * const ubuntu = aws.ec2.getAmiIds({
  *     filters: [{
  *         name: "name",
  *         values: ["ubuntu/images/ubuntu-*-*-amd64-server-*"],
  *     }],
  *     owners: ["099720109477"],
- * }));
+ * });
  * ```
  */
 export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getAmiIds:getAmiIds", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,

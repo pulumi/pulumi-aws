@@ -149,7 +149,7 @@ import (
 //								Test:     "StringEquals",
 //								Variable: "AWS:SourceOwner",
 //								Values: []string{
-//									sns.Account - id,
+//									sns.AccountId,
 //								},
 //							},
 //						},
@@ -163,7 +163,7 @@ import (
 //							},
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.Account-id, sns.Name),
+//							fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.AccountId, sns.Name),
 //						},
 //						Sid: pulumi.StringRef("__default_statement_ID"),
 //					},
@@ -177,7 +177,7 @@ import (
 //								Test:     "StringLike",
 //								Variable: "SNS:Endpoint",
 //								Values: []string{
-//									fmt.Sprintf("arn:aws:sqs:%v:%v:%v", sqs.Region, sqs.Account-id, sqs.Name),
+//									fmt.Sprintf("arn:aws:sqs:%v:%v:%v", sqs.Region, sqs.AccountId, sqs.Name),
 //								},
 //							},
 //						},
@@ -191,7 +191,7 @@ import (
 //							},
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.Account-id, sns.Name),
+//							fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.AccountId, sns.Name),
 //						},
 //						Sid: pulumi.StringRef("__console_sub_0"),
 //					},
@@ -201,7 +201,7 @@ import (
 //				return err
 //			}
 //			sqs_queue_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				PolicyId: pulumi.StringRef(fmt.Sprintf("arn:aws:sqs:%v:%v:%v/SQSDefaultPolicy", sqs.Region, sqs.Account-id, sqs.Name)),
+//				PolicyId: pulumi.StringRef(fmt.Sprintf("arn:aws:sqs:%v:%v:%v/SQSDefaultPolicy", sqs.Region, sqs.AccountId, sqs.Name)),
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					iam.GetPolicyDocumentStatement{
 //						Sid:    pulumi.StringRef("example-sns-topic"),
@@ -218,14 +218,14 @@ import (
 //							"SQS:SendMessage",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:sqs:%v:%v:%v", sqs.Region, sqs.Account-id, sqs.Name),
+//							fmt.Sprintf("arn:aws:sqs:%v:%v:%v", sqs.Region, sqs.AccountId, sqs.Name),
 //						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							iam.GetPolicyDocumentStatementCondition{
 //								Test:     "ArnEquals",
 //								Variable: "aws:SourceArn",
 //								Values: []string{
-//									fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.Account-id, sns.Name),
+//									fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.AccountId, sns.Name),
 //								},
 //							},
 //						},
@@ -237,8 +237,8 @@ import (
 //			}
 //			_, err = aws.NewProvider(ctx, "awsSns", &aws.ProviderArgs{
 //				Region: pulumi.String(sns.Region),
-//				AssumeRole: &ProviderAssumeRoleArgs{
-//					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sns.Account-id, sns.Role-name)),
+//				AssumeRole: &aws.ProviderAssumeRoleArgs{
+//					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sns.AccountId, sns.RoleName)),
 //					SessionName: pulumi.String(fmt.Sprintf("sns-%v", sns.Region)),
 //				},
 //			})
@@ -247,8 +247,8 @@ import (
 //			}
 //			_, err = aws.NewProvider(ctx, "awsSqs", &aws.ProviderArgs{
 //				Region: pulumi.String(sqs.Region),
-//				AssumeRole: &ProviderAssumeRoleArgs{
-//					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.Account-id, sqs.Role-name)),
+//				AssumeRole: &aws.ProviderAssumeRoleArgs{
+//					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.AccountId, sqs.RoleName)),
 //					SessionName: pulumi.String(fmt.Sprintf("sqs-%v", sqs.Region)),
 //				},
 //			})
@@ -257,8 +257,8 @@ import (
 //			}
 //			_, err = aws.NewProvider(ctx, "sns2sqs", &aws.ProviderArgs{
 //				Region: pulumi.String(sns.Region),
-//				AssumeRole: &ProviderAssumeRoleArgs{
-//					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.Account-id, sqs.Role-name)),
+//				AssumeRole: &aws.ProviderAssumeRoleArgs{
+//					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.AccountId, sqs.RoleName)),
 //					SessionName: pulumi.String(fmt.Sprintf("sns2sqs-%v", sns.Region)),
 //				},
 //			})

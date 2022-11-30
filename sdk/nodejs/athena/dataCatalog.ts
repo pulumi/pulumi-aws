@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const example = new aws.athena.DataCatalog("example", {
  *     description: "Example Athena data catalog",
  *     parameters: {
- *         function: "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
+ *         "function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
  *     },
  *     tags: {
  *         Name: "example-athena-data-catalog",

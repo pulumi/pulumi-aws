@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.GetLocations(ctx, nil, nil)
+//			_, err = directconnect.GetLocations(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}

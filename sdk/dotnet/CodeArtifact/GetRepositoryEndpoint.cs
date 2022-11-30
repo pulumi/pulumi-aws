@@ -38,7 +38,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryEndpointResult> InvokeAsync(GetRepositoryEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryEndpointResult>("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args ?? new GetRepositoryEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryEndpointResult>("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args ?? new GetRepositoryEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRepositoryEndpointResult> Invoke(GetRepositoryEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRepositoryEndpointResult>("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args ?? new GetRepositoryEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryEndpointResult>("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args ?? new GetRepositoryEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -425,7 +425,7 @@ class LocationFsxWindows(pulumi.CustomResource):
             __props__.__dict__["fsx_filesystem_arn"] = fsx_filesystem_arn
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if security_group_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_arns'")
             __props__.__dict__["security_group_arns"] = security_group_arns
@@ -438,6 +438,8 @@ class LocationFsxWindows(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["uri"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LocationFsxWindows, __self__).__init__(
             'aws:datasync/locationFsxWindows:LocationFsxWindows',
             resource_name,

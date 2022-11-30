@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws:connect/getQueue:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws:connect/getQueue:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Connect Queue.
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueueResult>("aws:connect/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("aws:connect/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
     }
 
 

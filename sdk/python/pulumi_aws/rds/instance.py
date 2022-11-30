@@ -2911,7 +2911,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["network_type"] = network_type
             __props__.__dict__["option_group_name"] = option_group_name
             __props__.__dict__["parameter_group_name"] = parameter_group_name
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["performance_insights_enabled"] = performance_insights_enabled
             __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
             __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
@@ -2943,6 +2943,8 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Instance, __self__).__init__(
             'aws:rds/instance:Instance',
             resource_name,

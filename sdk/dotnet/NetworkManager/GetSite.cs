@@ -37,7 +37,7 @@ namespace Pulumi.Aws.NetworkManager
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("aws:networkmanager/getSite:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("aws:networkmanager/getSite:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about a site.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.NetworkManager
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteResult>("aws:networkmanager/getSite:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("aws:networkmanager/getSite:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
 
 

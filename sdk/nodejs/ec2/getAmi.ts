@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2.getAmi({
+ * const example = aws.ec2.getAmi({
  *     executableUsers: ["self"],
  *     filters: [
  *         {
@@ -36,16 +36,13 @@ import * as utilities from "../utilities";
  *     mostRecent: true,
  *     nameRegex: "^myami-\\d{3}",
  *     owners: ["self"],
- * }));
+ * });
  * ```
  */
 export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getAmi:getAmi", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,

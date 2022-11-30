@@ -45,7 +45,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			azs, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
+//			azs, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
 //				State: pulumi.StringRef("available"),
 //			}, nil)
 //			if err != nil {
@@ -221,9 +221,9 @@ import (
 //				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
 //					InstanceType: pulumi.String("kafka.m5.4xlarge"),
 //					ClientSubnets: pulumi.StringArray{
-//						pulumi.Any(aws_subnet.Subnet_az1.Id),
-//						pulumi.Any(aws_subnet.Subnet_az2.Id),
-//						pulumi.Any(aws_subnet.Subnet_az3.Id),
+//						aws_subnet.Subnet_az1.Id,
+//						aws_subnet.Subnet_az2.Id,
+//						aws_subnet.Subnet_az3.Id,
 //					},
 //					StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
 //						EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
@@ -235,7 +235,7 @@ import (
 //						},
 //					},
 //					SecurityGroups: pulumi.StringArray{
-//						pulumi.Any(aws_security_group.Sg.Id),
+//						aws_security_group.Sg.Id,
 //					},
 //				},
 //			})

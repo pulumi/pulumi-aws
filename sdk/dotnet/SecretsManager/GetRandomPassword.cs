@@ -37,7 +37,7 @@ namespace Pulumi.Aws.SecretsManager
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRandomPasswordResult> InvokeAsync(GetRandomPasswordArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRandomPasswordResult>("aws:secretsmanager/getRandomPassword:getRandomPassword", args ?? new GetRandomPasswordArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRandomPasswordResult>("aws:secretsmanager/getRandomPassword:getRandomPassword", args ?? new GetRandomPasswordArgs(), options.WithDefaults());
 
         /// <summary>
         /// Generate a random password.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.SecretsManager
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRandomPasswordResult> Invoke(GetRandomPasswordInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRandomPasswordResult>("aws:secretsmanager/getRandomPassword:getRandomPassword", args ?? new GetRandomPasswordInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRandomPasswordResult>("aws:secretsmanager/getRandomPassword:getRandomPassword", args ?? new GetRandomPasswordInvokeArgs(), options.WithDefaults());
     }
 
 

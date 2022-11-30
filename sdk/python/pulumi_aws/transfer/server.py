@@ -971,12 +971,12 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["endpoint_type"] = endpoint_type
             __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["function"] = function
-            __props__.__dict__["host_key"] = host_key
+            __props__.__dict__["host_key"] = None if host_key is None else pulumi.Output.secret(host_key)
             __props__.__dict__["identity_provider_type"] = identity_provider_type
             __props__.__dict__["invocation_role"] = invocation_role
             __props__.__dict__["logging_role"] = logging_role
-            __props__.__dict__["post_authentication_login_banner"] = post_authentication_login_banner
-            __props__.__dict__["pre_authentication_login_banner"] = pre_authentication_login_banner
+            __props__.__dict__["post_authentication_login_banner"] = None if post_authentication_login_banner is None else pulumi.Output.secret(post_authentication_login_banner)
+            __props__.__dict__["pre_authentication_login_banner"] = None if pre_authentication_login_banner is None else pulumi.Output.secret(pre_authentication_login_banner)
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["tags"] = tags
@@ -986,6 +986,8 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["host_key_fingerprint"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["hostKey", "postAuthenticationLoginBanner", "preAuthenticationLoginBanner"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Server, __self__).__init__(
             'aws:transfer/server:Server',
             resource_name,

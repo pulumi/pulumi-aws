@@ -39,6 +39,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			testLocalDisk := testVolumeAttachment.DeviceName.ApplyT(func(deviceName string) (storagegateway.GetLocalDiskResult, error) {
+//				return storagegateway.GetLocalDiskOutput(ctx, storagegateway.GetLocalDiskOutputArgs{
+//					DiskNode:   deviceName,
+//					GatewayArn: aws_storagegateway_gateway.Test.Arn,
+//				}, nil), nil
+//			}).(storagegateway.GetLocalDiskResultOutput)
 //			_, err = storagegateway.NewCache(ctx, "testCache", &storagegateway.CacheArgs{
 //				DiskId: testLocalDisk.ApplyT(func(testLocalDisk storagegateway.GetLocalDiskResult) (string, error) {
 //					return testLocalDisk.DiskId, nil
@@ -290,6 +296,13 @@ func NewGateway(ctx *pulumi.Context,
 	if args.GatewayTimezone == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayTimezone'")
 	}
+	if args.SmbGuestPassword != nil {
+		args.SmbGuestPassword = pulumi.ToSecret(args.SmbGuestPassword).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"smbGuestPassword",
+	})
+	opts = append(opts, secrets)
 	var resource Gateway
 	err := ctx.RegisterResource("aws:storagegateway/gateway:Gateway", name, args, &resource, opts...)
 	if err != nil {

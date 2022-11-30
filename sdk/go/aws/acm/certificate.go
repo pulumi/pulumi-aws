@@ -134,8 +134,8 @@ import (
 //			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "exampleSelfSignedCert", &tls.SelfSignedCertArgs{
 //				KeyAlgorithm:  pulumi.String("RSA"),
 //				PrivateKeyPem: examplePrivateKey.PrivateKeyPem,
-//				Subjects: SelfSignedCertSubjectArray{
-//					&SelfSignedCertSubjectArgs{
+//				Subjects: tls.SelfSignedCertSubjectArray{
+//					&tls.SelfSignedCertSubjectArgs{
 //						CommonName:   pulumi.String("example.com"),
 //						Organization: pulumi.String("ACME Examples, Inc"),
 //					},
@@ -239,6 +239,13 @@ func NewCertificate(ctx *pulumi.Context,
 		args = &CertificateArgs{}
 	}
 
+	if args.PrivateKey != nil {
+		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"privateKey",
+	})
+	opts = append(opts, secrets)
 	var resource Certificate
 	err := ctx.RegisterResource("aws:acm/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {

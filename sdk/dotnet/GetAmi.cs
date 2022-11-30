@@ -74,7 +74,7 @@ namespace Pulumi.Aws
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAmiResult> InvokeAsync(GetAmiArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:index/getAmi:getAmi", args ?? new GetAmiArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:index/getAmi:getAmi", args ?? new GetAmiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the ID of a registered AMI for use in other
@@ -138,7 +138,7 @@ namespace Pulumi.Aws
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAmiResult> Invoke(GetAmiInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAmiResult>("aws:index/getAmi:getAmi", args ?? new GetAmiInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAmiResult>("aws:index/getAmi:getAmi", args ?? new GetAmiInvokeArgs(), options.WithDefaults());
     }
 
 

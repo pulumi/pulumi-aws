@@ -8,59 +8,59 @@ import * as utilities from "../utilities";
 export { GetAuthorizationTokenArgs, GetAuthorizationTokenResult, GetAuthorizationTokenOutputArgs } from "./getAuthorizationToken";
 export const getAuthorizationToken: typeof import("./getAuthorizationToken").getAuthorizationToken = null as any;
 export const getAuthorizationTokenOutput: typeof import("./getAuthorizationToken").getAuthorizationTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizationToken","getAuthorizationTokenOutput"], () => require("./getAuthorizationToken"));
 
 export { GetCredentialsArgs, GetCredentialsResult, GetCredentialsOutputArgs } from "./getCredentials";
 export const getCredentials: typeof import("./getCredentials").getCredentials = null as any;
 export const getCredentialsOutput: typeof import("./getCredentials").getCredentialsOutput = null as any;
+utilities.lazyLoad(exports, ["getCredentials","getCredentialsOutput"], () => require("./getCredentials"));
 
 export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
 export const getImage: typeof import("./getImage").getImage = null as any;
 export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
+utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
 
 export { GetRepositoryArgs, GetRepositoryResult, GetRepositoryOutputArgs } from "./getRepository";
 export const getRepository: typeof import("./getRepository").getRepository = null as any;
 export const getRepositoryOutput: typeof import("./getRepository").getRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
 
 export { LifecyclePolicyArgs, LifecyclePolicyState } from "./lifecyclePolicy";
 export type LifecyclePolicy = import("./lifecyclePolicy").LifecyclePolicy;
 export const LifecyclePolicy: typeof import("./lifecyclePolicy").LifecyclePolicy = null as any;
+utilities.lazyLoad(exports, ["LifecyclePolicy"], () => require("./lifecyclePolicy"));
 
 export * from "./lifecyclePolicyDocument";
 export { PullThroughCacheRuleArgs, PullThroughCacheRuleState } from "./pullThroughCacheRule";
 export type PullThroughCacheRule = import("./pullThroughCacheRule").PullThroughCacheRule;
 export const PullThroughCacheRule: typeof import("./pullThroughCacheRule").PullThroughCacheRule = null as any;
+utilities.lazyLoad(exports, ["PullThroughCacheRule"], () => require("./pullThroughCacheRule"));
 
 export { RegistryPolicyArgs, RegistryPolicyState } from "./registryPolicy";
 export type RegistryPolicy = import("./registryPolicy").RegistryPolicy;
 export const RegistryPolicy: typeof import("./registryPolicy").RegistryPolicy = null as any;
+utilities.lazyLoad(exports, ["RegistryPolicy"], () => require("./registryPolicy"));
 
 export { RegistryScanningConfigurationArgs, RegistryScanningConfigurationState } from "./registryScanningConfiguration";
 export type RegistryScanningConfiguration = import("./registryScanningConfiguration").RegistryScanningConfiguration;
 export const RegistryScanningConfiguration: typeof import("./registryScanningConfiguration").RegistryScanningConfiguration = null as any;
+utilities.lazyLoad(exports, ["RegistryScanningConfiguration"], () => require("./registryScanningConfiguration"));
 
 export { ReplicationConfigurationArgs, ReplicationConfigurationState } from "./replicationConfiguration";
 export type ReplicationConfiguration = import("./replicationConfiguration").ReplicationConfiguration;
 export const ReplicationConfiguration: typeof import("./replicationConfiguration").ReplicationConfiguration = null as any;
+utilities.lazyLoad(exports, ["ReplicationConfiguration"], () => require("./replicationConfiguration"));
 
 export { RepositoryArgs, RepositoryState } from "./repository";
 export type Repository = import("./repository").Repository;
 export const Repository: typeof import("./repository").Repository = null as any;
+utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
 
 export { RepositoryPolicyArgs, RepositoryPolicyState } from "./repositoryPolicy";
 export type RepositoryPolicy = import("./repositoryPolicy").RepositoryPolicy;
 export const RepositoryPolicy: typeof import("./repositoryPolicy").RepositoryPolicy = null as any;
-
-utilities.lazyLoad(exports, ["getAuthorizationToken","getAuthorizationTokenOutput"], () => require("./getAuthorizationToken"));
-utilities.lazyLoad(exports, ["getCredentials","getCredentialsOutput"], () => require("./getCredentials"));
-utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
-utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
-utilities.lazyLoad(exports, ["LifecyclePolicy"], () => require("./lifecyclePolicy"));
-utilities.lazyLoad(exports, ["PullThroughCacheRule"], () => require("./pullThroughCacheRule"));
-utilities.lazyLoad(exports, ["RegistryPolicy"], () => require("./registryPolicy"));
-utilities.lazyLoad(exports, ["RegistryScanningConfiguration"], () => require("./registryScanningConfiguration"));
-utilities.lazyLoad(exports, ["ReplicationConfiguration"], () => require("./replicationConfiguration"));
-utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
 utilities.lazyLoad(exports, ["RepositoryPolicy"], () => require("./repositoryPolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),

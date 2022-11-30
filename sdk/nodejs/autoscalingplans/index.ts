@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { ScalingPlanArgs, ScalingPlanState } from "./scalingPlan";
 export type ScalingPlan = import("./scalingPlan").ScalingPlan;
 export const ScalingPlan: typeof import("./scalingPlan").ScalingPlan = null as any;
-
 utilities.lazyLoad(exports, ["ScalingPlan"], () => require("./scalingPlan"));
+
 
 const _module = {
     version: utilities.getVersion(),

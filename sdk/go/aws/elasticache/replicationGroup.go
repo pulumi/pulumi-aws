@@ -102,7 +102,9 @@ import (
 //				return err
 //			}
 //			var replica []*elasticache.Cluster
-//			for key0, _ := range 1 == true {
+//			for index := 0; index < 1 == true; index++ {
+//				key0 := index
+//				_ := index
 //				__res, err := elasticache.NewCluster(ctx, fmt.Sprintf("replica-%v", key0), &elasticache.ClusterArgs{
 //					ReplicationGroupId: example.ID(),
 //				})
@@ -372,6 +374,13 @@ func NewReplicationGroup(ctx *pulumi.Context,
 		args = &ReplicationGroupArgs{}
 	}
 
+	if args.AuthToken != nil {
+		args.AuthToken = pulumi.ToSecret(args.AuthToken).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"authToken",
+	})
+	opts = append(opts, secrets)
 	var resource ReplicationGroup
 	err := ctx.RegisterResource("aws:elasticache/replicationGroup:ReplicationGroup", name, args, &resource, opts...)
 	if err != nil {

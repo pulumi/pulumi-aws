@@ -15,17 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.iam.getSamlProvider({
+ * const example = aws.iam.getSamlProvider({
  *     arn: "arn:aws:iam::123456789:saml-provider/myprovider",
- * }));
+ * });
  * ```
  */
 export function getSamlProvider(args: GetSamlProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlProviderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getSamlProvider:getSamlProvider", {
         "arn": args.arn,
         "tags": args.tags,

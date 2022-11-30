@@ -305,6 +305,13 @@ func NewBucketReplicationConfig(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
+	if args.Token != nil {
+		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"token",
+	})
+	opts = append(opts, secrets)
 	var resource BucketReplicationConfig
 	err := ctx.RegisterResource("aws:s3/bucketReplicationConfig:BucketReplicationConfig", name, args, &resource, opts...)
 	if err != nil {

@@ -36,7 +36,7 @@ import (
 //			if param := cfg.Get("acceleratorName"); param != "" {
 //				acceleratorName = param
 //			}
-//			_, err := globalaccelerator.LookupAccelerator(ctx, &globalaccelerator.LookupAcceleratorArgs{
+//			_, err = globalaccelerator.LookupAccelerator(ctx, &globalaccelerator.LookupAcceleratorArgs{
 //				Arn:  pulumi.StringRef(acceleratorArn),
 //				Name: pulumi.StringRef(acceleratorName),
 //			}, nil)

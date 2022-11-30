@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { PipelineArgs, PipelineState } from "./pipeline";
 export type Pipeline = import("./pipeline").Pipeline;
 export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
+utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
 
 export { PresetArgs, PresetState } from "./preset";
 export type Preset = import("./preset").Preset;
 export const Preset: typeof import("./preset").Preset = null as any;
-
-utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
 utilities.lazyLoad(exports, ["Preset"], () => require("./preset"));
+
 
 const _module = {
     version: utilities.getVersion(),

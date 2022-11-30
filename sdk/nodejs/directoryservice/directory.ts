@@ -262,7 +262,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["edition"] = args ? args.edition : undefined;
             resourceInputs["enableSso"] = args ? args.enableSso : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["shortName"] = args ? args.shortName : undefined;
             resourceInputs["size"] = args ? args.size : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -274,6 +274,8 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Directory.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -80,6 +80,13 @@ func NewApiKey(ctx *pulumi.Context,
 	if isZero(args.Description) {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
+	if args.Value != nil {
+		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"value",
+	})
+	opts = append(opts, secrets)
 	var resource ApiKey
 	err := ctx.RegisterResource("aws:apigateway/apiKey:ApiKey", name, args, &resource, opts...)
 	if err != nil {

@@ -341,6 +341,10 @@ namespace Pulumi.Aws.StorageGateway
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "smbGuestPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -442,11 +446,21 @@ namespace Pulumi.Aws.StorageGateway
         [Input("smbFileShareVisibility")]
         public Input<bool>? SmbFileShareVisibility { get; set; }
 
+        [Input("smbGuestPassword")]
+        private Input<string>? _smbGuestPassword;
+
         /// <summary>
         /// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         /// </summary>
-        [Input("smbGuestPassword")]
-        public Input<string>? SmbGuestPassword { get; set; }
+        public Input<string>? SmbGuestPassword
+        {
+            get => _smbGuestPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _smbGuestPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
@@ -600,11 +614,21 @@ namespace Pulumi.Aws.StorageGateway
         [Input("smbFileShareVisibility")]
         public Input<bool>? SmbFileShareVisibility { get; set; }
 
+        [Input("smbGuestPassword")]
+        private Input<string>? _smbGuestPassword;
+
         /// <summary>
         /// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         /// </summary>
-        [Input("smbGuestPassword")]
-        public Input<string>? SmbGuestPassword { get; set; }
+        public Input<string>? SmbGuestPassword
+        {
+            get => _smbGuestPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _smbGuestPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.

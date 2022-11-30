@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.GetDirectConnectGatewayAttachment(ctx, &ec2transitgateway.GetDirectConnectGatewayAttachmentArgs{
+//			_, err = ec2transitgateway.GetDirectConnectGatewayAttachment(ctx, &ec2transitgateway.GetDirectConnectGatewayAttachmentArgs{
 //				TransitGatewayId: pulumi.StringRef(aws_ec2_transit_gateway.Example.Id),
 //				DxGatewayId:      pulumi.StringRef(aws_dx_gateway.Example.Id),
 //			}, nil)

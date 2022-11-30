@@ -29,12 +29,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
- * const exampleWorkspace = new aws.amp.Workspace("example", {
- *     loggingConfiguration: {
- *         logGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
- *     },
- * });
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const exampleWorkspace = new aws.amp.Workspace("exampleWorkspace", {loggingConfiguration: {
+ *     logGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
+ * }});
  * ```
  *
  * ## Import

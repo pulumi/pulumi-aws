@@ -13,25 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const preferred = pulumi.output(aws.msk.getKafkaVersion({
+ * const preferred = aws.msk.getKafkaVersion({
  *     preferredVersions: [
  *         "2.4.1.1",
  *         "2.4.1",
  *         "2.2.1",
  *     ],
- * }));
- * const example = pulumi.output(aws.msk.getKafkaVersion({
+ * });
+ * const example = aws.msk.getKafkaVersion({
  *     version: "2.8.0",
- * }));
+ * });
  * ```
  */
 export function getKafkaVersion(args?: GetKafkaVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaVersionResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getKafkaVersion:getKafkaVersion", {
         "preferredVersions": args.preferredVersions,
         "version": args.version,

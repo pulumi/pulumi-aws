@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
+//			_, err = workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
 //				BundleId: pulumi.StringRef("wsb-b0s22j3d7"),
 //			}, nil)
 //			if err != nil {
@@ -52,7 +52,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
+//			_, err = workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
 //				Name:  pulumi.StringRef("Value with Windows 10 and Office 2016"),
 //				Owner: pulumi.StringRef("AMAZON"),
 //			}, nil)

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { ApplicationArgs, ApplicationState } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
 export { ApplicationSnapshotArgs, ApplicationSnapshotState } from "./applicationSnapshot";
 export type ApplicationSnapshot = import("./applicationSnapshot").ApplicationSnapshot;
 export const ApplicationSnapshot: typeof import("./applicationSnapshot").ApplicationSnapshot = null as any;
-
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 utilities.lazyLoad(exports, ["ApplicationSnapshot"], () => require("./applicationSnapshot"));
+
 
 const _module = {
     version: utilities.getVersion(),

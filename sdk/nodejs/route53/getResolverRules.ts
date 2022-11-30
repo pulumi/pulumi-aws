@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.route53.getResolverRules({
+ * const example = aws.route53.getResolverRules({
  *     ownerId: "Route 53 Resolver",
  *     ruleType: "RECURSIVE",
  *     shareStatus: "NOT_SHARED",
- * }));
+ * });
  * ```
  * ### Retrieving forward rules shared with me
  *
@@ -26,10 +26,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.route53.getResolverRules({
+ * const example = aws.route53.getResolverRules({
  *     ruleType: "FORWARD",
  *     shareStatus: "SHARED_WITH_ME",
- * }));
+ * });
  * ```
  * ### Retrieving rules by name regex
  *
@@ -39,18 +39,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.route53.getResolverRules({
+ * const example = aws.route53.getResolverRules({
  *     nameRegex: ".*abc.*",
- * }));
+ * });
  * ```
  */
 export function getResolverRules(args?: GetResolverRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRulesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverRules:getResolverRules", {
         "nameRegex": args.nameRegex,
         "ownerId": args.ownerId,

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Kendra
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetThesaurusResult> InvokeAsync(GetThesaurusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetThesaurusResult>("aws:kendra/getThesaurus:getThesaurus", args ?? new GetThesaurusArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetThesaurusResult>("aws:kendra/getThesaurus:getThesaurus", args ?? new GetThesaurusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Kendra Thesaurus.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Kendra
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetThesaurusResult> Invoke(GetThesaurusInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetThesaurusResult>("aws:kendra/getThesaurus:getThesaurus", args ?? new GetThesaurusInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetThesaurusResult>("aws:kendra/getThesaurus:getThesaurus", args ?? new GetThesaurusInvokeArgs(), options.WithDefaults());
     }
 
 

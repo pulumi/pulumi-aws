@@ -20,6 +20,7 @@ import javax.annotation.Nullable;
  * Provides an AWS Quantum Ledger Database (QLDB) Stream resource
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 

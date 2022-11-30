@@ -36,7 +36,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCredentialsResult> InvokeAsync(GetCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialsResult>("aws:redshiftserverless/getCredentials:getCredentials", args ?? new GetCredentialsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialsResult>("aws:redshiftserverless/getCredentials:getCredentials", args ?? new GetCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides redshift serverless temporary credentials for a workgroup.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCredentialsResult> Invoke(GetCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCredentialsResult>("aws:redshiftserverless/getCredentials:getCredentials", args ?? new GetCredentialsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCredentialsResult>("aws:redshiftserverless/getCredentials:getCredentials", args ?? new GetCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

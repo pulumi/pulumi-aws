@@ -336,6 +336,13 @@ namespace Pulumi.Aws.S3
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "customerKey",
+                    "kmsEncryptionContext",
+                    "kmsKeyId",
+                    "sourceCustomerKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -434,11 +441,21 @@ namespace Pulumi.Aws.S3
         [Input("customerAlgorithm")]
         public Input<string>? CustomerAlgorithm { get; set; }
 
+        [Input("customerKey")]
+        private Input<string>? _customerKey;
+
         /// <summary>
         /// Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         /// </summary>
-        [Input("customerKey")]
-        public Input<string>? CustomerKey { get; set; }
+        public Input<string>? CustomerKey
+        {
+            get => _customerKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _customerKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
@@ -488,17 +505,37 @@ namespace Pulumi.Aws.S3
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        [Input("kmsEncryptionContext")]
+        private Input<string>? _kmsEncryptionContext;
+
         /// <summary>
         /// Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
         /// </summary>
-        [Input("kmsEncryptionContext")]
-        public Input<string>? KmsEncryptionContext { get; set; }
+        public Input<string>? KmsEncryptionContext
+        {
+            get => _kmsEncryptionContext;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kmsEncryptionContext = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("kmsKeyId")]
+        private Input<string>? _kmsKeyId;
 
         /// <summary>
         /// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
+        public Input<string>? KmsKeyId
+        {
+            get => _kmsKeyId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kmsKeyId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;
@@ -560,11 +597,21 @@ namespace Pulumi.Aws.S3
         [Input("sourceCustomerAlgorithm")]
         public Input<string>? SourceCustomerAlgorithm { get; set; }
 
+        [Input("sourceCustomerKey")]
+        private Input<string>? _sourceCustomerKey;
+
         /// <summary>
         /// Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
         /// </summary>
-        [Input("sourceCustomerKey")]
-        public Input<string>? SourceCustomerKey { get; set; }
+        public Input<string>? SourceCustomerKey
+        {
+            get => _sourceCustomerKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sourceCustomerKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
@@ -685,11 +732,21 @@ namespace Pulumi.Aws.S3
         [Input("customerAlgorithm")]
         public Input<string>? CustomerAlgorithm { get; set; }
 
+        [Input("customerKey")]
+        private Input<string>? _customerKey;
+
         /// <summary>
         /// Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         /// </summary>
-        [Input("customerKey")]
-        public Input<string>? CustomerKey { get; set; }
+        public Input<string>? CustomerKey
+        {
+            get => _customerKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _customerKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
@@ -751,17 +808,37 @@ namespace Pulumi.Aws.S3
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        [Input("kmsEncryptionContext")]
+        private Input<string>? _kmsEncryptionContext;
+
         /// <summary>
         /// Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
         /// </summary>
-        [Input("kmsEncryptionContext")]
-        public Input<string>? KmsEncryptionContext { get; set; }
+        public Input<string>? KmsEncryptionContext
+        {
+            get => _kmsEncryptionContext;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kmsEncryptionContext = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("kmsKeyId")]
+        private Input<string>? _kmsKeyId;
 
         /// <summary>
         /// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
+        public Input<string>? KmsKeyId
+        {
+            get => _kmsKeyId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kmsKeyId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
@@ -835,11 +912,21 @@ namespace Pulumi.Aws.S3
         [Input("sourceCustomerAlgorithm")]
         public Input<string>? SourceCustomerAlgorithm { get; set; }
 
+        [Input("sourceCustomerKey")]
+        private Input<string>? _sourceCustomerKey;
+
         /// <summary>
         /// Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
         /// </summary>
-        [Input("sourceCustomerKey")]
-        public Input<string>? SourceCustomerKey { get; set; }
+        public Input<string>? SourceCustomerKey
+        {
+            get => _sourceCustomerKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sourceCustomerKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.

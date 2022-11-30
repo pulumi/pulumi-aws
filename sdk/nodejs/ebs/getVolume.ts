@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ebsVolume = pulumi.output(aws.ebs.getVolume({
+ * const ebsVolume = aws.ebs.getVolume({
  *     filters: [
  *         {
  *             name: "volume-type",
@@ -29,16 +29,13 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     mostRecent: true,
- * }));
+ * });
  * ```
  */
 export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ebs/getVolume:getVolume", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,

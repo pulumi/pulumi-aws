@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ebs
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSnapshotIdsResult> InvokeAsync(GetSnapshotIdsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? new GetSnapshotIdsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? new GetSnapshotIdsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get a list of EBS Snapshot IDs matching the specified
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Ebs
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSnapshotIdsResult> Invoke(GetSnapshotIdsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? new GetSnapshotIdsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? new GetSnapshotIdsInvokeArgs(), options.WithDefaults());
     }
 
 

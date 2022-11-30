@@ -17,17 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.route53.getResolverFirewallDomainList({
+ * const example = aws.route53.getResolverFirewallDomainList({
  *     firewallDomainListId: "rslvr-fdl-example",
- * }));
+ * });
  * ```
  */
 export function getResolverFirewallDomainList(args: GetResolverFirewallDomainListArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallDomainListResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", {
         "firewallDomainListId": args.firewallDomainListId,
     }, opts);

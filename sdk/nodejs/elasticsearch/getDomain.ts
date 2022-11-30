@@ -16,17 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDomain = pulumi.output(aws.elasticsearch.getDomain({
+ * const myDomain = aws.elasticsearch.getDomain({
  *     domainName: "my-domain-name",
- * }));
+ * });
  * ```
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticsearch/getDomain:getDomain", {
         "domainName": args.domainName,
         "tags": args.tags,

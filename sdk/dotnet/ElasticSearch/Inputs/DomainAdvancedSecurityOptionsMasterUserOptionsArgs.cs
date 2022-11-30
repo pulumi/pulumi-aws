@@ -24,11 +24,21 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         [Input("masterUserName")]
         public Input<string>? MasterUserName { get; set; }
 
+        [Input("masterUserPassword")]
+        private Input<string>? _masterUserPassword;
+
         /// <summary>
         /// Main user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
         /// </summary>
-        [Input("masterUserPassword")]
-        public Input<string>? MasterUserPassword { get; set; }
+        public Input<string>? MasterUserPassword
+        {
+            get => _masterUserPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _masterUserPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public DomainAdvancedSecurityOptionsMasterUserOptionsArgs()
         {

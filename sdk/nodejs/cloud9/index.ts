@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { EnvironmentEC2Args, EnvironmentEC2State } from "./environmentEC2";
 export type EnvironmentEC2 = import("./environmentEC2").EnvironmentEC2;
 export const EnvironmentEC2: typeof import("./environmentEC2").EnvironmentEC2 = null as any;
+utilities.lazyLoad(exports, ["EnvironmentEC2"], () => require("./environmentEC2"));
 
 export { EnvironmentMembershipArgs, EnvironmentMembershipState } from "./environmentMembership";
 export type EnvironmentMembership = import("./environmentMembership").EnvironmentMembership;
 export const EnvironmentMembership: typeof import("./environmentMembership").EnvironmentMembership = null as any;
-
-utilities.lazyLoad(exports, ["EnvironmentEC2"], () => require("./environmentEC2"));
 utilities.lazyLoad(exports, ["EnvironmentMembership"], () => require("./environmentMembership"));
+
 
 const _module = {
     version: utilities.getVersion(),

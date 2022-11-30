@@ -12,11 +12,22 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class ProjectSourceAuthArgs : global::Pulumi.ResourceArgs
     {
+        [Input("resource")]
+        private Input<string>? _resource;
+
         /// <summary>
         /// Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
         /// </summary>
-        [Input("resource")]
-        public Input<string>? Resource { get; set; }
+        [Obsolete(@"Use the aws_codebuild_source_credential resource instead")]
+        public Input<string>? Resource
+        {
+            get => _resource;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _resource = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.

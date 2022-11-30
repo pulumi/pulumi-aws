@@ -18,10 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.connect.getHoursOfOperation({
+ * const test = aws.connect.getHoursOfOperation({
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     name: "Test",
- * }));
+ * });
  * ```
  *
  * By `hoursOfOperationId`
@@ -30,18 +30,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.connect.getHoursOfOperation({
+ * const test = aws.connect.getHoursOfOperation({
  *     hoursOfOperationId: "cccccccc-bbbb-cccc-dddd-111111111111",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- * }));
+ * });
  * ```
  */
 export function getHoursOfOperation(args: GetHoursOfOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetHoursOfOperationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getHoursOfOperation:getHoursOfOperation", {
         "hoursOfOperationId": args.hoursOfOperationId,
         "instanceId": args.instanceId,

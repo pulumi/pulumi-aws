@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetKeyPairResult> InvokeAsync(GetKeyPairArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyPairResult>("aws:ec2/getKeyPair:getKeyPair", args ?? new GetKeyPairArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyPairResult>("aws:ec2/getKeyPair:getKeyPair", args ?? new GetKeyPairArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific EC2 Key Pair.
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetKeyPairResult> Invoke(GetKeyPairInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKeyPairResult>("aws:ec2/getKeyPair:getKeyPair", args ?? new GetKeyPairInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyPairResult>("aws:ec2/getKeyPair:getKeyPair", args ?? new GetKeyPairInvokeArgs(), options.WithDefaults());
     }
 
 

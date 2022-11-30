@@ -246,7 +246,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["certificateBody"] = args ? args.certificateBody : undefined;
             resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
             resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["certificatePrivateKey"] = args ? args.certificatePrivateKey : undefined;
+            resourceInputs["certificatePrivateKey"] = args?.certificatePrivateKey ? pulumi.secret(args.certificatePrivateKey) : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
             resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
@@ -264,6 +264,8 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["certificatePrivateKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DomainName.__pulumiType, name, resourceInputs, opts);
     }
 }

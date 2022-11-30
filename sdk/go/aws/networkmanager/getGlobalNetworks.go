@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.GetGlobalNetworks(ctx, &networkmanager.GetGlobalNetworksArgs{
+//			_, err = networkmanager.GetGlobalNetworks(ctx, &networkmanager.GetGlobalNetworksArgs{
 //				Tags: map[string]interface{}{
 //					"Env": "test",
 //				},

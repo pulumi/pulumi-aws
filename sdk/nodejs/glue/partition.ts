@@ -10,19 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Glue Partition Resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Partition("example", {
- *     databaseName: "some-database",
- *     tableName: "some-table",
- *     values: ["some-value"],
- * });
- * ```
- *
  * ## Import
  *
  * Glue Partitions can be imported with their catalog ID (usually AWS account ID), database name, table name and partition values e.g.,

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.GetDistributionConfigurations(ctx, &imagebuilder.GetDistributionConfigurationsArgs{
+//			_, err = imagebuilder.GetDistributionConfigurations(ctx, &imagebuilder.GetDistributionConfigurationsArgs{
 //				Filters: []imagebuilder.GetDistributionConfigurationsFilter{
 //					imagebuilder.GetDistributionConfigurationsFilter{
 //						Name: "name",

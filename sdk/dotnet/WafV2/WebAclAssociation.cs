@@ -84,7 +84,7 @@ namespace Pulumi.Aws.WafV2
     ///         Scope = "REGIONAL",
     ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
     ///         {
-    ///             Allow = ,
+    ///             Allow = null,
     ///         },
     ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
     ///         {

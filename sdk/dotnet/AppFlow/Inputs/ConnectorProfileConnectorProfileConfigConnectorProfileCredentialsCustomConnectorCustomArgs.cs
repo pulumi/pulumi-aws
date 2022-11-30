@@ -21,7 +21,11 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public InputMap<string> CredentialsMap
         {
             get => _credentialsMap ?? (_credentialsMap = new InputMap<string>());
-            set => _credentialsMap = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _credentialsMap = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

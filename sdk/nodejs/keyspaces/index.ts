@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { KeyspaceArgs, KeyspaceState } from "./keyspace";
 export type Keyspace = import("./keyspace").Keyspace;
 export const Keyspace: typeof import("./keyspace").Keyspace = null as any;
+utilities.lazyLoad(exports, ["Keyspace"], () => require("./keyspace"));
 
 export { TableArgs, TableState } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
-
-utilities.lazyLoad(exports, ["Keyspace"], () => require("./keyspace"));
 utilities.lazyLoad(exports, ["Table"], () => require("./table"));
+
 
 const _module = {
     version: utilities.getVersion(),

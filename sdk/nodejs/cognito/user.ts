@@ -192,8 +192,8 @@ export class User extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["forceAliasCreation"] = args ? args.forceAliasCreation : undefined;
             resourceInputs["messageAction"] = args ? args.messageAction : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["temporaryPassword"] = args ? args.temporaryPassword : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["temporaryPassword"] = args?.temporaryPassword ? pulumi.secret(args.temporaryPassword) : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
             resourceInputs["validationData"] = args ? args.validationData : undefined;
@@ -205,6 +205,8 @@ export class User extends pulumi.CustomResource {
             resourceInputs["sub"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password", "temporaryPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
 }

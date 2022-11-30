@@ -12,98 +12,6 @@ import * as utilities from "../utilities";
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones"](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
  *
  * ## Example Usage
- * ### Basic mysql blueprint
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lightsail.Database("test", {
- *     availabilityZone: "us-east-1a",
- *     blueprintId: "mysql_8_0",
- *     bundleId: "micro_1_0",
- *     masterDatabaseName: "testdatabasename",
- *     masterPassword: "testdatabasepassword",
- *     masterUsername: "test",
- *     name: "test",
- * });
- * ```
- * ### Basic postrgres blueprint
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lightsail.Database("test", {
- *     availabilityZone: "us-east-1a",
- *     blueprintId: "postgres_12",
- *     bundleId: "micro_1_0",
- *     masterDatabaseName: "testdatabasename",
- *     masterPassword: "testdatabasepassword",
- *     masterUsername: "test",
- *     name: "test",
- * });
- * ```
- * ### Custom backup and maintenance windows
- *
- * Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lightsail.Database("test", {
- *     availabilityZone: "us-east-1a",
- *     blueprintId: "postgres_12",
- *     bundleId: "micro_1_0",
- *     masterDatabaseName: "testdatabasename",
- *     masterPassword: "testdatabasepassword",
- *     masterUsername: "test",
- *     name: "test",
- *     preferredBackupWindow: "16:00-16:30",
- *     preferredMaintenanceWindow: "Tue:17:00-Tue:17:30",
- * });
- * ```
- * ### Final Snapshots
- *
- * To enable creating a final snapshot of your database on deletion, use the `finalSnapshotName` argument to provide a name to be used for the snapshot.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lightsail.Database("test", {
- *     availabilityZone: "us-east-1a",
- *     blueprintId: "postgres_12",
- *     bundleId: "micro_1_0",
- *     finalSnapshotName: "MyFinalSnapshot",
- *     masterDatabaseName: "testdatabasename",
- *     masterPassword: "testdatabasepassword",
- *     masterUsername: "test",
- *     name: "test",
- *     preferredBackupWindow: "16:00-16:30",
- *     preferredMaintenanceWindow: "Tue:17:00-Tue:17:30",
- * });
- * ```
- * ### Apply Immediately
- *
- * To enable applying changes immediately instead of waiting for a maintiance window, use the `applyImmediately` argument.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lightsail.Database("test", {
- *     applyImmediately: true,
- *     availabilityZone: "us-east-1a",
- *     blueprintId: "postgres_12",
- *     bundleId: "micro_1_0",
- *     masterDatabaseName: "testdatabasename",
- *     masterPassword: "testdatabasepassword",
- *     masterUsername: "test",
- *     name: "test",
- * });
- * ```
  * ## Blueprint Ids
  *
  * A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
@@ -368,7 +276,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["bundleId"] = args ? args.bundleId : undefined;
             resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
             resourceInputs["masterDatabaseName"] = args ? args.masterDatabaseName : undefined;
-            resourceInputs["masterPassword"] = args ? args.masterPassword : undefined;
+            resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
@@ -391,6 +299,8 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["masterPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Database.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -34,7 +34,7 @@ import (
 //				Type:   pulumi.String("A"),
 //				Ttl:    pulumi.Int(300),
 //				Records: pulumi.StringArray{
-//					pulumi.Any(aws_eip.Lb.Public_ip),
+//					aws_eip.Lb.Public_ip,
 //				},
 //			})
 //			if err != nil {

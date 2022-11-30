@@ -104,6 +104,13 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.SourceBucketArn == nil {
 		return nil, errors.New("invalid value for required argument 'SourceBucketArn'")
 	}
+	if args.AirflowConfigurationOptions != nil {
+		args.AirflowConfigurationOptions = pulumi.ToSecret(args.AirflowConfigurationOptions).(pulumi.StringMapOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"airflowConfigurationOptions",
+	})
+	opts = append(opts, secrets)
 	var resource Environment
 	err := ctx.RegisterResource("aws:mwaa/environment:Environment", name, args, &resource, opts...)
 	if err != nil {

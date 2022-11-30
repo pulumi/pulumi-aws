@@ -15,13 +15,13 @@ namespace Pulumi.Aws.SsoAdmin
         /// Use this data source to get a Single Sign-On (SSO) Permission Set.
         /// </summary>
         public static Task<GetPermissionSetResult> InvokeAsync(GetPermissionSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPermissionSetResult>("aws:ssoadmin/getPermissionSet:getPermissionSet", args ?? new GetPermissionSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionSetResult>("aws:ssoadmin/getPermissionSet:getPermissionSet", args ?? new GetPermissionSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get a Single Sign-On (SSO) Permission Set.
         /// </summary>
         public static Output<GetPermissionSetResult> Invoke(GetPermissionSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPermissionSetResult>("aws:ssoadmin/getPermissionSet:getPermissionSet", args ?? new GetPermissionSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPermissionSetResult>("aws:ssoadmin/getPermissionSet:getPermissionSet", args ?? new GetPermissionSetInvokeArgs(), options.WithDefaults());
     }
 
 

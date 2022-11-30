@@ -184,12 +184,12 @@ import (
 //				VpcConfig: &codebuild.ProjectVpcConfigArgs{
 //					VpcId: pulumi.Any(aws_vpc.Example.Id),
 //					Subnets: pulumi.StringArray{
-//						pulumi.Any(aws_subnet.Example1.Id),
-//						pulumi.Any(aws_subnet.Example2.Id),
+//						aws_subnet.Example1.Id,
+//						aws_subnet.Example2.Id,
 //					},
 //					SecurityGroupIds: pulumi.StringArray{
-//						pulumi.Any(aws_security_group.Example1.Id),
-//						pulumi.Any(aws_security_group.Example2.Id),
+//						aws_security_group.Example1.Id,
+//						aws_security_group.Example2.Id,
 //					},
 //				},
 //				Tags: pulumi.StringMap{

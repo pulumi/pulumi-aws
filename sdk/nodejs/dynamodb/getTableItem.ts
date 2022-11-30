@@ -28,11 +28,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTableItem(args: GetTableItemArgs, opts?: pulumi.InvokeOptions): Promise<GetTableItemResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dynamodb/getTableItem:getTableItem", {
         "expressionAttributeNames": args.expressionAttributeNames,
         "key": args.key,

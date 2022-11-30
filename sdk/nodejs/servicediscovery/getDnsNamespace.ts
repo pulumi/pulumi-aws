@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.servicediscovery.getDnsNamespace({
+ * const test = aws.servicediscovery.getDnsNamespace({
  *     name: "example.service.local",
  *     type: "DNS_PRIVATE",
- * }));
+ * });
  * ```
  */
 export function getDnsNamespace(args: GetDnsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsNamespaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicediscovery/getDnsNamespace:getDnsNamespace", {
         "name": args.name,
         "tags": args.tags,

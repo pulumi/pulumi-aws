@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
 //			layerName := cfg.Require("layerName")
-//			_, err := lambda.LookupLayerVersion(ctx, &lambda.LookupLayerVersionArgs{
+//			_, err = lambda.LookupLayerVersion(ctx, &lambda.LookupLayerVersionArgs{
 //				LayerName: layerName,
 //			}, nil)
 //			if err != nil {

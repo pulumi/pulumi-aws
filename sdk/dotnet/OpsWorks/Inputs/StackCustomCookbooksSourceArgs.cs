@@ -12,11 +12,21 @@ namespace Pulumi.Aws.OpsWorks.Inputs
 
     public sealed class StackCustomCookbooksSourceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// For sources that are version-aware, the revision to use.
@@ -24,11 +34,21 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         [Input("revision")]
         public Input<string>? Revision { get; set; }
 
+        [Input("sshKey")]
+        private Input<string>? _sshKey;
+
         /// <summary>
         /// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("sshKey")]
-        public Input<string>? SshKey { get; set; }
+        public Input<string>? SshKey
+        {
+            get => _sshKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sshKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The type of source to use. For example, "archive".

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLaunchPathsResult> InvokeAsync(GetLaunchPathsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchPathsResult>("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args ?? new GetLaunchPathsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchPathsResult>("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args ?? new GetLaunchPathsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLaunchPathsResult> Invoke(GetLaunchPathsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLaunchPathsResult>("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args ?? new GetLaunchPathsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLaunchPathsResult>("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args ?? new GetLaunchPathsInvokeArgs(), options.WithDefaults());
     }
 
 

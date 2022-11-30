@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Location
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPlaceIndexResult> InvokeAsync(GetPlaceIndexArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlaceIndexResult>("aws:location/getPlaceIndex:getPlaceIndex", args ?? new GetPlaceIndexArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlaceIndexResult>("aws:location/getPlaceIndex:getPlaceIndex", args ?? new GetPlaceIndexArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about a Location Service Place Index.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Location
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPlaceIndexResult> Invoke(GetPlaceIndexInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPlaceIndexResult>("aws:location/getPlaceIndex:getPlaceIndex", args ?? new GetPlaceIndexInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlaceIndexResult>("aws:location/getPlaceIndex:getPlaceIndex", args ?? new GetPlaceIndexInvokeArgs(), options.WithDefaults());
     }
 
 

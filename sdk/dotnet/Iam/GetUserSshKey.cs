@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Iam
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserSshKeyResult> InvokeAsync(GetUserSshKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserSshKeyResult>("aws:iam/getUserSshKey:getUserSshKey", args ?? new GetUserSshKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSshKeyResult>("aws:iam/getUserSshKey:getUserSshKey", args ?? new GetUserSshKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a SSH public key associated with the specified IAM user.
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Iam
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserSshKeyResult> Invoke(GetUserSshKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserSshKeyResult>("aws:iam/getUserSshKey:getUserSshKey", args ?? new GetUserSshKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserSshKeyResult>("aws:iam/getUserSshKey:getUserSshKey", args ?? new GetUserSshKeyInvokeArgs(), options.WithDefaults());
     }
 
 

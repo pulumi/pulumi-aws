@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetReportDefinitionArgs, GetReportDefinitionResult, GetReportDefinitionOutputArgs } from "./getReportDefinition";
 export const getReportDefinition: typeof import("./getReportDefinition").getReportDefinition = null as any;
 export const getReportDefinitionOutput: typeof import("./getReportDefinition").getReportDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getReportDefinition","getReportDefinitionOutput"], () => require("./getReportDefinition"));
 
 export { ReportDefinitionArgs, ReportDefinitionState } from "./reportDefinition";
 export type ReportDefinition = import("./reportDefinition").ReportDefinition;
 export const ReportDefinition: typeof import("./reportDefinition").ReportDefinition = null as any;
-
-utilities.lazyLoad(exports, ["getReportDefinition","getReportDefinitionOutput"], () => require("./getReportDefinition"));
 utilities.lazyLoad(exports, ["ReportDefinition"], () => require("./reportDefinition"));
+
 
 const _module = {
     version: utilities.getVersion(),

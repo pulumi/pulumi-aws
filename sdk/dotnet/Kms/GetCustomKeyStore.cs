@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Kms
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCustomKeyStoreResult> InvokeAsync(GetCustomKeyStoreArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the metadata KMS custom key store.
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Kms
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCustomKeyStoreResult> Invoke(GetCustomKeyStoreInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreInvokeArgs(), options.WithDefaults());
     }
 
 

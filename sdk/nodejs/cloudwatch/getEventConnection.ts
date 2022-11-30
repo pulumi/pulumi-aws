@@ -15,17 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.cloudwatch.getEventConnection({
+ * const test = aws.cloudwatch.getEventConnection({
  *     name: "test",
- * }));
+ * });
  * ```
  */
 export function getEventConnection(args: GetEventConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getEventConnection:getEventConnection", {
         "name": args.name,
     }, opts);

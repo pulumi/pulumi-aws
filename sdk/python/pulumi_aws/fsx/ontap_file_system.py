@@ -829,7 +829,7 @@ class OntapFileSystem(pulumi.CustomResource):
             __props__.__dict__["deployment_type"] = deployment_type
             __props__.__dict__["disk_iops_configuration"] = disk_iops_configuration
             __props__.__dict__["endpoint_ip_address_range"] = endpoint_ip_address_range
-            __props__.__dict__["fsx_admin_password"] = fsx_admin_password
+            __props__.__dict__["fsx_admin_password"] = None if fsx_admin_password is None else pulumi.Output.secret(fsx_admin_password)
             __props__.__dict__["kms_key_id"] = kms_key_id
             if preferred_subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'preferred_subnet_id'")
@@ -853,6 +853,8 @@ class OntapFileSystem(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["fsxAdminPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OntapFileSystem, __self__).__init__(
             'aws:fsx/ontapFileSystem:OntapFileSystem',
             resource_name,

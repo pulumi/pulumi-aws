@@ -18,7 +18,8 @@ import * as utilities from "../utilities";
  *     content: `Phrase	IPA	SoundsLike	DisplayAs
  * Los-Angeles			Los Angeles
  * F.B.I.	ɛ f b i aɪ		FBI
- * Etienne		eh-tee-en	`,
+ * Etienne		eh-tee-en	
+ * `,
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     languageCode: "en-US",
  *     tags: {

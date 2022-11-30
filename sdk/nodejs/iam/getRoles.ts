@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const roles = pulumi.output(aws.iam.getRoles());
+ * const roles = aws.iam.getRoles({});
  * ```
  * ### Roles filtered by name regex
  *
@@ -24,9 +24,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const roles = pulumi.output(aws.iam.getRoles({
+ * const roles = aws.iam.getRoles({
  *     nameRegex: ".*project.*",
- * }));
+ * });
  * ```
  * ### Roles filtered by path prefix
  *
@@ -34,9 +34,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const roles = pulumi.output(aws.iam.getRoles({
+ * const roles = aws.iam.getRoles({
  *     pathPrefix: "/custom-path",
- * }));
+ * });
  * ```
  * ### Roles provisioned by AWS SSO
  *
@@ -46,9 +46,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const roles = pulumi.output(aws.iam.getRoles({
+ * const roles = aws.iam.getRoles({
  *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
- * }));
+ * });
  * ```
  *
  * Specific role in the account filtered by name regex and path prefix
@@ -57,19 +57,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const roles = pulumi.output(aws.iam.getRoles({
+ * const roles = aws.iam.getRoles({
  *     nameRegex: "AWSReservedSSO_permission_set_name_.*",
  *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
- * }));
+ * });
  * ```
  */
 export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetRolesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getRoles:getRoles", {
         "nameRegex": args.nameRegex,
         "pathPrefix": args.pathPrefix,

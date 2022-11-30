@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Route53
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTrafficPolicyDocumentResult> InvokeAsync(GetTrafficPolicyDocumentArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficPolicyDocumentResult>("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", args ?? new GetTrafficPolicyDocumentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficPolicyDocumentResult>("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", args ?? new GetTrafficPolicyDocumentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
@@ -345,7 +345,7 @@ namespace Pulumi.Aws.Route53
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTrafficPolicyDocumentResult> Invoke(GetTrafficPolicyDocumentInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrafficPolicyDocumentResult>("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", args ?? new GetTrafficPolicyDocumentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrafficPolicyDocumentResult>("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", args ?? new GetTrafficPolicyDocumentInvokeArgs(), options.WithDefaults());
     }
 
 

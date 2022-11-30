@@ -8,58 +8,58 @@ import * as utilities from "../utilities";
 export { CacheArgs, CacheState } from "./cache";
 export type Cache = import("./cache").Cache;
 export const Cache: typeof import("./cache").Cache = null as any;
+utilities.lazyLoad(exports, ["Cache"], () => require("./cache"));
 
 export { CachesIscsiVolumeArgs, CachesIscsiVolumeState } from "./cachesIscsiVolume";
 export type CachesIscsiVolume = import("./cachesIscsiVolume").CachesIscsiVolume;
 export const CachesIscsiVolume: typeof import("./cachesIscsiVolume").CachesIscsiVolume = null as any;
+utilities.lazyLoad(exports, ["CachesIscsiVolume"], () => require("./cachesIscsiVolume"));
 
 export { FileSystemAssociationArgs, FileSystemAssociationState } from "./fileSystemAssociation";
 export type FileSystemAssociation = import("./fileSystemAssociation").FileSystemAssociation;
 export const FileSystemAssociation: typeof import("./fileSystemAssociation").FileSystemAssociation = null as any;
+utilities.lazyLoad(exports, ["FileSystemAssociation"], () => require("./fileSystemAssociation"));
 
 export { GatewayArgs, GatewayState } from "./gateway";
 export type Gateway = import("./gateway").Gateway;
 export const Gateway: typeof import("./gateway").Gateway = null as any;
+utilities.lazyLoad(exports, ["Gateway"], () => require("./gateway"));
 
 export { GetLocalDiskArgs, GetLocalDiskResult, GetLocalDiskOutputArgs } from "./getLocalDisk";
 export const getLocalDisk: typeof import("./getLocalDisk").getLocalDisk = null as any;
 export const getLocalDiskOutput: typeof import("./getLocalDisk").getLocalDiskOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalDisk","getLocalDiskOutput"], () => require("./getLocalDisk"));
 
 export { NfsFileShareArgs, NfsFileShareState } from "./nfsFileShare";
 export type NfsFileShare = import("./nfsFileShare").NfsFileShare;
 export const NfsFileShare: typeof import("./nfsFileShare").NfsFileShare = null as any;
+utilities.lazyLoad(exports, ["NfsFileShare"], () => require("./nfsFileShare"));
 
 export { SmbFileShareArgs, SmbFileShareState } from "./smbFileShare";
 export type SmbFileShare = import("./smbFileShare").SmbFileShare;
 export const SmbFileShare: typeof import("./smbFileShare").SmbFileShare = null as any;
+utilities.lazyLoad(exports, ["SmbFileShare"], () => require("./smbFileShare"));
 
 export { StoredIscsiVolumeArgs, StoredIscsiVolumeState } from "./storedIscsiVolume";
 export type StoredIscsiVolume = import("./storedIscsiVolume").StoredIscsiVolume;
 export const StoredIscsiVolume: typeof import("./storedIscsiVolume").StoredIscsiVolume = null as any;
+utilities.lazyLoad(exports, ["StoredIscsiVolume"], () => require("./storedIscsiVolume"));
 
 export { TapePoolArgs, TapePoolState } from "./tapePool";
 export type TapePool = import("./tapePool").TapePool;
 export const TapePool: typeof import("./tapePool").TapePool = null as any;
+utilities.lazyLoad(exports, ["TapePool"], () => require("./tapePool"));
 
 export { UploadBufferArgs, UploadBufferState } from "./uploadBuffer";
 export type UploadBuffer = import("./uploadBuffer").UploadBuffer;
 export const UploadBuffer: typeof import("./uploadBuffer").UploadBuffer = null as any;
+utilities.lazyLoad(exports, ["UploadBuffer"], () => require("./uploadBuffer"));
 
 export { WorkingStorageArgs, WorkingStorageState } from "./workingStorage";
 export type WorkingStorage = import("./workingStorage").WorkingStorage;
 export const WorkingStorage: typeof import("./workingStorage").WorkingStorage = null as any;
-
-utilities.lazyLoad(exports, ["Cache"], () => require("./cache"));
-utilities.lazyLoad(exports, ["CachesIscsiVolume"], () => require("./cachesIscsiVolume"));
-utilities.lazyLoad(exports, ["FileSystemAssociation"], () => require("./fileSystemAssociation"));
-utilities.lazyLoad(exports, ["Gateway"], () => require("./gateway"));
-utilities.lazyLoad(exports, ["getLocalDisk","getLocalDiskOutput"], () => require("./getLocalDisk"));
-utilities.lazyLoad(exports, ["NfsFileShare"], () => require("./nfsFileShare"));
-utilities.lazyLoad(exports, ["SmbFileShare"], () => require("./smbFileShare"));
-utilities.lazyLoad(exports, ["StoredIscsiVolume"], () => require("./storedIscsiVolume"));
-utilities.lazyLoad(exports, ["TapePool"], () => require("./tapePool"));
-utilities.lazyLoad(exports, ["UploadBuffer"], () => require("./uploadBuffer"));
 utilities.lazyLoad(exports, ["WorkingStorage"], () => require("./workingStorage"));
+
 
 const _module = {
     version: utilities.getVersion(),

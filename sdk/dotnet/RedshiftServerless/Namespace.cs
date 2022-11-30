@@ -135,6 +135,11 @@ namespace Pulumi.Aws.RedshiftServerless
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "adminUserPassword",
+                    "adminUsername",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -158,17 +163,37 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("adminUserPassword")]
+        private Input<string>? _adminUserPassword;
+
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
         /// </summary>
-        [Input("adminUserPassword")]
-        public Input<string>? AdminUserPassword { get; set; }
+        public Input<string>? AdminUserPassword
+        {
+            get => _adminUserPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminUserPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("adminUsername")]
+        private Input<string>? _adminUsername;
 
         /// <summary>
         /// The username of the administrator for the first database created in the namespace.
         /// </summary>
-        [Input("adminUsername")]
-        public Input<string>? AdminUsername { get; set; }
+        public Input<string>? AdminUsername
+        {
+            get => _adminUsername;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminUsername = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the first database created in the namespace.
@@ -238,17 +263,37 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class NamespaceState : global::Pulumi.ResourceArgs
     {
+        [Input("adminUserPassword")]
+        private Input<string>? _adminUserPassword;
+
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
         /// </summary>
-        [Input("adminUserPassword")]
-        public Input<string>? AdminUserPassword { get; set; }
+        public Input<string>? AdminUserPassword
+        {
+            get => _adminUserPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminUserPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("adminUsername")]
+        private Input<string>? _adminUsername;
 
         /// <summary>
         /// The username of the administrator for the first database created in the namespace.
         /// </summary>
-        [Input("adminUsername")]
-        public Input<string>? AdminUsername { get; set; }
+        public Input<string>? AdminUsername
+        {
+            get => _adminUsername;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminUsername = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.

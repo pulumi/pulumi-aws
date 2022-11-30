@@ -8,28 +8,28 @@ import * as utilities from "../utilities";
 export { AppArgs, AppState } from "./app";
 export type App = import("./app").App;
 export const App: typeof import("./app").App = null as any;
+utilities.lazyLoad(exports, ["App"], () => require("./app"));
 
 export { BackendEnvironmentArgs, BackendEnvironmentState } from "./backendEnvironment";
 export type BackendEnvironment = import("./backendEnvironment").BackendEnvironment;
 export const BackendEnvironment: typeof import("./backendEnvironment").BackendEnvironment = null as any;
+utilities.lazyLoad(exports, ["BackendEnvironment"], () => require("./backendEnvironment"));
 
 export { BranchArgs, BranchState } from "./branch";
 export type Branch = import("./branch").Branch;
 export const Branch: typeof import("./branch").Branch = null as any;
+utilities.lazyLoad(exports, ["Branch"], () => require("./branch"));
 
 export { DomainAssociationArgs, DomainAssociationState } from "./domainAssociation";
 export type DomainAssociation = import("./domainAssociation").DomainAssociation;
 export const DomainAssociation: typeof import("./domainAssociation").DomainAssociation = null as any;
+utilities.lazyLoad(exports, ["DomainAssociation"], () => require("./domainAssociation"));
 
 export { WebhookArgs, WebhookState } from "./webhook";
 export type Webhook = import("./webhook").Webhook;
 export const Webhook: typeof import("./webhook").Webhook = null as any;
-
-utilities.lazyLoad(exports, ["App"], () => require("./app"));
-utilities.lazyLoad(exports, ["BackendEnvironment"], () => require("./backendEnvironment"));
-utilities.lazyLoad(exports, ["Branch"], () => require("./branch"));
-utilities.lazyLoad(exports, ["DomainAssociation"], () => require("./domainAssociation"));
 utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
+
 
 const _module = {
     version: utilities.getVersion(),

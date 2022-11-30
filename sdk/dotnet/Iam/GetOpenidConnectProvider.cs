@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Iam
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOpenidConnectProviderResult> InvokeAsync(GetOpenidConnectProviderArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenidConnectProviderResult>("aws:iam/getOpenidConnectProvider:getOpenidConnectProvider", args ?? new GetOpenidConnectProviderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenidConnectProviderResult>("aws:iam/getOpenidConnectProvider:getOpenidConnectProvider", args ?? new GetOpenidConnectProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// This data source can be used to fetch information about a specific
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Iam
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOpenidConnectProviderResult> Invoke(GetOpenidConnectProviderInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOpenidConnectProviderResult>("aws:iam/getOpenidConnectProvider:getOpenidConnectProvider", args ?? new GetOpenidConnectProviderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOpenidConnectProviderResult>("aws:iam/getOpenidConnectProvider:getOpenidConnectProvider", args ?? new GetOpenidConnectProviderInvokeArgs(), options.WithDefaults());
     }
 
 

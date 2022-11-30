@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { ActivityArgs, ActivityState } from "./activity";
 export type Activity = import("./activity").Activity;
 export const Activity: typeof import("./activity").Activity = null as any;
+utilities.lazyLoad(exports, ["Activity"], () => require("./activity"));
 
 export { GetActivityArgs, GetActivityResult, GetActivityOutputArgs } from "./getActivity";
 export const getActivity: typeof import("./getActivity").getActivity = null as any;
 export const getActivityOutput: typeof import("./getActivity").getActivityOutput = null as any;
+utilities.lazyLoad(exports, ["getActivity","getActivityOutput"], () => require("./getActivity"));
 
 export { GetStateMachineArgs, GetStateMachineResult, GetStateMachineOutputArgs } from "./getStateMachine";
 export const getStateMachine: typeof import("./getStateMachine").getStateMachine = null as any;
 export const getStateMachineOutput: typeof import("./getStateMachine").getStateMachineOutput = null as any;
+utilities.lazyLoad(exports, ["getStateMachine","getStateMachineOutput"], () => require("./getStateMachine"));
 
 export { StateMachineArgs, StateMachineState } from "./stateMachine";
 export type StateMachine = import("./stateMachine").StateMachine;
 export const StateMachine: typeof import("./stateMachine").StateMachine = null as any;
-
-utilities.lazyLoad(exports, ["Activity"], () => require("./activity"));
-utilities.lazyLoad(exports, ["getActivity","getActivityOutput"], () => require("./getActivity"));
-utilities.lazyLoad(exports, ["getStateMachine","getStateMachineOutput"], () => require("./getStateMachine"));
 utilities.lazyLoad(exports, ["StateMachine"], () => require("./stateMachine"));
+
 
 const _module = {
     version: utilities.getVersion(),

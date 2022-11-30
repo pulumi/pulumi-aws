@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { ApplicationArgs, ApplicationState } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
-
 utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+
 
 const _module = {
     version: utilities.getVersion(),

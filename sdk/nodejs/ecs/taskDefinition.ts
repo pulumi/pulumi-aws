@@ -189,6 +189,7 @@ import * as utilities from "../utilities";
  *         ]
  *   }
  * ]
+ *
  * `,
  *     family: "test",
  *     inferenceAccelerators: [{
@@ -213,6 +214,7 @@ import * as utilities from "../utilities";
  *     "essential": true
  *   }
  * ]
+ *
  * `,
  *     cpu: "1024",
  *     family: "test",

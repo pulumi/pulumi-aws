@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { EndpointArgs, EndpointState } from "./endpoint";
 export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
-
 utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -32,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
+//				Statements: pulumi.Array{
 //					iam.GetPolicyDocumentStatement{
 //						Sid: pulumi.StringRef("1"),
 //						Actions: []string{
@@ -104,7 +104,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					iam.GetPolicyDocumentStatement{
 //						Actions: []string{

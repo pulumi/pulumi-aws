@@ -17,15 +17,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.transfer.Workflow("example", {
- *     steps: [{
- *         deleteStepDetails: {
- *             name: "example",
- *             sourceFileLocation: "${original.file}",
- *         },
- *         type: "DELETE",
- *     }],
- * });
+ * const example = new aws.transfer.Workflow("example", {steps: [{
+ *     deleteStepDetails: {
+ *         name: "example",
+ *         sourceFileLocation: original.file,
+ *     },
+ *     type: "DELETE",
+ * }]});
  * ```
  * ### Multistep example
  *

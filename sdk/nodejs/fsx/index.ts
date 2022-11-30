@@ -8,63 +8,63 @@ import * as utilities from "../utilities";
 export { BackupArgs, BackupState } from "./backup";
 export type Backup = import("./backup").Backup;
 export const Backup: typeof import("./backup").Backup = null as any;
+utilities.lazyLoad(exports, ["Backup"], () => require("./backup"));
 
 export { DataRepositoryAssociationArgs, DataRepositoryAssociationState } from "./dataRepositoryAssociation";
 export type DataRepositoryAssociation = import("./dataRepositoryAssociation").DataRepositoryAssociation;
 export const DataRepositoryAssociation: typeof import("./dataRepositoryAssociation").DataRepositoryAssociation = null as any;
+utilities.lazyLoad(exports, ["DataRepositoryAssociation"], () => require("./dataRepositoryAssociation"));
 
 export { FileCacheArgs, FileCacheState } from "./fileCache";
 export type FileCache = import("./fileCache").FileCache;
 export const FileCache: typeof import("./fileCache").FileCache = null as any;
+utilities.lazyLoad(exports, ["FileCache"], () => require("./fileCache"));
 
 export { GetOpenZfsSnapshotArgs, GetOpenZfsSnapshotResult, GetOpenZfsSnapshotOutputArgs } from "./getOpenZfsSnapshot";
 export const getOpenZfsSnapshot: typeof import("./getOpenZfsSnapshot").getOpenZfsSnapshot = null as any;
 export const getOpenZfsSnapshotOutput: typeof import("./getOpenZfsSnapshot").getOpenZfsSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getOpenZfsSnapshot","getOpenZfsSnapshotOutput"], () => require("./getOpenZfsSnapshot"));
 
 export { LustreFileSystemArgs, LustreFileSystemState } from "./lustreFileSystem";
 export type LustreFileSystem = import("./lustreFileSystem").LustreFileSystem;
 export const LustreFileSystem: typeof import("./lustreFileSystem").LustreFileSystem = null as any;
+utilities.lazyLoad(exports, ["LustreFileSystem"], () => require("./lustreFileSystem"));
 
 export { OntapFileSystemArgs, OntapFileSystemState } from "./ontapFileSystem";
 export type OntapFileSystem = import("./ontapFileSystem").OntapFileSystem;
 export const OntapFileSystem: typeof import("./ontapFileSystem").OntapFileSystem = null as any;
+utilities.lazyLoad(exports, ["OntapFileSystem"], () => require("./ontapFileSystem"));
 
 export { OntapStorageVirtualMachineArgs, OntapStorageVirtualMachineState } from "./ontapStorageVirtualMachine";
 export type OntapStorageVirtualMachine = import("./ontapStorageVirtualMachine").OntapStorageVirtualMachine;
 export const OntapStorageVirtualMachine: typeof import("./ontapStorageVirtualMachine").OntapStorageVirtualMachine = null as any;
+utilities.lazyLoad(exports, ["OntapStorageVirtualMachine"], () => require("./ontapStorageVirtualMachine"));
 
 export { OntapVolumeArgs, OntapVolumeState } from "./ontapVolume";
 export type OntapVolume = import("./ontapVolume").OntapVolume;
 export const OntapVolume: typeof import("./ontapVolume").OntapVolume = null as any;
+utilities.lazyLoad(exports, ["OntapVolume"], () => require("./ontapVolume"));
 
 export { OpenZfsFileSystemArgs, OpenZfsFileSystemState } from "./openZfsFileSystem";
 export type OpenZfsFileSystem = import("./openZfsFileSystem").OpenZfsFileSystem;
 export const OpenZfsFileSystem: typeof import("./openZfsFileSystem").OpenZfsFileSystem = null as any;
+utilities.lazyLoad(exports, ["OpenZfsFileSystem"], () => require("./openZfsFileSystem"));
 
 export { OpenZfsSnapshotArgs, OpenZfsSnapshotState } from "./openZfsSnapshot";
 export type OpenZfsSnapshot = import("./openZfsSnapshot").OpenZfsSnapshot;
 export const OpenZfsSnapshot: typeof import("./openZfsSnapshot").OpenZfsSnapshot = null as any;
+utilities.lazyLoad(exports, ["OpenZfsSnapshot"], () => require("./openZfsSnapshot"));
 
 export { OpenZfsVolumeArgs, OpenZfsVolumeState } from "./openZfsVolume";
 export type OpenZfsVolume = import("./openZfsVolume").OpenZfsVolume;
 export const OpenZfsVolume: typeof import("./openZfsVolume").OpenZfsVolume = null as any;
+utilities.lazyLoad(exports, ["OpenZfsVolume"], () => require("./openZfsVolume"));
 
 export { WindowsFileSystemArgs, WindowsFileSystemState } from "./windowsFileSystem";
 export type WindowsFileSystem = import("./windowsFileSystem").WindowsFileSystem;
 export const WindowsFileSystem: typeof import("./windowsFileSystem").WindowsFileSystem = null as any;
-
-utilities.lazyLoad(exports, ["Backup"], () => require("./backup"));
-utilities.lazyLoad(exports, ["DataRepositoryAssociation"], () => require("./dataRepositoryAssociation"));
-utilities.lazyLoad(exports, ["FileCache"], () => require("./fileCache"));
-utilities.lazyLoad(exports, ["getOpenZfsSnapshot","getOpenZfsSnapshotOutput"], () => require("./getOpenZfsSnapshot"));
-utilities.lazyLoad(exports, ["LustreFileSystem"], () => require("./lustreFileSystem"));
-utilities.lazyLoad(exports, ["OntapFileSystem"], () => require("./ontapFileSystem"));
-utilities.lazyLoad(exports, ["OntapStorageVirtualMachine"], () => require("./ontapStorageVirtualMachine"));
-utilities.lazyLoad(exports, ["OntapVolume"], () => require("./ontapVolume"));
-utilities.lazyLoad(exports, ["OpenZfsFileSystem"], () => require("./openZfsFileSystem"));
-utilities.lazyLoad(exports, ["OpenZfsSnapshot"], () => require("./openZfsSnapshot"));
-utilities.lazyLoad(exports, ["OpenZfsVolume"], () => require("./openZfsVolume"));
 utilities.lazyLoad(exports, ["WindowsFileSystem"], () => require("./windowsFileSystem"));
+
 
 const _module = {
     version: utilities.getVersion(),

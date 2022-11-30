@@ -15,18 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplepartner = pulumi.output(aws.cloudwatch.getEventSource({
+ * const examplepartner = aws.cloudwatch.getEventSource({
  *     namePrefix: "aws.partner/examplepartner.com",
- * }));
+ * });
  * ```
  */
 export function getEventSource(args?: GetEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSourceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getEventSource:getEventSource", {
         "namePrefix": args.namePrefix,
     }, opts);

@@ -16,21 +16,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.imagebuilder.getInfrastructureConfigurations({
+ * const example = aws.imagebuilder.getInfrastructureConfigurations({
  *     filters: [{
  *         name: "name",
  *         values: ["example"],
  *     }],
- * }));
+ * });
  * ```
  */
 export function getInfrastructureConfigurations(args?: GetInfrastructureConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureConfigurationsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", {
         "filters": args.filters,
     }, opts);

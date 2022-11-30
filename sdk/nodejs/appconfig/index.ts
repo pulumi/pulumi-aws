@@ -8,68 +8,68 @@ import * as utilities from "../utilities";
 export { ApplicationArgs, ApplicationState } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
 export { ConfigurationProfileArgs, ConfigurationProfileState } from "./configurationProfile";
 export type ConfigurationProfile = import("./configurationProfile").ConfigurationProfile;
 export const ConfigurationProfile: typeof import("./configurationProfile").ConfigurationProfile = null as any;
+utilities.lazyLoad(exports, ["ConfigurationProfile"], () => require("./configurationProfile"));
 
 export { DeploymentArgs, DeploymentState } from "./deployment";
 export type Deployment = import("./deployment").Deployment;
 export const Deployment: typeof import("./deployment").Deployment = null as any;
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
 
 export { DeploymentStrategyArgs, DeploymentStrategyState } from "./deploymentStrategy";
 export type DeploymentStrategy = import("./deploymentStrategy").DeploymentStrategy;
 export const DeploymentStrategy: typeof import("./deploymentStrategy").DeploymentStrategy = null as any;
+utilities.lazyLoad(exports, ["DeploymentStrategy"], () => require("./deploymentStrategy"));
 
 export { EnvironmentArgs, EnvironmentState } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
+utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
 
 export { EventIntegrationArgs, EventIntegrationState } from "./eventIntegration";
 export type EventIntegration = import("./eventIntegration").EventIntegration;
 export const EventIntegration: typeof import("./eventIntegration").EventIntegration = null as any;
+utilities.lazyLoad(exports, ["EventIntegration"], () => require("./eventIntegration"));
 
 export { ExtensionArgs, ExtensionState } from "./extension";
 export type Extension = import("./extension").Extension;
 export const Extension: typeof import("./extension").Extension = null as any;
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
 
 export { ExtensionAssociationArgs, ExtensionAssociationState } from "./extensionAssociation";
 export type ExtensionAssociation = import("./extensionAssociation").ExtensionAssociation;
 export const ExtensionAssociation: typeof import("./extensionAssociation").ExtensionAssociation = null as any;
+utilities.lazyLoad(exports, ["ExtensionAssociation"], () => require("./extensionAssociation"));
 
 export { GetConfigurationProfileArgs, GetConfigurationProfileResult, GetConfigurationProfileOutputArgs } from "./getConfigurationProfile";
 export const getConfigurationProfile: typeof import("./getConfigurationProfile").getConfigurationProfile = null as any;
 export const getConfigurationProfileOutput: typeof import("./getConfigurationProfile").getConfigurationProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationProfile","getConfigurationProfileOutput"], () => require("./getConfigurationProfile"));
 
 export { GetConfigurationProfilesArgs, GetConfigurationProfilesResult, GetConfigurationProfilesOutputArgs } from "./getConfigurationProfiles";
 export const getConfigurationProfiles: typeof import("./getConfigurationProfiles").getConfigurationProfiles = null as any;
 export const getConfigurationProfilesOutput: typeof import("./getConfigurationProfiles").getConfigurationProfilesOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationProfiles","getConfigurationProfilesOutput"], () => require("./getConfigurationProfiles"));
 
 export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
 export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
 export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
 
 export { GetEnvironmentsArgs, GetEnvironmentsResult, GetEnvironmentsOutputArgs } from "./getEnvironments";
 export const getEnvironments: typeof import("./getEnvironments").getEnvironments = null as any;
 export const getEnvironmentsOutput: typeof import("./getEnvironments").getEnvironmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getEnvironments","getEnvironmentsOutput"], () => require("./getEnvironments"));
 
 export { HostedConfigurationVersionArgs, HostedConfigurationVersionState } from "./hostedConfigurationVersion";
 export type HostedConfigurationVersion = import("./hostedConfigurationVersion").HostedConfigurationVersion;
 export const HostedConfigurationVersion: typeof import("./hostedConfigurationVersion").HostedConfigurationVersion = null as any;
-
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
-utilities.lazyLoad(exports, ["ConfigurationProfile"], () => require("./configurationProfile"));
-utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
-utilities.lazyLoad(exports, ["DeploymentStrategy"], () => require("./deploymentStrategy"));
-utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
-utilities.lazyLoad(exports, ["EventIntegration"], () => require("./eventIntegration"));
-utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
-utilities.lazyLoad(exports, ["ExtensionAssociation"], () => require("./extensionAssociation"));
-utilities.lazyLoad(exports, ["getConfigurationProfile","getConfigurationProfileOutput"], () => require("./getConfigurationProfile"));
-utilities.lazyLoad(exports, ["getConfigurationProfiles","getConfigurationProfilesOutput"], () => require("./getConfigurationProfiles"));
-utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
-utilities.lazyLoad(exports, ["getEnvironments","getEnvironmentsOutput"], () => require("./getEnvironments"));
 utilities.lazyLoad(exports, ["HostedConfigurationVersion"], () => require("./hostedConfigurationVersion"));
+
 
 const _module = {
     version: utilities.getVersion(),

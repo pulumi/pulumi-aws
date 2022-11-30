@@ -37,7 +37,7 @@ namespace Pulumi.Aws.RedShift
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterCredentialsResult> InvokeAsync(GetClusterCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterCredentialsResult>("aws:redshift/getClusterCredentials:getClusterCredentials", args ?? new GetClusterCredentialsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterCredentialsResult>("aws:redshift/getClusterCredentials:getClusterCredentials", args ?? new GetClusterCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides redshift cluster temporary credentials.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.RedShift
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetClusterCredentialsResult> Invoke(GetClusterCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterCredentialsResult>("aws:redshift/getClusterCredentials:getClusterCredentials", args ?? new GetClusterCredentialsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterCredentialsResult>("aws:redshift/getClusterCredentials:getClusterCredentials", args ?? new GetClusterCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

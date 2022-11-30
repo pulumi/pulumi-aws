@@ -15,18 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const keystore = pulumi.output(aws.kms.getCustomKeyStore({
+ * const keystore = aws.kms.getCustomKeyStore({
  *     customKeyStoreName: "my_cloudhsm",
- * }));
+ * });
  * ```
  */
 export function getCustomKeyStore(args?: GetCustomKeyStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomKeyStoreResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kms/getCustomKeyStore:getCustomKeyStore", {
         "customKeyStoreId": args.customKeyStoreId,
         "customKeyStoreName": args.customKeyStoreName,

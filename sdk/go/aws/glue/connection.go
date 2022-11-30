@@ -69,7 +69,7 @@ import (
 //				PhysicalConnectionRequirements: &glue.ConnectionPhysicalConnectionRequirementsArgs{
 //					AvailabilityZone: pulumi.Any(aws_subnet.Example.Availability_zone),
 //					SecurityGroupIdLists: pulumi.StringArray{
-//						pulumi.Any(aws_security_group.Example.Id),
+//						aws_security_group.Example.Id,
 //					},
 //					SubnetId: pulumi.Any(aws_subnet.Example.Id),
 //				},
@@ -124,6 +124,13 @@ func NewConnection(ctx *pulumi.Context,
 		args = &ConnectionArgs{}
 	}
 
+	if args.ConnectionProperties != nil {
+		args.ConnectionProperties = pulumi.ToSecret(args.ConnectionProperties).(pulumi.StringMapOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"connectionProperties",
+	})
+	opts = append(opts, secrets)
 	var resource Connection
 	err := ctx.RegisterResource("aws:glue/connection:Connection", name, args, &resource, opts...)
 	if err != nil {

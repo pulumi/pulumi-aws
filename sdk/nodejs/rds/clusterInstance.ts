@@ -42,7 +42,7 @@ import {EngineType} from "./index";
  *     masterUsername: "foo",
  *     masterPassword: "barbut8chars",
  * });
- * const clusterInstances: aws.rds.ClusterInstance[];
+ * const clusterInstances: aws.rds.ClusterInstance[] = [];
  * for (const range = {value: 0}; range.value < 2; range.value++) {
  *     clusterInstances.push(new aws.rds.ClusterInstance(`clusterInstances-${range.value}`, {
  *         identifier: `aurora-cluster-demo-${range.value}`,

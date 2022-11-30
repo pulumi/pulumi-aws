@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = pulumi.output(aws.getRegion());
- * const example = current.apply(current => aws.ec2.getManagedPrefixList({
- *     name: `com.amazonaws.${current.name!}.dynamodb`,
+ * const current = aws.getRegion({});
+ * const example = current.then(current => aws.ec2.getManagedPrefixList({
+ *     name: `com.amazonaws.${current.name}.dynamodb`,
  * }));
  * ```
  * ### Find a managed prefix list using filters
@@ -29,21 +29,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2.getManagedPrefixList({
+ * const example = aws.ec2.getManagedPrefixList({
  *     filters: [{
  *         name: "prefix-list-name",
  *         values: ["my-prefix-list"],
  *     }],
- * }));
+ * });
  * ```
  */
 export function getManagedPrefixList(args?: GetManagedPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrefixListResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getManagedPrefixList:getManagedPrefixList", {
         "filters": args.filters,
         "id": args.id,

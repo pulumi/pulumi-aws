@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Rds
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws:rds/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws:rds/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about an RDS subnet group.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Rds
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws:rds/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws:rds/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

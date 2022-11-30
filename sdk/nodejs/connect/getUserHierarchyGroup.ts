@@ -18,10 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.connect.getUserHierarchyGroup({
+ * const example = aws.connect.getUserHierarchyGroup({
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     name: "Example",
- * }));
+ * });
  * ```
  *
  * By `hierarchyGroupId`
@@ -30,18 +30,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.connect.getUserHierarchyGroup({
+ * const example = aws.connect.getUserHierarchyGroup({
  *     hierarchyGroupId: "cccccccc-bbbb-cccc-dddd-111111111111",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- * }));
+ * });
  * ```
  */
 export function getUserHierarchyGroup(args: GetUserHierarchyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserHierarchyGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", {
         "hierarchyGroupId": args.hierarchyGroupId,
         "instanceId": args.instanceId,

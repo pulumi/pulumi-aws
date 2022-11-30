@@ -18,11 +18,21 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         [Input("allowedIpRange")]
         public Input<string>? AllowedIpRange { get; set; }
 
+        [Input("secretToken")]
+        private Input<string>? _secretToken;
+
         /// <summary>
         /// The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
         /// </summary>
-        [Input("secretToken")]
-        public Input<string>? SecretToken { get; set; }
+        public Input<string>? SecretToken
+        {
+            get => _secretToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public WebhookAuthenticationConfigurationArgs()
         {

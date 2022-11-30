@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { CustomDataIdentifierArgs, CustomDataIdentifierState } from "./customDataIdentifier";
 export type CustomDataIdentifier = import("./customDataIdentifier").CustomDataIdentifier;
 export const CustomDataIdentifier: typeof import("./customDataIdentifier").CustomDataIdentifier = null as any;
+utilities.lazyLoad(exports, ["CustomDataIdentifier"], () => require("./customDataIdentifier"));
 
 export { FindingsFilterArgs, FindingsFilterState } from "./findingsFilter";
 export type FindingsFilter = import("./findingsFilter").FindingsFilter;
 export const FindingsFilter: typeof import("./findingsFilter").FindingsFilter = null as any;
+utilities.lazyLoad(exports, ["FindingsFilter"], () => require("./findingsFilter"));
 
 export { MemberAccountAssociationArgs, MemberAccountAssociationState } from "./memberAccountAssociation";
 export type MemberAccountAssociation = import("./memberAccountAssociation").MemberAccountAssociation;
 export const MemberAccountAssociation: typeof import("./memberAccountAssociation").MemberAccountAssociation = null as any;
+utilities.lazyLoad(exports, ["MemberAccountAssociation"], () => require("./memberAccountAssociation"));
 
 export { S3BucketAssociationArgs, S3BucketAssociationState } from "./s3bucketAssociation";
 export type S3BucketAssociation = import("./s3bucketAssociation").S3BucketAssociation;
 export const S3BucketAssociation: typeof import("./s3bucketAssociation").S3BucketAssociation = null as any;
-
-utilities.lazyLoad(exports, ["CustomDataIdentifier"], () => require("./customDataIdentifier"));
-utilities.lazyLoad(exports, ["FindingsFilter"], () => require("./findingsFilter"));
-utilities.lazyLoad(exports, ["MemberAccountAssociation"], () => require("./memberAccountAssociation"));
 utilities.lazyLoad(exports, ["S3BucketAssociation"], () => require("./s3bucketAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),

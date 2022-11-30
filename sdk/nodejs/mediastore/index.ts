@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { ContainerArgs, ContainerState } from "./container";
 export type Container = import("./container").Container;
 export const Container: typeof import("./container").Container = null as any;
+utilities.lazyLoad(exports, ["Container"], () => require("./container"));
 
 export { ContainerPolicyArgs, ContainerPolicyState } from "./containerPolicy";
 export type ContainerPolicy = import("./containerPolicy").ContainerPolicy;
 export const ContainerPolicy: typeof import("./containerPolicy").ContainerPolicy = null as any;
-
-utilities.lazyLoad(exports, ["Container"], () => require("./container"));
 utilities.lazyLoad(exports, ["ContainerPolicy"], () => require("./containerPolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),

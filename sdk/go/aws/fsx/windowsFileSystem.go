@@ -37,7 +37,7 @@ import (
 //				KmsKeyId:          pulumi.Any(aws_kms_key.Example.Arn),
 //				StorageCapacity:   pulumi.Int(300),
 //				SubnetIds: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Example.Id),
+//					aws_subnet.Example.Id,
 //				},
 //				ThroughputCapacity: pulumi.Int(1024),
 //			})
@@ -69,7 +69,7 @@ import (
 //				KmsKeyId:        pulumi.Any(aws_kms_key.Example.Arn),
 //				StorageCapacity: pulumi.Int(300),
 //				SubnetIds: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Example.Id),
+//					aws_subnet.Example.Id,
 //				},
 //				ThroughputCapacity: pulumi.Int(1024),
 //				SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{

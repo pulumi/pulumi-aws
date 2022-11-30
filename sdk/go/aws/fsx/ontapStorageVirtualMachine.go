@@ -139,6 +139,13 @@ func NewOntapStorageVirtualMachine(ctx *pulumi.Context,
 	if args.FileSystemId == nil {
 		return nil, errors.New("invalid value for required argument 'FileSystemId'")
 	}
+	if args.SvmAdminPassword != nil {
+		args.SvmAdminPassword = pulumi.ToSecret(args.SvmAdminPassword).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"svmAdminPassword",
+	})
+	opts = append(opts, secrets)
 	var resource OntapStorageVirtualMachine
 	err := ctx.RegisterResource("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine", name, args, &resource, opts...)
 	if err != nil {

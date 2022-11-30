@@ -83,6 +83,10 @@ func NewServiceSpecificCredential(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"servicePassword",
+	})
+	opts = append(opts, secrets)
 	var resource ServiceSpecificCredential
 	err := ctx.RegisterResource("aws:iam/serviceSpecificCredential:ServiceSpecificCredential", name, args, &resource, opts...)
 	if err != nil {

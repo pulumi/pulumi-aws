@@ -39,7 +39,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:servicecatalog/getProduct:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:servicecatalog/getProduct:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information on a Service Catalog Product.
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProductResult>("aws:servicecatalog/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("aws:servicecatalog/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
     }
 
 

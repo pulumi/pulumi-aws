@@ -107,12 +107,14 @@ export class Resource extends pulumi.CustomResource {
             }
             resourceInputs["desiredState"] = args ? args.desiredState : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["schema"] = args?.schema ? pulumi.secret(args.schema) : undefined;
             resourceInputs["typeName"] = args ? args.typeName : undefined;
             resourceInputs["typeVersionId"] = args ? args.typeVersionId : undefined;
             resourceInputs["properties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["schema"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Resource.__pulumiType, name, resourceInputs, opts);
     }
 }

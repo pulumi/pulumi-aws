@@ -8,44 +8,44 @@ import * as utilities from "../utilities";
 export { AnalyticsApplicationArgs, AnalyticsApplicationState } from "./analyticsApplication";
 export type AnalyticsApplication = import("./analyticsApplication").AnalyticsApplication;
 export const AnalyticsApplication: typeof import("./analyticsApplication").AnalyticsApplication = null as any;
+utilities.lazyLoad(exports, ["AnalyticsApplication"], () => require("./analyticsApplication"));
 
 export { FirehoseDeliveryStreamArgs, FirehoseDeliveryStreamState } from "./firehoseDeliveryStream";
 export type FirehoseDeliveryStream = import("./firehoseDeliveryStream").FirehoseDeliveryStream;
 export const FirehoseDeliveryStream: typeof import("./firehoseDeliveryStream").FirehoseDeliveryStream = null as any;
+utilities.lazyLoad(exports, ["FirehoseDeliveryStream"], () => require("./firehoseDeliveryStream"));
 
 export { GetFirehoseDeliveryStreamArgs, GetFirehoseDeliveryStreamResult, GetFirehoseDeliveryStreamOutputArgs } from "./getFirehoseDeliveryStream";
 export const getFirehoseDeliveryStream: typeof import("./getFirehoseDeliveryStream").getFirehoseDeliveryStream = null as any;
 export const getFirehoseDeliveryStreamOutput: typeof import("./getFirehoseDeliveryStream").getFirehoseDeliveryStreamOutput = null as any;
+utilities.lazyLoad(exports, ["getFirehoseDeliveryStream","getFirehoseDeliveryStreamOutput"], () => require("./getFirehoseDeliveryStream"));
 
 export { GetStreamArgs, GetStreamResult, GetStreamOutputArgs } from "./getStream";
 export const getStream: typeof import("./getStream").getStream = null as any;
 export const getStreamOutput: typeof import("./getStream").getStreamOutput = null as any;
+utilities.lazyLoad(exports, ["getStream","getStreamOutput"], () => require("./getStream"));
 
 export { GetStreamConsumerArgs, GetStreamConsumerResult, GetStreamConsumerOutputArgs } from "./getStreamConsumer";
 export const getStreamConsumer: typeof import("./getStreamConsumer").getStreamConsumer = null as any;
 export const getStreamConsumerOutput: typeof import("./getStreamConsumer").getStreamConsumerOutput = null as any;
+utilities.lazyLoad(exports, ["getStreamConsumer","getStreamConsumerOutput"], () => require("./getStreamConsumer"));
 
 export * from "./kinesisMixins";
 export { StreamArgs, StreamState } from "./stream";
 export type Stream = import("./stream").Stream;
 export const Stream: typeof import("./stream").Stream = null as any;
+utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
 
 export { StreamConsumerArgs, StreamConsumerState } from "./streamConsumer";
 export type StreamConsumer = import("./streamConsumer").StreamConsumer;
 export const StreamConsumer: typeof import("./streamConsumer").StreamConsumer = null as any;
+utilities.lazyLoad(exports, ["StreamConsumer"], () => require("./streamConsumer"));
 
 export { VideoStreamArgs, VideoStreamState } from "./videoStream";
 export type VideoStream = import("./videoStream").VideoStream;
 export const VideoStream: typeof import("./videoStream").VideoStream = null as any;
-
-utilities.lazyLoad(exports, ["AnalyticsApplication"], () => require("./analyticsApplication"));
-utilities.lazyLoad(exports, ["FirehoseDeliveryStream"], () => require("./firehoseDeliveryStream"));
-utilities.lazyLoad(exports, ["getFirehoseDeliveryStream","getFirehoseDeliveryStreamOutput"], () => require("./getFirehoseDeliveryStream"));
-utilities.lazyLoad(exports, ["getStream","getStreamOutput"], () => require("./getStream"));
-utilities.lazyLoad(exports, ["getStreamConsumer","getStreamConsumerOutput"], () => require("./getStreamConsumer"));
-utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
-utilities.lazyLoad(exports, ["StreamConsumer"], () => require("./streamConsumer"));
 utilities.lazyLoad(exports, ["VideoStream"], () => require("./videoStream"));
+
 
 const _module = {
     version: utilities.getVersion(),

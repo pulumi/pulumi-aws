@@ -97,12 +97,14 @@ export class RdsDbInstance extends pulumi.CustomResource {
             if ((!args || args.stackId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
-            resourceInputs["dbPassword"] = args ? args.dbPassword : undefined;
+            resourceInputs["dbPassword"] = args?.dbPassword ? pulumi.secret(args.dbPassword) : undefined;
             resourceInputs["dbUser"] = args ? args.dbUser : undefined;
             resourceInputs["rdsDbInstanceArn"] = args ? args.rdsDbInstanceArn : undefined;
             resourceInputs["stackId"] = args ? args.stackId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["dbPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RdsDbInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

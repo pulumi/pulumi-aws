@@ -192,6 +192,10 @@ namespace Pulumi.Aws.AppConfig
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "content",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -227,11 +231,21 @@ namespace Pulumi.Aws.AppConfig
         [Input("configurationProfileId", required: true)]
         public Input<string> ConfigurationProfileId { get; set; } = null!;
 
+        [Input("content", required: true)]
+        private Input<string>? _content;
+
         /// <summary>
         /// Content of the configuration or the configuration data.
         /// </summary>
-        [Input("content", required: true)]
-        public Input<string> Content { get; set; } = null!;
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
@@ -271,11 +285,21 @@ namespace Pulumi.Aws.AppConfig
         [Input("configurationProfileId")]
         public Input<string>? ConfigurationProfileId { get; set; }
 
+        [Input("content")]
+        private Input<string>? _content;
+
         /// <summary>
         /// Content of the configuration or the configuration data.
         /// </summary>
-        [Input("content")]
-        public Input<string>? Content { get; set; }
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).

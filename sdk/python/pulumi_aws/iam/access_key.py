@@ -377,6 +377,8 @@ class AccessKey(pulumi.CustomResource):
             __props__.__dict__["key_fingerprint"] = None
             __props__.__dict__["secret"] = None
             __props__.__dict__["ses_smtp_password_v4"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secret", "sesSmtpPasswordV4"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AccessKey, __self__).__init__(
             'aws:iam/accessKey:AccessKey',
             resource_name,

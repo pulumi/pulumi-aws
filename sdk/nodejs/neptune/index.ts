@@ -8,53 +8,53 @@ import * as utilities from "../utilities";
 export { ClusterArgs, ClusterState } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
 export { ClusterEndpointArgs, ClusterEndpointState } from "./clusterEndpoint";
 export type ClusterEndpoint = import("./clusterEndpoint").ClusterEndpoint;
 export const ClusterEndpoint: typeof import("./clusterEndpoint").ClusterEndpoint = null as any;
+utilities.lazyLoad(exports, ["ClusterEndpoint"], () => require("./clusterEndpoint"));
 
 export { ClusterInstanceArgs, ClusterInstanceState } from "./clusterInstance";
 export type ClusterInstance = import("./clusterInstance").ClusterInstance;
 export const ClusterInstance: typeof import("./clusterInstance").ClusterInstance = null as any;
+utilities.lazyLoad(exports, ["ClusterInstance"], () => require("./clusterInstance"));
 
 export { ClusterParameterGroupArgs, ClusterParameterGroupState } from "./clusterParameterGroup";
 export type ClusterParameterGroup = import("./clusterParameterGroup").ClusterParameterGroup;
 export const ClusterParameterGroup: typeof import("./clusterParameterGroup").ClusterParameterGroup = null as any;
+utilities.lazyLoad(exports, ["ClusterParameterGroup"], () => require("./clusterParameterGroup"));
 
 export { ClusterSnapshotArgs, ClusterSnapshotState } from "./clusterSnapshot";
 export type ClusterSnapshot = import("./clusterSnapshot").ClusterSnapshot;
 export const ClusterSnapshot: typeof import("./clusterSnapshot").ClusterSnapshot = null as any;
+utilities.lazyLoad(exports, ["ClusterSnapshot"], () => require("./clusterSnapshot"));
 
 export { EventSubscriptionArgs, EventSubscriptionState } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
+utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
 
 export { GetEngineVersionArgs, GetEngineVersionResult, GetEngineVersionOutputArgs } from "./getEngineVersion";
 export const getEngineVersion: typeof import("./getEngineVersion").getEngineVersion = null as any;
 export const getEngineVersionOutput: typeof import("./getEngineVersion").getEngineVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getEngineVersion","getEngineVersionOutput"], () => require("./getEngineVersion"));
 
 export { GetOrderableDbInstanceArgs, GetOrderableDbInstanceResult, GetOrderableDbInstanceOutputArgs } from "./getOrderableDbInstance";
 export const getOrderableDbInstance: typeof import("./getOrderableDbInstance").getOrderableDbInstance = null as any;
 export const getOrderableDbInstanceOutput: typeof import("./getOrderableDbInstance").getOrderableDbInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getOrderableDbInstance","getOrderableDbInstanceOutput"], () => require("./getOrderableDbInstance"));
 
 export { ParameterGroupArgs, ParameterGroupState } from "./parameterGroup";
 export type ParameterGroup = import("./parameterGroup").ParameterGroup;
 export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
+utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
 
 export { SubnetGroupArgs, SubnetGroupState } from "./subnetGroup";
 export type SubnetGroup = import("./subnetGroup").SubnetGroup;
 export const SubnetGroup: typeof import("./subnetGroup").SubnetGroup = null as any;
-
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["ClusterEndpoint"], () => require("./clusterEndpoint"));
-utilities.lazyLoad(exports, ["ClusterInstance"], () => require("./clusterInstance"));
-utilities.lazyLoad(exports, ["ClusterParameterGroup"], () => require("./clusterParameterGroup"));
-utilities.lazyLoad(exports, ["ClusterSnapshot"], () => require("./clusterSnapshot"));
-utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
-utilities.lazyLoad(exports, ["getEngineVersion","getEngineVersionOutput"], () => require("./getEngineVersion"));
-utilities.lazyLoad(exports, ["getOrderableDbInstance","getOrderableDbInstanceOutput"], () => require("./getOrderableDbInstance"));
-utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
 utilities.lazyLoad(exports, ["SubnetGroup"], () => require("./subnetGroup"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -23,11 +23,8 @@ import * as utilities from "./utilities";
 /** @deprecated aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId */
 export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> {
     pulumi.log.warn("getCanonicalUserId is deprecated: aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getCanonicalUserId:getCanonicalUserId", {
     }, opts);
 }

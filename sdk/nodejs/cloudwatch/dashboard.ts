@@ -49,6 +49,7 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
+ *
  * `,
  *     dashboardName: "my-dashboard",
  * });

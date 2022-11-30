@@ -8,38 +8,38 @@ import * as utilities from "../utilities";
 export { EndpointAccessArgs, EndpointAccessState } from "./endpointAccess";
 export type EndpointAccess = import("./endpointAccess").EndpointAccess;
 export const EndpointAccess: typeof import("./endpointAccess").EndpointAccess = null as any;
+utilities.lazyLoad(exports, ["EndpointAccess"], () => require("./endpointAccess"));
 
 export { GetCredentialsArgs, GetCredentialsResult, GetCredentialsOutputArgs } from "./getCredentials";
 export const getCredentials: typeof import("./getCredentials").getCredentials = null as any;
 export const getCredentialsOutput: typeof import("./getCredentials").getCredentialsOutput = null as any;
+utilities.lazyLoad(exports, ["getCredentials","getCredentialsOutput"], () => require("./getCredentials"));
 
 export { NamespaceArgs, NamespaceState } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 
 export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
 export { SnapshotArgs, SnapshotState } from "./snapshot";
 export type Snapshot = import("./snapshot").Snapshot;
 export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
 
 export { UsageLimitArgs, UsageLimitState } from "./usageLimit";
 export type UsageLimit = import("./usageLimit").UsageLimit;
 export const UsageLimit: typeof import("./usageLimit").UsageLimit = null as any;
+utilities.lazyLoad(exports, ["UsageLimit"], () => require("./usageLimit"));
 
 export { WorkgroupArgs, WorkgroupState } from "./workgroup";
 export type Workgroup = import("./workgroup").Workgroup;
 export const Workgroup: typeof import("./workgroup").Workgroup = null as any;
-
-utilities.lazyLoad(exports, ["EndpointAccess"], () => require("./endpointAccess"));
-utilities.lazyLoad(exports, ["getCredentials","getCredentialsOutput"], () => require("./getCredentials"));
-utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
-utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
-utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
-utilities.lazyLoad(exports, ["UsageLimit"], () => require("./usageLimit"));
 utilities.lazyLoad(exports, ["Workgroup"], () => require("./workgroup"));
+
 
 const _module = {
     version: utilities.getVersion(),

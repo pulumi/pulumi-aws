@@ -267,6 +267,10 @@ namespace Pulumi.Aws.ApiGateway
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "certificatePrivateKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -314,11 +318,21 @@ namespace Pulumi.Aws.ApiGateway
         [Input("certificateName")]
         public Input<string>? CertificateName { get; set; }
 
+        [Input("certificatePrivateKey")]
+        private Input<string>? _certificatePrivateKey;
+
         /// <summary>
         /// Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
-        [Input("certificatePrivateKey")]
-        public Input<string>? CertificatePrivateKey { get; set; }
+        public Input<string>? CertificatePrivateKey
+        {
+            get => _certificatePrivateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificatePrivateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Fully-qualified domain name to register.
@@ -412,11 +426,21 @@ namespace Pulumi.Aws.ApiGateway
         [Input("certificateName")]
         public Input<string>? CertificateName { get; set; }
 
+        [Input("certificatePrivateKey")]
+        private Input<string>? _certificatePrivateKey;
+
         /// <summary>
         /// Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
-        [Input("certificatePrivateKey")]
-        public Input<string>? CertificatePrivateKey { get; set; }
+        public Input<string>? CertificatePrivateKey
+        {
+            get => _certificatePrivateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificatePrivateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Upload date associated with the domain certificate.

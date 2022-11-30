@@ -588,12 +588,14 @@ class ServerCertificate(pulumi.CustomResource):
             __props__.__dict__["path"] = path
             if private_key is None and not opts.urn:
                 raise TypeError("Missing required property 'private_key'")
-            __props__.__dict__["private_key"] = private_key
+            __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["expiration"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["upload_date"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["privateKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServerCertificate, __self__).__init__(
             'aws:iam/serverCertificate:ServerCertificate',
             resource_name,

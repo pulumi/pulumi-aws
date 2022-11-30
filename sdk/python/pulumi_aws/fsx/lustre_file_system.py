@@ -844,6 +844,18 @@ class LustreFileSystem(pulumi.CustomResource):
 
         > **NOTE:** `auto_import_policy`, `export_path`, `import_path` and `imported_file_chunk_size` are not supported with the `PERSISTENT_2` deployment type. Use `fsx.DataRepositoryAssociation` instead.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.fsx.LustreFileSystem("example",
+            import_path=f"s3://{aws_s3_bucket['example']['bucket']}",
+            storage_capacity=1200,
+            subnet_ids=[aws_subnet["example"]["id"]])
+        ```
+
         ## Import
 
         FSx File Systems can be imported using the `id`, e.g.,
@@ -900,6 +912,18 @@ class LustreFileSystem(pulumi.CustomResource):
         Manages a FSx Lustre File System. See the [FSx Lustre Guide](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) for more information.
 
         > **NOTE:** `auto_import_policy`, `export_path`, `import_path` and `imported_file_chunk_size` are not supported with the `PERSISTENT_2` deployment type. Use `fsx.DataRepositoryAssociation` instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.fsx.LustreFileSystem("example",
+            import_path=f"s3://{aws_s3_bucket['example']['bucket']}",
+            storage_capacity=1200,
+            subnet_ids=[aws_subnet["example"]["id"]])
+        ```
 
         ## Import
 

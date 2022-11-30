@@ -36,7 +36,7 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAclResult> InvokeAsync(GetAclArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAclResult>("aws:memorydb/getAcl:getAcl", args ?? new GetAclArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAclResult>("aws:memorydb/getAcl:getAcl", args ?? new GetAclArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a MemoryDB ACL.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAclResult> Invoke(GetAclInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAclResult>("aws:memorydb/getAcl:getAcl", args ?? new GetAclInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAclResult>("aws:memorydb/getAcl:getAcl", args ?? new GetAclInvokeArgs(), options.WithDefaults());
     }
 
 

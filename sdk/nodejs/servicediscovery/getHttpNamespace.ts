@@ -11,17 +11,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.servicediscovery.getHttpNamespace({
+ * const example = aws.servicediscovery.getHttpNamespace({
  *     name: "development",
- * }));
+ * });
  * ```
  */
 export function getHttpNamespace(args: GetHttpNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetHttpNamespaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicediscovery/getHttpNamespace:getHttpNamespace", {
         "name": args.name,
         "tags": args.tags,

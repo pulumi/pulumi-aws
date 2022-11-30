@@ -649,8 +649,8 @@ class User(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["force_alias_creation"] = force_alias_creation
             __props__.__dict__["message_action"] = message_action
-            __props__.__dict__["password"] = password
-            __props__.__dict__["temporary_password"] = temporary_password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            __props__.__dict__["temporary_password"] = None if temporary_password is None else pulumi.Output.secret(temporary_password)
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
@@ -664,6 +664,8 @@ class User(pulumi.CustomResource):
             __props__.__dict__["preferred_mfa_setting"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["sub"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "temporaryPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
             'aws:cognito/user:User',
             resource_name,

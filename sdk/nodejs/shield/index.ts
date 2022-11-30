@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 export { ProtectionArgs, ProtectionState } from "./protection";
 export type Protection = import("./protection").Protection;
 export const Protection: typeof import("./protection").Protection = null as any;
+utilities.lazyLoad(exports, ["Protection"], () => require("./protection"));
 
 export { ProtectionGroupArgs, ProtectionGroupState } from "./protectionGroup";
 export type ProtectionGroup = import("./protectionGroup").ProtectionGroup;
 export const ProtectionGroup: typeof import("./protectionGroup").ProtectionGroup = null as any;
+utilities.lazyLoad(exports, ["ProtectionGroup"], () => require("./protectionGroup"));
 
 export { ProtectionHealthCheckAssociationArgs, ProtectionHealthCheckAssociationState } from "./protectionHealthCheckAssociation";
 export type ProtectionHealthCheckAssociation = import("./protectionHealthCheckAssociation").ProtectionHealthCheckAssociation;
 export const ProtectionHealthCheckAssociation: typeof import("./protectionHealthCheckAssociation").ProtectionHealthCheckAssociation = null as any;
-
-utilities.lazyLoad(exports, ["Protection"], () => require("./protection"));
-utilities.lazyLoad(exports, ["ProtectionGroup"], () => require("./protectionGroup"));
 utilities.lazyLoad(exports, ["ProtectionHealthCheckAssociation"], () => require("./protectionHealthCheckAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),

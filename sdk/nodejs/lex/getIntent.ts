@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const orderFlowers = pulumi.output(aws.lex.getIntent({
+ * const orderFlowers = aws.lex.getIntent({
  *     name: "OrderFlowers",
- *     version: "$LATEST",
- * }));
+ *     version: `$LATEST`,
+ * });
  * ```
  */
 export function getIntent(args: GetIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetIntentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lex/getIntent:getIntent", {
         "name": args.name,
         "version": args.version,

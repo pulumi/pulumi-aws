@@ -962,10 +962,10 @@ class App(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppArgs.__new__(AppArgs)
 
-            __props__.__dict__["access_token"] = access_token
+            __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
             __props__.__dict__["auto_branch_creation_config"] = auto_branch_creation_config
             __props__.__dict__["auto_branch_creation_patterns"] = auto_branch_creation_patterns
-            __props__.__dict__["basic_auth_credentials"] = basic_auth_credentials
+            __props__.__dict__["basic_auth_credentials"] = None if basic_auth_credentials is None else pulumi.Output.secret(basic_auth_credentials)
             __props__.__dict__["build_spec"] = build_spec
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["description"] = description
@@ -976,7 +976,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["iam_service_role_arn"] = iam_service_role_arn
             __props__.__dict__["name"] = name
-            __props__.__dict__["oauth_token"] = oauth_token
+            __props__.__dict__["oauth_token"] = None if oauth_token is None else pulumi.Output.secret(oauth_token)
             __props__.__dict__["platform"] = platform
             __props__.__dict__["repository"] = repository
             __props__.__dict__["tags"] = tags
@@ -984,6 +984,8 @@ class App(pulumi.CustomResource):
             __props__.__dict__["default_domain"] = None
             __props__.__dict__["production_branches"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "basicAuthCredentials", "oauthToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(App, __self__).__init__(
             'aws:amplify/app:App',
             resource_name,

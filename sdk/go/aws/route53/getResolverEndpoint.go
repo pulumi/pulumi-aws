@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.LookupResolverEndpoint(ctx, &route53.LookupResolverEndpointArgs{
+//			_, err = route53.LookupResolverEndpoint(ctx, &route53.LookupResolverEndpointArgs{
 //				ResolverEndpointId: pulumi.StringRef("rslvr-in-1abc2345ef678g91h"),
 //			}, nil)
 //			if err != nil {
@@ -52,7 +52,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.LookupResolverEndpoint(ctx, &route53.LookupResolverEndpointArgs{
+//			_, err = route53.LookupResolverEndpoint(ctx, &route53.LookupResolverEndpointArgs{
 //				Filters: []route53.GetResolverEndpointFilter{
 //					route53.GetResolverEndpointFilter{
 //						Name: "NAME",

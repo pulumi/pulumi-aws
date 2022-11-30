@@ -96,7 +96,7 @@ import (
 //				ServiceName:     pulumi.String("com.amazonaws.us-west-2.ec2"),
 //				VpcEndpointType: pulumi.String("Interface"),
 //				SecurityGroupIds: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Sg1.Id),
+//					aws_security_group.Sg1.Id,
 //				},
 //				PrivateDnsEnabled: pulumi.Bool(true),
 //			})
@@ -133,7 +133,7 @@ import (
 //					pulumi.String(current.Arn),
 //				},
 //				GatewayLoadBalancerArns: pulumi.StringArray{
-//					pulumi.Any(aws_lb.Example.Arn),
+//					aws_lb.Example.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -142,7 +142,7 @@ import (
 //			_, err = ec2.NewVpcEndpoint(ctx, "exampleVpcEndpoint", &ec2.VpcEndpointArgs{
 //				ServiceName: exampleVpcEndpointService.ServiceName,
 //				SubnetIds: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Example.Id),
+//					aws_subnet.Example.Id,
 //				},
 //				VpcEndpointType: exampleVpcEndpointService.ServiceType,
 //				VpcId:           pulumi.Any(aws_vpc.Example.Id),

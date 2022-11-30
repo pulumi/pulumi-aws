@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2.getVpcDhcpOptions({
+ * const example = aws.ec2.getVpcDhcpOptions({
  *     dhcpOptionsId: "dopts-12345678",
- * }));
+ * });
  * ```
  * ### Lookup by Filter
  *
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2.getVpcDhcpOptions({
+ * const example = aws.ec2.getVpcDhcpOptions({
  *     filters: [
  *         {
  *             name: "key",
@@ -38,16 +38,13 @@ import * as utilities from "../utilities";
  *             values: ["example.com"],
  *         },
  *     ],
- * }));
+ * });
  * ```
  */
 export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcDhcpOptionsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {
         "dhcpOptionsId": args.dhcpOptionsId,
         "filters": args.filters,

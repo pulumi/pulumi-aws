@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Iam
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSamlProviderResult> InvokeAsync(GetSamlProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSamlProviderResult>("aws:iam/getSamlProvider:getSamlProvider", args ?? new GetSamlProviderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSamlProviderResult>("aws:iam/getSamlProvider:getSamlProvider", args ?? new GetSamlProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// This data source can be used to fetch information about a specific
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Iam
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSamlProviderResult> Invoke(GetSamlProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSamlProviderResult>("aws:iam/getSamlProvider:getSamlProvider", args ?? new GetSamlProviderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSamlProviderResult>("aws:iam/getSamlProvider:getSamlProvider", args ?? new GetSamlProviderInvokeArgs(), options.WithDefaults());
     }
 
 

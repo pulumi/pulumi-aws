@@ -230,7 +230,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["kinesisSettings"] = args ? args.kinesisSettings : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["mongodbSettings"] = args ? args.mongodbSettings : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["redisSettings"] = args ? args.redisSettings : undefined;
             resourceInputs["redshiftSettings"] = args ? args.redshiftSettings : undefined;
@@ -246,6 +246,8 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

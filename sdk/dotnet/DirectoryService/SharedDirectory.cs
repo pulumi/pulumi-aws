@@ -112,6 +112,10 @@ namespace Pulumi.Aws.DirectoryService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "notes",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -147,11 +151,21 @@ namespace Pulumi.Aws.DirectoryService
         [Input("method")]
         public Input<string>? Method { get; set; }
 
+        [Input("notes")]
+        private Input<string>? _notes;
+
         /// <summary>
         /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         /// </summary>
-        [Input("notes")]
-        public Input<string>? Notes { get; set; }
+        public Input<string>? Notes
+        {
+            get => _notes;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _notes = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
@@ -179,11 +193,21 @@ namespace Pulumi.Aws.DirectoryService
         [Input("method")]
         public Input<string>? Method { get; set; }
 
+        [Input("notes")]
+        private Input<string>? _notes;
+
         /// <summary>
         /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         /// </summary>
-        [Input("notes")]
-        public Input<string>? Notes { get; set; }
+        public Input<string>? Notes
+        {
+            get => _notes;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _notes = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.

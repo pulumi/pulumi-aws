@@ -33,7 +33,7 @@ namespace Pulumi.Aws.CodeStarConnections
     ///         RoleArn = aws_iam_role.Codepipeline_role.Arn,
     ///         ArtifactStores = new[]
     ///         {
-    ///             ,
+    ///             null,
     ///         },
     ///         Stages = new[]
     ///         {
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.CodeStarConnections
     ///                 Name = "Build",
     ///                 Actions = new[]
     ///                 {
-    ///                     ,
+    ///                     null,
     ///                 },
     ///             },
     ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.CodeStarConnections
     ///                 Name = "Deploy",
     ///                 Actions = new[]
     ///                 {
-    ///                     ,
+    ///                     null,
     ///                 },
     ///             },
     ///         },

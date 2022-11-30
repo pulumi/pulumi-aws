@@ -27,7 +27,11 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public InputList<string> Passwords
         {
             get => _passwords ?? (_passwords = new InputList<string>());
-            set => _passwords = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<string>());
+                _passwords = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

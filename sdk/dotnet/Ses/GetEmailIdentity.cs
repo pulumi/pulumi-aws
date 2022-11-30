@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ses
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEmailIdentityResult> InvokeAsync(GetEmailIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEmailIdentityResult>("aws:ses/getEmailIdentity:getEmailIdentity", args ?? new GetEmailIdentityArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailIdentityResult>("aws:ses/getEmailIdentity:getEmailIdentity", args ?? new GetEmailIdentityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the active SES email identity
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ses
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEmailIdentityResult> Invoke(GetEmailIdentityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEmailIdentityResult>("aws:ses/getEmailIdentity:getEmailIdentity", args ?? new GetEmailIdentityInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmailIdentityResult>("aws:ses/getEmailIdentity:getEmailIdentity", args ?? new GetEmailIdentityInvokeArgs(), options.WithDefaults());
     }
 
 

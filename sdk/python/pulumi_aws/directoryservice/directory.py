@@ -804,7 +804,7 @@ class Directory(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["short_name"] = short_name
             __props__.__dict__["size"] = size
             __props__.__dict__["tags"] = tags
@@ -814,6 +814,8 @@ class Directory(pulumi.CustomResource):
             __props__.__dict__["dns_ip_addresses"] = None
             __props__.__dict__["security_group_id"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Directory, __self__).__init__(
             'aws:directoryservice/directory:Directory',
             resource_name,

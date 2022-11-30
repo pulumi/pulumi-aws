@@ -273,6 +273,10 @@ namespace Pulumi.Aws.DocDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "masterPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -410,12 +414,22 @@ namespace Pulumi.Aws.DocDB
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        [Input("masterPassword")]
+        private Input<string>? _masterPassword;
+
         /// <summary>
         /// Password for the master DB user. Note that this may
         /// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
         /// </summary>
-        [Input("masterPassword")]
-        public Input<string>? MasterPassword { get; set; }
+        public Input<string>? MasterPassword
+        {
+            get => _masterPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Username for the master DB user.
@@ -631,12 +645,22 @@ namespace Pulumi.Aws.DocDB
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        [Input("masterPassword")]
+        private Input<string>? _masterPassword;
+
         /// <summary>
         /// Password for the master DB user. Note that this may
         /// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
         /// </summary>
-        [Input("masterPassword")]
-        public Input<string>? MasterPassword { get; set; }
+        public Input<string>? MasterPassword
+        {
+            get => _masterPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Username for the master DB user.

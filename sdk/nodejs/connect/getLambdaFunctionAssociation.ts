@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.connect.getLambdaFunctionAssociation({
+ * const example = aws.connect.getLambdaFunctionAssociation({
  *     functionArn: "arn:aws:lambda:us-west-2:123456789123:function:abcdefg",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- * }));
+ * });
  * ```
  */
 export function getLambdaFunctionAssociation(args: GetLambdaFunctionAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLambdaFunctionAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", {
         "functionArn": args.functionArn,
         "instanceId": args.instanceId,

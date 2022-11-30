@@ -12,11 +12,21 @@ namespace Pulumi.Aws.Emr.Inputs
 
     public sealed class ClusterKerberosAttributesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("adDomainJoinPassword")]
+        private Input<string>? _adDomainJoinPassword;
+
         /// <summary>
         /// Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("adDomainJoinPassword")]
-        public Input<string>? AdDomainJoinPassword { get; set; }
+        public Input<string>? AdDomainJoinPassword
+        {
+            get => _adDomainJoinPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adDomainJoinPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
@@ -24,17 +34,37 @@ namespace Pulumi.Aws.Emr.Inputs
         [Input("adDomainJoinUser")]
         public Input<string>? AdDomainJoinUser { get; set; }
 
+        [Input("crossRealmTrustPrincipalPassword")]
+        private Input<string>? _crossRealmTrustPrincipalPassword;
+
         /// <summary>
         /// Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("crossRealmTrustPrincipalPassword")]
-        public Input<string>? CrossRealmTrustPrincipalPassword { get; set; }
+        public Input<string>? CrossRealmTrustPrincipalPassword
+        {
+            get => _crossRealmTrustPrincipalPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _crossRealmTrustPrincipalPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("kdcAdminPassword", required: true)]
+        private Input<string>? _kdcAdminPassword;
 
         /// <summary>
         /// Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("kdcAdminPassword", required: true)]
-        public Input<string> KdcAdminPassword { get; set; } = null!;
+        public Input<string>? KdcAdminPassword
+        {
+            get => _kdcAdminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kdcAdminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`

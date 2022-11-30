@@ -64,8 +64,8 @@ import (
 //					},
 //					Exclude: &s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs{
 //						Buckets: pulumi.StringArray{
-//							pulumi.Any(aws_s3_bucket.B1.Arn),
-//							pulumi.Any(aws_s3_bucket.B2.Arn),
+//							aws_s3_bucket.B1.Arn,
+//							aws_s3_bucket.B2.Arn,
 //						},
 //						Regions: pulumi.StringArray{
 //							pulumi.String("us-east-2"),

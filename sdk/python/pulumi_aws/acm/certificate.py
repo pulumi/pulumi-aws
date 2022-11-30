@@ -956,7 +956,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["early_renewal_duration"] = early_renewal_duration
             __props__.__dict__["key_algorithm"] = key_algorithm
             __props__.__dict__["options"] = options
-            __props__.__dict__["private_key"] = private_key
+            __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
             __props__.__dict__["subject_alternative_names"] = subject_alternative_names
             __props__.__dict__["tags"] = tags
             __props__.__dict__["validation_method"] = validation_method
@@ -972,6 +972,8 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_emails"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["privateKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'aws:acm/certificate:Certificate',
             resource_name,

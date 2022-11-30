@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
-
 utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
 
 const _module = {
     version: utilities.getVersion(),

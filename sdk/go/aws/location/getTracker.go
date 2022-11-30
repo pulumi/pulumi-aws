@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.LookupTracker(ctx, &location.LookupTrackerArgs{
+//			_, err = location.LookupTracker(ctx, &location.LookupTrackerArgs{
 //				TrackerName: "example",
 //			}, nil)
 //			if err != nil {

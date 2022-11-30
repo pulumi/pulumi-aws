@@ -15,19 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.route53.getResolverRule({
+ * const example = aws.route53.getResolverRule({
  *     domainName: "subdomain.example.com",
  *     ruleType: "SYSTEM",
- * }));
+ * });
  * ```
  */
 export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverRule:getResolverRule", {
         "domainName": args.domainName,
         "name": args.name,

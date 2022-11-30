@@ -102,6 +102,10 @@ namespace Pulumi.Aws.Iam
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "servicePassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -157,11 +161,21 @@ namespace Pulumi.Aws.Iam
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
+        [Input("servicePassword")]
+        private Input<string>? _servicePassword;
+
         /// <summary>
         /// The generated password for the service-specific credential.
         /// </summary>
-        [Input("servicePassword")]
-        public Input<string>? ServicePassword { get; set; }
+        public Input<string>? ServicePassword
+        {
+            get => _servicePassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _servicePassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the service-specific credential.

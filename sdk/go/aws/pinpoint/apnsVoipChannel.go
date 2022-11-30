@@ -100,6 +100,33 @@ func NewApnsVoipChannel(ctx *pulumi.Context,
 	if args.ApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
+	if args.BundleId != nil {
+		args.BundleId = pulumi.ToSecret(args.BundleId).(pulumi.StringPtrOutput)
+	}
+	if args.Certificate != nil {
+		args.Certificate = pulumi.ToSecret(args.Certificate).(pulumi.StringPtrOutput)
+	}
+	if args.PrivateKey != nil {
+		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringPtrOutput)
+	}
+	if args.TeamId != nil {
+		args.TeamId = pulumi.ToSecret(args.TeamId).(pulumi.StringPtrOutput)
+	}
+	if args.TokenKey != nil {
+		args.TokenKey = pulumi.ToSecret(args.TokenKey).(pulumi.StringPtrOutput)
+	}
+	if args.TokenKeyId != nil {
+		args.TokenKeyId = pulumi.ToSecret(args.TokenKeyId).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"bundleId",
+		"certificate",
+		"privateKey",
+		"teamId",
+		"tokenKey",
+		"tokenKeyId",
+	})
+	opts = append(opts, secrets)
 	var resource ApnsVoipChannel
 	err := ctx.RegisterResource("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel", name, args, &resource, opts...)
 	if err != nil {

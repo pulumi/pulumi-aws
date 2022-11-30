@@ -36,7 +36,7 @@ namespace Pulumi.Aws.MskConnect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("aws:mskconnect/getConnector:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("aws:mskconnect/getConnector:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information on an Amazon MSK Connect Connector.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.MskConnect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws:mskconnect/getConnector:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws:mskconnect/getConnector:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

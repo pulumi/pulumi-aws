@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.cloudfront.getCachePolicy({
+ * const example = aws.cloudfront.getCachePolicy({
  *     name: "example-policy",
- * }));
+ * });
  * ```
  * ### AWS-Managed Policies
  *
@@ -29,18 +29,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.cloudfront.getCachePolicy({
+ * const example = aws.cloudfront.getCachePolicy({
  *     name: "Managed-CachingOptimized",
- * }));
+ * });
  * ```
  */
 export function getCachePolicy(args?: GetCachePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCachePolicyResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getCachePolicy:getCachePolicy", {
         "id": args.id,
         "name": args.name,

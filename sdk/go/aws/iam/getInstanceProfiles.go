@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetInstanceProfiles(ctx, &iam.GetInstanceProfilesArgs{
+//			_, err = iam.GetInstanceProfiles(ctx, &iam.GetInstanceProfilesArgs{
 //				RoleName: "an_example_iam_role_name",
 //			}, nil)
 //			if err != nil {

@@ -307,7 +307,7 @@ export class Environment extends pulumi.CustomResource {
             if ((!args || args.sourceBucketArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceBucketArn'");
             }
-            resourceInputs["airflowConfigurationOptions"] = args ? args.airflowConfigurationOptions : undefined;
+            resourceInputs["airflowConfigurationOptions"] = args?.airflowConfigurationOptions ? pulumi.secret(args.airflowConfigurationOptions) : undefined;
             resourceInputs["airflowVersion"] = args ? args.airflowVersion : undefined;
             resourceInputs["dagS3Path"] = args ? args.dagS3Path : undefined;
             resourceInputs["environmentClass"] = args ? args.environmentClass : undefined;
@@ -336,6 +336,8 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["webserverUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["airflowConfigurationOptions"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Environment.__pulumiType, name, resourceInputs, opts);
     }
 }
