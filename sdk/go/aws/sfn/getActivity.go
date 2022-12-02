@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.LookupActivity(ctx, &sfn.LookupActivityArgs{
+//			_, err = sfn.LookupActivity(ctx, &sfn.LookupActivityArgs{
 //				Name: pulumi.StringRef("my-activity"),
 //			}, nil)
 //			if err != nil {

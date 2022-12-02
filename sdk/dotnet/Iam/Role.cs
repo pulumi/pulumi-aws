@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Iam
     ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
     ///         InlinePolicies = new[]
     ///         {
-    ///             ,
+    ///             null,
     ///         },
     ///     });
     /// 

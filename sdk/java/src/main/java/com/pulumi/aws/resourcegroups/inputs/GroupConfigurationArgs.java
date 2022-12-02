@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GroupConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +21,15 @@ public final class GroupConfigurationArgs extends com.pulumi.resources.ResourceA
      * A collection of parameters for this group configuration item. See below for details.
      * 
      */
-    @Import(name="parameters", required=true)
-    private Output<List<GroupConfigurationParameterArgs>> parameters;
+    @Import(name="parameters")
+    private @Nullable Output<List<GroupConfigurationParameterArgs>> parameters;
 
     /**
      * @return A collection of parameters for this group configuration item. See below for details.
      * 
      */
-    public Output<List<GroupConfigurationParameterArgs>> parameters() {
-        return this.parameters;
+    public Optional<Output<List<GroupConfigurationParameterArgs>>> parameters() {
+        return Optional.ofNullable(this.parameters);
     }
 
     /**
@@ -76,7 +78,7 @@ public final class GroupConfigurationArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder parameters(Output<List<GroupConfigurationParameterArgs>> parameters) {
+        public Builder parameters(@Nullable Output<List<GroupConfigurationParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
@@ -123,7 +125,6 @@ public final class GroupConfigurationArgs extends com.pulumi.resources.ResourceA
         }
 
         public GroupConfigurationArgs build() {
-            $.parameters = Objects.requireNonNull($.parameters, "expected parameter 'parameters' to be non-null");
             $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
             return $;
         }

@@ -56,7 +56,7 @@ import (
 //						Type: pulumi.String("S"),
 //					},
 //				},
-//			}, pulumi.Provider(aws.Us-east-1))
+//			}, pulumi.Provider(aws.UsEast1))
 //			if err != nil {
 //				return err
 //			}
@@ -72,7 +72,7 @@ import (
 //						Type: pulumi.String("S"),
 //					},
 //				},
-//			}, pulumi.Provider(aws.Us-west-2))
+//			}, pulumi.Provider(aws.UsWest2))
 //			if err != nil {
 //				return err
 //			}
@@ -85,7 +85,7 @@ import (
 //						RegionName: pulumi.String("us-west-2"),
 //					},
 //				},
-//			}, pulumi.Provider(aws.Us-east-1), pulumi.DependsOn([]pulumi.Resource{
+//			}, pulumi.Provider(aws.UsEast1), pulumi.DependsOn([]pulumi.Resource{
 //				us_east_1Table,
 //				us_west_2Table,
 //			}))

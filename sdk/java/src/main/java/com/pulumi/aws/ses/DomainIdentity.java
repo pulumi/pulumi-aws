@@ -17,6 +17,36 @@ import javax.annotation.Nullable;
  * Provides an SES domain identity resource
  * 
  * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ses.DomainIdentity;
+ * import com.pulumi.aws.ses.DomainIdentityArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DomainIdentity(&#34;example&#34;, DomainIdentityArgs.builder()        
+ *             .domain(&#34;example.com&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With Route53 Record
  * ```java
  * package generated_program;
  * 
@@ -99,9 +129,10 @@ public class DomainIdentity extends com.pulumi.resources.CustomResource {
      * A code which when added to the domain as a TXT record
      * will signal to SES that the owner of the domain has authorised SES to act on
      * their behalf. The domain identity will be in state &#34;verification pending&#34;
-     * until this is done. See below for an example of how this might be achieved
-     * when the domain is hosted in Route 53 and managed by this provider.  Find out
-     * more about verifying domains in Amazon SES in the [AWS SES
+     * until this is done. See the With Route53 Record example
+     * for how this might be achieved when the domain is hosted in Route 53 and
+     * managed by this provider.  Find out more about verifying domains in Amazon
+     * SES in the [AWS SES
      * docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      * 
      */
@@ -112,9 +143,10 @@ public class DomainIdentity extends com.pulumi.resources.CustomResource {
      * @return A code which when added to the domain as a TXT record
      * will signal to SES that the owner of the domain has authorised SES to act on
      * their behalf. The domain identity will be in state &#34;verification pending&#34;
-     * until this is done. See below for an example of how this might be achieved
-     * when the domain is hosted in Route 53 and managed by this provider.  Find out
-     * more about verifying domains in Amazon SES in the [AWS SES
+     * until this is done. See the With Route53 Record example
+     * for how this might be achieved when the domain is hosted in Route 53 and
+     * managed by this provider.  Find out more about verifying domains in Amazon
+     * SES in the [AWS SES
      * docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      * 
      */

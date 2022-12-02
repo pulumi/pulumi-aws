@@ -69,7 +69,7 @@ export class IpSet extends pulumi.CustomResource {
      */
     public readonly addresses!: pulumi.Output<string[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) that identifies the cluster.
+     * The Amazon Resource Name (ARN) of the IP set.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -152,7 +152,7 @@ export interface IpSetState {
      */
     addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Amazon Resource Name (ARN) that identifies the cluster.
+     * The Amazon Resource Name (ARN) of the IP set.
      */
     arn?: pulumi.Input<string>;
     /**

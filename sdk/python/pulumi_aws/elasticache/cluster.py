@@ -24,14 +24,18 @@ class ClusterArgs:
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_nodes: Optional[pulumi.Input[int]] = None,
+                 outpost_mode: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -59,16 +63,20 @@ class ClusterArgs:
                Otherwise, specify the full version desired, e.g., `5.0.6`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
+        :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         :param pulumi.Input[str] node_type: The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
         :param pulumi.Input[str] notification_topic_arn: ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
         :param pulumi.Input[int] num_cache_nodes: The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+        :param pulumi.Input[str] outpost_mode: Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this cache cluster.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+        :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
@@ -95,22 +103,30 @@ class ClusterArgs:
             pulumi.set(__self__, "engine_version", engine_version)
         if final_snapshot_identifier is not None:
             pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+        if ip_discovery is not None:
+            pulumi.set(__self__, "ip_discovery", ip_discovery)
         if log_delivery_configurations is not None:
             pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if node_type is not None:
             pulumi.set(__self__, "node_type", node_type)
         if notification_topic_arn is not None:
             pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
         if num_cache_nodes is not None:
             pulumi.set(__self__, "num_cache_nodes", num_cache_nodes)
+        if outpost_mode is not None:
+            pulumi.set(__self__, "outpost_mode", outpost_mode)
         if parameter_group_name is not None:
             pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if preferred_availability_zones is not None:
             pulumi.set(__self__, "preferred_availability_zones", preferred_availability_zones)
+        if preferred_outpost_arn is not None:
+            pulumi.set(__self__, "preferred_outpost_arn", preferred_outpost_arn)
         if replication_group_id is not None:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
@@ -238,6 +254,18 @@ class ClusterArgs:
         pulumi.set(self, "final_snapshot_identifier", value)
 
     @property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+        """
+        return pulumi.get(self, "ip_discovery")
+
+    @ip_discovery.setter
+    def ip_discovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_discovery", value)
+
+    @property
     @pulumi.getter(name="logDeliveryConfigurations")
     def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]]:
         """
@@ -262,6 +290,18 @@ class ClusterArgs:
     @maintenance_window.setter
     def maintenance_window(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "maintenance_window", value)
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_type", value)
 
     @property
     @pulumi.getter(name="nodeType")
@@ -300,6 +340,18 @@ class ClusterArgs:
         pulumi.set(self, "num_cache_nodes", value)
 
     @property
+    @pulumi.getter(name="outpostMode")
+    def outpost_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
+        """
+        return pulumi.get(self, "outpost_mode")
+
+    @outpost_mode.setter
+    def outpost_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outpost_mode", value)
+
+    @property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -334,6 +386,18 @@ class ClusterArgs:
     @preferred_availability_zones.setter
     def preferred_availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "preferred_availability_zones", value)
+
+    @property
+    @pulumi.getter(name="preferredOutpostArn")
+    def preferred_outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The outpost ARN in which the cache cluster will be created.
+        """
+        return pulumi.get(self, "preferred_outpost_arn")
+
+    @preferred_outpost_arn.setter
+    def preferred_outpost_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_outpost_arn", value)
 
     @property
     @pulumi.getter(name="replicationGroupId")
@@ -460,14 +524,18 @@ class _ClusterState:
                  engine_version: Optional[pulumi.Input[str]] = None,
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_nodes: Optional[pulumi.Input[int]] = None,
+                 outpost_mode: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -501,16 +569,20 @@ class _ClusterState:
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] engine_version_actual: Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
+        :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         :param pulumi.Input[str] node_type: The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
         :param pulumi.Input[str] notification_topic_arn: ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
         :param pulumi.Input[int] num_cache_nodes: The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+        :param pulumi.Input[str] outpost_mode: Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this cache cluster.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+        :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
@@ -548,22 +620,30 @@ class _ClusterState:
             pulumi.set(__self__, "engine_version_actual", engine_version_actual)
         if final_snapshot_identifier is not None:
             pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+        if ip_discovery is not None:
+            pulumi.set(__self__, "ip_discovery", ip_discovery)
         if log_delivery_configurations is not None:
             pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if node_type is not None:
             pulumi.set(__self__, "node_type", node_type)
         if notification_topic_arn is not None:
             pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
         if num_cache_nodes is not None:
             pulumi.set(__self__, "num_cache_nodes", num_cache_nodes)
+        if outpost_mode is not None:
+            pulumi.set(__self__, "outpost_mode", outpost_mode)
         if parameter_group_name is not None:
             pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if preferred_availability_zones is not None:
             pulumi.set(__self__, "preferred_availability_zones", preferred_availability_zones)
+        if preferred_outpost_arn is not None:
+            pulumi.set(__self__, "preferred_outpost_arn", preferred_outpost_arn)
         if replication_group_id is not None:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
@@ -753,6 +833,18 @@ class _ClusterState:
         pulumi.set(self, "final_snapshot_identifier", value)
 
     @property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+        """
+        return pulumi.get(self, "ip_discovery")
+
+    @ip_discovery.setter
+    def ip_discovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_discovery", value)
+
+    @property
     @pulumi.getter(name="logDeliveryConfigurations")
     def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]]:
         """
@@ -777,6 +869,18 @@ class _ClusterState:
     @maintenance_window.setter
     def maintenance_window(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "maintenance_window", value)
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_type", value)
 
     @property
     @pulumi.getter(name="nodeType")
@@ -815,6 +919,18 @@ class _ClusterState:
         pulumi.set(self, "num_cache_nodes", value)
 
     @property
+    @pulumi.getter(name="outpostMode")
+    def outpost_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
+        """
+        return pulumi.get(self, "outpost_mode")
+
+    @outpost_mode.setter
+    def outpost_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outpost_mode", value)
+
+    @property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -849,6 +965,18 @@ class _ClusterState:
     @preferred_availability_zones.setter
     def preferred_availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "preferred_availability_zones", value)
+
+    @property
+    @pulumi.getter(name="preferredOutpostArn")
+    def preferred_outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The outpost ARN in which the cache cluster will be created.
+        """
+        return pulumi.get(self, "preferred_outpost_arn")
+
+    @preferred_outpost_arn.setter
+    def preferred_outpost_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_outpost_arn", value)
 
     @property
     @pulumi.getter(name="replicationGroupId")
@@ -984,14 +1112,18 @@ class Cluster(pulumi.CustomResource):
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_nodes: Optional[pulumi.Input[int]] = None,
+                 outpost_mode: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1115,16 +1247,20 @@ class Cluster(pulumi.CustomResource):
                Otherwise, specify the full version desired, e.g., `5.0.6`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
+        :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         :param pulumi.Input[str] node_type: The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
         :param pulumi.Input[str] notification_topic_arn: ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
         :param pulumi.Input[int] num_cache_nodes: The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+        :param pulumi.Input[str] outpost_mode: Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this cache cluster.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+        :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
@@ -1259,14 +1395,18 @@ class Cluster(pulumi.CustomResource):
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_nodes: Optional[pulumi.Input[int]] = None,
+                 outpost_mode: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1293,14 +1433,18 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
+            __props__.__dict__["ip_discovery"] = ip_discovery
             __props__.__dict__["log_delivery_configurations"] = log_delivery_configurations
             __props__.__dict__["maintenance_window"] = maintenance_window
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["node_type"] = node_type
             __props__.__dict__["notification_topic_arn"] = notification_topic_arn
             __props__.__dict__["num_cache_nodes"] = num_cache_nodes
+            __props__.__dict__["outpost_mode"] = outpost_mode
             __props__.__dict__["parameter_group_name"] = parameter_group_name
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_availability_zones"] = preferred_availability_zones
+            __props__.__dict__["preferred_outpost_arn"] = preferred_outpost_arn
             __props__.__dict__["replication_group_id"] = replication_group_id
             __props__.__dict__["security_group_ids"] = security_group_ids
             if security_group_names is not None and not opts.urn:
@@ -1342,14 +1486,18 @@ class Cluster(pulumi.CustomResource):
             engine_version: Optional[pulumi.Input[str]] = None,
             engine_version_actual: Optional[pulumi.Input[str]] = None,
             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+            ip_discovery: Optional[pulumi.Input[str]] = None,
             log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
+            network_type: Optional[pulumi.Input[str]] = None,
             node_type: Optional[pulumi.Input[str]] = None,
             notification_topic_arn: Optional[pulumi.Input[str]] = None,
             num_cache_nodes: Optional[pulumi.Input[int]] = None,
+            outpost_mode: Optional[pulumi.Input[str]] = None,
             parameter_group_name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
             replication_group_id: Optional[pulumi.Input[str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1388,16 +1536,20 @@ class Cluster(pulumi.CustomResource):
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] engine_version_actual: Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
+        :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         :param pulumi.Input[str] node_type: The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
         :param pulumi.Input[str] notification_topic_arn: ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
         :param pulumi.Input[int] num_cache_nodes: The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+        :param pulumi.Input[str] outpost_mode: Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this cache cluster.
         :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+        :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
@@ -1426,14 +1578,18 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["engine_version_actual"] = engine_version_actual
         __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
+        __props__.__dict__["ip_discovery"] = ip_discovery
         __props__.__dict__["log_delivery_configurations"] = log_delivery_configurations
         __props__.__dict__["maintenance_window"] = maintenance_window
+        __props__.__dict__["network_type"] = network_type
         __props__.__dict__["node_type"] = node_type
         __props__.__dict__["notification_topic_arn"] = notification_topic_arn
         __props__.__dict__["num_cache_nodes"] = num_cache_nodes
+        __props__.__dict__["outpost_mode"] = outpost_mode
         __props__.__dict__["parameter_group_name"] = parameter_group_name
         __props__.__dict__["port"] = port
         __props__.__dict__["preferred_availability_zones"] = preferred_availability_zones
+        __props__.__dict__["preferred_outpost_arn"] = preferred_outpost_arn
         __props__.__dict__["replication_group_id"] = replication_group_id
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["security_group_names"] = security_group_names
@@ -1559,6 +1715,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "final_snapshot_identifier")
 
     @property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> pulumi.Output[str]:
+        """
+        The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+        """
+        return pulumi.get(self, "ip_discovery")
+
+    @property
     @pulumi.getter(name="logDeliveryConfigurations")
     def log_delivery_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterLogDeliveryConfiguration']]]:
         """
@@ -1575,6 +1739,14 @@ class Cluster(pulumi.CustomResource):
         The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
         """
         return pulumi.get(self, "maintenance_window")
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[str]:
+        """
+        The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+        """
+        return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter(name="nodeType")
@@ -1601,6 +1773,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "num_cache_nodes")
 
     @property
+    @pulumi.getter(name="outpostMode")
+    def outpost_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
+        """
+        return pulumi.get(self, "outpost_mode")
+
+    @property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> pulumi.Output[str]:
         """
@@ -1623,6 +1803,14 @@ class Cluster(pulumi.CustomResource):
         List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         """
         return pulumi.get(self, "preferred_availability_zones")
+
+    @property
+    @pulumi.getter(name="preferredOutpostArn")
+    def preferred_outpost_arn(self) -> pulumi.Output[str]:
+        """
+        The outpost ARN in which the cache cluster will be created.
+        """
+        return pulumi.get(self, "preferred_outpost_arn")
 
     @property
     @pulumi.getter(name="replicationGroupId")

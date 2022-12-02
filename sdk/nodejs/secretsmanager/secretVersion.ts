@@ -107,14 +107,16 @@ export class SecretVersion extends pulumi.CustomResource {
             if ((!args || args.secretId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
-            resourceInputs["secretBinary"] = args ? args.secretBinary : undefined;
+            resourceInputs["secretBinary"] = args?.secretBinary ? pulumi.secret(args.secretBinary) : undefined;
             resourceInputs["secretId"] = args ? args.secretId : undefined;
-            resourceInputs["secretString"] = args ? args.secretString : undefined;
+            resourceInputs["secretString"] = args?.secretString ? pulumi.secret(args.secretString) : undefined;
             resourceInputs["versionStages"] = args ? args.versionStages : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["versionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["secretBinary", "secretString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SecretVersion.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -3095,6 +3095,356 @@ func (o DomainVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type OutboundConnectionLocalDomainInfo struct {
+	// The name of the remote domain.
+	DomainName string `pulumi:"domainName"`
+	// The Account ID of the owner of the remote domain.
+	OwnerId string `pulumi:"ownerId"`
+	// The region of the remote domain.
+	Region string `pulumi:"region"`
+}
+
+// OutboundConnectionLocalDomainInfoInput is an input type that accepts OutboundConnectionLocalDomainInfoArgs and OutboundConnectionLocalDomainInfoOutput values.
+// You can construct a concrete instance of `OutboundConnectionLocalDomainInfoInput` via:
+//
+//	OutboundConnectionLocalDomainInfoArgs{...}
+type OutboundConnectionLocalDomainInfoInput interface {
+	pulumi.Input
+
+	ToOutboundConnectionLocalDomainInfoOutput() OutboundConnectionLocalDomainInfoOutput
+	ToOutboundConnectionLocalDomainInfoOutputWithContext(context.Context) OutboundConnectionLocalDomainInfoOutput
+}
+
+type OutboundConnectionLocalDomainInfoArgs struct {
+	// The name of the remote domain.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The Account ID of the owner of the remote domain.
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
+	// The region of the remote domain.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (OutboundConnectionLocalDomainInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundConnectionLocalDomainInfo)(nil)).Elem()
+}
+
+func (i OutboundConnectionLocalDomainInfoArgs) ToOutboundConnectionLocalDomainInfoOutput() OutboundConnectionLocalDomainInfoOutput {
+	return i.ToOutboundConnectionLocalDomainInfoOutputWithContext(context.Background())
+}
+
+func (i OutboundConnectionLocalDomainInfoArgs) ToOutboundConnectionLocalDomainInfoOutputWithContext(ctx context.Context) OutboundConnectionLocalDomainInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionLocalDomainInfoOutput)
+}
+
+func (i OutboundConnectionLocalDomainInfoArgs) ToOutboundConnectionLocalDomainInfoPtrOutput() OutboundConnectionLocalDomainInfoPtrOutput {
+	return i.ToOutboundConnectionLocalDomainInfoPtrOutputWithContext(context.Background())
+}
+
+func (i OutboundConnectionLocalDomainInfoArgs) ToOutboundConnectionLocalDomainInfoPtrOutputWithContext(ctx context.Context) OutboundConnectionLocalDomainInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionLocalDomainInfoOutput).ToOutboundConnectionLocalDomainInfoPtrOutputWithContext(ctx)
+}
+
+// OutboundConnectionLocalDomainInfoPtrInput is an input type that accepts OutboundConnectionLocalDomainInfoArgs, OutboundConnectionLocalDomainInfoPtr and OutboundConnectionLocalDomainInfoPtrOutput values.
+// You can construct a concrete instance of `OutboundConnectionLocalDomainInfoPtrInput` via:
+//
+//	        OutboundConnectionLocalDomainInfoArgs{...}
+//
+//	or:
+//
+//	        nil
+type OutboundConnectionLocalDomainInfoPtrInput interface {
+	pulumi.Input
+
+	ToOutboundConnectionLocalDomainInfoPtrOutput() OutboundConnectionLocalDomainInfoPtrOutput
+	ToOutboundConnectionLocalDomainInfoPtrOutputWithContext(context.Context) OutboundConnectionLocalDomainInfoPtrOutput
+}
+
+type outboundConnectionLocalDomainInfoPtrType OutboundConnectionLocalDomainInfoArgs
+
+func OutboundConnectionLocalDomainInfoPtr(v *OutboundConnectionLocalDomainInfoArgs) OutboundConnectionLocalDomainInfoPtrInput {
+	return (*outboundConnectionLocalDomainInfoPtrType)(v)
+}
+
+func (*outboundConnectionLocalDomainInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundConnectionLocalDomainInfo)(nil)).Elem()
+}
+
+func (i *outboundConnectionLocalDomainInfoPtrType) ToOutboundConnectionLocalDomainInfoPtrOutput() OutboundConnectionLocalDomainInfoPtrOutput {
+	return i.ToOutboundConnectionLocalDomainInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *outboundConnectionLocalDomainInfoPtrType) ToOutboundConnectionLocalDomainInfoPtrOutputWithContext(ctx context.Context) OutboundConnectionLocalDomainInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionLocalDomainInfoPtrOutput)
+}
+
+type OutboundConnectionLocalDomainInfoOutput struct{ *pulumi.OutputState }
+
+func (OutboundConnectionLocalDomainInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundConnectionLocalDomainInfo)(nil)).Elem()
+}
+
+func (o OutboundConnectionLocalDomainInfoOutput) ToOutboundConnectionLocalDomainInfoOutput() OutboundConnectionLocalDomainInfoOutput {
+	return o
+}
+
+func (o OutboundConnectionLocalDomainInfoOutput) ToOutboundConnectionLocalDomainInfoOutputWithContext(ctx context.Context) OutboundConnectionLocalDomainInfoOutput {
+	return o
+}
+
+func (o OutboundConnectionLocalDomainInfoOutput) ToOutboundConnectionLocalDomainInfoPtrOutput() OutboundConnectionLocalDomainInfoPtrOutput {
+	return o.ToOutboundConnectionLocalDomainInfoPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundConnectionLocalDomainInfoOutput) ToOutboundConnectionLocalDomainInfoPtrOutputWithContext(ctx context.Context) OutboundConnectionLocalDomainInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutboundConnectionLocalDomainInfo) *OutboundConnectionLocalDomainInfo {
+		return &v
+	}).(OutboundConnectionLocalDomainInfoPtrOutput)
+}
+
+// The name of the remote domain.
+func (o OutboundConnectionLocalDomainInfoOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v OutboundConnectionLocalDomainInfo) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The Account ID of the owner of the remote domain.
+func (o OutboundConnectionLocalDomainInfoOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v OutboundConnectionLocalDomainInfo) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The region of the remote domain.
+func (o OutboundConnectionLocalDomainInfoOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v OutboundConnectionLocalDomainInfo) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type OutboundConnectionLocalDomainInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (OutboundConnectionLocalDomainInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundConnectionLocalDomainInfo)(nil)).Elem()
+}
+
+func (o OutboundConnectionLocalDomainInfoPtrOutput) ToOutboundConnectionLocalDomainInfoPtrOutput() OutboundConnectionLocalDomainInfoPtrOutput {
+	return o
+}
+
+func (o OutboundConnectionLocalDomainInfoPtrOutput) ToOutboundConnectionLocalDomainInfoPtrOutputWithContext(ctx context.Context) OutboundConnectionLocalDomainInfoPtrOutput {
+	return o
+}
+
+func (o OutboundConnectionLocalDomainInfoPtrOutput) Elem() OutboundConnectionLocalDomainInfoOutput {
+	return o.ApplyT(func(v *OutboundConnectionLocalDomainInfo) OutboundConnectionLocalDomainInfo {
+		if v != nil {
+			return *v
+		}
+		var ret OutboundConnectionLocalDomainInfo
+		return ret
+	}).(OutboundConnectionLocalDomainInfoOutput)
+}
+
+// The name of the remote domain.
+func (o OutboundConnectionLocalDomainInfoPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutboundConnectionLocalDomainInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Account ID of the owner of the remote domain.
+func (o OutboundConnectionLocalDomainInfoPtrOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutboundConnectionLocalDomainInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OwnerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The region of the remote domain.
+func (o OutboundConnectionLocalDomainInfoPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutboundConnectionLocalDomainInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+type OutboundConnectionRemoteDomainInfo struct {
+	// The name of the remote domain.
+	DomainName string `pulumi:"domainName"`
+	// The Account ID of the owner of the remote domain.
+	OwnerId string `pulumi:"ownerId"`
+	// The region of the remote domain.
+	Region string `pulumi:"region"`
+}
+
+// OutboundConnectionRemoteDomainInfoInput is an input type that accepts OutboundConnectionRemoteDomainInfoArgs and OutboundConnectionRemoteDomainInfoOutput values.
+// You can construct a concrete instance of `OutboundConnectionRemoteDomainInfoInput` via:
+//
+//	OutboundConnectionRemoteDomainInfoArgs{...}
+type OutboundConnectionRemoteDomainInfoInput interface {
+	pulumi.Input
+
+	ToOutboundConnectionRemoteDomainInfoOutput() OutboundConnectionRemoteDomainInfoOutput
+	ToOutboundConnectionRemoteDomainInfoOutputWithContext(context.Context) OutboundConnectionRemoteDomainInfoOutput
+}
+
+type OutboundConnectionRemoteDomainInfoArgs struct {
+	// The name of the remote domain.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The Account ID of the owner of the remote domain.
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
+	// The region of the remote domain.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (OutboundConnectionRemoteDomainInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundConnectionRemoteDomainInfo)(nil)).Elem()
+}
+
+func (i OutboundConnectionRemoteDomainInfoArgs) ToOutboundConnectionRemoteDomainInfoOutput() OutboundConnectionRemoteDomainInfoOutput {
+	return i.ToOutboundConnectionRemoteDomainInfoOutputWithContext(context.Background())
+}
+
+func (i OutboundConnectionRemoteDomainInfoArgs) ToOutboundConnectionRemoteDomainInfoOutputWithContext(ctx context.Context) OutboundConnectionRemoteDomainInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionRemoteDomainInfoOutput)
+}
+
+func (i OutboundConnectionRemoteDomainInfoArgs) ToOutboundConnectionRemoteDomainInfoPtrOutput() OutboundConnectionRemoteDomainInfoPtrOutput {
+	return i.ToOutboundConnectionRemoteDomainInfoPtrOutputWithContext(context.Background())
+}
+
+func (i OutboundConnectionRemoteDomainInfoArgs) ToOutboundConnectionRemoteDomainInfoPtrOutputWithContext(ctx context.Context) OutboundConnectionRemoteDomainInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionRemoteDomainInfoOutput).ToOutboundConnectionRemoteDomainInfoPtrOutputWithContext(ctx)
+}
+
+// OutboundConnectionRemoteDomainInfoPtrInput is an input type that accepts OutboundConnectionRemoteDomainInfoArgs, OutboundConnectionRemoteDomainInfoPtr and OutboundConnectionRemoteDomainInfoPtrOutput values.
+// You can construct a concrete instance of `OutboundConnectionRemoteDomainInfoPtrInput` via:
+//
+//	        OutboundConnectionRemoteDomainInfoArgs{...}
+//
+//	or:
+//
+//	        nil
+type OutboundConnectionRemoteDomainInfoPtrInput interface {
+	pulumi.Input
+
+	ToOutboundConnectionRemoteDomainInfoPtrOutput() OutboundConnectionRemoteDomainInfoPtrOutput
+	ToOutboundConnectionRemoteDomainInfoPtrOutputWithContext(context.Context) OutboundConnectionRemoteDomainInfoPtrOutput
+}
+
+type outboundConnectionRemoteDomainInfoPtrType OutboundConnectionRemoteDomainInfoArgs
+
+func OutboundConnectionRemoteDomainInfoPtr(v *OutboundConnectionRemoteDomainInfoArgs) OutboundConnectionRemoteDomainInfoPtrInput {
+	return (*outboundConnectionRemoteDomainInfoPtrType)(v)
+}
+
+func (*outboundConnectionRemoteDomainInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundConnectionRemoteDomainInfo)(nil)).Elem()
+}
+
+func (i *outboundConnectionRemoteDomainInfoPtrType) ToOutboundConnectionRemoteDomainInfoPtrOutput() OutboundConnectionRemoteDomainInfoPtrOutput {
+	return i.ToOutboundConnectionRemoteDomainInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *outboundConnectionRemoteDomainInfoPtrType) ToOutboundConnectionRemoteDomainInfoPtrOutputWithContext(ctx context.Context) OutboundConnectionRemoteDomainInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionRemoteDomainInfoPtrOutput)
+}
+
+type OutboundConnectionRemoteDomainInfoOutput struct{ *pulumi.OutputState }
+
+func (OutboundConnectionRemoteDomainInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundConnectionRemoteDomainInfo)(nil)).Elem()
+}
+
+func (o OutboundConnectionRemoteDomainInfoOutput) ToOutboundConnectionRemoteDomainInfoOutput() OutboundConnectionRemoteDomainInfoOutput {
+	return o
+}
+
+func (o OutboundConnectionRemoteDomainInfoOutput) ToOutboundConnectionRemoteDomainInfoOutputWithContext(ctx context.Context) OutboundConnectionRemoteDomainInfoOutput {
+	return o
+}
+
+func (o OutboundConnectionRemoteDomainInfoOutput) ToOutboundConnectionRemoteDomainInfoPtrOutput() OutboundConnectionRemoteDomainInfoPtrOutput {
+	return o.ToOutboundConnectionRemoteDomainInfoPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundConnectionRemoteDomainInfoOutput) ToOutboundConnectionRemoteDomainInfoPtrOutputWithContext(ctx context.Context) OutboundConnectionRemoteDomainInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutboundConnectionRemoteDomainInfo) *OutboundConnectionRemoteDomainInfo {
+		return &v
+	}).(OutboundConnectionRemoteDomainInfoPtrOutput)
+}
+
+// The name of the remote domain.
+func (o OutboundConnectionRemoteDomainInfoOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v OutboundConnectionRemoteDomainInfo) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The Account ID of the owner of the remote domain.
+func (o OutboundConnectionRemoteDomainInfoOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v OutboundConnectionRemoteDomainInfo) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The region of the remote domain.
+func (o OutboundConnectionRemoteDomainInfoOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v OutboundConnectionRemoteDomainInfo) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type OutboundConnectionRemoteDomainInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (OutboundConnectionRemoteDomainInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundConnectionRemoteDomainInfo)(nil)).Elem()
+}
+
+func (o OutboundConnectionRemoteDomainInfoPtrOutput) ToOutboundConnectionRemoteDomainInfoPtrOutput() OutboundConnectionRemoteDomainInfoPtrOutput {
+	return o
+}
+
+func (o OutboundConnectionRemoteDomainInfoPtrOutput) ToOutboundConnectionRemoteDomainInfoPtrOutputWithContext(ctx context.Context) OutboundConnectionRemoteDomainInfoPtrOutput {
+	return o
+}
+
+func (o OutboundConnectionRemoteDomainInfoPtrOutput) Elem() OutboundConnectionRemoteDomainInfoOutput {
+	return o.ApplyT(func(v *OutboundConnectionRemoteDomainInfo) OutboundConnectionRemoteDomainInfo {
+		if v != nil {
+			return *v
+		}
+		var ret OutboundConnectionRemoteDomainInfo
+		return ret
+	}).(OutboundConnectionRemoteDomainInfoOutput)
+}
+
+// The name of the remote domain.
+func (o OutboundConnectionRemoteDomainInfoPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutboundConnectionRemoteDomainInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Account ID of the owner of the remote domain.
+func (o OutboundConnectionRemoteDomainInfoPtrOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutboundConnectionRemoteDomainInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OwnerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The region of the remote domain.
+func (o OutboundConnectionRemoteDomainInfoPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutboundConnectionRemoteDomainInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetDomainAdvancedSecurityOption struct {
 	// Whether node to node encryption is enabled.
 	Enabled bool `pulumi:"enabled"`
@@ -4756,6 +5106,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsPtrInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsInput)(nil)).Elem(), DomainVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsPtrInput)(nil)).Elem(), DomainVpcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionLocalDomainInfoInput)(nil)).Elem(), OutboundConnectionLocalDomainInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionLocalDomainInfoPtrInput)(nil)).Elem(), OutboundConnectionLocalDomainInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionRemoteDomainInfoInput)(nil)).Elem(), OutboundConnectionRemoteDomainInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionRemoteDomainInfoPtrInput)(nil)).Elem(), OutboundConnectionRemoteDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionArrayInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionInput)(nil)).Elem(), GetDomainAutoTuneOptionArgs{})
@@ -4819,6 +5173,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainSnapshotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsPtrOutput{})
+	pulumi.RegisterOutputType(OutboundConnectionLocalDomainInfoOutput{})
+	pulumi.RegisterOutputType(OutboundConnectionLocalDomainInfoPtrOutput{})
+	pulumi.RegisterOutputType(OutboundConnectionRemoteDomainInfoOutput{})
+	pulumi.RegisterOutputType(OutboundConnectionRemoteDomainInfoPtrOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainAutoTuneOptionOutput{})

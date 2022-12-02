@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := memorydb.LookupUser(ctx, &memorydb.LookupUserArgs{
+//			_, err = memorydb.LookupUser(ctx, &memorydb.LookupUserArgs{
 //				UserName: "my-user",
 //			}, nil)
 //			if err != nil {

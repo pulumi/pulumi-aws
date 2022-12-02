@@ -449,13 +449,15 @@ class HostedConfigurationVersion(pulumi.CustomResource):
             __props__.__dict__["configuration_profile_id"] = configuration_profile_id
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
-            __props__.__dict__["content"] = content
+            __props__.__dict__["content"] = None if content is None else pulumi.Output.secret(content)
             if content_type is None and not opts.urn:
                 raise TypeError("Missing required property 'content_type'")
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["description"] = description
             __props__.__dict__["arn"] = None
             __props__.__dict__["version_number"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["content"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HostedConfigurationVersion, __self__).__init__(
             'aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion',
             resource_name,

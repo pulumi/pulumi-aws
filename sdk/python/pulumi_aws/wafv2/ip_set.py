@@ -128,7 +128,7 @@ class _IpSetState:
         """
         Input properties used for looking up and filtering IpSet resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the cluster.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP set.
         :param pulumi.Input[str] description: A friendly description of the IP set.
         :param pulumi.Input[str] ip_address_version: Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
         :param pulumi.Input[str] name: A friendly name of the IP set.
@@ -171,7 +171,7 @@ class _IpSetState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) that identifies the cluster.
+        The Amazon Resource Name (ARN) of the IP set.
         """
         return pulumi.get(self, "arn")
 
@@ -420,7 +420,7 @@ class IpSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the cluster.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP set.
         :param pulumi.Input[str] description: A friendly description of the IP set.
         :param pulumi.Input[str] ip_address_version: Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
         :param pulumi.Input[str] name: A friendly name of the IP set.
@@ -455,7 +455,7 @@ class IpSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) that identifies the cluster.
+        The Amazon Resource Name (ARN) of the IP set.
         """
         return pulumi.get(self, "arn")
 

@@ -8,128 +8,128 @@ import * as utilities from "../utilities";
 export { AppArgs, AppState } from "./app";
 export type App = import("./app").App;
 export const App: typeof import("./app").App = null as any;
+utilities.lazyLoad(exports, ["App"], () => require("./app"));
 
 export { AppImageConfigArgs, AppImageConfigState } from "./appImageConfig";
 export type AppImageConfig = import("./appImageConfig").AppImageConfig;
 export const AppImageConfig: typeof import("./appImageConfig").AppImageConfig = null as any;
+utilities.lazyLoad(exports, ["AppImageConfig"], () => require("./appImageConfig"));
 
 export { CodeRepositoryArgs, CodeRepositoryState } from "./codeRepository";
 export type CodeRepository = import("./codeRepository").CodeRepository;
 export const CodeRepository: typeof import("./codeRepository").CodeRepository = null as any;
+utilities.lazyLoad(exports, ["CodeRepository"], () => require("./codeRepository"));
 
 export { DeviceArgs, DeviceState } from "./device";
 export type Device = import("./device").Device;
 export const Device: typeof import("./device").Device = null as any;
+utilities.lazyLoad(exports, ["Device"], () => require("./device"));
 
 export { DeviceFleetArgs, DeviceFleetState } from "./deviceFleet";
 export type DeviceFleet = import("./deviceFleet").DeviceFleet;
 export const DeviceFleet: typeof import("./deviceFleet").DeviceFleet = null as any;
+utilities.lazyLoad(exports, ["DeviceFleet"], () => require("./deviceFleet"));
 
 export { DomainArgs, DomainState } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
 export { EndpointArgs, EndpointState } from "./endpoint";
 export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
 
 export { EndpointConfigurationArgs, EndpointConfigurationState } from "./endpointConfiguration";
 export type EndpointConfiguration = import("./endpointConfiguration").EndpointConfiguration;
 export const EndpointConfiguration: typeof import("./endpointConfiguration").EndpointConfiguration = null as any;
+utilities.lazyLoad(exports, ["EndpointConfiguration"], () => require("./endpointConfiguration"));
 
 export { FeatureGroupArgs, FeatureGroupState } from "./featureGroup";
 export type FeatureGroup = import("./featureGroup").FeatureGroup;
 export const FeatureGroup: typeof import("./featureGroup").FeatureGroup = null as any;
+utilities.lazyLoad(exports, ["FeatureGroup"], () => require("./featureGroup"));
 
 export { FlowDefinitionArgs, FlowDefinitionState } from "./flowDefinition";
 export type FlowDefinition = import("./flowDefinition").FlowDefinition;
 export const FlowDefinition: typeof import("./flowDefinition").FlowDefinition = null as any;
+utilities.lazyLoad(exports, ["FlowDefinition"], () => require("./flowDefinition"));
 
 export { GetPrebuiltEcrImageArgs, GetPrebuiltEcrImageResult, GetPrebuiltEcrImageOutputArgs } from "./getPrebuiltEcrImage";
 export const getPrebuiltEcrImage: typeof import("./getPrebuiltEcrImage").getPrebuiltEcrImage = null as any;
 export const getPrebuiltEcrImageOutput: typeof import("./getPrebuiltEcrImage").getPrebuiltEcrImageOutput = null as any;
+utilities.lazyLoad(exports, ["getPrebuiltEcrImage","getPrebuiltEcrImageOutput"], () => require("./getPrebuiltEcrImage"));
 
 export { HumanTaskUIArgs, HumanTaskUIState } from "./humanTaskUI";
 export type HumanTaskUI = import("./humanTaskUI").HumanTaskUI;
 export const HumanTaskUI: typeof import("./humanTaskUI").HumanTaskUI = null as any;
+utilities.lazyLoad(exports, ["HumanTaskUI"], () => require("./humanTaskUI"));
 
 export { ImageArgs, ImageState } from "./image";
 export type Image = import("./image").Image;
 export const Image: typeof import("./image").Image = null as any;
+utilities.lazyLoad(exports, ["Image"], () => require("./image"));
 
 export { ImageVersionArgs, ImageVersionState } from "./imageVersion";
 export type ImageVersion = import("./imageVersion").ImageVersion;
 export const ImageVersion: typeof import("./imageVersion").ImageVersion = null as any;
+utilities.lazyLoad(exports, ["ImageVersion"], () => require("./imageVersion"));
 
 export { ModelArgs, ModelState } from "./model";
 export type Model = import("./model").Model;
 export const Model: typeof import("./model").Model = null as any;
+utilities.lazyLoad(exports, ["Model"], () => require("./model"));
 
 export { ModelPackageGroupArgs, ModelPackageGroupState } from "./modelPackageGroup";
 export type ModelPackageGroup = import("./modelPackageGroup").ModelPackageGroup;
 export const ModelPackageGroup: typeof import("./modelPackageGroup").ModelPackageGroup = null as any;
+utilities.lazyLoad(exports, ["ModelPackageGroup"], () => require("./modelPackageGroup"));
 
 export { ModelPackageGroupPolicyArgs, ModelPackageGroupPolicyState } from "./modelPackageGroupPolicy";
 export type ModelPackageGroupPolicy = import("./modelPackageGroupPolicy").ModelPackageGroupPolicy;
 export const ModelPackageGroupPolicy: typeof import("./modelPackageGroupPolicy").ModelPackageGroupPolicy = null as any;
+utilities.lazyLoad(exports, ["ModelPackageGroupPolicy"], () => require("./modelPackageGroupPolicy"));
 
 export { NotebookInstanceArgs, NotebookInstanceState } from "./notebookInstance";
 export type NotebookInstance = import("./notebookInstance").NotebookInstance;
 export const NotebookInstance: typeof import("./notebookInstance").NotebookInstance = null as any;
+utilities.lazyLoad(exports, ["NotebookInstance"], () => require("./notebookInstance"));
 
 export { NotebookInstanceLifecycleConfigurationArgs, NotebookInstanceLifecycleConfigurationState } from "./notebookInstanceLifecycleConfiguration";
 export type NotebookInstanceLifecycleConfiguration = import("./notebookInstanceLifecycleConfiguration").NotebookInstanceLifecycleConfiguration;
 export const NotebookInstanceLifecycleConfiguration: typeof import("./notebookInstanceLifecycleConfiguration").NotebookInstanceLifecycleConfiguration = null as any;
+utilities.lazyLoad(exports, ["NotebookInstanceLifecycleConfiguration"], () => require("./notebookInstanceLifecycleConfiguration"));
 
 export { ProjectArgs, ProjectState } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 
 export { ServicecatalogPortfolioStatusArgs, ServicecatalogPortfolioStatusState } from "./servicecatalogPortfolioStatus";
 export type ServicecatalogPortfolioStatus = import("./servicecatalogPortfolioStatus").ServicecatalogPortfolioStatus;
 export const ServicecatalogPortfolioStatus: typeof import("./servicecatalogPortfolioStatus").ServicecatalogPortfolioStatus = null as any;
+utilities.lazyLoad(exports, ["ServicecatalogPortfolioStatus"], () => require("./servicecatalogPortfolioStatus"));
 
 export { StudioLifecycleConfigArgs, StudioLifecycleConfigState } from "./studioLifecycleConfig";
 export type StudioLifecycleConfig = import("./studioLifecycleConfig").StudioLifecycleConfig;
 export const StudioLifecycleConfig: typeof import("./studioLifecycleConfig").StudioLifecycleConfig = null as any;
+utilities.lazyLoad(exports, ["StudioLifecycleConfig"], () => require("./studioLifecycleConfig"));
 
 export { UserProfileArgs, UserProfileState } from "./userProfile";
 export type UserProfile = import("./userProfile").UserProfile;
 export const UserProfile: typeof import("./userProfile").UserProfile = null as any;
+utilities.lazyLoad(exports, ["UserProfile"], () => require("./userProfile"));
 
 export { WorkforceArgs, WorkforceState } from "./workforce";
 export type Workforce = import("./workforce").Workforce;
 export const Workforce: typeof import("./workforce").Workforce = null as any;
+utilities.lazyLoad(exports, ["Workforce"], () => require("./workforce"));
 
 export { WorkteamArgs, WorkteamState } from "./workteam";
 export type Workteam = import("./workteam").Workteam;
 export const Workteam: typeof import("./workteam").Workteam = null as any;
-
-utilities.lazyLoad(exports, ["App"], () => require("./app"));
-utilities.lazyLoad(exports, ["AppImageConfig"], () => require("./appImageConfig"));
-utilities.lazyLoad(exports, ["CodeRepository"], () => require("./codeRepository"));
-utilities.lazyLoad(exports, ["Device"], () => require("./device"));
-utilities.lazyLoad(exports, ["DeviceFleet"], () => require("./deviceFleet"));
-utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
-utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
-utilities.lazyLoad(exports, ["EndpointConfiguration"], () => require("./endpointConfiguration"));
-utilities.lazyLoad(exports, ["FeatureGroup"], () => require("./featureGroup"));
-utilities.lazyLoad(exports, ["FlowDefinition"], () => require("./flowDefinition"));
-utilities.lazyLoad(exports, ["getPrebuiltEcrImage","getPrebuiltEcrImageOutput"], () => require("./getPrebuiltEcrImage"));
-utilities.lazyLoad(exports, ["HumanTaskUI"], () => require("./humanTaskUI"));
-utilities.lazyLoad(exports, ["Image"], () => require("./image"));
-utilities.lazyLoad(exports, ["ImageVersion"], () => require("./imageVersion"));
-utilities.lazyLoad(exports, ["Model"], () => require("./model"));
-utilities.lazyLoad(exports, ["ModelPackageGroup"], () => require("./modelPackageGroup"));
-utilities.lazyLoad(exports, ["ModelPackageGroupPolicy"], () => require("./modelPackageGroupPolicy"));
-utilities.lazyLoad(exports, ["NotebookInstance"], () => require("./notebookInstance"));
-utilities.lazyLoad(exports, ["NotebookInstanceLifecycleConfiguration"], () => require("./notebookInstanceLifecycleConfiguration"));
-utilities.lazyLoad(exports, ["Project"], () => require("./project"));
-utilities.lazyLoad(exports, ["ServicecatalogPortfolioStatus"], () => require("./servicecatalogPortfolioStatus"));
-utilities.lazyLoad(exports, ["StudioLifecycleConfig"], () => require("./studioLifecycleConfig"));
-utilities.lazyLoad(exports, ["UserProfile"], () => require("./userProfile"));
-utilities.lazyLoad(exports, ["Workforce"], () => require("./workforce"));
 utilities.lazyLoad(exports, ["Workteam"], () => require("./workteam"));
+
 
 const _module = {
     version: utilities.getVersion(),

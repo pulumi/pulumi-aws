@@ -72,11 +72,21 @@ namespace Pulumi.Aws.Dms.Inputs
         [Input("partitionIncludeSchemaTable")]
         public Input<bool>? PartitionIncludeSchemaTable { get; set; }
 
+        [Input("saslPassword")]
+        private Input<string>? _saslPassword;
+
         /// <summary>
         /// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         /// </summary>
-        [Input("saslPassword")]
-        public Input<string>? SaslPassword { get; set; }
+        public Input<string>? SaslPassword
+        {
+            get => _saslPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _saslPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
@@ -108,11 +118,21 @@ namespace Pulumi.Aws.Dms.Inputs
         [Input("sslClientKeyArn")]
         public Input<string>? SslClientKeyArn { get; set; }
 
+        [Input("sslClientKeyPassword")]
+        private Input<string>? _sslClientKeyPassword;
+
         /// <summary>
         /// Password for the client private key used to securely connect to a Kafka target endpoint.
         /// </summary>
-        [Input("sslClientKeyPassword")]
-        public Input<string>? SslClientKeyPassword { get; set; }
+        public Input<string>? SslClientKeyPassword
+        {
+            get => _sslClientKeyPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sslClientKeyPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Kafka topic for migration. Default is `kafka-default-topic`.

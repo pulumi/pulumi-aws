@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.GetApis(ctx, &apigatewayv2.GetApisArgs{
+//			_, err = apigatewayv2.GetApis(ctx, &apigatewayv2.GetApisArgs{
 //				ProtocolType: pulumi.StringRef("HTTP"),
 //			}, nil)
 //			if err != nil {

@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.LookupResolverRule(ctx, &route53.LookupResolverRuleArgs{
+//			_, err = route53.LookupResolverRule(ctx, &route53.LookupResolverRuleArgs{
 //				DomainName: pulumi.StringRef("subdomain.example.com"),
 //				RuleType:   pulumi.StringRef("SYSTEM"),
 //			}, nil)

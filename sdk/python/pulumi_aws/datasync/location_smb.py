@@ -448,7 +448,7 @@ class LocationSmb(pulumi.CustomResource):
             __props__.__dict__["mount_options"] = mount_options
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if server_hostname is None and not opts.urn:
                 raise TypeError("Missing required property 'server_hostname'")
             __props__.__dict__["server_hostname"] = server_hostname
@@ -462,6 +462,8 @@ class LocationSmb(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["uri"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LocationSmb, __self__).__init__(
             'aws:datasync/locationSmb:LocationSmb',
             resource_name,

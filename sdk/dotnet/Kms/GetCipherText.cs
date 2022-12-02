@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Kms
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCipherTextResult> InvokeAsync(GetCipherTextArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextArgs(), options.WithDefaults());
 
         /// <summary>
         /// The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Kms
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCipherTextResult> Invoke(GetCipherTextInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -115,11 +115,17 @@ namespace Pulumi.Aws.Kms
         [Input("keyId", required: true)]
         public string KeyId { get; set; } = null!;
 
+        [Input("plaintext", required: true)]
+        private string? _plaintext;
+
         /// <summary>
         /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         /// </summary>
-        [Input("plaintext", required: true)]
-        public string Plaintext { get; set; } = null!;
+        public string? Plaintext
+        {
+            get => _plaintext;
+            set => _plaintext = value;
+        }
 
         public GetCipherTextArgs()
         {
@@ -147,11 +153,21 @@ namespace Pulumi.Aws.Kms
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
+        [Input("plaintext", required: true)]
+        private Input<string>? _plaintext;
+
         /// <summary>
         /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         /// </summary>
-        [Input("plaintext", required: true)]
-        public Input<string> Plaintext { get; set; } = null!;
+        public Input<string>? Plaintext
+        {
+            get => _plaintext;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _plaintext = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public GetCipherTextInvokeArgs()
         {

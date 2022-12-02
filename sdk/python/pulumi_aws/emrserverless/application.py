@@ -18,6 +18,7 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  release_label: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 architecture: Optional[pulumi.Input[str]] = None,
                  auto_start_configuration: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']] = None,
                  auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
@@ -29,6 +30,7 @@ class ApplicationArgs:
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] release_label: The EMR release version associated with the application.
         :param pulumi.Input[str] type: The type of application you want to start, such as `spark` or `hive`.
+        :param pulumi.Input[str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         :param pulumi.Input['ApplicationAutoStartConfigurationArgs'] auto_start_configuration: The configuration for an application to automatically start on job submission.
         :param pulumi.Input['ApplicationAutoStopConfigurationArgs'] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]] initial_capacities: The capacity to initialize when the application is created.
@@ -39,6 +41,8 @@ class ApplicationArgs:
         """
         pulumi.set(__self__, "release_label", release_label)
         pulumi.set(__self__, "type", type)
+        if architecture is not None:
+            pulumi.set(__self__, "architecture", architecture)
         if auto_start_configuration is not None:
             pulumi.set(__self__, "auto_start_configuration", auto_start_configuration)
         if auto_stop_configuration is not None:
@@ -77,6 +81,18 @@ class ApplicationArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+        """
+        return pulumi.get(self, "architecture")
+
+    @architecture.setter
+    def architecture(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "architecture", value)
 
     @property
     @pulumi.getter(name="autoStartConfiguration")
@@ -166,6 +182,7 @@ class ApplicationArgs:
 @pulumi.input_type
 class _ApplicationState:
     def __init__(__self__, *,
+                 architecture: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_start_configuration: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']] = None,
                  auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
@@ -179,6 +196,7 @@ class _ApplicationState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Application resources.
+        :param pulumi.Input[str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         :param pulumi.Input[str] arn: ARN of the cluster.
         :param pulumi.Input['ApplicationAutoStartConfigurationArgs'] auto_start_configuration: The configuration for an application to automatically start on job submission.
         :param pulumi.Input['ApplicationAutoStopConfigurationArgs'] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
@@ -191,6 +209,8 @@ class _ApplicationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of application you want to start, such as `spark` or `hive`.
         """
+        if architecture is not None:
+            pulumi.set(__self__, "architecture", architecture)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if auto_start_configuration is not None:
@@ -213,6 +233,18 @@ class _ApplicationState:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+        """
+        return pulumi.get(self, "architecture")
+
+    @architecture.setter
+    def architecture(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "architecture", value)
 
     @property
     @pulumi.getter
@@ -352,6 +384,7 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 architecture: Optional[pulumi.Input[str]] = None,
                  auto_start_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']]] = None,
                  auto_stop_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']]] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityArgs']]]]] = None,
@@ -421,6 +454,7 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         :param pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']] auto_start_configuration: The configuration for an application to automatically start on job submission.
         :param pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityArgs']]]] initial_capacities: The capacity to initialize when the application is created.
@@ -509,6 +543,7 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 architecture: Optional[pulumi.Input[str]] = None,
                  auto_start_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']]] = None,
                  auto_stop_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']]] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityArgs']]]]] = None,
@@ -527,6 +562,7 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
+            __props__.__dict__["architecture"] = architecture
             __props__.__dict__["auto_start_configuration"] = auto_start_configuration
             __props__.__dict__["auto_stop_configuration"] = auto_stop_configuration
             __props__.__dict__["initial_capacities"] = initial_capacities
@@ -552,6 +588,7 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            architecture: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             auto_start_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']]] = None,
             auto_stop_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']]] = None,
@@ -570,6 +607,7 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         :param pulumi.Input[str] arn: ARN of the cluster.
         :param pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']] auto_start_configuration: The configuration for an application to automatically start on job submission.
         :param pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
@@ -586,6 +624,7 @@ class Application(pulumi.CustomResource):
 
         __props__ = _ApplicationState.__new__(_ApplicationState)
 
+        __props__.__dict__["architecture"] = architecture
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auto_start_configuration"] = auto_start_configuration
         __props__.__dict__["auto_stop_configuration"] = auto_stop_configuration
@@ -598,6 +637,14 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
         return Application(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> pulumi.Output[Optional[str]]:
+        """
+        The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+        """
+        return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter
@@ -633,7 +680,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumCapacity")
-    def maximum_capacity(self) -> pulumi.Output[Optional['outputs.ApplicationMaximumCapacity']]:
+    def maximum_capacity(self) -> pulumi.Output['outputs.ApplicationMaximumCapacity']:
         """
         The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         """

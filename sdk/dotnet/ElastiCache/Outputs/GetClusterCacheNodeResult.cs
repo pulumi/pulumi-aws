@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ElastiCache.Outputs
         /// </summary>
         public readonly string AvailabilityZone;
         public readonly string Id;
+        public readonly string OutpostArn;
         /// <summary>
         /// The port number on which each of the cache nodes will
         /// accept connections.
@@ -33,11 +34,14 @@ namespace Pulumi.Aws.ElastiCache.Outputs
 
             string id,
 
+            string outpostArn,
+
             int port)
         {
             Address = address;
             AvailabilityZone = availabilityZone;
             Id = id;
+            OutpostArn = outpostArn;
             Port = port;
         }
     }

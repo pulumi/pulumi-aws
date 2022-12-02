@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.connect.getSecurityProfile({
+ * const example = aws.connect.getSecurityProfile({
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     name: "Example",
- * }));
+ * });
  * ```
  *
  * By `securityProfileId`
@@ -27,18 +27,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.connect.getSecurityProfile({
+ * const example = aws.connect.getSecurityProfile({
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     securityProfileId: "cccccccc-bbbb-cccc-dddd-111111111111",
- * }));
+ * });
  * ```
  */
 export function getSecurityProfile(args: GetSecurityProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getSecurityProfile:getSecurityProfile", {
         "instanceId": args.instanceId,
         "name": args.name,

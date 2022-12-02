@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_queue import *
+from .get_queues import *
 from .queue import *
 from .queue_policy import *
 from .redrive_allow_policy import *

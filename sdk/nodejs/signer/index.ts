@@ -8,28 +8,28 @@ import * as utilities from "../utilities";
 export { GetSigningJobArgs, GetSigningJobResult, GetSigningJobOutputArgs } from "./getSigningJob";
 export const getSigningJob: typeof import("./getSigningJob").getSigningJob = null as any;
 export const getSigningJobOutput: typeof import("./getSigningJob").getSigningJobOutput = null as any;
+utilities.lazyLoad(exports, ["getSigningJob","getSigningJobOutput"], () => require("./getSigningJob"));
 
 export { GetSigningProfileArgs, GetSigningProfileResult, GetSigningProfileOutputArgs } from "./getSigningProfile";
 export const getSigningProfile: typeof import("./getSigningProfile").getSigningProfile = null as any;
 export const getSigningProfileOutput: typeof import("./getSigningProfile").getSigningProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getSigningProfile","getSigningProfileOutput"], () => require("./getSigningProfile"));
 
 export { SigningJobArgs, SigningJobState } from "./signingJob";
 export type SigningJob = import("./signingJob").SigningJob;
 export const SigningJob: typeof import("./signingJob").SigningJob = null as any;
+utilities.lazyLoad(exports, ["SigningJob"], () => require("./signingJob"));
 
 export { SigningProfileArgs, SigningProfileState } from "./signingProfile";
 export type SigningProfile = import("./signingProfile").SigningProfile;
 export const SigningProfile: typeof import("./signingProfile").SigningProfile = null as any;
+utilities.lazyLoad(exports, ["SigningProfile"], () => require("./signingProfile"));
 
 export { SigningProfilePermissionArgs, SigningProfilePermissionState } from "./signingProfilePermission";
 export type SigningProfilePermission = import("./signingProfilePermission").SigningProfilePermission;
 export const SigningProfilePermission: typeof import("./signingProfilePermission").SigningProfilePermission = null as any;
-
-utilities.lazyLoad(exports, ["getSigningJob","getSigningJobOutput"], () => require("./getSigningJob"));
-utilities.lazyLoad(exports, ["getSigningProfile","getSigningProfileOutput"], () => require("./getSigningProfile"));
-utilities.lazyLoad(exports, ["SigningJob"], () => require("./signingJob"));
-utilities.lazyLoad(exports, ["SigningProfile"], () => require("./signingProfile"));
 utilities.lazyLoad(exports, ["SigningProfilePermission"], () => require("./signingProfilePermission"));
+
 
 const _module = {
     version: utilities.getVersion(),

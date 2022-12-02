@@ -179,6 +179,10 @@ namespace Pulumi.Aws.Kms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "keyMaterialBase64",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -230,11 +234,21 @@ namespace Pulumi.Aws.Kms
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("keyMaterialBase64")]
+        private Input<string>? _keyMaterialBase64;
+
         /// <summary>
         /// Base64 encoded 256-bit symmetric encryption key material to import. The KMS key is permanently associated with this key material. The same key material can be [reimported](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material), but you cannot import different key material.
         /// </summary>
-        [Input("keyMaterialBase64")]
-        public Input<string>? KeyMaterialBase64 { get; set; }
+        public Input<string>? KeyMaterialBase64
+        {
+            get => _keyMaterialBase64;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _keyMaterialBase64 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
@@ -320,11 +334,21 @@ namespace Pulumi.Aws.Kms
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
+        [Input("keyMaterialBase64")]
+        private Input<string>? _keyMaterialBase64;
+
         /// <summary>
         /// Base64 encoded 256-bit symmetric encryption key material to import. The KMS key is permanently associated with this key material. The same key material can be [reimported](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material), but you cannot import different key material.
         /// </summary>
-        [Input("keyMaterialBase64")]
-        public Input<string>? KeyMaterialBase64 { get; set; }
+        public Input<string>? KeyMaterialBase64
+        {
+            get => _keyMaterialBase64;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _keyMaterialBase64 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The state of the replica key.

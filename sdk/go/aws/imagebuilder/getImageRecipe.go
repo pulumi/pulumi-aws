@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.LookupImageRecipe(ctx, &imagebuilder.LookupImageRecipeArgs{
+//			_, err = imagebuilder.LookupImageRecipe(ctx, &imagebuilder.LookupImageRecipeArgs{
 //				Arn: "arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0",
 //			}, nil)
 //			if err != nil {

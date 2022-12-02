@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.appmesh.getVirtualService({
+ * const test = aws.appmesh.getVirtualService({
  *     meshName: "example-mesh",
  *     name: "example.mesh.local",
- * }));
+ * });
  * ```
  *
  * ```typescript
@@ -35,11 +35,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualService(args: GetVirtualServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appmesh/getVirtualService:getVirtualService", {
         "meshName": args.meshName,
         "meshOwner": args.meshOwner,

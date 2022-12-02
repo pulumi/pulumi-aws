@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.GetImage(ctx, &workspaces.GetImageArgs{
+//			_, err = workspaces.GetImage(ctx, &workspaces.GetImageArgs{
 //				ImageId: "wsi-ten5h0y19",
 //			}, nil)
 //			if err != nil {

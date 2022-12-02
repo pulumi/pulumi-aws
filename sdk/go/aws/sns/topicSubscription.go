@@ -149,7 +149,7 @@ import (
 //								Test:     "StringEquals",
 //								Variable: "AWS:SourceOwner",
 //								Values: []string{
-//									sns.Account - id,
+//									sns.AccountId,
 //								},
 //							},
 //						},
@@ -163,7 +163,7 @@ import (
 //							},
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.Account-id, sns.Name),
+//							fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.AccountId, sns.Name),
 //						},
 //						Sid: pulumi.StringRef("__default_statement_ID"),
 //					},
@@ -177,7 +177,7 @@ import (
 //								Test:     "StringLike",
 //								Variable: "SNS:Endpoint",
 //								Values: []string{
-//									fmt.Sprintf("arn:aws:sqs:%v:%v:%v", sqs.Region, sqs.Account-id, sqs.Name),
+//									fmt.Sprintf("arn:aws:sqs:%v:%v:%v", sqs.Region, sqs.AccountId, sqs.Name),
 //								},
 //							},
 //						},
@@ -191,7 +191,7 @@ import (
 //							},
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.Account-id, sns.Name),
+//							fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.AccountId, sns.Name),
 //						},
 //						Sid: pulumi.StringRef("__console_sub_0"),
 //					},
@@ -201,7 +201,7 @@ import (
 //				return err
 //			}
 //			sqs_queue_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				PolicyId: pulumi.StringRef(fmt.Sprintf("arn:aws:sqs:%v:%v:%v/SQSDefaultPolicy", sqs.Region, sqs.Account-id, sqs.Name)),
+//				PolicyId: pulumi.StringRef(fmt.Sprintf("arn:aws:sqs:%v:%v:%v/SQSDefaultPolicy", sqs.Region, sqs.AccountId, sqs.Name)),
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					iam.GetPolicyDocumentStatement{
 //						Sid:    pulumi.StringRef("example-sns-topic"),
@@ -218,14 +218,14 @@ import (
 //							"SQS:SendMessage",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:sqs:%v:%v:%v", sqs.Region, sqs.Account-id, sqs.Name),
+//							fmt.Sprintf("arn:aws:sqs:%v:%v:%v", sqs.Region, sqs.AccountId, sqs.Name),
 //						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							iam.GetPolicyDocumentStatementCondition{
 //								Test:     "ArnEquals",
 //								Variable: "aws:SourceArn",
 //								Values: []string{
-//									fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.Account-id, sns.Name),
+//									fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.AccountId, sns.Name),
 //								},
 //							},
 //						},
@@ -237,8 +237,8 @@ import (
 //			}
 //			_, err = aws.NewProvider(ctx, "awsSns", &aws.ProviderArgs{
 //				Region: pulumi.String(sns.Region),
-//				AssumeRole: &ProviderAssumeRoleArgs{
-//					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sns.Account-id, sns.Role-name)),
+//				AssumeRole: &aws.ProviderAssumeRoleArgs{
+//					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sns.AccountId, sns.RoleName)),
 //					SessionName: pulumi.String(fmt.Sprintf("sns-%v", sns.Region)),
 //				},
 //			})
@@ -247,8 +247,8 @@ import (
 //			}
 //			_, err = aws.NewProvider(ctx, "awsSqs", &aws.ProviderArgs{
 //				Region: pulumi.String(sqs.Region),
-//				AssumeRole: &ProviderAssumeRoleArgs{
-//					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.Account-id, sqs.Role-name)),
+//				AssumeRole: &aws.ProviderAssumeRoleArgs{
+//					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.AccountId, sqs.RoleName)),
 //					SessionName: pulumi.String(fmt.Sprintf("sqs-%v", sqs.Region)),
 //				},
 //			})
@@ -257,8 +257,8 @@ import (
 //			}
 //			_, err = aws.NewProvider(ctx, "sns2sqs", &aws.ProviderArgs{
 //				Region: pulumi.String(sns.Region),
-//				AssumeRole: &ProviderAssumeRoleArgs{
-//					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.Account-id, sqs.Role-name)),
+//				AssumeRole: &aws.ProviderAssumeRoleArgs{
+//					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.AccountId, sqs.RoleName)),
 //					SessionName: pulumi.String(fmt.Sprintf("sns2sqs-%v", sns.Region)),
 //				},
 //			})
@@ -318,6 +318,8 @@ type TopicSubscription struct {
 	EndpointAutoConfirms pulumi.BoolPtrOutput `pulumi:"endpointAutoConfirms"`
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy pulumi.StringPtrOutput `pulumi:"filterPolicy"`
+	// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+	FilterPolicyScope pulumi.StringOutput `pulumi:"filterPolicyScope"`
 	// AWS account ID of the subscription's owner.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Whether the subscription has not been confirmed.
@@ -386,6 +388,8 @@ type topicSubscriptionState struct {
 	EndpointAutoConfirms *bool `pulumi:"endpointAutoConfirms"`
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy *string `pulumi:"filterPolicy"`
+	// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+	FilterPolicyScope *string `pulumi:"filterPolicyScope"`
 	// AWS account ID of the subscription's owner.
 	OwnerId *string `pulumi:"ownerId"`
 	// Whether the subscription has not been confirmed.
@@ -417,6 +421,8 @@ type TopicSubscriptionState struct {
 	EndpointAutoConfirms pulumi.BoolPtrInput
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy pulumi.StringPtrInput
+	// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+	FilterPolicyScope pulumi.StringPtrInput
 	// AWS account ID of the subscription's owner.
 	OwnerId pulumi.StringPtrInput
 	// Whether the subscription has not been confirmed.
@@ -448,6 +454,8 @@ type topicSubscriptionArgs struct {
 	EndpointAutoConfirms *bool `pulumi:"endpointAutoConfirms"`
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy *string `pulumi:"filterPolicy"`
+	// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+	FilterPolicyScope *string `pulumi:"filterPolicyScope"`
 	// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
 	Protocol string `pulumi:"protocol"`
 	// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
@@ -472,6 +480,8 @@ type TopicSubscriptionArgs struct {
 	EndpointAutoConfirms pulumi.BoolPtrInput
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy pulumi.StringPtrInput
+	// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+	FilterPolicyScope pulumi.StringPtrInput
 	// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
 	Protocol pulumi.StringInput
 	// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
@@ -604,6 +614,11 @@ func (o TopicSubscriptionOutput) EndpointAutoConfirms() pulumi.BoolPtrOutput {
 // JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 func (o TopicSubscriptionOutput) FilterPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicSubscription) pulumi.StringPtrOutput { return v.FilterPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+func (o TopicSubscriptionOutput) FilterPolicyScope() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicSubscription) pulumi.StringOutput { return v.FilterPolicyScope }).(pulumi.StringOutput)
 }
 
 // AWS account ID of the subscription's owner.

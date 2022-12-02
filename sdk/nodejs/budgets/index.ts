@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { BudgetArgs, BudgetState } from "./budget";
 export type Budget = import("./budget").Budget;
 export const Budget: typeof import("./budget").Budget = null as any;
+utilities.lazyLoad(exports, ["Budget"], () => require("./budget"));
 
 export { BudgetActionArgs, BudgetActionState } from "./budgetAction";
 export type BudgetAction = import("./budgetAction").BudgetAction;
 export const BudgetAction: typeof import("./budgetAction").BudgetAction = null as any;
-
-utilities.lazyLoad(exports, ["Budget"], () => require("./budget"));
 utilities.lazyLoad(exports, ["BudgetAction"], () => require("./budgetAction"));
+
 
 const _module = {
     version: utilities.getVersion(),

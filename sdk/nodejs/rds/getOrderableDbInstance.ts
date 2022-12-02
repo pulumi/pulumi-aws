@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.rds.getOrderableDbInstance({
+ * const test = aws.rds.getOrderableDbInstance({
  *     engine: "mysql",
  *     engineVersion: "5.7.22",
  *     licenseModel: "general-public-license",
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *         "db.t3.small",
  *     ],
  *     storageType: "standard",
- * }));
+ * });
  * ```
  *
  * Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.rds.getOrderableDbInstance({
+ * const test = aws.rds.getOrderableDbInstance({
  *     engine: "mysql",
  *     licenseModel: "general-public-license",
  *     preferredEngineVersions: [
@@ -45,15 +45,12 @@ import * as utilities from "../utilities";
  *         "db.t3.medium",
  *         "db.t3.large",
  *     ],
- * }));
+ * });
  * ```
  */
 export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getOrderableDbInstance:getOrderableDbInstance", {
         "availabilityZoneGroup": args.availabilityZoneGroup,
         "engine": args.engine,

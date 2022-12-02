@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Lambda
         /// invocation type.
         /// </summary>
         public static Task<GetInvocationResult> InvokeAsync(GetInvocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to invoke custom lambda functions as data source.
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Lambda
         /// invocation type.
         /// </summary>
         public static Output<GetInvocationResult> Invoke(GetInvocationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationInvokeArgs(), options.WithDefaults());
     }
 
 

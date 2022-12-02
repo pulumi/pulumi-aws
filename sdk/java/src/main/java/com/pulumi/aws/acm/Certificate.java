@@ -305,6 +305,20 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.earlyRenewalDuration);
     }
     /**
+     * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+     * 
+     */
+    @Export(name="keyAlgorithm", type=String.class, parameters={})
+    private Output<String> keyAlgorithm;
+
+    /**
+     * @return Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+     * 
+     */
+    public Output<String> keyAlgorithm() {
+        return this.keyAlgorithm;
+    }
+    /**
      * Expiration date and time of the certificate.
      * 
      */
@@ -551,6 +565,9 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "privateKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

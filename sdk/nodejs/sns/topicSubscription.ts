@@ -27,7 +27,7 @@ import {Topic} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("user_updates_sqs_target", {
+ * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("userUpdatesSqsTarget", {
  *     endpoint: "arn:aws:sqs:us-west-2:432981146916:queue-too",
  *     protocol: "sqs",
  *     topic: "arn:aws:sns:us-west-2:432981146916:user-updates-topic",
@@ -241,6 +241,10 @@ export class TopicSubscription extends pulumi.CustomResource {
      */
     public readonly filterPolicy!: pulumi.Output<string | undefined>;
     /**
+     * Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+     */
+    public readonly filterPolicyScope!: pulumi.Output<string>;
+    /**
      * AWS account ID of the subscription's owner.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
@@ -289,6 +293,7 @@ export class TopicSubscription extends pulumi.CustomResource {
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["endpointAutoConfirms"] = state ? state.endpointAutoConfirms : undefined;
             resourceInputs["filterPolicy"] = state ? state.filterPolicy : undefined;
+            resourceInputs["filterPolicyScope"] = state ? state.filterPolicyScope : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["pendingConfirmation"] = state ? state.pendingConfirmation : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
@@ -312,6 +317,7 @@ export class TopicSubscription extends pulumi.CustomResource {
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
             resourceInputs["endpointAutoConfirms"] = args ? args.endpointAutoConfirms : undefined;
             resourceInputs["filterPolicy"] = args ? args.filterPolicy : undefined;
+            resourceInputs["filterPolicyScope"] = args ? args.filterPolicyScope : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
             resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
@@ -359,6 +365,10 @@ export interface TopicSubscriptionState {
      * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
      */
     filterPolicy?: pulumi.Input<string>;
+    /**
+     * Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+     */
+    filterPolicyScope?: pulumi.Input<string>;
     /**
      * AWS account ID of the subscription's owner.
      */
@@ -413,6 +423,10 @@ export interface TopicSubscriptionArgs {
      * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
      */
     filterPolicy?: pulumi.Input<string>;
+    /**
+     * Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+     */
+    filterPolicyScope?: pulumi.Input<string>;
     /**
      * Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
      */

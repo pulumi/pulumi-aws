@@ -17,17 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.route53.getResolverFirewallRuleGroupAssociation({
+ * const example = aws.route53.getResolverFirewallRuleGroupAssociation({
  *     firewallRuleGroupAssociationId: "rslvr-frgassoc-example",
- * }));
+ * });
  * ```
  */
 export function getResolverFirewallRuleGroupAssociation(args: GetResolverFirewallRuleGroupAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallRuleGroupAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", {
         "firewallRuleGroupAssociationId": args.firewallRuleGroupAssociationId,
     }, opts);

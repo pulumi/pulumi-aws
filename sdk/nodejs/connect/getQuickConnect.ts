@@ -18,10 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.connect.getQuickConnect({
+ * const example = aws.connect.getQuickConnect({
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     name: "Example",
- * }));
+ * });
  * ```
  *
  * By `quickConnectId`
@@ -30,18 +30,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.connect.getQuickConnect({
+ * const example = aws.connect.getQuickConnect({
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     quickConnectId: "cccccccc-bbbb-cccc-dddd-111111111111",
- * }));
+ * });
  * ```
  */
 export function getQuickConnect(args: GetQuickConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetQuickConnectResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getQuickConnect:getQuickConnect", {
         "instanceId": args.instanceId,
         "name": args.name,

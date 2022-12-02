@@ -32,7 +32,7 @@ import (
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
-//							pulumi.Any(aws_instance.Example.Id),
+//							aws_instance.Example.Id,
 //						},
 //					},
 //				},
@@ -135,7 +135,7 @@ import (
 //					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
-//							pulumi.Any(aws_instance.Example.Id),
+//							aws_instance.Example.Id,
 //						},
 //					},
 //				},

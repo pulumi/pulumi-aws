@@ -362,12 +362,14 @@ class Certificate(pulumi.CustomResource):
             if active is None and not opts.urn:
                 raise TypeError("Missing required property 'active'")
             __props__.__dict__["active"] = active
-            __props__.__dict__["ca_pem"] = ca_pem
-            __props__.__dict__["certificate_pem"] = certificate_pem
+            __props__.__dict__["ca_pem"] = None if ca_pem is None else pulumi.Output.secret(ca_pem)
+            __props__.__dict__["certificate_pem"] = None if certificate_pem is None else pulumi.Output.secret(certificate_pem)
             __props__.__dict__["csr"] = csr
             __props__.__dict__["arn"] = None
             __props__.__dict__["private_key"] = None
             __props__.__dict__["public_key"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["caPem", "certificatePem", "privateKey", "publicKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'aws:iot/certificate:Certificate',
             resource_name,

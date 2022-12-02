@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.cloudfront.getOriginAccessIdentities());
+ * const example = aws.cloudfront.getOriginAccessIdentities({});
  * ```
  * ### Origin access identities filtered by comment/name
  *
@@ -24,21 +24,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.cloudfront.getOriginAccessIdentities({
+ * const example = aws.cloudfront.getOriginAccessIdentities({
  *     comments: [
  *         "example-comment1",
  *         "example-comment2",
  *     ],
- * }));
+ * });
  * ```
  */
 export function getOriginAccessIdentities(args?: GetOriginAccessIdentitiesArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginAccessIdentitiesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", {
         "comments": args.comments,
     }, opts);

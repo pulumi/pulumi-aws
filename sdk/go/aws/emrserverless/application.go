@@ -121,6 +121,8 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
+	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
 	// ARN of the cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The configuration for an application to automatically start on job submission.
@@ -130,7 +132,7 @@ type Application struct {
 	// The capacity to initialize when the application is created.
 	InitialCapacities ApplicationInitialCapacityArrayOutput `pulumi:"initialCapacities"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-	MaximumCapacity ApplicationMaximumCapacityPtrOutput `pulumi:"maximumCapacity"`
+	MaximumCapacity ApplicationMaximumCapacityOutput `pulumi:"maximumCapacity"`
 	// The name of the application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The network configuration for customer VPC connectivity.
@@ -180,6 +182,8 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
+	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+	Architecture *string `pulumi:"architecture"`
 	// ARN of the cluster.
 	Arn *string `pulumi:"arn"`
 	// The configuration for an application to automatically start on job submission.
@@ -205,6 +209,8 @@ type applicationState struct {
 }
 
 type ApplicationState struct {
+	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+	Architecture pulumi.StringPtrInput
 	// ARN of the cluster.
 	Arn pulumi.StringPtrInput
 	// The configuration for an application to automatically start on job submission.
@@ -234,6 +240,8 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
+	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+	Architecture *string `pulumi:"architecture"`
 	// The configuration for an application to automatically start on job submission.
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
 	// The configuration for an application to automatically stop after a certain amount of time being idle.
@@ -256,6 +264,8 @@ type applicationArgs struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
+	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+	Architecture pulumi.StringPtrInput
 	// The configuration for an application to automatically start on job submission.
 	AutoStartConfiguration ApplicationAutoStartConfigurationPtrInput
 	// The configuration for an application to automatically stop after a certain amount of time being idle.
@@ -363,6 +373,11 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+func (o ApplicationOutput) Architecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Architecture }).(pulumi.StringPtrOutput)
+}
+
 // ARN of the cluster.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -384,8 +399,8 @@ func (o ApplicationOutput) InitialCapacities() ApplicationInitialCapacityArrayOu
 }
 
 // The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-func (o ApplicationOutput) MaximumCapacity() ApplicationMaximumCapacityPtrOutput {
-	return o.ApplyT(func(v *Application) ApplicationMaximumCapacityPtrOutput { return v.MaximumCapacity }).(ApplicationMaximumCapacityPtrOutput)
+func (o ApplicationOutput) MaximumCapacity() ApplicationMaximumCapacityOutput {
+	return o.ApplyT(func(v *Application) ApplicationMaximumCapacityOutput { return v.MaximumCapacity }).(ApplicationMaximumCapacityOutput)
 }
 
 // The name of the application.

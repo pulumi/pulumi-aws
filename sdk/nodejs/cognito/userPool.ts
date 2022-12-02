@@ -32,6 +32,7 @@ import * as utilities from "../utilities";
  *     smsConfiguration: {
  *         externalId: "example",
  *         snsCallerArn: aws_iam_role.example.arn,
+ *         snsRegion: "us-east-1",
  *     },
  *     softwareTokenMfaConfiguration: {
  *         enabled: true,
@@ -44,20 +45,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.cognito.UserPool("test", {
- *     accountRecoverySetting: {
- *         recoveryMechanisms: [
- *             {
- *                 name: "verified_email",
- *                 priority: 1,
- *             },
- *             {
- *                 name: "verified_phone_number",
- *                 priority: 2,
- *             },
- *         ],
- *     },
- * });
+ * const test = new aws.cognito.UserPool("test", {accountRecoverySetting: {
+ *     recoveryMechanisms: [
+ *         {
+ *             name: "verified_email",
+ *             priority: 1,
+ *         },
+ *         {
+ *             name: "verified_phone_number",
+ *             priority: 2,
+ *         },
+ *     ],
+ * }});
  * ```
  *
  * ## Import

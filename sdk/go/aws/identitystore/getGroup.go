@@ -22,8 +22,12 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
-	// Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
-	Filters []GetGroupFilter `pulumi:"filters"`
+	// A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
+	AlternateIdentifier *GetGroupAlternateIdentifier `pulumi:"alternateIdentifier"`
+	// Configuration block for filtering by a unique attribute of the group. Detailed below.
+	//
+	// Deprecated: Use the alternate_identifier attribute instead.
+	Filter *GetGroupFilter `pulumi:"filter"`
 	// The identifier for a group in the Identity Store.
 	GroupId *string `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On Instance.
@@ -32,10 +36,16 @@ type LookupGroupArgs struct {
 
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
+	AlternateIdentifier *GetGroupAlternateIdentifier `pulumi:"alternateIdentifier"`
+	// Description of the specified group.
+	Description string `pulumi:"description"`
 	// Group's display name value.
-	DisplayName string           `pulumi:"displayName"`
-	Filters     []GetGroupFilter `pulumi:"filters"`
-	GroupId     string           `pulumi:"groupId"`
+	DisplayName string `pulumi:"displayName"`
+	// List of identifiers issued to this resource by an external identity provider.
+	ExternalIds []GetGroupExternalId `pulumi:"externalIds"`
+	// Deprecated: Use the alternate_identifier attribute instead.
+	Filter  *GetGroupFilter `pulumi:"filter"`
+	GroupId string          `pulumi:"groupId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
 	IdentityStoreId string `pulumi:"identityStoreId"`
@@ -56,8 +66,12 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupOutputArgs struct {
-	// Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
-	Filters GetGroupFilterArrayInput `pulumi:"filters"`
+	// A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
+	AlternateIdentifier GetGroupAlternateIdentifierPtrInput `pulumi:"alternateIdentifier"`
+	// Configuration block for filtering by a unique attribute of the group. Detailed below.
+	//
+	// Deprecated: Use the alternate_identifier attribute instead.
+	Filter GetGroupFilterPtrInput `pulumi:"filter"`
 	// The identifier for a group in the Identity Store.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On Instance.
@@ -83,13 +97,28 @@ func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx contex
 	return o
 }
 
+func (o LookupGroupResultOutput) AlternateIdentifier() GetGroupAlternateIdentifierPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *GetGroupAlternateIdentifier { return v.AlternateIdentifier }).(GetGroupAlternateIdentifierPtrOutput)
+}
+
+// Description of the specified group.
+func (o LookupGroupResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // Group's display name value.
 func (o LookupGroupResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-func (o LookupGroupResultOutput) Filters() GetGroupFilterArrayOutput {
-	return o.ApplyT(func(v LookupGroupResult) []GetGroupFilter { return v.Filters }).(GetGroupFilterArrayOutput)
+// List of identifiers issued to this resource by an external identity provider.
+func (o LookupGroupResultOutput) ExternalIds() GetGroupExternalIdArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []GetGroupExternalId { return v.ExternalIds }).(GetGroupExternalIdArrayOutput)
+}
+
+// Deprecated: Use the alternate_identifier attribute instead.
+func (o LookupGroupResultOutput) Filter() GetGroupFilterPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *GetGroupFilter { return v.Filter }).(GetGroupFilterPtrOutput)
 }
 
 func (o LookupGroupResultOutput) GroupId() pulumi.StringOutput {

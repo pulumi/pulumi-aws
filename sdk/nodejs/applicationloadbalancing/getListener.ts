@@ -38,11 +38,8 @@ import * as utilities from "../utilities";
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
     pulumi.log.warn("getListener is deprecated: aws.applicationloadbalancing.getListener has been deprecated in favor of aws.alb.getListener")
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:applicationloadbalancing/getListener:getListener", {
         "arn": args.arn,
         "loadBalancerArn": args.loadBalancerArn,

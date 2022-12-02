@@ -13,11 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.backup.GlobalSettings("test", {
- *     globalSettings: {
- *         isCrossAccountBackupEnabled: "true",
- *     },
- * });
+ * const test = new aws.backup.GlobalSettings("test", {globalSettings: {
+ *     isCrossAccountBackupEnabled: "true",
+ * }});
  * ```
  *
  * ## Import

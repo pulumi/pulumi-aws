@@ -642,11 +642,13 @@ class PlatformApplication(pulumi.CustomResource):
             __props__.__dict__["platform"] = platform
             if platform_credential is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_credential'")
-            __props__.__dict__["platform_credential"] = platform_credential
-            __props__.__dict__["platform_principal"] = platform_principal
+            __props__.__dict__["platform_credential"] = None if platform_credential is None else pulumi.Output.secret(platform_credential)
+            __props__.__dict__["platform_principal"] = None if platform_principal is None else pulumi.Output.secret(platform_principal)
             __props__.__dict__["success_feedback_role_arn"] = success_feedback_role_arn
             __props__.__dict__["success_feedback_sample_rate"] = success_feedback_sample_rate
             __props__.__dict__["arn"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["platformCredential", "platformPrincipal"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PlatformApplication, __self__).__init__(
             'aws:sns/platformApplication:PlatformApplication',
             resource_name,

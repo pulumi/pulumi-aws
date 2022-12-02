@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Route53
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetResolverFirewallDomainListResult> InvokeAsync(GetResolverFirewallDomainListArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverFirewallDomainListResult>("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args ?? new GetResolverFirewallDomainListArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverFirewallDomainListResult>("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args ?? new GetResolverFirewallDomainListArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Route53
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetResolverFirewallDomainListResult> Invoke(GetResolverFirewallDomainListInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResolverFirewallDomainListResult>("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args ?? new GetResolverFirewallDomainListInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallDomainListResult>("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args ?? new GetResolverFirewallDomainListInvokeArgs(), options.WithDefaults());
     }
 
 

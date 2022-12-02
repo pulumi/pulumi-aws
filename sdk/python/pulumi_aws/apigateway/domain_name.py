@@ -804,7 +804,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["certificate_body"] = certificate_body
             __props__.__dict__["certificate_chain"] = certificate_chain
             __props__.__dict__["certificate_name"] = certificate_name
-            __props__.__dict__["certificate_private_key"] = certificate_private_key
+            __props__.__dict__["certificate_private_key"] = None if certificate_private_key is None else pulumi.Output.secret(certificate_private_key)
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
@@ -822,6 +822,8 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["regional_domain_name"] = None
             __props__.__dict__["regional_zone_id"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["certificatePrivateKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DomainName, __self__).__init__(
             'aws:apigateway/domainName:DomainName',
             resource_name,

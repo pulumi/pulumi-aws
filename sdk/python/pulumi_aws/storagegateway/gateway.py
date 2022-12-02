@@ -1014,7 +1014,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["medium_changer_type"] = medium_changer_type
             __props__.__dict__["smb_active_directory_settings"] = smb_active_directory_settings
             __props__.__dict__["smb_file_share_visibility"] = smb_file_share_visibility
-            __props__.__dict__["smb_guest_password"] = smb_guest_password
+            __props__.__dict__["smb_guest_password"] = None if smb_guest_password is None else pulumi.Output.secret(smb_guest_password)
             __props__.__dict__["smb_security_strategy"] = smb_security_strategy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tape_drive_type"] = tape_drive_type
@@ -1025,6 +1025,8 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["gateway_network_interfaces"] = None
             __props__.__dict__["host_environment"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["smbGuestPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Gateway, __self__).__init__(
             'aws:storagegateway/gateway:Gateway',
             resource_name,

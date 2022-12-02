@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.LookupPortfolio(ctx, &servicecatalog.LookupPortfolioArgs{
+//			_, err = servicecatalog.LookupPortfolio(ctx, &servicecatalog.LookupPortfolioArgs{
 //				Id: "port-07052002",
 //			}, nil)
 //			if err != nil {

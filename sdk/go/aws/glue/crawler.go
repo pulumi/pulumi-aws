@@ -135,7 +135,7 @@ import (
 //					&glue.CrawlerCatalogTargetArgs{
 //						DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
 //						Tables: pulumi.StringArray{
-//							pulumi.Any(aws_glue_catalog_table.Example.Name),
+//							aws_glue_catalog_table.Example.Name,
 //						},
 //					},
 //				},

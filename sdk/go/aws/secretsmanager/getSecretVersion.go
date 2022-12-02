@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.LookupSecretVersion(ctx, &secretsmanager.LookupSecretVersionArgs{
+//			_, err = secretsmanager.LookupSecretVersion(ctx, &secretsmanager.LookupSecretVersionArgs{
 //				SecretId: data.Aws_secretsmanager_secret.Example.Id,
 //			}, nil)
 //			if err != nil {
@@ -54,7 +54,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.LookupSecretVersion(ctx, &secretsmanager.LookupSecretVersionArgs{
+//			_, err = secretsmanager.LookupSecretVersion(ctx, &secretsmanager.LookupSecretVersionArgs{
 //				SecretId:     data.Aws_secretsmanager_secret.Example.Id,
 //				VersionStage: pulumi.StringRef("example"),
 //			}, nil)

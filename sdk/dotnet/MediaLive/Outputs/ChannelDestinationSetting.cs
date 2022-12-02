@@ -26,7 +26,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? Url;
         /// <summary>
-        /// Username for destination.
+        /// . Username to be used.
         /// </summary>
         public readonly string? Username;
 

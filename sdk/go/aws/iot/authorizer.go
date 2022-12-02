@@ -95,6 +95,13 @@ func NewAuthorizer(ctx *pulumi.Context,
 	if args.AuthorizerFunctionArn == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizerFunctionArn'")
 	}
+	if args.TokenSigningPublicKeys != nil {
+		args.TokenSigningPublicKeys = pulumi.ToSecret(args.TokenSigningPublicKeys).(pulumi.StringMapOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tokenSigningPublicKeys",
+	})
+	opts = append(opts, secrets)
 	var resource Authorizer
 	err := ctx.RegisterResource("aws:iot/authorizer:Authorizer", name, args, &resource, opts...)
 	if err != nil {

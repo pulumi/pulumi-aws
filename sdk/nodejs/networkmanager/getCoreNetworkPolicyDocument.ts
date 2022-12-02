@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.networkmanager.getCoreNetworkPolicyDocument({
+ * const test = aws.networkmanager.getCoreNetworkPolicyDocument({
  *     attachmentPolicies: [
  *         {
  *             action: {
@@ -82,7 +82,7 @@ import * as utilities from "../utilities";
  *             requireAttachmentAcceptance: true,
  *         },
  *     ],
- * }));
+ * });
  * ```
  *
  * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
@@ -92,11 +92,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCoreNetworkPolicyDocument(args: GetCoreNetworkPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetCoreNetworkPolicyDocumentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", {
         "attachmentPolicies": args.attachmentPolicies,
         "coreNetworkConfigurations": args.coreNetworkConfigurations,

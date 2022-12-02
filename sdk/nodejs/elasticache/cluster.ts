@@ -194,6 +194,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+     */
+    public readonly ipDiscovery!: pulumi.Output<string>;
+    /**
      * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
      */
     public readonly logDeliveryConfigurations!: pulumi.Output<outputs.elasticache.ClusterLogDeliveryConfiguration[] | undefined>;
@@ -203,6 +207,10 @@ export class Cluster extends pulumi.CustomResource {
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
      */
     public readonly maintenanceWindow!: pulumi.Output<string>;
+    /**
+     * The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dualStack`.
+     */
+    public readonly networkType!: pulumi.Output<string>;
     /**
      * The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
      */
@@ -216,6 +224,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly numCacheNodes!: pulumi.Output<number>;
     /**
+     * Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
+     */
+    public readonly outpostMode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the parameter group to associate with this cache cluster.
      */
     public readonly parameterGroupName!: pulumi.Output<string>;
@@ -227,6 +239,10 @@ export class Cluster extends pulumi.CustomResource {
      * List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `numCacheNodes`. If you want all the nodes in the same Availability Zone, use `availabilityZone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
      */
     public readonly preferredAvailabilityZones!: pulumi.Output<string[] | undefined>;
+    /**
+     * The outpost ARN in which the cache cluster will be created.
+     */
+    public readonly preferredOutpostArn!: pulumi.Output<string>;
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */
@@ -296,14 +312,18 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
             resourceInputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
+            resourceInputs["ipDiscovery"] = state ? state.ipDiscovery : undefined;
             resourceInputs["logDeliveryConfigurations"] = state ? state.logDeliveryConfigurations : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
+            resourceInputs["networkType"] = state ? state.networkType : undefined;
             resourceInputs["nodeType"] = state ? state.nodeType : undefined;
             resourceInputs["notificationTopicArn"] = state ? state.notificationTopicArn : undefined;
             resourceInputs["numCacheNodes"] = state ? state.numCacheNodes : undefined;
+            resourceInputs["outpostMode"] = state ? state.outpostMode : undefined;
             resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["preferredAvailabilityZones"] = state ? state.preferredAvailabilityZones : undefined;
+            resourceInputs["preferredOutpostArn"] = state ? state.preferredOutpostArn : undefined;
             resourceInputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
@@ -324,14 +344,18 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
+            resourceInputs["ipDiscovery"] = args ? args.ipDiscovery : undefined;
             resourceInputs["logDeliveryConfigurations"] = args ? args.logDeliveryConfigurations : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
             resourceInputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
             resourceInputs["numCacheNodes"] = args ? args.numCacheNodes : undefined;
+            resourceInputs["outpostMode"] = args ? args.outpostMode : undefined;
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredAvailabilityZones"] = args ? args.preferredAvailabilityZones : undefined;
+            resourceInputs["preferredOutpostArn"] = args ? args.preferredOutpostArn : undefined;
             resourceInputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
@@ -418,6 +442,10 @@ export interface ClusterState {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
+     * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+     */
+    ipDiscovery?: pulumi.Input<string>;
+    /**
      * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
      */
     logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ClusterLogDeliveryConfiguration>[]>;
@@ -427,6 +455,10 @@ export interface ClusterState {
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
      */
     maintenanceWindow?: pulumi.Input<string>;
+    /**
+     * The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dualStack`.
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
      */
@@ -440,6 +472,10 @@ export interface ClusterState {
      */
     numCacheNodes?: pulumi.Input<number>;
     /**
+     * Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
+     */
+    outpostMode?: pulumi.Input<string>;
+    /**
      * The name of the parameter group to associate with this cache cluster.
      */
     parameterGroupName?: pulumi.Input<string>;
@@ -451,6 +487,10 @@ export interface ClusterState {
      * List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `numCacheNodes`. If you want all the nodes in the same Availability Zone, use `availabilityZone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
      */
     preferredAvailabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The outpost ARN in which the cache cluster will be created.
+     */
+    preferredOutpostArn?: pulumi.Input<string>;
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */
@@ -540,6 +580,10 @@ export interface ClusterArgs {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
+     * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+     */
+    ipDiscovery?: pulumi.Input<string>;
+    /**
      * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
      */
     logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ClusterLogDeliveryConfiguration>[]>;
@@ -549,6 +593,10 @@ export interface ClusterArgs {
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
      */
     maintenanceWindow?: pulumi.Input<string>;
+    /**
+     * The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dualStack`.
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
      */
@@ -562,6 +610,10 @@ export interface ClusterArgs {
      */
     numCacheNodes?: pulumi.Input<number>;
     /**
+     * Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
+     */
+    outpostMode?: pulumi.Input<string>;
+    /**
      * The name of the parameter group to associate with this cache cluster.
      */
     parameterGroupName?: pulumi.Input<string>;
@@ -573,6 +625,10 @@ export interface ClusterArgs {
      * List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `numCacheNodes`. If you want all the nodes in the same Availability Zone, use `availabilityZone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
      */
     preferredAvailabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The outpost ARN in which the cache cluster will be created.
+     */
+    preferredOutpostArn?: pulumi.Input<string>;
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */

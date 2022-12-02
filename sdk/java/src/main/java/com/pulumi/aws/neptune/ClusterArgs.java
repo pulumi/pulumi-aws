@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.neptune;
 
+import com.pulumi.aws.neptune.inputs.ClusterServerlessV2ScalingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -335,6 +336,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+     * 
+     */
+    @Import(name="serverlessV2ScalingConfiguration")
+    private @Nullable Output<ClusterServerlessV2ScalingConfigurationArgs> serverlessV2ScalingConfiguration;
+
+    /**
+     * @return If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+     * 
+     */
+    public Optional<Output<ClusterServerlessV2ScalingConfigurationArgs>> serverlessV2ScalingConfiguration() {
+        return Optional.ofNullable(this.serverlessV2ScalingConfiguration);
+    }
+
+    /**
      * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      * 
      */
@@ -433,6 +449,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.preferredBackupWindow = $.preferredBackupWindow;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.replicationSourceIdentifier = $.replicationSourceIdentifier;
+        this.serverlessV2ScalingConfiguration = $.serverlessV2ScalingConfiguration;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.snapshotIdentifier = $.snapshotIdentifier;
         this.storageEncrypted = $.storageEncrypted;
@@ -927,6 +944,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder replicationSourceIdentifier(String replicationSourceIdentifier) {
             return replicationSourceIdentifier(Output.of(replicationSourceIdentifier));
+        }
+
+        /**
+         * @param serverlessV2ScalingConfiguration If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessV2ScalingConfiguration(@Nullable Output<ClusterServerlessV2ScalingConfigurationArgs> serverlessV2ScalingConfiguration) {
+            $.serverlessV2ScalingConfiguration = serverlessV2ScalingConfiguration;
+            return this;
+        }
+
+        /**
+         * @param serverlessV2ScalingConfiguration If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessV2ScalingConfiguration(ClusterServerlessV2ScalingConfigurationArgs serverlessV2ScalingConfiguration) {
+            return serverlessV2ScalingConfiguration(Output.of(serverlessV2ScalingConfiguration));
         }
 
         /**

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const exampleDomainIdentity = new aws.ses.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
  * const exampleDomainDkim = new aws.ses.DomainDkim("exampleDomainDkim", {domain: exampleDomainIdentity.domain});
- * const exampleAmazonsesDkimRecord: aws.route53.Record[];
+ * const exampleAmazonsesDkimRecord: aws.route53.Record[] = [];
  * for (const range = {value: 0}; range.value < 3; range.value++) {
  *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`exampleAmazonsesDkimRecord-${range.value}`, {
  *         zoneId: "ABCDEFGHIJ123",

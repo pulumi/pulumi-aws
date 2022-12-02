@@ -1663,7 +1663,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["logging"] = logging
             __props__.__dict__["maintenance_track_name"] = maintenance_track_name
             __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period
-            __props__.__dict__["master_password"] = master_password
+            __props__.__dict__["master_password"] = None if master_password is None else pulumi.Output.secret(master_password)
             __props__.__dict__["master_username"] = master_username
             if node_type is None and not opts.urn:
                 raise TypeError("Missing required property 'node_type'")
@@ -1683,6 +1683,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_nodes"] = None
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:redshift/cluster:Cluster',
             resource_name,

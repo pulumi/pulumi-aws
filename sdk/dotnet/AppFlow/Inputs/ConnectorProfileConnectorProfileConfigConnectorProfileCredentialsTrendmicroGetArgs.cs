@@ -12,11 +12,21 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("apiSecretKey", required: true)]
+        private Input<string>? _apiSecretKey;
+
         /// <summary>
         /// The Secret Access Key portion of the credentials.
         /// </summary>
-        [Input("apiSecretKey", required: true)]
-        public Input<string> ApiSecretKey { get; set; } = null!;
+        public Input<string>? ApiSecretKey
+        {
+            get => _apiSecretKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiSecretKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroGetArgs()
         {

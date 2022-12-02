@@ -45,6 +45,13 @@ public final class ClusterCacheNodeArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="outpostArn")
+    private @Nullable Output<String> outpostArn;
+
+    public Optional<Output<String>> outpostArn() {
+        return Optional.ofNullable(this.outpostArn);
+    }
+
     /**
      * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
      * 
@@ -66,6 +73,7 @@ public final class ClusterCacheNodeArgs extends com.pulumi.resources.ResourceArg
         this.address = $.address;
         this.availabilityZone = $.availabilityZone;
         this.id = $.id;
+        this.outpostArn = $.outpostArn;
         this.port = $.port;
     }
 
@@ -124,6 +132,15 @@ public final class ClusterCacheNodeArgs extends com.pulumi.resources.ResourceArg
 
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        public Builder outpostArn(@Nullable Output<String> outpostArn) {
+            $.outpostArn = outpostArn;
+            return this;
+        }
+
+        public Builder outpostArn(String outpostArn) {
+            return outpostArn(Output.of(outpostArn));
         }
 
         /**

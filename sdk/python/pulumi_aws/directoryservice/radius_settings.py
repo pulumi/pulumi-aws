@@ -450,8 +450,10 @@ class RadiusSettings(pulumi.CustomResource):
             __props__.__dict__["radius_timeout"] = radius_timeout
             if shared_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_secret'")
-            __props__.__dict__["shared_secret"] = shared_secret
+            __props__.__dict__["shared_secret"] = None if shared_secret is None else pulumi.Output.secret(shared_secret)
             __props__.__dict__["use_same_username"] = use_same_username
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sharedSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RadiusSettings, __self__).__init__(
             'aws:directoryservice/radiusSettings:RadiusSettings',
             resource_name,

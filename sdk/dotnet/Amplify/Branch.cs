@@ -330,6 +330,10 @@ namespace Pulumi.Aws.Amplify
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "basicAuthCredentials",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -365,11 +369,21 @@ namespace Pulumi.Aws.Amplify
         [Input("backendEnvironmentArn")]
         public Input<string>? BackendEnvironmentArn { get; set; }
 
+        [Input("basicAuthCredentials")]
+        private Input<string>? _basicAuthCredentials;
+
         /// <summary>
         /// Basic authorization credentials for the branch.
         /// </summary>
-        [Input("basicAuthCredentials")]
-        public Input<string>? BasicAuthCredentials { get; set; }
+        public Input<string>? BasicAuthCredentials
+        {
+            get => _basicAuthCredentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _basicAuthCredentials = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Name for the branch.
@@ -505,11 +519,21 @@ namespace Pulumi.Aws.Amplify
         [Input("backendEnvironmentArn")]
         public Input<string>? BackendEnvironmentArn { get; set; }
 
+        [Input("basicAuthCredentials")]
+        private Input<string>? _basicAuthCredentials;
+
         /// <summary>
         /// Basic authorization credentials for the branch.
         /// </summary>
-        [Input("basicAuthCredentials")]
-        public Input<string>? BasicAuthCredentials { get; set; }
+        public Input<string>? BasicAuthCredentials
+        {
+            get => _basicAuthCredentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _basicAuthCredentials = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Name for the branch.

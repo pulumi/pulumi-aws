@@ -191,7 +191,7 @@ class FileSystemLifecyclePolicyArgs:
                  transition_to_ia: Optional[pulumi.Input[str]] = None,
                  transition_to_primary_storage_class: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] transition_to_ia: Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+        :param pulumi.Input[str] transition_to_ia: Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
         :param pulumi.Input[str] transition_to_primary_storage_class: Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
         """
         if transition_to_ia is not None:
@@ -203,7 +203,7 @@ class FileSystemLifecyclePolicyArgs:
     @pulumi.getter(name="transitionToIa")
     def transition_to_ia(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+        Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
         """
         return pulumi.get(self, "transition_to_ia")
 

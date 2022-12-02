@@ -264,7 +264,7 @@ export class Branch extends pulumi.CustomResource {
             }
             resourceInputs["appId"] = args ? args.appId : undefined;
             resourceInputs["backendEnvironmentArn"] = args ? args.backendEnvironmentArn : undefined;
-            resourceInputs["basicAuthCredentials"] = args ? args.basicAuthCredentials : undefined;
+            resourceInputs["basicAuthCredentials"] = args?.basicAuthCredentials ? pulumi.secret(args.basicAuthCredentials) : undefined;
             resourceInputs["branchName"] = args ? args.branchName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
@@ -287,6 +287,8 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["basicAuthCredentials"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Branch.__pulumiType, name, resourceInputs, opts);
     }
 }

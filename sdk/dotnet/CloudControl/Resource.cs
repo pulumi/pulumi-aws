@@ -104,6 +104,10 @@ namespace Pulumi.Aws.CloudControl
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "schema",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -139,11 +143,21 @@ namespace Pulumi.Aws.CloudControl
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        [Input("schema")]
+        private Input<string>? _schema;
+
         /// <summary>
         /// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         /// </summary>
-        [Input("schema")]
-        public Input<string>? Schema { get; set; }
+        public Input<string>? Schema
+        {
+            get => _schema;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _schema = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
@@ -183,11 +197,21 @@ namespace Pulumi.Aws.CloudControl
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        [Input("schema")]
+        private Input<string>? _schema;
+
         /// <summary>
         /// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         /// </summary>
-        [Input("schema")]
-        public Input<string>? Schema { get; set; }
+        public Input<string>? Schema
+        {
+            get => _schema;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _schema = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.

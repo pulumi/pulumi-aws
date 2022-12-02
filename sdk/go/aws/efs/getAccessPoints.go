@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := efs.GetAccessPoints(ctx, &efs.GetAccessPointsArgs{
+//			_, err = efs.GetAccessPoints(ctx, &efs.GetAccessPointsArgs{
 //				FileSystemId: "fs-12345678",
 //			}, nil)
 //			if err != nil {

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// Username for destination.
+        /// . Username to be used.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

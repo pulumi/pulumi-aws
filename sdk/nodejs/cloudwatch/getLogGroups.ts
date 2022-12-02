@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.cloudwatch.getLogGroups({
+ * const example = aws.cloudwatch.getLogGroups({
  *     logGroupNamePrefix: "/MyImportantLogs",
- * }));
+ * });
  * ```
  */
 export function getLogGroups(args?: GetLogGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getLogGroups:getLogGroups", {
         "logGroupNamePrefix": args.logGroupNamePrefix,
     }, opts);

@@ -356,6 +356,12 @@ namespace Pulumi.Aws.Msk
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
 
         /// <summary>
+        /// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+        /// </summary>
+        [Output("storageMode")]
+        public Output<string> StorageMode { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -484,6 +490,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
+
+        /// <summary>
+        /// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+        /// </summary>
+        [Input("storageMode")]
+        public Input<string>? StorageMode { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -619,6 +631,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringGetArgs>? OpenMonitoring { get; set; }
+
+        /// <summary>
+        /// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+        /// </summary>
+        [Input("storageMode")]
+        public Input<string>? StorageMode { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

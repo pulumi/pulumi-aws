@@ -59,7 +59,7 @@ namespace Pulumi.Aws.S3Control
     ///                     {
     ///                         SseS3s = new[]
     ///                         {
-    ///                             ,
+    ///                             null,
     ///                         },
     ///                     },
     ///                 },

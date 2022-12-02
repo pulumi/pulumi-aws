@@ -246,14 +246,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Platform or framework for an Amplify app. Valid values: `WEB`.
+     * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      * 
      */
     @Import(name="platform")
     private @Nullable Output<String> platform;
 
     /**
-     * @return Platform or framework for an Amplify app. Valid values: `WEB`.
+     * @return Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      * 
      */
     public Optional<Output<String>> platform() {
@@ -667,7 +667,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param platform Platform or framework for an Amplify app. Valid values: `WEB`.
+         * @param platform Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
          * 
          * @return builder
          * 
@@ -678,7 +678,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param platform Platform or framework for an Amplify app. Valid values: `WEB`.
+         * @param platform Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
          * 
          * @return builder
          * 

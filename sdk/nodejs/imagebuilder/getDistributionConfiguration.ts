@@ -16,17 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.imagebuilder.getDistributionConfiguration({
+ * const example = aws.imagebuilder.getDistributionConfiguration({
  *     arn: "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
- * }));
+ * });
  * ```
  */
 export function getDistributionConfiguration(args: GetDistributionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", {
         "arn": args.arn,
         "tags": args.tags,

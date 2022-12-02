@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsOutputGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom output group name defined by the user.
+        /// The name of the video description.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

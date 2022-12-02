@@ -17,14 +17,14 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorArgs extends 
     public static final ChannelInputAttachmentInputSettingsAudioSelectorArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorArgs();
 
     /**
-     * Custom output group name defined by the user.
+     * The name of the video description.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     public Output<String> name() {
@@ -64,7 +64,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorArgs extends 
         }
 
         /**
-         * @param name Custom output group name defined by the user.
+         * @param name The name of the video description.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorArgs extends 
         }
 
         /**
-         * @param name Custom output group name defined by the user.
+         * @param name The name of the video description.
          * 
          * @return builder
          * 

@@ -9,130 +9,135 @@ export * from "./cloudwatchMixins";
 export { CompositeAlarmArgs, CompositeAlarmState } from "./compositeAlarm";
 export type CompositeAlarm = import("./compositeAlarm").CompositeAlarm;
 export const CompositeAlarm: typeof import("./compositeAlarm").CompositeAlarm = null as any;
+utilities.lazyLoad(exports, ["CompositeAlarm"], () => require("./compositeAlarm"));
 
 export { DashboardArgs, DashboardState } from "./dashboard";
 export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
 
 export { EventApiDestinationArgs, EventApiDestinationState } from "./eventApiDestination";
 export type EventApiDestination = import("./eventApiDestination").EventApiDestination;
 export const EventApiDestination: typeof import("./eventApiDestination").EventApiDestination = null as any;
+utilities.lazyLoad(exports, ["EventApiDestination"], () => require("./eventApiDestination"));
 
 export { EventArchiveArgs, EventArchiveState } from "./eventArchive";
 export type EventArchive = import("./eventArchive").EventArchive;
 export const EventArchive: typeof import("./eventArchive").EventArchive = null as any;
+utilities.lazyLoad(exports, ["EventArchive"], () => require("./eventArchive"));
 
 export { EventBusArgs, EventBusState } from "./eventBus";
 export type EventBus = import("./eventBus").EventBus;
 export const EventBus: typeof import("./eventBus").EventBus = null as any;
+utilities.lazyLoad(exports, ["EventBus"], () => require("./eventBus"));
 
 export { EventBusPolicyArgs, EventBusPolicyState } from "./eventBusPolicy";
 export type EventBusPolicy = import("./eventBusPolicy").EventBusPolicy;
 export const EventBusPolicy: typeof import("./eventBusPolicy").EventBusPolicy = null as any;
+utilities.lazyLoad(exports, ["EventBusPolicy"], () => require("./eventBusPolicy"));
 
 export { EventConnectionArgs, EventConnectionState } from "./eventConnection";
 export type EventConnection = import("./eventConnection").EventConnection;
 export const EventConnection: typeof import("./eventConnection").EventConnection = null as any;
+utilities.lazyLoad(exports, ["EventConnection"], () => require("./eventConnection"));
 
 export { EventPermissionArgs, EventPermissionState } from "./eventPermission";
 export type EventPermission = import("./eventPermission").EventPermission;
 export const EventPermission: typeof import("./eventPermission").EventPermission = null as any;
+utilities.lazyLoad(exports, ["EventPermission"], () => require("./eventPermission"));
 
 export { EventRuleArgs, EventRuleState } from "./eventRule";
 export type EventRule = import("./eventRule").EventRule;
 export const EventRule: typeof import("./eventRule").EventRule = null as any;
+utilities.lazyLoad(exports, ["EventRule"], () => require("./eventRule"));
 
 export * from "./eventRuleMixins";
 export { EventTargetArgs, EventTargetState } from "./eventTarget";
 export type EventTarget = import("./eventTarget").EventTarget;
 export const EventTarget: typeof import("./eventTarget").EventTarget = null as any;
+utilities.lazyLoad(exports, ["EventTarget"], () => require("./eventTarget"));
 
 export { GetEventBusArgs, GetEventBusResult, GetEventBusOutputArgs } from "./getEventBus";
 export const getEventBus: typeof import("./getEventBus").getEventBus = null as any;
 export const getEventBusOutput: typeof import("./getEventBus").getEventBusOutput = null as any;
+utilities.lazyLoad(exports, ["getEventBus","getEventBusOutput"], () => require("./getEventBus"));
 
 export { GetEventConnectionArgs, GetEventConnectionResult, GetEventConnectionOutputArgs } from "./getEventConnection";
 export const getEventConnection: typeof import("./getEventConnection").getEventConnection = null as any;
 export const getEventConnectionOutput: typeof import("./getEventConnection").getEventConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getEventConnection","getEventConnectionOutput"], () => require("./getEventConnection"));
 
 export { GetEventSourceArgs, GetEventSourceResult, GetEventSourceOutputArgs } from "./getEventSource";
 export const getEventSource: typeof import("./getEventSource").getEventSource = null as any;
 export const getEventSourceOutput: typeof import("./getEventSource").getEventSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getEventSource","getEventSourceOutput"], () => require("./getEventSource"));
 
 export { GetLogGroupArgs, GetLogGroupResult, GetLogGroupOutputArgs } from "./getLogGroup";
 export const getLogGroup: typeof import("./getLogGroup").getLogGroup = null as any;
 export const getLogGroupOutput: typeof import("./getLogGroup").getLogGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getLogGroup","getLogGroupOutput"], () => require("./getLogGroup"));
 
 export { GetLogGroupsArgs, GetLogGroupsResult, GetLogGroupsOutputArgs } from "./getLogGroups";
 export const getLogGroups: typeof import("./getLogGroups").getLogGroups = null as any;
 export const getLogGroupsOutput: typeof import("./getLogGroups").getLogGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getLogGroups","getLogGroupsOutput"], () => require("./getLogGroups"));
+
+export { LogDataProtectionPolicyArgs, LogDataProtectionPolicyState } from "./logDataProtectionPolicy";
+export type LogDataProtectionPolicy = import("./logDataProtectionPolicy").LogDataProtectionPolicy;
+export const LogDataProtectionPolicy: typeof import("./logDataProtectionPolicy").LogDataProtectionPolicy = null as any;
+utilities.lazyLoad(exports, ["LogDataProtectionPolicy"], () => require("./logDataProtectionPolicy"));
 
 export { LogDestinationArgs, LogDestinationState } from "./logDestination";
 export type LogDestination = import("./logDestination").LogDestination;
 export const LogDestination: typeof import("./logDestination").LogDestination = null as any;
+utilities.lazyLoad(exports, ["LogDestination"], () => require("./logDestination"));
 
 export { LogDestinationPolicyArgs, LogDestinationPolicyState } from "./logDestinationPolicy";
 export type LogDestinationPolicy = import("./logDestinationPolicy").LogDestinationPolicy;
 export const LogDestinationPolicy: typeof import("./logDestinationPolicy").LogDestinationPolicy = null as any;
+utilities.lazyLoad(exports, ["LogDestinationPolicy"], () => require("./logDestinationPolicy"));
 
 export { LogGroupArgs, LogGroupState } from "./logGroup";
 export type LogGroup = import("./logGroup").LogGroup;
 export const LogGroup: typeof import("./logGroup").LogGroup = null as any;
+utilities.lazyLoad(exports, ["LogGroup"], () => require("./logGroup"));
 
 export * from "./logGroupMixins";
 export { LogMetricFilterArgs, LogMetricFilterState } from "./logMetricFilter";
 export type LogMetricFilter = import("./logMetricFilter").LogMetricFilter;
 export const LogMetricFilter: typeof import("./logMetricFilter").LogMetricFilter = null as any;
+utilities.lazyLoad(exports, ["LogMetricFilter"], () => require("./logMetricFilter"));
 
 export { LogResourcePolicyArgs, LogResourcePolicyState } from "./logResourcePolicy";
 export type LogResourcePolicy = import("./logResourcePolicy").LogResourcePolicy;
 export const LogResourcePolicy: typeof import("./logResourcePolicy").LogResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["LogResourcePolicy"], () => require("./logResourcePolicy"));
 
 export { LogStreamArgs, LogStreamState } from "./logStream";
 export type LogStream = import("./logStream").LogStream;
 export const LogStream: typeof import("./logStream").LogStream = null as any;
+utilities.lazyLoad(exports, ["LogStream"], () => require("./logStream"));
 
 export { LogSubscriptionFilterArgs, LogSubscriptionFilterState } from "./logSubscriptionFilter";
 export type LogSubscriptionFilter = import("./logSubscriptionFilter").LogSubscriptionFilter;
 export const LogSubscriptionFilter: typeof import("./logSubscriptionFilter").LogSubscriptionFilter = null as any;
+utilities.lazyLoad(exports, ["LogSubscriptionFilter"], () => require("./logSubscriptionFilter"));
 
 export { MetricAlarmArgs, MetricAlarmState } from "./metricAlarm";
 export type MetricAlarm = import("./metricAlarm").MetricAlarm;
 export const MetricAlarm: typeof import("./metricAlarm").MetricAlarm = null as any;
+utilities.lazyLoad(exports, ["MetricAlarm"], () => require("./metricAlarm"));
 
 export { MetricStreamArgs, MetricStreamState } from "./metricStream";
 export type MetricStream = import("./metricStream").MetricStream;
 export const MetricStream: typeof import("./metricStream").MetricStream = null as any;
+utilities.lazyLoad(exports, ["MetricStream"], () => require("./metricStream"));
 
 export { QueryDefinitionArgs, QueryDefinitionState } from "./queryDefinition";
 export type QueryDefinition = import("./queryDefinition").QueryDefinition;
 export const QueryDefinition: typeof import("./queryDefinition").QueryDefinition = null as any;
-
-utilities.lazyLoad(exports, ["CompositeAlarm"], () => require("./compositeAlarm"));
-utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
-utilities.lazyLoad(exports, ["EventApiDestination"], () => require("./eventApiDestination"));
-utilities.lazyLoad(exports, ["EventArchive"], () => require("./eventArchive"));
-utilities.lazyLoad(exports, ["EventBus"], () => require("./eventBus"));
-utilities.lazyLoad(exports, ["EventBusPolicy"], () => require("./eventBusPolicy"));
-utilities.lazyLoad(exports, ["EventConnection"], () => require("./eventConnection"));
-utilities.lazyLoad(exports, ["EventPermission"], () => require("./eventPermission"));
-utilities.lazyLoad(exports, ["EventRule"], () => require("./eventRule"));
-utilities.lazyLoad(exports, ["EventTarget"], () => require("./eventTarget"));
-utilities.lazyLoad(exports, ["getEventBus","getEventBusOutput"], () => require("./getEventBus"));
-utilities.lazyLoad(exports, ["getEventConnection","getEventConnectionOutput"], () => require("./getEventConnection"));
-utilities.lazyLoad(exports, ["getEventSource","getEventSourceOutput"], () => require("./getEventSource"));
-utilities.lazyLoad(exports, ["getLogGroup","getLogGroupOutput"], () => require("./getLogGroup"));
-utilities.lazyLoad(exports, ["getLogGroups","getLogGroupsOutput"], () => require("./getLogGroups"));
-utilities.lazyLoad(exports, ["LogDestination"], () => require("./logDestination"));
-utilities.lazyLoad(exports, ["LogDestinationPolicy"], () => require("./logDestinationPolicy"));
-utilities.lazyLoad(exports, ["LogGroup"], () => require("./logGroup"));
-utilities.lazyLoad(exports, ["LogMetricFilter"], () => require("./logMetricFilter"));
-utilities.lazyLoad(exports, ["LogResourcePolicy"], () => require("./logResourcePolicy"));
-utilities.lazyLoad(exports, ["LogStream"], () => require("./logStream"));
-utilities.lazyLoad(exports, ["LogSubscriptionFilter"], () => require("./logSubscriptionFilter"));
-utilities.lazyLoad(exports, ["MetricAlarm"], () => require("./metricAlarm"));
-utilities.lazyLoad(exports, ["MetricStream"], () => require("./metricStream"));
 utilities.lazyLoad(exports, ["QueryDefinition"], () => require("./queryDefinition"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -158,6 +163,8 @@ const _module = {
                 return new EventRule(name, <any>undefined, { urn })
             case "aws:cloudwatch/eventTarget:EventTarget":
                 return new EventTarget(name, <any>undefined, { urn })
+            case "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy":
+                return new LogDataProtectionPolicy(name, <any>undefined, { urn })
             case "aws:cloudwatch/logDestination:LogDestination":
                 return new LogDestination(name, <any>undefined, { urn })
             case "aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy":
@@ -193,6 +200,7 @@ pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventConnection", _modu
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventTarget", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDataProtectionPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDestinationPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logGroup", _module)

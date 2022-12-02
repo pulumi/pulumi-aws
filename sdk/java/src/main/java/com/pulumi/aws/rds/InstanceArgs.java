@@ -5,6 +5,7 @@ package com.pulumi.aws.rds;
 
 import com.pulumi.aws.rds.enums.InstanceType;
 import com.pulumi.aws.rds.enums.StorageType;
+import com.pulumi.aws.rds.inputs.InstanceBlueGreenUpdateArgs;
 import com.pulumi.aws.rds.inputs.InstanceRestoreToPointInTimeArgs;
 import com.pulumi.aws.rds.inputs.InstanceS3ImportArgs;
 import com.pulumi.core.Either;
@@ -114,16 +115,24 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The days to retain backups for. Must be
-     * between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+     * The days to retain backups for.
+     * Must be between `0` and `35`.
+     * Default is `0`.
+     * Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+     * uses low-downtime updates,
+     * or will use [RDS Blue/Green deployments][blue-green].
      * 
      */
     @Import(name="backupRetentionPeriod")
     private @Nullable Output<Integer> backupRetentionPeriod;
 
     /**
-     * @return The days to retain backups for. Must be
-     * between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+     * @return The days to retain backups for.
+     * Must be between `0` and `35`.
+     * Default is `0`.
+     * Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+     * uses low-downtime updates,
+     * or will use [RDS Blue/Green deployments][blue-green].
      * 
      */
     public Optional<Output<Integer>> backupRetentionPeriod() {
@@ -131,22 +140,37 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The daily time range (in UTC) during which
-     * automated backups are created if they are enabled. Example: &#34;09:46-10:16&#34;. Must
-     * not overlap with `maintenance_window`.
+     * The daily time range (in UTC) during which automated backups are created if they are enabled.
+     * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
      * 
      */
     @Import(name="backupWindow")
     private @Nullable Output<String> backupWindow;
 
     /**
-     * @return The daily time range (in UTC) during which
-     * automated backups are created if they are enabled. Example: &#34;09:46-10:16&#34;. Must
-     * not overlap with `maintenance_window`.
+     * @return The daily time range (in UTC) during which automated backups are created if they are enabled.
+     * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
      * 
      */
     public Optional<Output<String>> backupWindow() {
         return Optional.ofNullable(this.backupWindow);
+    }
+
+    /**
+     * Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+     * See blue_green_update below
+     * 
+     */
+    @Import(name="blueGreenUpdate")
+    private @Nullable Output<InstanceBlueGreenUpdateArgs> blueGreenUpdate;
+
+    /**
+     * @return Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+     * See blue_green_update below
+     * 
+     */
+    public Optional<Output<InstanceBlueGreenUpdateArgs>> blueGreenUpdate() {
+        return Optional.ofNullable(this.blueGreenUpdate);
     }
 
     /**
@@ -827,7 +851,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
      * cross-region). Note that if you are
      * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
+     * specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
      * for more information on using Replication.
      * 
@@ -842,7 +866,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
      * cross-region). Note that if you are
      * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
+     * specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
      * for more information on using Replication.
      * 
@@ -1072,6 +1096,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.availabilityZone = $.availabilityZone;
         this.backupRetentionPeriod = $.backupRetentionPeriod;
         this.backupWindow = $.backupWindow;
+        this.blueGreenUpdate = $.blueGreenUpdate;
         this.caCertIdentifier = $.caCertIdentifier;
         this.characterSetName = $.characterSetName;
         this.copyTagsToSnapshot = $.copyTagsToSnapshot;
@@ -1263,8 +1288,12 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupRetentionPeriod The days to retain backups for. Must be
-         * between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+         * @param backupRetentionPeriod The days to retain backups for.
+         * Must be between `0` and `35`.
+         * Default is `0`.
+         * Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+         * uses low-downtime updates,
+         * or will use [RDS Blue/Green deployments][blue-green].
          * 
          * @return builder
          * 
@@ -1275,8 +1304,12 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupRetentionPeriod The days to retain backups for. Must be
-         * between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+         * @param backupRetentionPeriod The days to retain backups for.
+         * Must be between `0` and `35`.
+         * Default is `0`.
+         * Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+         * uses low-downtime updates,
+         * or will use [RDS Blue/Green deployments][blue-green].
          * 
          * @return builder
          * 
@@ -1286,9 +1319,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupWindow The daily time range (in UTC) during which
-         * automated backups are created if they are enabled. Example: &#34;09:46-10:16&#34;. Must
-         * not overlap with `maintenance_window`.
+         * @param backupWindow The daily time range (in UTC) during which automated backups are created if they are enabled.
+         * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
          * 
          * @return builder
          * 
@@ -1299,15 +1331,37 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupWindow The daily time range (in UTC) during which
-         * automated backups are created if they are enabled. Example: &#34;09:46-10:16&#34;. Must
-         * not overlap with `maintenance_window`.
+         * @param backupWindow The daily time range (in UTC) during which automated backups are created if they are enabled.
+         * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
          * 
          * @return builder
          * 
          */
         public Builder backupWindow(String backupWindow) {
             return backupWindow(Output.of(backupWindow));
+        }
+
+        /**
+         * @param blueGreenUpdate Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+         * See blue_green_update below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blueGreenUpdate(@Nullable Output<InstanceBlueGreenUpdateArgs> blueGreenUpdate) {
+            $.blueGreenUpdate = blueGreenUpdate;
+            return this;
+        }
+
+        /**
+         * @param blueGreenUpdate Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+         * See blue_green_update below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blueGreenUpdate(InstanceBlueGreenUpdateArgs blueGreenUpdate) {
+            return blueGreenUpdate(Output.of(blueGreenUpdate));
         }
 
         /**
@@ -2252,7 +2306,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
          * cross-region). Note that if you are
          * creating a cross-region replica of an encrypted database you will also need to
-         * specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
+         * specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
          * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
          * for more information on using Replication.
          * 
@@ -2271,7 +2325,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
          * cross-region). Note that if you are
          * creating a cross-region replica of an encrypted database you will also need to
-         * specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
+         * specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
          * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
          * for more information on using Replication.
          * 

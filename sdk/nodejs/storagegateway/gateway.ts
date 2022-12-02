@@ -311,7 +311,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["mediumChangerType"] = args ? args.mediumChangerType : undefined;
             resourceInputs["smbActiveDirectorySettings"] = args ? args.smbActiveDirectorySettings : undefined;
             resourceInputs["smbFileShareVisibility"] = args ? args.smbFileShareVisibility : undefined;
-            resourceInputs["smbGuestPassword"] = args ? args.smbGuestPassword : undefined;
+            resourceInputs["smbGuestPassword"] = args?.smbGuestPassword ? pulumi.secret(args.smbGuestPassword) : undefined;
             resourceInputs["smbSecurityStrategy"] = args ? args.smbSecurityStrategy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
@@ -324,6 +324,8 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["smbGuestPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     {
         public readonly string GroupId;
         /// <summary>
-        /// Custom output group name defined by the user.
+        /// The name of the video description.
         /// </summary>
         public readonly string Name;
 

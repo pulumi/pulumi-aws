@@ -58,7 +58,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOriginAccessIdentitiesResult> InvokeAsync(GetOriginAccessIdentitiesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.CloudFront
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOriginAccessIdentitiesResult> Invoke(GetOriginAccessIdentitiesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesInvokeArgs(), options.WithDefaults());
     }
 
 

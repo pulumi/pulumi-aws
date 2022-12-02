@@ -541,7 +541,9 @@ class BucketReplicationConfig(pulumi.CustomResource):
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__.__dict__["rules"] = rules
-            __props__.__dict__["token"] = token
+            __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["token"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(BucketReplicationConfig, __self__).__init__(
             'aws:s3/bucketReplicationConfig:BucketReplicationConfig',
             resource_name,

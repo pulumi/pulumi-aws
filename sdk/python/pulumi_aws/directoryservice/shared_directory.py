@@ -294,11 +294,13 @@ class SharedDirectory(pulumi.CustomResource):
                 raise TypeError("Missing required property 'directory_id'")
             __props__.__dict__["directory_id"] = directory_id
             __props__.__dict__["method"] = method
-            __props__.__dict__["notes"] = notes
+            __props__.__dict__["notes"] = None if notes is None else pulumi.Output.secret(notes)
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
             __props__.__dict__["shared_directory_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["notes"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SharedDirectory, __self__).__init__(
             'aws:directoryservice/sharedDirectory:SharedDirectory',
             resource_name,

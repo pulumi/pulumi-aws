@@ -6,6 +6,7 @@ package com.pulumi.aws.neptune;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.neptune.ClusterArgs;
 import com.pulumi.aws.neptune.inputs.ClusterState;
+import com.pulumi.aws.neptune.outputs.ClusterServerlessV2ScalingConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -456,6 +457,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> replicationSourceIdentifier() {
         return Codegen.optional(this.replicationSourceIdentifier);
+    }
+    /**
+     * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+     * 
+     */
+    @Export(name="serverlessV2ScalingConfiguration", type=ClusterServerlessV2ScalingConfiguration.class, parameters={})
+    private Output</* @Nullable */ ClusterServerlessV2ScalingConfiguration> serverlessV2ScalingConfiguration;
+
+    /**
+     * @return If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+     * 
+     */
+    public Output<Optional<ClusterServerlessV2ScalingConfiguration>> serverlessV2ScalingConfiguration() {
+        return Codegen.optional(this.serverlessV2ScalingConfiguration);
     }
     /**
      * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.

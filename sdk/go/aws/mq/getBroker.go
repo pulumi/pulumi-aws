@@ -36,7 +36,7 @@ import (
 //			if param := cfg.Get("brokerName"); param != "" {
 //				brokerName = param
 //			}
-//			_, err := mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
+//			_, err = mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
 //				BrokerId: pulumi.StringRef(brokerId),
 //			}, nil)
 //			if err != nil {

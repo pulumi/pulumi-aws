@@ -16,17 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const buildSigningJob = pulumi.output(aws.signer.getSigningJob({
+ * const buildSigningJob = aws.signer.getSigningJob({
  *     jobId: "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
- * }));
+ * });
  * ```
  */
 export function getSigningJob(args: GetSigningJobArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningJobResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:signer/getSigningJob:getSigningJob", {
         "jobId": args.jobId,
     }, opts);

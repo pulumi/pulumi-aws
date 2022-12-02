@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.LookupParameter(ctx, &ssm.LookupParameterArgs{
+//			_, err = ssm.LookupParameter(ctx, &ssm.LookupParameterArgs{
 //				Name: "foo",
 //			}, nil)
 //			if err != nil {

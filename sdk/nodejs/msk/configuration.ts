@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  *     kafkaVersions: ["2.1.0"],
  *     serverProperties: `auto.create.topics.enable = true
  * delete.topic.enable = true
+ *
  * `,
  * });
  * ```

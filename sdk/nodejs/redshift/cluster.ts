@@ -342,7 +342,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["logging"] = args ? args.logging : undefined;
             resourceInputs["maintenanceTrackName"] = args ? args.maintenanceTrackName : undefined;
             resourceInputs["manualSnapshotRetentionPeriod"] = args ? args.manualSnapshotRetentionPeriod : undefined;
-            resourceInputs["masterPassword"] = args ? args.masterPassword : undefined;
+            resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
             resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
@@ -362,6 +362,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["masterPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }

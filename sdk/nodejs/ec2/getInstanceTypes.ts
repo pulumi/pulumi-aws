@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.ec2.getInstanceTypes({
+ * const test = aws.ec2.getInstanceTypes({
  *     filters: [
  *         {
  *             name: "auto-recovery-supported",
@@ -38,16 +38,13 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
- * }));
+ * });
  * ```
  */
 export function getInstanceTypes(args?: GetInstanceTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getInstanceTypes:getInstanceTypes", {
         "filters": args.filters,
     }, opts);

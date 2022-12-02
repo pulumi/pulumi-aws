@@ -81,14 +81,14 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Platform of the image recipe.
+     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      * 
      */
     @Import(name="parentImage", required=true)
     private Output<String> parentImage;
 
     /**
-     * @return Platform of the image recipe.
+     * @return The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      * 
      */
     public Output<String> parentImage() {
@@ -141,14 +141,14 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Version of the image recipe.
+     * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return Version of the image recipe.
+     * @return The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      * 
      */
     public Output<String> version() {
@@ -308,7 +308,7 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentImage Platform of the image recipe.
+         * @param parentImage The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentImage Platform of the image recipe.
+         * @param parentImage The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version Version of the image recipe.
+         * @param version The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version Version of the image recipe.
+         * @param version The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
          * 
          * @return builder
          * 

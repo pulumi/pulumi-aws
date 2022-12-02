@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 export { EncryptionConfigArgs, EncryptionConfigState } from "./encryptionConfig";
 export type EncryptionConfig = import("./encryptionConfig").EncryptionConfig;
 export const EncryptionConfig: typeof import("./encryptionConfig").EncryptionConfig = null as any;
+utilities.lazyLoad(exports, ["EncryptionConfig"], () => require("./encryptionConfig"));
 
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
 export { SamplingRuleArgs, SamplingRuleState } from "./samplingRule";
 export type SamplingRule = import("./samplingRule").SamplingRule;
 export const SamplingRule: typeof import("./samplingRule").SamplingRule = null as any;
-
-utilities.lazyLoad(exports, ["EncryptionConfig"], () => require("./encryptionConfig"));
-utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 utilities.lazyLoad(exports, ["SamplingRule"], () => require("./samplingRule"));
+
 
 const _module = {
     version: utilities.getVersion(),

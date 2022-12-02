@@ -25,12 +25,16 @@ __all__ = [
     'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs',
     'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs',
     'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs',
     'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs',
     'ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs',
     'ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs',
     'ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs',
     'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs',
     'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs',
+    'ChannelEncoderSettingsAvailBlankingArgs',
+    'ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs',
     'ChannelEncoderSettingsOutputGroupArgs',
     'ChannelEncoderSettingsOutputGroupOutputArgs',
     'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs',
@@ -51,6 +55,9 @@ __all__ = [
     'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs',
     'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs',
     'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs',
     'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs',
     'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs',
     'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs',
@@ -112,8 +119,6 @@ __all__ = [
     'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs',
     'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs',
     'ChannelInputAttachmentInputSettingsCaptionSelectorArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorNetworkInputSettingsArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorNetworkInputSettingsHlsInputSettingsArgs',
     'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs',
     'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs',
     'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs',
@@ -122,7 +127,9 @@ __all__ = [
     'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs',
     'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs',
     'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorVideoSelectorArgs',
+    'ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs',
+    'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs',
+    'ChannelInputAttachmentInputSettingsVideoSelectorArgs',
     'ChannelInputSpecificationArgs',
     'ChannelMaintenanceArgs',
     'ChannelVpcArgs',
@@ -297,7 +304,7 @@ class ChannelDestinationSettingArgs:
         :param pulumi.Input[str] password_param: Key used to extract the password from EC2 Parameter store.
         :param pulumi.Input[str] stream_name: Stream name RTMP destinations (URLs of type rtmp://)
         :param pulumi.Input[str] url: A URL specifying a destination.
-        :param pulumi.Input[str] username: Username for destination.
+        :param pulumi.Input[str] username: . Username to be used.
         """
         if password_param is not None:
             pulumi.set(__self__, "password_param", password_param)
@@ -348,7 +355,7 @@ class ChannelDestinationSettingArgs:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        Username for destination.
+        . Username to be used.
         """
         return pulumi.get(self, "username")
 
@@ -363,17 +370,21 @@ class ChannelEncoderSettingsArgs:
                  output_groups: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArgs']]],
                  timecode_config: pulumi.Input['ChannelEncoderSettingsTimecodeConfigArgs'],
                  audio_descriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArgs']]]] = None,
+                 avail_blanking: Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingArgs']] = None,
                  video_descriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArgs']]] output_groups: Output groups for the channel. See Output Groups for more details.
         :param pulumi.Input['ChannelEncoderSettingsTimecodeConfigArgs'] timecode_config: Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArgs']]] audio_descriptions: Audio descriptions for the channel. See Audio Descriptions for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAvailBlankingArgs'] avail_blanking: Settings for ad avail blanking. See Avail Blanking for more details.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]] video_descriptions: Video Descriptions. See Video Descriptions for more details.
         """
         pulumi.set(__self__, "output_groups", output_groups)
         pulumi.set(__self__, "timecode_config", timecode_config)
         if audio_descriptions is not None:
             pulumi.set(__self__, "audio_descriptions", audio_descriptions)
+        if avail_blanking is not None:
+            pulumi.set(__self__, "avail_blanking", avail_blanking)
         if video_descriptions is not None:
             pulumi.set(__self__, "video_descriptions", video_descriptions)
 
@@ -414,6 +425,18 @@ class ChannelEncoderSettingsArgs:
         pulumi.set(self, "audio_descriptions", value)
 
     @property
+    @pulumi.getter(name="availBlanking")
+    def avail_blanking(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingArgs']]:
+        """
+        Settings for ad avail blanking. See Avail Blanking for more details.
+        """
+        return pulumi.get(self, "avail_blanking")
+
+    @avail_blanking.setter
+    def avail_blanking(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingArgs']]):
+        pulumi.set(self, "avail_blanking", value)
+
+    @property
     @pulumi.getter(name="videoDescriptions")
     def video_descriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]]]:
         """
@@ -442,11 +465,13 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
                  stream_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] audio_selector_name: The name of the audio selector used as the source for this AudioDescription.
-        :param pulumi.Input[str] name: Custom output group name defined by the user.
+        :param pulumi.Input[str] name: The name of the video description.
         :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs'] audio_normalization_settings: Advanced audio normalization settings. See Audio Normalization Settings for more details.
         :param pulumi.Input[str] audio_type: Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
         :param pulumi.Input[str] audio_type_control: Determined how audio type is determined.
         :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs'] audio_watermark_settings: Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs'] codec_settings: The video codec settings. See Video Codec Settings for more details.
+        :param pulumi.Input[str] language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
         :param pulumi.Input[str] stream_name: Stream name RTMP destinations (URLs of type rtmp://)
         """
         pulumi.set(__self__, "audio_selector_name", audio_selector_name)
@@ -486,7 +511,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Custom output group name defined by the user.
+        The name of the video description.
         """
         return pulumi.get(self, "name")
 
@@ -545,6 +570,9 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @property
     @pulumi.getter(name="codecSettings")
     def codec_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs']]:
+        """
+        The video codec settings. See Video Codec Settings for more details.
+        """
         return pulumi.get(self, "codec_settings")
 
     @codec_settings.setter
@@ -554,6 +582,9 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -804,23 +835,38 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
     def __init__(__self__, *,
                  aac_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs']] = None,
                  ac3_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs']] = None,
+                 eac3_atmos_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs']] = None,
                  eac3_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs']] = None,
                  mp2_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs']] = None,
+                 pass_through_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs']] = None,
                  wav_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs'] aac_settings: Aac Settings. See AAC Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs'] ac3_settings: Ac3 Settings. See AC3 Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs'] eac3_atmos_settings: - Eac3 Atmos Settings. See EAC3 Atmos Settings
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs'] eac3_settings: - Eac3 Settings. See EAC3 Settings
+        """
         if aac_settings is not None:
             pulumi.set(__self__, "aac_settings", aac_settings)
         if ac3_settings is not None:
             pulumi.set(__self__, "ac3_settings", ac3_settings)
+        if eac3_atmos_settings is not None:
+            pulumi.set(__self__, "eac3_atmos_settings", eac3_atmos_settings)
         if eac3_settings is not None:
             pulumi.set(__self__, "eac3_settings", eac3_settings)
         if mp2_settings is not None:
             pulumi.set(__self__, "mp2_settings", mp2_settings)
+        if pass_through_settings is not None:
+            pulumi.set(__self__, "pass_through_settings", pass_through_settings)
         if wav_settings is not None:
             pulumi.set(__self__, "wav_settings", wav_settings)
 
     @property
     @pulumi.getter(name="aacSettings")
     def aac_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs']]:
+        """
+        Aac Settings. See AAC Settings for more details.
+        """
         return pulumi.get(self, "aac_settings")
 
     @aac_settings.setter
@@ -830,6 +876,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
     @property
     @pulumi.getter(name="ac3Settings")
     def ac3_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs']]:
+        """
+        Ac3 Settings. See AC3 Settings for more details.
+        """
         return pulumi.get(self, "ac3_settings")
 
     @ac3_settings.setter
@@ -837,8 +886,23 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
         pulumi.set(self, "ac3_settings", value)
 
     @property
+    @pulumi.getter(name="eac3AtmosSettings")
+    def eac3_atmos_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs']]:
+        """
+        - Eac3 Atmos Settings. See EAC3 Atmos Settings
+        """
+        return pulumi.get(self, "eac3_atmos_settings")
+
+    @eac3_atmos_settings.setter
+    def eac3_atmos_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs']]):
+        pulumi.set(self, "eac3_atmos_settings", value)
+
+    @property
     @pulumi.getter(name="eac3Settings")
     def eac3_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs']]:
+        """
+        - Eac3 Settings. See EAC3 Settings
+        """
         return pulumi.get(self, "eac3_settings")
 
     @eac3_settings.setter
@@ -853,6 +917,15 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
     @mp2_settings.setter
     def mp2_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs']]):
         pulumi.set(self, "mp2_settings", value)
+
+    @property
+    @pulumi.getter(name="passThroughSettings")
+    def pass_through_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs']]:
+        return pulumi.get(self, "pass_through_settings")
+
+    @pass_through_settings.setter
+    def pass_through_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs']]):
+        pulumi.set(self, "pass_through_settings", value)
 
     @property
     @pulumi.getter(name="wavSettings")
@@ -875,6 +948,16 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
                  sample_rate: Optional[pulumi.Input[float]] = None,
                  spec: Optional[pulumi.Input[str]] = None,
                  vbr_quality: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[float] bitrate: Average bitrate in bits/second.
+        :param pulumi.Input[str] coding_mode: Dolby Digital Plus coding mode.
+        :param pulumi.Input[str] input_type: Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+        :param pulumi.Input[str] profile: H264 profile.
+        :param pulumi.Input[str] raw_format: Sets LATM/LOAS AAC output for raw containers.
+        :param pulumi.Input[float] sample_rate: Sample rate in Hz.
+        :param pulumi.Input[str] spec: Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+        :param pulumi.Input[str] vbr_quality: VBR Quality Level - Only used if rateControlMode is VBR.
+        """
         if bitrate is not None:
             pulumi.set(__self__, "bitrate", bitrate)
         if coding_mode is not None:
@@ -895,6 +978,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @property
     @pulumi.getter
     def bitrate(self) -> Optional[pulumi.Input[float]]:
+        """
+        Average bitrate in bits/second.
+        """
         return pulumi.get(self, "bitrate")
 
     @bitrate.setter
@@ -904,6 +990,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @property
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dolby Digital Plus coding mode.
+        """
         return pulumi.get(self, "coding_mode")
 
     @coding_mode.setter
@@ -913,6 +1002,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @property
     @pulumi.getter(name="inputType")
     def input_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+        """
         return pulumi.get(self, "input_type")
 
     @input_type.setter
@@ -922,6 +1014,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @property
     @pulumi.getter
     def profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        H264 profile.
+        """
         return pulumi.get(self, "profile")
 
     @profile.setter
@@ -931,6 +1026,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @property
     @pulumi.getter(name="rawFormat")
     def raw_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets LATM/LOAS AAC output for raw containers.
+        """
         return pulumi.get(self, "raw_format")
 
     @raw_format.setter
@@ -940,6 +1038,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @property
     @pulumi.getter(name="sampleRate")
     def sample_rate(self) -> Optional[pulumi.Input[float]]:
+        """
+        Sample rate in Hz.
+        """
         return pulumi.get(self, "sample_rate")
 
     @sample_rate.setter
@@ -949,6 +1050,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @property
     @pulumi.getter
     def spec(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+        """
         return pulumi.get(self, "spec")
 
     @spec.setter
@@ -958,6 +1062,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @property
     @pulumi.getter(name="vbrQuality")
     def vbr_quality(self) -> Optional[pulumi.Input[str]]:
+        """
+        VBR Quality Level - Only used if rateControlMode is VBR.
+        """
         return pulumi.get(self, "vbr_quality")
 
     @vbr_quality.setter
@@ -975,6 +1082,15 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
                  drc_profile: Optional[pulumi.Input[str]] = None,
                  lfe_filter: Optional[pulumi.Input[str]] = None,
                  metadata_control: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[float] bitrate: Average bitrate in bits/second.
+        :param pulumi.Input[str] bitstream_mode: Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        :param pulumi.Input[str] coding_mode: Dolby Digital Plus coding mode.
+        :param pulumi.Input[int] dialnorm: Sets the dialnorm for the output.
+        :param pulumi.Input[str] drc_profile: If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+        :param pulumi.Input[str] lfe_filter: When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        :param pulumi.Input[str] metadata_control: Metadata control.
+        """
         if bitrate is not None:
             pulumi.set(__self__, "bitrate", bitrate)
         if bitstream_mode is not None:
@@ -993,6 +1109,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
     @property
     @pulumi.getter
     def bitrate(self) -> Optional[pulumi.Input[float]]:
+        """
+        Average bitrate in bits/second.
+        """
         return pulumi.get(self, "bitrate")
 
     @bitrate.setter
@@ -1002,6 +1121,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
     @property
     @pulumi.getter(name="bitstreamMode")
     def bitstream_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        """
         return pulumi.get(self, "bitstream_mode")
 
     @bitstream_mode.setter
@@ -1011,6 +1133,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
     @property
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dolby Digital Plus coding mode.
+        """
         return pulumi.get(self, "coding_mode")
 
     @coding_mode.setter
@@ -1020,6 +1145,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
     @property
     @pulumi.getter
     def dialnorm(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the dialnorm for the output.
+        """
         return pulumi.get(self, "dialnorm")
 
     @dialnorm.setter
@@ -1029,6 +1157,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
     @property
     @pulumi.getter(name="drcProfile")
     def drc_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+        """
         return pulumi.get(self, "drc_profile")
 
     @drc_profile.setter
@@ -1038,6 +1169,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
     @property
     @pulumi.getter(name="lfeFilter")
     def lfe_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        """
         return pulumi.get(self, "lfe_filter")
 
     @lfe_filter.setter
@@ -1047,11 +1181,133 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
     @property
     @pulumi.getter(name="metadataControl")
     def metadata_control(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metadata control.
+        """
         return pulumi.get(self, "metadata_control")
 
     @metadata_control.setter
     def metadata_control(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metadata_control", value)
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs:
+    def __init__(__self__, *,
+                 bitrate: Optional[pulumi.Input[float]] = None,
+                 coding_mode: Optional[pulumi.Input[str]] = None,
+                 dialnorm: Optional[pulumi.Input[float]] = None,
+                 drc_line: Optional[pulumi.Input[str]] = None,
+                 drc_rf: Optional[pulumi.Input[str]] = None,
+                 height_trim: Optional[pulumi.Input[float]] = None,
+                 surround_trim: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] bitrate: Average bitrate in bits/second.
+        :param pulumi.Input[str] coding_mode: Dolby Digital Plus coding mode.
+        :param pulumi.Input[float] dialnorm: Sets the dialnorm for the output.
+        :param pulumi.Input[str] drc_line: Sets the Dolby dynamic range compression profile.
+        :param pulumi.Input[str] drc_rf: Sets the profile for heavy Dolby dynamic range compression.
+        :param pulumi.Input[float] height_trim: Height dimensional trim.
+        :param pulumi.Input[float] surround_trim: Surround dimensional trim.
+        """
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if coding_mode is not None:
+            pulumi.set(__self__, "coding_mode", coding_mode)
+        if dialnorm is not None:
+            pulumi.set(__self__, "dialnorm", dialnorm)
+        if drc_line is not None:
+            pulumi.set(__self__, "drc_line", drc_line)
+        if drc_rf is not None:
+            pulumi.set(__self__, "drc_rf", drc_rf)
+        if height_trim is not None:
+            pulumi.set(__self__, "height_trim", height_trim)
+        if surround_trim is not None:
+            pulumi.set(__self__, "surround_trim", surround_trim)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[pulumi.Input[float]]:
+        """
+        Average bitrate in bits/second.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @bitrate.setter
+    def bitrate(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "bitrate", value)
+
+    @property
+    @pulumi.getter(name="codingMode")
+    def coding_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dolby Digital Plus coding mode.
+        """
+        return pulumi.get(self, "coding_mode")
+
+    @coding_mode.setter
+    def coding_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "coding_mode", value)
+
+    @property
+    @pulumi.getter
+    def dialnorm(self) -> Optional[pulumi.Input[float]]:
+        """
+        Sets the dialnorm for the output.
+        """
+        return pulumi.get(self, "dialnorm")
+
+    @dialnorm.setter
+    def dialnorm(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "dialnorm", value)
+
+    @property
+    @pulumi.getter(name="drcLine")
+    def drc_line(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the Dolby dynamic range compression profile.
+        """
+        return pulumi.get(self, "drc_line")
+
+    @drc_line.setter
+    def drc_line(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "drc_line", value)
+
+    @property
+    @pulumi.getter(name="drcRf")
+    def drc_rf(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the profile for heavy Dolby dynamic range compression.
+        """
+        return pulumi.get(self, "drc_rf")
+
+    @drc_rf.setter
+    def drc_rf(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "drc_rf", value)
+
+    @property
+    @pulumi.getter(name="heightTrim")
+    def height_trim(self) -> Optional[pulumi.Input[float]]:
+        """
+        Height dimensional trim.
+        """
+        return pulumi.get(self, "height_trim")
+
+    @height_trim.setter
+    def height_trim(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "height_trim", value)
+
+    @property
+    @pulumi.getter(name="surroundTrim")
+    def surround_trim(self) -> Optional[pulumi.Input[float]]:
+        """
+        Surround dimensional trim.
+        """
+        return pulumi.get(self, "surround_trim")
+
+    @surround_trim.setter
+    def surround_trim(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "surround_trim", value)
 
 
 @pulumi.input_type
@@ -1077,6 +1333,17 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
                  stereo_downmix: Optional[pulumi.Input[str]] = None,
                  surround_ex_mode: Optional[pulumi.Input[str]] = None,
                  surround_mode: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] attenuation_control: Sets the attenuation control.
+        :param pulumi.Input[float] bitrate: Average bitrate in bits/second.
+        :param pulumi.Input[str] bitstream_mode: Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        :param pulumi.Input[str] coding_mode: Dolby Digital Plus coding mode.
+        :param pulumi.Input[int] dialnorm: Sets the dialnorm for the output.
+        :param pulumi.Input[str] drc_line: Sets the Dolby dynamic range compression profile.
+        :param pulumi.Input[str] drc_rf: Sets the profile for heavy Dolby dynamic range compression.
+        :param pulumi.Input[str] lfe_filter: When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        :param pulumi.Input[str] metadata_control: Metadata control.
+        """
         if attenuation_control is not None:
             pulumi.set(__self__, "attenuation_control", attenuation_control)
         if bitrate is not None:
@@ -1121,6 +1388,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @property
     @pulumi.getter(name="attenuationControl")
     def attenuation_control(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the attenuation control.
+        """
         return pulumi.get(self, "attenuation_control")
 
     @attenuation_control.setter
@@ -1130,6 +1400,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @property
     @pulumi.getter
     def bitrate(self) -> Optional[pulumi.Input[float]]:
+        """
+        Average bitrate in bits/second.
+        """
         return pulumi.get(self, "bitrate")
 
     @bitrate.setter
@@ -1139,6 +1412,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @property
     @pulumi.getter(name="bitstreamMode")
     def bitstream_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        """
         return pulumi.get(self, "bitstream_mode")
 
     @bitstream_mode.setter
@@ -1148,6 +1424,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @property
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dolby Digital Plus coding mode.
+        """
         return pulumi.get(self, "coding_mode")
 
     @coding_mode.setter
@@ -1166,6 +1445,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @property
     @pulumi.getter
     def dialnorm(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the dialnorm for the output.
+        """
         return pulumi.get(self, "dialnorm")
 
     @dialnorm.setter
@@ -1175,6 +1457,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @property
     @pulumi.getter(name="drcLine")
     def drc_line(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the Dolby dynamic range compression profile.
+        """
         return pulumi.get(self, "drc_line")
 
     @drc_line.setter
@@ -1184,6 +1469,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @property
     @pulumi.getter(name="drcRf")
     def drc_rf(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the profile for heavy Dolby dynamic range compression.
+        """
         return pulumi.get(self, "drc_rf")
 
     @drc_rf.setter
@@ -1202,6 +1490,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @property
     @pulumi.getter(name="lfeFilter")
     def lfe_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        """
         return pulumi.get(self, "lfe_filter")
 
     @lfe_filter.setter
@@ -1247,6 +1538,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
     @property
     @pulumi.getter(name="metadataControl")
     def metadata_control(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metadata control.
+        """
         return pulumi.get(self, "metadata_control")
 
     @metadata_control.setter
@@ -1305,6 +1599,11 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs:
                  bitrate: Optional[pulumi.Input[float]] = None,
                  coding_mode: Optional[pulumi.Input[str]] = None,
                  sample_rate: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] bitrate: Average bitrate in bits/second.
+        :param pulumi.Input[str] coding_mode: Dolby Digital Plus coding mode.
+        :param pulumi.Input[float] sample_rate: Sample rate in Hz.
+        """
         if bitrate is not None:
             pulumi.set(__self__, "bitrate", bitrate)
         if coding_mode is not None:
@@ -1315,6 +1614,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs:
     @property
     @pulumi.getter
     def bitrate(self) -> Optional[pulumi.Input[float]]:
+        """
+        Average bitrate in bits/second.
+        """
         return pulumi.get(self, "bitrate")
 
     @bitrate.setter
@@ -1324,6 +1626,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs:
     @property
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dolby Digital Plus coding mode.
+        """
         return pulumi.get(self, "coding_mode")
 
     @coding_mode.setter
@@ -1333,6 +1638,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs:
     @property
     @pulumi.getter(name="sampleRate")
     def sample_rate(self) -> Optional[pulumi.Input[float]]:
+        """
+        Sample rate in Hz.
+        """
         return pulumi.get(self, "sample_rate")
 
     @sample_rate.setter
@@ -1341,11 +1649,21 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs:
 
 
 @pulumi.input_type
+class ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
 class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs:
     def __init__(__self__, *,
                  bit_depth: Optional[pulumi.Input[float]] = None,
                  coding_mode: Optional[pulumi.Input[str]] = None,
                  sample_rate: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[str] coding_mode: Dolby Digital Plus coding mode.
+        :param pulumi.Input[float] sample_rate: Sample rate in Hz.
+        """
         if bit_depth is not None:
             pulumi.set(__self__, "bit_depth", bit_depth)
         if coding_mode is not None:
@@ -1365,6 +1683,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs:
     @property
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dolby Digital Plus coding mode.
+        """
         return pulumi.get(self, "coding_mode")
 
     @coding_mode.setter
@@ -1374,6 +1695,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs:
     @property
     @pulumi.getter(name="sampleRate")
     def sample_rate(self) -> Optional[pulumi.Input[float]]:
+        """
+        Sample rate in Hz.
+        """
         return pulumi.get(self, "sample_rate")
 
     @sample_rate.setter
@@ -1476,6 +1800,99 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChan
 
 
 @pulumi.input_type
+class ChannelEncoderSettingsAvailBlankingArgs:
+    def __init__(__self__, *,
+                 avail_blanking_image: Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs']] = None,
+                 state: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs'] avail_blanking_image: Blanking image to be used. See Avail Blanking Image for more details.
+        :param pulumi.Input[str] state: When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+        """
+        if avail_blanking_image is not None:
+            pulumi.set(__self__, "avail_blanking_image", avail_blanking_image)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="availBlankingImage")
+    def avail_blanking_image(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs']]:
+        """
+        Blanking image to be used. See Avail Blanking Image for more details.
+        """
+        return pulumi.get(self, "avail_blanking_image")
+
+    @avail_blanking_image.setter
+    def avail_blanking_image(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs']]):
+        pulumi.set(self, "avail_blanking_image", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[str],
+                 password_param: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] uri: Path to a file accessible to the live stream.
+        :param pulumi.Input[str] password_param: Key used to extract the password from EC2 Parameter store.
+        :param pulumi.Input[str] username: . Username to be used.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if password_param is not None:
+            pulumi.set(__self__, "password_param", password_param)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        Path to a file accessible to the live stream.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key used to extract the password from EC2 Parameter store.
+        """
+        return pulumi.get(self, "password_param")
+
+    @password_param.setter
+    def password_param(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_param", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        . Username to be used.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
 class ChannelEncoderSettingsOutputGroupArgs:
     def __init__(__self__, *,
                  output_group_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs'],
@@ -1484,7 +1901,7 @@ class ChannelEncoderSettingsOutputGroupArgs:
         """
         :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs'] output_group_settings: Settings associated with the output group. See Output Group Settings for more details.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArgs']]] outputs: List of outputs. See Outputs for more details.
-        :param pulumi.Input[str] name: Custom output group name defined by the user.
+        :param pulumi.Input[str] name: The name of the video description.
         """
         pulumi.set(__self__, "output_group_settings", output_group_settings)
         pulumi.set(__self__, "outputs", outputs)
@@ -1519,7 +1936,7 @@ class ChannelEncoderSettingsOutputGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom output group name defined by the user.
+        The name of the video description.
         """
         return pulumi.get(self, "name")
 
@@ -1966,18 +2383,21 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
                  encryption_type: Optional[pulumi.Input[str]] = None,
                  hls_cdn_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs']]]] = None,
                  hls_id3_segment_tagging: Optional[pulumi.Input[str]] = None,
+                 iframe_only_playlists: Optional[pulumi.Input[str]] = None,
                  incomplete_segment_behavior: Optional[pulumi.Input[str]] = None,
                  index_n_segments: Optional[pulumi.Input[int]] = None,
                  input_loss_action: Optional[pulumi.Input[str]] = None,
                  iv_in_manifest: Optional[pulumi.Input[str]] = None,
                  iv_source: Optional[pulumi.Input[str]] = None,
-                 keep_segment: Optional[pulumi.Input[int]] = None,
+                 keep_segments: Optional[pulumi.Input[int]] = None,
                  key_format: Optional[pulumi.Input[str]] = None,
                  key_format_versions: Optional[pulumi.Input[str]] = None,
+                 key_provider_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs']] = None,
                  manifest_compression: Optional[pulumi.Input[str]] = None,
                  manifest_duration_format: Optional[pulumi.Input[str]] = None,
                  min_segment_length: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
+                 output_selection: Optional[pulumi.Input[str]] = None,
                  program_date_time: Optional[pulumi.Input[str]] = None,
                  program_date_time_clock: Optional[pulumi.Input[str]] = None,
                  program_date_time_period: Optional[pulumi.Input[int]] = None,
@@ -1985,13 +2405,15 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
                  segment_length: Optional[pulumi.Input[int]] = None,
                  segments_per_subdirectory: Optional[pulumi.Input[int]] = None,
                  stream_inf_resolution: Optional[pulumi.Input[str]] = None,
-                 time_metadata_id3_frame: Optional[pulumi.Input[str]] = None,
+                 timed_metadata_id3_frame: Optional[pulumi.Input[str]] = None,
+                 timed_metadata_id3_period: Optional[pulumi.Input[int]] = None,
                  timestamp_delta_milliseconds: Optional[pulumi.Input[int]] = None,
                  ts_file_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs'] destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ad_markers: The ad marker type for this output group.
         :param pulumi.Input[str] input_loss_action: Specifies behavior of last resort when input video os lost.
+        :param pulumi.Input[str] timed_metadata_id3_frame: Indicates ID3 frame that has the timecode.
         """
         pulumi.set(__self__, "destination", destination)
         if ad_markers is not None:
@@ -2024,6 +2446,8 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
             pulumi.set(__self__, "hls_cdn_settings", hls_cdn_settings)
         if hls_id3_segment_tagging is not None:
             pulumi.set(__self__, "hls_id3_segment_tagging", hls_id3_segment_tagging)
+        if iframe_only_playlists is not None:
+            pulumi.set(__self__, "iframe_only_playlists", iframe_only_playlists)
         if incomplete_segment_behavior is not None:
             pulumi.set(__self__, "incomplete_segment_behavior", incomplete_segment_behavior)
         if index_n_segments is not None:
@@ -2034,12 +2458,14 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
             pulumi.set(__self__, "iv_in_manifest", iv_in_manifest)
         if iv_source is not None:
             pulumi.set(__self__, "iv_source", iv_source)
-        if keep_segment is not None:
-            pulumi.set(__self__, "keep_segment", keep_segment)
+        if keep_segments is not None:
+            pulumi.set(__self__, "keep_segments", keep_segments)
         if key_format is not None:
             pulumi.set(__self__, "key_format", key_format)
         if key_format_versions is not None:
             pulumi.set(__self__, "key_format_versions", key_format_versions)
+        if key_provider_settings is not None:
+            pulumi.set(__self__, "key_provider_settings", key_provider_settings)
         if manifest_compression is not None:
             pulumi.set(__self__, "manifest_compression", manifest_compression)
         if manifest_duration_format is not None:
@@ -2048,6 +2474,8 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
             pulumi.set(__self__, "min_segment_length", min_segment_length)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if output_selection is not None:
+            pulumi.set(__self__, "output_selection", output_selection)
         if program_date_time is not None:
             pulumi.set(__self__, "program_date_time", program_date_time)
         if program_date_time_clock is not None:
@@ -2062,8 +2490,10 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
             pulumi.set(__self__, "segments_per_subdirectory", segments_per_subdirectory)
         if stream_inf_resolution is not None:
             pulumi.set(__self__, "stream_inf_resolution", stream_inf_resolution)
-        if time_metadata_id3_frame is not None:
-            pulumi.set(__self__, "time_metadata_id3_frame", time_metadata_id3_frame)
+        if timed_metadata_id3_frame is not None:
+            pulumi.set(__self__, "timed_metadata_id3_frame", timed_metadata_id3_frame)
+        if timed_metadata_id3_period is not None:
+            pulumi.set(__self__, "timed_metadata_id3_period", timed_metadata_id3_period)
         if timestamp_delta_milliseconds is not None:
             pulumi.set(__self__, "timestamp_delta_milliseconds", timestamp_delta_milliseconds)
         if ts_file_mode is not None:
@@ -2220,6 +2650,15 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
         pulumi.set(self, "hls_id3_segment_tagging", value)
 
     @property
+    @pulumi.getter(name="iframeOnlyPlaylists")
+    def iframe_only_playlists(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "iframe_only_playlists")
+
+    @iframe_only_playlists.setter
+    def iframe_only_playlists(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iframe_only_playlists", value)
+
+    @property
     @pulumi.getter(name="incompleteSegmentBehavior")
     def incomplete_segment_behavior(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "incomplete_segment_behavior")
@@ -2268,13 +2707,13 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
         pulumi.set(self, "iv_source", value)
 
     @property
-    @pulumi.getter(name="keepSegment")
-    def keep_segment(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "keep_segment")
+    @pulumi.getter(name="keepSegments")
+    def keep_segments(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "keep_segments")
 
-    @keep_segment.setter
-    def keep_segment(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "keep_segment", value)
+    @keep_segments.setter
+    def keep_segments(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "keep_segments", value)
 
     @property
     @pulumi.getter(name="keyFormat")
@@ -2293,6 +2732,15 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @key_format_versions.setter
     def key_format_versions(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_format_versions", value)
+
+    @property
+    @pulumi.getter(name="keyProviderSettings")
+    def key_provider_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs']]:
+        return pulumi.get(self, "key_provider_settings")
+
+    @key_provider_settings.setter
+    def key_provider_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs']]):
+        pulumi.set(self, "key_provider_settings", value)
 
     @property
     @pulumi.getter(name="manifestCompression")
@@ -2329,6 +2777,15 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="outputSelection")
+    def output_selection(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "output_selection")
+
+    @output_selection.setter
+    def output_selection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_selection", value)
 
     @property
     @pulumi.getter(name="programDateTime")
@@ -2394,13 +2851,25 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
         pulumi.set(self, "stream_inf_resolution", value)
 
     @property
-    @pulumi.getter(name="timeMetadataId3Frame")
-    def time_metadata_id3_frame(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "time_metadata_id3_frame")
+    @pulumi.getter(name="timedMetadataId3Frame")
+    def timed_metadata_id3_frame(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates ID3 frame that has the timecode.
+        """
+        return pulumi.get(self, "timed_metadata_id3_frame")
 
-    @time_metadata_id3_frame.setter
-    def time_metadata_id3_frame(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "time_metadata_id3_frame", value)
+    @timed_metadata_id3_frame.setter
+    def timed_metadata_id3_frame(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timed_metadata_id3_frame", value)
+
+    @property
+    @pulumi.getter(name="timedMetadataId3Period")
+    def timed_metadata_id3_period(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "timed_metadata_id3_period")
+
+    @timed_metadata_id3_period.setter
+    def timed_metadata_id3_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timed_metadata_id3_period", value)
 
     @property
     @pulumi.getter(name="timestampDeltaMilliseconds")
@@ -2427,6 +2896,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptio
                  caption_channel: pulumi.Input[int],
                  language_code: pulumi.Input[str],
                  language_description: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
         pulumi.set(__self__, "caption_channel", caption_channel)
         pulumi.set(__self__, "language_code", language_code)
         pulumi.set(__self__, "language_description", language_description)
@@ -2443,6 +2915,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptio
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[str]:
+        """
+        When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -2895,6 +3370,105 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
     @restart_delay.setter
     def restart_delay(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "restart_delay", value)
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs:
+    def __init__(__self__, *,
+                 static_key_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs']]]] = None):
+        if static_key_settings is not None:
+            pulumi.set(__self__, "static_key_settings", static_key_settings)
+
+    @property
+    @pulumi.getter(name="staticKeySettings")
+    def static_key_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs']]]]:
+        return pulumi.get(self, "static_key_settings")
+
+    @static_key_settings.setter
+    def static_key_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs']]]]):
+        pulumi.set(self, "static_key_settings", value)
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs:
+    def __init__(__self__, *,
+                 static_key_value: pulumi.Input[str],
+                 key_provider_server: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs']] = None):
+        pulumi.set(__self__, "static_key_value", static_key_value)
+        if key_provider_server is not None:
+            pulumi.set(__self__, "key_provider_server", key_provider_server)
+
+    @property
+    @pulumi.getter(name="staticKeyValue")
+    def static_key_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "static_key_value")
+
+    @static_key_value.setter
+    def static_key_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "static_key_value", value)
+
+    @property
+    @pulumi.getter(name="keyProviderServer")
+    def key_provider_server(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs']]:
+        return pulumi.get(self, "key_provider_server")
+
+    @key_provider_server.setter
+    def key_provider_server(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs']]):
+        pulumi.set(self, "key_provider_server", value)
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[str],
+                 password_param: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] uri: Path to a file accessible to the live stream.
+        :param pulumi.Input[str] password_param: Key used to extract the password from EC2 Parameter store.
+        :param pulumi.Input[str] username: . Username to be used.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if password_param is not None:
+            pulumi.set(__self__, "password_param", password_param)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        Path to a file accessible to the live stream.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key used to extract the password from EC2 Parameter store.
+        """
+        return pulumi.get(self, "password_param")
+
+    @password_param.setter
+    def password_param(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_param", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        . Username to be used.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
@@ -3664,6 +4238,10 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
                  timed_metadata_pid: Optional[pulumi.Input[str]] = None,
                  transport_stream_id: Optional[pulumi.Input[int]] = None,
                  video_pid: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] bitrate: Average bitrate in bits/second.
+        :param pulumi.Input[str] scte35_pid: PID from which to read SCTE-35 messages.
+        """
         if absent_input_audio_behavior is not None:
             pulumi.set(__self__, "absent_input_audio_behavior", absent_input_audio_behavior)
         if arib is not None:
@@ -3834,6 +4412,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @property
     @pulumi.getter
     def bitrate(self) -> Optional[pulumi.Input[int]]:
+        """
+        Average bitrate in bits/second.
+        """
         return pulumi.get(self, "bitrate")
 
     @bitrate.setter
@@ -4113,6 +4694,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @property
     @pulumi.getter(name="scte35Pid")
     def scte35_pid(self) -> Optional[pulumi.Input[str]]:
+        """
+        PID from which to read SCTE-35 messages.
+        """
         return pulumi.get(self, "scte35_pid")
 
     @scte35_pid.setter
@@ -4492,8 +5076,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
                  password_param: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] uri: Path to a file accessible to the live stream.
         :param pulumi.Input[str] password_param: Key used to extract the password from EC2 Parameter store.
-        :param pulumi.Input[str] username: Username for destination.
+        :param pulumi.Input[str] username: . Username to be used.
         """
         pulumi.set(__self__, "uri", uri)
         if password_param is not None:
@@ -4504,6 +5089,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
+        """
+        Path to a file accessible to the live stream.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -4526,7 +5114,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        Username for destination.
+        . Username to be used.
         """
         return pulumi.get(self, "username")
 
@@ -4630,6 +5218,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
                  timed_metadata_pid: Optional[pulumi.Input[str]] = None,
                  transport_stream_id: Optional[pulumi.Input[int]] = None,
                  video_pid: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] scte35_pid: PID from which to read SCTE-35 messages.
+        """
         if audio_frames_per_pes is not None:
             pulumi.set(__self__, "audio_frames_per_pes", audio_frames_per_pes)
         if audio_pids is not None:
@@ -4776,6 +5367,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @property
     @pulumi.getter(name="scte35Pid")
     def scte35_pid(self) -> Optional[pulumi.Input[str]]:
+        """
+        PID from which to read SCTE-35 messages.
+        """
         return pulumi.get(self, "scte35_pid")
 
     @scte35_pid.setter
@@ -5130,6 +5724,10 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
                  timed_metadata_pid: Optional[pulumi.Input[str]] = None,
                  transport_stream_id: Optional[pulumi.Input[int]] = None,
                  video_pid: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] bitrate: Average bitrate in bits/second.
+        :param pulumi.Input[str] scte35_pid: PID from which to read SCTE-35 messages.
+        """
         if absent_input_audio_behavior is not None:
             pulumi.set(__self__, "absent_input_audio_behavior", absent_input_audio_behavior)
         if arib is not None:
@@ -5300,6 +5898,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @property
     @pulumi.getter
     def bitrate(self) -> Optional[pulumi.Input[int]]:
+        """
+        Average bitrate in bits/second.
+        """
         return pulumi.get(self, "bitrate")
 
     @bitrate.setter
@@ -5579,6 +6180,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     @property
     @pulumi.getter(name="scte35Pid")
     def scte35_pid(self) -> Optional[pulumi.Input[str]]:
+        """
+        PID from which to read SCTE-35 messages.
+        """
         return pulumi.get(self, "scte35_pid")
 
     @scte35_pid.setter
@@ -5884,7 +6488,8 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
                  sharpness: Optional[pulumi.Input[int]] = None,
                  width: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] name: Custom output group name defined by the user.
+        :param pulumi.Input[str] name: The name of the video description.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs'] codec_settings: The video codec settings. See Video Codec Settings for more details.
         :param pulumi.Input[int] height: Output video height in pixels.
         :param pulumi.Input[str] respond_to_afd: Indicate how to respond to the AFD values that might be in the input video.
         :param pulumi.Input[str] scaling_behavior: Behavior on how to scale.
@@ -5909,7 +6514,7 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Custom output group name defined by the user.
+        The name of the video description.
         """
         return pulumi.get(self, "name")
 
@@ -5920,6 +6525,9 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
     @property
     @pulumi.getter(name="codecSettings")
     def codec_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs']]:
+        """
+        The video codec settings. See Video Codec Settings for more details.
+        """
         return pulumi.get(self, "codec_settings")
 
     @codec_settings.setter
@@ -5992,6 +6600,10 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
     def __init__(__self__, *,
                  frame_capture_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs']] = None,
                  h264_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs'] frame_capture_settings: Frame capture settings. See Frame Capture Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs'] h264_settings: H264 settings. See H264 Settings for more details.
+        """
         if frame_capture_settings is not None:
             pulumi.set(__self__, "frame_capture_settings", frame_capture_settings)
         if h264_settings is not None:
@@ -6000,6 +6612,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
     @property
     @pulumi.getter(name="frameCaptureSettings")
     def frame_capture_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs']]:
+        """
+        Frame capture settings. See Frame Capture Settings for more details.
+        """
         return pulumi.get(self, "frame_capture_settings")
 
     @frame_capture_settings.setter
@@ -6009,6 +6624,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
     @property
     @pulumi.getter(name="h264Settings")
     def h264_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs']]:
+        """
+        H264 settings. See H264 Settings for more details.
+        """
         return pulumi.get(self, "h264_settings")
 
     @h264_settings.setter
@@ -6021,6 +6639,10 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArg
     def __init__(__self__, *,
                  capture_interval: Optional[pulumi.Input[int]] = None,
                  capture_interval_units: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] capture_interval: The frequency at which to capture frames for inclusion in the output.
+        :param pulumi.Input[str] capture_interval_units: Unit for the frame capture interval.
+        """
         if capture_interval is not None:
             pulumi.set(__self__, "capture_interval", capture_interval)
         if capture_interval_units is not None:
@@ -6029,6 +6651,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArg
     @property
     @pulumi.getter(name="captureInterval")
     def capture_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The frequency at which to capture frames for inclusion in the output.
+        """
         return pulumi.get(self, "capture_interval")
 
     @capture_interval.setter
@@ -6038,6 +6663,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArg
     @property
     @pulumi.getter(name="captureIntervalUnits")
     def capture_interval_units(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unit for the frame capture interval.
+        """
         return pulumi.get(self, "capture_interval_units")
 
     @capture_interval_units.setter
@@ -6061,6 +6689,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
                  force_field_pictures: Optional[pulumi.Input[str]] = None,
                  framerate_control: Optional[pulumi.Input[str]] = None,
                  framerate_denominator: Optional[pulumi.Input[int]] = None,
+                 framerate_numerator: Optional[pulumi.Input[int]] = None,
                  gop_b_reference: Optional[pulumi.Input[str]] = None,
                  gop_closed_cadence: Optional[pulumi.Input[int]] = None,
                  gop_num_b_frames: Optional[pulumi.Input[int]] = None,
@@ -6087,6 +6716,45 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
                  syntax: Optional[pulumi.Input[str]] = None,
                  temporal_aq: Optional[pulumi.Input[str]] = None,
                  timecode_insertion: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] adaptive_quantization: Enables or disables adaptive quantization.
+        :param pulumi.Input[str] afd_signaling: Indicates that AFD values will be written into the output stream.
+        :param pulumi.Input[int] bitrate: Average bitrate in bits/second.
+        :param pulumi.Input[int] buf_size: Size of buffer in bits.
+        :param pulumi.Input[str] color_metadata: Includes color space metadata in the output.
+        :param pulumi.Input[str] entropy_encoding: Entropy encoding mode.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs'] filter_settings: Filters to apply to an encode. See H264 Filter Settings for more details.
+        :param pulumi.Input[str] fixed_afd: Four bit AFD value to write on all frames of video in the output stream.
+        :param pulumi.Input[str] force_field_pictures: Controls whether coding is performed on a field basis or on a frame basis.
+        :param pulumi.Input[str] framerate_control: Indicates how the output video frame rate is specified.
+        :param pulumi.Input[int] framerate_denominator: Framerate denominator.
+        :param pulumi.Input[int] framerate_numerator: Framerate numerator.
+        :param pulumi.Input[str] gop_b_reference: GOP-B reference.
+        :param pulumi.Input[int] gop_closed_cadence: Frequency of closed GOPs.
+        :param pulumi.Input[int] gop_num_b_frames: Number of B-frames between reference frames.
+        :param pulumi.Input[float] gop_size: GOP size in units of either frames of seconds per `gop_size_units`.
+        :param pulumi.Input[str] gop_size_units: Indicates if the `gop_size` is specified in frames or seconds.
+        :param pulumi.Input[str] level: H264 level.
+        :param pulumi.Input[str] look_ahead_rate_control: Amount of lookahead.
+        :param pulumi.Input[int] max_bitrate: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        :param pulumi.Input[int] num_ref_frames: Number of reference frames to use.
+        :param pulumi.Input[str] par_control: Indicates how the output pixel aspect ratio is specified.
+        :param pulumi.Input[int] par_denominator: Pixel Aspect Ratio denominator.
+        :param pulumi.Input[int] par_numerator: Pixel Aspect Ratio numerator.
+        :param pulumi.Input[str] profile: H264 profile.
+        :param pulumi.Input[str] quality_level: Quality level.
+        :param pulumi.Input[int] qvbr_quality_level: Controls the target quality for the video encode.
+        :param pulumi.Input[str] rate_control_mode: Rate control mode.
+        :param pulumi.Input[str] scan_type: Sets the scan type of the output.
+        :param pulumi.Input[str] scene_change_detect: Scene change detection.
+        :param pulumi.Input[int] slices: Number of slices per picture.
+        :param pulumi.Input[int] softness: Softness.
+        :param pulumi.Input[str] spatial_aq: Makes adjustments within each frame based on spatial variation of content complexity.
+        :param pulumi.Input[str] subgop_length: Subgop length.
+        :param pulumi.Input[str] syntax: Produces a bitstream compliant with SMPTE RP-2027.
+        :param pulumi.Input[str] temporal_aq: Makes adjustments within each frame based on temporal variation of content complexity.
+        :param pulumi.Input[str] timecode_insertion: Determines how timecodes should be inserted into the video elementary stream.
+        """
         if adaptive_quantization is not None:
             pulumi.set(__self__, "adaptive_quantization", adaptive_quantization)
         if afd_signaling is not None:
@@ -6113,6 +6781,8 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
             pulumi.set(__self__, "framerate_control", framerate_control)
         if framerate_denominator is not None:
             pulumi.set(__self__, "framerate_denominator", framerate_denominator)
+        if framerate_numerator is not None:
+            pulumi.set(__self__, "framerate_numerator", framerate_numerator)
         if gop_b_reference is not None:
             pulumi.set(__self__, "gop_b_reference", gop_b_reference)
         if gop_closed_cadence is not None:
@@ -6169,6 +6839,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="adaptiveQuantization")
     def adaptive_quantization(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables adaptive quantization.
+        """
         return pulumi.get(self, "adaptive_quantization")
 
     @adaptive_quantization.setter
@@ -6178,6 +6851,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="afdSignaling")
     def afd_signaling(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates that AFD values will be written into the output stream.
+        """
         return pulumi.get(self, "afd_signaling")
 
     @afd_signaling.setter
@@ -6187,6 +6863,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter
     def bitrate(self) -> Optional[pulumi.Input[int]]:
+        """
+        Average bitrate in bits/second.
+        """
         return pulumi.get(self, "bitrate")
 
     @bitrate.setter
@@ -6205,6 +6884,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="bufSize")
     def buf_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Size of buffer in bits.
+        """
         return pulumi.get(self, "buf_size")
 
     @buf_size.setter
@@ -6214,6 +6896,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="colorMetadata")
     def color_metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        Includes color space metadata in the output.
+        """
         return pulumi.get(self, "color_metadata")
 
     @color_metadata.setter
@@ -6223,6 +6908,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="entropyEncoding")
     def entropy_encoding(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entropy encoding mode.
+        """
         return pulumi.get(self, "entropy_encoding")
 
     @entropy_encoding.setter
@@ -6232,6 +6920,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="filterSettings")
     def filter_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs']]:
+        """
+        Filters to apply to an encode. See H264 Filter Settings for more details.
+        """
         return pulumi.get(self, "filter_settings")
 
     @filter_settings.setter
@@ -6241,6 +6932,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="fixedAfd")
     def fixed_afd(self) -> Optional[pulumi.Input[str]]:
+        """
+        Four bit AFD value to write on all frames of video in the output stream.
+        """
         return pulumi.get(self, "fixed_afd")
 
     @fixed_afd.setter
@@ -6259,6 +6953,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="forceFieldPictures")
     def force_field_pictures(self) -> Optional[pulumi.Input[str]]:
+        """
+        Controls whether coding is performed on a field basis or on a frame basis.
+        """
         return pulumi.get(self, "force_field_pictures")
 
     @force_field_pictures.setter
@@ -6268,6 +6965,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="framerateControl")
     def framerate_control(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates how the output video frame rate is specified.
+        """
         return pulumi.get(self, "framerate_control")
 
     @framerate_control.setter
@@ -6277,6 +6977,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="framerateDenominator")
     def framerate_denominator(self) -> Optional[pulumi.Input[int]]:
+        """
+        Framerate denominator.
+        """
         return pulumi.get(self, "framerate_denominator")
 
     @framerate_denominator.setter
@@ -6284,8 +6987,23 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
         pulumi.set(self, "framerate_denominator", value)
 
     @property
+    @pulumi.getter(name="framerateNumerator")
+    def framerate_numerator(self) -> Optional[pulumi.Input[int]]:
+        """
+        Framerate numerator.
+        """
+        return pulumi.get(self, "framerate_numerator")
+
+    @framerate_numerator.setter
+    def framerate_numerator(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "framerate_numerator", value)
+
+    @property
     @pulumi.getter(name="gopBReference")
     def gop_b_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        GOP-B reference.
+        """
         return pulumi.get(self, "gop_b_reference")
 
     @gop_b_reference.setter
@@ -6295,6 +7013,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="gopClosedCadence")
     def gop_closed_cadence(self) -> Optional[pulumi.Input[int]]:
+        """
+        Frequency of closed GOPs.
+        """
         return pulumi.get(self, "gop_closed_cadence")
 
     @gop_closed_cadence.setter
@@ -6304,6 +7025,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="gopNumBFrames")
     def gop_num_b_frames(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of B-frames between reference frames.
+        """
         return pulumi.get(self, "gop_num_b_frames")
 
     @gop_num_b_frames.setter
@@ -6313,6 +7037,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="gopSize")
     def gop_size(self) -> Optional[pulumi.Input[float]]:
+        """
+        GOP size in units of either frames of seconds per `gop_size_units`.
+        """
         return pulumi.get(self, "gop_size")
 
     @gop_size.setter
@@ -6322,6 +7049,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="gopSizeUnits")
     def gop_size_units(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates if the `gop_size` is specified in frames or seconds.
+        """
         return pulumi.get(self, "gop_size_units")
 
     @gop_size_units.setter
@@ -6331,6 +7061,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input[str]]:
+        """
+        H264 level.
+        """
         return pulumi.get(self, "level")
 
     @level.setter
@@ -6340,6 +7073,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="lookAheadRateControl")
     def look_ahead_rate_control(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amount of lookahead.
+        """
         return pulumi.get(self, "look_ahead_rate_control")
 
     @look_ahead_rate_control.setter
@@ -6349,6 +7085,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="maxBitrate")
     def max_bitrate(self) -> Optional[pulumi.Input[int]]:
+        """
+        Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        """
         return pulumi.get(self, "max_bitrate")
 
     @max_bitrate.setter
@@ -6367,6 +7106,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="numRefFrames")
     def num_ref_frames(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of reference frames to use.
+        """
         return pulumi.get(self, "num_ref_frames")
 
     @num_ref_frames.setter
@@ -6376,6 +7118,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="parControl")
     def par_control(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates how the output pixel aspect ratio is specified.
+        """
         return pulumi.get(self, "par_control")
 
     @par_control.setter
@@ -6385,6 +7130,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="parDenominator")
     def par_denominator(self) -> Optional[pulumi.Input[int]]:
+        """
+        Pixel Aspect Ratio denominator.
+        """
         return pulumi.get(self, "par_denominator")
 
     @par_denominator.setter
@@ -6394,6 +7142,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="parNumerator")
     def par_numerator(self) -> Optional[pulumi.Input[int]]:
+        """
+        Pixel Aspect Ratio numerator.
+        """
         return pulumi.get(self, "par_numerator")
 
     @par_numerator.setter
@@ -6403,6 +7154,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter
     def profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        H264 profile.
+        """
         return pulumi.get(self, "profile")
 
     @profile.setter
@@ -6412,6 +7166,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="qualityLevel")
     def quality_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Quality level.
+        """
         return pulumi.get(self, "quality_level")
 
     @quality_level.setter
@@ -6421,6 +7178,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="qvbrQualityLevel")
     def qvbr_quality_level(self) -> Optional[pulumi.Input[int]]:
+        """
+        Controls the target quality for the video encode.
+        """
         return pulumi.get(self, "qvbr_quality_level")
 
     @qvbr_quality_level.setter
@@ -6430,6 +7190,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="rateControlMode")
     def rate_control_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Rate control mode.
+        """
         return pulumi.get(self, "rate_control_mode")
 
     @rate_control_mode.setter
@@ -6439,6 +7202,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="scanType")
     def scan_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the scan type of the output.
+        """
         return pulumi.get(self, "scan_type")
 
     @scan_type.setter
@@ -6448,6 +7214,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="sceneChangeDetect")
     def scene_change_detect(self) -> Optional[pulumi.Input[str]]:
+        """
+        Scene change detection.
+        """
         return pulumi.get(self, "scene_change_detect")
 
     @scene_change_detect.setter
@@ -6457,6 +7226,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter
     def slices(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of slices per picture.
+        """
         return pulumi.get(self, "slices")
 
     @slices.setter
@@ -6466,6 +7238,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter
     def softness(self) -> Optional[pulumi.Input[int]]:
+        """
+        Softness.
+        """
         return pulumi.get(self, "softness")
 
     @softness.setter
@@ -6475,6 +7250,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="spatialAq")
     def spatial_aq(self) -> Optional[pulumi.Input[str]]:
+        """
+        Makes adjustments within each frame based on spatial variation of content complexity.
+        """
         return pulumi.get(self, "spatial_aq")
 
     @spatial_aq.setter
@@ -6484,6 +7262,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="subgopLength")
     def subgop_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subgop length.
+        """
         return pulumi.get(self, "subgop_length")
 
     @subgop_length.setter
@@ -6493,6 +7274,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter
     def syntax(self) -> Optional[pulumi.Input[str]]:
+        """
+        Produces a bitstream compliant with SMPTE RP-2027.
+        """
         return pulumi.get(self, "syntax")
 
     @syntax.setter
@@ -6502,6 +7286,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="temporalAq")
     def temporal_aq(self) -> Optional[pulumi.Input[str]]:
+        """
+        Makes adjustments within each frame based on temporal variation of content complexity.
+        """
         return pulumi.get(self, "temporal_aq")
 
     @temporal_aq.setter
@@ -6511,6 +7298,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
     @property
     @pulumi.getter(name="timecodeInsertion")
     def timecode_insertion(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines how timecodes should be inserted into the video elementary stream.
+        """
         return pulumi.get(self, "timecode_insertion")
 
     @timecode_insertion.setter
@@ -6522,12 +7312,18 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs:
     def __init__(__self__, *,
                  temporal_filter_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs'] temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
+        """
         if temporal_filter_settings is not None:
             pulumi.set(__self__, "temporal_filter_settings", temporal_filter_settings)
 
     @property
     @pulumi.getter(name="temporalFilterSettings")
     def temporal_filter_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs']]:
+        """
+        Temporal filter settings. See Temporal Filter Settings
+        """
         return pulumi.get(self, "temporal_filter_settings")
 
     @temporal_filter_settings.setter
@@ -6540,6 +7336,10 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSetti
     def __init__(__self__, *,
                  post_filter_sharpening: Optional[pulumi.Input[str]] = None,
                  strength: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] post_filter_sharpening: Post filter sharpening.
+        :param pulumi.Input[str] strength: Filter strength.
+        """
         if post_filter_sharpening is not None:
             pulumi.set(__self__, "post_filter_sharpening", post_filter_sharpening)
         if strength is not None:
@@ -6548,6 +7348,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSetti
     @property
     @pulumi.getter(name="postFilterSharpening")
     def post_filter_sharpening(self) -> Optional[pulumi.Input[str]]:
+        """
+        Post filter sharpening.
+        """
         return pulumi.get(self, "post_filter_sharpening")
 
     @post_filter_sharpening.setter
@@ -6557,6 +7360,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSetti
     @property
     @pulumi.getter
     def strength(self) -> Optional[pulumi.Input[str]]:
+        """
+        Filter strength.
+        """
         return pulumi.get(self, "strength")
 
     @strength.setter
@@ -6823,11 +7629,48 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 class ChannelInputAttachmentInputSettingsArgs:
     def __init__(__self__, *,
                  audio_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArgs']]]] = None,
-                 caption_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgs']]]] = None):
+                 caption_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgs']]]] = None,
+                 deblock_filter: Optional[pulumi.Input[str]] = None,
+                 denoise_filter: Optional[pulumi.Input[str]] = None,
+                 filter_strength: Optional[pulumi.Input[int]] = None,
+                 input_filter: Optional[pulumi.Input[str]] = None,
+                 network_input_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs']] = None,
+                 scte35_pid: Optional[pulumi.Input[int]] = None,
+                 smpte2038_data_preference: Optional[pulumi.Input[str]] = None,
+                 source_end_behavior: Optional[pulumi.Input[str]] = None,
+                 video_selector: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsVideoSelectorArgs']] = None):
+        """
+        :param pulumi.Input[str] deblock_filter: Enable or disable the deblock filter when filtering.
+        :param pulumi.Input[str] denoise_filter: Enable or disable the denoise filter when filtering.
+        :param pulumi.Input[int] filter_strength: Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+        :param pulumi.Input[str] input_filter: Turns on the filter for the input.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs'] network_input_settings: Input settings. See Network Input Settings for more details.
+        :param pulumi.Input[int] scte35_pid: PID from which to read SCTE-35 messages.
+        :param pulumi.Input[str] smpte2038_data_preference: Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+        :param pulumi.Input[str] source_end_behavior: Loop input if it is a file.
+        """
         if audio_selectors is not None:
             pulumi.set(__self__, "audio_selectors", audio_selectors)
         if caption_selectors is not None:
             pulumi.set(__self__, "caption_selectors", caption_selectors)
+        if deblock_filter is not None:
+            pulumi.set(__self__, "deblock_filter", deblock_filter)
+        if denoise_filter is not None:
+            pulumi.set(__self__, "denoise_filter", denoise_filter)
+        if filter_strength is not None:
+            pulumi.set(__self__, "filter_strength", filter_strength)
+        if input_filter is not None:
+            pulumi.set(__self__, "input_filter", input_filter)
+        if network_input_settings is not None:
+            pulumi.set(__self__, "network_input_settings", network_input_settings)
+        if scte35_pid is not None:
+            pulumi.set(__self__, "scte35_pid", scte35_pid)
+        if smpte2038_data_preference is not None:
+            pulumi.set(__self__, "smpte2038_data_preference", smpte2038_data_preference)
+        if source_end_behavior is not None:
+            pulumi.set(__self__, "source_end_behavior", source_end_behavior)
+        if video_selector is not None:
+            pulumi.set(__self__, "video_selector", video_selector)
 
     @property
     @pulumi.getter(name="audioSelectors")
@@ -6847,6 +7690,111 @@ class ChannelInputAttachmentInputSettingsArgs:
     def caption_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgs']]]]):
         pulumi.set(self, "caption_selectors", value)
 
+    @property
+    @pulumi.getter(name="deblockFilter")
+    def deblock_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or disable the deblock filter when filtering.
+        """
+        return pulumi.get(self, "deblock_filter")
+
+    @deblock_filter.setter
+    def deblock_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deblock_filter", value)
+
+    @property
+    @pulumi.getter(name="denoiseFilter")
+    def denoise_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or disable the denoise filter when filtering.
+        """
+        return pulumi.get(self, "denoise_filter")
+
+    @denoise_filter.setter
+    def denoise_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "denoise_filter", value)
+
+    @property
+    @pulumi.getter(name="filterStrength")
+    def filter_strength(self) -> Optional[pulumi.Input[int]]:
+        """
+        Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+        """
+        return pulumi.get(self, "filter_strength")
+
+    @filter_strength.setter
+    def filter_strength(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "filter_strength", value)
+
+    @property
+    @pulumi.getter(name="inputFilter")
+    def input_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Turns on the filter for the input.
+        """
+        return pulumi.get(self, "input_filter")
+
+    @input_filter.setter
+    def input_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "input_filter", value)
+
+    @property
+    @pulumi.getter(name="networkInputSettings")
+    def network_input_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs']]:
+        """
+        Input settings. See Network Input Settings for more details.
+        """
+        return pulumi.get(self, "network_input_settings")
+
+    @network_input_settings.setter
+    def network_input_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs']]):
+        pulumi.set(self, "network_input_settings", value)
+
+    @property
+    @pulumi.getter(name="scte35Pid")
+    def scte35_pid(self) -> Optional[pulumi.Input[int]]:
+        """
+        PID from which to read SCTE-35 messages.
+        """
+        return pulumi.get(self, "scte35_pid")
+
+    @scte35_pid.setter
+    def scte35_pid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scte35_pid", value)
+
+    @property
+    @pulumi.getter(name="smpte2038DataPreference")
+    def smpte2038_data_preference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+        """
+        return pulumi.get(self, "smpte2038_data_preference")
+
+    @smpte2038_data_preference.setter
+    def smpte2038_data_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "smpte2038_data_preference", value)
+
+    @property
+    @pulumi.getter(name="sourceEndBehavior")
+    def source_end_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Loop input if it is a file.
+        """
+        return pulumi.get(self, "source_end_behavior")
+
+    @source_end_behavior.setter
+    def source_end_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_end_behavior", value)
+
+    @property
+    @pulumi.getter(name="videoSelector")
+    def video_selector(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsVideoSelectorArgs']]:
+        return pulumi.get(self, "video_selector")
+
+    @video_selector.setter
+    def video_selector(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsVideoSelectorArgs']]):
+        pulumi.set(self, "video_selector", value)
+
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
@@ -6854,7 +7802,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
                  name: pulumi.Input[str],
                  selector_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs']] = None):
         """
-        :param pulumi.Input[str] name: Custom output group name defined by the user.
+        :param pulumi.Input[str] name: The name of the video description.
         """
         pulumi.set(__self__, "name", name)
         if selector_settings is not None:
@@ -6864,7 +7812,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Custom output group name defined by the user.
+        The name of the video description.
         """
         return pulumi.get(self, "name")
 
@@ -6941,7 +7889,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
                  group_id: pulumi.Input[str],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Custom output group name defined by the user.
+        :param pulumi.Input[str] name: The name of the video description.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "name", name)
@@ -6959,7 +7907,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Custom output group name defined by the user.
+        The name of the video description.
         """
         return pulumi.get(self, "name")
 
@@ -6973,6 +7921,9 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangu
     def __init__(__self__, *,
                  language_code: pulumi.Input[str],
                  language_selection_policy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
         pulumi.set(__self__, "language_code", language_code)
         if language_selection_policy is not None:
             pulumi.set(__self__, "language_selection_policy", language_selection_policy)
@@ -6980,6 +7931,9 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangu
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[str]:
+        """
+        When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -7048,49 +8002,23 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
 class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 deblock_filter: Optional[pulumi.Input[str]] = None,
-                 denoise_filter: Optional[pulumi.Input[str]] = None,
-                 filter_strength: Optional[pulumi.Input[int]] = None,
-                 input_filter: Optional[pulumi.Input[str]] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
-                 network_input_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorNetworkInputSettingsArgs']] = None,
-                 scte35_pid: Optional[pulumi.Input[int]] = None,
-                 selector_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs']] = None,
-                 smpte2038_data_preference: Optional[pulumi.Input[str]] = None,
-                 source_end_behavior: Optional[pulumi.Input[str]] = None,
-                 video_selector: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorVideoSelectorArgs']] = None):
+                 selector_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs']] = None):
         """
-        :param pulumi.Input[str] name: Custom output group name defined by the user.
+        :param pulumi.Input[str] name: The name of the video description.
+        :param pulumi.Input[str] language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
         """
         pulumi.set(__self__, "name", name)
-        if deblock_filter is not None:
-            pulumi.set(__self__, "deblock_filter", deblock_filter)
-        if denoise_filter is not None:
-            pulumi.set(__self__, "denoise_filter", denoise_filter)
-        if filter_strength is not None:
-            pulumi.set(__self__, "filter_strength", filter_strength)
-        if input_filter is not None:
-            pulumi.set(__self__, "input_filter", input_filter)
         if language_code is not None:
             pulumi.set(__self__, "language_code", language_code)
-        if network_input_settings is not None:
-            pulumi.set(__self__, "network_input_settings", network_input_settings)
-        if scte35_pid is not None:
-            pulumi.set(__self__, "scte35_pid", scte35_pid)
         if selector_settings is not None:
             pulumi.set(__self__, "selector_settings", selector_settings)
-        if smpte2038_data_preference is not None:
-            pulumi.set(__self__, "smpte2038_data_preference", smpte2038_data_preference)
-        if source_end_behavior is not None:
-            pulumi.set(__self__, "source_end_behavior", source_end_behavior)
-        if video_selector is not None:
-            pulumi.set(__self__, "video_selector", video_selector)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Custom output group name defined by the user.
+        The name of the video description.
         """
         return pulumi.get(self, "name")
 
@@ -7099,67 +8027,16 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="deblockFilter")
-    def deblock_filter(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "deblock_filter")
-
-    @deblock_filter.setter
-    def deblock_filter(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "deblock_filter", value)
-
-    @property
-    @pulumi.getter(name="denoiseFilter")
-    def denoise_filter(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "denoise_filter")
-
-    @denoise_filter.setter
-    def denoise_filter(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "denoise_filter", value)
-
-    @property
-    @pulumi.getter(name="filterStrength")
-    def filter_strength(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "filter_strength")
-
-    @filter_strength.setter
-    def filter_strength(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "filter_strength", value)
-
-    @property
-    @pulumi.getter(name="inputFilter")
-    def input_filter(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "input_filter")
-
-    @input_filter.setter
-    def input_filter(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "input_filter", value)
-
-    @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
     def language_code(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "language_code", value)
-
-    @property
-    @pulumi.getter(name="networkInputSettings")
-    def network_input_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorNetworkInputSettingsArgs']]:
-        return pulumi.get(self, "network_input_settings")
-
-    @network_input_settings.setter
-    def network_input_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorNetworkInputSettingsArgs']]):
-        pulumi.set(self, "network_input_settings", value)
-
-    @property
-    @pulumi.getter(name="scte35Pid")
-    def scte35_pid(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "scte35_pid")
-
-    @scte35_pid.setter
-    def scte35_pid(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "scte35_pid", value)
 
     @property
     @pulumi.getter(name="selectorSettings")
@@ -7169,127 +8046,6 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
     @selector_settings.setter
     def selector_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs']]):
         pulumi.set(self, "selector_settings", value)
-
-    @property
-    @pulumi.getter(name="smpte2038DataPreference")
-    def smpte2038_data_preference(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "smpte2038_data_preference")
-
-    @smpte2038_data_preference.setter
-    def smpte2038_data_preference(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "smpte2038_data_preference", value)
-
-    @property
-    @pulumi.getter(name="sourceEndBehavior")
-    def source_end_behavior(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "source_end_behavior")
-
-    @source_end_behavior.setter
-    def source_end_behavior(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_end_behavior", value)
-
-    @property
-    @pulumi.getter(name="videoSelector")
-    def video_selector(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorVideoSelectorArgs']]:
-        return pulumi.get(self, "video_selector")
-
-    @video_selector.setter
-    def video_selector(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorVideoSelectorArgs']]):
-        pulumi.set(self, "video_selector", value)
-
-
-@pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorNetworkInputSettingsArgs:
-    def __init__(__self__, *,
-                 hls_input_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorNetworkInputSettingsHlsInputSettingsArgs']] = None,
-                 server_validation: Optional[pulumi.Input[str]] = None):
-        if hls_input_settings is not None:
-            pulumi.set(__self__, "hls_input_settings", hls_input_settings)
-        if server_validation is not None:
-            pulumi.set(__self__, "server_validation", server_validation)
-
-    @property
-    @pulumi.getter(name="hlsInputSettings")
-    def hls_input_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorNetworkInputSettingsHlsInputSettingsArgs']]:
-        return pulumi.get(self, "hls_input_settings")
-
-    @hls_input_settings.setter
-    def hls_input_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorNetworkInputSettingsHlsInputSettingsArgs']]):
-        pulumi.set(self, "hls_input_settings", value)
-
-    @property
-    @pulumi.getter(name="serverValidation")
-    def server_validation(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "server_validation")
-
-    @server_validation.setter
-    def server_validation(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "server_validation", value)
-
-
-@pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorNetworkInputSettingsHlsInputSettingsArgs:
-    def __init__(__self__, *,
-                 bandwidth: Optional[pulumi.Input[int]] = None,
-                 buffer_segments: Optional[pulumi.Input[int]] = None,
-                 retries: Optional[pulumi.Input[int]] = None,
-                 retry_interval: Optional[pulumi.Input[int]] = None,
-                 scte35_source: Optional[pulumi.Input[str]] = None):
-        if bandwidth is not None:
-            pulumi.set(__self__, "bandwidth", bandwidth)
-        if buffer_segments is not None:
-            pulumi.set(__self__, "buffer_segments", buffer_segments)
-        if retries is not None:
-            pulumi.set(__self__, "retries", retries)
-        if retry_interval is not None:
-            pulumi.set(__self__, "retry_interval", retry_interval)
-        if scte35_source is not None:
-            pulumi.set(__self__, "scte35_source", scte35_source)
-
-    @property
-    @pulumi.getter
-    def bandwidth(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "bandwidth")
-
-    @bandwidth.setter
-    def bandwidth(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "bandwidth", value)
-
-    @property
-    @pulumi.getter(name="bufferSegments")
-    def buffer_segments(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "buffer_segments")
-
-    @buffer_segments.setter
-    def buffer_segments(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "buffer_segments", value)
-
-    @property
-    @pulumi.getter
-    def retries(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "retries")
-
-    @retries.setter
-    def retries(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "retries", value)
-
-    @property
-    @pulumi.getter(name="retryInterval")
-    def retry_interval(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "retry_interval")
-
-    @retry_interval.setter
-    def retry_interval(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "retry_interval", value)
-
-    @property
-    @pulumi.getter(name="scte35Source")
-    def scte35_source(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scte35_source")
-
-    @scte35_source.setter
-    def scte35_source(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scte35_source", value)
 
 
 @pulumi.input_type
@@ -7615,7 +8371,129 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorVideoSelectorArgs:
+class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs:
+    def __init__(__self__, *,
+                 hls_input_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs']] = None,
+                 server_validation: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs'] hls_input_settings: Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+        :param pulumi.Input[str] server_validation: Check HTTPS server certificates.
+        """
+        if hls_input_settings is not None:
+            pulumi.set(__self__, "hls_input_settings", hls_input_settings)
+        if server_validation is not None:
+            pulumi.set(__self__, "server_validation", server_validation)
+
+    @property
+    @pulumi.getter(name="hlsInputSettings")
+    def hls_input_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs']]:
+        """
+        Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+        """
+        return pulumi.get(self, "hls_input_settings")
+
+    @hls_input_settings.setter
+    def hls_input_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs']]):
+        pulumi.set(self, "hls_input_settings", value)
+
+    @property
+    @pulumi.getter(name="serverValidation")
+    def server_validation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Check HTTPS server certificates.
+        """
+        return pulumi.get(self, "server_validation")
+
+    @server_validation.setter
+    def server_validation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_validation", value)
+
+
+@pulumi.input_type
+class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs:
+    def __init__(__self__, *,
+                 bandwidth: Optional[pulumi.Input[int]] = None,
+                 buffer_segments: Optional[pulumi.Input[int]] = None,
+                 retries: Optional[pulumi.Input[int]] = None,
+                 retry_interval: Optional[pulumi.Input[int]] = None,
+                 scte35_source: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] bandwidth: The bitrate is specified in bits per second, as in an HLS manifest.
+        :param pulumi.Input[int] buffer_segments: Buffer segments.
+        :param pulumi.Input[int] retries: The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+        :param pulumi.Input[int] retry_interval: The number of seconds between retries when an attempt to read a manifest or segment fails.
+        """
+        if bandwidth is not None:
+            pulumi.set(__self__, "bandwidth", bandwidth)
+        if buffer_segments is not None:
+            pulumi.set(__self__, "buffer_segments", buffer_segments)
+        if retries is not None:
+            pulumi.set(__self__, "retries", retries)
+        if retry_interval is not None:
+            pulumi.set(__self__, "retry_interval", retry_interval)
+        if scte35_source is not None:
+            pulumi.set(__self__, "scte35_source", scte35_source)
+
+    @property
+    @pulumi.getter
+    def bandwidth(self) -> Optional[pulumi.Input[int]]:
+        """
+        The bitrate is specified in bits per second, as in an HLS manifest.
+        """
+        return pulumi.get(self, "bandwidth")
+
+    @bandwidth.setter
+    def bandwidth(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "bandwidth", value)
+
+    @property
+    @pulumi.getter(name="bufferSegments")
+    def buffer_segments(self) -> Optional[pulumi.Input[int]]:
+        """
+        Buffer segments.
+        """
+        return pulumi.get(self, "buffer_segments")
+
+    @buffer_segments.setter
+    def buffer_segments(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffer_segments", value)
+
+    @property
+    @pulumi.getter
+    def retries(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+        """
+        return pulumi.get(self, "retries")
+
+    @retries.setter
+    def retries(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retries", value)
+
+    @property
+    @pulumi.getter(name="retryInterval")
+    def retry_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds between retries when an attempt to read a manifest or segment fails.
+        """
+        return pulumi.get(self, "retry_interval")
+
+    @retry_interval.setter
+    def retry_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retry_interval", value)
+
+    @property
+    @pulumi.getter(name="scte35Source")
+    def scte35_source(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scte35_source")
+
+    @scte35_source.setter
+    def scte35_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scte35_source", value)
+
+
+@pulumi.input_type
+class ChannelInputAttachmentInputSettingsVideoSelectorArgs:
     def __init__(__self__, *,
                  color_space: Optional[pulumi.Input[str]] = None,
                  color_space_usage: Optional[pulumi.Input[str]] = None):

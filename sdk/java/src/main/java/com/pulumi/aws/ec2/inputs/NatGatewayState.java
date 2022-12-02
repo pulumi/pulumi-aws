@@ -47,14 +47,14 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ENI ID of the network interface created by the NAT gateway.
+     * The ID of the network interface associated with the NAT gateway.
      * 
      */
     @Import(name="networkInterfaceId")
     private @Nullable Output<String> networkInterfaceId;
 
     /**
-     * @return The ENI ID of the network interface created by the NAT gateway.
+     * @return The ID of the network interface associated with the NAT gateway.
      * 
      */
     public Optional<Output<String>> networkInterfaceId() {
@@ -62,14 +62,14 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The private IP address of the NAT Gateway.
+     * The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
      * 
      */
     @Import(name="privateIp")
     private @Nullable Output<String> privateIp;
 
     /**
-     * @return The private IP address of the NAT Gateway.
+     * @return The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
      * 
      */
     public Optional<Output<String>> privateIp() {
@@ -77,14 +77,14 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The public IP address of the NAT Gateway.
+     * The Elastic IP address associated with the NAT gateway.
      * 
      */
     @Import(name="publicIp")
     private @Nullable Output<String> publicIp;
 
     /**
-     * @return The public IP address of the NAT Gateway.
+     * @return The Elastic IP address associated with the NAT gateway.
      * 
      */
     public Optional<Output<String>> publicIp() {
@@ -210,7 +210,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaceId The ENI ID of the network interface created by the NAT gateway.
+         * @param networkInterfaceId The ID of the network interface associated with the NAT gateway.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaceId The ENI ID of the network interface created by the NAT gateway.
+         * @param networkInterfaceId The ID of the network interface associated with the NAT gateway.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateIp The private IP address of the NAT Gateway.
+         * @param privateIp The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateIp The private IP address of the NAT Gateway.
+         * @param privateIp The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIp The public IP address of the NAT Gateway.
+         * @param publicIp The Elastic IP address associated with the NAT gateway.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIp The public IP address of the NAT Gateway.
+         * @param publicIp The Elastic IP address associated with the NAT gateway.
          * 
          * @return builder
          * 

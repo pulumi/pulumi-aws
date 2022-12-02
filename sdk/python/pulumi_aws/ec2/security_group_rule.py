@@ -203,6 +203,7 @@ class _SecurityGroupRuleState:
                  prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'ProtocolType']]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
+                 security_group_rule_id: Optional[pulumi.Input[str]] = None,
                  self: Optional[pulumi.Input[bool]] = None,
                  source_security_group_id: Optional[pulumi.Input[str]] = None,
                  to_port: Optional[pulumi.Input[int]] = None,
@@ -216,6 +217,7 @@ class _SecurityGroupRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of Prefix List IDs.
         :param pulumi.Input[Union[str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[str] security_group_id: Security group to apply this rule to.
+        :param pulumi.Input[str] security_group_rule_id: If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
         :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         :param pulumi.Input[str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         :param pulumi.Input[int] to_port: End port (or ICMP code if protocol is "icmp").
@@ -236,6 +238,8 @@ class _SecurityGroupRuleState:
             pulumi.set(__self__, "protocol", protocol)
         if security_group_id is not None:
             pulumi.set(__self__, "security_group_id", security_group_id)
+        if security_group_rule_id is not None:
+            pulumi.set(__self__, "security_group_rule_id", security_group_rule_id)
         if self is not None:
             pulumi.set(__self__, "self", self)
         if source_security_group_id is not None:
@@ -328,6 +332,18 @@ class _SecurityGroupRuleState:
     @security_group_id.setter
     def security_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "security_group_id", value)
+
+    @property
+    @pulumi.getter(name="securityGroupRuleId")
+    def security_group_rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+        """
+        return pulumi.get(self, "security_group_rule_id")
+
+    @security_group_rule_id.setter
+    def security_group_rule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_rule_id", value)
 
     @property
     @pulumi.getter
@@ -711,6 +727,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["security_group_rule_id"] = None
         super(SecurityGroupRule, __self__).__init__(
             'aws:ec2/securityGroupRule:SecurityGroupRule',
             resource_name,
@@ -728,6 +745,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             protocol: Optional[pulumi.Input[Union[str, 'ProtocolType']]] = None,
             security_group_id: Optional[pulumi.Input[str]] = None,
+            security_group_rule_id: Optional[pulumi.Input[str]] = None,
             self: Optional[pulumi.Input[bool]] = None,
             source_security_group_id: Optional[pulumi.Input[str]] = None,
             to_port: Optional[pulumi.Input[int]] = None,
@@ -746,6 +764,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of Prefix List IDs.
         :param pulumi.Input[Union[str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[str] security_group_id: Security group to apply this rule to.
+        :param pulumi.Input[str] security_group_rule_id: If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
         :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         :param pulumi.Input[str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         :param pulumi.Input[int] to_port: End port (or ICMP code if protocol is "icmp").
@@ -763,6 +782,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         __props__.__dict__["prefix_list_ids"] = prefix_list_ids
         __props__.__dict__["protocol"] = protocol
         __props__.__dict__["security_group_id"] = security_group_id
+        __props__.__dict__["security_group_rule_id"] = security_group_rule_id
         __props__.__dict__["self"] = self
         __props__.__dict__["source_security_group_id"] = source_security_group_id
         __props__.__dict__["to_port"] = to_port
@@ -824,6 +844,14 @@ class SecurityGroupRule(pulumi.CustomResource):
         Security group to apply this rule to.
         """
         return pulumi.get(self, "security_group_id")
+
+    @property
+    @pulumi.getter(name="securityGroupRuleId")
+    def security_group_rule_id(self) -> pulumi.Output[str]:
+        """
+        If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+        """
+        return pulumi.get(self, "security_group_rule_id")
 
     @property
     @pulumi.getter

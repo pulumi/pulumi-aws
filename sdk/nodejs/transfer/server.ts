@@ -21,11 +21,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.transfer.Server("example", {
- *     tags: {
- *         Name: "Example",
- *     },
- * });
+ * const example = new aws.transfer.Server("example", {tags: {
+ *     Name: "Example",
+ * }});
  * ```
  * ### Security Policy Name
  *
@@ -33,9 +31,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.transfer.Server("example", {
- *     securityPolicyName: "TransferSecurityPolicy-2020-06",
- * });
+ * const example = new aws.transfer.Server("example", {securityPolicyName: "TransferSecurityPolicy-2020-06"});
  * ```
  * ### VPC Endpoint
  *
@@ -271,12 +267,12 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["endpointType"] = args ? args.endpointType : undefined;
             resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["function"] = args ? args.function : undefined;
-            resourceInputs["hostKey"] = args ? args.hostKey : undefined;
+            resourceInputs["hostKey"] = args?.hostKey ? pulumi.secret(args.hostKey) : undefined;
             resourceInputs["identityProviderType"] = args ? args.identityProviderType : undefined;
             resourceInputs["invocationRole"] = args ? args.invocationRole : undefined;
             resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
-            resourceInputs["postAuthenticationLoginBanner"] = args ? args.postAuthenticationLoginBanner : undefined;
-            resourceInputs["preAuthenticationLoginBanner"] = args ? args.preAuthenticationLoginBanner : undefined;
+            resourceInputs["postAuthenticationLoginBanner"] = args?.postAuthenticationLoginBanner ? pulumi.secret(args.postAuthenticationLoginBanner) : undefined;
+            resourceInputs["preAuthenticationLoginBanner"] = args?.preAuthenticationLoginBanner ? pulumi.secret(args.preAuthenticationLoginBanner) : undefined;
             resourceInputs["protocols"] = args ? args.protocols : undefined;
             resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -288,6 +284,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["hostKey", "postAuthenticationLoginBanner", "preAuthenticationLoginBanner"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }

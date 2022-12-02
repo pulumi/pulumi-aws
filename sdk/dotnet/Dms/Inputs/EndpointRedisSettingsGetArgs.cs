@@ -12,11 +12,21 @@ namespace Pulumi.Aws.Dms.Inputs
 
     public sealed class EndpointRedisSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("authPassword")]
+        private Input<string>? _authPassword;
+
         /// <summary>
         /// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
         /// </summary>
-        [Input("authPassword")]
-        public Input<string>? AuthPassword { get; set; }
+        public Input<string>? AuthPassword
+        {
+            get => _authPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.

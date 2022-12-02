@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSerialConsoleAccessResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSerialConsoleAccessResult>("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSerialConsoleAccessResult>("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

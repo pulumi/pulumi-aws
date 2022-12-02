@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Efs
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         /// </summary>
         [Output("throughputMode")]
         public Output<string?> ThroughputMode { get; private set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Efs
         }
 
         /// <summary>
-        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         /// </summary>
         [Input("throughputMode")]
         public Input<string>? ThroughputMode { get; set; }
@@ -406,7 +406,7 @@ namespace Pulumi.Aws.Efs
         }
 
         /// <summary>
-        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         /// </summary>
         [Input("throughputMode")]
         public Input<string>? ThroughputMode { get; set; }

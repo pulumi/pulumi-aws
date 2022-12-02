@@ -33,6 +33,11 @@ public final class GetClusterResult {
     private Boolean autoMinorVersionUpgrade;
     private List<GetClusterClusterEndpoint> clusterEndpoints;
     /**
+     * @return True when data tiering is enabled.
+     * 
+     */
+    private Boolean dataTiering;
+    /**
      * @return Description for the cluster.
      * 
      */
@@ -161,6 +166,13 @@ public final class GetClusterResult {
     }
     public List<GetClusterClusterEndpoint> clusterEndpoints() {
         return this.clusterEndpoints;
+    }
+    /**
+     * @return True when data tiering is enabled.
+     * 
+     */
+    public Boolean dataTiering() {
+        return this.dataTiering;
     }
     /**
      * @return Description for the cluster.
@@ -321,6 +333,7 @@ public final class GetClusterResult {
         private String arn;
         private Boolean autoMinorVersionUpgrade;
         private List<GetClusterClusterEndpoint> clusterEndpoints;
+        private Boolean dataTiering;
         private String description;
         private String enginePatchVersion;
         private String engineVersion;
@@ -349,6 +362,7 @@ public final class GetClusterResult {
     	      this.arn = defaults.arn;
     	      this.autoMinorVersionUpgrade = defaults.autoMinorVersionUpgrade;
     	      this.clusterEndpoints = defaults.clusterEndpoints;
+    	      this.dataTiering = defaults.dataTiering;
     	      this.description = defaults.description;
     	      this.enginePatchVersion = defaults.enginePatchVersion;
     	      this.engineVersion = defaults.engineVersion;
@@ -394,6 +408,11 @@ public final class GetClusterResult {
         }
         public Builder clusterEndpoints(GetClusterClusterEndpoint... clusterEndpoints) {
             return clusterEndpoints(List.of(clusterEndpoints));
+        }
+        @CustomType.Setter
+        public Builder dataTiering(Boolean dataTiering) {
+            this.dataTiering = Objects.requireNonNull(dataTiering);
+            return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
@@ -512,6 +531,7 @@ public final class GetClusterResult {
             o.arn = arn;
             o.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
             o.clusterEndpoints = clusterEndpoints;
+            o.dataTiering = dataTiering;
             o.description = description;
             o.enginePatchVersion = enginePatchVersion;
             o.engineVersion = engineVersion;

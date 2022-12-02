@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Cognito
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserPoolClientResult> InvokeAsync(GetUserPoolClientArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolClientResult>("aws:cognito/getUserPoolClient:getUserPoolClient", args ?? new GetUserPoolClientArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolClientResult>("aws:cognito/getUserPoolClient:getUserPoolClient", args ?? new GetUserPoolClientArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a Cognito User Pool Client resource.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Cognito
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserPoolClientResult> Invoke(GetUserPoolClientInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserPoolClientResult>("aws:cognito/getUserPoolClient:getUserPoolClient", args ?? new GetUserPoolClientInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolClientResult>("aws:cognito/getUserPoolClient:getUserPoolClient", args ?? new GetUserPoolClientInvokeArgs(), options.WithDefaults());
     }
 
 

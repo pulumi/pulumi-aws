@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { ChannelArgs, ChannelState } from "./channel";
 export type Channel = import("./channel").Channel;
 export const Channel: typeof import("./channel").Channel = null as any;
-
 utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
+
 
 const _module = {
     version: utilities.getVersion(),

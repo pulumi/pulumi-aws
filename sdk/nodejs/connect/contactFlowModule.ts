@@ -62,7 +62,8 @@ import * as utilities from "../utilities";
  * 			]
  * 		}
  * 	}
- *     `,
+ *     
+ * `,
  *     description: "Example Contact Flow Module Description",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     tags: {

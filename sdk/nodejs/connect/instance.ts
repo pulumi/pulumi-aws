@@ -128,6 +128,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly instanceAlias!: pulumi.Output<string | undefined>;
     /**
+     * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+     */
+    public readonly multiPartyConferenceEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies whether outbound calls are enabled.
      * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
@@ -164,6 +168,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["identityManagementType"] = state ? state.identityManagementType : undefined;
             resourceInputs["inboundCallsEnabled"] = state ? state.inboundCallsEnabled : undefined;
             resourceInputs["instanceAlias"] = state ? state.instanceAlias : undefined;
+            resourceInputs["multiPartyConferenceEnabled"] = state ? state.multiPartyConferenceEnabled : undefined;
             resourceInputs["outboundCallsEnabled"] = state ? state.outboundCallsEnabled : undefined;
             resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -186,6 +191,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["identityManagementType"] = args ? args.identityManagementType : undefined;
             resourceInputs["inboundCallsEnabled"] = args ? args.inboundCallsEnabled : undefined;
             resourceInputs["instanceAlias"] = args ? args.instanceAlias : undefined;
+            resourceInputs["multiPartyConferenceEnabled"] = args ? args.multiPartyConferenceEnabled : undefined;
             resourceInputs["outboundCallsEnabled"] = args ? args.outboundCallsEnabled : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
@@ -242,6 +248,10 @@ export interface InstanceState {
      */
     instanceAlias?: pulumi.Input<string>;
     /**
+     * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+     */
+    multiPartyConferenceEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies whether outbound calls are enabled.
      * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
@@ -292,6 +302,10 @@ export interface InstanceArgs {
      * Specifies the name of the instance. Required if `directoryId` not specified.
      */
     instanceAlias?: pulumi.Input<string>;
+    /**
+     * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+     */
+    multiPartyConferenceEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies whether outbound calls are enabled.
      * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->

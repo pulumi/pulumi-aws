@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
 export const getResource: typeof import("./getResource").getResource = null as any;
 export const getResourceOutput: typeof import("./getResource").getResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
 
 export { ResourceArgs, ResourceState } from "./resource";
 export type Resource = import("./resource").Resource;
 export const Resource: typeof import("./resource").Resource = null as any;
-
-utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
 utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
+
 
 const _module = {
     version: utilities.getVersion(),

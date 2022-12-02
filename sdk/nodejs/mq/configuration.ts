@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
  *   </plugins>
  * </broker>
+ *
  * `,
  *     description: "Example Configuration",
  *     engineType: "ActiveMQ",

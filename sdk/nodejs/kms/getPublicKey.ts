@@ -13,26 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byAlias = pulumi.output(aws.kms.getPublicKey({
+ * const byAlias = aws.kms.getPublicKey({
  *     keyId: "alias/my-key",
- * }));
- * const byId = pulumi.output(aws.kms.getPublicKey({
+ * });
+ * const byId = aws.kms.getPublicKey({
  *     keyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
- * }));
- * const byAliasArn = pulumi.output(aws.kms.getPublicKey({
+ * });
+ * const byAliasArn = aws.kms.getPublicKey({
  *     keyId: "arn:aws:kms:us-east-1:111122223333:alias/my-key",
- * }));
- * const byKeyArn = pulumi.output(aws.kms.getPublicKey({
+ * });
+ * const byKeyArn = aws.kms.getPublicKey({
  *     keyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- * }));
+ * });
  * ```
  */
 export function getPublicKey(args: GetPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kms/getPublicKey:getPublicKey", {
         "grantTokens": args.grantTokens,
         "keyId": args.keyId,

@@ -171,7 +171,7 @@ import (
 //					TargetGroupPairInfo: &codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs{
 //						ProdTrafficRoute: &codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs{
 //							ListenerArns: pulumi.StringArray{
-//								pulumi.Any(aws_lb_listener.Example.Arn),
+//								aws_lb_listener.Example.Arn,
 //							},
 //						},
 //						TargetGroups: codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArray{

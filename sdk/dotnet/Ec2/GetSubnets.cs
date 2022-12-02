@@ -15,13 +15,13 @@ namespace Pulumi.Aws.Ec2
         /// This resource can be useful for getting back a set of subnet IDs.
         /// </summary>
         public static Task<GetSubnetsResult> InvokeAsync(GetSubnetsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetsResult>("aws:ec2/getSubnets:getSubnets", args ?? new GetSubnetsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetsResult>("aws:ec2/getSubnets:getSubnets", args ?? new GetSubnetsArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource can be useful for getting back a set of subnet IDs.
         /// </summary>
         public static Output<GetSubnetsResult> Invoke(GetSubnetsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubnetsResult>("aws:ec2/getSubnets:getSubnets", args ?? new GetSubnetsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetsResult>("aws:ec2/getSubnets:getSubnets", args ?? new GetSubnetsInvokeArgs(), options.WithDefaults());
     }
 
 

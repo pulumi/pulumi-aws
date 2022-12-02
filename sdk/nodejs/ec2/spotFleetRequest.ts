@@ -161,7 +161,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
 
     /**
      * Indicates how to allocate the target capacity across
-     * the Spot pools specified by the Spot fleet request. The default is
+     * the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
      * `lowestPrice`.
      */
     public readonly allocationStrategy!: pulumi.Output<string | undefined>;
@@ -374,7 +374,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
 export interface SpotFleetRequestState {
     /**
      * Indicates how to allocate the target capacity across
-     * the Spot pools specified by the Spot fleet request. The default is
+     * the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
      * `lowestPrice`.
      */
     allocationStrategy?: pulumi.Input<string>;
@@ -507,7 +507,7 @@ export interface SpotFleetRequestState {
 export interface SpotFleetRequestArgs {
     /**
      * Indicates how to allocate the target capacity across
-     * the Spot pools specified by the Spot fleet request. The default is
+     * the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
      * `lowestPrice`.
      */
     allocationStrategy?: pulumi.Input<string>;

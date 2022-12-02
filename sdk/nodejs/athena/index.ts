@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { DataCatalogArgs, DataCatalogState } from "./dataCatalog";
 export type DataCatalog = import("./dataCatalog").DataCatalog;
 export const DataCatalog: typeof import("./dataCatalog").DataCatalog = null as any;
+utilities.lazyLoad(exports, ["DataCatalog"], () => require("./dataCatalog"));
 
 export { DatabaseArgs, DatabaseState } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
 export { NamedQueryArgs, NamedQueryState } from "./namedQuery";
 export type NamedQuery = import("./namedQuery").NamedQuery;
 export const NamedQuery: typeof import("./namedQuery").NamedQuery = null as any;
+utilities.lazyLoad(exports, ["NamedQuery"], () => require("./namedQuery"));
 
 export { WorkgroupArgs, WorkgroupState } from "./workgroup";
 export type Workgroup = import("./workgroup").Workgroup;
 export const Workgroup: typeof import("./workgroup").Workgroup = null as any;
-
-utilities.lazyLoad(exports, ["DataCatalog"], () => require("./dataCatalog"));
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-utilities.lazyLoad(exports, ["NamedQuery"], () => require("./namedQuery"));
 utilities.lazyLoad(exports, ["Workgroup"], () => require("./workgroup"));
+
 
 const _module = {
     version: utilities.getVersion(),

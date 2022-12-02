@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicequotas.GetService(ctx, &servicequotas.GetServiceArgs{
+//			_, err = servicequotas.GetService(ctx, &servicequotas.GetServiceArgs{
 //				ServiceName: "Amazon Virtual Private Cloud (Amazon VPC)",
 //			}, nil)
 //			if err != nil {

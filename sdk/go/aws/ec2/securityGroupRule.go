@@ -47,10 +47,10 @@ import (
 //				ToPort:   pulumi.Int(65535),
 //				Protocol: pulumi.String("tcp"),
 //				CidrBlocks: pulumi.StringArray{
-//					pulumi.Any(aws_vpc.Example.Cidr_block),
+//					aws_vpc.Example.Cidr_block,
 //				},
 //				Ipv6CidrBlocks: pulumi.StringArray{
-//					pulumi.Any(aws_vpc.Example.Ipv6_cidr_block),
+//					aws_vpc.Example.Ipv6_cidr_block,
 //				},
 //				SecurityGroupId: pulumi.String("sg-123456"),
 //			})
@@ -227,6 +227,8 @@ type SecurityGroupRule struct {
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
+	// If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+	SecurityGroupRuleId pulumi.StringOutput `pulumi:"securityGroupRuleId"`
 	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
 	Self pulumi.BoolPtrOutput `pulumi:"self"`
 	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
@@ -296,6 +298,8 @@ type securityGroupRuleState struct {
 	Protocol *string `pulumi:"protocol"`
 	// Security group to apply this rule to.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
+	// If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+	SecurityGroupRuleId *string `pulumi:"securityGroupRuleId"`
 	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
 	Self *bool `pulumi:"self"`
 	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
@@ -322,6 +326,8 @@ type SecurityGroupRuleState struct {
 	Protocol pulumi.StringPtrInput
 	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringPtrInput
+	// If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+	SecurityGroupRuleId pulumi.StringPtrInput
 	// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
 	Self pulumi.BoolPtrInput
 	// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
@@ -510,6 +516,11 @@ func (o SecurityGroupRuleOutput) Protocol() pulumi.StringOutput {
 // Security group to apply this rule to.
 func (o SecurityGroupRuleOutput) SecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
+}
+
+// If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
+func (o SecurityGroupRuleOutput) SecurityGroupRuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.SecurityGroupRuleId }).(pulumi.StringOutput)
 }
 
 // Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.

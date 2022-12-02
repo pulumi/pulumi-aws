@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EndpointAccess{}
 	case "aws:redshiftserverless/namespace:Namespace":
 		r = &Namespace{}
+	case "aws:redshiftserverless/resourcePolicy:ResourcePolicy":
+		r = &ResourcePolicy{}
 	case "aws:redshiftserverless/snapshot:Snapshot":
 		r = &Snapshot{}
 	case "aws:redshiftserverless/usageLimit:UsageLimit":
@@ -52,6 +54,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"redshiftserverless/namespace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"redshiftserverless/resourcePolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

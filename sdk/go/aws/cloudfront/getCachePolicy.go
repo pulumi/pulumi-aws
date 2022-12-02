@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.LookupCachePolicy(ctx, &cloudfront.LookupCachePolicyArgs{
+//			_, err = cloudfront.LookupCachePolicy(ctx, &cloudfront.LookupCachePolicyArgs{
 //				Name: pulumi.StringRef("example-policy"),
 //			}, nil)
 //			if err != nil {
@@ -54,7 +54,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.LookupCachePolicy(ctx, &cloudfront.LookupCachePolicyArgs{
+//			_, err = cloudfront.LookupCachePolicy(ctx, &cloudfront.LookupCachePolicyArgs{
 //				Name: pulumi.StringRef("Managed-CachingOptimized"),
 //			}, nil)
 //			if err != nil {

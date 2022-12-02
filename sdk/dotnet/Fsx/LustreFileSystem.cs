@@ -14,6 +14,28 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// &gt; **NOTE:** `auto_import_policy`, `export_path`, `import_path` and `imported_file_chunk_size` are not supported with the `PERSISTENT_2` deployment type. Use `aws.fsx.DataRepositoryAssociation` instead.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Fsx.LustreFileSystem("example", new()
+    ///     {
+    ///         ImportPath = $"s3://{aws_s3_bucket.Example.Bucket}",
+    ///         StorageCapacity = 1200,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// FSx File Systems can be imported using the `id`, e.g.,

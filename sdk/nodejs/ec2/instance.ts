@@ -90,7 +90,7 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const thisInstance = new aws.ec2.Instance("this", {
+ * const _this = new aws.ec2.Instance("this", {
  *     ami: "ami-0dcc1e21636832c5d",
  *     hostResourceGroupArn: "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
  *     instanceType: "m5.large",

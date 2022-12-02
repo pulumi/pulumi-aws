@@ -125,6 +125,15 @@ namespace Pulumi.Aws.Pinpoint
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "bundleId",
+                    "certificate",
+                    "privateKey",
+                    "teamId",
+                    "tokenKey",
+                    "tokenKeyId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -154,17 +163,37 @@ namespace Pulumi.Aws.Pinpoint
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        [Input("bundleId")]
+        private Input<string>? _bundleId;
+
         /// <summary>
         /// The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
         /// </summary>
-        [Input("bundleId")]
-        public Input<string>? BundleId { get; set; }
+        public Input<string>? BundleId
+        {
+            get => _bundleId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bundleId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("certificate")]
+        private Input<string>? _certificate;
 
         /// <summary>
         /// The pem encoded TLS Certificate from Apple.
         /// </summary>
-        [Input("certificate")]
-        public Input<string>? Certificate { get; set; }
+        public Input<string>? Certificate
+        {
+            get => _certificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The default authentication method used for APNs.
@@ -181,29 +210,69 @@ namespace Pulumi.Aws.Pinpoint
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// The Certificate Private Key file (ie. `.key` file).
         /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("teamId")]
+        private Input<string>? _teamId;
 
         /// <summary>
         /// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         /// </summary>
-        [Input("teamId")]
-        public Input<string>? TeamId { get; set; }
+        public Input<string>? TeamId
+        {
+            get => _teamId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _teamId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("tokenKey")]
+        private Input<string>? _tokenKey;
 
         /// <summary>
         /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
         /// </summary>
-        [Input("tokenKey")]
-        public Input<string>? TokenKey { get; set; }
+        public Input<string>? TokenKey
+        {
+            get => _tokenKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tokenKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("tokenKeyId")]
+        private Input<string>? _tokenKeyId;
 
         /// <summary>
         /// The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
         /// </summary>
-        [Input("tokenKeyId")]
-        public Input<string>? TokenKeyId { get; set; }
+        public Input<string>? TokenKeyId
+        {
+            get => _tokenKeyId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tokenKeyId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ApnsVoipSandboxChannelArgs()
         {
@@ -219,17 +288,37 @@ namespace Pulumi.Aws.Pinpoint
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
+        [Input("bundleId")]
+        private Input<string>? _bundleId;
+
         /// <summary>
         /// The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
         /// </summary>
-        [Input("bundleId")]
-        public Input<string>? BundleId { get; set; }
+        public Input<string>? BundleId
+        {
+            get => _bundleId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bundleId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("certificate")]
+        private Input<string>? _certificate;
 
         /// <summary>
         /// The pem encoded TLS Certificate from Apple.
         /// </summary>
-        [Input("certificate")]
-        public Input<string>? Certificate { get; set; }
+        public Input<string>? Certificate
+        {
+            get => _certificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The default authentication method used for APNs.
@@ -246,29 +335,69 @@ namespace Pulumi.Aws.Pinpoint
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// The Certificate Private Key file (ie. `.key` file).
         /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("teamId")]
+        private Input<string>? _teamId;
 
         /// <summary>
         /// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         /// </summary>
-        [Input("teamId")]
-        public Input<string>? TeamId { get; set; }
+        public Input<string>? TeamId
+        {
+            get => _teamId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _teamId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("tokenKey")]
+        private Input<string>? _tokenKey;
 
         /// <summary>
         /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
         /// </summary>
-        [Input("tokenKey")]
-        public Input<string>? TokenKey { get; set; }
+        public Input<string>? TokenKey
+        {
+            get => _tokenKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tokenKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("tokenKeyId")]
+        private Input<string>? _tokenKeyId;
 
         /// <summary>
         /// The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
         /// </summary>
-        [Input("tokenKeyId")]
-        public Input<string>? TokenKeyId { get; set; }
+        public Input<string>? TokenKeyId
+        {
+            get => _tokenKeyId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tokenKeyId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ApnsVoipSandboxChannelState()
         {

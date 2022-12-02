@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { FleetArgs, FleetState } from "./fleet";
 export type Fleet = import("./fleet").Fleet;
 export const Fleet: typeof import("./fleet").Fleet = null as any;
+utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
 
 export { WebsiteCertificateAuthorityAssociationArgs, WebsiteCertificateAuthorityAssociationState } from "./websiteCertificateAuthorityAssociation";
 export type WebsiteCertificateAuthorityAssociation = import("./websiteCertificateAuthorityAssociation").WebsiteCertificateAuthorityAssociation;
 export const WebsiteCertificateAuthorityAssociation: typeof import("./websiteCertificateAuthorityAssociation").WebsiteCertificateAuthorityAssociation = null as any;
-
-utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
 utilities.lazyLoad(exports, ["WebsiteCertificateAuthorityAssociation"], () => require("./websiteCertificateAuthorityAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),

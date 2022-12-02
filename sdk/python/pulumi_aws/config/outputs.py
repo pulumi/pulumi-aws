@@ -365,6 +365,7 @@ class Endpoints(dict):
                  iottwinmaker: Optional[str] = None,
                  iotwireless: Optional[str] = None,
                  ivs: Optional[str] = None,
+                 ivschat: Optional[str] = None,
                  kafka: Optional[str] = None,
                  kafkaconnect: Optional[str] = None,
                  kendra: Optional[str] = None,
@@ -493,6 +494,7 @@ class Endpoints(dict):
                  sagemakerfeaturestoreruntime: Optional[str] = None,
                  sagemakerruntime: Optional[str] = None,
                  savingsplans: Optional[str] = None,
+                 scheduler: Optional[str] = None,
                  schemas: Optional[str] = None,
                  sdb: Optional[str] = None,
                  secretsmanager: Optional[str] = None,
@@ -921,6 +923,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "iotwireless", iotwireless)
         if ivs is not None:
             pulumi.set(__self__, "ivs", ivs)
+        if ivschat is not None:
+            pulumi.set(__self__, "ivschat", ivschat)
         if kafka is not None:
             pulumi.set(__self__, "kafka", kafka)
         if kafkaconnect is not None:
@@ -1177,6 +1181,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "sagemakerruntime", sagemakerruntime)
         if savingsplans is not None:
             pulumi.set(__self__, "savingsplans", savingsplans)
+        if scheduler is not None:
+            pulumi.set(__self__, "scheduler", scheduler)
         if schemas is not None:
             pulumi.set(__self__, "schemas", schemas)
         if sdb is not None:
@@ -2222,6 +2228,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def ivschat(self) -> Optional[str]:
+        return pulumi.get(self, "ivschat")
+
+    @property
+    @pulumi.getter
     def kafka(self) -> Optional[str]:
         return pulumi.get(self, "kafka")
 
@@ -2859,6 +2870,11 @@ class Endpoints(dict):
     @pulumi.getter
     def savingsplans(self) -> Optional[str]:
         return pulumi.get(self, "savingsplans")
+
+    @property
+    @pulumi.getter
+    def scheduler(self) -> Optional[str]:
+        return pulumi.get(self, "scheduler")
 
     @property
     @pulumi.getter

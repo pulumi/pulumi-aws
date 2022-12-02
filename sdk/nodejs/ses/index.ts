@@ -8,92 +8,92 @@ import * as utilities from "../utilities";
 export { ActiveReceiptRuleSetArgs, ActiveReceiptRuleSetState } from "./activeReceiptRuleSet";
 export type ActiveReceiptRuleSet = import("./activeReceiptRuleSet").ActiveReceiptRuleSet;
 export const ActiveReceiptRuleSet: typeof import("./activeReceiptRuleSet").ActiveReceiptRuleSet = null as any;
+utilities.lazyLoad(exports, ["ActiveReceiptRuleSet"], () => require("./activeReceiptRuleSet"));
 
 export { ConfgurationSetArgs, ConfgurationSetState } from "./confgurationSet";
 export type ConfgurationSet = import("./confgurationSet").ConfgurationSet;
 export const ConfgurationSet: typeof import("./confgurationSet").ConfgurationSet = null as any;
+utilities.lazyLoad(exports, ["ConfgurationSet"], () => require("./confgurationSet"));
 
 export { ConfigurationSetArgs, ConfigurationSetState } from "./configurationSet";
 export type ConfigurationSet = import("./configurationSet").ConfigurationSet;
 export const ConfigurationSet: typeof import("./configurationSet").ConfigurationSet = null as any;
+utilities.lazyLoad(exports, ["ConfigurationSet"], () => require("./configurationSet"));
 
 export { DomainDkimArgs, DomainDkimState } from "./domainDkim";
 export type DomainDkim = import("./domainDkim").DomainDkim;
 export const DomainDkim: typeof import("./domainDkim").DomainDkim = null as any;
+utilities.lazyLoad(exports, ["DomainDkim"], () => require("./domainDkim"));
 
 export { DomainIdentityArgs, DomainIdentityState } from "./domainIdentity";
 export type DomainIdentity = import("./domainIdentity").DomainIdentity;
 export const DomainIdentity: typeof import("./domainIdentity").DomainIdentity = null as any;
+utilities.lazyLoad(exports, ["DomainIdentity"], () => require("./domainIdentity"));
 
 export { DomainIdentityVerificationArgs, DomainIdentityVerificationState } from "./domainIdentityVerification";
 export type DomainIdentityVerification = import("./domainIdentityVerification").DomainIdentityVerification;
 export const DomainIdentityVerification: typeof import("./domainIdentityVerification").DomainIdentityVerification = null as any;
+utilities.lazyLoad(exports, ["DomainIdentityVerification"], () => require("./domainIdentityVerification"));
 
 export { EmailIdentityArgs, EmailIdentityState } from "./emailIdentity";
 export type EmailIdentity = import("./emailIdentity").EmailIdentity;
 export const EmailIdentity: typeof import("./emailIdentity").EmailIdentity = null as any;
+utilities.lazyLoad(exports, ["EmailIdentity"], () => require("./emailIdentity"));
 
 export { EventDestinationArgs, EventDestinationState } from "./eventDestination";
 export type EventDestination = import("./eventDestination").EventDestination;
 export const EventDestination: typeof import("./eventDestination").EventDestination = null as any;
+utilities.lazyLoad(exports, ["EventDestination"], () => require("./eventDestination"));
 
 export { GetActiveReceiptRuleSetResult } from "./getActiveReceiptRuleSet";
 export const getActiveReceiptRuleSet: typeof import("./getActiveReceiptRuleSet").getActiveReceiptRuleSet = null as any;
+utilities.lazyLoad(exports, ["getActiveReceiptRuleSet"], () => require("./getActiveReceiptRuleSet"));
 
 export { GetDomainIdentityArgs, GetDomainIdentityResult, GetDomainIdentityOutputArgs } from "./getDomainIdentity";
 export const getDomainIdentity: typeof import("./getDomainIdentity").getDomainIdentity = null as any;
 export const getDomainIdentityOutput: typeof import("./getDomainIdentity").getDomainIdentityOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainIdentity","getDomainIdentityOutput"], () => require("./getDomainIdentity"));
 
 export { GetEmailIdentityArgs, GetEmailIdentityResult, GetEmailIdentityOutputArgs } from "./getEmailIdentity";
 export const getEmailIdentity: typeof import("./getEmailIdentity").getEmailIdentity = null as any;
 export const getEmailIdentityOutput: typeof import("./getEmailIdentity").getEmailIdentityOutput = null as any;
+utilities.lazyLoad(exports, ["getEmailIdentity","getEmailIdentityOutput"], () => require("./getEmailIdentity"));
 
 export { IdentityNotificationTopicArgs, IdentityNotificationTopicState } from "./identityNotificationTopic";
 export type IdentityNotificationTopic = import("./identityNotificationTopic").IdentityNotificationTopic;
 export const IdentityNotificationTopic: typeof import("./identityNotificationTopic").IdentityNotificationTopic = null as any;
+utilities.lazyLoad(exports, ["IdentityNotificationTopic"], () => require("./identityNotificationTopic"));
 
 export { IdentityPolicyArgs, IdentityPolicyState } from "./identityPolicy";
 export type IdentityPolicy = import("./identityPolicy").IdentityPolicy;
 export const IdentityPolicy: typeof import("./identityPolicy").IdentityPolicy = null as any;
+utilities.lazyLoad(exports, ["IdentityPolicy"], () => require("./identityPolicy"));
 
 export { MailFromArgs, MailFromState } from "./mailFrom";
 export type MailFrom = import("./mailFrom").MailFrom;
 export const MailFrom: typeof import("./mailFrom").MailFrom = null as any;
+utilities.lazyLoad(exports, ["MailFrom"], () => require("./mailFrom"));
 
 export { ReceiptFilterArgs, ReceiptFilterState } from "./receiptFilter";
 export type ReceiptFilter = import("./receiptFilter").ReceiptFilter;
 export const ReceiptFilter: typeof import("./receiptFilter").ReceiptFilter = null as any;
+utilities.lazyLoad(exports, ["ReceiptFilter"], () => require("./receiptFilter"));
 
 export { ReceiptRuleArgs, ReceiptRuleState } from "./receiptRule";
 export type ReceiptRule = import("./receiptRule").ReceiptRule;
 export const ReceiptRule: typeof import("./receiptRule").ReceiptRule = null as any;
+utilities.lazyLoad(exports, ["ReceiptRule"], () => require("./receiptRule"));
 
 export { ReceiptRuleSetArgs, ReceiptRuleSetState } from "./receiptRuleSet";
 export type ReceiptRuleSet = import("./receiptRuleSet").ReceiptRuleSet;
 export const ReceiptRuleSet: typeof import("./receiptRuleSet").ReceiptRuleSet = null as any;
+utilities.lazyLoad(exports, ["ReceiptRuleSet"], () => require("./receiptRuleSet"));
 
 export { TemplateArgs, TemplateState } from "./template";
 export type Template = import("./template").Template;
 export const Template: typeof import("./template").Template = null as any;
-
-utilities.lazyLoad(exports, ["ActiveReceiptRuleSet"], () => require("./activeReceiptRuleSet"));
-utilities.lazyLoad(exports, ["ConfgurationSet"], () => require("./confgurationSet"));
-utilities.lazyLoad(exports, ["ConfigurationSet"], () => require("./configurationSet"));
-utilities.lazyLoad(exports, ["DomainDkim"], () => require("./domainDkim"));
-utilities.lazyLoad(exports, ["DomainIdentity"], () => require("./domainIdentity"));
-utilities.lazyLoad(exports, ["DomainIdentityVerification"], () => require("./domainIdentityVerification"));
-utilities.lazyLoad(exports, ["EmailIdentity"], () => require("./emailIdentity"));
-utilities.lazyLoad(exports, ["EventDestination"], () => require("./eventDestination"));
-utilities.lazyLoad(exports, ["getActiveReceiptRuleSet"], () => require("./getActiveReceiptRuleSet"));
-utilities.lazyLoad(exports, ["getDomainIdentity","getDomainIdentityOutput"], () => require("./getDomainIdentity"));
-utilities.lazyLoad(exports, ["getEmailIdentity","getEmailIdentityOutput"], () => require("./getEmailIdentity"));
-utilities.lazyLoad(exports, ["IdentityNotificationTopic"], () => require("./identityNotificationTopic"));
-utilities.lazyLoad(exports, ["IdentityPolicy"], () => require("./identityPolicy"));
-utilities.lazyLoad(exports, ["MailFrom"], () => require("./mailFrom"));
-utilities.lazyLoad(exports, ["ReceiptFilter"], () => require("./receiptFilter"));
-utilities.lazyLoad(exports, ["ReceiptRule"], () => require("./receiptRule"));
-utilities.lazyLoad(exports, ["ReceiptRuleSet"], () => require("./receiptRuleSet"));
 utilities.lazyLoad(exports, ["Template"], () => require("./template"));
+
 
 const _module = {
     version: utilities.getVersion(),

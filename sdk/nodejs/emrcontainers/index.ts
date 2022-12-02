@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetVirtualClusterArgs, GetVirtualClusterResult, GetVirtualClusterOutputArgs } from "./getVirtualCluster";
 export const getVirtualCluster: typeof import("./getVirtualCluster").getVirtualCluster = null as any;
 export const getVirtualClusterOutput: typeof import("./getVirtualCluster").getVirtualClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualCluster","getVirtualClusterOutput"], () => require("./getVirtualCluster"));
 
 export { VirtualClusterArgs, VirtualClusterState } from "./virtualCluster";
 export type VirtualCluster = import("./virtualCluster").VirtualCluster;
 export const VirtualCluster: typeof import("./virtualCluster").VirtualCluster = null as any;
-
-utilities.lazyLoad(exports, ["getVirtualCluster","getVirtualClusterOutput"], () => require("./getVirtualCluster"));
 utilities.lazyLoad(exports, ["VirtualCluster"], () => require("./virtualCluster"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -2371,7 +2371,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["tunnel1_phase2_encryption_algorithms"] = tunnel1_phase2_encryption_algorithms
             __props__.__dict__["tunnel1_phase2_integrity_algorithms"] = tunnel1_phase2_integrity_algorithms
             __props__.__dict__["tunnel1_phase2_lifetime_seconds"] = tunnel1_phase2_lifetime_seconds
-            __props__.__dict__["tunnel1_preshared_key"] = tunnel1_preshared_key
+            __props__.__dict__["tunnel1_preshared_key"] = None if tunnel1_preshared_key is None else pulumi.Output.secret(tunnel1_preshared_key)
             __props__.__dict__["tunnel1_rekey_fuzz_percentage"] = tunnel1_rekey_fuzz_percentage
             __props__.__dict__["tunnel1_rekey_margin_time_seconds"] = tunnel1_rekey_margin_time_seconds
             __props__.__dict__["tunnel1_replay_window_size"] = tunnel1_replay_window_size
@@ -2390,7 +2390,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["tunnel2_phase2_encryption_algorithms"] = tunnel2_phase2_encryption_algorithms
             __props__.__dict__["tunnel2_phase2_integrity_algorithms"] = tunnel2_phase2_integrity_algorithms
             __props__.__dict__["tunnel2_phase2_lifetime_seconds"] = tunnel2_phase2_lifetime_seconds
-            __props__.__dict__["tunnel2_preshared_key"] = tunnel2_preshared_key
+            __props__.__dict__["tunnel2_preshared_key"] = None if tunnel2_preshared_key is None else pulumi.Output.secret(tunnel2_preshared_key)
             __props__.__dict__["tunnel2_rekey_fuzz_percentage"] = tunnel2_rekey_fuzz_percentage
             __props__.__dict__["tunnel2_rekey_margin_time_seconds"] = tunnel2_rekey_margin_time_seconds
             __props__.__dict__["tunnel2_replay_window_size"] = tunnel2_replay_window_size
@@ -2418,6 +2418,8 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["tunnel2_cgw_inside_address"] = None
             __props__.__dict__["tunnel2_vgw_inside_address"] = None
             __props__.__dict__["vgw_telemetries"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customerGatewayConfiguration", "tunnel1PresharedKey", "tunnel2PresharedKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpnConnection, __self__).__init__(
             'aws:ec2/vpnConnection:VpnConnection',
             resource_name,

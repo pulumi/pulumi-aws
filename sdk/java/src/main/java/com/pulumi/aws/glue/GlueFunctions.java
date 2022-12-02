@@ -172,6 +172,7 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -209,6 +210,7 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -246,6 +248,7 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -283,6 +286,7 @@ public final class GlueFunctions {
      * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 

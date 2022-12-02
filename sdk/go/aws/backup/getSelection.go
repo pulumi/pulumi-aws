@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.LookupSelection(ctx, &backup.LookupSelectionArgs{
+//			_, err = backup.LookupSelection(ctx, &backup.LookupSelectionArgs{
 //				PlanId:      data.Aws_backup_plan.Example.Id,
 //				SelectionId: "selection-id-example",
 //			}, nil)

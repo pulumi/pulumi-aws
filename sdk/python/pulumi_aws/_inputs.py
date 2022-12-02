@@ -449,6 +449,7 @@ class ProviderEndpointArgs:
                  iottwinmaker: Optional[pulumi.Input[str]] = None,
                  iotwireless: Optional[pulumi.Input[str]] = None,
                  ivs: Optional[pulumi.Input[str]] = None,
+                 ivschat: Optional[pulumi.Input[str]] = None,
                  kafka: Optional[pulumi.Input[str]] = None,
                  kafkaconnect: Optional[pulumi.Input[str]] = None,
                  kendra: Optional[pulumi.Input[str]] = None,
@@ -577,6 +578,7 @@ class ProviderEndpointArgs:
                  sagemakerfeaturestoreruntime: Optional[pulumi.Input[str]] = None,
                  sagemakerruntime: Optional[pulumi.Input[str]] = None,
                  savingsplans: Optional[pulumi.Input[str]] = None,
+                 scheduler: Optional[pulumi.Input[str]] = None,
                  schemas: Optional[pulumi.Input[str]] = None,
                  sdb: Optional[pulumi.Input[str]] = None,
                  secretsmanager: Optional[pulumi.Input[str]] = None,
@@ -1005,6 +1007,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "iotwireless", iotwireless)
         if ivs is not None:
             pulumi.set(__self__, "ivs", ivs)
+        if ivschat is not None:
+            pulumi.set(__self__, "ivschat", ivschat)
         if kafka is not None:
             pulumi.set(__self__, "kafka", kafka)
         if kafkaconnect is not None:
@@ -1261,6 +1265,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "sagemakerruntime", sagemakerruntime)
         if savingsplans is not None:
             pulumi.set(__self__, "savingsplans", savingsplans)
+        if scheduler is not None:
+            pulumi.set(__self__, "scheduler", scheduler)
         if schemas is not None:
             pulumi.set(__self__, "schemas", schemas)
         if sdb is not None:
@@ -3050,6 +3056,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def ivschat(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ivschat")
+
+    @ivschat.setter
+    def ivschat(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ivschat", value)
+
+    @property
+    @pulumi.getter
     def kafka(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "kafka")
 
@@ -4199,6 +4214,15 @@ class ProviderEndpointArgs:
     @savingsplans.setter
     def savingsplans(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "savingsplans", value)
+
+    @property
+    @pulumi.getter
+    def scheduler(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scheduler")
+
+    @scheduler.setter
+    def scheduler(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheduler", value)
 
     @property
     @pulumi.getter

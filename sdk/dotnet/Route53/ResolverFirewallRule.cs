@@ -27,12 +27,12 @@ namespace Pulumi.Aws.Route53
     ///         {
     ///             "example.com",
     ///         },
-    ///         Tags = ,
+    ///         Tags = null,
     ///     });
     /// 
     ///     var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", new()
     ///     {
-    ///         Tags = ,
+    ///         Tags = null,
     ///     });
     /// 
     ///     var exampleResolverFirewallRule = new Aws.Route53.ResolverFirewallRule("exampleResolverFirewallRule", new()

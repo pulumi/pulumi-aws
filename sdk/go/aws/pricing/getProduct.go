@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pricing.GetProduct(ctx, &pricing.GetProductArgs{
+//			_, err = pricing.GetProduct(ctx, &pricing.GetProductArgs{
 //				Filters: []pricing.GetProductFilter{
 //					pricing.GetProductFilter{
 //						Field: "instanceType",
@@ -81,7 +81,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pricing.GetProduct(ctx, &pricing.GetProductArgs{
+//			_, err = pricing.GetProduct(ctx, &pricing.GetProductArgs{
 //				Filters: []pricing.GetProductFilter{
 //					pricing.GetProductFilter{
 //						Field: "instanceType",

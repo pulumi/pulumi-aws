@@ -79,6 +79,17 @@ func NewSecretVersion(ctx *pulumi.Context,
 	if args.SecretId == nil {
 		return nil, errors.New("invalid value for required argument 'SecretId'")
 	}
+	if args.SecretBinary != nil {
+		args.SecretBinary = pulumi.ToSecret(args.SecretBinary).(pulumi.StringPtrOutput)
+	}
+	if args.SecretString != nil {
+		args.SecretString = pulumi.ToSecret(args.SecretString).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"secretBinary",
+		"secretString",
+	})
+	opts = append(opts, secrets)
 	var resource SecretVersion
 	err := ctx.RegisterResource("aws:secretsmanager/secretVersion:SecretVersion", name, args, &resource, opts...)
 	if err != nil {

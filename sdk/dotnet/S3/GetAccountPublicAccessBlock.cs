@@ -33,7 +33,7 @@ namespace Pulumi.Aws.S3
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountPublicAccessBlockResult> InvokeAsync(GetAccountPublicAccessBlockArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountPublicAccessBlockResult>("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args ?? new GetAccountPublicAccessBlockArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountPublicAccessBlockResult>("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args ?? new GetAccountPublicAccessBlockArgs(), options.WithDefaults());
 
         /// <summary>
         /// The S3 account public access block data source returns account-level public access block configuration.
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.S3
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAccountPublicAccessBlockResult> Invoke(GetAccountPublicAccessBlockInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountPublicAccessBlockResult>("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args ?? new GetAccountPublicAccessBlockInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountPublicAccessBlockResult>("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args ?? new GetAccountPublicAccessBlockInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -171,6 +171,13 @@ func NewCluster(ctx *pulumi.Context,
 	if args.NodeType == nil {
 		return nil, errors.New("invalid value for required argument 'NodeType'")
 	}
+	if args.MasterPassword != nil {
+		args.MasterPassword = pulumi.ToSecret(args.MasterPassword).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"masterPassword",
+	})
+	opts = append(opts, secrets)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:redshift/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {

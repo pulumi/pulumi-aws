@@ -159,6 +159,25 @@ func NewObjectCopy(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
+	if args.CustomerKey != nil {
+		args.CustomerKey = pulumi.ToSecret(args.CustomerKey).(pulumi.StringPtrOutput)
+	}
+	if args.KmsEncryptionContext != nil {
+		args.KmsEncryptionContext = pulumi.ToSecret(args.KmsEncryptionContext).(pulumi.StringPtrOutput)
+	}
+	if args.KmsKeyId != nil {
+		args.KmsKeyId = pulumi.ToSecret(args.KmsKeyId).(pulumi.StringPtrOutput)
+	}
+	if args.SourceCustomerKey != nil {
+		args.SourceCustomerKey = pulumi.ToSecret(args.SourceCustomerKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"customerKey",
+		"kmsEncryptionContext",
+		"kmsKeyId",
+		"sourceCustomerKey",
+	})
+	opts = append(opts, secrets)
 	var resource ObjectCopy
 	err := ctx.RegisterResource("aws:s3/objectCopy:ObjectCopy", name, args, &resource, opts...)
 	if err != nil {

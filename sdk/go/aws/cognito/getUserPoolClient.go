@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.LookupUserPoolClient(ctx, &cognito.LookupUserPoolClientArgs{
+//			_, err = cognito.LookupUserPoolClient(ctx, &cognito.LookupUserPoolClientArgs{
 //				ClientId:   "38fjsnc484p94kpqsnet7mpld0",
 //				UserPoolId: "us-west-2_aaaaaaaaa",
 //			}, nil)

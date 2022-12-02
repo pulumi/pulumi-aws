@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Eks
         /// server configured.
         /// </summary>
         public static Task<GetClusterAuthResult> InvokeAsync(GetClusterAuthArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? new GetClusterAuthArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? new GetClusterAuthArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an authentication token to communicate with an EKS cluster.
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Eks
         /// server configured.
         /// </summary>
         public static Output<GetClusterAuthResult> Invoke(GetClusterAuthInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? new GetClusterAuthInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? new GetClusterAuthInvokeArgs(), options.WithDefaults());
     }
 
 

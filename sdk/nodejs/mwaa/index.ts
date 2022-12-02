@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { EnvironmentArgs, EnvironmentState } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
-
 utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
+
 
 const _module = {
     version: utilities.getVersion(),

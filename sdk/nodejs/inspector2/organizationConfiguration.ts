@@ -21,12 +21,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.inspector2.OrganizationConfiguration("example", {
- *     autoEnable: {
- *         ec2: true,
- *         ecr: false,
- *     },
- * });
+ * const example = new aws.inspector2.OrganizationConfiguration("example", {autoEnable: {
+ *     ec2: true,
+ *     ecr: false,
+ * }});
  * ```
  */
 export class OrganizationConfiguration extends pulumi.CustomResource {

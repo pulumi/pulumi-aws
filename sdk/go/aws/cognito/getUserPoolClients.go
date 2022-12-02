@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.GetUserPoolClients(ctx, &cognito.GetUserPoolClientsArgs{
+//			_, err = cognito.GetUserPoolClients(ctx, &cognito.GetUserPoolClientsArgs{
 //				UserPoolId: aws_cognito_user_pool.Main.Id,
 //			}, nil)
 //			if err != nil {

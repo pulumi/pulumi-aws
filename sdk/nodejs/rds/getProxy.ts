@@ -16,17 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const proxy = pulumi.output(aws.rds.getProxy({
+ * const proxy = aws.rds.getProxy({
  *     name: "my-test-db-proxy",
- * }));
+ * });
  * ```
  */
 export function getProxy(args: GetProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetProxyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getProxy:getProxy", {
         "name": args.name,
     }, opts);

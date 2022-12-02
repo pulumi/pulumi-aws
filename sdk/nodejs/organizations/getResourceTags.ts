@@ -13,17 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const account = pulumi.output(aws.organizations.getResourceTags({
+ * const account = aws.organizations.getResourceTags({
  *     resourceId: "123456123846",
- * }));
+ * });
  * ```
  */
 export function getResourceTags(args: GetResourceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTagsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getResourceTags:getResourceTags", {
         "resourceId": args.resourceId,
         "tags": args.tags,

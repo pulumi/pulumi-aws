@@ -34,6 +34,10 @@ public final class GroupInstanceRefreshPreferences {
      * 
      */
     private @Nullable Integer minHealthyPercentage;
+    /**
+     * @return Replace instances that already have your desired configuration. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean skipMatching;
 
     private GroupInstanceRefreshPreferences() {}
@@ -65,6 +69,10 @@ public final class GroupInstanceRefreshPreferences {
     public Optional<Integer> minHealthyPercentage() {
         return Optional.ofNullable(this.minHealthyPercentage);
     }
+    /**
+     * @return Replace instances that already have your desired configuration. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> skipMatching() {
         return Optional.ofNullable(this.skipMatching);
     }

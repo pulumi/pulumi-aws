@@ -18,6 +18,7 @@ __all__ = [
     'ClusterScalingConfiguration',
     'ClusterServerlessv2ScalingConfiguration',
     'GlobalClusterGlobalClusterMember',
+    'InstanceBlueGreenUpdate',
     'InstanceRestoreToPointInTime',
     'InstanceS3Import',
     'OptionGroupOption',
@@ -27,6 +28,7 @@ __all__ = [
     'ProxyDefaultTargetGroupConnectionPoolConfig',
     'ReservedInstanceRecurringCharge',
     'SecurityGroupIngress',
+    'GetClustersFilterResult',
     'GetEngineVersionFilterResult',
     'GetProxyAuthResult',
 ]
@@ -448,6 +450,27 @@ class GlobalClusterGlobalClusterMember(dict):
         Whether the member is the primary DB Cluster
         """
         return pulumi.get(self, "is_writer")
+
+
+@pulumi.output_type
+class InstanceBlueGreenUpdate(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool enabled: Enables low-downtime updates when `true`.
+               Default is `false`.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enables low-downtime updates when `true`.
+        Default is `false`.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -1118,6 +1141,35 @@ class SecurityGroupIngress(dict):
         by `security_group_name`.
         """
         return pulumi.get(self, "security_group_owner_id")
+
+
+@pulumi.output_type
+class GetClustersFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type

@@ -20,9 +20,11 @@ class ClusterInstanceArgs:
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
+                 enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  identifier_prefix: Optional[pulumi.Input[str]] = None,
+                 performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -49,9 +51,11 @@ class ClusterInstanceArgs:
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
+        :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         :param pulumi.Input[str] identifier: The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        :param pulumi.Input[str] performance_insights_kms_key_id: The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
@@ -67,12 +71,16 @@ class ClusterInstanceArgs:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if ca_cert_identifier is not None:
             pulumi.set(__self__, "ca_cert_identifier", ca_cert_identifier)
+        if enable_performance_insights is not None:
+            pulumi.set(__self__, "enable_performance_insights", enable_performance_insights)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
         if identifier_prefix is not None:
             pulumi.set(__self__, "identifier_prefix", identifier_prefix)
+        if performance_insights_kms_key_id is not None:
+            pulumi.set(__self__, "performance_insights_kms_key_id", performance_insights_kms_key_id)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if promotion_tier is not None:
@@ -168,6 +176,18 @@ class ClusterInstanceArgs:
         pulumi.set(self, "ca_cert_identifier", value)
 
     @property
+    @pulumi.getter(name="enablePerformanceInsights")
+    def enable_performance_insights(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+        """
+        return pulumi.get(self, "enable_performance_insights")
+
+    @enable_performance_insights.setter
+    def enable_performance_insights(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_performance_insights", value)
+
+    @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
@@ -202,6 +222,18 @@ class ClusterInstanceArgs:
     @identifier_prefix.setter
     def identifier_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identifier_prefix", value)
+
+    @property
+    @pulumi.getter(name="performanceInsightsKmsKeyId")
+    def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+        """
+        return pulumi.get(self, "performance_insights_kms_key_id")
+
+    @performance_insights_kms_key_id.setter
+    def performance_insights_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "performance_insights_kms_key_id", value)
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
@@ -252,6 +284,7 @@ class _ClusterInstanceState:
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  dbi_resource_id: Optional[pulumi.Input[str]] = None,
+                 enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -259,6 +292,7 @@ class _ClusterInstanceState:
                  identifier_prefix: Optional[pulumi.Input[str]] = None,
                  instance_class: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
@@ -279,6 +313,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
         :param pulumi.Input[str] db_subnet_group_name: The DB subnet group to associate with this DB instance.
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
+        :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         :param pulumi.Input[str] endpoint: The DNS address for this instance. May not be writable
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         :param pulumi.Input[str] engine_version: The database engine version
@@ -300,6 +335,7 @@ class _ClusterInstanceState:
                - db.r4.16xlarge
                - db.t3.medium
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key if one is set to the cluster.
+        :param pulumi.Input[str] performance_insights_kms_key_id: The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
         :param pulumi.Input[int] port: The database port
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
@@ -326,6 +362,8 @@ class _ClusterInstanceState:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if dbi_resource_id is not None:
             pulumi.set(__self__, "dbi_resource_id", dbi_resource_id)
+        if enable_performance_insights is not None:
+            pulumi.set(__self__, "enable_performance_insights", enable_performance_insights)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if engine is not None:
@@ -340,6 +378,8 @@ class _ClusterInstanceState:
             pulumi.set(__self__, "instance_class", instance_class)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if performance_insights_kms_key_id is not None:
+            pulumi.set(__self__, "performance_insights_kms_key_id", performance_insights_kms_key_id)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
@@ -457,6 +497,18 @@ class _ClusterInstanceState:
         pulumi.set(self, "dbi_resource_id", value)
 
     @property
+    @pulumi.getter(name="enablePerformanceInsights")
+    def enable_performance_insights(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+        """
+        return pulumi.get(self, "enable_performance_insights")
+
+    @enable_performance_insights.setter
+    def enable_performance_insights(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_performance_insights", value)
+
+    @property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -553,6 +605,18 @@ class _ClusterInstanceState:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="performanceInsightsKmsKeyId")
+    def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+        """
+        return pulumi.get(self, "performance_insights_kms_key_id")
+
+    @performance_insights_kms_key_id.setter
+    def performance_insights_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "performance_insights_kms_key_id", value)
 
     @property
     @pulumi.getter
@@ -671,10 +735,12 @@ class ClusterInstance(pulumi.CustomResource):
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  identifier_prefix: Optional[pulumi.Input[str]] = None,
                  instance_class: Optional[pulumi.Input[str]] = None,
+                 performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -728,6 +794,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
+        :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         :param pulumi.Input[str] identifier: The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -746,6 +813,7 @@ class ClusterInstance(pulumi.CustomResource):
                - db.r4.8xlarge
                - db.r4.16xlarge
                - db.t3.medium
+        :param pulumi.Input[str] performance_insights_kms_key_id: The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
@@ -818,10 +886,12 @@ class ClusterInstance(pulumi.CustomResource):
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  identifier_prefix: Optional[pulumi.Input[str]] = None,
                  instance_class: Optional[pulumi.Input[str]] = None,
+                 performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -841,12 +911,14 @@ class ClusterInstance(pulumi.CustomResource):
             if cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_identifier'")
             __props__.__dict__["cluster_identifier"] = cluster_identifier
+            __props__.__dict__["enable_performance_insights"] = enable_performance_insights
             __props__.__dict__["engine"] = engine
             __props__.__dict__["identifier"] = identifier
             __props__.__dict__["identifier_prefix"] = identifier_prefix
             if instance_class is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_class'")
             __props__.__dict__["instance_class"] = instance_class
+            __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["promotion_tier"] = promotion_tier
             __props__.__dict__["tags"] = tags
@@ -880,6 +952,7 @@ class ClusterInstance(pulumi.CustomResource):
             cluster_identifier: Optional[pulumi.Input[str]] = None,
             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
             dbi_resource_id: Optional[pulumi.Input[str]] = None,
+            enable_performance_insights: Optional[pulumi.Input[bool]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
@@ -887,6 +960,7 @@ class ClusterInstance(pulumi.CustomResource):
             identifier_prefix: Optional[pulumi.Input[str]] = None,
             instance_class: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
+            performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             preferred_backup_window: Optional[pulumi.Input[str]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
@@ -912,6 +986,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
         :param pulumi.Input[str] db_subnet_group_name: The DB subnet group to associate with this DB instance.
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
+        :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         :param pulumi.Input[str] endpoint: The DNS address for this instance. May not be writable
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         :param pulumi.Input[str] engine_version: The database engine version
@@ -933,6 +1008,7 @@ class ClusterInstance(pulumi.CustomResource):
                - db.r4.16xlarge
                - db.t3.medium
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key if one is set to the cluster.
+        :param pulumi.Input[str] performance_insights_kms_key_id: The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
         :param pulumi.Input[int] port: The database port
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
@@ -955,6 +1031,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__.__dict__["cluster_identifier"] = cluster_identifier
         __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
         __props__.__dict__["dbi_resource_id"] = dbi_resource_id
+        __props__.__dict__["enable_performance_insights"] = enable_performance_insights
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["engine"] = engine
         __props__.__dict__["engine_version"] = engine_version
@@ -962,6 +1039,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__.__dict__["identifier_prefix"] = identifier_prefix
         __props__.__dict__["instance_class"] = instance_class
         __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         __props__.__dict__["port"] = port
         __props__.__dict__["preferred_backup_window"] = preferred_backup_window
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
@@ -1039,6 +1117,14 @@ class ClusterInstance(pulumi.CustomResource):
         return pulumi.get(self, "dbi_resource_id")
 
     @property
+    @pulumi.getter(name="enablePerformanceInsights")
+    def enable_performance_insights(self) -> pulumi.Output[bool]:
+        """
+        A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+        """
+        return pulumi.get(self, "enable_performance_insights")
+
+    @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
         """
@@ -1107,6 +1193,14 @@ class ClusterInstance(pulumi.CustomResource):
         The ARN for the KMS encryption key if one is set to the cluster.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="performanceInsightsKmsKeyId")
+    def performance_insights_kms_key_id(self) -> pulumi.Output[str]:
+        """
+        The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+        """
+        return pulumi.get(self, "performance_insights_kms_key_id")
 
     @property
     @pulumi.getter

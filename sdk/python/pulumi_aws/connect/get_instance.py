@@ -21,7 +21,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, arn=None, auto_resolve_best_voices_enabled=None, contact_flow_logs_enabled=None, contact_lens_enabled=None, created_time=None, early_media_enabled=None, id=None, identity_management_type=None, inbound_calls_enabled=None, instance_alias=None, instance_id=None, outbound_calls_enabled=None, service_role=None, status=None):
+    def __init__(__self__, arn=None, auto_resolve_best_voices_enabled=None, contact_flow_logs_enabled=None, contact_lens_enabled=None, created_time=None, early_media_enabled=None, id=None, identity_management_type=None, inbound_calls_enabled=None, instance_alias=None, instance_id=None, multi_party_conference_enabled=None, outbound_calls_enabled=None, service_role=None, status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -55,6 +55,9 @@ class GetInstanceResult:
         if instance_id and not isinstance(instance_id, str):
             raise TypeError("Expected argument 'instance_id' to be a str")
         pulumi.set(__self__, "instance_id", instance_id)
+        if multi_party_conference_enabled and not isinstance(multi_party_conference_enabled, bool):
+            raise TypeError("Expected argument 'multi_party_conference_enabled' to be a bool")
+        pulumi.set(__self__, "multi_party_conference_enabled", multi_party_conference_enabled)
         if outbound_calls_enabled and not isinstance(outbound_calls_enabled, bool):
             raise TypeError("Expected argument 'outbound_calls_enabled' to be a bool")
         pulumi.set(__self__, "outbound_calls_enabled", outbound_calls_enabled)
@@ -145,6 +148,14 @@ class GetInstanceResult:
         return pulumi.get(self, "instance_id")
 
     @property
+    @pulumi.getter(name="multiPartyConferenceEnabled")
+    def multi_party_conference_enabled(self) -> bool:
+        """
+        Whether multi-party calls/conference is enabled.
+        """
+        return pulumi.get(self, "multi_party_conference_enabled")
+
+    @property
     @pulumi.getter(name="outboundCallsEnabled")
     def outbound_calls_enabled(self) -> bool:
         """
@@ -186,6 +197,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             inbound_calls_enabled=self.inbound_calls_enabled,
             instance_alias=self.instance_alias,
             instance_id=self.instance_id,
+            multi_party_conference_enabled=self.multi_party_conference_enabled,
             outbound_calls_enabled=self.outbound_calls_enabled,
             service_role=self.service_role,
             status=self.status)
@@ -239,6 +251,7 @@ def get_instance(instance_alias: Optional[str] = None,
         inbound_calls_enabled=__ret__.inbound_calls_enabled,
         instance_alias=__ret__.instance_alias,
         instance_id=__ret__.instance_id,
+        multi_party_conference_enabled=__ret__.multi_party_conference_enabled,
         outbound_calls_enabled=__ret__.outbound_calls_enabled,
         service_role=__ret__.service_role,
         status=__ret__.status)

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudhsmv2.LookupCluster(ctx, &cloudhsmv2.LookupClusterArgs{
+//			_, err = cloudhsmv2.LookupCluster(ctx, &cloudhsmv2.LookupClusterArgs{
 //				ClusterId: "cluster-testclusterid",
 //			}, nil)
 //			if err != nil {

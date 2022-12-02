@@ -5,21 +5,33 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ChannelArgs, ChannelState } from "./channel";
+export type Channel = import("./channel").Channel;
+export const Channel: typeof import("./channel").Channel = null as any;
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
+
+export { GetStreamKeyArgs, GetStreamKeyResult, GetStreamKeyOutputArgs } from "./getStreamKey";
+export const getStreamKey: typeof import("./getStreamKey").getStreamKey = null as any;
+export const getStreamKeyOutput: typeof import("./getStreamKey").getStreamKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getStreamKey","getStreamKeyOutput"], () => require("./getStreamKey"));
+
 export { PlaybackKeyPairArgs, PlaybackKeyPairState } from "./playbackKeyPair";
 export type PlaybackKeyPair = import("./playbackKeyPair").PlaybackKeyPair;
 export const PlaybackKeyPair: typeof import("./playbackKeyPair").PlaybackKeyPair = null as any;
+utilities.lazyLoad(exports, ["PlaybackKeyPair"], () => require("./playbackKeyPair"));
 
 export { RecordingConfigurationArgs, RecordingConfigurationState } from "./recordingConfiguration";
 export type RecordingConfiguration = import("./recordingConfiguration").RecordingConfiguration;
 export const RecordingConfiguration: typeof import("./recordingConfiguration").RecordingConfiguration = null as any;
-
-utilities.lazyLoad(exports, ["PlaybackKeyPair"], () => require("./playbackKeyPair"));
 utilities.lazyLoad(exports, ["RecordingConfiguration"], () => require("./recordingConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:ivs/channel:Channel":
+                return new Channel(name, <any>undefined, { urn })
             case "aws:ivs/playbackKeyPair:PlaybackKeyPair":
                 return new PlaybackKeyPair(name, <any>undefined, { urn })
             case "aws:ivs/recordingConfiguration:RecordingConfiguration":
@@ -29,5 +41,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "ivs/channel", _module)
 pulumi.runtime.registerResourceModule("aws", "ivs/playbackKeyPair", _module)
 pulumi.runtime.registerResourceModule("aws", "ivs/recordingConfiguration", _module)

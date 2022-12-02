@@ -38,7 +38,7 @@ namespace Pulumi.Aws.AppConfig
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEnvironmentsResult> InvokeAsync(GetEnvironmentsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentsResult>("aws:appconfig/getEnvironments:getEnvironments", args ?? new GetEnvironmentsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentsResult>("aws:appconfig/getEnvironments:getEnvironments", args ?? new GetEnvironmentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.AppConfig
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEnvironmentsResult> Invoke(GetEnvironmentsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentsResult>("aws:appconfig/getEnvironments:getEnvironments", args ?? new GetEnvironmentsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentsResult>("aws:appconfig/getEnvironments:getEnvironments", args ?? new GetEnvironmentsInvokeArgs(), options.WithDefaults());
     }
 
 

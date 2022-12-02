@@ -12,6 +12,43 @@ import (
 
 // Provides a FSx Backup resource.
 //
+// ## Lustre Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleLustreFileSystem, err := fsx.NewLustreFileSystem(ctx, "exampleLustreFileSystem", &fsx.LustreFileSystemArgs{
+//				StorageCapacity: pulumi.Int(1200),
+//				SubnetIds: pulumi.String{
+//					aws_subnet.Example.Id,
+//				},
+//				DeploymentType:           pulumi.String("PERSISTENT_1"),
+//				PerUnitStorageThroughput: pulumi.Int(50),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = fsx.NewBackup(ctx, "exampleBackup", &fsx.BackupArgs{
+//				FileSystemId: exampleLustreFileSystem.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Windows Example
 //
 // ```go
@@ -31,7 +68,7 @@ import (
 //				SkipFinalBackup:   pulumi.Bool(true),
 //				StorageCapacity:   pulumi.Int(32),
 //				SubnetIds: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Example1.Id),
+//					aws_subnet.Example1.Id,
 //				},
 //				ThroughputCapacity: pulumi.Int(8),
 //			})
@@ -75,6 +112,43 @@ import (
 //			}
 //			_, err = fsx.NewBackup(ctx, "exampleBackup", &fsx.BackupArgs{
 //				VolumeId: exampleOntapVolume.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## OpenZFS Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "exampleOpenZfsFileSystem", &fsx.OpenZfsFileSystemArgs{
+//				StorageCapacity: pulumi.Int(64),
+//				SubnetIds: pulumi.String{
+//					aws_subnet.Example.Id,
+//				},
+//				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
+//				ThroughputCapacity: pulumi.Int(64),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = fsx.NewBackup(ctx, "exampleBackup", &fsx.BackupArgs{
+//				FileSystemId: exampleOpenZfsFileSystem.ID(),
 //			})
 //			if err != nil {
 //				return err

@@ -10,6 +10,139 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ConnectAttachmentOptions struct {
+	Protocol *string `pulumi:"protocol"`
+}
+
+// ConnectAttachmentOptionsInput is an input type that accepts ConnectAttachmentOptionsArgs and ConnectAttachmentOptionsOutput values.
+// You can construct a concrete instance of `ConnectAttachmentOptionsInput` via:
+//
+//	ConnectAttachmentOptionsArgs{...}
+type ConnectAttachmentOptionsInput interface {
+	pulumi.Input
+
+	ToConnectAttachmentOptionsOutput() ConnectAttachmentOptionsOutput
+	ToConnectAttachmentOptionsOutputWithContext(context.Context) ConnectAttachmentOptionsOutput
+}
+
+type ConnectAttachmentOptionsArgs struct {
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (ConnectAttachmentOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectAttachmentOptions)(nil)).Elem()
+}
+
+func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsOutput() ConnectAttachmentOptionsOutput {
+	return i.ToConnectAttachmentOptionsOutputWithContext(context.Background())
+}
+
+func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsOutputWithContext(ctx context.Context) ConnectAttachmentOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOptionsOutput)
+}
+
+func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
+	return i.ToConnectAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOptionsOutput).ToConnectAttachmentOptionsPtrOutputWithContext(ctx)
+}
+
+// ConnectAttachmentOptionsPtrInput is an input type that accepts ConnectAttachmentOptionsArgs, ConnectAttachmentOptionsPtr and ConnectAttachmentOptionsPtrOutput values.
+// You can construct a concrete instance of `ConnectAttachmentOptionsPtrInput` via:
+//
+//	        ConnectAttachmentOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectAttachmentOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput
+	ToConnectAttachmentOptionsPtrOutputWithContext(context.Context) ConnectAttachmentOptionsPtrOutput
+}
+
+type connectAttachmentOptionsPtrType ConnectAttachmentOptionsArgs
+
+func ConnectAttachmentOptionsPtr(v *ConnectAttachmentOptionsArgs) ConnectAttachmentOptionsPtrInput {
+	return (*connectAttachmentOptionsPtrType)(v)
+}
+
+func (*connectAttachmentOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectAttachmentOptions)(nil)).Elem()
+}
+
+func (i *connectAttachmentOptionsPtrType) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
+	return i.ToConnectAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectAttachmentOptionsPtrType) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOptionsPtrOutput)
+}
+
+type ConnectAttachmentOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConnectAttachmentOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectAttachmentOptions)(nil)).Elem()
+}
+
+func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsOutput() ConnectAttachmentOptionsOutput {
+	return o
+}
+
+func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsOutputWithContext(ctx context.Context) ConnectAttachmentOptionsOutput {
+	return o
+}
+
+func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
+	return o.ToConnectAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectAttachmentOptions) *ConnectAttachmentOptions {
+		return &v
+	}).(ConnectAttachmentOptionsPtrOutput)
+}
+
+func (o ConnectAttachmentOptionsOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectAttachmentOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type ConnectAttachmentOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectAttachmentOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectAttachmentOptions)(nil)).Elem()
+}
+
+func (o ConnectAttachmentOptionsPtrOutput) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
+	return o
+}
+
+func (o ConnectAttachmentOptionsPtrOutput) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
+	return o
+}
+
+func (o ConnectAttachmentOptionsPtrOutput) Elem() ConnectAttachmentOptionsOutput {
+	return o.ApplyT(func(v *ConnectAttachmentOptions) ConnectAttachmentOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectAttachmentOptions
+		return ret
+	}).(ConnectAttachmentOptionsOutput)
+}
+
+func (o ConnectAttachmentOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachmentOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
 type DeviceAwsLocation struct {
 	// The Amazon Resource Name (ARN) of the subnet that the device is located in.
 	SubnetArn *string `pulumi:"subnetArn"`
@@ -2143,6 +2276,8 @@ func (o GetSiteLocationArrayOutput) Index(i pulumi.IntInput) GetSiteLocationOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsPtrInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationInput)(nil)).Elem(), DeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationPtrInput)(nil)).Elem(), DeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationInput)(nil)).Elem(), DeviceLocationArgs{})
@@ -2174,6 +2309,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinkBandwidthArrayInput)(nil)).Elem(), GetLinkBandwidthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSiteLocationInput)(nil)).Elem(), GetSiteLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSiteLocationArrayInput)(nil)).Elem(), GetSiteLocationArray{})
+	pulumi.RegisterOutputType(ConnectAttachmentOptionsOutput{})
+	pulumi.RegisterOutputType(ConnectAttachmentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DeviceAwsLocationOutput{})
 	pulumi.RegisterOutputType(DeviceAwsLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeviceLocationOutput{})

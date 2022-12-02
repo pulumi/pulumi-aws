@@ -47,9 +47,10 @@ class _DomainIdentityState:
         :param pulumi.Input[str] verification_token: A code which when added to the domain as a TXT record
                will signal to SES that the owner of the domain has authorised SES to act on
                their behalf. The domain identity will be in state "verification pending"
-               until this is done. See below for an example of how this might be achieved
-               when the domain is hosted in Route 53 and managed by this provider.  Find out
-               more about verifying domains in Amazon SES in the [AWS SES
+               until this is done. See the With Route53 Record example
+               for how this might be achieved when the domain is hosted in Route 53 and
+               managed by this provider.  Find out more about verifying domains in Amazon
+               SES in the [AWS SES
                docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         """
         if arn is not None:
@@ -90,9 +91,10 @@ class _DomainIdentityState:
         A code which when added to the domain as a TXT record
         will signal to SES that the owner of the domain has authorised SES to act on
         their behalf. The domain identity will be in state "verification pending"
-        until this is done. See below for an example of how this might be achieved
-        when the domain is hosted in Route 53 and managed by this provider.  Find out
-        more about verifying domains in Amazon SES in the [AWS SES
+        until this is done. See the With Route53 Record example
+        for how this might be achieved when the domain is hosted in Route 53 and
+        managed by this provider.  Find out more about verifying domains in Amazon
+        SES in the [AWS SES
         docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         """
         return pulumi.get(self, "verification_token")
@@ -113,6 +115,15 @@ class DomainIdentity(pulumi.CustomResource):
         Provides an SES domain identity resource
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ses.DomainIdentity("example", domain="example.com")
+        ```
+        ### With Route53 Record
 
         ```python
         import pulumi
@@ -149,6 +160,15 @@ class DomainIdentity(pulumi.CustomResource):
         Provides an SES domain identity resource
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ses.DomainIdentity("example", domain="example.com")
+        ```
+        ### With Route53 Record
 
         ```python
         import pulumi
@@ -226,9 +246,10 @@ class DomainIdentity(pulumi.CustomResource):
         :param pulumi.Input[str] verification_token: A code which when added to the domain as a TXT record
                will signal to SES that the owner of the domain has authorised SES to act on
                their behalf. The domain identity will be in state "verification pending"
-               until this is done. See below for an example of how this might be achieved
-               when the domain is hosted in Route 53 and managed by this provider.  Find out
-               more about verifying domains in Amazon SES in the [AWS SES
+               until this is done. See the With Route53 Record example
+               for how this might be achieved when the domain is hosted in Route 53 and
+               managed by this provider.  Find out more about verifying domains in Amazon
+               SES in the [AWS SES
                docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -263,9 +284,10 @@ class DomainIdentity(pulumi.CustomResource):
         A code which when added to the domain as a TXT record
         will signal to SES that the owner of the domain has authorised SES to act on
         their behalf. The domain identity will be in state "verification pending"
-        until this is done. See below for an example of how this might be achieved
-        when the domain is hosted in Route 53 and managed by this provider.  Find out
-        more about verifying domains in Amazon SES in the [AWS SES
+        until this is done. See the With Route53 Record example
+        for how this might be achieved when the domain is hosted in Route 53 and
+        managed by this provider.  Find out more about verifying domains in Amazon
+        SES in the [AWS SES
         docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         """
         return pulumi.get(self, "verification_token")

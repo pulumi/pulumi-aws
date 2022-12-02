@@ -47,7 +47,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetContainerRecipesResult> InvokeAsync(GetContainerRecipesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerRecipesResult>("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args ?? new GetContainerRecipesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerRecipesResult>("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args ?? new GetContainerRecipesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetContainerRecipesResult> Invoke(GetContainerRecipesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContainerRecipesResult>("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args ?? new GetContainerRecipesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerRecipesResult>("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args ?? new GetContainerRecipesInvokeArgs(), options.WithDefaults());
     }
 
 

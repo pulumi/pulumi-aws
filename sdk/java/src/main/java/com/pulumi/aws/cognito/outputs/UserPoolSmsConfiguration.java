@@ -6,6 +6,8 @@ package com.pulumi.aws.cognito.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolSmsConfiguration {
@@ -19,6 +21,11 @@ public final class UserPoolSmsConfiguration {
      * 
      */
     private String snsCallerArn;
+    /**
+     * @return The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+     * 
+     */
+    private @Nullable String snsRegion;
 
     private UserPoolSmsConfiguration() {}
     /**
@@ -35,6 +42,13 @@ public final class UserPoolSmsConfiguration {
     public String snsCallerArn() {
         return this.snsCallerArn;
     }
+    /**
+     * @return The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+     * 
+     */
+    public Optional<String> snsRegion() {
+        return Optional.ofNullable(this.snsRegion);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -47,11 +61,13 @@ public final class UserPoolSmsConfiguration {
     public static final class Builder {
         private String externalId;
         private String snsCallerArn;
+        private @Nullable String snsRegion;
         public Builder() {}
         public Builder(UserPoolSmsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.externalId = defaults.externalId;
     	      this.snsCallerArn = defaults.snsCallerArn;
+    	      this.snsRegion = defaults.snsRegion;
         }
 
         @CustomType.Setter
@@ -64,10 +80,16 @@ public final class UserPoolSmsConfiguration {
             this.snsCallerArn = Objects.requireNonNull(snsCallerArn);
             return this;
         }
+        @CustomType.Setter
+        public Builder snsRegion(@Nullable String snsRegion) {
+            this.snsRegion = snsRegion;
+            return this;
+        }
         public UserPoolSmsConfiguration build() {
             final var o = new UserPoolSmsConfiguration();
             o.externalId = externalId;
             o.snsCallerArn = snsCallerArn;
+            o.snsRegion = snsRegion;
             return o;
         }
     }

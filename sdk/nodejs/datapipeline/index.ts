@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetPipelineArgs, GetPipelineResult, GetPipelineOutputArgs } from "./getPipeline";
 export const getPipeline: typeof import("./getPipeline").getPipeline = null as any;
 export const getPipelineOutput: typeof import("./getPipeline").getPipelineOutput = null as any;
+utilities.lazyLoad(exports, ["getPipeline","getPipelineOutput"], () => require("./getPipeline"));
 
 export { GetPipelineDefinitionArgs, GetPipelineDefinitionResult, GetPipelineDefinitionOutputArgs } from "./getPipelineDefinition";
 export const getPipelineDefinition: typeof import("./getPipelineDefinition").getPipelineDefinition = null as any;
 export const getPipelineDefinitionOutput: typeof import("./getPipelineDefinition").getPipelineDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getPipelineDefinition","getPipelineDefinitionOutput"], () => require("./getPipelineDefinition"));
 
 export { PipelineArgs, PipelineState } from "./pipeline";
 export type Pipeline = import("./pipeline").Pipeline;
 export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
+utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
 
 export { PipelineDefinitionArgs, PipelineDefinitionState } from "./pipelineDefinition";
 export type PipelineDefinition = import("./pipelineDefinition").PipelineDefinition;
 export const PipelineDefinition: typeof import("./pipelineDefinition").PipelineDefinition = null as any;
-
-utilities.lazyLoad(exports, ["getPipeline","getPipelineOutput"], () => require("./getPipeline"));
-utilities.lazyLoad(exports, ["getPipelineDefinition","getPipelineDefinitionOutput"], () => require("./getPipelineDefinition"));
-utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
 utilities.lazyLoad(exports, ["PipelineDefinition"], () => require("./pipelineDefinition"));
+
 
 const _module = {
     version: utilities.getVersion(),

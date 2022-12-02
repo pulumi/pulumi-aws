@@ -124,11 +124,13 @@ export class SourceCredential extends pulumi.CustomResource {
             }
             resourceInputs["authType"] = args ? args.authType : undefined;
             resourceInputs["serverType"] = args ? args.serverType : undefined;
-            resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["token"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SourceCredential.__pulumiType, name, resourceInputs, opts);
     }
 }

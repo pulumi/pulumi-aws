@@ -268,6 +268,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
     /**
+     * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+     */
+    public readonly storageMode!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -316,6 +320,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["loggingInfo"] = state ? state.loggingInfo : undefined;
             resourceInputs["numberOfBrokerNodes"] = state ? state.numberOfBrokerNodes : undefined;
             resourceInputs["openMonitoring"] = state ? state.openMonitoring : undefined;
+            resourceInputs["storageMode"] = state ? state.storageMode : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["zookeeperConnectString"] = state ? state.zookeeperConnectString : undefined;
@@ -341,6 +346,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["loggingInfo"] = args ? args.loggingInfo : undefined;
             resourceInputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
             resourceInputs["openMonitoring"] = args ? args.openMonitoring : undefined;
+            resourceInputs["storageMode"] = args ? args.storageMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["bootstrapBrokers"] = undefined /*out*/;
@@ -442,6 +448,10 @@ export interface ClusterState {
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
+     * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+     */
+    storageMode?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -503,6 +513,10 @@ export interface ClusterArgs {
      * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
+    /**
+     * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+     */
+    storageMode?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

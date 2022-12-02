@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
 
 export { GetServiceQuotaArgs, GetServiceQuotaResult, GetServiceQuotaOutputArgs } from "./getServiceQuota";
 export const getServiceQuota: typeof import("./getServiceQuota").getServiceQuota = null as any;
 export const getServiceQuotaOutput: typeof import("./getServiceQuota").getServiceQuotaOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceQuota","getServiceQuotaOutput"], () => require("./getServiceQuota"));
 
 export { ServiceQuotaArgs, ServiceQuotaState } from "./serviceQuota";
 export type ServiceQuota = import("./serviceQuota").ServiceQuota;
 export const ServiceQuota: typeof import("./serviceQuota").ServiceQuota = null as any;
-
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
-utilities.lazyLoad(exports, ["getServiceQuota","getServiceQuotaOutput"], () => require("./getServiceQuota"));
 utilities.lazyLoad(exports, ["ServiceQuota"], () => require("./serviceQuota"));
+
 
 const _module = {
     version: utilities.getVersion(),

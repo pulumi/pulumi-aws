@@ -16,21 +16,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ssm.getMaintenanceWindows({
+ * const example = aws.ssm.getMaintenanceWindows({
  *     filters: [{
  *         name: "Enabled",
  *         values: ["true"],
  *     }],
- * }));
+ * });
  * ```
  */
 export function getMaintenanceWindows(args?: GetMaintenanceWindowsArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceWindowsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", {
         "filters": args.filters,
     }, opts);

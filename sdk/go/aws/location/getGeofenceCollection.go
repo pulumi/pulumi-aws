@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.LookupGeofenceCollection(ctx, &location.LookupGeofenceCollectionArgs{
+//			_, err = location.LookupGeofenceCollection(ctx, &location.LookupGeofenceCollectionArgs{
 //				CollectionName: "example",
 //			}, nil)
 //			if err != nil {

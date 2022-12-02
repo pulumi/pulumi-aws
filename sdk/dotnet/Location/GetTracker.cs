@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Location
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTrackerResult> InvokeAsync(GetTrackerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrackerResult>("aws:location/getTracker:getTracker", args ?? new GetTrackerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrackerResult>("aws:location/getTracker:getTracker", args ?? new GetTrackerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about a Location Service Tracker.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Location
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTrackerResult> Invoke(GetTrackerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrackerResult>("aws:location/getTracker:getTracker", args ?? new GetTrackerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrackerResult>("aws:location/getTracker:getTracker", args ?? new GetTrackerInvokeArgs(), options.WithDefaults());
     }
 
 

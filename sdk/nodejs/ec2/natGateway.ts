@@ -81,15 +81,15 @@ export class NatGateway extends pulumi.CustomResource {
      */
     public readonly connectivityType!: pulumi.Output<string | undefined>;
     /**
-     * The ENI ID of the network interface created by the NAT gateway.
+     * The ID of the network interface associated with the NAT gateway.
      */
     public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
     /**
-     * The private IP address of the NAT Gateway.
+     * The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
      */
-    public /*out*/ readonly privateIp!: pulumi.Output<string>;
+    public readonly privateIp!: pulumi.Output<string>;
     /**
-     * The public IP address of the NAT Gateway.
+     * The Elastic IP address associated with the NAT gateway.
      */
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
@@ -133,10 +133,10 @@ export class NatGateway extends pulumi.CustomResource {
             }
             resourceInputs["allocationId"] = args ? args.allocationId : undefined;
             resourceInputs["connectivityType"] = args ? args.connectivityType : undefined;
+            resourceInputs["privateIp"] = args ? args.privateIp : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
-            resourceInputs["privateIp"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -158,15 +158,15 @@ export interface NatGatewayState {
      */
     connectivityType?: pulumi.Input<string>;
     /**
-     * The ENI ID of the network interface created by the NAT gateway.
+     * The ID of the network interface associated with the NAT gateway.
      */
     networkInterfaceId?: pulumi.Input<string>;
     /**
-     * The private IP address of the NAT Gateway.
+     * The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
      */
     privateIp?: pulumi.Input<string>;
     /**
-     * The public IP address of the NAT Gateway.
+     * The Elastic IP address associated with the NAT gateway.
      */
     publicIp?: pulumi.Input<string>;
     /**
@@ -195,6 +195,10 @@ export interface NatGatewayArgs {
      * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
      */
     connectivityType?: pulumi.Input<string>;
+    /**
+     * The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+     */
+    privateIp?: pulumi.Input<string>;
     /**
      * The Subnet ID of the subnet in which to place the gateway.
      */

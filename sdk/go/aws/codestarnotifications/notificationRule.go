@@ -13,63 +13,6 @@ import (
 
 // Provides a CodeStar Notifications Rule.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarnotifications"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			code, err := codecommit.NewRepository(ctx, "code", &codecommit.RepositoryArgs{
-//				RepositoryName: pulumi.String("example-code-repo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			notif, err := sns.NewTopic(ctx, "notif", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
-//				Arn: notif.Arn,
-//				Policy: notifAccess.ApplyT(func(notifAccess iam.GetPolicyDocumentResult) (string, error) {
-//					return notifAccess.Json, nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codestarnotifications.NewNotificationRule(ctx, "commits", &codestarnotifications.NotificationRuleArgs{
-//				DetailType: pulumi.String("BASIC"),
-//				EventTypeIds: pulumi.StringArray{
-//					pulumi.String("codecommit-repository-comments-on-commits"),
-//				},
-//				Resource: code.Arn,
-//				Targets: codestarnotifications.NotificationRuleTargetArray{
-//					&codestarnotifications.NotificationRuleTargetArgs{
-//						Address: notif.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // CodeStar notification rule can be imported using the ARN, e.g.,

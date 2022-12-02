@@ -82,6 +82,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("hlsId3SegmentTagging")]
         public Input<string>? HlsId3SegmentTagging { get; set; }
 
+        [Input("iframeOnlyPlaylists")]
+        public Input<string>? IframeOnlyPlaylists { get; set; }
+
         [Input("incompleteSegmentBehavior")]
         public Input<string>? IncompleteSegmentBehavior { get; set; }
 
@@ -100,14 +103,17 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("ivSource")]
         public Input<string>? IvSource { get; set; }
 
-        [Input("keepSegment")]
-        public Input<int>? KeepSegment { get; set; }
+        [Input("keepSegments")]
+        public Input<int>? KeepSegments { get; set; }
 
         [Input("keyFormat")]
         public Input<string>? KeyFormat { get; set; }
 
         [Input("keyFormatVersions")]
         public Input<string>? KeyFormatVersions { get; set; }
+
+        [Input("keyProviderSettings")]
+        public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsGetArgs>? KeyProviderSettings { get; set; }
 
         [Input("manifestCompression")]
         public Input<string>? ManifestCompression { get; set; }
@@ -120,6 +126,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
         [Input("mode")]
         public Input<string>? Mode { get; set; }
+
+        [Input("outputSelection")]
+        public Input<string>? OutputSelection { get; set; }
 
         [Input("programDateTime")]
         public Input<string>? ProgramDateTime { get; set; }
@@ -142,8 +151,14 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("streamInfResolution")]
         public Input<string>? StreamInfResolution { get; set; }
 
-        [Input("timeMetadataId3Frame")]
-        public Input<string>? TimeMetadataId3Frame { get; set; }
+        /// <summary>
+        /// Indicates ID3 frame that has the timecode.
+        /// </summary>
+        [Input("timedMetadataId3Frame")]
+        public Input<string>? TimedMetadataId3Frame { get; set; }
+
+        [Input("timedMetadataId3Period")]
+        public Input<int>? TimedMetadataId3Period { get; set; }
 
         [Input("timestampDeltaMilliseconds")]
         public Input<int>? TimestampDeltaMilliseconds { get; set; }

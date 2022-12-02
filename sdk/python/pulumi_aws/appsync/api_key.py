@@ -244,6 +244,8 @@ class ApiKey(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["expires"] = expires
             __props__.__dict__["key"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["key"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ApiKey, __self__).__init__(
             'aws:appsync/apiKey:ApiKey',
             resource_name,

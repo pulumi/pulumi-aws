@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { AppMonitorArgs, AppMonitorState } from "./appMonitor";
 export type AppMonitor = import("./appMonitor").AppMonitor;
 export const AppMonitor: typeof import("./appMonitor").AppMonitor = null as any;
-
 utilities.lazyLoad(exports, ["AppMonitor"], () => require("./appMonitor"));
+
 
 const _module = {
     version: utilities.getVersion(),

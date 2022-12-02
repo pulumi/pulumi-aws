@@ -13,21 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.rds.getReservedInstanceOffering({
+ * const test = aws.rds.getReservedInstanceOffering({
  *     dbInstanceClass: "db.t2.micro",
  *     duration: 31536000,
  *     multiAz: false,
  *     offeringType: "All Upfront",
  *     productDescription: "mysql",
- * }));
+ * });
  * ```
  */
 export function getReservedInstanceOffering(args: GetReservedInstanceOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetReservedInstanceOfferingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", {
         "dbInstanceClass": args.dbInstanceClass,
         "duration": args.duration,

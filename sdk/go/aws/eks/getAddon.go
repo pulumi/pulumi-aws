@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.LookupAddon(ctx, &eks.LookupAddonArgs{
+//			_, err = eks.LookupAddon(ctx, &eks.LookupAddonArgs{
 //				AddonName:   "vpc-cni",
 //				ClusterName: aws_eks_cluster.Example.Name,
 //			}, nil)

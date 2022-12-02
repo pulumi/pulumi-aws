@@ -14,11 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.mskconnect.WorkerConfiguration("example", {
- *     propertiesFileContent: `key.converter=org.apache.kafka.connect.storage.StringConverter
+ * const example = new aws.mskconnect.WorkerConfiguration("example", {propertiesFileContent: `key.converter=org.apache.kafka.connect.storage.StringConverter
  * value.converter=org.apache.kafka.connect.storage.StringConverter
- * `,
- * });
+ *
+ * `});
  * ```
  *
  * ## Import

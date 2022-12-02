@@ -18,11 +18,21 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
 
+        [Input("secretKey", required: true)]
+        private Input<string>? _secretKey;
+
         /// <summary>
         /// The Secret Access Key portion of the credentials.
         /// </summary>
-        [Input("secretKey", required: true)]
-        public Input<string> SecretKey { get; set; } = null!;
+        public Input<string>? SecretKey
+        {
+            get => _secretKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeGetArgs()
         {

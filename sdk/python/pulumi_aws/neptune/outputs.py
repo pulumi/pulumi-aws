@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'ClusterParameterGroupParameter',
+    'ClusterServerlessV2ScalingConfiguration',
     'ParameterGroupParameter',
 ]
 
@@ -70,6 +71,46 @@ class ClusterParameterGroupParameter(dict):
         Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         """
         return pulumi.get(self, "apply_method")
+
+
+@pulumi.output_type
+class ClusterServerlessV2ScalingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "minCapacity":
+            suggest = "min_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServerlessV2ScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServerlessV2ScalingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServerlessV2ScalingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_capacity: Optional[float] = None,
+                 min_capacity: Optional[float] = None):
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+        if min_capacity is not None:
+            pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[float]:
+        return pulumi.get(self, "max_capacity")
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> Optional[float]:
+        return pulumi.get(self, "min_capacity")
 
 
 @pulumi.output_type

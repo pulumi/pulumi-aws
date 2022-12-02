@@ -158,6 +158,14 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             network_interface_id=instance.network_interface_id)
         ```
 
+        ## Import
+
+        Network Interface Security Group attachments can be imported using the associated network interface ID and security group ID, separated by an underscore (`_`). For example
+
+        ```sh
+         $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] network_interface_id: The ID of the network interface to attach to.
@@ -228,6 +236,14 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment",
             security_group_id=sg.id,
             network_interface_id=instance.network_interface_id)
+        ```
+
+        ## Import
+
+        Network Interface Security Group attachments can be imported using the associated network interface ID and security group ID, separated by an underscore (`_`). For example
+
+        ```sh
+         $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
         ```
 
         :param str resource_name: The name of the resource.

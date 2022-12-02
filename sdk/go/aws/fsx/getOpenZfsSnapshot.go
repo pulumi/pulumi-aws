@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.LookupOpenZfsSnapshot(ctx, &fsx.LookupOpenZfsSnapshotArgs{
+//			_, err = fsx.LookupOpenZfsSnapshot(ctx, &fsx.LookupOpenZfsSnapshotArgs{
 //				Filters: []fsx.GetOpenZfsSnapshotFilter{
 //					fsx.GetOpenZfsSnapshotFilter{
 //						Name: "volume-id",

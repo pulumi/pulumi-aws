@@ -13,22 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.redshift.getOrderableCluster({
+ * const test = aws.redshift.getOrderableCluster({
  *     clusterType: "multi-node",
  *     preferredNodeTypes: [
  *         "dc2.large",
  *         "ds2.xlarge",
  *     ],
- * }));
+ * });
  * ```
  */
 export function getOrderableCluster(args?: GetOrderableClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableClusterResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshift/getOrderableCluster:getOrderableCluster", {
         "clusterType": args.clusterType,
         "clusterVersion": args.clusterVersion,

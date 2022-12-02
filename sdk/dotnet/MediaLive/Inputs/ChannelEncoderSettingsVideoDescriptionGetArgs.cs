@@ -12,6 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsVideoDescriptionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The video codec settings. See Video Codec Settings for more details.
+        /// </summary>
         [Input("codecSettings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsGetArgs>? CodecSettings { get; set; }
 
@@ -22,7 +25,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? Height { get; set; }
 
         /// <summary>
-        /// Custom output group name defined by the user.
+        /// The name of the video description.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

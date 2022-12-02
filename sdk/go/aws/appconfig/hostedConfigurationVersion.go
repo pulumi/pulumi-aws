@@ -179,6 +179,13 @@ func NewHostedConfigurationVersion(ctx *pulumi.Context,
 	if args.ContentType == nil {
 		return nil, errors.New("invalid value for required argument 'ContentType'")
 	}
+	if args.Content != nil {
+		args.Content = pulumi.ToSecret(args.Content).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"content",
+	})
+	opts = append(opts, secrets)
 	var resource HostedConfigurationVersion
 	err := ctx.RegisterResource("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion", name, args, &resource, opts...)
 	if err != nil {

@@ -8,103 +8,103 @@ import * as utilities from "../utilities";
 export { ComponentArgs, ComponentState } from "./component";
 export type Component = import("./component").Component;
 export const Component: typeof import("./component").Component = null as any;
+utilities.lazyLoad(exports, ["Component"], () => require("./component"));
 
 export { ContainerRecipeArgs, ContainerRecipeState } from "./containerRecipe";
 export type ContainerRecipe = import("./containerRecipe").ContainerRecipe;
 export const ContainerRecipe: typeof import("./containerRecipe").ContainerRecipe = null as any;
+utilities.lazyLoad(exports, ["ContainerRecipe"], () => require("./containerRecipe"));
 
 export { DistributionConfigurationArgs, DistributionConfigurationState } from "./distributionConfiguration";
 export type DistributionConfiguration = import("./distributionConfiguration").DistributionConfiguration;
 export const DistributionConfiguration: typeof import("./distributionConfiguration").DistributionConfiguration = null as any;
+utilities.lazyLoad(exports, ["DistributionConfiguration"], () => require("./distributionConfiguration"));
 
 export { GetComponentArgs, GetComponentResult, GetComponentOutputArgs } from "./getComponent";
 export const getComponent: typeof import("./getComponent").getComponent = null as any;
 export const getComponentOutput: typeof import("./getComponent").getComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getComponent","getComponentOutput"], () => require("./getComponent"));
 
 export { GetComponentsArgs, GetComponentsResult, GetComponentsOutputArgs } from "./getComponents";
 export const getComponents: typeof import("./getComponents").getComponents = null as any;
 export const getComponentsOutput: typeof import("./getComponents").getComponentsOutput = null as any;
+utilities.lazyLoad(exports, ["getComponents","getComponentsOutput"], () => require("./getComponents"));
 
 export { GetContainerRecipeArgs, GetContainerRecipeResult, GetContainerRecipeOutputArgs } from "./getContainerRecipe";
 export const getContainerRecipe: typeof import("./getContainerRecipe").getContainerRecipe = null as any;
 export const getContainerRecipeOutput: typeof import("./getContainerRecipe").getContainerRecipeOutput = null as any;
+utilities.lazyLoad(exports, ["getContainerRecipe","getContainerRecipeOutput"], () => require("./getContainerRecipe"));
 
 export { GetContainerRecipesArgs, GetContainerRecipesResult, GetContainerRecipesOutputArgs } from "./getContainerRecipes";
 export const getContainerRecipes: typeof import("./getContainerRecipes").getContainerRecipes = null as any;
 export const getContainerRecipesOutput: typeof import("./getContainerRecipes").getContainerRecipesOutput = null as any;
+utilities.lazyLoad(exports, ["getContainerRecipes","getContainerRecipesOutput"], () => require("./getContainerRecipes"));
 
 export { GetDistributionConfigurationArgs, GetDistributionConfigurationResult, GetDistributionConfigurationOutputArgs } from "./getDistributionConfiguration";
 export const getDistributionConfiguration: typeof import("./getDistributionConfiguration").getDistributionConfiguration = null as any;
 export const getDistributionConfigurationOutput: typeof import("./getDistributionConfiguration").getDistributionConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getDistributionConfiguration","getDistributionConfigurationOutput"], () => require("./getDistributionConfiguration"));
 
 export { GetDistributionConfigurationsArgs, GetDistributionConfigurationsResult, GetDistributionConfigurationsOutputArgs } from "./getDistributionConfigurations";
 export const getDistributionConfigurations: typeof import("./getDistributionConfigurations").getDistributionConfigurations = null as any;
 export const getDistributionConfigurationsOutput: typeof import("./getDistributionConfigurations").getDistributionConfigurationsOutput = null as any;
+utilities.lazyLoad(exports, ["getDistributionConfigurations","getDistributionConfigurationsOutput"], () => require("./getDistributionConfigurations"));
 
 export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
 export const getImage: typeof import("./getImage").getImage = null as any;
 export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
+utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
 
 export { GetImagePipelineArgs, GetImagePipelineResult, GetImagePipelineOutputArgs } from "./getImagePipeline";
 export const getImagePipeline: typeof import("./getImagePipeline").getImagePipeline = null as any;
 export const getImagePipelineOutput: typeof import("./getImagePipeline").getImagePipelineOutput = null as any;
+utilities.lazyLoad(exports, ["getImagePipeline","getImagePipelineOutput"], () => require("./getImagePipeline"));
 
 export { GetImagePipelinesArgs, GetImagePipelinesResult, GetImagePipelinesOutputArgs } from "./getImagePipelines";
 export const getImagePipelines: typeof import("./getImagePipelines").getImagePipelines = null as any;
 export const getImagePipelinesOutput: typeof import("./getImagePipelines").getImagePipelinesOutput = null as any;
+utilities.lazyLoad(exports, ["getImagePipelines","getImagePipelinesOutput"], () => require("./getImagePipelines"));
 
 export { GetImageRecipeArgs, GetImageRecipeResult, GetImageRecipeOutputArgs } from "./getImageRecipe";
 export const getImageRecipe: typeof import("./getImageRecipe").getImageRecipe = null as any;
 export const getImageRecipeOutput: typeof import("./getImageRecipe").getImageRecipeOutput = null as any;
+utilities.lazyLoad(exports, ["getImageRecipe","getImageRecipeOutput"], () => require("./getImageRecipe"));
 
 export { GetImageRecipesArgs, GetImageRecipesResult, GetImageRecipesOutputArgs } from "./getImageRecipes";
 export const getImageRecipes: typeof import("./getImageRecipes").getImageRecipes = null as any;
 export const getImageRecipesOutput: typeof import("./getImageRecipes").getImageRecipesOutput = null as any;
+utilities.lazyLoad(exports, ["getImageRecipes","getImageRecipesOutput"], () => require("./getImageRecipes"));
 
 export { GetInfrastructureConfigurationArgs, GetInfrastructureConfigurationResult, GetInfrastructureConfigurationOutputArgs } from "./getInfrastructureConfiguration";
 export const getInfrastructureConfiguration: typeof import("./getInfrastructureConfiguration").getInfrastructureConfiguration = null as any;
 export const getInfrastructureConfigurationOutput: typeof import("./getInfrastructureConfiguration").getInfrastructureConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getInfrastructureConfiguration","getInfrastructureConfigurationOutput"], () => require("./getInfrastructureConfiguration"));
 
 export { GetInfrastructureConfigurationsArgs, GetInfrastructureConfigurationsResult, GetInfrastructureConfigurationsOutputArgs } from "./getInfrastructureConfigurations";
 export const getInfrastructureConfigurations: typeof import("./getInfrastructureConfigurations").getInfrastructureConfigurations = null as any;
 export const getInfrastructureConfigurationsOutput: typeof import("./getInfrastructureConfigurations").getInfrastructureConfigurationsOutput = null as any;
+utilities.lazyLoad(exports, ["getInfrastructureConfigurations","getInfrastructureConfigurationsOutput"], () => require("./getInfrastructureConfigurations"));
 
 export { ImageArgs, ImageState } from "./image";
 export type Image = import("./image").Image;
 export const Image: typeof import("./image").Image = null as any;
+utilities.lazyLoad(exports, ["Image"], () => require("./image"));
 
 export { ImagePipelineArgs, ImagePipelineState } from "./imagePipeline";
 export type ImagePipeline = import("./imagePipeline").ImagePipeline;
 export const ImagePipeline: typeof import("./imagePipeline").ImagePipeline = null as any;
+utilities.lazyLoad(exports, ["ImagePipeline"], () => require("./imagePipeline"));
 
 export { ImageRecipeArgs, ImageRecipeState } from "./imageRecipe";
 export type ImageRecipe = import("./imageRecipe").ImageRecipe;
 export const ImageRecipe: typeof import("./imageRecipe").ImageRecipe = null as any;
+utilities.lazyLoad(exports, ["ImageRecipe"], () => require("./imageRecipe"));
 
 export { InfrastructureConfigurationArgs, InfrastructureConfigurationState } from "./infrastructureConfiguration";
 export type InfrastructureConfiguration = import("./infrastructureConfiguration").InfrastructureConfiguration;
 export const InfrastructureConfiguration: typeof import("./infrastructureConfiguration").InfrastructureConfiguration = null as any;
-
-utilities.lazyLoad(exports, ["Component"], () => require("./component"));
-utilities.lazyLoad(exports, ["ContainerRecipe"], () => require("./containerRecipe"));
-utilities.lazyLoad(exports, ["DistributionConfiguration"], () => require("./distributionConfiguration"));
-utilities.lazyLoad(exports, ["getComponent","getComponentOutput"], () => require("./getComponent"));
-utilities.lazyLoad(exports, ["getComponents","getComponentsOutput"], () => require("./getComponents"));
-utilities.lazyLoad(exports, ["getContainerRecipe","getContainerRecipeOutput"], () => require("./getContainerRecipe"));
-utilities.lazyLoad(exports, ["getContainerRecipes","getContainerRecipesOutput"], () => require("./getContainerRecipes"));
-utilities.lazyLoad(exports, ["getDistributionConfiguration","getDistributionConfigurationOutput"], () => require("./getDistributionConfiguration"));
-utilities.lazyLoad(exports, ["getDistributionConfigurations","getDistributionConfigurationsOutput"], () => require("./getDistributionConfigurations"));
-utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
-utilities.lazyLoad(exports, ["getImagePipeline","getImagePipelineOutput"], () => require("./getImagePipeline"));
-utilities.lazyLoad(exports, ["getImagePipelines","getImagePipelinesOutput"], () => require("./getImagePipelines"));
-utilities.lazyLoad(exports, ["getImageRecipe","getImageRecipeOutput"], () => require("./getImageRecipe"));
-utilities.lazyLoad(exports, ["getImageRecipes","getImageRecipesOutput"], () => require("./getImageRecipes"));
-utilities.lazyLoad(exports, ["getInfrastructureConfiguration","getInfrastructureConfigurationOutput"], () => require("./getInfrastructureConfiguration"));
-utilities.lazyLoad(exports, ["getInfrastructureConfigurations","getInfrastructureConfigurationsOutput"], () => require("./getInfrastructureConfigurations"));
-utilities.lazyLoad(exports, ["Image"], () => require("./image"));
-utilities.lazyLoad(exports, ["ImagePipeline"], () => require("./imagePipeline"));
-utilities.lazyLoad(exports, ["ImageRecipe"], () => require("./imageRecipe"));
 utilities.lazyLoad(exports, ["InfrastructureConfiguration"], () => require("./infrastructureConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),

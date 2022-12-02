@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { AnomalyMonitorArgs, AnomalyMonitorState } from "./anomalyMonitor";
 export type AnomalyMonitor = import("./anomalyMonitor").AnomalyMonitor;
 export const AnomalyMonitor: typeof import("./anomalyMonitor").AnomalyMonitor = null as any;
+utilities.lazyLoad(exports, ["AnomalyMonitor"], () => require("./anomalyMonitor"));
 
 export { AnomalySubscriptionArgs, AnomalySubscriptionState } from "./anomalySubscription";
 export type AnomalySubscription = import("./anomalySubscription").AnomalySubscription;
 export const AnomalySubscription: typeof import("./anomalySubscription").AnomalySubscription = null as any;
+utilities.lazyLoad(exports, ["AnomalySubscription"], () => require("./anomalySubscription"));
 
 export { CostAllocationTagArgs, CostAllocationTagState } from "./costAllocationTag";
 export type CostAllocationTag = import("./costAllocationTag").CostAllocationTag;
 export const CostAllocationTag: typeof import("./costAllocationTag").CostAllocationTag = null as any;
+utilities.lazyLoad(exports, ["CostAllocationTag"], () => require("./costAllocationTag"));
 
 export { CostCategoryArgs, CostCategoryState } from "./costCategory";
 export type CostCategory = import("./costCategory").CostCategory;
 export const CostCategory: typeof import("./costCategory").CostCategory = null as any;
+utilities.lazyLoad(exports, ["CostCategory"], () => require("./costCategory"));
 
 export { GetCostCategoryArgs, GetCostCategoryResult, GetCostCategoryOutputArgs } from "./getCostCategory";
 export const getCostCategory: typeof import("./getCostCategory").getCostCategory = null as any;
 export const getCostCategoryOutput: typeof import("./getCostCategory").getCostCategoryOutput = null as any;
+utilities.lazyLoad(exports, ["getCostCategory","getCostCategoryOutput"], () => require("./getCostCategory"));
 
 export { GetTagsArgs, GetTagsResult, GetTagsOutputArgs } from "./getTags";
 export const getTags: typeof import("./getTags").getTags = null as any;
 export const getTagsOutput: typeof import("./getTags").getTagsOutput = null as any;
-
-utilities.lazyLoad(exports, ["AnomalyMonitor"], () => require("./anomalyMonitor"));
-utilities.lazyLoad(exports, ["AnomalySubscription"], () => require("./anomalySubscription"));
-utilities.lazyLoad(exports, ["CostAllocationTag"], () => require("./costAllocationTag"));
-utilities.lazyLoad(exports, ["CostCategory"], () => require("./costCategory"));
-utilities.lazyLoad(exports, ["getCostCategory","getCostCategoryOutput"], () => require("./getCostCategory"));
 utilities.lazyLoad(exports, ["getTags","getTagsOutput"], () => require("./getTags"));
+
 
 const _module = {
     version: utilities.getVersion(),

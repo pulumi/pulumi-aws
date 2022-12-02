@@ -47,6 +47,21 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
+     * 
+     */
+    @Import(name="privateIp")
+    private @Nullable Output<String> privateIp;
+
+    /**
+     * @return The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
+     * 
+     */
+    public Optional<Output<String>> privateIp() {
+        return Optional.ofNullable(this.privateIp);
+    }
+
+    /**
      * The Subnet ID of the subnet in which to place the gateway.
      * 
      */
@@ -81,6 +96,7 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
     private NatGatewayArgs(NatGatewayArgs $) {
         this.allocationId = $.allocationId;
         this.connectivityType = $.connectivityType;
+        this.privateIp = $.privateIp;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
     }
@@ -143,6 +159,27 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder connectivityType(String connectivityType) {
             return connectivityType(Output.of(connectivityType));
+        }
+
+        /**
+         * @param privateIp The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateIp(@Nullable Output<String> privateIp) {
+            $.privateIp = privateIp;
+            return this;
+        }
+
+        /**
+         * @param privateIp The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateIp(String privateIp) {
+            return privateIp(Output.of(privateIp));
         }
 
         /**

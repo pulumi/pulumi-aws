@@ -31,32 +31,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ## Policy with a Custom Action for Stateless Inspection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.networkfirewall.FirewallPolicy("test", {
- *     firewallPolicy: {
- *         statelessCustomActions: [{
- *             actionDefinition: {
- *                 publishMetricAction: {
- *                     dimensions: [{
- *                         value: "1",
- *                     }],
- *                 },
- *             },
- *             actionName: "ExampleCustomAction",
- *         }],
- *         statelessDefaultActions: [
- *             "aws:pass",
- *             "ExampleCustomAction",
- *         ],
- *         statelessFragmentDefaultActions: ["aws:drop"],
- *     },
- * });
- * ```
  *
  * ## Import
  *

@@ -13,63 +13,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * This resource is based on `aws.wafv2.RuleGroup`, check the documentation of the `aws.wafv2.RuleGroup` resource to see examples of the various available statements.
- * ### Managed Rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.WebAcl("example", {
- *     defaultAction: {
- *         allow: {},
- *     },
- *     description: "Example of a managed rule.",
- *     rules: [{
- *         name: "rule-1",
- *         overrideAction: {
- *             count: {},
- *         },
- *         priority: 1,
- *         statement: {
- *             managedRuleGroupStatement: {
- *                 excludedRules: [
- *                     {
- *                         name: "SizeRestrictions_QUERYSTRING",
- *                     },
- *                     {
- *                         name: "NoUserAgent_HEADER",
- *                     },
- *                 ],
- *                 name: "AWSManagedRulesCommonRuleSet",
- *                 scopeDownStatement: {
- *                     geoMatchStatement: {
- *                         countryCodes: [
- *                             "US",
- *                             "NL",
- *                         ],
- *                     },
- *                 },
- *                 vendorName: "AWS",
- *             },
- *         },
- *         visibilityConfig: {
- *             cloudwatchMetricsEnabled: false,
- *             metricName: "friendly-rule-metric-name",
- *             sampledRequestsEnabled: false,
- *         },
- *     }],
- *     scope: "REGIONAL",
- *     tags: {
- *         Tag1: "Value1",
- *         Tag2: "Value2",
- *     },
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- * });
- * ```
  * ### Rate Based
  * Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
  *

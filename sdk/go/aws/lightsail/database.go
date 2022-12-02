@@ -162,6 +162,13 @@ func NewDatabase(ctx *pulumi.Context,
 	if args.RelationalDatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'RelationalDatabaseName'")
 	}
+	if args.MasterPassword != nil {
+		args.MasterPassword = pulumi.ToSecret(args.MasterPassword).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"masterPassword",
+	})
+	opts = append(opts, secrets)
 	var resource Database
 	err := ctx.RegisterResource("aws:lightsail/database:Database", name, args, &resource, opts...)
 	if err != nil {

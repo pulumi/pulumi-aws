@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ssm
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMaintenanceWindowsResult> InvokeAsync(GetMaintenanceWindowsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceWindowsResult>("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args ?? new GetMaintenanceWindowsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceWindowsResult>("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args ?? new GetMaintenanceWindowsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the window IDs of SSM maintenance windows.
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Ssm
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMaintenanceWindowsResult> Invoke(GetMaintenanceWindowsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMaintenanceWindowsResult>("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args ?? new GetMaintenanceWindowsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceWindowsResult>("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args ?? new GetMaintenanceWindowsInvokeArgs(), options.WithDefaults());
     }
 
 

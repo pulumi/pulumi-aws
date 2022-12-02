@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StackSetInstanceDeploymentTargets {
+    /**
+     * @return The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+     * 
+     */
     private @Nullable List<String> organizationalUnitIds;
 
     private StackSetInstanceDeploymentTargets() {}
+    /**
+     * @return The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+     * 
+     */
     public List<String> organizationalUnitIds() {
         return this.organizationalUnitIds == null ? List.of() : this.organizationalUnitIds;
     }

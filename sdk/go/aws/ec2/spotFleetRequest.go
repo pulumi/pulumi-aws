@@ -108,7 +108,7 @@ import (
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_policy_attachment.Test - attach,
+//				aws_iam_policy_attachment.TestAttach,
 //			}))
 //			if err != nil {
 //				return err
@@ -135,7 +135,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
+//			_, err = ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
 //				VpcId: _var.Vpc_id,
 //			}, nil)
 //			if err != nil {
@@ -174,7 +174,7 @@ import (
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_policy_attachment.Test - attach,
+//				aws_iam_policy_attachment.TestAttach,
 //			}))
 //			if err != nil {
 //				return err
@@ -198,7 +198,7 @@ type SpotFleetRequest struct {
 	pulumi.CustomResourceState
 
 	// Indicates how to allocate the target capacity across
-	// the Spot pools specified by the Spot fleet request. The default is
+	// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
 	// `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrOutput `pulumi:"allocationStrategy"`
 	ClientToken        pulumi.StringOutput    `pulumi:"clientToken"`
@@ -310,7 +310,7 @@ func GetSpotFleetRequest(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SpotFleetRequest resources.
 type spotFleetRequestState struct {
 	// Indicates how to allocate the target capacity across
-	// the Spot pools specified by the Spot fleet request. The default is
+	// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
 	// `lowestPrice`.
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
 	ClientToken        *string `pulumi:"clientToken"`
@@ -388,7 +388,7 @@ type spotFleetRequestState struct {
 
 type SpotFleetRequestState struct {
 	// Indicates how to allocate the target capacity across
-	// the Spot pools specified by the Spot fleet request. The default is
+	// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
 	// `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrInput
 	ClientToken        pulumi.StringPtrInput
@@ -470,7 +470,7 @@ func (SpotFleetRequestState) ElementType() reflect.Type {
 
 type spotFleetRequestArgs struct {
 	// Indicates how to allocate the target capacity across
-	// the Spot pools specified by the Spot fleet request. The default is
+	// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
 	// `lowestPrice`.
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
 	// Indicates whether running Spot
@@ -544,7 +544,7 @@ type spotFleetRequestArgs struct {
 // The set of arguments for constructing a SpotFleetRequest resource.
 type SpotFleetRequestArgs struct {
 	// Indicates how to allocate the target capacity across
-	// the Spot pools specified by the Spot fleet request. The default is
+	// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
 	// `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrInput
 	// Indicates whether running Spot
@@ -703,7 +703,7 @@ func (o SpotFleetRequestOutput) ToSpotFleetRequestOutputWithContext(ctx context.
 }
 
 // Indicates how to allocate the target capacity across
-// the Spot pools specified by the Spot fleet request. The default is
+// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
 // `lowestPrice`.
 func (o SpotFleetRequestOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringPtrOutput { return v.AllocationStrategy }).(pulumi.StringPtrOutput)

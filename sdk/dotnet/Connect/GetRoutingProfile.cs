@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRoutingProfileResult> InvokeAsync(GetRoutingProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoutingProfileResult>("aws:connect/getRoutingProfile:getRoutingProfile", args ?? new GetRoutingProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoutingProfileResult>("aws:connect/getRoutingProfile:getRoutingProfile", args ?? new GetRoutingProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Connect Routing Profile.
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRoutingProfileResult> Invoke(GetRoutingProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoutingProfileResult>("aws:connect/getRoutingProfile:getRoutingProfile", args ?? new GetRoutingProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoutingProfileResult>("aws:connect/getRoutingProfile:getRoutingProfile", args ?? new GetRoutingProfileInvokeArgs(), options.WithDefaults());
     }
 
 

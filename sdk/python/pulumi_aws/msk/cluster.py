@@ -26,6 +26,7 @@ class ClusterArgs:
                  enhanced_monitoring: Optional[pulumi.Input[str]] = None,
                  logging_info: Optional[pulumi.Input['ClusterLoggingInfoArgs']] = None,
                  open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
+                 storage_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -39,6 +40,7 @@ class ClusterArgs:
         :param pulumi.Input[str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         :param pulumi.Input['ClusterLoggingInfoArgs'] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         :param pulumi.Input['ClusterOpenMonitoringArgs'] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        :param pulumi.Input[str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "broker_node_group_info", broker_node_group_info)
@@ -58,6 +60,8 @@ class ClusterArgs:
             pulumi.set(__self__, "logging_info", logging_info)
         if open_monitoring is not None:
             pulumi.set(__self__, "open_monitoring", open_monitoring)
+        if storage_mode is not None:
+            pulumi.set(__self__, "storage_mode", storage_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -182,6 +186,18 @@ class ClusterArgs:
         pulumi.set(self, "open_monitoring", value)
 
     @property
+    @pulumi.getter(name="storageMode")
+    def storage_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+        """
+        return pulumi.get(self, "storage_mode")
+
+    @storage_mode.setter
+    def storage_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_mode", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -216,6 +232,7 @@ class _ClusterState:
                  logging_info: Optional[pulumi.Input['ClusterLoggingInfoArgs']] = None,
                  number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
                  open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
+                 storage_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zookeeper_connect_string: Optional[pulumi.Input[str]] = None,
@@ -242,6 +259,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterLoggingInfoArgs'] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         :param pulumi.Input[int] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         :param pulumi.Input['ClusterOpenMonitoringArgs'] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        :param pulumi.Input[str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] zookeeper_connect_string: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
@@ -285,6 +303,8 @@ class _ClusterState:
             pulumi.set(__self__, "number_of_broker_nodes", number_of_broker_nodes)
         if open_monitoring is not None:
             pulumi.set(__self__, "open_monitoring", open_monitoring)
+        if storage_mode is not None:
+            pulumi.set(__self__, "storage_mode", storage_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -524,6 +544,18 @@ class _ClusterState:
         pulumi.set(self, "open_monitoring", value)
 
     @property
+    @pulumi.getter(name="storageMode")
+    def storage_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+        """
+        return pulumi.get(self, "storage_mode")
+
+    @storage_mode.setter
+    def storage_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_mode", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -587,6 +619,7 @@ class Cluster(pulumi.CustomResource):
                  logging_info: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']]] = None,
                  number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
                  open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
+                 storage_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -747,6 +780,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         :param pulumi.Input[int] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         :param pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        :param pulumi.Input[str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -926,6 +960,7 @@ class Cluster(pulumi.CustomResource):
                  logging_info: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']]] = None,
                  number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
                  open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
+                 storage_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -952,6 +987,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'number_of_broker_nodes'")
             __props__.__dict__["number_of_broker_nodes"] = number_of_broker_nodes
             __props__.__dict__["open_monitoring"] = open_monitoring
+            __props__.__dict__["storage_mode"] = storage_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["bootstrap_brokers"] = None
@@ -994,6 +1030,7 @@ class Cluster(pulumi.CustomResource):
             logging_info: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']]] = None,
             number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
             open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
+            storage_mode: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             zookeeper_connect_string: Optional[pulumi.Input[str]] = None,
@@ -1025,6 +1062,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         :param pulumi.Input[int] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         :param pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        :param pulumi.Input[str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] zookeeper_connect_string: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
@@ -1053,6 +1091,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["logging_info"] = logging_info
         __props__.__dict__["number_of_broker_nodes"] = number_of_broker_nodes
         __props__.__dict__["open_monitoring"] = open_monitoring
+        __props__.__dict__["storage_mode"] = storage_mode
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["zookeeper_connect_string"] = zookeeper_connect_string
@@ -1211,6 +1250,14 @@ class Cluster(pulumi.CustomResource):
         Configuration block for JMX and Node monitoring for the MSK cluster. See below.
         """
         return pulumi.get(self, "open_monitoring")
+
+    @property
+    @pulumi.getter(name="storageMode")
+    def storage_mode(self) -> pulumi.Output[str]:
+        """
+        Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+        """
+        return pulumi.get(self, "storage_mode")
 
     @property
     @pulumi.getter

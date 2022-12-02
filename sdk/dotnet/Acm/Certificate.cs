@@ -201,6 +201,12 @@ namespace Pulumi.Aws.Acm
         public Output<string?> EarlyRenewalDuration { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+        /// </summary>
+        [Output("keyAlgorithm")]
+        public Output<string> KeyAlgorithm { get; private set; } = null!;
+
+        /// <summary>
         /// Expiration date and time of the certificate.
         /// </summary>
         [Output("notAfter")]
@@ -315,6 +321,10 @@ namespace Pulumi.Aws.Acm
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "privateKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -374,16 +384,32 @@ namespace Pulumi.Aws.Acm
         public Input<string>? EarlyRenewalDuration { get; set; }
 
         /// <summary>
+        /// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+        /// </summary>
+        [Input("keyAlgorithm")]
+        public Input<string>? KeyAlgorithm { get; set; }
+
+        /// <summary>
         /// Configuration block used to set certificate options. Detailed below.
         /// </summary>
         [Input("options")]
         public Input<Inputs.CertificateOptionsArgs>? Options { get; set; }
 
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// Certificate's PEM-formatted private key
         /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;
@@ -493,6 +519,12 @@ namespace Pulumi.Aws.Acm
         public Input<string>? EarlyRenewalDuration { get; set; }
 
         /// <summary>
+        /// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+        /// </summary>
+        [Input("keyAlgorithm")]
+        public Input<string>? KeyAlgorithm { get; set; }
+
+        /// <summary>
         /// Expiration date and time of the certificate.
         /// </summary>
         [Input("notAfter")]
@@ -516,11 +548,21 @@ namespace Pulumi.Aws.Acm
         [Input("pendingRenewal")]
         public Input<bool>? PendingRenewal { get; set; }
 
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// Certificate's PEM-formatted private key
         /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Whether the certificate is eligible for managed renewal.

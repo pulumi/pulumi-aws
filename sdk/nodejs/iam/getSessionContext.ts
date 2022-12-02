@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.iam.getSessionContext({
+ * const example = aws.iam.getSessionContext({
  *     arn: "arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes",
- * }));
+ * });
  * ```
  * ### Find the Provider's Source Role
  *
@@ -35,11 +35,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSessionContext(args: GetSessionContextArgs, opts?: pulumi.InvokeOptions): Promise<GetSessionContextResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getSessionContext:getSessionContext", {
         "arn": args.arn,
     }, opts);

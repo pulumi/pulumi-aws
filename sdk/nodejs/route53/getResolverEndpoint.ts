@@ -18,30 +18,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.route53.getResolverEndpoint({
+ * const example = aws.route53.getResolverEndpoint({
  *     resolverEndpointId: "rslvr-in-1abc2345ef678g91h",
- * }));
+ * });
  * ```
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.route53.getResolverEndpoint({
+ * const example = aws.route53.getResolverEndpoint({
  *     filters: [{
  *         name: "NAME",
  *         values: ["MyResolverExampleName"],
  *     }],
- * }));
+ * });
  * ```
  */
 export function getResolverEndpoint(args?: GetResolverEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverEndpointResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverEndpoint:getResolverEndpoint", {
         "filters": args.filters,
         "resolverEndpointId": args.resolverEndpointId,

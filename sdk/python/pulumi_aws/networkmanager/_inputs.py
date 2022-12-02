@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ConnectAttachmentOptionsArgs',
     'DeviceAwsLocationArgs',
     'DeviceLocationArgs',
     'LinkBandwidthArgs',
@@ -23,6 +24,23 @@ __all__ = [
     'GetCoreNetworkPolicyDocumentSegmentArgs',
     'GetCoreNetworkPolicyDocumentSegmentActionArgs',
 ]
+
+@pulumi.input_type
+class ConnectAttachmentOptionsArgs:
+    def __init__(__self__, *,
+                 protocol: Optional[pulumi.Input[str]] = None):
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
 
 @pulumi.input_type
 class DeviceAwsLocationArgs:

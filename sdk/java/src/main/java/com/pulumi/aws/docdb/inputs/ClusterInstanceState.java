@@ -141,6 +141,21 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     * 
+     */
+    @Import(name="enablePerformanceInsights")
+    private @Nullable Output<Boolean> enablePerformanceInsights;
+
+    /**
+     * @return A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     * 
+     */
+    public Optional<Output<Boolean>> enablePerformanceInsights() {
+        return Optional.ofNullable(this.enablePerformanceInsights);
+    }
+
+    /**
      * The DNS address for this instance. May not be writable
      * 
      */
@@ -271,6 +286,21 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
+    }
+
+    /**
+     * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     * 
+     */
+    @Import(name="performanceInsightsKmsKeyId")
+    private @Nullable Output<String> performanceInsightsKmsKeyId;
+
+    /**
+     * @return The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     * 
+     */
+    public Optional<Output<String>> performanceInsightsKmsKeyId() {
+        return Optional.ofNullable(this.performanceInsightsKmsKeyId);
     }
 
     /**
@@ -413,6 +443,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         this.clusterIdentifier = $.clusterIdentifier;
         this.dbSubnetGroupName = $.dbSubnetGroupName;
         this.dbiResourceId = $.dbiResourceId;
+        this.enablePerformanceInsights = $.enablePerformanceInsights;
         this.endpoint = $.endpoint;
         this.engine = $.engine;
         this.engineVersion = $.engineVersion;
@@ -420,6 +451,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         this.identifierPrefix = $.identifierPrefix;
         this.instanceClass = $.instanceClass;
         this.kmsKeyId = $.kmsKeyId;
+        this.performanceInsightsKmsKeyId = $.performanceInsightsKmsKeyId;
         this.port = $.port;
         this.preferredBackupWindow = $.preferredBackupWindow;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
@@ -620,6 +652,27 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param enablePerformanceInsights A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enablePerformanceInsights(@Nullable Output<Boolean> enablePerformanceInsights) {
+            $.enablePerformanceInsights = enablePerformanceInsights;
+            return this;
+        }
+
+        /**
+         * @param enablePerformanceInsights A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enablePerformanceInsights(Boolean enablePerformanceInsights) {
+            return enablePerformanceInsights(Output.of(enablePerformanceInsights));
+        }
+
+        /**
          * @param endpoint The DNS address for this instance. May not be writable
          * 
          * @return builder
@@ -792,6 +845,27 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
          */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
+        }
+
+        /**
+         * @param performanceInsightsKmsKeyId The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder performanceInsightsKmsKeyId(@Nullable Output<String> performanceInsightsKmsKeyId) {
+            $.performanceInsightsKmsKeyId = performanceInsightsKmsKeyId;
+            return this;
+        }
+
+        /**
+         * @param performanceInsightsKmsKeyId The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder performanceInsightsKmsKeyId(String performanceInsightsKmsKeyId) {
+            return performanceInsightsKmsKeyId(Output.of(performanceInsightsKmsKeyId));
         }
 
         /**

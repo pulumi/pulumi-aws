@@ -10,6 +10,297 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FeatureEvaluationRule struct {
+	// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
+	Name *string `pulumi:"name"`
+	// This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
+	Type *string `pulumi:"type"`
+}
+
+// FeatureEvaluationRuleInput is an input type that accepts FeatureEvaluationRuleArgs and FeatureEvaluationRuleOutput values.
+// You can construct a concrete instance of `FeatureEvaluationRuleInput` via:
+//
+//	FeatureEvaluationRuleArgs{...}
+type FeatureEvaluationRuleInput interface {
+	pulumi.Input
+
+	ToFeatureEvaluationRuleOutput() FeatureEvaluationRuleOutput
+	ToFeatureEvaluationRuleOutputWithContext(context.Context) FeatureEvaluationRuleOutput
+}
+
+type FeatureEvaluationRuleArgs struct {
+	// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (FeatureEvaluationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureEvaluationRule)(nil)).Elem()
+}
+
+func (i FeatureEvaluationRuleArgs) ToFeatureEvaluationRuleOutput() FeatureEvaluationRuleOutput {
+	return i.ToFeatureEvaluationRuleOutputWithContext(context.Background())
+}
+
+func (i FeatureEvaluationRuleArgs) ToFeatureEvaluationRuleOutputWithContext(ctx context.Context) FeatureEvaluationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureEvaluationRuleOutput)
+}
+
+// FeatureEvaluationRuleArrayInput is an input type that accepts FeatureEvaluationRuleArray and FeatureEvaluationRuleArrayOutput values.
+// You can construct a concrete instance of `FeatureEvaluationRuleArrayInput` via:
+//
+//	FeatureEvaluationRuleArray{ FeatureEvaluationRuleArgs{...} }
+type FeatureEvaluationRuleArrayInput interface {
+	pulumi.Input
+
+	ToFeatureEvaluationRuleArrayOutput() FeatureEvaluationRuleArrayOutput
+	ToFeatureEvaluationRuleArrayOutputWithContext(context.Context) FeatureEvaluationRuleArrayOutput
+}
+
+type FeatureEvaluationRuleArray []FeatureEvaluationRuleInput
+
+func (FeatureEvaluationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeatureEvaluationRule)(nil)).Elem()
+}
+
+func (i FeatureEvaluationRuleArray) ToFeatureEvaluationRuleArrayOutput() FeatureEvaluationRuleArrayOutput {
+	return i.ToFeatureEvaluationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i FeatureEvaluationRuleArray) ToFeatureEvaluationRuleArrayOutputWithContext(ctx context.Context) FeatureEvaluationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureEvaluationRuleArrayOutput)
+}
+
+type FeatureEvaluationRuleOutput struct{ *pulumi.OutputState }
+
+func (FeatureEvaluationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureEvaluationRule)(nil)).Elem()
+}
+
+func (o FeatureEvaluationRuleOutput) ToFeatureEvaluationRuleOutput() FeatureEvaluationRuleOutput {
+	return o
+}
+
+func (o FeatureEvaluationRuleOutput) ToFeatureEvaluationRuleOutputWithContext(ctx context.Context) FeatureEvaluationRuleOutput {
+	return o
+}
+
+// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
+func (o FeatureEvaluationRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureEvaluationRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
+func (o FeatureEvaluationRuleOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureEvaluationRule) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type FeatureEvaluationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (FeatureEvaluationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeatureEvaluationRule)(nil)).Elem()
+}
+
+func (o FeatureEvaluationRuleArrayOutput) ToFeatureEvaluationRuleArrayOutput() FeatureEvaluationRuleArrayOutput {
+	return o
+}
+
+func (o FeatureEvaluationRuleArrayOutput) ToFeatureEvaluationRuleArrayOutputWithContext(ctx context.Context) FeatureEvaluationRuleArrayOutput {
+	return o
+}
+
+func (o FeatureEvaluationRuleArrayOutput) Index(i pulumi.IntInput) FeatureEvaluationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeatureEvaluationRule {
+		return vs[0].([]FeatureEvaluationRule)[vs[1].(int)]
+	}).(FeatureEvaluationRuleOutput)
+}
+
+type FeatureVariation struct {
+	// The name of the variation. Minimum length of `1`. Maximum length of `127`.
+	Name string `pulumi:"name"`
+	// A block that specifies the value assigned to this variation. Detailed below
+	Value FeatureVariationValue `pulumi:"value"`
+}
+
+// FeatureVariationInput is an input type that accepts FeatureVariationArgs and FeatureVariationOutput values.
+// You can construct a concrete instance of `FeatureVariationInput` via:
+//
+//	FeatureVariationArgs{...}
+type FeatureVariationInput interface {
+	pulumi.Input
+
+	ToFeatureVariationOutput() FeatureVariationOutput
+	ToFeatureVariationOutputWithContext(context.Context) FeatureVariationOutput
+}
+
+type FeatureVariationArgs struct {
+	// The name of the variation. Minimum length of `1`. Maximum length of `127`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A block that specifies the value assigned to this variation. Detailed below
+	Value FeatureVariationValueInput `pulumi:"value"`
+}
+
+func (FeatureVariationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureVariation)(nil)).Elem()
+}
+
+func (i FeatureVariationArgs) ToFeatureVariationOutput() FeatureVariationOutput {
+	return i.ToFeatureVariationOutputWithContext(context.Background())
+}
+
+func (i FeatureVariationArgs) ToFeatureVariationOutputWithContext(ctx context.Context) FeatureVariationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureVariationOutput)
+}
+
+// FeatureVariationArrayInput is an input type that accepts FeatureVariationArray and FeatureVariationArrayOutput values.
+// You can construct a concrete instance of `FeatureVariationArrayInput` via:
+//
+//	FeatureVariationArray{ FeatureVariationArgs{...} }
+type FeatureVariationArrayInput interface {
+	pulumi.Input
+
+	ToFeatureVariationArrayOutput() FeatureVariationArrayOutput
+	ToFeatureVariationArrayOutputWithContext(context.Context) FeatureVariationArrayOutput
+}
+
+type FeatureVariationArray []FeatureVariationInput
+
+func (FeatureVariationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeatureVariation)(nil)).Elem()
+}
+
+func (i FeatureVariationArray) ToFeatureVariationArrayOutput() FeatureVariationArrayOutput {
+	return i.ToFeatureVariationArrayOutputWithContext(context.Background())
+}
+
+func (i FeatureVariationArray) ToFeatureVariationArrayOutputWithContext(ctx context.Context) FeatureVariationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureVariationArrayOutput)
+}
+
+type FeatureVariationOutput struct{ *pulumi.OutputState }
+
+func (FeatureVariationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureVariation)(nil)).Elem()
+}
+
+func (o FeatureVariationOutput) ToFeatureVariationOutput() FeatureVariationOutput {
+	return o
+}
+
+func (o FeatureVariationOutput) ToFeatureVariationOutputWithContext(ctx context.Context) FeatureVariationOutput {
+	return o
+}
+
+// The name of the variation. Minimum length of `1`. Maximum length of `127`.
+func (o FeatureVariationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FeatureVariation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A block that specifies the value assigned to this variation. Detailed below
+func (o FeatureVariationOutput) Value() FeatureVariationValueOutput {
+	return o.ApplyT(func(v FeatureVariation) FeatureVariationValue { return v.Value }).(FeatureVariationValueOutput)
+}
+
+type FeatureVariationArrayOutput struct{ *pulumi.OutputState }
+
+func (FeatureVariationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeatureVariation)(nil)).Elem()
+}
+
+func (o FeatureVariationArrayOutput) ToFeatureVariationArrayOutput() FeatureVariationArrayOutput {
+	return o
+}
+
+func (o FeatureVariationArrayOutput) ToFeatureVariationArrayOutputWithContext(ctx context.Context) FeatureVariationArrayOutput {
+	return o
+}
+
+func (o FeatureVariationArrayOutput) Index(i pulumi.IntInput) FeatureVariationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeatureVariation {
+		return vs[0].([]FeatureVariation)[vs[1].(int)]
+	}).(FeatureVariationOutput)
+}
+
+type FeatureVariationValue struct {
+	// If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
+	BoolValue *string `pulumi:"boolValue"`
+	// If this feature uses the double integer variation type, this field contains the double integer value of this variation.
+	DoubleValue *string `pulumi:"doubleValue"`
+	// If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
+	LongValue *string `pulumi:"longValue"`
+	// If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
+	StringValue *string `pulumi:"stringValue"`
+}
+
+// FeatureVariationValueInput is an input type that accepts FeatureVariationValueArgs and FeatureVariationValueOutput values.
+// You can construct a concrete instance of `FeatureVariationValueInput` via:
+//
+//	FeatureVariationValueArgs{...}
+type FeatureVariationValueInput interface {
+	pulumi.Input
+
+	ToFeatureVariationValueOutput() FeatureVariationValueOutput
+	ToFeatureVariationValueOutputWithContext(context.Context) FeatureVariationValueOutput
+}
+
+type FeatureVariationValueArgs struct {
+	// If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
+	BoolValue pulumi.StringPtrInput `pulumi:"boolValue"`
+	// If this feature uses the double integer variation type, this field contains the double integer value of this variation.
+	DoubleValue pulumi.StringPtrInput `pulumi:"doubleValue"`
+	// If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
+	LongValue pulumi.StringPtrInput `pulumi:"longValue"`
+	// If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
+	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
+}
+
+func (FeatureVariationValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureVariationValue)(nil)).Elem()
+}
+
+func (i FeatureVariationValueArgs) ToFeatureVariationValueOutput() FeatureVariationValueOutput {
+	return i.ToFeatureVariationValueOutputWithContext(context.Background())
+}
+
+func (i FeatureVariationValueArgs) ToFeatureVariationValueOutputWithContext(ctx context.Context) FeatureVariationValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureVariationValueOutput)
+}
+
+type FeatureVariationValueOutput struct{ *pulumi.OutputState }
+
+func (FeatureVariationValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureVariationValue)(nil)).Elem()
+}
+
+func (o FeatureVariationValueOutput) ToFeatureVariationValueOutput() FeatureVariationValueOutput {
+	return o
+}
+
+func (o FeatureVariationValueOutput) ToFeatureVariationValueOutputWithContext(ctx context.Context) FeatureVariationValueOutput {
+	return o
+}
+
+// If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
+func (o FeatureVariationValueOutput) BoolValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureVariationValue) *string { return v.BoolValue }).(pulumi.StringPtrOutput)
+}
+
+// If this feature uses the double integer variation type, this field contains the double integer value of this variation.
+func (o FeatureVariationValueOutput) DoubleValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureVariationValue) *string { return v.DoubleValue }).(pulumi.StringPtrOutput)
+}
+
+// If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
+func (o FeatureVariationValueOutput) LongValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureVariationValue) *string { return v.LongValue }).(pulumi.StringPtrOutput)
+}
+
+// If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
+func (o FeatureVariationValueOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureVariationValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
+}
+
 type ProjectDataDelivery struct {
 	// A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
 	CloudwatchLogs *ProjectDataDeliveryCloudwatchLogs `pulumi:"cloudwatchLogs"`
@@ -460,12 +751,22 @@ func (o ProjectDataDeliveryS3DestinationPtrOutput) Prefix() pulumi.StringPtrOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureEvaluationRuleInput)(nil)).Elem(), FeatureEvaluationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureEvaluationRuleArrayInput)(nil)).Elem(), FeatureEvaluationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureVariationInput)(nil)).Elem(), FeatureVariationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureVariationArrayInput)(nil)).Elem(), FeatureVariationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureVariationValueInput)(nil)).Elem(), FeatureVariationValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDataDeliveryInput)(nil)).Elem(), ProjectDataDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDataDeliveryPtrInput)(nil)).Elem(), ProjectDataDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDataDeliveryCloudwatchLogsInput)(nil)).Elem(), ProjectDataDeliveryCloudwatchLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDataDeliveryCloudwatchLogsPtrInput)(nil)).Elem(), ProjectDataDeliveryCloudwatchLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDataDeliveryS3DestinationInput)(nil)).Elem(), ProjectDataDeliveryS3DestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDataDeliveryS3DestinationPtrInput)(nil)).Elem(), ProjectDataDeliveryS3DestinationArgs{})
+	pulumi.RegisterOutputType(FeatureEvaluationRuleOutput{})
+	pulumi.RegisterOutputType(FeatureEvaluationRuleArrayOutput{})
+	pulumi.RegisterOutputType(FeatureVariationOutput{})
+	pulumi.RegisterOutputType(FeatureVariationArrayOutput{})
+	pulumi.RegisterOutputType(FeatureVariationValueOutput{})
 	pulumi.RegisterOutputType(ProjectDataDeliveryOutput{})
 	pulumi.RegisterOutputType(ProjectDataDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(ProjectDataDeliveryCloudwatchLogsOutput{})

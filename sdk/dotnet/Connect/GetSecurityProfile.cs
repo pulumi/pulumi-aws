@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecurityProfileResult> InvokeAsync(GetSecurityProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityProfileResult>("aws:connect/getSecurityProfile:getSecurityProfile", args ?? new GetSecurityProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityProfileResult>("aws:connect/getSecurityProfile:getSecurityProfile", args ?? new GetSecurityProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Connect Security Profile.
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecurityProfileResult> Invoke(GetSecurityProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityProfileResult>("aws:connect/getSecurityProfile:getSecurityProfile", args ?? new GetSecurityProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityProfileResult>("aws:connect/getSecurityProfile:getSecurityProfile", args ?? new GetSecurityProfileInvokeArgs(), options.WithDefaults());
     }
 
 

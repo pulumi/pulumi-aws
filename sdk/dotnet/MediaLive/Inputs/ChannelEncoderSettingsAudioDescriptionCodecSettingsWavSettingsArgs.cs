@@ -15,9 +15,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("bitDepth")]
         public Input<double>? BitDepth { get; set; }
 
+        /// <summary>
+        /// Dolby Digital Plus coding mode.
+        /// </summary>
         [Input("codingMode")]
         public Input<string>? CodingMode { get; set; }
 
+        /// <summary>
+        /// Sample rate in Hz.
+        /// </summary>
         [Input("sampleRate")]
         public Input<double>? SampleRate { get; set; }
 

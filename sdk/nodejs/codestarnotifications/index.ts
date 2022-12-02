@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { NotificationRuleArgs, NotificationRuleState } from "./notificationRule";
 export type NotificationRule = import("./notificationRule").NotificationRule;
 export const NotificationRule: typeof import("./notificationRule").NotificationRule = null as any;
-
 utilities.lazyLoad(exports, ["NotificationRule"], () => require("./notificationRule"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -38,6 +38,7 @@ import * as utilities from "../utilities";
  *       }
  *     }
  *   }
+ *
  * `,
  *     documentType: "Command",
  * });
@@ -58,6 +59,7 @@ import * as utilities from "../utilities";
  *       - id: '0.aws:runShellScript'
  *         runCommand:
  *           - ifconfig
+ *
  * `,
  *     documentFormat: "YAML",
  *     documentType: "Command",

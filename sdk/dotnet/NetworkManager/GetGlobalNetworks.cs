@@ -39,7 +39,7 @@ namespace Pulumi.Aws.NetworkManager
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetGlobalNetworksResult> InvokeAsync(GetGlobalNetworksArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalNetworksResult>("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", args ?? new GetGlobalNetworksArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalNetworksResult>("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", args ?? new GetGlobalNetworksArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about global networks.
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.NetworkManager
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetGlobalNetworksResult> Invoke(GetGlobalNetworksInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGlobalNetworksResult>("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", args ?? new GetGlobalNetworksInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalNetworksResult>("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", args ?? new GetGlobalNetworksInvokeArgs(), options.WithDefaults());
     }
 
 

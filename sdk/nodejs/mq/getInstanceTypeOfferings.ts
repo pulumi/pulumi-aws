@@ -16,30 +16,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const empty = pulumi.output(aws.mq.getInstanceTypeOfferings());
- * const engine = pulumi.output(aws.mq.getInstanceTypeOfferings({
+ * const empty = aws.mq.getInstanceTypeOfferings({});
+ * const engine = aws.mq.getInstanceTypeOfferings({
  *     engineType: "ACTIVEMQ",
- * }));
- * const storage = pulumi.output(aws.mq.getInstanceTypeOfferings({
+ * });
+ * const storage = aws.mq.getInstanceTypeOfferings({
  *     storageType: "EBS",
- * }));
- * const instance = pulumi.output(aws.mq.getInstanceTypeOfferings({
+ * });
+ * const instance = aws.mq.getInstanceTypeOfferings({
  *     hostInstanceType: "mq.m5.large",
- * }));
- * const all = pulumi.output(aws.mq.getInstanceTypeOfferings({
+ * });
+ * const all = aws.mq.getInstanceTypeOfferings({
  *     engineType: "ACTIVEMQ",
  *     hostInstanceType: "mq.m5.large",
  *     storageType: "EBS",
- * }));
+ * });
  * ```
  */
 export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", {
         "engineType": args.engineType,
         "hostInstanceType": args.hostInstanceType,

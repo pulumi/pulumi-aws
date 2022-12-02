@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly int? OnDemandPercentageAboveBaseCapacity;
         /// <summary>
-        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
         /// </summary>
         public readonly string? SpotAllocationStrategy;
         /// <summary>

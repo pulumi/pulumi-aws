@@ -78,9 +78,17 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         return Optional.ofNullable(this.minHealthyPercentage);
     }
 
+    /**
+     * Replace instances that already have your desired configuration. Defaults to `false`.
+     * 
+     */
     @Import(name="skipMatching")
     private @Nullable Output<Boolean> skipMatching;
 
+    /**
+     * @return Replace instances that already have your desired configuration. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> skipMatching() {
         return Optional.ofNullable(this.skipMatching);
     }
@@ -207,11 +215,23 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
             return minHealthyPercentage(Output.of(minHealthyPercentage));
         }
 
+        /**
+         * @param skipMatching Replace instances that already have your desired configuration. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipMatching(@Nullable Output<Boolean> skipMatching) {
             $.skipMatching = skipMatching;
             return this;
         }
 
+        /**
+         * @param skipMatching Replace instances that already have your desired configuration. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipMatching(Boolean skipMatching) {
             return skipMatching(Output.of(skipMatching));
         }

@@ -145,6 +145,11 @@ func NewAccessKey(ctx *pulumi.Context,
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"secret",
+		"sesSmtpPasswordV4",
+	})
+	opts = append(opts, secrets)
 	var resource AccessKey
 	err := ctx.RegisterResource("aws:iam/accessKey:AccessKey", name, args, &resource, opts...)
 	if err != nil {

@@ -17,21 +17,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.ec2.getDedicatedHost({
+ * const test = aws.ec2.getDedicatedHost({
  *     filters: [{
  *         name: "instance-type",
  *         values: ["c5.18xlarge"],
  *     }],
- * }));
+ * });
  * ```
  */
 export function getDedicatedHost(args?: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getDedicatedHost:getDedicatedHost", {
         "filters": args.filters,
         "hostId": args.hostId,

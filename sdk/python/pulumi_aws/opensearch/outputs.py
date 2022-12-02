@@ -29,6 +29,8 @@ __all__ = [
     'DomainSamlOptionsSamlOptionsIdp',
     'DomainSnapshotOptions',
     'DomainVpcOptions',
+    'OutboundConnectionLocalDomainInfo',
+    'OutboundConnectionRemoteDomainInfo',
     'GetDomainAdvancedSecurityOptionResult',
     'GetDomainAutoTuneOptionResult',
     'GetDomainAutoTuneOptionMaintenanceScheduleResult',
@@ -1210,6 +1212,124 @@ class DomainVpcOptions(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class OutboundConnectionLocalDomainInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "ownerId":
+            suggest = "owner_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutboundConnectionLocalDomainInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutboundConnectionLocalDomainInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutboundConnectionLocalDomainInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: str,
+                 owner_id: str,
+                 region: str):
+        """
+        :param str domain_name: The name of the remote domain.
+        :param str owner_id: The Account ID of the owner of the remote domain.
+        :param str region: The region of the remote domain.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "owner_id", owner_id)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        The name of the remote domain.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> str:
+        """
+        The Account ID of the owner of the remote domain.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        The region of the remote domain.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class OutboundConnectionRemoteDomainInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "ownerId":
+            suggest = "owner_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutboundConnectionRemoteDomainInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutboundConnectionRemoteDomainInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutboundConnectionRemoteDomainInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: str,
+                 owner_id: str,
+                 region: str):
+        """
+        :param str domain_name: The name of the remote domain.
+        :param str owner_id: The Account ID of the owner of the remote domain.
+        :param str region: The region of the remote domain.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "owner_id", owner_id)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        The name of the remote domain.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> str:
+        """
+        The Account ID of the owner of the remote domain.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        The region of the remote domain.
+        """
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type

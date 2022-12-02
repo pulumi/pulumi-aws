@@ -24,11 +24,21 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("datakey", required: true)]
         public Input<string> Datakey { get; set; } = null!;
 
+        [Input("secretAccessKey", required: true)]
+        private Input<string>? _secretAccessKey;
+
         /// <summary>
         /// The secret key used to sign requests.
         /// </summary>
-        [Input("secretAccessKey", required: true)]
-        public Input<string> SecretAccessKey { get; set; } = null!;
+        public Input<string>? SecretAccessKey
+        {
+            get => _secretAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Identifier for the user.

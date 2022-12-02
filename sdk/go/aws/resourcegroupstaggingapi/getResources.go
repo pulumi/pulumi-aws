@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := resourcegroupstaggingapi.GetResources(ctx, nil, nil)
+//			_, err = resourcegroupstaggingapi.GetResources(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -50,7 +50,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := resourcegroupstaggingapi.GetResources(ctx, &resourcegroupstaggingapi.GetResourcesArgs{
+//			_, err = resourcegroupstaggingapi.GetResources(ctx, &resourcegroupstaggingapi.GetResourcesArgs{
 //				TagFilters: []resourcegroupstaggingapi.GetResourcesTagFilter{
 //					resourcegroupstaggingapi.GetResourcesTagFilter{
 //						Key: "tag-key",
@@ -83,7 +83,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := resourcegroupstaggingapi.GetResources(ctx, &resourcegroupstaggingapi.GetResourcesArgs{
+//			_, err = resourcegroupstaggingapi.GetResources(ctx, &resourcegroupstaggingapi.GetResourcesArgs{
 //				ResourceTypeFilters: []string{
 //					"ec2:instance",
 //				},

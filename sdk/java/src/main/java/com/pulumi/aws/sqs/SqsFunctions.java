@@ -6,7 +6,10 @@ package com.pulumi.aws.sqs;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.sqs.inputs.GetQueueArgs;
 import com.pulumi.aws.sqs.inputs.GetQueuePlainArgs;
+import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
+import com.pulumi.aws.sqs.inputs.GetQueuesPlainArgs;
 import com.pulumi.aws.sqs.outputs.GetQueueResult;
+import com.pulumi.aws.sqs.outputs.GetQueuesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -169,5 +172,233 @@ public final class SqsFunctions {
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:sqs/getQueue:getQueue", TypeShape.of(GetQueueResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS SQS (Simple Queue) Queues.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sqs.SqsFunctions;
+     * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SqsFunctions.getQueues(GetQueuesArgs.builder()
+     *             .queueNamePrefix(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetQueuesResult> getQueues() {
+        return getQueues(GetQueuesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS SQS (Simple Queue) Queues.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sqs.SqsFunctions;
+     * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SqsFunctions.getQueues(GetQueuesArgs.builder()
+     *             .queueNamePrefix(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetQueuesResult> getQueuesPlain() {
+        return getQueuesPlain(GetQueuesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS SQS (Simple Queue) Queues.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sqs.SqsFunctions;
+     * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SqsFunctions.getQueues(GetQueuesArgs.builder()
+     *             .queueNamePrefix(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetQueuesResult> getQueues(GetQueuesArgs args) {
+        return getQueues(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS SQS (Simple Queue) Queues.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sqs.SqsFunctions;
+     * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SqsFunctions.getQueues(GetQueuesArgs.builder()
+     *             .queueNamePrefix(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetQueuesResult> getQueuesPlain(GetQueuesPlainArgs args) {
+        return getQueuesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS SQS (Simple Queue) Queues.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sqs.SqsFunctions;
+     * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SqsFunctions.getQueues(GetQueuesArgs.builder()
+     *             .queueNamePrefix(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetQueuesResult> getQueues(GetQueuesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:sqs/getQueues:getQueues", TypeShape.of(GetQueuesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS SQS (Simple Queue) Queues.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sqs.SqsFunctions;
+     * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SqsFunctions.getQueues(GetQueuesArgs.builder()
+     *             .queueNamePrefix(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetQueuesResult> getQueuesPlain(GetQueuesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:sqs/getQueues:getQueues", TypeShape.of(GetQueuesResult.class), args, Utilities.withVersion(options));
     }
 }

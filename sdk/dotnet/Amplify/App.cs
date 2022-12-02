@@ -254,7 +254,7 @@ namespace Pulumi.Aws.Amplify
         public Output<string?> OauthToken { get; private set; } = null!;
 
         /// <summary>
-        /// Platform or framework for an Amplify app. Valid values: `WEB`.
+        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         /// </summary>
         [Output("platform")]
         public Output<string?> Platform { get; private set; } = null!;
@@ -306,6 +306,12 @@ namespace Pulumi.Aws.Amplify
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "accessToken",
+                    "basicAuthCredentials",
+                    "oauthToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -329,11 +335,21 @@ namespace Pulumi.Aws.Amplify
 
     public sealed class AppArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessToken")]
+        private Input<string>? _accessToken;
+
         /// <summary>
         /// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
         /// </summary>
-        [Input("accessToken")]
-        public Input<string>? AccessToken { get; set; }
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
@@ -353,11 +369,21 @@ namespace Pulumi.Aws.Amplify
             set => _autoBranchCreationPatterns = value;
         }
 
+        [Input("basicAuthCredentials")]
+        private Input<string>? _basicAuthCredentials;
+
         /// <summary>
         /// Credentials for basic authorization for an Amplify app.
         /// </summary>
-        [Input("basicAuthCredentials")]
-        public Input<string>? BasicAuthCredentials { get; set; }
+        public Input<string>? BasicAuthCredentials
+        {
+            get => _basicAuthCredentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _basicAuthCredentials = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
@@ -431,14 +457,24 @@ namespace Pulumi.Aws.Amplify
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("oauthToken")]
+        private Input<string>? _oauthToken;
+
         /// <summary>
         /// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         /// </summary>
-        [Input("oauthToken")]
-        public Input<string>? OauthToken { get; set; }
+        public Input<string>? OauthToken
+        {
+            get => _oauthToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
-        /// Platform or framework for an Amplify app. Valid values: `WEB`.
+        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
@@ -469,11 +505,21 @@ namespace Pulumi.Aws.Amplify
 
     public sealed class AppState : global::Pulumi.ResourceArgs
     {
+        [Input("accessToken")]
+        private Input<string>? _accessToken;
+
         /// <summary>
         /// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
         /// </summary>
-        [Input("accessToken")]
-        public Input<string>? AccessToken { get; set; }
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// ARN of the Amplify app.
@@ -499,11 +545,21 @@ namespace Pulumi.Aws.Amplify
             set => _autoBranchCreationPatterns = value;
         }
 
+        [Input("basicAuthCredentials")]
+        private Input<string>? _basicAuthCredentials;
+
         /// <summary>
         /// Credentials for basic authorization for an Amplify app.
         /// </summary>
-        [Input("basicAuthCredentials")]
-        public Input<string>? BasicAuthCredentials { get; set; }
+        public Input<string>? BasicAuthCredentials
+        {
+            get => _basicAuthCredentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _basicAuthCredentials = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
@@ -583,14 +639,24 @@ namespace Pulumi.Aws.Amplify
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("oauthToken")]
+        private Input<string>? _oauthToken;
+
         /// <summary>
         /// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         /// </summary>
-        [Input("oauthToken")]
-        public Input<string>? OauthToken { get; set; }
+        public Input<string>? OauthToken
+        {
+            get => _oauthToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
-        /// Platform or framework for an Amplify app. Valid values: `WEB`.
+        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }

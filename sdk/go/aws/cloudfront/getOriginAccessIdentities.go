@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.GetOriginAccessIdentities(ctx, nil, nil)
+//			_, err = cloudfront.GetOriginAccessIdentities(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -52,7 +52,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.GetOriginAccessIdentities(ctx, &cloudfront.GetOriginAccessIdentitiesArgs{
+//			_, err = cloudfront.GetOriginAccessIdentities(ctx, &cloudfront.GetOriginAccessIdentitiesArgs{
 //				Comments: []string{
 //					"example-comment1",
 //					"example-comment2",

@@ -24,6 +24,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
             set => _audioDescriptions = value;
         }
 
+        /// <summary>
+        /// Settings for ad avail blanking. See Avail Blanking for more details.
+        /// </summary>
+        [Input("availBlanking")]
+        public Input<Inputs.ChannelEncoderSettingsAvailBlankingGetArgs>? AvailBlanking { get; set; }
+
         [Input("outputGroups", required: true)]
         private InputList<Inputs.ChannelEncoderSettingsOutputGroupGetArgs>? _outputGroups;
 

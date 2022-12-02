@@ -19,22 +19,15 @@ __all__ = [
 @pulumi.output_type
 class GroupConfiguration(dict):
     def __init__(__self__, *,
-                 parameters: Sequence['outputs.GroupConfigurationParameter'],
-                 type: str):
+                 type: str,
+                 parameters: Optional[Sequence['outputs.GroupConfigurationParameter']] = None):
         """
-        :param Sequence['GroupConfigurationParameterArgs'] parameters: A collection of parameters for this group configuration item. See below for details.
         :param str type: Specifies the type of group configuration item.
+        :param Sequence['GroupConfigurationParameterArgs'] parameters: A collection of parameters for this group configuration item. See below for details.
         """
-        pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Sequence['outputs.GroupConfigurationParameter']:
-        """
-        A collection of parameters for this group configuration item. See below for details.
-        """
-        return pulumi.get(self, "parameters")
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter
@@ -43,6 +36,14 @@ class GroupConfiguration(dict):
         Specifies the type of group configuration item.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.GroupConfigurationParameter']]:
+        """
+        A collection of parameters for this group configuration item. See below for details.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type

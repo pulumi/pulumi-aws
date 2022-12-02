@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.LookupSlotType(ctx, &lex.LookupSlotTypeArgs{
+//			_, err = lex.LookupSlotType(ctx, &lex.LookupSlotTypeArgs{
 //				Name:    "FlowerTypes",
 //				Version: pulumi.StringRef("1"),
 //			}, nil)

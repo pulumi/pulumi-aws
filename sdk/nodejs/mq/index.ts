@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { BrokerArgs, BrokerState } from "./broker";
 export type Broker = import("./broker").Broker;
 export const Broker: typeof import("./broker").Broker = null as any;
+utilities.lazyLoad(exports, ["Broker"], () => require("./broker"));
 
 export { ConfigurationArgs, ConfigurationState } from "./configuration";
 export type Configuration = import("./configuration").Configuration;
 export const Configuration: typeof import("./configuration").Configuration = null as any;
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
 
 export { GetBrokerArgs, GetBrokerResult, GetBrokerOutputArgs } from "./getBroker";
 export const getBroker: typeof import("./getBroker").getBroker = null as any;
 export const getBrokerOutput: typeof import("./getBroker").getBrokerOutput = null as any;
+utilities.lazyLoad(exports, ["getBroker","getBrokerOutput"], () => require("./getBroker"));
 
 export { GetInstanceTypeOfferingsArgs, GetInstanceTypeOfferingsResult, GetInstanceTypeOfferingsOutputArgs } from "./getInstanceTypeOfferings";
 export const getInstanceTypeOfferings: typeof import("./getInstanceTypeOfferings").getInstanceTypeOfferings = null as any;
 export const getInstanceTypeOfferingsOutput: typeof import("./getInstanceTypeOfferings").getInstanceTypeOfferingsOutput = null as any;
-
-utilities.lazyLoad(exports, ["Broker"], () => require("./broker"));
-utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
-utilities.lazyLoad(exports, ["getBroker","getBrokerOutput"], () => require("./getBroker"));
 utilities.lazyLoad(exports, ["getInstanceTypeOfferings","getInstanceTypeOfferingsOutput"], () => require("./getInstanceTypeOfferings"));
+
 
 const _module = {
     version: utilities.getVersion(),

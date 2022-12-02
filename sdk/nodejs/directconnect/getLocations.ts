@@ -16,15 +16,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const available = pulumi.output(aws.directconnect.getLocations());
+ * const available = aws.directconnect.getLocations({});
  * ```
  */
 export function getLocations(opts?: pulumi.InvokeOptions): Promise<GetLocationsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getLocations:getLocations", {
     }, opts);
 }

@@ -26,9 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cert = new aws.iot.Certificate("cert", {
- *     active: true,
- * });
+ * const cert = new aws.iot.Certificate("cert", {active: true});
  * ```
  * ### From existing certificate without a CA
  *
@@ -134,14 +132,16 @@ export class Certificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'active'");
             }
             resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["caPem"] = args ? args.caPem : undefined;
-            resourceInputs["certificatePem"] = args ? args.certificatePem : undefined;
+            resourceInputs["caPem"] = args?.caPem ? pulumi.secret(args.caPem) : undefined;
+            resourceInputs["certificatePem"] = args?.certificatePem ? pulumi.secret(args.certificatePem) : undefined;
             resourceInputs["csr"] = args ? args.csr : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["privateKey"] = undefined /*out*/;
             resourceInputs["publicKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["caPem", "certificatePem", "privateKey", "publicKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

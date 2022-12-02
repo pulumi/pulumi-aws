@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.LookupBotAlias(ctx, &lex.LookupBotAliasArgs{
+//			_, err = lex.LookupBotAlias(ctx, &lex.LookupBotAliasArgs{
 //				BotName: "OrderFlowers",
 //				Name:    "OrderFlowersProd",
 //			}, nil)

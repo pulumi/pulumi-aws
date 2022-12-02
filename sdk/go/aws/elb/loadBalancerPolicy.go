@@ -78,7 +78,7 @@ import (
 //				PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
 //					&elb.LoadBalancerPolicyPolicyAttributeArgs{
 //						Name:  pulumi.String("PublicKeyPolicyName"),
-//						Value: pulumi.Any(aws_load_balancer_policy.Wu - tang - root - ca - pubkey - policy.Policy_name),
+//						Value: pulumi.Any(aws_load_balancer_policy.WuTangRootCaPubkeyPolicy.Policy_name),
 //					},
 //				},
 //			})

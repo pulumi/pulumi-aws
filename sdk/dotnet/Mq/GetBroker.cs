@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Mq
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBrokerResult> InvokeAsync(GetBrokerArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBrokerResult>("aws:mq/getBroker:getBroker", args ?? new GetBrokerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerResult>("aws:mq/getBroker:getBroker", args ?? new GetBrokerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a MQ Broker.
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Mq
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBrokerResult> Invoke(GetBrokerInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBrokerResult>("aws:mq/getBroker:getBroker", args ?? new GetBrokerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBrokerResult>("aws:mq/getBroker:getBroker", args ?? new GetBrokerInvokeArgs(), options.WithDefaults());
     }
 
 

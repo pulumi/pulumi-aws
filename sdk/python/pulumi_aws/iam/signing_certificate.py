@@ -149,6 +149,34 @@ class SigningCertificate(pulumi.CustomResource):
         """
         Provides an IAM Signing Certificate resource to upload Signing Certificates.
 
+        ## Example Usage
+
+        **Using certs on file:**
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_cert = aws.iam.SigningCertificate("testCert",
+            username="some_test_cert",
+            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"))
+        ```
+
+        **Example with cert in-line:**
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_cert_alt = aws.iam.SigningCertificate("testCertAlt",
+            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
+        [......] # cert contents
+        -----END CERTIFICATE-----
+
+        \"\"\",
+            username="some_test_cert")
+        ```
+
         ## Import
 
         IAM Signing Certificates can be imported using the `id`, e.g.,
@@ -171,6 +199,34 @@ class SigningCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM Signing Certificate resource to upload Signing Certificates.
+
+        ## Example Usage
+
+        **Using certs on file:**
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_cert = aws.iam.SigningCertificate("testCert",
+            username="some_test_cert",
+            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"))
+        ```
+
+        **Example with cert in-line:**
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_cert_alt = aws.iam.SigningCertificate("testCertAlt",
+            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
+        [......] # cert contents
+        -----END CERTIFICATE-----
+
+        \"\"\",
+            username="some_test_cert")
+        ```
 
         ## Import
 

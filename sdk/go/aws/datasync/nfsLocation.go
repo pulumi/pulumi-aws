@@ -34,7 +34,7 @@ import (
 //				Subdirectory:   pulumi.String("/exported/path"),
 //				OnPremConfig: &datasync.NfsLocationOnPremConfigArgs{
 //					AgentArns: pulumi.StringArray{
-//						pulumi.Any(aws_datasync_agent.Example.Arn),
+//						aws_datasync_agent.Example.Arn,
 //					},
 //				},
 //			})

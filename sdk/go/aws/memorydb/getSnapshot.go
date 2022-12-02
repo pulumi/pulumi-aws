@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := memorydb.LookupSnapshot(ctx, &memorydb.LookupSnapshotArgs{
+//			_, err = memorydb.LookupSnapshot(ctx, &memorydb.LookupSnapshotArgs{
 //				Name: "my-snapshot",
 //			}, nil)
 //			if err != nil {

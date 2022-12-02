@@ -81,6 +81,10 @@ func NewApiKey(ctx *pulumi.Context,
 	if isZero(args.Description) {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"key",
+	})
+	opts = append(opts, secrets)
 	var resource ApiKey
 	err := ctx.RegisterResource("aws:appsync/apiKey:ApiKey", name, args, &resource, opts...)
 	if err != nil {

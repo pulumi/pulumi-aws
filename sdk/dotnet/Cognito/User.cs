@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Cognito
     ///                 Mutable = false,
     ///                 Required = false,
     ///                 DeveloperOnlyAttribute = false,
-    ///                 StringAttributeConstraints = ,
+    ///                 StringAttributeConstraints = null,
     ///             },
     ///         },
     ///     });
@@ -170,6 +170,9 @@ namespace Pulumi.Aws.Cognito
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
+        /// <summary>
+        /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -202,6 +205,11 @@ namespace Pulumi.Aws.Cognito
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                    "temporaryPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -279,17 +287,37 @@ namespace Pulumi.Aws.Cognito
         [Input("messageAction")]
         public Input<string>? MessageAction { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("temporaryPassword")]
+        private Input<string>? _temporaryPassword;
 
         /// <summary>
         /// The user's temporary password. Conflicts with `password`.
         /// </summary>
-        [Input("temporaryPassword")]
-        public Input<string>? TemporaryPassword { get; set; }
+        public Input<string>? TemporaryPassword
+        {
+            get => _temporaryPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _temporaryPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The user pool ID for the user pool where the user will be created.
@@ -297,6 +325,9 @@ namespace Pulumi.Aws.Cognito
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
+        /// <summary>
+        /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -388,11 +419,21 @@ namespace Pulumi.Aws.Cognito
             set => _mfaSettingLists = value;
         }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("preferredMfaSetting")]
         public Input<string>? PreferredMfaSetting { get; set; }
@@ -409,11 +450,21 @@ namespace Pulumi.Aws.Cognito
         [Input("sub")]
         public Input<string>? Sub { get; set; }
 
+        [Input("temporaryPassword")]
+        private Input<string>? _temporaryPassword;
+
         /// <summary>
         /// The user's temporary password. Conflicts with `password`.
         /// </summary>
-        [Input("temporaryPassword")]
-        public Input<string>? TemporaryPassword { get; set; }
+        public Input<string>? TemporaryPassword
+        {
+            get => _temporaryPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _temporaryPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The user pool ID for the user pool where the user will be created.
@@ -421,6 +472,9 @@ namespace Pulumi.Aws.Cognito
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }
 
+        /// <summary>
+        /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

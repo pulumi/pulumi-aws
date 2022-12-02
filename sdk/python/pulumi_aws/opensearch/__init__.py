@@ -9,5 +9,7 @@ from .domain import *
 from .domain_policy import *
 from .domain_saml_options import *
 from .get_domain import *
+from .inbound_connection_accepter import *
+from .outbound_connection import *
 from ._inputs import *
 from . import outputs

@@ -13,6 +13,23 @@ namespace Pulumi.Aws.Ses
     /// Provides an SES domain identity resource
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ses.DomainIdentity("example", new()
+    ///     {
+    ///         Domain = "example.com",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Route53 Record
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -68,9 +85,10 @@ namespace Pulumi.Aws.Ses
         /// A code which when added to the domain as a TXT record
         /// will signal to SES that the owner of the domain has authorised SES to act on
         /// their behalf. The domain identity will be in state "verification pending"
-        /// until this is done. See below for an example of how this might be achieved
-        /// when the domain is hosted in Route 53 and managed by this provider.  Find out
-        /// more about verifying domains in Amazon SES in the [AWS SES
+        /// until this is done. See the With Route53 Record example
+        /// for how this might be achieved when the domain is hosted in Route 53 and
+        /// managed by this provider.  Find out more about verifying domains in Amazon
+        /// SES in the [AWS SES
         /// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         /// </summary>
         [Output("verificationToken")]
@@ -152,9 +170,10 @@ namespace Pulumi.Aws.Ses
         /// A code which when added to the domain as a TXT record
         /// will signal to SES that the owner of the domain has authorised SES to act on
         /// their behalf. The domain identity will be in state "verification pending"
-        /// until this is done. See below for an example of how this might be achieved
-        /// when the domain is hosted in Route 53 and managed by this provider.  Find out
-        /// more about verifying domains in Amazon SES in the [AWS SES
+        /// until this is done. See the With Route53 Record example
+        /// for how this might be achieved when the domain is hosted in Route 53 and
+        /// managed by this provider.  Find out more about verifying domains in Amazon
+        /// SES in the [AWS SES
         /// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         /// </summary>
         [Input("verificationToken")]

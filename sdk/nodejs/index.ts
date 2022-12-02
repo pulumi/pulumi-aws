@@ -10,92 +10,92 @@ export * from "./awsMixins";
 export { GetAmiArgs, GetAmiResult, GetAmiOutputArgs } from "./getAmi";
 export const getAmi: typeof import("./getAmi").getAmi = null as any;
 export const getAmiOutput: typeof import("./getAmi").getAmiOutput = null as any;
+utilities.lazyLoad(exports, ["getAmi","getAmiOutput"], () => require("./getAmi"));
 
 export { GetAmiIdsArgs, GetAmiIdsResult, GetAmiIdsOutputArgs } from "./getAmiIds";
 export const getAmiIds: typeof import("./getAmiIds").getAmiIds = null as any;
 export const getAmiIdsOutput: typeof import("./getAmiIds").getAmiIdsOutput = null as any;
+utilities.lazyLoad(exports, ["getAmiIds","getAmiIdsOutput"], () => require("./getAmiIds"));
 
 export { GetArnArgs, GetArnResult, GetArnOutputArgs } from "./getArn";
 export const getArn: typeof import("./getArn").getArn = null as any;
 export const getArnOutput: typeof import("./getArn").getArnOutput = null as any;
+utilities.lazyLoad(exports, ["getArn","getArnOutput"], () => require("./getArn"));
 
 export { GetAutoscalingGroupsArgs, GetAutoscalingGroupsResult, GetAutoscalingGroupsOutputArgs } from "./getAutoscalingGroups";
 export const getAutoscalingGroups: typeof import("./getAutoscalingGroups").getAutoscalingGroups = null as any;
 export const getAutoscalingGroupsOutput: typeof import("./getAutoscalingGroups").getAutoscalingGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getAutoscalingGroups","getAutoscalingGroupsOutput"], () => require("./getAutoscalingGroups"));
 
 export { GetAvailabilityZoneArgs, GetAvailabilityZoneResult, GetAvailabilityZoneOutputArgs } from "./getAvailabilityZone";
 export const getAvailabilityZone: typeof import("./getAvailabilityZone").getAvailabilityZone = null as any;
 export const getAvailabilityZoneOutput: typeof import("./getAvailabilityZone").getAvailabilityZoneOutput = null as any;
+utilities.lazyLoad(exports, ["getAvailabilityZone","getAvailabilityZoneOutput"], () => require("./getAvailabilityZone"));
 
 export { GetAvailabilityZonesArgs, GetAvailabilityZonesResult, GetAvailabilityZonesOutputArgs } from "./getAvailabilityZones";
 export const getAvailabilityZones: typeof import("./getAvailabilityZones").getAvailabilityZones = null as any;
 export const getAvailabilityZonesOutput: typeof import("./getAvailabilityZones").getAvailabilityZonesOutput = null as any;
+utilities.lazyLoad(exports, ["getAvailabilityZones","getAvailabilityZonesOutput"], () => require("./getAvailabilityZones"));
 
 export { GetBillingServiceAccountResult } from "./getBillingServiceAccount";
 export const getBillingServiceAccount: typeof import("./getBillingServiceAccount").getBillingServiceAccount = null as any;
+utilities.lazyLoad(exports, ["getBillingServiceAccount"], () => require("./getBillingServiceAccount"));
 
 export { GetCallerIdentityResult } from "./getCallerIdentity";
 export const getCallerIdentity: typeof import("./getCallerIdentity").getCallerIdentity = null as any;
+utilities.lazyLoad(exports, ["getCallerIdentity"], () => require("./getCallerIdentity"));
 
 export { GetCanonicalUserIdResult } from "./getCanonicalUserId";
 export const getCanonicalUserId: typeof import("./getCanonicalUserId").getCanonicalUserId = null as any;
+utilities.lazyLoad(exports, ["getCanonicalUserId"], () => require("./getCanonicalUserId"));
 
 export { GetDefaultTagsArgs, GetDefaultTagsResult, GetDefaultTagsOutputArgs } from "./getDefaultTags";
 export const getDefaultTags: typeof import("./getDefaultTags").getDefaultTags = null as any;
 export const getDefaultTagsOutput: typeof import("./getDefaultTags").getDefaultTagsOutput = null as any;
+utilities.lazyLoad(exports, ["getDefaultTags","getDefaultTagsOutput"], () => require("./getDefaultTags"));
 
 export { GetElasticIpArgs, GetElasticIpResult, GetElasticIpOutputArgs } from "./getElasticIp";
 export const getElasticIp: typeof import("./getElasticIp").getElasticIp = null as any;
 export const getElasticIpOutput: typeof import("./getElasticIp").getElasticIpOutput = null as any;
+utilities.lazyLoad(exports, ["getElasticIp","getElasticIpOutput"], () => require("./getElasticIp"));
 
 export { GetIpRangesArgs, GetIpRangesResult, GetIpRangesOutputArgs } from "./getIpRanges";
 export const getIpRanges: typeof import("./getIpRanges").getIpRanges = null as any;
 export const getIpRangesOutput: typeof import("./getIpRanges").getIpRangesOutput = null as any;
+utilities.lazyLoad(exports, ["getIpRanges","getIpRangesOutput"], () => require("./getIpRanges"));
 
 export { GetPartitionResult } from "./getPartition";
 export const getPartition: typeof import("./getPartition").getPartition = null as any;
+utilities.lazyLoad(exports, ["getPartition"], () => require("./getPartition"));
 
 export { GetPrefixListArgs, GetPrefixListResult, GetPrefixListOutputArgs } from "./getPrefixList";
 export const getPrefixList: typeof import("./getPrefixList").getPrefixList = null as any;
 export const getPrefixListOutput: typeof import("./getPrefixList").getPrefixListOutput = null as any;
+utilities.lazyLoad(exports, ["getPrefixList","getPrefixListOutput"], () => require("./getPrefixList"));
 
 export { GetRegionArgs, GetRegionResult, GetRegionOutputArgs } from "./getRegion";
 export const getRegion: typeof import("./getRegion").getRegion = null as any;
 export const getRegionOutput: typeof import("./getRegion").getRegionOutput = null as any;
+utilities.lazyLoad(exports, ["getRegion","getRegionOutput"], () => require("./getRegion"));
 
 export { GetRegionsArgs, GetRegionsResult, GetRegionsOutputArgs } from "./getRegions";
 export const getRegions: typeof import("./getRegions").getRegions = null as any;
 export const getRegionsOutput: typeof import("./getRegions").getRegionsOutput = null as any;
+utilities.lazyLoad(exports, ["getRegions","getRegionsOutput"], () => require("./getRegions"));
 
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
 
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
+utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
 export * from "./region";
 export * from "./tags";
 export * from "./utils";
-utilities.lazyLoad(exports, ["getAmi","getAmiOutput"], () => require("./getAmi"));
-utilities.lazyLoad(exports, ["getAmiIds","getAmiIdsOutput"], () => require("./getAmiIds"));
-utilities.lazyLoad(exports, ["getArn","getArnOutput"], () => require("./getArn"));
-utilities.lazyLoad(exports, ["getAutoscalingGroups","getAutoscalingGroupsOutput"], () => require("./getAutoscalingGroups"));
-utilities.lazyLoad(exports, ["getAvailabilityZone","getAvailabilityZoneOutput"], () => require("./getAvailabilityZone"));
-utilities.lazyLoad(exports, ["getAvailabilityZones","getAvailabilityZonesOutput"], () => require("./getAvailabilityZones"));
-utilities.lazyLoad(exports, ["getBillingServiceAccount"], () => require("./getBillingServiceAccount"));
-utilities.lazyLoad(exports, ["getCallerIdentity"], () => require("./getCallerIdentity"));
-utilities.lazyLoad(exports, ["getCanonicalUserId"], () => require("./getCanonicalUserId"));
-utilities.lazyLoad(exports, ["getDefaultTags","getDefaultTagsOutput"], () => require("./getDefaultTags"));
-utilities.lazyLoad(exports, ["getElasticIp","getElasticIpOutput"], () => require("./getElasticIp"));
-utilities.lazyLoad(exports, ["getIpRanges","getIpRangesOutput"], () => require("./getIpRanges"));
-utilities.lazyLoad(exports, ["getPartition"], () => require("./getPartition"));
-utilities.lazyLoad(exports, ["getPrefixList","getPrefixListOutput"], () => require("./getPrefixList"));
-utilities.lazyLoad(exports, ["getRegion","getRegionOutput"], () => require("./getRegion"));
-utilities.lazyLoad(exports, ["getRegions","getRegionsOutput"], () => require("./getRegions"));
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
 // Export enums:
 export * from "./types/enums";
@@ -146,6 +146,7 @@ import * as cognito from "./cognito";
 import * as comprehend from "./comprehend";
 import * as config from "./config";
 import * as connect from "./connect";
+import * as controltower from "./controltower";
 import * as costexplorer from "./costexplorer";
 import * as cur from "./cur";
 import * as dataexchange from "./dataexchange";
@@ -196,6 +197,7 @@ import * as inspector from "./inspector";
 import * as inspector2 from "./inspector2";
 import * as iot from "./iot";
 import * as ivs from "./ivs";
+import * as ivschat from "./ivschat";
 import * as kendra from "./kendra";
 import * as keyspaces from "./keyspaces";
 import * as kinesis from "./kinesis";
@@ -247,6 +249,7 @@ import * as s3 from "./s3";
 import * as s3control from "./s3control";
 import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
+import * as scheduler from "./scheduler";
 import * as schemas from "./schemas";
 import * as secretsmanager from "./secretsmanager";
 import * as securityhub from "./securityhub";
@@ -325,6 +328,7 @@ export {
     comprehend,
     config,
     connect,
+    controltower,
     costexplorer,
     cur,
     dataexchange,
@@ -375,6 +379,7 @@ export {
     inspector2,
     iot,
     ivs,
+    ivschat,
     kendra,
     keyspaces,
     kinesis,
@@ -426,6 +431,7 @@ export {
     s3control,
     s3outposts,
     sagemaker,
+    scheduler,
     schemas,
     secretsmanager,
     securityhub,

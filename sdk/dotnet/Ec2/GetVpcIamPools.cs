@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcIamPoolsResult> InvokeAsync(GetVpcIamPoolsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcIamPoolsResult>("aws:ec2/getVpcIamPools:getVpcIamPools", args ?? new GetVpcIamPoolsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIamPoolsResult>("aws:ec2/getVpcIamPools:getVpcIamPools", args ?? new GetVpcIamPoolsArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.ec2.getVpcIamPools` provides details about IPAM pools.
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVpcIamPoolsResult> Invoke(GetVpcIamPoolsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVpcIamPoolsResult>("aws:ec2/getVpcIamPools:getVpcIamPools", args ?? new GetVpcIamPoolsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcIamPoolsResult>("aws:ec2/getVpcIamPools:getVpcIamPools", args ?? new GetVpcIamPoolsInvokeArgs(), options.WithDefaults());
     }
 
 

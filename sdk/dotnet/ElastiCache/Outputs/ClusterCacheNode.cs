@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ElastiCache.Outputs
         /// </summary>
         public readonly string? AvailabilityZone;
         public readonly string? Id;
+        public readonly string? OutpostArn;
         /// <summary>
         /// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         /// </summary>
@@ -32,11 +33,14 @@ namespace Pulumi.Aws.ElastiCache.Outputs
 
             string? id,
 
+            string? outpostArn,
+
             int? port)
         {
             Address = address;
             AvailabilityZone = availabilityZone;
             Id = id;
+            OutpostArn = outpostArn;
             Port = port;
         }
     }

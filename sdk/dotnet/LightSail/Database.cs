@@ -263,6 +263,10 @@ namespace Pulumi.Aws.LightSail
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "masterPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -328,11 +332,21 @@ namespace Pulumi.Aws.LightSail
         [Input("masterDatabaseName", required: true)]
         public Input<string> MasterDatabaseName { get; set; } = null!;
 
+        [Input("masterPassword", required: true)]
+        private Input<string>? _masterPassword;
+
         /// <summary>
         /// The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
         /// </summary>
-        [Input("masterPassword", required: true)]
-        public Input<string> MasterPassword { get; set; } = null!;
+        public Input<string>? MasterPassword
+        {
+            get => _masterPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The master user name for your new database.
@@ -483,11 +497,21 @@ namespace Pulumi.Aws.LightSail
         [Input("masterEndpointPort")]
         public Input<int>? MasterEndpointPort { get; set; }
 
+        [Input("masterPassword")]
+        private Input<string>? _masterPassword;
+
         /// <summary>
         /// The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
         /// </summary>
-        [Input("masterPassword")]
-        public Input<string>? MasterPassword { get; set; }
+        public Input<string>? MasterPassword
+        {
+            get => _masterPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The master user name for your new database.

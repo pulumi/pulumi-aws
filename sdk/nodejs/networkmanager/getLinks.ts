@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLinks(args: GetLinksArgs, opts?: pulumi.InvokeOptions): Promise<GetLinksResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getLinks:getLinks", {
         "globalNetworkId": args.globalNetworkId,
         "providerName": args.providerName,

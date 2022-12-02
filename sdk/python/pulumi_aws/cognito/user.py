@@ -28,6 +28,7 @@ class UserArgs:
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where the user will be created.
+        :param pulumi.Input[str] username: The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: A map that contains user attributes and attribute values to be set for the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_metadata: A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `client_metadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] desired_delivery_mediums: A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `["SMS"]`.
@@ -74,6 +75,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
+        """
+        The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -222,6 +226,7 @@ class _UserState:
         :param pulumi.Input[str] sub: unique user id that is never reassignable to another user.
         :param pulumi.Input[str] temporary_password: The user's temporary password. Conflicts with `password`.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where the user will be created.
+        :param pulumi.Input[str] username: The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] validation_data: The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
         """
         if attributes is not None:
@@ -430,6 +435,9 @@ class _UserState:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -534,6 +542,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] password: The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
         :param pulumi.Input[str] temporary_password: The user's temporary password. Conflicts with `password`.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where the user will be created.
+        :param pulumi.Input[str] username: The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] validation_data: The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
         """
         ...
@@ -640,8 +649,8 @@ class User(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["force_alias_creation"] = force_alias_creation
             __props__.__dict__["message_action"] = message_action
-            __props__.__dict__["password"] = password
-            __props__.__dict__["temporary_password"] = temporary_password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            __props__.__dict__["temporary_password"] = None if temporary_password is None else pulumi.Output.secret(temporary_password)
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
@@ -655,6 +664,8 @@ class User(pulumi.CustomResource):
             __props__.__dict__["preferred_mfa_setting"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["sub"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "temporaryPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
             'aws:cognito/user:User',
             resource_name,
@@ -700,6 +711,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] sub: unique user id that is never reassignable to another user.
         :param pulumi.Input[str] temporary_password: The user's temporary password. Conflicts with `password`.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where the user will be created.
+        :param pulumi.Input[str] username: The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] validation_data: The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -836,6 +848,9 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
+        """
+        The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+        """
         return pulumi.get(self, "username")
 
     @property

@@ -17,6 +17,7 @@ __all__ = [
     'ClusterScalingConfigurationArgs',
     'ClusterServerlessv2ScalingConfigurationArgs',
     'GlobalClusterGlobalClusterMemberArgs',
+    'InstanceBlueGreenUpdateArgs',
     'InstanceRestoreToPointInTimeArgs',
     'InstanceS3ImportArgs',
     'OptionGroupOptionArgs',
@@ -26,6 +27,7 @@ __all__ = [
     'ProxyDefaultTargetGroupConnectionPoolConfigArgs',
     'ReservedInstanceRecurringChargeArgs',
     'SecurityGroupIngressArgs',
+    'GetClustersFilterArgs',
     'GetEngineVersionFilterArgs',
 ]
 
@@ -402,6 +404,31 @@ class GlobalClusterGlobalClusterMemberArgs:
     @is_writer.setter
     def is_writer(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_writer", value)
+
+
+@pulumi.input_type
+class InstanceBlueGreenUpdateArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Enables low-downtime updates when `true`.
+               Default is `false`.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables low-downtime updates when `true`.
+        Default is `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type
@@ -1044,6 +1071,43 @@ class SecurityGroupIngressArgs:
     @security_group_owner_id.setter
     def security_group_owner_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "security_group_owner_id", value)
+
+
+@pulumi.input_type
+class GetClustersFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type

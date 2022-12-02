@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { DomainArgs, DomainState } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
 export { DomainServiceAccessPolicyArgs, DomainServiceAccessPolicyState } from "./domainServiceAccessPolicy";
 export type DomainServiceAccessPolicy = import("./domainServiceAccessPolicy").DomainServiceAccessPolicy;
 export const DomainServiceAccessPolicy: typeof import("./domainServiceAccessPolicy").DomainServiceAccessPolicy = null as any;
-
-utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 utilities.lazyLoad(exports, ["DomainServiceAccessPolicy"], () => require("./domainServiceAccessPolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),

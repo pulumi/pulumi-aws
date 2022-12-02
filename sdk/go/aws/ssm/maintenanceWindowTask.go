@@ -41,7 +41,7 @@ import (
 //					&ssm.MaintenanceWindowTaskTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
-//							pulumi.Any(aws_instance.Example.Id),
+//							aws_instance.Example.Id,
 //						},
 //					},
 //				},
@@ -52,7 +52,7 @@ import (
 //							&ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs{
 //								Name: pulumi.String("InstanceId"),
 //								Values: pulumi.StringArray{
-//									pulumi.Any(aws_instance.Example.Id),
+//									aws_instance.Example.Id,
 //								},
 //							},
 //						},
@@ -92,7 +92,7 @@ import (
 //					&ssm.MaintenanceWindowTaskTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
-//							pulumi.Any(aws_instance.Example.Id),
+//							aws_instance.Example.Id,
 //						},
 //					},
 //				},
@@ -153,7 +153,7 @@ import (
 //					&ssm.MaintenanceWindowTaskTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
-//							pulumi.Any(aws_instance.Example.Id),
+//							aws_instance.Example.Id,
 //						},
 //					},
 //				},

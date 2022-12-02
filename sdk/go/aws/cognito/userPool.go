@@ -56,6 +56,7 @@ import (
 //				SmsConfiguration: &cognito.UserPoolSmsConfigurationArgs{
 //					ExternalId:   pulumi.String("example"),
 //					SnsCallerArn: pulumi.Any(aws_iam_role.Example.Arn),
+//					SnsRegion:    pulumi.String("us-east-1"),
 //				},
 //				SoftwareTokenMfaConfiguration: &cognito.UserPoolSoftwareTokenMfaConfigurationArgs{
 //					Enabled: pulumi.Bool(true),

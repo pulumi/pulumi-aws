@@ -301,12 +301,14 @@ class Resource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'desired_state'")
             __props__.__dict__["desired_state"] = desired_state
             __props__.__dict__["role_arn"] = role_arn
-            __props__.__dict__["schema"] = schema
+            __props__.__dict__["schema"] = None if schema is None else pulumi.Output.secret(schema)
             if type_name is None and not opts.urn:
                 raise TypeError("Missing required property 'type_name'")
             __props__.__dict__["type_name"] = type_name
             __props__.__dict__["type_version_id"] = type_version_id
             __props__.__dict__["properties"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["schema"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Resource, __self__).__init__(
             'aws:cloudcontrol/resource:Resource',
             resource_name,

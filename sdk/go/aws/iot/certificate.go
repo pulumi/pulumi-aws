@@ -148,6 +148,19 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.Active == nil {
 		return nil, errors.New("invalid value for required argument 'Active'")
 	}
+	if args.CaPem != nil {
+		args.CaPem = pulumi.ToSecret(args.CaPem).(pulumi.StringPtrOutput)
+	}
+	if args.CertificatePem != nil {
+		args.CertificatePem = pulumi.ToSecret(args.CertificatePem).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"caPem",
+		"certificatePem",
+		"privateKey",
+		"publicKey",
+	})
+	opts = append(opts, secrets)
 	var resource Certificate
 	err := ctx.RegisterResource("aws:iot/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {

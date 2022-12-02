@@ -271,6 +271,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.instanceAlias);
     }
     /**
+     * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+     * 
+     */
+    @Export(name="multiPartyConferenceEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> multiPartyConferenceEnabled;
+
+    /**
+     * @return Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> multiPartyConferenceEnabled() {
+        return Codegen.optional(this.multiPartyConferenceEnabled);
+    }
+    /**
      * Specifies whether outbound calls are enabled.
      * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 

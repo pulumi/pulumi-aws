@@ -187,6 +187,10 @@ namespace Pulumi.Aws.Ssm
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "value",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -282,11 +286,21 @@ namespace Pulumi.Aws.Ssm
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.Aws.Ssm.ParameterType> Type { get; set; } = null!;
 
+        [Input("value")]
+        private Input<string>? _value;
+
         /// <summary>
         /// Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ParameterArgs()
         {
@@ -380,11 +394,21 @@ namespace Pulumi.Aws.Ssm
         [Input("type")]
         public InputUnion<string, Pulumi.Aws.Ssm.ParameterType>? Type { get; set; }
 
+        [Input("value")]
+        private Input<string>? _value;
+
         /// <summary>
         /// Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Version of the parameter.

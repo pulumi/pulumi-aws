@@ -17,22 +17,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.fsx.getOpenZfsSnapshot({
+ * const example = aws.fsx.getOpenZfsSnapshot({
  *     filters: [{
  *         name: "volume-id",
  *         values: ["fsvol-073a32b6098a73feb"],
  *     }],
  *     mostRecent: true,
- * }));
+ * });
  * ```
  */
 export function getOpenZfsSnapshot(args?: GetOpenZfsSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenZfsSnapshotResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,

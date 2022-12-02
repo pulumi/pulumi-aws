@@ -601,6 +601,12 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "customerGatewayConfiguration",
+                    "tunnel1PresharedKey",
+                    "tunnel2PresharedKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -822,11 +828,21 @@ namespace Pulumi.Aws.Ec2
         [Input("tunnel1Phase2LifetimeSeconds")]
         public Input<int>? Tunnel1Phase2LifetimeSeconds { get; set; }
 
+        [Input("tunnel1PresharedKey")]
+        private Input<string>? _tunnel1PresharedKey;
+
         /// <summary>
         /// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
-        [Input("tunnel1PresharedKey")]
-        public Input<string>? Tunnel1PresharedKey { get; set; }
+        public Input<string>? Tunnel1PresharedKey
+        {
+            get => _tunnel1PresharedKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tunnel1PresharedKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
@@ -978,11 +994,21 @@ namespace Pulumi.Aws.Ec2
         [Input("tunnel2Phase2LifetimeSeconds")]
         public Input<int>? Tunnel2Phase2LifetimeSeconds { get; set; }
 
+        [Input("tunnel2PresharedKey")]
+        private Input<string>? _tunnel2PresharedKey;
+
         /// <summary>
         /// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
-        [Input("tunnel2PresharedKey")]
-        public Input<string>? Tunnel2PresharedKey { get; set; }
+        public Input<string>? Tunnel2PresharedKey
+        {
+            get => _tunnel2PresharedKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tunnel2PresharedKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
@@ -1052,11 +1078,21 @@ namespace Pulumi.Aws.Ec2
         [Input("coreNetworkAttachmentArn")]
         public Input<string>? CoreNetworkAttachmentArn { get; set; }
 
+        [Input("customerGatewayConfiguration")]
+        private Input<string>? _customerGatewayConfiguration;
+
         /// <summary>
         /// The configuration information for the VPN connection's customer gateway (in the native XML format).
         /// </summary>
-        [Input("customerGatewayConfiguration")]
-        public Input<string>? CustomerGatewayConfiguration { get; set; }
+        public Input<string>? CustomerGatewayConfiguration
+        {
+            get => _customerGatewayConfiguration;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _customerGatewayConfiguration = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the customer gateway.
@@ -1310,11 +1346,21 @@ namespace Pulumi.Aws.Ec2
         [Input("tunnel1Phase2LifetimeSeconds")]
         public Input<int>? Tunnel1Phase2LifetimeSeconds { get; set; }
 
+        [Input("tunnel1PresharedKey")]
+        private Input<string>? _tunnel1PresharedKey;
+
         /// <summary>
         /// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
-        [Input("tunnel1PresharedKey")]
-        public Input<string>? Tunnel1PresharedKey { get; set; }
+        public Input<string>? Tunnel1PresharedKey
+        {
+            get => _tunnel1PresharedKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tunnel1PresharedKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
@@ -1496,11 +1542,21 @@ namespace Pulumi.Aws.Ec2
         [Input("tunnel2Phase2LifetimeSeconds")]
         public Input<int>? Tunnel2Phase2LifetimeSeconds { get; set; }
 
+        [Input("tunnel2PresharedKey")]
+        private Input<string>? _tunnel2PresharedKey;
+
         /// <summary>
         /// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
-        [Input("tunnel2PresharedKey")]
-        public Input<string>? Tunnel2PresharedKey { get; set; }
+        public Input<string>? Tunnel2PresharedKey
+        {
+            get => _tunnel2PresharedKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tunnel2PresharedKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.

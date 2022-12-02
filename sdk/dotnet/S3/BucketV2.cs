@@ -391,7 +391,7 @@ namespace Pulumi.Aws.S3
     ///                         {
     ///                             new Aws.S3.Inputs.BucketV2ReplicationConfigurationRuleFilterArgs
     ///                             {
-    ///                                 Tags = ,
+    ///                                 Tags = null,
     ///                             },
     ///                         },
     ///                         Destinations = new[]

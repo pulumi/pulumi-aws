@@ -73,6 +73,12 @@ namespace Pulumi.Aws.MemoryDb
         public Output<ImmutableArray<Outputs.ClusterClusterEndpoint>> ClusterEndpoints { get; private set; } = null!;
 
         /// <summary>
+        /// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        /// </summary>
+        [Output("dataTiering")]
+        public Output<bool?> DataTiering { get; private set; } = null!;
+
+        /// <summary>
         /// Description for the cluster.
         /// </summary>
         [Output("description")]
@@ -166,7 +172,7 @@ namespace Pulumi.Aws.MemoryDb
         /// List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         /// </summary>
         [Output("snapshotArns")]
-        public Output<string?> SnapshotArns { get; private set; } = null!;
+        public Output<ImmutableArray<string>> SnapshotArns { get; private set; } = null!;
 
         /// <summary>
         /// The name of a snapshot from which to restore data into the new cluster.
@@ -275,6 +281,12 @@ namespace Pulumi.Aws.MemoryDb
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
 
         /// <summary>
+        /// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        /// </summary>
+        [Input("dataTiering")]
+        public Input<bool>? DataTiering { get; set; }
+
+        /// <summary>
         /// Description for the cluster.
         /// </summary>
         [Input("description")]
@@ -358,11 +370,17 @@ namespace Pulumi.Aws.MemoryDb
             set => _securityGroupIds = value;
         }
 
+        [Input("snapshotArns")]
+        private InputList<string>? _snapshotArns;
+
         /// <summary>
         /// List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         /// </summary>
-        [Input("snapshotArns")]
-        public Input<string>? SnapshotArns { get; set; }
+        public InputList<string> SnapshotArns
+        {
+            get => _snapshotArns ?? (_snapshotArns = new InputList<string>());
+            set => _snapshotArns = value;
+        }
 
         /// <summary>
         /// The name of a snapshot from which to restore data into the new cluster.
@@ -446,6 +464,12 @@ namespace Pulumi.Aws.MemoryDb
             get => _clusterEndpoints ?? (_clusterEndpoints = new InputList<Inputs.ClusterClusterEndpointGetArgs>());
             set => _clusterEndpoints = value;
         }
+
+        /// <summary>
+        /// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        /// </summary>
+        [Input("dataTiering")]
+        public Input<bool>? DataTiering { get; set; }
 
         /// <summary>
         /// Description for the cluster.
@@ -549,11 +573,17 @@ namespace Pulumi.Aws.MemoryDb
             set => _shards = value;
         }
 
+        [Input("snapshotArns")]
+        private InputList<string>? _snapshotArns;
+
         /// <summary>
         /// List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         /// </summary>
-        [Input("snapshotArns")]
-        public Input<string>? SnapshotArns { get; set; }
+        public InputList<string> SnapshotArns
+        {
+            get => _snapshotArns ?? (_snapshotArns = new InputList<string>());
+            set => _snapshotArns = value;
+        }
 
         /// <summary>
         /// The name of a snapshot from which to restore data into the new cluster.

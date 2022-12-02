@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetOutpost(ctx, &outposts.GetOutpostArgs{
+//			_, err = outposts.GetOutpost(ctx, &outposts.GetOutpostArgs{
 //				Name: pulumi.StringRef("example"),
 //			}, nil)
 //			if err != nil {

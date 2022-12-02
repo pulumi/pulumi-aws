@@ -351,6 +351,18 @@ func NewVpnConnection(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	if args.Tunnel1PresharedKey != nil {
+		args.Tunnel1PresharedKey = pulumi.ToSecret(args.Tunnel1PresharedKey).(pulumi.StringPtrOutput)
+	}
+	if args.Tunnel2PresharedKey != nil {
+		args.Tunnel2PresharedKey = pulumi.ToSecret(args.Tunnel2PresharedKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"customerGatewayConfiguration",
+		"tunnel1PresharedKey",
+		"tunnel2PresharedKey",
+	})
+	opts = append(opts, secrets)
 	var resource VpnConnection
 	err := ctx.RegisterResource("aws:ec2/vpnConnection:VpnConnection", name, args, &resource, opts...)
 	if err != nil {

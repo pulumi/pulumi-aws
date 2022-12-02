@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { ChannelArgs, ChannelState } from "./channel";
 export type Channel = import("./channel").Channel;
 export const Channel: typeof import("./channel").Channel = null as any;
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
 
 export { InputArgs, InputState } from "./input";
 export type Input = import("./input").Input;
 export const Input: typeof import("./input").Input = null as any;
+utilities.lazyLoad(exports, ["Input"], () => require("./input"));
 
 export { InputSecurityGroupArgs, InputSecurityGroupState } from "./inputSecurityGroup";
 export type InputSecurityGroup = import("./inputSecurityGroup").InputSecurityGroup;
 export const InputSecurityGroup: typeof import("./inputSecurityGroup").InputSecurityGroup = null as any;
+utilities.lazyLoad(exports, ["InputSecurityGroup"], () => require("./inputSecurityGroup"));
 
 export { MultiplexArgs, MultiplexState } from "./multiplex";
 export type Multiplex = import("./multiplex").Multiplex;
 export const Multiplex: typeof import("./multiplex").Multiplex = null as any;
-
-utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
-utilities.lazyLoad(exports, ["Input"], () => require("./input"));
-utilities.lazyLoad(exports, ["InputSecurityGroup"], () => require("./inputSecurityGroup"));
 utilities.lazyLoad(exports, ["Multiplex"], () => require("./multiplex"));
+
 
 const _module = {
     version: utilities.getVersion(),

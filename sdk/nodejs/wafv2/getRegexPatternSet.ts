@@ -16,18 +16,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.wafv2.getRegexPatternSet({
+ * const example = aws.wafv2.getRegexPatternSet({
  *     name: "some-regex-pattern-set",
  *     scope: "REGIONAL",
- * }));
+ * });
  * ```
  */
 export function getRegexPatternSet(args: GetRegexPatternSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRegexPatternSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafv2/getRegexPatternSet:getRegexPatternSet", {
         "name": args.name,
         "scope": args.scope,

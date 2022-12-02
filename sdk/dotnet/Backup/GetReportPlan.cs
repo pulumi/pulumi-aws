@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Backup
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetReportPlanResult> InvokeAsync(GetReportPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportPlanResult>("aws:backup/getReportPlan:getReportPlan", args ?? new GetReportPlanArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportPlanResult>("aws:backup/getReportPlan:getReportPlan", args ?? new GetReportPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information on an existing backup report plan.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Backup
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetReportPlanResult> Invoke(GetReportPlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReportPlanResult>("aws:backup/getReportPlan:getReportPlan", args ?? new GetReportPlanInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReportPlanResult>("aws:backup/getReportPlan:getReportPlan", args ?? new GetReportPlanInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -61,14 +61,14 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Username for destination.
+     * . Username to be used.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return Username for destination.
+     * @return . Username to be used.
      * 
      */
     public Optional<Output<String>> username() {
@@ -166,7 +166,7 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param username Username for destination.
+         * @param username . Username to be used.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ChannelDestinationSettingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param username Username for destination.
+         * @param username . Username to be used.
          * 
          * @return builder
          * 

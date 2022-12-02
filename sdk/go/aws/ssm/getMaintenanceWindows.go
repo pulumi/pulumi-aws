@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.GetMaintenanceWindows(ctx, &ssm.GetMaintenanceWindowsArgs{
+//			_, err = ssm.GetMaintenanceWindows(ctx, &ssm.GetMaintenanceWindowsArgs{
 //				Filters: []ssm.GetMaintenanceWindowsFilter{
 //					ssm.GetMaintenanceWindowsFilter{
 //						Name: "Enabled",

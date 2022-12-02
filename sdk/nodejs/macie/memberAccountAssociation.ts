@@ -17,9 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.macie.MemberAccountAssociation("example", {
- *     memberAccountId: "123456789012",
- * });
+ * const example = new aws.macie.MemberAccountAssociation("example", {memberAccountId: "123456789012"});
  * ```
  */
 export class MemberAccountAssociation extends pulumi.CustomResource {

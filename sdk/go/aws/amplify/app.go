@@ -219,7 +219,7 @@ type App struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 	OauthToken pulumi.StringPtrOutput `pulumi:"oauthToken"`
-	// Platform or framework for an Amplify app. Valid values: `WEB`.
+	// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
 	Platform pulumi.StringPtrOutput `pulumi:"platform"`
 	// Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 	ProductionBranches AppProductionBranchArrayOutput `pulumi:"productionBranches"`
@@ -238,6 +238,21 @@ func NewApp(ctx *pulumi.Context,
 		args = &AppArgs{}
 	}
 
+	if args.AccessToken != nil {
+		args.AccessToken = pulumi.ToSecret(args.AccessToken).(pulumi.StringPtrOutput)
+	}
+	if args.BasicAuthCredentials != nil {
+		args.BasicAuthCredentials = pulumi.ToSecret(args.BasicAuthCredentials).(pulumi.StringPtrOutput)
+	}
+	if args.OauthToken != nil {
+		args.OauthToken = pulumi.ToSecret(args.OauthToken).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"accessToken",
+		"basicAuthCredentials",
+		"oauthToken",
+	})
+	opts = append(opts, secrets)
 	var resource App
 	err := ctx.RegisterResource("aws:amplify/app:App", name, args, &resource, opts...)
 	if err != nil {
@@ -294,7 +309,7 @@ type appState struct {
 	Name *string `pulumi:"name"`
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 	OauthToken *string `pulumi:"oauthToken"`
-	// Platform or framework for an Amplify app. Valid values: `WEB`.
+	// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
 	Platform *string `pulumi:"platform"`
 	// Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 	ProductionBranches []AppProductionBranch `pulumi:"productionBranches"`
@@ -341,7 +356,7 @@ type AppState struct {
 	Name pulumi.StringPtrInput
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 	OauthToken pulumi.StringPtrInput
-	// Platform or framework for an Amplify app. Valid values: `WEB`.
+	// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
 	Platform pulumi.StringPtrInput
 	// Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 	ProductionBranches AppProductionBranchArrayInput
@@ -388,7 +403,7 @@ type appArgs struct {
 	Name *string `pulumi:"name"`
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 	OauthToken *string `pulumi:"oauthToken"`
-	// Platform or framework for an Amplify app. Valid values: `WEB`.
+	// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
 	Platform *string `pulumi:"platform"`
 	// Repository for an Amplify app.
 	Repository *string `pulumi:"repository"`
@@ -428,7 +443,7 @@ type AppArgs struct {
 	Name pulumi.StringPtrInput
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 	OauthToken pulumi.StringPtrInput
-	// Platform or framework for an Amplify app. Valid values: `WEB`.
+	// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
 	Platform pulumi.StringPtrInput
 	// Repository for an Amplify app.
 	Repository pulumi.StringPtrInput
@@ -608,7 +623,7 @@ func (o AppOutput) OauthToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.OauthToken }).(pulumi.StringPtrOutput)
 }
 
-// Platform or framework for an Amplify app. Valid values: `WEB`.
+// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
 func (o AppOutput) Platform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Platform }).(pulumi.StringPtrOutput)
 }

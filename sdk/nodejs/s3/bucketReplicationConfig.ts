@@ -264,9 +264,11 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["token"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(BucketReplicationConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

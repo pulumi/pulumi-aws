@@ -8,78 +8,78 @@ import * as utilities from "../utilities";
 export { AliasArgs, AliasState } from "./alias";
 export type Alias = import("./alias").Alias;
 export const Alias: typeof import("./alias").Alias = null as any;
+utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
 
 export { CiphertextArgs, CiphertextState } from "./ciphertext";
 export type Ciphertext = import("./ciphertext").Ciphertext;
 export const Ciphertext: typeof import("./ciphertext").Ciphertext = null as any;
+utilities.lazyLoad(exports, ["Ciphertext"], () => require("./ciphertext"));
 
 export { CustomKeyStoreArgs, CustomKeyStoreState } from "./customKeyStore";
 export type CustomKeyStore = import("./customKeyStore").CustomKeyStore;
 export const CustomKeyStore: typeof import("./customKeyStore").CustomKeyStore = null as any;
+utilities.lazyLoad(exports, ["CustomKeyStore"], () => require("./customKeyStore"));
 
 export { ExternalKeyArgs, ExternalKeyState } from "./externalKey";
 export type ExternalKey = import("./externalKey").ExternalKey;
 export const ExternalKey: typeof import("./externalKey").ExternalKey = null as any;
+utilities.lazyLoad(exports, ["ExternalKey"], () => require("./externalKey"));
 
 export { GetAliasArgs, GetAliasResult, GetAliasOutputArgs } from "./getAlias";
 export const getAlias: typeof import("./getAlias").getAlias = null as any;
 export const getAliasOutput: typeof import("./getAlias").getAliasOutput = null as any;
+utilities.lazyLoad(exports, ["getAlias","getAliasOutput"], () => require("./getAlias"));
 
 export { GetCipherTextArgs, GetCipherTextResult, GetCipherTextOutputArgs } from "./getCipherText";
 export const getCipherText: typeof import("./getCipherText").getCipherText = null as any;
 export const getCipherTextOutput: typeof import("./getCipherText").getCipherTextOutput = null as any;
+utilities.lazyLoad(exports, ["getCipherText","getCipherTextOutput"], () => require("./getCipherText"));
 
 export { GetCustomKeyStoreArgs, GetCustomKeyStoreResult, GetCustomKeyStoreOutputArgs } from "./getCustomKeyStore";
 export const getCustomKeyStore: typeof import("./getCustomKeyStore").getCustomKeyStore = null as any;
 export const getCustomKeyStoreOutput: typeof import("./getCustomKeyStore").getCustomKeyStoreOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomKeyStore","getCustomKeyStoreOutput"], () => require("./getCustomKeyStore"));
 
 export { GetKeyArgs, GetKeyResult, GetKeyOutputArgs } from "./getKey";
 export const getKey: typeof import("./getKey").getKey = null as any;
 export const getKeyOutput: typeof import("./getKey").getKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getKey","getKeyOutput"], () => require("./getKey"));
 
 export { GetPublicKeyArgs, GetPublicKeyResult, GetPublicKeyOutputArgs } from "./getPublicKey";
 export const getPublicKey: typeof import("./getPublicKey").getPublicKey = null as any;
 export const getPublicKeyOutput: typeof import("./getPublicKey").getPublicKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicKey","getPublicKeyOutput"], () => require("./getPublicKey"));
 
 export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
 export const getSecret: typeof import("./getSecret").getSecret = null as any;
 export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
+utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
 
 export { GetSecretsArgs, GetSecretsResult, GetSecretsOutputArgs } from "./getSecrets";
 export const getSecrets: typeof import("./getSecrets").getSecrets = null as any;
 export const getSecretsOutput: typeof import("./getSecrets").getSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["getSecrets","getSecretsOutput"], () => require("./getSecrets"));
 
 export { GrantArgs, GrantState } from "./grant";
 export type Grant = import("./grant").Grant;
 export const Grant: typeof import("./grant").Grant = null as any;
+utilities.lazyLoad(exports, ["Grant"], () => require("./grant"));
 
 export { KeyArgs, KeyState } from "./key";
 export type Key = import("./key").Key;
 export const Key: typeof import("./key").Key = null as any;
+utilities.lazyLoad(exports, ["Key"], () => require("./key"));
 
 export { ReplicaExternalKeyArgs, ReplicaExternalKeyState } from "./replicaExternalKey";
 export type ReplicaExternalKey = import("./replicaExternalKey").ReplicaExternalKey;
 export const ReplicaExternalKey: typeof import("./replicaExternalKey").ReplicaExternalKey = null as any;
+utilities.lazyLoad(exports, ["ReplicaExternalKey"], () => require("./replicaExternalKey"));
 
 export { ReplicaKeyArgs, ReplicaKeyState } from "./replicaKey";
 export type ReplicaKey = import("./replicaKey").ReplicaKey;
 export const ReplicaKey: typeof import("./replicaKey").ReplicaKey = null as any;
-
-utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
-utilities.lazyLoad(exports, ["Ciphertext"], () => require("./ciphertext"));
-utilities.lazyLoad(exports, ["CustomKeyStore"], () => require("./customKeyStore"));
-utilities.lazyLoad(exports, ["ExternalKey"], () => require("./externalKey"));
-utilities.lazyLoad(exports, ["getAlias","getAliasOutput"], () => require("./getAlias"));
-utilities.lazyLoad(exports, ["getCipherText","getCipherTextOutput"], () => require("./getCipherText"));
-utilities.lazyLoad(exports, ["getCustomKeyStore","getCustomKeyStoreOutput"], () => require("./getCustomKeyStore"));
-utilities.lazyLoad(exports, ["getKey","getKeyOutput"], () => require("./getKey"));
-utilities.lazyLoad(exports, ["getPublicKey","getPublicKeyOutput"], () => require("./getPublicKey"));
-utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
-utilities.lazyLoad(exports, ["getSecrets","getSecretsOutput"], () => require("./getSecrets"));
-utilities.lazyLoad(exports, ["Grant"], () => require("./grant"));
-utilities.lazyLoad(exports, ["Key"], () => require("./key"));
-utilities.lazyLoad(exports, ["ReplicaExternalKey"], () => require("./replicaExternalKey"));
 utilities.lazyLoad(exports, ["ReplicaKey"], () => require("./replicaKey"));
+
 
 const _module = {
     version: utilities.getVersion(),

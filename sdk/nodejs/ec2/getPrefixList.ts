@@ -49,21 +49,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.ec2.getPrefixList({
+ * const test = aws.ec2.getPrefixList({
  *     filters: [{
  *         name: "prefix-list-id",
  *         values: ["pl-68a54001"],
  *     }],
- * }));
+ * });
  * ```
  */
 export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getPrefixList:getPrefixList", {
         "filters": args.filters,
         "name": args.name,

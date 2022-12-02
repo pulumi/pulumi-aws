@@ -33,7 +33,7 @@ namespace Pulumi.Aws.EcrPublic
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAuthorizationTokenResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationTokenResult>("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationTokenResult>("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

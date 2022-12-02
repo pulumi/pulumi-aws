@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { CertificateArgs, CertificateState } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
 export { EndpointArgs, EndpointState } from "./endpoint";
 export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
 
 export { EventSubscriptionArgs, EventSubscriptionState } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
+utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
 
 export { ReplicationInstanceArgs, ReplicationInstanceState } from "./replicationInstance";
 export type ReplicationInstance = import("./replicationInstance").ReplicationInstance;
 export const ReplicationInstance: typeof import("./replicationInstance").ReplicationInstance = null as any;
+utilities.lazyLoad(exports, ["ReplicationInstance"], () => require("./replicationInstance"));
 
 export { ReplicationSubnetGroupArgs, ReplicationSubnetGroupState } from "./replicationSubnetGroup";
 export type ReplicationSubnetGroup = import("./replicationSubnetGroup").ReplicationSubnetGroup;
 export const ReplicationSubnetGroup: typeof import("./replicationSubnetGroup").ReplicationSubnetGroup = null as any;
+utilities.lazyLoad(exports, ["ReplicationSubnetGroup"], () => require("./replicationSubnetGroup"));
 
 export { ReplicationTaskArgs, ReplicationTaskState } from "./replicationTask";
 export type ReplicationTask = import("./replicationTask").ReplicationTask;
 export const ReplicationTask: typeof import("./replicationTask").ReplicationTask = null as any;
-
-utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
-utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
-utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
-utilities.lazyLoad(exports, ["ReplicationInstance"], () => require("./replicationInstance"));
-utilities.lazyLoad(exports, ["ReplicationSubnetGroup"], () => require("./replicationSubnetGroup"));
 utilities.lazyLoad(exports, ["ReplicationTask"], () => require("./replicationTask"));
+
 
 const _module = {
     version: utilities.getVersion(),

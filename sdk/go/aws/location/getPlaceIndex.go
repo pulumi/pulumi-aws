@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.LookupPlaceIndex(ctx, &location.LookupPlaceIndexArgs{
+//			_, err = location.LookupPlaceIndex(ctx, &location.LookupPlaceIndexArgs{
 //				IndexName: "example",
 //			}, nil)
 //			if err != nil {

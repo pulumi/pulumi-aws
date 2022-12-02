@@ -79,6 +79,10 @@ export class Cluster extends pulumi.CustomResource {
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.memorydb.ClusterClusterEndpoint[]>;
     /**
+     * Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+     */
+    public readonly dataTiering!: pulumi.Output<boolean | undefined>;
+    /**
      * Description for the cluster.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -141,7 +145,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
      */
-    public readonly snapshotArns!: pulumi.Output<string | undefined>;
+    public readonly snapshotArns!: pulumi.Output<string[] | undefined>;
     /**
      * The name of a snapshot from which to restore data into the new cluster.
      */
@@ -192,6 +196,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             resourceInputs["clusterEndpoints"] = state ? state.clusterEndpoints : undefined;
+            resourceInputs["dataTiering"] = state ? state.dataTiering : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enginePatchVersion"] = state ? state.enginePatchVersion : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
@@ -226,6 +231,7 @@ export class Cluster extends pulumi.CustomResource {
             }
             resourceInputs["aclName"] = args ? args.aclName : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["dataTiering"] = args ? args.dataTiering : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
@@ -276,6 +282,10 @@ export interface ClusterState {
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     clusterEndpoints?: pulumi.Input<pulumi.Input<inputs.memorydb.ClusterClusterEndpoint>[]>;
+    /**
+     * Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+     */
+    dataTiering?: pulumi.Input<boolean>;
     /**
      * Description for the cluster.
      */
@@ -339,7 +349,7 @@ export interface ClusterState {
     /**
      * List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
      */
-    snapshotArns?: pulumi.Input<string>;
+    snapshotArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of a snapshot from which to restore data into the new cluster.
      */
@@ -386,6 +396,10 @@ export interface ClusterArgs {
      * When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    /**
+     * Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+     */
+    dataTiering?: pulumi.Input<boolean>;
     /**
      * Description for the cluster.
      */
@@ -441,7 +455,7 @@ export interface ClusterArgs {
     /**
      * List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
      */
-    snapshotArns?: pulumi.Input<string>;
+    snapshotArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of a snapshot from which to restore data into the new cluster.
      */

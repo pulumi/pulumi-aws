@@ -111,7 +111,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example: aws.route53.Record[];
+ * const example: aws.route53.Record[] = [];
  * for (const range of Object.entries(.reduce((__obj, dvo) => { ...__obj, [dvo.domainName]: {
  *     name: dvo.resourceRecordName,
  *     record: dvo.resourceRecordValue,
@@ -200,6 +200,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly earlyRenewalDuration!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+     */
+    public readonly keyAlgorithm!: pulumi.Output<string>;
+    /**
      * Expiration date and time of the certificate.
      */
     public /*out*/ readonly notAfter!: pulumi.Output<string>;
@@ -282,6 +286,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["domainValidationOptions"] = state ? state.domainValidationOptions : undefined;
             resourceInputs["earlyRenewalDuration"] = state ? state.earlyRenewalDuration : undefined;
+            resourceInputs["keyAlgorithm"] = state ? state.keyAlgorithm : undefined;
             resourceInputs["notAfter"] = state ? state.notAfter : undefined;
             resourceInputs["notBefore"] = state ? state.notBefore : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
@@ -304,8 +309,9 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["earlyRenewalDuration"] = args ? args.earlyRenewalDuration : undefined;
+            resourceInputs["keyAlgorithm"] = args ? args.keyAlgorithm : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["validationMethod"] = args ? args.validationMethod : undefined;
@@ -323,6 +329,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["validationEmails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["privateKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -366,6 +374,10 @@ export interface CertificateState {
      * or a string such as `2160h`.
      */
     earlyRenewalDuration?: pulumi.Input<string>;
+    /**
+     * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+     */
+    keyAlgorithm?: pulumi.Input<string>;
     /**
      * Expiration date and time of the certificate.
      */
@@ -459,6 +471,10 @@ export interface CertificateArgs {
      * or a string such as `2160h`.
      */
     earlyRenewalDuration?: pulumi.Input<string>;
+    /**
+     * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+     */
+    keyAlgorithm?: pulumi.Input<string>;
     /**
      * Configuration block used to set certificate options. Detailed below.
      */

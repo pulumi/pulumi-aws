@@ -26,6 +26,7 @@ public final class GetClusterResult {
     private List<String> enabledCloudwatchLogsExports;
     private String endpoint;
     private String engine;
+    private String engineMode;
     private String engineVersion;
     private String finalSnapshotIdentifier;
     private String hostedZoneId;
@@ -87,6 +88,9 @@ public final class GetClusterResult {
     }
     public String engine() {
         return this.engine;
+    }
+    public String engineMode() {
+        return this.engineMode;
     }
     public String engineVersion() {
         return this.engineVersion;
@@ -166,6 +170,7 @@ public final class GetClusterResult {
         private List<String> enabledCloudwatchLogsExports;
         private String endpoint;
         private String engine;
+        private String engineMode;
         private String engineVersion;
         private String finalSnapshotIdentifier;
         private String hostedZoneId;
@@ -199,6 +204,7 @@ public final class GetClusterResult {
     	      this.enabledCloudwatchLogsExports = defaults.enabledCloudwatchLogsExports;
     	      this.endpoint = defaults.endpoint;
     	      this.engine = defaults.engine;
+    	      this.engineMode = defaults.engineMode;
     	      this.engineVersion = defaults.engineVersion;
     	      this.finalSnapshotIdentifier = defaults.finalSnapshotIdentifier;
     	      this.hostedZoneId = defaults.hostedZoneId;
@@ -290,6 +296,11 @@ public final class GetClusterResult {
         @CustomType.Setter
         public Builder engine(String engine) {
             this.engine = Objects.requireNonNull(engine);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder engineMode(String engineMode) {
+            this.engineMode = Objects.requireNonNull(engineMode);
             return this;
         }
         @CustomType.Setter
@@ -398,6 +409,7 @@ public final class GetClusterResult {
             o.enabledCloudwatchLogsExports = enabledCloudwatchLogsExports;
             o.endpoint = endpoint;
             o.engine = engine;
+            o.engineMode = engineMode;
             o.engineVersion = engineVersion;
             o.finalSnapshotIdentifier = finalSnapshotIdentifier;
             o.hostedZoneId = hostedZoneId;

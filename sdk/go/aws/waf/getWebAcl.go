@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.LookupWebAcl(ctx, &waf.LookupWebAclArgs{
+//			_, err = waf.LookupWebAcl(ctx, &waf.LookupWebAclArgs{
 //				Name: "tfWAFWebACL",
 //			}, nil)
 //			if err != nil {

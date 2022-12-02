@@ -187,6 +187,11 @@ namespace Pulumi.Aws.Sns
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "platformCredential",
+                    "platformPrincipal",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -264,17 +269,37 @@ namespace Pulumi.Aws.Sns
         [Input("platform", required: true)]
         public Input<string> Platform { get; set; } = null!;
 
+        [Input("platformCredential", required: true)]
+        private Input<string>? _platformCredential;
+
         /// <summary>
         /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
-        [Input("platformCredential", required: true)]
-        public Input<string> PlatformCredential { get; set; } = null!;
+        public Input<string>? PlatformCredential
+        {
+            get => _platformCredential;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _platformCredential = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("platformPrincipal")]
+        private Input<string>? _platformPrincipal;
 
         /// <summary>
         /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
-        [Input("platformPrincipal")]
-        public Input<string>? PlatformPrincipal { get; set; }
+        public Input<string>? PlatformPrincipal
+        {
+            get => _platformPrincipal;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _platformPrincipal = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
@@ -356,17 +381,37 @@ namespace Pulumi.Aws.Sns
         [Input("platform")]
         public Input<string>? Platform { get; set; }
 
+        [Input("platformCredential")]
+        private Input<string>? _platformCredential;
+
         /// <summary>
         /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
-        [Input("platformCredential")]
-        public Input<string>? PlatformCredential { get; set; }
+        public Input<string>? PlatformCredential
+        {
+            get => _platformCredential;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _platformCredential = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("platformPrincipal")]
+        private Input<string>? _platformPrincipal;
 
         /// <summary>
         /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
-        [Input("platformPrincipal")]
-        public Input<string>? PlatformPrincipal { get; set; }
+        public Input<string>? PlatformPrincipal
+        {
+            get => _platformPrincipal;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _platformPrincipal = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.

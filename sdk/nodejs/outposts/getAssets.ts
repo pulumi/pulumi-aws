@@ -42,11 +42,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAssets(args: GetAssetsArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getAssets:getAssets", {
         "arn": args.arn,
         "hostIdFilters": args.hostIdFilters,

@@ -72,14 +72,14 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The email address to assign to SES
+     * The email address to assign to SES.
      * 
      */
     @Export(name="email", type=String.class, parameters={})
     private Output<String> email;
 
     /**
-     * @return The email address to assign to SES
+     * @return The email address to assign to SES.
      * 
      */
     public Output<String> email() {

@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { RegisteredDomainArgs, RegisteredDomainState } from "./registeredDomain";
 export type RegisteredDomain = import("./registeredDomain").RegisteredDomain;
 export const RegisteredDomain: typeof import("./registeredDomain").RegisteredDomain = null as any;
-
 utilities.lazyLoad(exports, ["RegisteredDomain"], () => require("./registeredDomain"));
+
 
 const _module = {
     version: utilities.getVersion(),

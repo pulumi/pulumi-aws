@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultInstanceAutomatedBackupsReplication = new aws.rds.InstanceAutomatedBackupsReplication("default", {
+ * const _default = new aws.rds.InstanceAutomatedBackupsReplication("default", {
  *     retentionPeriod: 14,
  *     sourceDbInstanceArn: "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
  * });
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultInstanceAutomatedBackupsReplication = new aws.rds.InstanceAutomatedBackupsReplication("default", {
+ * const _default = new aws.rds.InstanceAutomatedBackupsReplication("default", {
  *     kmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
  *     sourceDbInstanceArn: "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
  * });

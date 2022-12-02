@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.rds.getEngineVersion({
+ * const test = aws.rds.getEngineVersion({
  *     engine: "mysql",
  *     preferredVersions: [
  *         "8.0.27",
  *         "8.0.26",
  *     ],
- * }));
+ * });
  * ```
  * ### With `filter`
  *
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.rds.getEngineVersion({
+ * const test = aws.rds.getEngineVersion({
  *     engine: "aurora-postgresql",
  *     filters: [{
  *         name: "engine-mode",
@@ -39,15 +39,12 @@ import * as utilities from "../utilities";
  *     }],
  *     includeAll: true,
  *     version: "10.14",
- * }));
+ * });
  * ```
  */
 export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEngineVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getEngineVersion:getEngineVersion", {
         "defaultOnly": args.defaultOnly,
         "engine": args.engine,

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2.getInstanceTypeOffering({
+ * const example = aws.ec2.getInstanceTypeOffering({
  *     filters: [{
  *         name: "instance-type",
  *         values: [
@@ -28,16 +28,13 @@ import * as utilities from "../utilities";
  *         "t3.micro",
  *         "t2.micro",
  *     ],
- * }));
+ * });
  * ```
  */
 export function getInstanceTypeOffering(args?: GetInstanceTypeOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", {
         "filters": args.filters,
         "locationType": args.locationType,

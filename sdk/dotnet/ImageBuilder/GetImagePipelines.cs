@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetImagePipelinesResult> InvokeAsync(GetImagePipelinesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImagePipelinesResult>("aws:imagebuilder/getImagePipelines:getImagePipelines", args ?? new GetImagePipelinesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagePipelinesResult>("aws:imagebuilder/getImagePipelines:getImagePipelines", args ?? new GetImagePipelinesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetImagePipelinesResult> Invoke(GetImagePipelinesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetImagePipelinesResult>("aws:imagebuilder/getImagePipelines:getImagePipelines", args ?? new GetImagePipelinesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetImagePipelinesResult>("aws:imagebuilder/getImagePipelines:getImagePipelines", args ?? new GetImagePipelinesInvokeArgs(), options.WithDefaults());
     }
 
 

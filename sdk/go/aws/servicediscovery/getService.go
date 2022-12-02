@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicediscovery.LookupService(ctx, &servicediscovery.LookupServiceArgs{
+//			_, err = servicediscovery.LookupService(ctx, &servicediscovery.LookupServiceArgs{
 //				Name:        "example",
 //				NamespaceId: "NAMESPACE_ID_VALUE",
 //			}, nil)

@@ -270,11 +270,11 @@ import (
 //					},
 //					VpcConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfigurationArgs{
 //						SecurityGroupIds: pulumi.StringArray{
-//							pulumi.Any(aws_security_group.Example[0].Id),
-//							pulumi.Any(aws_security_group.Example[1].Id),
+//							aws_security_group.Example[0].Id,
+//							aws_security_group.Example[1].Id,
 //						},
 //						SubnetIds: pulumi.StringArray{
-//							pulumi.Any(aws_subnet.Example.Id),
+//							aws_subnet.Example.Id,
 //						},
 //					},
 //				},

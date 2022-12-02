@@ -81,7 +81,7 @@ namespace Pulumi.Aws.S3
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetObjectResult> InvokeAsync(GetObjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetObjectResult>("aws:s3/getObject:getObject", args ?? new GetObjectArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetObjectResult>("aws:s3/getObject:getObject", args ?? new GetObjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// The S3 object data source allows access to the metadata and
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.S3
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetObjectResult> Invoke(GetObjectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetObjectResult>("aws:s3/getObject:getObject", args ?? new GetObjectInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetObjectResult>("aws:s3/getObject:getObject", args ?? new GetObjectInvokeArgs(), options.WithDefaults());
     }
 
 

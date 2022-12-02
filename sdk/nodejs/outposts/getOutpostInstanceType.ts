@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Information about single Outpost Instance Type.
  */
 export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostInstanceTypeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", {
         "arn": args.arn,
         "instanceType": args.instanceType,

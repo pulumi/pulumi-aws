@@ -51,7 +51,7 @@ class AppArgs:
         :param pulumi.Input[str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
         :param pulumi.Input[str] name: Name for an Amplify app.
         :param pulumi.Input[str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`.
+        :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         :param pulumi.Input[str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -276,7 +276,7 @@ class AppArgs:
     @pulumi.getter
     def platform(self) -> Optional[pulumi.Input[str]]:
         """
-        Platform or framework for an Amplify app. Valid values: `WEB`.
+        Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         """
         return pulumi.get(self, "platform")
 
@@ -353,7 +353,7 @@ class _AppState:
         :param pulumi.Input[str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
         :param pulumi.Input[str] name: Name for an Amplify app.
         :param pulumi.Input[str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`.
+        :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         :param pulumi.Input[Sequence[pulumi.Input['AppProductionBranchArgs']]] production_branches: Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
         :param pulumi.Input[str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -612,7 +612,7 @@ class _AppState:
     @pulumi.getter
     def platform(self) -> Optional[pulumi.Input[str]]:
         """
-        Platform or framework for an Amplify app. Valid values: `WEB`.
+        Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         """
         return pulumi.get(self, "platform")
 
@@ -810,7 +810,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
         :param pulumi.Input[str] name: Name for an Amplify app.
         :param pulumi.Input[str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`.
+        :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         :param pulumi.Input[str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -962,10 +962,10 @@ class App(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppArgs.__new__(AppArgs)
 
-            __props__.__dict__["access_token"] = access_token
+            __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
             __props__.__dict__["auto_branch_creation_config"] = auto_branch_creation_config
             __props__.__dict__["auto_branch_creation_patterns"] = auto_branch_creation_patterns
-            __props__.__dict__["basic_auth_credentials"] = basic_auth_credentials
+            __props__.__dict__["basic_auth_credentials"] = None if basic_auth_credentials is None else pulumi.Output.secret(basic_auth_credentials)
             __props__.__dict__["build_spec"] = build_spec
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["description"] = description
@@ -976,7 +976,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["iam_service_role_arn"] = iam_service_role_arn
             __props__.__dict__["name"] = name
-            __props__.__dict__["oauth_token"] = oauth_token
+            __props__.__dict__["oauth_token"] = None if oauth_token is None else pulumi.Output.secret(oauth_token)
             __props__.__dict__["platform"] = platform
             __props__.__dict__["repository"] = repository
             __props__.__dict__["tags"] = tags
@@ -984,6 +984,8 @@ class App(pulumi.CustomResource):
             __props__.__dict__["default_domain"] = None
             __props__.__dict__["production_branches"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "basicAuthCredentials", "oauthToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(App, __self__).__init__(
             'aws:amplify/app:App',
             resource_name,
@@ -1040,7 +1042,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
         :param pulumi.Input[str] name: Name for an Amplify app.
         :param pulumi.Input[str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`.
+        :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppProductionBranchArgs']]]] production_branches: Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
         :param pulumi.Input[str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1214,7 +1216,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def platform(self) -> pulumi.Output[Optional[str]]:
         """
-        Platform or framework for an Amplify app. Valid values: `WEB`.
+        Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         """
         return pulumi.get(self, "platform")
 

@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoints=None, description=None, engine_patch_version=None, engine_version=None, final_snapshot_name=None, id=None, kms_key_arn=None, maintenance_window=None, name=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, port=None, security_group_ids=None, shards=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, subnet_group_name=None, tags=None, tls_enabled=None):
+    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoints=None, data_tiering=None, description=None, engine_patch_version=None, engine_version=None, final_snapshot_name=None, id=None, kms_key_arn=None, maintenance_window=None, name=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, port=None, security_group_ids=None, shards=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, subnet_group_name=None, tags=None, tls_enabled=None):
         if acl_name and not isinstance(acl_name, str):
             raise TypeError("Expected argument 'acl_name' to be a str")
         pulumi.set(__self__, "acl_name", acl_name)
@@ -35,6 +35,9 @@ class GetClusterResult:
         if cluster_endpoints and not isinstance(cluster_endpoints, list):
             raise TypeError("Expected argument 'cluster_endpoints' to be a list")
         pulumi.set(__self__, "cluster_endpoints", cluster_endpoints)
+        if data_tiering and not isinstance(data_tiering, bool):
+            raise TypeError("Expected argument 'data_tiering' to be a bool")
+        pulumi.set(__self__, "data_tiering", data_tiering)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -128,6 +131,14 @@ class GetClusterResult:
     @pulumi.getter(name="clusterEndpoints")
     def cluster_endpoints(self) -> Sequence['outputs.GetClusterClusterEndpointResult']:
         return pulumi.get(self, "cluster_endpoints")
+
+    @property
+    @pulumi.getter(name="dataTiering")
+    def data_tiering(self) -> bool:
+        """
+        True when data tiering is enabled.
+        """
+        return pulumi.get(self, "data_tiering")
 
     @property
     @pulumi.getter
@@ -307,6 +318,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             arn=self.arn,
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
             cluster_endpoints=self.cluster_endpoints,
+            data_tiering=self.data_tiering,
             description=self.description,
             engine_patch_version=self.engine_patch_version,
             engine_version=self.engine_version,
@@ -360,6 +372,7 @@ def get_cluster(name: Optional[str] = None,
         arn=__ret__.arn,
         auto_minor_version_upgrade=__ret__.auto_minor_version_upgrade,
         cluster_endpoints=__ret__.cluster_endpoints,
+        data_tiering=__ret__.data_tiering,
         description=__ret__.description,
         engine_patch_version=__ret__.engine_patch_version,
         engine_version=__ret__.engine_version,

@@ -303,9 +303,17 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
+    /**
+     * The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+     * 
+     */
     @Export(name="username", type=String.class, parameters={})
     private Output<String> username;
 
+    /**
+     * @return The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+     * 
+     */
     public Output<String> username() {
         return this.username;
     }
@@ -356,6 +364,10 @@ public class User extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "password",
+                "temporaryPassword"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

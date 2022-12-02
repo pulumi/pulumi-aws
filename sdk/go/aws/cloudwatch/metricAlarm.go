@@ -241,13 +241,13 @@ import (
 //				AlarmDescription:   pulumi.String("Number of healthy nodes in Target Group"),
 //				ActionsEnabled:     pulumi.Bool(true),
 //				AlarmActions: pulumi.AnyArray{
-//					pulumi.Any(aws_sns_topic.Sns.Arn),
+//					aws_sns_topic.Sns.Arn,
 //				},
 //				OkActions: pulumi.AnyArray{
-//					pulumi.Any(aws_sns_topic.Sns.Arn),
+//					aws_sns_topic.Sns.Arn,
 //				},
 //				Dimensions: pulumi.StringMap{
-//					"TargetGroup":  pulumi.Any(aws_lb_target_group.Lb - tg.Arn_suffix),
+//					"TargetGroup":  pulumi.Any(aws_lb_target_group.LbTg.Arn_suffix),
 //					"LoadBalancer": pulumi.Any(aws_lb.Lb.Arn_suffix),
 //				},
 //			})

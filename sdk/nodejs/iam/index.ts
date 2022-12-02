@@ -8,210 +8,210 @@ import * as utilities from "../utilities";
 export { AccessKeyArgs, AccessKeyState } from "./accessKey";
 export type AccessKey = import("./accessKey").AccessKey;
 export const AccessKey: typeof import("./accessKey").AccessKey = null as any;
+utilities.lazyLoad(exports, ["AccessKey"], () => require("./accessKey"));
 
 export { AccountAliasArgs, AccountAliasState } from "./accountAlias";
 export type AccountAlias = import("./accountAlias").AccountAlias;
 export const AccountAlias: typeof import("./accountAlias").AccountAlias = null as any;
+utilities.lazyLoad(exports, ["AccountAlias"], () => require("./accountAlias"));
 
 export { AccountPasswordPolicyArgs, AccountPasswordPolicyState } from "./accountPasswordPolicy";
 export type AccountPasswordPolicy = import("./accountPasswordPolicy").AccountPasswordPolicy;
 export const AccountPasswordPolicy: typeof import("./accountPasswordPolicy").AccountPasswordPolicy = null as any;
+utilities.lazyLoad(exports, ["AccountPasswordPolicy"], () => require("./accountPasswordPolicy"));
 
 export * from "./documents";
 export { GetAccountAliasResult } from "./getAccountAlias";
 export const getAccountAlias: typeof import("./getAccountAlias").getAccountAlias = null as any;
+utilities.lazyLoad(exports, ["getAccountAlias"], () => require("./getAccountAlias"));
 
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
 export { GetInstanceProfileArgs, GetInstanceProfileResult, GetInstanceProfileOutputArgs } from "./getInstanceProfile";
 export const getInstanceProfile: typeof import("./getInstanceProfile").getInstanceProfile = null as any;
 export const getInstanceProfileOutput: typeof import("./getInstanceProfile").getInstanceProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceProfile","getInstanceProfileOutput"], () => require("./getInstanceProfile"));
 
 export { GetInstanceProfilesArgs, GetInstanceProfilesResult, GetInstanceProfilesOutputArgs } from "./getInstanceProfiles";
 export const getInstanceProfiles: typeof import("./getInstanceProfiles").getInstanceProfiles = null as any;
 export const getInstanceProfilesOutput: typeof import("./getInstanceProfiles").getInstanceProfilesOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceProfiles","getInstanceProfilesOutput"], () => require("./getInstanceProfiles"));
 
 export { GetOpenidConnectProviderArgs, GetOpenidConnectProviderResult, GetOpenidConnectProviderOutputArgs } from "./getOpenidConnectProvider";
 export const getOpenidConnectProvider: typeof import("./getOpenidConnectProvider").getOpenidConnectProvider = null as any;
 export const getOpenidConnectProviderOutput: typeof import("./getOpenidConnectProvider").getOpenidConnectProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getOpenidConnectProvider","getOpenidConnectProviderOutput"], () => require("./getOpenidConnectProvider"));
 
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
 
 export { GetPolicyDocumentArgs, GetPolicyDocumentResult, GetPolicyDocumentOutputArgs } from "./getPolicyDocument";
 export const getPolicyDocument: typeof import("./getPolicyDocument").getPolicyDocument = null as any;
 export const getPolicyDocumentOutput: typeof import("./getPolicyDocument").getPolicyDocumentOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyDocument","getPolicyDocumentOutput"], () => require("./getPolicyDocument"));
 
 export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
 export const getRole: typeof import("./getRole").getRole = null as any;
 export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
 
 export { GetRolesArgs, GetRolesResult, GetRolesOutputArgs } from "./getRoles";
 export const getRoles: typeof import("./getRoles").getRoles = null as any;
 export const getRolesOutput: typeof import("./getRoles").getRolesOutput = null as any;
+utilities.lazyLoad(exports, ["getRoles","getRolesOutput"], () => require("./getRoles"));
 
 export { GetSamlProviderArgs, GetSamlProviderResult, GetSamlProviderOutputArgs } from "./getSamlProvider";
 export const getSamlProvider: typeof import("./getSamlProvider").getSamlProvider = null as any;
 export const getSamlProviderOutput: typeof import("./getSamlProvider").getSamlProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getSamlProvider","getSamlProviderOutput"], () => require("./getSamlProvider"));
 
 export { GetServerCertificateArgs, GetServerCertificateResult, GetServerCertificateOutputArgs } from "./getServerCertificate";
 export const getServerCertificate: typeof import("./getServerCertificate").getServerCertificate = null as any;
 export const getServerCertificateOutput: typeof import("./getServerCertificate").getServerCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getServerCertificate","getServerCertificateOutput"], () => require("./getServerCertificate"));
 
 export { GetSessionContextArgs, GetSessionContextResult, GetSessionContextOutputArgs } from "./getSessionContext";
 export const getSessionContext: typeof import("./getSessionContext").getSessionContext = null as any;
 export const getSessionContextOutput: typeof import("./getSessionContext").getSessionContextOutput = null as any;
+utilities.lazyLoad(exports, ["getSessionContext","getSessionContextOutput"], () => require("./getSessionContext"));
 
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
 export { GetUserSshKeyArgs, GetUserSshKeyResult, GetUserSshKeyOutputArgs } from "./getUserSshKey";
 export const getUserSshKey: typeof import("./getUserSshKey").getUserSshKey = null as any;
 export const getUserSshKeyOutput: typeof import("./getUserSshKey").getUserSshKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getUserSshKey","getUserSshKeyOutput"], () => require("./getUserSshKey"));
 
 export { GetUsersArgs, GetUsersResult, GetUsersOutputArgs } from "./getUsers";
 export const getUsers: typeof import("./getUsers").getUsers = null as any;
 export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
 
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
 export { GroupMembershipArgs, GroupMembershipState } from "./groupMembership";
 export type GroupMembership = import("./groupMembership").GroupMembership;
 export const GroupMembership: typeof import("./groupMembership").GroupMembership = null as any;
+utilities.lazyLoad(exports, ["GroupMembership"], () => require("./groupMembership"));
 
 export { GroupPolicyArgs, GroupPolicyState } from "./groupPolicy";
 export type GroupPolicy = import("./groupPolicy").GroupPolicy;
 export const GroupPolicy: typeof import("./groupPolicy").GroupPolicy = null as any;
+utilities.lazyLoad(exports, ["GroupPolicy"], () => require("./groupPolicy"));
 
 export { GroupPolicyAttachmentArgs, GroupPolicyAttachmentState } from "./groupPolicyAttachment";
 export type GroupPolicyAttachment = import("./groupPolicyAttachment").GroupPolicyAttachment;
 export const GroupPolicyAttachment: typeof import("./groupPolicyAttachment").GroupPolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["GroupPolicyAttachment"], () => require("./groupPolicyAttachment"));
 
 export { InstanceProfileArgs, InstanceProfileState } from "./instanceProfile";
 export type InstanceProfile = import("./instanceProfile").InstanceProfile;
 export const InstanceProfile: typeof import("./instanceProfile").InstanceProfile = null as any;
+utilities.lazyLoad(exports, ["InstanceProfile"], () => require("./instanceProfile"));
 
 export * from "./managedPolicies";
 export { OpenIdConnectProviderArgs, OpenIdConnectProviderState } from "./openIdConnectProvider";
 export type OpenIdConnectProvider = import("./openIdConnectProvider").OpenIdConnectProvider;
 export const OpenIdConnectProvider: typeof import("./openIdConnectProvider").OpenIdConnectProvider = null as any;
+utilities.lazyLoad(exports, ["OpenIdConnectProvider"], () => require("./openIdConnectProvider"));
 
 export { PolicyArgs, PolicyState } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
 export { PolicyAttachmentArgs, PolicyAttachmentState } from "./policyAttachment";
 export type PolicyAttachment = import("./policyAttachment").PolicyAttachment;
 export const PolicyAttachment: typeof import("./policyAttachment").PolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["PolicyAttachment"], () => require("./policyAttachment"));
 
 export * from "./principals";
 export { RoleArgs, RoleState } from "./role";
 export type Role = import("./role").Role;
 export const Role: typeof import("./role").Role = null as any;
+utilities.lazyLoad(exports, ["Role"], () => require("./role"));
 
 export { RolePolicyArgs, RolePolicyState } from "./rolePolicy";
 export type RolePolicy = import("./rolePolicy").RolePolicy;
 export const RolePolicy: typeof import("./rolePolicy").RolePolicy = null as any;
+utilities.lazyLoad(exports, ["RolePolicy"], () => require("./rolePolicy"));
 
 export { RolePolicyAttachmentArgs, RolePolicyAttachmentState } from "./rolePolicyAttachment";
 export type RolePolicyAttachment = import("./rolePolicyAttachment").RolePolicyAttachment;
 export const RolePolicyAttachment: typeof import("./rolePolicyAttachment").RolePolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["RolePolicyAttachment"], () => require("./rolePolicyAttachment"));
 
 export { SamlProviderArgs, SamlProviderState } from "./samlProvider";
 export type SamlProvider = import("./samlProvider").SamlProvider;
 export const SamlProvider: typeof import("./samlProvider").SamlProvider = null as any;
+utilities.lazyLoad(exports, ["SamlProvider"], () => require("./samlProvider"));
 
 export { ServerCertificateArgs, ServerCertificateState } from "./serverCertificate";
 export type ServerCertificate = import("./serverCertificate").ServerCertificate;
 export const ServerCertificate: typeof import("./serverCertificate").ServerCertificate = null as any;
+utilities.lazyLoad(exports, ["ServerCertificate"], () => require("./serverCertificate"));
 
 export { ServiceLinkedRoleArgs, ServiceLinkedRoleState } from "./serviceLinkedRole";
 export type ServiceLinkedRole = import("./serviceLinkedRole").ServiceLinkedRole;
 export const ServiceLinkedRole: typeof import("./serviceLinkedRole").ServiceLinkedRole = null as any;
+utilities.lazyLoad(exports, ["ServiceLinkedRole"], () => require("./serviceLinkedRole"));
 
 export { ServiceSpecificCredentialArgs, ServiceSpecificCredentialState } from "./serviceSpecificCredential";
 export type ServiceSpecificCredential = import("./serviceSpecificCredential").ServiceSpecificCredential;
 export const ServiceSpecificCredential: typeof import("./serviceSpecificCredential").ServiceSpecificCredential = null as any;
+utilities.lazyLoad(exports, ["ServiceSpecificCredential"], () => require("./serviceSpecificCredential"));
 
 export { SigningCertificateArgs, SigningCertificateState } from "./signingCertificate";
 export type SigningCertificate = import("./signingCertificate").SigningCertificate;
 export const SigningCertificate: typeof import("./signingCertificate").SigningCertificate = null as any;
+utilities.lazyLoad(exports, ["SigningCertificate"], () => require("./signingCertificate"));
 
 export { SshKeyArgs, SshKeyState } from "./sshKey";
 export type SshKey = import("./sshKey").SshKey;
 export const SshKey: typeof import("./sshKey").SshKey = null as any;
+utilities.lazyLoad(exports, ["SshKey"], () => require("./sshKey"));
 
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
 export { UserGroupMembershipArgs, UserGroupMembershipState } from "./userGroupMembership";
 export type UserGroupMembership = import("./userGroupMembership").UserGroupMembership;
 export const UserGroupMembership: typeof import("./userGroupMembership").UserGroupMembership = null as any;
+utilities.lazyLoad(exports, ["UserGroupMembership"], () => require("./userGroupMembership"));
 
 export { UserLoginProfileArgs, UserLoginProfileState } from "./userLoginProfile";
 export type UserLoginProfile = import("./userLoginProfile").UserLoginProfile;
 export const UserLoginProfile: typeof import("./userLoginProfile").UserLoginProfile = null as any;
+utilities.lazyLoad(exports, ["UserLoginProfile"], () => require("./userLoginProfile"));
 
 export { UserPolicyArgs, UserPolicyState } from "./userPolicy";
 export type UserPolicy = import("./userPolicy").UserPolicy;
 export const UserPolicy: typeof import("./userPolicy").UserPolicy = null as any;
+utilities.lazyLoad(exports, ["UserPolicy"], () => require("./userPolicy"));
 
 export { UserPolicyAttachmentArgs, UserPolicyAttachmentState } from "./userPolicyAttachment";
 export type UserPolicyAttachment = import("./userPolicyAttachment").UserPolicyAttachment;
 export const UserPolicyAttachment: typeof import("./userPolicyAttachment").UserPolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["UserPolicyAttachment"], () => require("./userPolicyAttachment"));
 
 export { VirtualMfaDeviceArgs, VirtualMfaDeviceState } from "./virtualMfaDevice";
 export type VirtualMfaDevice = import("./virtualMfaDevice").VirtualMfaDevice;
 export const VirtualMfaDevice: typeof import("./virtualMfaDevice").VirtualMfaDevice = null as any;
-
-utilities.lazyLoad(exports, ["AccessKey"], () => require("./accessKey"));
-utilities.lazyLoad(exports, ["AccountAlias"], () => require("./accountAlias"));
-utilities.lazyLoad(exports, ["AccountPasswordPolicy"], () => require("./accountPasswordPolicy"));
-utilities.lazyLoad(exports, ["getAccountAlias"], () => require("./getAccountAlias"));
-utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
-utilities.lazyLoad(exports, ["getInstanceProfile","getInstanceProfileOutput"], () => require("./getInstanceProfile"));
-utilities.lazyLoad(exports, ["getInstanceProfiles","getInstanceProfilesOutput"], () => require("./getInstanceProfiles"));
-utilities.lazyLoad(exports, ["getOpenidConnectProvider","getOpenidConnectProviderOutput"], () => require("./getOpenidConnectProvider"));
-utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
-utilities.lazyLoad(exports, ["getPolicyDocument","getPolicyDocumentOutput"], () => require("./getPolicyDocument"));
-utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
-utilities.lazyLoad(exports, ["getRoles","getRolesOutput"], () => require("./getRoles"));
-utilities.lazyLoad(exports, ["getSamlProvider","getSamlProviderOutput"], () => require("./getSamlProvider"));
-utilities.lazyLoad(exports, ["getServerCertificate","getServerCertificateOutput"], () => require("./getServerCertificate"));
-utilities.lazyLoad(exports, ["getSessionContext","getSessionContextOutput"], () => require("./getSessionContext"));
-utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
-utilities.lazyLoad(exports, ["getUserSshKey","getUserSshKeyOutput"], () => require("./getUserSshKey"));
-utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
-utilities.lazyLoad(exports, ["Group"], () => require("./group"));
-utilities.lazyLoad(exports, ["GroupMembership"], () => require("./groupMembership"));
-utilities.lazyLoad(exports, ["GroupPolicy"], () => require("./groupPolicy"));
-utilities.lazyLoad(exports, ["GroupPolicyAttachment"], () => require("./groupPolicyAttachment"));
-utilities.lazyLoad(exports, ["InstanceProfile"], () => require("./instanceProfile"));
-utilities.lazyLoad(exports, ["OpenIdConnectProvider"], () => require("./openIdConnectProvider"));
-utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
-utilities.lazyLoad(exports, ["PolicyAttachment"], () => require("./policyAttachment"));
-utilities.lazyLoad(exports, ["Role"], () => require("./role"));
-utilities.lazyLoad(exports, ["RolePolicy"], () => require("./rolePolicy"));
-utilities.lazyLoad(exports, ["RolePolicyAttachment"], () => require("./rolePolicyAttachment"));
-utilities.lazyLoad(exports, ["SamlProvider"], () => require("./samlProvider"));
-utilities.lazyLoad(exports, ["ServerCertificate"], () => require("./serverCertificate"));
-utilities.lazyLoad(exports, ["ServiceLinkedRole"], () => require("./serviceLinkedRole"));
-utilities.lazyLoad(exports, ["ServiceSpecificCredential"], () => require("./serviceSpecificCredential"));
-utilities.lazyLoad(exports, ["SigningCertificate"], () => require("./signingCertificate"));
-utilities.lazyLoad(exports, ["SshKey"], () => require("./sshKey"));
-utilities.lazyLoad(exports, ["User"], () => require("./user"));
-utilities.lazyLoad(exports, ["UserGroupMembership"], () => require("./userGroupMembership"));
-utilities.lazyLoad(exports, ["UserLoginProfile"], () => require("./userLoginProfile"));
-utilities.lazyLoad(exports, ["UserPolicy"], () => require("./userPolicy"));
-utilities.lazyLoad(exports, ["UserPolicyAttachment"], () => require("./userPolicyAttachment"));
 utilities.lazyLoad(exports, ["VirtualMfaDevice"], () => require("./virtualMfaDevice"));
+
 
 // Export enums:
 export * from "../types/enums/iam";

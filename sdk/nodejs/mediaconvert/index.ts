@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { QueueArgs, QueueState } from "./queue";
 export type Queue = import("./queue").Queue;
 export const Queue: typeof import("./queue").Queue = null as any;
-
 utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
+
 
 const _module = {
     version: utilities.getVersion(),

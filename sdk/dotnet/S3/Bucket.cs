@@ -308,7 +308,7 @@ namespace Pulumi.Aws.S3
     ///                     Status = "Enabled",
     ///                     Filter = new Aws.S3.Inputs.BucketReplicationConfigurationRuleFilterArgs
     ///                     {
-    ///                         Tags = ,
+    ///                         Tags = null,
     ///                     },
     ///                     Destination = new Aws.S3.Inputs.BucketReplicationConfigurationRuleDestinationArgs
     ///                     {

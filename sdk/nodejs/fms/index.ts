@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { AdminAccountArgs, AdminAccountState } from "./adminAccount";
 export type AdminAccount = import("./adminAccount").AdminAccount;
 export const AdminAccount: typeof import("./adminAccount").AdminAccount = null as any;
+utilities.lazyLoad(exports, ["AdminAccount"], () => require("./adminAccount"));
 
 export { PolicyArgs, PolicyState } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
-
-utilities.lazyLoad(exports, ["AdminAccount"], () => require("./adminAccount"));
 utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
 
 const _module = {
     version: utilities.getVersion(),

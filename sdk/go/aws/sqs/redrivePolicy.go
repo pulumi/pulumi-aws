@@ -51,7 +51,7 @@ import (
 //						return _zero, err
 //					}
 //					json0 := string(tmpJSON0)
-//					return json0, nil
+//					return pulumi.String(json0), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
@@ -69,7 +69,7 @@ import (
 //						return _zero, err
 //					}
 //					json1 := string(tmpJSON1)
-//					return json1, nil
+//					return pulumi.String(json1), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {

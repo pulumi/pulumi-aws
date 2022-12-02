@@ -8,48 +8,48 @@ import * as utilities from "../utilities";
 export { AccessPointPolicyArgs, AccessPointPolicyState } from "./accessPointPolicy";
 export type AccessPointPolicy = import("./accessPointPolicy").AccessPointPolicy;
 export const AccessPointPolicy: typeof import("./accessPointPolicy").AccessPointPolicy = null as any;
+utilities.lazyLoad(exports, ["AccessPointPolicy"], () => require("./accessPointPolicy"));
 
 export { BucketArgs, BucketState } from "./bucket";
 export type Bucket = import("./bucket").Bucket;
 export const Bucket: typeof import("./bucket").Bucket = null as any;
+utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
 
 export { BucketLifecycleConfigurationArgs, BucketLifecycleConfigurationState } from "./bucketLifecycleConfiguration";
 export type BucketLifecycleConfiguration = import("./bucketLifecycleConfiguration").BucketLifecycleConfiguration;
 export const BucketLifecycleConfiguration: typeof import("./bucketLifecycleConfiguration").BucketLifecycleConfiguration = null as any;
+utilities.lazyLoad(exports, ["BucketLifecycleConfiguration"], () => require("./bucketLifecycleConfiguration"));
 
 export { BucketPolicyArgs, BucketPolicyState } from "./bucketPolicy";
 export type BucketPolicy = import("./bucketPolicy").BucketPolicy;
 export const BucketPolicy: typeof import("./bucketPolicy").BucketPolicy = null as any;
+utilities.lazyLoad(exports, ["BucketPolicy"], () => require("./bucketPolicy"));
 
 export { MultiRegionAccessPointArgs, MultiRegionAccessPointState } from "./multiRegionAccessPoint";
 export type MultiRegionAccessPoint = import("./multiRegionAccessPoint").MultiRegionAccessPoint;
 export const MultiRegionAccessPoint: typeof import("./multiRegionAccessPoint").MultiRegionAccessPoint = null as any;
+utilities.lazyLoad(exports, ["MultiRegionAccessPoint"], () => require("./multiRegionAccessPoint"));
 
 export { MultiRegionAccessPointPolicyArgs, MultiRegionAccessPointPolicyState } from "./multiRegionAccessPointPolicy";
 export type MultiRegionAccessPointPolicy = import("./multiRegionAccessPointPolicy").MultiRegionAccessPointPolicy;
 export const MultiRegionAccessPointPolicy: typeof import("./multiRegionAccessPointPolicy").MultiRegionAccessPointPolicy = null as any;
+utilities.lazyLoad(exports, ["MultiRegionAccessPointPolicy"], () => require("./multiRegionAccessPointPolicy"));
 
 export { ObjectLambdaAccessPointArgs, ObjectLambdaAccessPointState } from "./objectLambdaAccessPoint";
 export type ObjectLambdaAccessPoint = import("./objectLambdaAccessPoint").ObjectLambdaAccessPoint;
 export const ObjectLambdaAccessPoint: typeof import("./objectLambdaAccessPoint").ObjectLambdaAccessPoint = null as any;
+utilities.lazyLoad(exports, ["ObjectLambdaAccessPoint"], () => require("./objectLambdaAccessPoint"));
 
 export { ObjectLambdaAccessPointPolicyArgs, ObjectLambdaAccessPointPolicyState } from "./objectLambdaAccessPointPolicy";
 export type ObjectLambdaAccessPointPolicy = import("./objectLambdaAccessPointPolicy").ObjectLambdaAccessPointPolicy;
 export const ObjectLambdaAccessPointPolicy: typeof import("./objectLambdaAccessPointPolicy").ObjectLambdaAccessPointPolicy = null as any;
+utilities.lazyLoad(exports, ["ObjectLambdaAccessPointPolicy"], () => require("./objectLambdaAccessPointPolicy"));
 
 export { StorageLensConfigurationArgs, StorageLensConfigurationState } from "./storageLensConfiguration";
 export type StorageLensConfiguration = import("./storageLensConfiguration").StorageLensConfiguration;
 export const StorageLensConfiguration: typeof import("./storageLensConfiguration").StorageLensConfiguration = null as any;
-
-utilities.lazyLoad(exports, ["AccessPointPolicy"], () => require("./accessPointPolicy"));
-utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
-utilities.lazyLoad(exports, ["BucketLifecycleConfiguration"], () => require("./bucketLifecycleConfiguration"));
-utilities.lazyLoad(exports, ["BucketPolicy"], () => require("./bucketPolicy"));
-utilities.lazyLoad(exports, ["MultiRegionAccessPoint"], () => require("./multiRegionAccessPoint"));
-utilities.lazyLoad(exports, ["MultiRegionAccessPointPolicy"], () => require("./multiRegionAccessPointPolicy"));
-utilities.lazyLoad(exports, ["ObjectLambdaAccessPoint"], () => require("./objectLambdaAccessPoint"));
-utilities.lazyLoad(exports, ["ObjectLambdaAccessPointPolicy"], () => require("./objectLambdaAccessPointPolicy"));
 utilities.lazyLoad(exports, ["StorageLensConfiguration"], () => require("./storageLensConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class UserPoolSmsConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -43,11 +45,27 @@ public final class UserPoolSmsConfigurationArgs extends com.pulumi.resources.Res
         return this.snsCallerArn;
     }
 
+    /**
+     * The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+     * 
+     */
+    @Import(name="snsRegion")
+    private @Nullable Output<String> snsRegion;
+
+    /**
+     * @return The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+     * 
+     */
+    public Optional<Output<String>> snsRegion() {
+        return Optional.ofNullable(this.snsRegion);
+    }
+
     private UserPoolSmsConfigurationArgs() {}
 
     private UserPoolSmsConfigurationArgs(UserPoolSmsConfigurationArgs $) {
         this.externalId = $.externalId;
         this.snsCallerArn = $.snsCallerArn;
+        this.snsRegion = $.snsRegion;
     }
 
     public static Builder builder() {
@@ -108,6 +126,27 @@ public final class UserPoolSmsConfigurationArgs extends com.pulumi.resources.Res
          */
         public Builder snsCallerArn(String snsCallerArn) {
             return snsCallerArn(Output.of(snsCallerArn));
+        }
+
+        /**
+         * @param snsRegion The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snsRegion(@Nullable Output<String> snsRegion) {
+            $.snsRegion = snsRegion;
+            return this;
+        }
+
+        /**
+         * @param snsRegion The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snsRegion(String snsRegion) {
+            return snsRegion(Output.of(snsRegion));
         }
 
         public UserPoolSmsConfigurationArgs build() {

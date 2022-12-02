@@ -16,18 +16,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.eks.getNodeGroup({
+ * const example = aws.eks.getNodeGroup({
  *     clusterName: "example",
  *     nodeGroupName: "example",
- * }));
+ * });
  * ```
  */
 export function getNodeGroup(args: GetNodeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getNodeGroup:getNodeGroup", {
         "clusterName": args.clusterName,
         "nodeGroupName": args.nodeGroupName,

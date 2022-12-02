@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDistributionConfigurationsResult> InvokeAsync(GetDistributionConfigurationsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDistributionConfigurationsResult>("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args ?? new GetDistributionConfigurationsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionConfigurationsResult>("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args ?? new GetDistributionConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDistributionConfigurationsResult> Invoke(GetDistributionConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDistributionConfigurationsResult>("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args ?? new GetDistributionConfigurationsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDistributionConfigurationsResult>("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args ?? new GetDistributionConfigurationsInvokeArgs(), options.WithDefaults());
     }
 
 

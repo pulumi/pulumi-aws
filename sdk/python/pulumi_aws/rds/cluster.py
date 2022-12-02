@@ -2126,7 +2126,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["iops"] = iops
             __props__.__dict__["kms_key_id"] = kms_key_id
-            __props__.__dict__["master_password"] = master_password
+            __props__.__dict__["master_password"] = None if master_password is None else pulumi.Output.secret(master_password)
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["network_type"] = network_type
             __props__.__dict__["port"] = port
@@ -2151,6 +2151,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["reader_endpoint"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:rds/cluster:Cluster',
             resource_name,

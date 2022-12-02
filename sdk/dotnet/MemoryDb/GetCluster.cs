@@ -36,7 +36,7 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:memorydb/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:memorydb/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a MemoryDB Cluster.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:memorydb/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:memorydb/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -137,6 +137,10 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly bool AutoMinorVersionUpgrade;
         public readonly ImmutableArray<Outputs.GetClusterClusterEndpointResult> ClusterEndpoints;
+        /// <summary>
+        /// True when data tiering is enabled.
+        /// </summary>
+        public readonly bool DataTiering;
         /// <summary>
         /// Description for the cluster.
         /// </summary>
@@ -231,6 +235,8 @@ namespace Pulumi.Aws.MemoryDb
 
             ImmutableArray<Outputs.GetClusterClusterEndpointResult> clusterEndpoints,
 
+            bool dataTiering,
+
             string description,
 
             string enginePatchVersion,
@@ -277,6 +283,7 @@ namespace Pulumi.Aws.MemoryDb
             Arn = arn;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
             ClusterEndpoints = clusterEndpoints;
+            DataTiering = dataTiering;
             Description = description;
             EnginePatchVersion = enginePatchVersion;
             EngineVersion = engineVersion;

@@ -8,58 +8,58 @@ import * as utilities from "../utilities";
 export { AggregateAuthorizationArgs, AggregateAuthorizationState } from "./aggregateAuthorization";
 export type AggregateAuthorization = import("./aggregateAuthorization").AggregateAuthorization;
 export const AggregateAuthorization: typeof import("./aggregateAuthorization").AggregateAuthorization = null as any;
+utilities.lazyLoad(exports, ["AggregateAuthorization"], () => require("./aggregateAuthorization"));
 
 export { ConfigurationAggregatorArgs, ConfigurationAggregatorState } from "./configurationAggregator";
 export type ConfigurationAggregator = import("./configurationAggregator").ConfigurationAggregator;
 export const ConfigurationAggregator: typeof import("./configurationAggregator").ConfigurationAggregator = null as any;
+utilities.lazyLoad(exports, ["ConfigurationAggregator"], () => require("./configurationAggregator"));
 
 export { ConformancePackArgs, ConformancePackState } from "./conformancePack";
 export type ConformancePack = import("./conformancePack").ConformancePack;
 export const ConformancePack: typeof import("./conformancePack").ConformancePack = null as any;
+utilities.lazyLoad(exports, ["ConformancePack"], () => require("./conformancePack"));
 
 export { DeliveryChannelArgs, DeliveryChannelState } from "./deliveryChannel";
 export type DeliveryChannel = import("./deliveryChannel").DeliveryChannel;
 export const DeliveryChannel: typeof import("./deliveryChannel").DeliveryChannel = null as any;
+utilities.lazyLoad(exports, ["DeliveryChannel"], () => require("./deliveryChannel"));
 
 export { OrganizationConformancePackArgs, OrganizationConformancePackState } from "./organizationConformancePack";
 export type OrganizationConformancePack = import("./organizationConformancePack").OrganizationConformancePack;
 export const OrganizationConformancePack: typeof import("./organizationConformancePack").OrganizationConformancePack = null as any;
+utilities.lazyLoad(exports, ["OrganizationConformancePack"], () => require("./organizationConformancePack"));
 
 export { OrganizationCustomRuleArgs, OrganizationCustomRuleState } from "./organizationCustomRule";
 export type OrganizationCustomRule = import("./organizationCustomRule").OrganizationCustomRule;
 export const OrganizationCustomRule: typeof import("./organizationCustomRule").OrganizationCustomRule = null as any;
+utilities.lazyLoad(exports, ["OrganizationCustomRule"], () => require("./organizationCustomRule"));
 
 export { OrganizationManagedRuleArgs, OrganizationManagedRuleState } from "./organizationManagedRule";
 export type OrganizationManagedRule = import("./organizationManagedRule").OrganizationManagedRule;
 export const OrganizationManagedRule: typeof import("./organizationManagedRule").OrganizationManagedRule = null as any;
+utilities.lazyLoad(exports, ["OrganizationManagedRule"], () => require("./organizationManagedRule"));
 
 export { RecorderArgs, RecorderState } from "./recorder";
 export type Recorder = import("./recorder").Recorder;
 export const Recorder: typeof import("./recorder").Recorder = null as any;
+utilities.lazyLoad(exports, ["Recorder"], () => require("./recorder"));
 
 export { RecorderStatusArgs, RecorderStatusState } from "./recorderStatus";
 export type RecorderStatus = import("./recorderStatus").RecorderStatus;
 export const RecorderStatus: typeof import("./recorderStatus").RecorderStatus = null as any;
+utilities.lazyLoad(exports, ["RecorderStatus"], () => require("./recorderStatus"));
 
 export { RemediationConfigurationArgs, RemediationConfigurationState } from "./remediationConfiguration";
 export type RemediationConfiguration = import("./remediationConfiguration").RemediationConfiguration;
 export const RemediationConfiguration: typeof import("./remediationConfiguration").RemediationConfiguration = null as any;
+utilities.lazyLoad(exports, ["RemediationConfiguration"], () => require("./remediationConfiguration"));
 
 export { RuleArgs, RuleState } from "./rule";
 export type Rule = import("./rule").Rule;
 export const Rule: typeof import("./rule").Rule = null as any;
-
-utilities.lazyLoad(exports, ["AggregateAuthorization"], () => require("./aggregateAuthorization"));
-utilities.lazyLoad(exports, ["ConfigurationAggregator"], () => require("./configurationAggregator"));
-utilities.lazyLoad(exports, ["ConformancePack"], () => require("./conformancePack"));
-utilities.lazyLoad(exports, ["DeliveryChannel"], () => require("./deliveryChannel"));
-utilities.lazyLoad(exports, ["OrganizationConformancePack"], () => require("./organizationConformancePack"));
-utilities.lazyLoad(exports, ["OrganizationCustomRule"], () => require("./organizationCustomRule"));
-utilities.lazyLoad(exports, ["OrganizationManagedRule"], () => require("./organizationManagedRule"));
-utilities.lazyLoad(exports, ["Recorder"], () => require("./recorder"));
-utilities.lazyLoad(exports, ["RecorderStatus"], () => require("./recorderStatus"));
-utilities.lazyLoad(exports, ["RemediationConfiguration"], () => require("./remediationConfiguration"));
 utilities.lazyLoad(exports, ["Rule"], () => require("./rule"));
+
 
 const _module = {
     version: utilities.getVersion(),

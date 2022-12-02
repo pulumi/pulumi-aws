@@ -48,6 +48,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("scte35Behavior")]
         public Input<string>? Scte35Behavior { get; set; }
 
+        /// <summary>
+        /// PID from which to read SCTE-35 messages.
+        /// </summary>
         [Input("scte35Pid")]
         public Input<string>? Scte35Pid { get; set; }
 

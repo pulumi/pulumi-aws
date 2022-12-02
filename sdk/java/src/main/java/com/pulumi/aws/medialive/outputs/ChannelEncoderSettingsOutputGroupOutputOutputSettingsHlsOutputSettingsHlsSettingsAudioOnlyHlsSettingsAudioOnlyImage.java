@@ -16,9 +16,13 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
      * 
      */
     private @Nullable String passwordParam;
+    /**
+     * @return Path to a file accessible to the live stream.
+     * 
+     */
     private String uri;
     /**
-     * @return Username for destination.
+     * @return . Username to be used.
      * 
      */
     private @Nullable String username;
@@ -31,11 +35,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
     public Optional<String> passwordParam() {
         return Optional.ofNullable(this.passwordParam);
     }
+    /**
+     * @return Path to a file accessible to the live stream.
+     * 
+     */
     public String uri() {
         return this.uri;
     }
     /**
-     * @return Username for destination.
+     * @return . Username to be used.
      * 
      */
     public Optional<String> username() {

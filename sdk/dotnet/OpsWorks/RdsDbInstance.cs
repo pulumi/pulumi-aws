@@ -82,6 +82,10 @@ namespace Pulumi.Aws.OpsWorks
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "dbPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -105,11 +109,21 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class RdsDbInstanceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dbPassword", required: true)]
+        private Input<string>? _dbPassword;
+
         /// <summary>
         /// A db password
         /// </summary>
-        [Input("dbPassword", required: true)]
-        public Input<string> DbPassword { get; set; } = null!;
+        public Input<string>? DbPassword
+        {
+            get => _dbPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _dbPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A db username
@@ -137,11 +151,21 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class RdsDbInstanceState : global::Pulumi.ResourceArgs
     {
+        [Input("dbPassword")]
+        private Input<string>? _dbPassword;
+
         /// <summary>
         /// A db password
         /// </summary>
-        [Input("dbPassword")]
-        public Input<string>? DbPassword { get; set; }
+        public Input<string>? DbPassword
+        {
+            get => _dbPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _dbPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A db username

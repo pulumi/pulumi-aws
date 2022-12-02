@@ -13,13 +13,16 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsVideoDescription
     {
+        /// <summary>
+        /// The video codec settings. See Video Codec Settings for more details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettings? CodecSettings;
         /// <summary>
         /// Output video height in pixels.
         /// </summary>
         public readonly int? Height;
         /// <summary>
-        /// Custom output group name defined by the user.
+        /// The name of the video description.
         /// </summary>
         public readonly string Name;
         /// <summary>

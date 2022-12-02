@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { AssociationArgs, AssociationState } from "./association";
 export type Association = import("./association").Association;
 export const Association: typeof import("./association").Association = null as any;
+utilities.lazyLoad(exports, ["Association"], () => require("./association"));
 
 export { LicenseConfigurationArgs, LicenseConfigurationState } from "./licenseConfiguration";
 export type LicenseConfiguration = import("./licenseConfiguration").LicenseConfiguration;
 export const LicenseConfiguration: typeof import("./licenseConfiguration").LicenseConfiguration = null as any;
-
-utilities.lazyLoad(exports, ["Association"], () => require("./association"));
 utilities.lazyLoad(exports, ["LicenseConfiguration"], () => require("./licenseConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),

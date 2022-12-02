@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.LookupSubnetGroup(ctx, &elasticache.LookupSubnetGroupArgs{
+//			_, err = elasticache.LookupSubnetGroup(ctx, &elasticache.LookupSubnetGroupArgs{
 //				Name: "my-subnet-group",
 //			}, nil)
 //			if err != nil {

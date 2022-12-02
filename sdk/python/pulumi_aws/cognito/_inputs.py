@@ -1837,13 +1837,17 @@ class UserPoolSchemaStringAttributeConstraintsArgs:
 class UserPoolSmsConfigurationArgs:
     def __init__(__self__, *,
                  external_id: pulumi.Input[str],
-                 sns_caller_arn: pulumi.Input[str]):
+                 sns_caller_arn: pulumi.Input[str],
+                 sns_region: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] external_id: External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
         :param pulumi.Input[str] sns_caller_arn: ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+        :param pulumi.Input[str] sns_region: The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
         """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
+        if sns_region is not None:
+            pulumi.set(__self__, "sns_region", sns_region)
 
     @property
     @pulumi.getter(name="externalId")
@@ -1868,6 +1872,18 @@ class UserPoolSmsConfigurationArgs:
     @sns_caller_arn.setter
     def sns_caller_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "sns_caller_arn", value)
+
+    @property
+    @pulumi.getter(name="snsRegion")
+    def sns_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+        """
+        return pulumi.get(self, "sns_region")
+
+    @sns_region.setter
+    def sns_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sns_region", value)
 
 
 @pulumi.input_type

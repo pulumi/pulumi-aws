@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.LookupNodeGroup(ctx, &eks.LookupNodeGroupArgs{
+//			_, err = eks.LookupNodeGroup(ctx, &eks.LookupNodeGroupArgs{
 //				ClusterName:   "example",
 //				NodeGroupName: "example",
 //			}, nil)

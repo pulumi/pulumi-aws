@@ -122,6 +122,10 @@ namespace Pulumi.Aws.RedShift
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "hsmPartitionPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -169,11 +173,21 @@ namespace Pulumi.Aws.RedShift
         [Input("hsmPartitionName", required: true)]
         public Input<string> HsmPartitionName { get; set; } = null!;
 
+        [Input("hsmPartitionPassword", required: true)]
+        private Input<string>? _hsmPartitionPassword;
+
         /// <summary>
         /// The password required to access the HSM partition.
         /// </summary>
-        [Input("hsmPartitionPassword", required: true)]
-        public Input<string> HsmPartitionPassword { get; set; } = null!;
+        public Input<string>? HsmPartitionPassword
+        {
+            get => _hsmPartitionPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _hsmPartitionPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
@@ -231,11 +245,21 @@ namespace Pulumi.Aws.RedShift
         [Input("hsmPartitionName")]
         public Input<string>? HsmPartitionName { get; set; }
 
+        [Input("hsmPartitionPassword")]
+        private Input<string>? _hsmPartitionPassword;
+
         /// <summary>
         /// The password required to access the HSM partition.
         /// </summary>
-        [Input("hsmPartitionPassword")]
-        public Input<string>? HsmPartitionPassword { get; set; }
+        public Input<string>? HsmPartitionPassword
+        {
+            get => _hsmPartitionPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _hsmPartitionPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.

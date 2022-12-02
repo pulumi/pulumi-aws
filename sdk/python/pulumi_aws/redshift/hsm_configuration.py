@@ -403,13 +403,15 @@ class HsmConfiguration(pulumi.CustomResource):
             __props__.__dict__["hsm_partition_name"] = hsm_partition_name
             if hsm_partition_password is None and not opts.urn:
                 raise TypeError("Missing required property 'hsm_partition_password'")
-            __props__.__dict__["hsm_partition_password"] = hsm_partition_password
+            __props__.__dict__["hsm_partition_password"] = None if hsm_partition_password is None else pulumi.Output.secret(hsm_partition_password)
             if hsm_server_public_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'hsm_server_public_certificate'")
             __props__.__dict__["hsm_server_public_certificate"] = hsm_server_public_certificate
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["hsmPartitionPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HsmConfiguration, __self__).__init__(
             'aws:redshift/hsmConfiguration:HsmConfiguration',
             resource_name,

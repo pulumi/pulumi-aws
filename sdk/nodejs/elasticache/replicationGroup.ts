@@ -458,7 +458,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             const args = argsOrState as ReplicationGroupArgs | undefined;
             resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             resourceInputs["atRestEncryptionEnabled"] = args ? args.atRestEncryptionEnabled : undefined;
-            resourceInputs["authToken"] = args ? args.authToken : undefined;
+            resourceInputs["authToken"] = args?.authToken ? pulumi.secret(args.authToken) : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
@@ -504,6 +504,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["authToken"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ReplicationGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

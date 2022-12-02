@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { AliasArgs, AliasState } from "./alias";
 export type Alias = import("./alias").Alias;
 export const Alias: typeof import("./alias").Alias = null as any;
+utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
 
 export { BuildArgs, BuildState } from "./build";
 export type Build = import("./build").Build;
 export const Build: typeof import("./build").Build = null as any;
+utilities.lazyLoad(exports, ["Build"], () => require("./build"));
 
 export { FleetArgs, FleetState } from "./fleet";
 export type Fleet = import("./fleet").Fleet;
 export const Fleet: typeof import("./fleet").Fleet = null as any;
+utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
 
 export { GameServerGroupArgs, GameServerGroupState } from "./gameServerGroup";
 export type GameServerGroup = import("./gameServerGroup").GameServerGroup;
 export const GameServerGroup: typeof import("./gameServerGroup").GameServerGroup = null as any;
+utilities.lazyLoad(exports, ["GameServerGroup"], () => require("./gameServerGroup"));
 
 export { GameSessionQueueArgs, GameSessionQueueState } from "./gameSessionQueue";
 export type GameSessionQueue = import("./gameSessionQueue").GameSessionQueue;
 export const GameSessionQueue: typeof import("./gameSessionQueue").GameSessionQueue = null as any;
+utilities.lazyLoad(exports, ["GameSessionQueue"], () => require("./gameSessionQueue"));
 
 export { ScriptArgs, ScriptState } from "./script";
 export type Script = import("./script").Script;
 export const Script: typeof import("./script").Script = null as any;
-
-utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
-utilities.lazyLoad(exports, ["Build"], () => require("./build"));
-utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
-utilities.lazyLoad(exports, ["GameServerGroup"], () => require("./gameServerGroup"));
-utilities.lazyLoad(exports, ["GameSessionQueue"], () => require("./gameSessionQueue"));
 utilities.lazyLoad(exports, ["Script"], () => require("./script"));
+
 
 const _module = {
     version: utilities.getVersion(),

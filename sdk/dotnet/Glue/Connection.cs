@@ -161,6 +161,10 @@ namespace Pulumi.Aws.Glue
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "connectionProperties",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -199,7 +203,11 @@ namespace Pulumi.Aws.Glue
         public InputMap<string> ConnectionProperties
         {
             get => _connectionProperties ?? (_connectionProperties = new InputMap<string>());
-            set => _connectionProperties = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _connectionProperties = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>
@@ -279,7 +287,11 @@ namespace Pulumi.Aws.Glue
         public InputMap<string> ConnectionProperties
         {
             get => _connectionProperties ?? (_connectionProperties = new InputMap<string>());
-            set => _connectionProperties = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _connectionProperties = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

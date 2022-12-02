@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Cognito.Inputs
         [Input("snsCallerArn", required: true)]
         public Input<string> SnsCallerArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+        /// </summary>
+        [Input("snsRegion")]
+        public Input<string>? SnsRegion { get; set; }
+
         public UserPoolSmsConfigurationArgs()
         {
         }

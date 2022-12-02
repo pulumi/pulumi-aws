@@ -12,11 +12,21 @@ namespace Pulumi.Aws.Amplify.Inputs
 
     public sealed class AppAutoBranchCreationConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("basicAuthCredentials")]
+        private Input<string>? _basicAuthCredentials;
+
         /// <summary>
         /// Basic authorization credentials for the autocreated branch.
         /// </summary>
-        [Input("basicAuthCredentials")]
-        public Input<string>? BasicAuthCredentials { get; set; }
+        public Input<string>? BasicAuthCredentials
+        {
+            get => _basicAuthCredentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _basicAuthCredentials = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Build specification (build spec) for the autocreated branch.

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datapipeline.LookupPipeline(ctx, &datapipeline.LookupPipelineArgs{
+//			_, err = datapipeline.LookupPipeline(ctx, &datapipeline.LookupPipelineArgs{
 //				PipelineId: "pipelineID",
 //			}, nil)
 //			if err != nil {

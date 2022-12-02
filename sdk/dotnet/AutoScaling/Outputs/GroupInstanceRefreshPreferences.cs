@@ -29,6 +29,9 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
         /// </summary>
         public readonly int? MinHealthyPercentage;
+        /// <summary>
+        /// Replace instances that already have your desired configuration. Defaults to `false`.
+        /// </summary>
         public readonly bool? SkipMatching;
 
         [OutputConstructor]

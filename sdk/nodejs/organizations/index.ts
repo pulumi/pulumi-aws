@@ -8,57 +8,57 @@ import * as utilities from "../utilities";
 export { AccountArgs, AccountState } from "./account";
 export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
 export { DelegatedAdministratorArgs, DelegatedAdministratorState } from "./delegatedAdministrator";
 export type DelegatedAdministrator = import("./delegatedAdministrator").DelegatedAdministrator;
 export const DelegatedAdministrator: typeof import("./delegatedAdministrator").DelegatedAdministrator = null as any;
+utilities.lazyLoad(exports, ["DelegatedAdministrator"], () => require("./delegatedAdministrator"));
 
 export { GetDelegatedAdministratorsArgs, GetDelegatedAdministratorsResult, GetDelegatedAdministratorsOutputArgs } from "./getDelegatedAdministrators";
 export const getDelegatedAdministrators: typeof import("./getDelegatedAdministrators").getDelegatedAdministrators = null as any;
 export const getDelegatedAdministratorsOutput: typeof import("./getDelegatedAdministrators").getDelegatedAdministratorsOutput = null as any;
+utilities.lazyLoad(exports, ["getDelegatedAdministrators","getDelegatedAdministratorsOutput"], () => require("./getDelegatedAdministrators"));
 
 export { GetDelegatedServicesArgs, GetDelegatedServicesResult, GetDelegatedServicesOutputArgs } from "./getDelegatedServices";
 export const getDelegatedServices: typeof import("./getDelegatedServices").getDelegatedServices = null as any;
 export const getDelegatedServicesOutput: typeof import("./getDelegatedServices").getDelegatedServicesOutput = null as any;
+utilities.lazyLoad(exports, ["getDelegatedServices","getDelegatedServicesOutput"], () => require("./getDelegatedServices"));
 
 export { GetOrganizationResult } from "./getOrganization";
 export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
+utilities.lazyLoad(exports, ["getOrganization"], () => require("./getOrganization"));
 
 export { GetOrganizationalUnitsArgs, GetOrganizationalUnitsResult, GetOrganizationalUnitsOutputArgs } from "./getOrganizationalUnits";
 export const getOrganizationalUnits: typeof import("./getOrganizationalUnits").getOrganizationalUnits = null as any;
 export const getOrganizationalUnitsOutput: typeof import("./getOrganizationalUnits").getOrganizationalUnitsOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationalUnits","getOrganizationalUnitsOutput"], () => require("./getOrganizationalUnits"));
 
 export { GetResourceTagsArgs, GetResourceTagsResult, GetResourceTagsOutputArgs } from "./getResourceTags";
 export const getResourceTags: typeof import("./getResourceTags").getResourceTags = null as any;
 export const getResourceTagsOutput: typeof import("./getResourceTags").getResourceTagsOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceTags","getResourceTagsOutput"], () => require("./getResourceTags"));
 
 export { OrganizationArgs, OrganizationState } from "./organization";
 export type Organization = import("./organization").Organization;
 export const Organization: typeof import("./organization").Organization = null as any;
+utilities.lazyLoad(exports, ["Organization"], () => require("./organization"));
 
 export { OrganizationalUnitArgs, OrganizationalUnitState } from "./organizationalUnit";
 export type OrganizationalUnit = import("./organizationalUnit").OrganizationalUnit;
 export const OrganizationalUnit: typeof import("./organizationalUnit").OrganizationalUnit = null as any;
+utilities.lazyLoad(exports, ["OrganizationalUnit"], () => require("./organizationalUnit"));
 
 export { PolicyArgs, PolicyState } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
 export { PolicyAttachmentArgs, PolicyAttachmentState } from "./policyAttachment";
 export type PolicyAttachment = import("./policyAttachment").PolicyAttachment;
 export const PolicyAttachment: typeof import("./policyAttachment").PolicyAttachment = null as any;
-
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
-utilities.lazyLoad(exports, ["DelegatedAdministrator"], () => require("./delegatedAdministrator"));
-utilities.lazyLoad(exports, ["getDelegatedAdministrators","getDelegatedAdministratorsOutput"], () => require("./getDelegatedAdministrators"));
-utilities.lazyLoad(exports, ["getDelegatedServices","getDelegatedServicesOutput"], () => require("./getDelegatedServices"));
-utilities.lazyLoad(exports, ["getOrganization"], () => require("./getOrganization"));
-utilities.lazyLoad(exports, ["getOrganizationalUnits","getOrganizationalUnitsOutput"], () => require("./getOrganizationalUnits"));
-utilities.lazyLoad(exports, ["getResourceTags","getResourceTagsOutput"], () => require("./getResourceTags"));
-utilities.lazyLoad(exports, ["Organization"], () => require("./organization"));
-utilities.lazyLoad(exports, ["OrganizationalUnit"], () => require("./organizationalUnit"));
-utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 utilities.lazyLoad(exports, ["PolicyAttachment"], () => require("./policyAttachment"));
+
 
 const _module = {
     version: utilities.getVersion(),

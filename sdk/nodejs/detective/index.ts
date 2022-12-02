@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 export { GraphArgs, GraphState } from "./graph";
 export type Graph = import("./graph").Graph;
 export const Graph: typeof import("./graph").Graph = null as any;
+utilities.lazyLoad(exports, ["Graph"], () => require("./graph"));
 
 export { InvitationAccepterArgs, InvitationAccepterState } from "./invitationAccepter";
 export type InvitationAccepter = import("./invitationAccepter").InvitationAccepter;
 export const InvitationAccepter: typeof import("./invitationAccepter").InvitationAccepter = null as any;
+utilities.lazyLoad(exports, ["InvitationAccepter"], () => require("./invitationAccepter"));
 
 export { MemberArgs, MemberState } from "./member";
 export type Member = import("./member").Member;
 export const Member: typeof import("./member").Member = null as any;
-
-utilities.lazyLoad(exports, ["Graph"], () => require("./graph"));
-utilities.lazyLoad(exports, ["InvitationAccepter"], () => require("./invitationAccepter"));
 utilities.lazyLoad(exports, ["Member"], () => require("./member"));
+
 
 const _module = {
     version: utilities.getVersion(),

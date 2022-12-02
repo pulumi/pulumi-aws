@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ses
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDomainIdentityResult> InvokeAsync(GetDomainIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainIdentityResult>("aws:ses/getDomainIdentity:getDomainIdentity", args ?? new GetDomainIdentityArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainIdentityResult>("aws:ses/getDomainIdentity:getDomainIdentity", args ?? new GetDomainIdentityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the SES domain identity
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ses
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDomainIdentityResult> Invoke(GetDomainIdentityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainIdentityResult>("aws:ses/getDomainIdentity:getDomainIdentity", args ?? new GetDomainIdentityInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainIdentityResult>("aws:ses/getDomainIdentity:getDomainIdentity", args ?? new GetDomainIdentityInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.docdb.getOrderableDbInstance({
+ * const test = aws.docdb.getOrderableDbInstance({
  *     engine: "docdb",
  *     engineVersion: "3.6.0",
  *     licenseModel: "na",
@@ -22,16 +22,13 @@ import * as utilities from "../utilities";
  *         "db.r4.large",
  *         "db.t3.medium",
  *     ],
- * }));
+ * });
  * ```
  */
 export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", {
         "engine": args.engine,
         "engineVersion": args.engineVersion,

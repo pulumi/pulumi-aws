@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.GetIpset(ctx, &waf.GetIpsetArgs{
+//			_, err = waf.GetIpset(ctx, &waf.GetIpsetArgs{
 //				Name: "tfWAFIPSet",
 //			}, nil)
 //			if err != nil {

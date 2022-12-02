@@ -446,14 +446,16 @@ class ApnsChannel(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
-            __props__.__dict__["bundle_id"] = bundle_id
-            __props__.__dict__["certificate"] = certificate
+            __props__.__dict__["bundle_id"] = None if bundle_id is None else pulumi.Output.secret(bundle_id)
+            __props__.__dict__["certificate"] = None if certificate is None else pulumi.Output.secret(certificate)
             __props__.__dict__["default_authentication_method"] = default_authentication_method
             __props__.__dict__["enabled"] = enabled
-            __props__.__dict__["private_key"] = private_key
-            __props__.__dict__["team_id"] = team_id
-            __props__.__dict__["token_key"] = token_key
-            __props__.__dict__["token_key_id"] = token_key_id
+            __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
+            __props__.__dict__["team_id"] = None if team_id is None else pulumi.Output.secret(team_id)
+            __props__.__dict__["token_key"] = None if token_key is None else pulumi.Output.secret(token_key)
+            __props__.__dict__["token_key_id"] = None if token_key_id is None else pulumi.Output.secret(token_key_id)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["bundleId", "certificate", "privateKey", "teamId", "tokenKey", "tokenKeyId"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ApnsChannel, __self__).__init__(
             'aws:pinpoint/apnsChannel:ApnsChannel',
             resource_name,

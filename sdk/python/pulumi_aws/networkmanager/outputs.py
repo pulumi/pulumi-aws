@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ConnectAttachmentOptions',
     'DeviceAwsLocation',
     'DeviceLocation',
     'LinkBandwidth',
@@ -28,6 +29,19 @@ __all__ = [
     'GetLinkBandwidthResult',
     'GetSiteLocationResult',
 ]
+
+@pulumi.output_type
+class ConnectAttachmentOptions(dict):
+    def __init__(__self__, *,
+                 protocol: Optional[str] = None):
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        return pulumi.get(self, "protocol")
+
 
 @pulumi.output_type
 class DeviceAwsLocation(dict):

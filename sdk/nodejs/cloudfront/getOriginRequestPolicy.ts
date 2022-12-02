@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.cloudfront.getOriginRequestPolicy({
+ * const example = aws.cloudfront.getOriginRequestPolicy({
  *     name: "example-policy",
- * }));
+ * });
  * ```
  * ### AWS-Managed Policies
  *
@@ -27,18 +27,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const uaReferer = pulumi.output(aws.cloudfront.getOriginRequestPolicy({
+ * const uaReferer = aws.cloudfront.getOriginRequestPolicy({
  *     name: "Managed-UserAgentRefererHeaders",
- * }));
+ * });
  * ```
  */
 export function getOriginRequestPolicy(args?: GetOriginRequestPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginRequestPolicyResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", {
         "id": args.id,
         "name": args.name,

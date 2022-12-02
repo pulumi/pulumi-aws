@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetInstanceTypeOffering(ctx, &ec2.GetInstanceTypeOfferingArgs{
+//			_, err = ec2.GetInstanceTypeOffering(ctx, &ec2.GetInstanceTypeOfferingArgs{
 //				Filters: []ec2.GetInstanceTypeOfferingFilter{
 //					ec2.GetInstanceTypeOfferingFilter{
 //						Name: "instance-type",

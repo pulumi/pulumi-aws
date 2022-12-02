@@ -15,29 +15,29 @@ namespace Pulumi.Aws.IdentityStore
         /// Use this data source to get an Identity Store Group.
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:identitystore/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:identitystore/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get an Identity Store Group.
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws:identitystore/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws:identitystore/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
-        [Input("filters", required: true)]
-        private List<Inputs.GetGroupFilterArgs>? _filters;
+        /// <summary>
+        /// A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+        /// </summary>
+        [Input("alternateIdentifier")]
+        public Inputs.GetGroupAlternateIdentifierArgs? AlternateIdentifier { get; set; }
 
         /// <summary>
-        /// Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+        /// Configuration block for filtering by a unique attribute of the group. Detailed below.
         /// </summary>
-        public List<Inputs.GetGroupFilterArgs> Filters
-        {
-            get => _filters ?? (_filters = new List<Inputs.GetGroupFilterArgs>());
-            set => _filters = value;
-        }
+        [Input("filter")]
+        public Inputs.GetGroupFilterArgs? Filter { get; set; }
 
         /// <summary>
         /// The identifier for a group in the Identity Store.
@@ -59,17 +59,17 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("filters", required: true)]
-        private InputList<Inputs.GetGroupFilterInputArgs>? _filters;
+        /// <summary>
+        /// A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+        /// </summary>
+        [Input("alternateIdentifier")]
+        public Input<Inputs.GetGroupAlternateIdentifierInputArgs>? AlternateIdentifier { get; set; }
 
         /// <summary>
-        /// Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+        /// Configuration block for filtering by a unique attribute of the group. Detailed below.
         /// </summary>
-        public InputList<Inputs.GetGroupFilterInputArgs> Filters
-        {
-            get => _filters ?? (_filters = new InputList<Inputs.GetGroupFilterInputArgs>());
-            set => _filters = value;
-        }
+        [Input("filter")]
+        public Input<Inputs.GetGroupFilterInputArgs>? Filter { get; set; }
 
         /// <summary>
         /// The identifier for a group in the Identity Store.
@@ -93,11 +93,20 @@ namespace Pulumi.Aws.IdentityStore
     [OutputType]
     public sealed class GetGroupResult
     {
+        public readonly Outputs.GetGroupAlternateIdentifierResult? AlternateIdentifier;
+        /// <summary>
+        /// Description of the specified group.
+        /// </summary>
+        public readonly string Description;
         /// <summary>
         /// Group's display name value.
         /// </summary>
         public readonly string DisplayName;
-        public readonly ImmutableArray<Outputs.GetGroupFilterResult> Filters;
+        /// <summary>
+        /// List of identifiers issued to this resource by an external identity provider.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetGroupExternalIdResult> ExternalIds;
+        public readonly Outputs.GetGroupFilterResult? Filter;
         public readonly string GroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -107,9 +116,15 @@ namespace Pulumi.Aws.IdentityStore
 
         [OutputConstructor]
         private GetGroupResult(
+            Outputs.GetGroupAlternateIdentifierResult? alternateIdentifier,
+
+            string description,
+
             string displayName,
 
-            ImmutableArray<Outputs.GetGroupFilterResult> filters,
+            ImmutableArray<Outputs.GetGroupExternalIdResult> externalIds,
+
+            Outputs.GetGroupFilterResult? filter,
 
             string groupId,
 
@@ -117,8 +132,11 @@ namespace Pulumi.Aws.IdentityStore
 
             string identityStoreId)
         {
+            AlternateIdentifier = alternateIdentifier;
+            Description = description;
             DisplayName = displayName;
-            Filters = filters;
+            ExternalIds = externalIds;
+            Filter = filter;
             GroupId = groupId;
             Id = id;
             IdentityStoreId = identityStoreId;

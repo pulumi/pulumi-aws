@@ -71,7 +71,7 @@ namespace Pulumi.Aws.S3
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
     ///             {
     ///                 Id = "rule-1",
-    ///                 Filter = ,
+    ///                 Filter = null,
     ///                 Status = "Enabled",
     ///             },
     ///         },

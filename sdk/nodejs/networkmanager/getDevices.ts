@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDevices(args: GetDevicesArgs, opts?: pulumi.InvokeOptions): Promise<GetDevicesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getDevices:getDevices", {
         "globalNetworkId": args.globalNetworkId,
         "siteId": args.siteId,

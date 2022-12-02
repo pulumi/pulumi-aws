@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.GetImagePipelines(ctx, &imagebuilder.GetImagePipelinesArgs{
+//			_, err = imagebuilder.GetImagePipelines(ctx, &imagebuilder.GetImagePipelinesArgs{
 //				Filters: []imagebuilder.GetImagePipelinesFilter{
 //					imagebuilder.GetImagePipelinesFilter{
 //						Name: "name",

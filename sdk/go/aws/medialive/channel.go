@@ -150,10 +150,12 @@ type Channel struct {
 	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance ChannelMaintenanceOutput `pulumi:"maintenance"`
-	// Custom output group name defined by the user.
+	// The name of the video description.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Concise argument description.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// Whether to start/stop channel. Default: `false`
+	StartChannel pulumi.BoolPtrOutput `pulumi:"startChannel"`
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -225,10 +227,12 @@ type channelState struct {
 	LogLevel *string `pulumi:"logLevel"`
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance *ChannelMaintenance `pulumi:"maintenance"`
-	// Custom output group name defined by the user.
+	// The name of the video description.
 	Name *string `pulumi:"name"`
 	// Concise argument description.
 	RoleArn *string `pulumi:"roleArn"`
+	// Whether to start/stop channel. Default: `false`
+	StartChannel *bool `pulumi:"startChannel"`
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -257,10 +261,12 @@ type ChannelState struct {
 	LogLevel pulumi.StringPtrInput
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance ChannelMaintenancePtrInput
-	// Custom output group name defined by the user.
+	// The name of the video description.
 	Name pulumi.StringPtrInput
 	// Concise argument description.
 	RoleArn pulumi.StringPtrInput
+	// Whether to start/stop channel. Default: `false`
+	StartChannel pulumi.BoolPtrInput
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -289,10 +295,12 @@ type channelArgs struct {
 	LogLevel *string `pulumi:"logLevel"`
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance *ChannelMaintenance `pulumi:"maintenance"`
-	// Custom output group name defined by the user.
+	// The name of the video description.
 	Name *string `pulumi:"name"`
 	// Concise argument description.
 	RoleArn *string `pulumi:"roleArn"`
+	// Whether to start/stop channel. Default: `false`
+	StartChannel *bool `pulumi:"startChannel"`
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Settings for the VPC outputs.
@@ -317,10 +325,12 @@ type ChannelArgs struct {
 	LogLevel pulumi.StringPtrInput
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance ChannelMaintenancePtrInput
-	// Custom output group name defined by the user.
+	// The name of the video description.
 	Name pulumi.StringPtrInput
 	// Concise argument description.
 	RoleArn pulumi.StringPtrInput
+	// Whether to start/stop channel. Default: `false`
+	StartChannel pulumi.BoolPtrInput
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Settings for the VPC outputs.
@@ -464,7 +474,7 @@ func (o ChannelOutput) Maintenance() ChannelMaintenanceOutput {
 	return o.ApplyT(func(v *Channel) ChannelMaintenanceOutput { return v.Maintenance }).(ChannelMaintenanceOutput)
 }
 
-// Custom output group name defined by the user.
+// The name of the video description.
 func (o ChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -472,6 +482,11 @@ func (o ChannelOutput) Name() pulumi.StringOutput {
 // Concise argument description.
 func (o ChannelOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Whether to start/stop channel. Default: `false`
+func (o ChannelOutput) StartChannel() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.BoolPtrOutput { return v.StartChannel }).(pulumi.BoolPtrOutput)
 }
 
 // A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

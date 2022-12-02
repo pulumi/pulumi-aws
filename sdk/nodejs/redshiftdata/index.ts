@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { StatementArgs, StatementState } from "./statement";
 export type Statement = import("./statement").Statement;
 export const Statement: typeof import("./statement").Statement = null as any;
-
 utilities.lazyLoad(exports, ["Statement"], () => require("./statement"));
+
 
 const _module = {
     version: utilities.getVersion(),

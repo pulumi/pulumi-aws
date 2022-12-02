@@ -110,6 +110,13 @@ func NewRadiusSettings(ctx *pulumi.Context,
 	if args.SharedSecret == nil {
 		return nil, errors.New("invalid value for required argument 'SharedSecret'")
 	}
+	if args.SharedSecret != nil {
+		args.SharedSecret = pulumi.ToSecret(args.SharedSecret).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sharedSecret",
+	})
+	opts = append(opts, secrets)
 	var resource RadiusSettings
 	err := ctx.RegisterResource("aws:directoryservice/radiusSettings:RadiusSettings", name, args, &resource, opts...)
 	if err != nil {

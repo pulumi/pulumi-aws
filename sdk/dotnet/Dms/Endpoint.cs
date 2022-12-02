@@ -226,6 +226,10 @@ namespace Pulumi.Aws.Dms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -315,11 +319,21 @@ namespace Pulumi.Aws.Dms
         [Input("mongodbSettings")]
         public Input<Inputs.EndpointMongodbSettingsArgs>? MongodbSettings { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Password to be used to login to the endpoint database.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Transmission Control Protocol (TCP) port for the endpoint.
@@ -470,11 +484,21 @@ namespace Pulumi.Aws.Dms
         [Input("mongodbSettings")]
         public Input<Inputs.EndpointMongodbSettingsGetArgs>? MongodbSettings { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Password to be used to login to the endpoint database.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Transmission Control Protocol (TCP) port for the endpoint.

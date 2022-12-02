@@ -205,7 +205,7 @@ namespace Pulumi.Aws.MediaLive
         public Output<Outputs.ChannelMaintenance> Maintenance { get; private set; } = null!;
 
         /// <summary>
-        /// Custom output group name defined by the user.
+        /// The name of the video description.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -215,6 +215,12 @@ namespace Pulumi.Aws.MediaLive
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to start/stop channel. Default: `false`
+        /// </summary>
+        [Output("startChannel")]
+        public Output<bool?> StartChannel { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -338,7 +344,7 @@ namespace Pulumi.Aws.MediaLive
         public Input<Inputs.ChannelMaintenanceArgs>? Maintenance { get; set; }
 
         /// <summary>
-        /// Custom output group name defined by the user.
+        /// The name of the video description.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -348,6 +354,12 @@ namespace Pulumi.Aws.MediaLive
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
+
+        /// <summary>
+        /// Whether to start/stop channel. Default: `false`
+        /// </summary>
+        [Input("startChannel")]
+        public Input<bool>? StartChannel { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -448,7 +460,7 @@ namespace Pulumi.Aws.MediaLive
         public Input<Inputs.ChannelMaintenanceGetArgs>? Maintenance { get; set; }
 
         /// <summary>
-        /// Custom output group name defined by the user.
+        /// The name of the video description.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -458,6 +470,12 @@ namespace Pulumi.Aws.MediaLive
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
+
+        /// <summary>
+        /// Whether to start/stop channel. Default: `false`
+        /// </summary>
+        [Input("startChannel")]
+        public Input<bool>? StartChannel { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

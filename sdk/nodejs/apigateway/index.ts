@@ -8,158 +8,158 @@ import * as utilities from "../utilities";
 export { AccountArgs, AccountState } from "./account";
 export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
 export { ApiKeyArgs, ApiKeyState } from "./apiKey";
 export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
+utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
 
 export { AuthorizerArgs, AuthorizerState } from "./authorizer";
 export type Authorizer = import("./authorizer").Authorizer;
 export const Authorizer: typeof import("./authorizer").Authorizer = null as any;
+utilities.lazyLoad(exports, ["Authorizer"], () => require("./authorizer"));
 
 export { BasePathMappingArgs, BasePathMappingState } from "./basePathMapping";
 export type BasePathMapping = import("./basePathMapping").BasePathMapping;
 export const BasePathMapping: typeof import("./basePathMapping").BasePathMapping = null as any;
+utilities.lazyLoad(exports, ["BasePathMapping"], () => require("./basePathMapping"));
 
 export { ClientCertificateArgs, ClientCertificateState } from "./clientCertificate";
 export type ClientCertificate = import("./clientCertificate").ClientCertificate;
 export const ClientCertificate: typeof import("./clientCertificate").ClientCertificate = null as any;
+utilities.lazyLoad(exports, ["ClientCertificate"], () => require("./clientCertificate"));
 
 export { DeploymentArgs, DeploymentState } from "./deployment";
 export type Deployment = import("./deployment").Deployment;
 export const Deployment: typeof import("./deployment").Deployment = null as any;
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
 
 export { DocumentationPartArgs, DocumentationPartState } from "./documentationPart";
 export type DocumentationPart = import("./documentationPart").DocumentationPart;
 export const DocumentationPart: typeof import("./documentationPart").DocumentationPart = null as any;
+utilities.lazyLoad(exports, ["DocumentationPart"], () => require("./documentationPart"));
 
 export { DocumentationVersionArgs, DocumentationVersionState } from "./documentationVersion";
 export type DocumentationVersion = import("./documentationVersion").DocumentationVersion;
 export const DocumentationVersion: typeof import("./documentationVersion").DocumentationVersion = null as any;
+utilities.lazyLoad(exports, ["DocumentationVersion"], () => require("./documentationVersion"));
 
 export { DomainNameArgs, DomainNameState } from "./domainName";
 export type DomainName = import("./domainName").DomainName;
 export const DomainName: typeof import("./domainName").DomainName = null as any;
+utilities.lazyLoad(exports, ["DomainName"], () => require("./domainName"));
 
 export { GetDomainNameArgs, GetDomainNameResult, GetDomainNameOutputArgs } from "./getDomainName";
 export const getDomainName: typeof import("./getDomainName").getDomainName = null as any;
 export const getDomainNameOutput: typeof import("./getDomainName").getDomainNameOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainName","getDomainNameOutput"], () => require("./getDomainName"));
 
 export { GetExportArgs, GetExportResult, GetExportOutputArgs } from "./getExport";
 export const getExport: typeof import("./getExport").getExport = null as any;
 export const getExportOutput: typeof import("./getExport").getExportOutput = null as any;
+utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
 
 export { GetKeyArgs, GetKeyResult, GetKeyOutputArgs } from "./getKey";
 export const getKey: typeof import("./getKey").getKey = null as any;
 export const getKeyOutput: typeof import("./getKey").getKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getKey","getKeyOutput"], () => require("./getKey"));
 
 export { GetResourceArgs, GetResourceResult, GetResourceOutputArgs } from "./getResource";
 export const getResource: typeof import("./getResource").getResource = null as any;
 export const getResourceOutput: typeof import("./getResource").getResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
 
 export { GetRestApiArgs, GetRestApiResult, GetRestApiOutputArgs } from "./getRestApi";
 export const getRestApi: typeof import("./getRestApi").getRestApi = null as any;
 export const getRestApiOutput: typeof import("./getRestApi").getRestApiOutput = null as any;
+utilities.lazyLoad(exports, ["getRestApi","getRestApiOutput"], () => require("./getRestApi"));
 
 export { GetSdkArgs, GetSdkResult, GetSdkOutputArgs } from "./getSdk";
 export const getSdk: typeof import("./getSdk").getSdk = null as any;
 export const getSdkOutput: typeof import("./getSdk").getSdkOutput = null as any;
+utilities.lazyLoad(exports, ["getSdk","getSdkOutput"], () => require("./getSdk"));
 
 export { GetVpcLinkArgs, GetVpcLinkResult, GetVpcLinkOutputArgs } from "./getVpcLink";
 export const getVpcLink: typeof import("./getVpcLink").getVpcLink = null as any;
 export const getVpcLinkOutput: typeof import("./getVpcLink").getVpcLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcLink","getVpcLinkOutput"], () => require("./getVpcLink"));
 
 export { IntegrationArgs, IntegrationState } from "./integration";
 export type Integration = import("./integration").Integration;
 export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
 export { IntegrationResponseArgs, IntegrationResponseState } from "./integrationResponse";
 export type IntegrationResponse = import("./integrationResponse").IntegrationResponse;
 export const IntegrationResponse: typeof import("./integrationResponse").IntegrationResponse = null as any;
+utilities.lazyLoad(exports, ["IntegrationResponse"], () => require("./integrationResponse"));
 
 export { MethodArgs, MethodState } from "./method";
 export type Method = import("./method").Method;
 export const Method: typeof import("./method").Method = null as any;
+utilities.lazyLoad(exports, ["Method"], () => require("./method"));
 
 export { MethodResponseArgs, MethodResponseState } from "./methodResponse";
 export type MethodResponse = import("./methodResponse").MethodResponse;
 export const MethodResponse: typeof import("./methodResponse").MethodResponse = null as any;
+utilities.lazyLoad(exports, ["MethodResponse"], () => require("./methodResponse"));
 
 export { MethodSettingsArgs, MethodSettingsState } from "./methodSettings";
 export type MethodSettings = import("./methodSettings").MethodSettings;
 export const MethodSettings: typeof import("./methodSettings").MethodSettings = null as any;
+utilities.lazyLoad(exports, ["MethodSettings"], () => require("./methodSettings"));
 
 export { ModelArgs, ModelState } from "./model";
 export type Model = import("./model").Model;
 export const Model: typeof import("./model").Model = null as any;
+utilities.lazyLoad(exports, ["Model"], () => require("./model"));
 
 export { RequestValidatorArgs, RequestValidatorState } from "./requestValidator";
 export type RequestValidator = import("./requestValidator").RequestValidator;
 export const RequestValidator: typeof import("./requestValidator").RequestValidator = null as any;
+utilities.lazyLoad(exports, ["RequestValidator"], () => require("./requestValidator"));
 
 export { ResourceArgs, ResourceState } from "./resource";
 export type Resource = import("./resource").Resource;
 export const Resource: typeof import("./resource").Resource = null as any;
+utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
 
 export { ResponseArgs, ResponseState } from "./response";
 export type Response = import("./response").Response;
 export const Response: typeof import("./response").Response = null as any;
+utilities.lazyLoad(exports, ["Response"], () => require("./response"));
 
 export { RestApiArgs, RestApiState } from "./restApi";
 export type RestApi = import("./restApi").RestApi;
 export const RestApi: typeof import("./restApi").RestApi = null as any;
+utilities.lazyLoad(exports, ["RestApi"], () => require("./restApi"));
 
 export { RestApiPolicyArgs, RestApiPolicyState } from "./restApiPolicy";
 export type RestApiPolicy = import("./restApiPolicy").RestApiPolicy;
 export const RestApiPolicy: typeof import("./restApiPolicy").RestApiPolicy = null as any;
+utilities.lazyLoad(exports, ["RestApiPolicy"], () => require("./restApiPolicy"));
 
 export { StageArgs, StageState } from "./stage";
 export type Stage = import("./stage").Stage;
 export const Stage: typeof import("./stage").Stage = null as any;
+utilities.lazyLoad(exports, ["Stage"], () => require("./stage"));
 
 export { UsagePlanArgs, UsagePlanState } from "./usagePlan";
 export type UsagePlan = import("./usagePlan").UsagePlan;
 export const UsagePlan: typeof import("./usagePlan").UsagePlan = null as any;
+utilities.lazyLoad(exports, ["UsagePlan"], () => require("./usagePlan"));
 
 export { UsagePlanKeyArgs, UsagePlanKeyState } from "./usagePlanKey";
 export type UsagePlanKey = import("./usagePlanKey").UsagePlanKey;
 export const UsagePlanKey: typeof import("./usagePlanKey").UsagePlanKey = null as any;
+utilities.lazyLoad(exports, ["UsagePlanKey"], () => require("./usagePlanKey"));
 
 export { VpcLinkArgs, VpcLinkState } from "./vpcLink";
 export type VpcLink = import("./vpcLink").VpcLink;
 export const VpcLink: typeof import("./vpcLink").VpcLink = null as any;
-
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
-utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
-utilities.lazyLoad(exports, ["Authorizer"], () => require("./authorizer"));
-utilities.lazyLoad(exports, ["BasePathMapping"], () => require("./basePathMapping"));
-utilities.lazyLoad(exports, ["ClientCertificate"], () => require("./clientCertificate"));
-utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
-utilities.lazyLoad(exports, ["DocumentationPart"], () => require("./documentationPart"));
-utilities.lazyLoad(exports, ["DocumentationVersion"], () => require("./documentationVersion"));
-utilities.lazyLoad(exports, ["DomainName"], () => require("./domainName"));
-utilities.lazyLoad(exports, ["getDomainName","getDomainNameOutput"], () => require("./getDomainName"));
-utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
-utilities.lazyLoad(exports, ["getKey","getKeyOutput"], () => require("./getKey"));
-utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
-utilities.lazyLoad(exports, ["getRestApi","getRestApiOutput"], () => require("./getRestApi"));
-utilities.lazyLoad(exports, ["getSdk","getSdkOutput"], () => require("./getSdk"));
-utilities.lazyLoad(exports, ["getVpcLink","getVpcLinkOutput"], () => require("./getVpcLink"));
-utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
-utilities.lazyLoad(exports, ["IntegrationResponse"], () => require("./integrationResponse"));
-utilities.lazyLoad(exports, ["Method"], () => require("./method"));
-utilities.lazyLoad(exports, ["MethodResponse"], () => require("./methodResponse"));
-utilities.lazyLoad(exports, ["MethodSettings"], () => require("./methodSettings"));
-utilities.lazyLoad(exports, ["Model"], () => require("./model"));
-utilities.lazyLoad(exports, ["RequestValidator"], () => require("./requestValidator"));
-utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
-utilities.lazyLoad(exports, ["Response"], () => require("./response"));
-utilities.lazyLoad(exports, ["RestApi"], () => require("./restApi"));
-utilities.lazyLoad(exports, ["RestApiPolicy"], () => require("./restApiPolicy"));
-utilities.lazyLoad(exports, ["Stage"], () => require("./stage"));
-utilities.lazyLoad(exports, ["UsagePlan"], () => require("./usagePlan"));
-utilities.lazyLoad(exports, ["UsagePlanKey"], () => require("./usagePlanKey"));
 utilities.lazyLoad(exports, ["VpcLink"], () => require("./vpcLink"));
+
 
 const _module = {
     version: utilities.getVersion(),

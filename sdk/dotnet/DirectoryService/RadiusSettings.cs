@@ -126,6 +126,10 @@ namespace Pulumi.Aws.DirectoryService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "sharedSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -197,11 +201,21 @@ namespace Pulumi.Aws.DirectoryService
         [Input("radiusTimeout", required: true)]
         public Input<int> RadiusTimeout { get; set; } = null!;
 
+        [Input("sharedSecret", required: true)]
+        private Input<string>? _sharedSecret;
+
         /// <summary>
         /// Required for enabling RADIUS on the directory.
         /// </summary>
-        [Input("sharedSecret", required: true)]
-        public Input<string> SharedSecret { get; set; } = null!;
+        public Input<string>? SharedSecret
+        {
+            get => _sharedSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sharedSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Not currently used.
@@ -265,11 +279,21 @@ namespace Pulumi.Aws.DirectoryService
         [Input("radiusTimeout")]
         public Input<int>? RadiusTimeout { get; set; }
 
+        [Input("sharedSecret")]
+        private Input<string>? _sharedSecret;
+
         /// <summary>
         /// Required for enabling RADIUS on the directory.
         /// </summary>
-        [Input("sharedSecret")]
-        public Input<string>? SharedSecret { get; set; }
+        public Input<string>? SharedSecret
+        {
+            get => _sharedSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sharedSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Not currently used.

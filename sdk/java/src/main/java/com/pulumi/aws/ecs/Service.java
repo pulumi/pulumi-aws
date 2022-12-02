@@ -542,6 +542,20 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.taskDefinition);
     }
     /**
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * 
+     */
+    @Export(name="triggers", type=Map.class, parameters={String.class, String.class})
+    private Output<Map<String,String>> triggers;
+
+    /**
+     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * 
+     */
+    public Output<Map<String,String>> triggers() {
+        return this.triggers;
+    }
+    /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      * 
      */

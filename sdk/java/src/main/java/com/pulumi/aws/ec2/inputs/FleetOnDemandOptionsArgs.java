@@ -16,14 +16,14 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
     public static final FleetOnDemandOptionsArgs Empty = new FleetOnDemandOptionsArgs();
 
     /**
-     * How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
+     * How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
      * 
      */
     @Import(name="allocationStrategy")
     private @Nullable Output<String> allocationStrategy;
 
     /**
-     * @return How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
+     * @return How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
      * 
      */
     public Optional<Output<String>> allocationStrategy() {
@@ -55,7 +55,7 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allocationStrategy How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
+         * @param allocationStrategy How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allocationStrategy How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
+         * @param allocationStrategy How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
          * 
          * @return builder
          * 

@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 export { DelegatedAdminAccountArgs, DelegatedAdminAccountState } from "./delegatedAdminAccount";
 export type DelegatedAdminAccount = import("./delegatedAdminAccount").DelegatedAdminAccount;
 export const DelegatedAdminAccount: typeof import("./delegatedAdminAccount").DelegatedAdminAccount = null as any;
+utilities.lazyLoad(exports, ["DelegatedAdminAccount"], () => require("./delegatedAdminAccount"));
 
 export { EnablerArgs, EnablerState } from "./enabler";
 export type Enabler = import("./enabler").Enabler;
 export const Enabler: typeof import("./enabler").Enabler = null as any;
+utilities.lazyLoad(exports, ["Enabler"], () => require("./enabler"));
 
 export { OrganizationConfigurationArgs, OrganizationConfigurationState } from "./organizationConfiguration";
 export type OrganizationConfiguration = import("./organizationConfiguration").OrganizationConfiguration;
 export const OrganizationConfiguration: typeof import("./organizationConfiguration").OrganizationConfiguration = null as any;
-
-utilities.lazyLoad(exports, ["DelegatedAdminAccount"], () => require("./delegatedAdminAccount"));
-utilities.lazyLoad(exports, ["Enabler"], () => require("./enabler"));
 utilities.lazyLoad(exports, ["OrganizationConfiguration"], () => require("./organizationConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),

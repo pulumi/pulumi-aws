@@ -8,53 +8,53 @@ import * as utilities from "../utilities";
 export { DetectorArgs, DetectorState } from "./detector";
 export type Detector = import("./detector").Detector;
 export const Detector: typeof import("./detector").Detector = null as any;
+utilities.lazyLoad(exports, ["Detector"], () => require("./detector"));
 
 export { FilterArgs, FilterState } from "./filter";
 export type Filter = import("./filter").Filter;
 export const Filter: typeof import("./filter").Filter = null as any;
+utilities.lazyLoad(exports, ["Filter"], () => require("./filter"));
 
 export { GetDetectorArgs, GetDetectorResult, GetDetectorOutputArgs } from "./getDetector";
 export const getDetector: typeof import("./getDetector").getDetector = null as any;
 export const getDetectorOutput: typeof import("./getDetector").getDetectorOutput = null as any;
+utilities.lazyLoad(exports, ["getDetector","getDetectorOutput"], () => require("./getDetector"));
 
 export { InviteAccepterArgs, InviteAccepterState } from "./inviteAccepter";
 export type InviteAccepter = import("./inviteAccepter").InviteAccepter;
 export const InviteAccepter: typeof import("./inviteAccepter").InviteAccepter = null as any;
+utilities.lazyLoad(exports, ["InviteAccepter"], () => require("./inviteAccepter"));
 
 export { IPSetArgs, IPSetState } from "./ipset";
 export type IPSet = import("./ipset").IPSet;
 export const IPSet: typeof import("./ipset").IPSet = null as any;
+utilities.lazyLoad(exports, ["IPSet"], () => require("./ipset"));
 
 export { MemberArgs, MemberState } from "./member";
 export type Member = import("./member").Member;
 export const Member: typeof import("./member").Member = null as any;
+utilities.lazyLoad(exports, ["Member"], () => require("./member"));
 
 export { OrganizationAdminAccountArgs, OrganizationAdminAccountState } from "./organizationAdminAccount";
 export type OrganizationAdminAccount = import("./organizationAdminAccount").OrganizationAdminAccount;
 export const OrganizationAdminAccount: typeof import("./organizationAdminAccount").OrganizationAdminAccount = null as any;
+utilities.lazyLoad(exports, ["OrganizationAdminAccount"], () => require("./organizationAdminAccount"));
 
 export { OrganizationConfigurationArgs, OrganizationConfigurationState } from "./organizationConfiguration";
 export type OrganizationConfiguration = import("./organizationConfiguration").OrganizationConfiguration;
 export const OrganizationConfiguration: typeof import("./organizationConfiguration").OrganizationConfiguration = null as any;
+utilities.lazyLoad(exports, ["OrganizationConfiguration"], () => require("./organizationConfiguration"));
 
 export { PublishingDestinationArgs, PublishingDestinationState } from "./publishingDestination";
 export type PublishingDestination = import("./publishingDestination").PublishingDestination;
 export const PublishingDestination: typeof import("./publishingDestination").PublishingDestination = null as any;
+utilities.lazyLoad(exports, ["PublishingDestination"], () => require("./publishingDestination"));
 
 export { ThreatIntelSetArgs, ThreatIntelSetState } from "./threatIntelSet";
 export type ThreatIntelSet = import("./threatIntelSet").ThreatIntelSet;
 export const ThreatIntelSet: typeof import("./threatIntelSet").ThreatIntelSet = null as any;
-
-utilities.lazyLoad(exports, ["Detector"], () => require("./detector"));
-utilities.lazyLoad(exports, ["Filter"], () => require("./filter"));
-utilities.lazyLoad(exports, ["getDetector","getDetectorOutput"], () => require("./getDetector"));
-utilities.lazyLoad(exports, ["InviteAccepter"], () => require("./inviteAccepter"));
-utilities.lazyLoad(exports, ["IPSet"], () => require("./ipset"));
-utilities.lazyLoad(exports, ["Member"], () => require("./member"));
-utilities.lazyLoad(exports, ["OrganizationAdminAccount"], () => require("./organizationAdminAccount"));
-utilities.lazyLoad(exports, ["OrganizationConfiguration"], () => require("./organizationConfiguration"));
-utilities.lazyLoad(exports, ["PublishingDestination"], () => require("./publishingDestination"));
 utilities.lazyLoad(exports, ["ThreatIntelSet"], () => require("./threatIntelSet"));
+
 
 const _module = {
     version: utilities.getVersion(),

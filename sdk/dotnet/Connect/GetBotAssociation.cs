@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBotAssociationResult> InvokeAsync(GetBotAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBotAssociationResult>("aws:connect/getBotAssociation:getBotAssociation", args ?? new GetBotAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotAssociationResult>("aws:connect/getBotAssociation:getBotAssociation", args ?? new GetBotAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBotAssociationResult> Invoke(GetBotAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBotAssociationResult>("aws:connect/getBotAssociation:getBotAssociation", args ?? new GetBotAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBotAssociationResult>("aws:connect/getBotAssociation:getBotAssociation", args ?? new GetBotAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

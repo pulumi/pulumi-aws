@@ -109,13 +109,15 @@ export class Certificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'certificateId'");
             }
             resourceInputs["certificateId"] = args ? args.certificateId : undefined;
-            resourceInputs["certificatePem"] = args ? args.certificatePem : undefined;
-            resourceInputs["certificateWallet"] = args ? args.certificateWallet : undefined;
+            resourceInputs["certificatePem"] = args?.certificatePem ? pulumi.secret(args.certificatePem) : undefined;
+            resourceInputs["certificateWallet"] = args?.certificateWallet ? pulumi.secret(args.certificateWallet) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["certificateArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["certificatePem", "certificateWallet"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

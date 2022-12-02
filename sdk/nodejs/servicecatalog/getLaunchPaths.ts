@@ -17,17 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.servicecatalog.getLaunchPaths({
+ * const example = aws.servicecatalog.getLaunchPaths({
  *     productId: "prod-yakog5pdriver",
- * }));
+ * });
  * ```
  */
 export function getLaunchPaths(args: GetLaunchPathsArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchPathsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getLaunchPaths:getLaunchPaths", {
         "acceptLanguage": args.acceptLanguage,
         "productId": args.productId,

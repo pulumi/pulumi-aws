@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *   },
  *   "StartEndpoint": "endpoint-start-NkPh"
  * }
+ *
  * `,
  * });
  * ```

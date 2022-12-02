@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mskconnect.LookupConnector(ctx, &mskconnect.LookupConnectorArgs{
+//			_, err = mskconnect.LookupConnector(ctx, &mskconnect.LookupConnectorArgs{
 //				Name: "example-mskconnector",
 //			}, nil)
 //			if err != nil {

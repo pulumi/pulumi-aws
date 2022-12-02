@@ -5,8 +5,10 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings;
+import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings;
+import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -15,24 +17,64 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettings {
+    /**
+     * @return Aac Settings. See AAC Settings for more details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings aacSettings;
+    /**
+     * @return Ac3 Settings. See AC3 Settings for more details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings ac3Settings;
+    /**
+     * @return - Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * 
+     */
+    private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings eac3AtmosSettings;
+    /**
+     * @return - Eac3 Settings. See EAC3 Settings
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings eac3Settings;
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings mp2Settings;
+    private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings passThroughSettings;
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings wavSettings;
 
     private ChannelEncoderSettingsAudioDescriptionCodecSettings() {}
+    /**
+     * @return Aac Settings. See AAC Settings for more details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings> aacSettings() {
         return Optional.ofNullable(this.aacSettings);
     }
+    /**
+     * @return Ac3 Settings. See AC3 Settings for more details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings> ac3Settings() {
         return Optional.ofNullable(this.ac3Settings);
     }
+    /**
+     * @return - Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * 
+     */
+    public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings> eac3AtmosSettings() {
+        return Optional.ofNullable(this.eac3AtmosSettings);
+    }
+    /**
+     * @return - Eac3 Settings. See EAC3 Settings
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings> eac3Settings() {
         return Optional.ofNullable(this.eac3Settings);
     }
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings> mp2Settings() {
         return Optional.ofNullable(this.mp2Settings);
+    }
+    public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings> passThroughSettings() {
+        return Optional.ofNullable(this.passThroughSettings);
     }
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings> wavSettings() {
         return Optional.ofNullable(this.wavSettings);
@@ -49,16 +91,20 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettings {
     public static final class Builder {
         private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings aacSettings;
         private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings ac3Settings;
+        private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings eac3AtmosSettings;
         private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings eac3Settings;
         private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings mp2Settings;
+        private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings passThroughSettings;
         private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings wavSettings;
         public Builder() {}
         public Builder(ChannelEncoderSettingsAudioDescriptionCodecSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aacSettings = defaults.aacSettings;
     	      this.ac3Settings = defaults.ac3Settings;
+    	      this.eac3AtmosSettings = defaults.eac3AtmosSettings;
     	      this.eac3Settings = defaults.eac3Settings;
     	      this.mp2Settings = defaults.mp2Settings;
+    	      this.passThroughSettings = defaults.passThroughSettings;
     	      this.wavSettings = defaults.wavSettings;
         }
 
@@ -73,6 +119,11 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettings {
             return this;
         }
         @CustomType.Setter
+        public Builder eac3AtmosSettings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings eac3AtmosSettings) {
+            this.eac3AtmosSettings = eac3AtmosSettings;
+            return this;
+        }
+        @CustomType.Setter
         public Builder eac3Settings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings eac3Settings) {
             this.eac3Settings = eac3Settings;
             return this;
@@ -80,6 +131,11 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettings {
         @CustomType.Setter
         public Builder mp2Settings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings mp2Settings) {
             this.mp2Settings = mp2Settings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder passThroughSettings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings passThroughSettings) {
+            this.passThroughSettings = passThroughSettings;
             return this;
         }
         @CustomType.Setter
@@ -91,8 +147,10 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettings {
             final var o = new ChannelEncoderSettingsAudioDescriptionCodecSettings();
             o.aacSettings = aacSettings;
             o.ac3Settings = ac3Settings;
+            o.eac3AtmosSettings = eac3AtmosSettings;
             o.eac3Settings = eac3Settings;
             o.mp2Settings = mp2Settings;
+            o.passThroughSettings = passThroughSettings;
             o.wavSettings = wavSettings;
             return o;
         }

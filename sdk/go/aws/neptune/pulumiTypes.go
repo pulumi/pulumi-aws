@@ -125,6 +125,154 @@ func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) Clus
 	}).(ClusterParameterGroupParameterOutput)
 }
 
+type ClusterServerlessV2ScalingConfiguration struct {
+	MaxCapacity *float64 `pulumi:"maxCapacity"`
+	MinCapacity *float64 `pulumi:"minCapacity"`
+}
+
+// ClusterServerlessV2ScalingConfigurationInput is an input type that accepts ClusterServerlessV2ScalingConfigurationArgs and ClusterServerlessV2ScalingConfigurationOutput values.
+// You can construct a concrete instance of `ClusterServerlessV2ScalingConfigurationInput` via:
+//
+//	ClusterServerlessV2ScalingConfigurationArgs{...}
+type ClusterServerlessV2ScalingConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterServerlessV2ScalingConfigurationOutput() ClusterServerlessV2ScalingConfigurationOutput
+	ToClusterServerlessV2ScalingConfigurationOutputWithContext(context.Context) ClusterServerlessV2ScalingConfigurationOutput
+}
+
+type ClusterServerlessV2ScalingConfigurationArgs struct {
+	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
+	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
+}
+
+func (ClusterServerlessV2ScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServerlessV2ScalingConfiguration)(nil)).Elem()
+}
+
+func (i ClusterServerlessV2ScalingConfigurationArgs) ToClusterServerlessV2ScalingConfigurationOutput() ClusterServerlessV2ScalingConfigurationOutput {
+	return i.ToClusterServerlessV2ScalingConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterServerlessV2ScalingConfigurationArgs) ToClusterServerlessV2ScalingConfigurationOutputWithContext(ctx context.Context) ClusterServerlessV2ScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerlessV2ScalingConfigurationOutput)
+}
+
+func (i ClusterServerlessV2ScalingConfigurationArgs) ToClusterServerlessV2ScalingConfigurationPtrOutput() ClusterServerlessV2ScalingConfigurationPtrOutput {
+	return i.ToClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServerlessV2ScalingConfigurationArgs) ToClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) ClusterServerlessV2ScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerlessV2ScalingConfigurationOutput).ToClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterServerlessV2ScalingConfigurationPtrInput is an input type that accepts ClusterServerlessV2ScalingConfigurationArgs, ClusterServerlessV2ScalingConfigurationPtr and ClusterServerlessV2ScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterServerlessV2ScalingConfigurationPtrInput` via:
+//
+//	        ClusterServerlessV2ScalingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterServerlessV2ScalingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterServerlessV2ScalingConfigurationPtrOutput() ClusterServerlessV2ScalingConfigurationPtrOutput
+	ToClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Context) ClusterServerlessV2ScalingConfigurationPtrOutput
+}
+
+type clusterServerlessV2ScalingConfigurationPtrType ClusterServerlessV2ScalingConfigurationArgs
+
+func ClusterServerlessV2ScalingConfigurationPtr(v *ClusterServerlessV2ScalingConfigurationArgs) ClusterServerlessV2ScalingConfigurationPtrInput {
+	return (*clusterServerlessV2ScalingConfigurationPtrType)(v)
+}
+
+func (*clusterServerlessV2ScalingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServerlessV2ScalingConfiguration)(nil)).Elem()
+}
+
+func (i *clusterServerlessV2ScalingConfigurationPtrType) ToClusterServerlessV2ScalingConfigurationPtrOutput() ClusterServerlessV2ScalingConfigurationPtrOutput {
+	return i.ToClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServerlessV2ScalingConfigurationPtrType) ToClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) ClusterServerlessV2ScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerlessV2ScalingConfigurationPtrOutput)
+}
+
+type ClusterServerlessV2ScalingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterServerlessV2ScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServerlessV2ScalingConfiguration)(nil)).Elem()
+}
+
+func (o ClusterServerlessV2ScalingConfigurationOutput) ToClusterServerlessV2ScalingConfigurationOutput() ClusterServerlessV2ScalingConfigurationOutput {
+	return o
+}
+
+func (o ClusterServerlessV2ScalingConfigurationOutput) ToClusterServerlessV2ScalingConfigurationOutputWithContext(ctx context.Context) ClusterServerlessV2ScalingConfigurationOutput {
+	return o
+}
+
+func (o ClusterServerlessV2ScalingConfigurationOutput) ToClusterServerlessV2ScalingConfigurationPtrOutput() ClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o.ToClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServerlessV2ScalingConfigurationOutput) ToClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) ClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServerlessV2ScalingConfiguration) *ClusterServerlessV2ScalingConfiguration {
+		return &v
+	}).(ClusterServerlessV2ScalingConfigurationPtrOutput)
+}
+
+func (o ClusterServerlessV2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ClusterServerlessV2ScalingConfiguration) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
+}
+
+func (o ClusterServerlessV2ScalingConfigurationOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ClusterServerlessV2ScalingConfiguration) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
+}
+
+type ClusterServerlessV2ScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterServerlessV2ScalingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServerlessV2ScalingConfiguration)(nil)).Elem()
+}
+
+func (o ClusterServerlessV2ScalingConfigurationPtrOutput) ToClusterServerlessV2ScalingConfigurationPtrOutput() ClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterServerlessV2ScalingConfigurationPtrOutput) ToClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) ClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterServerlessV2ScalingConfigurationPtrOutput) Elem() ClusterServerlessV2ScalingConfigurationOutput {
+	return o.ApplyT(func(v *ClusterServerlessV2ScalingConfiguration) ClusterServerlessV2ScalingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServerlessV2ScalingConfiguration
+		return ret
+	}).(ClusterServerlessV2ScalingConfigurationOutput)
+}
+
+func (o ClusterServerlessV2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ClusterServerlessV2ScalingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o ClusterServerlessV2ScalingConfigurationPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ClusterServerlessV2ScalingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
 type ParameterGroupParameter struct {
 	// The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 	ApplyMethod *string `pulumi:"applyMethod"`
@@ -243,10 +391,14 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterInput)(nil)).Elem(), ClusterParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterArrayInput)(nil)).Elem(), ClusterParameterGroupParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerlessV2ScalingConfigurationInput)(nil)).Elem(), ClusterServerlessV2ScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerlessV2ScalingConfigurationPtrInput)(nil)).Elem(), ClusterServerlessV2ScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterArrayOutput{})
+	pulumi.RegisterOutputType(ClusterServerlessV2ScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterServerlessV2ScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
 }

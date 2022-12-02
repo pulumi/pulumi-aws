@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.pricing.getProduct({
+ * const example = aws.pricing.getProduct({
  *     filters: [
  *         {
  *             field: "instanceType",
@@ -49,14 +49,14 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     serviceCode: "AmazonEC2",
- * }));
+ * });
  * ```
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.pricing.getProduct({
+ * const example = aws.pricing.getProduct({
  *     filters: [
  *         {
  *             field: "instanceType",
@@ -68,15 +68,12 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     serviceCode: "AmazonRedshift",
- * }));
+ * });
  * ```
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:pricing/getProduct:getProduct", {
         "filters": args.filters,
         "serviceCode": args.serviceCode,

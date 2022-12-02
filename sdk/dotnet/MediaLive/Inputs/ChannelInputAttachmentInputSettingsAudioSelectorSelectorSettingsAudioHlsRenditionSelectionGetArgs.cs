@@ -16,7 +16,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string> GroupId { get; set; } = null!;
 
         /// <summary>
-        /// Custom output group name defined by the user.
+        /// The name of the video description.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

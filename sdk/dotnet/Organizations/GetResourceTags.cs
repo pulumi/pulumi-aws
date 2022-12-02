@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Organizations
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetResourceTagsResult> InvokeAsync(GetResourceTagsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceTagsResult>("aws:organizations/getResourceTags:getResourceTags", args ?? new GetResourceTagsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceTagsResult>("aws:organizations/getResourceTags:getResourceTags", args ?? new GetResourceTagsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get tags attached to the specified AWS Organizations resource.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Organizations
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetResourceTagsResult> Invoke(GetResourceTagsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceTagsResult>("aws:organizations/getResourceTags:getResourceTags", args ?? new GetResourceTagsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceTagsResult>("aws:organizations/getResourceTags:getResourceTags", args ?? new GetResourceTagsInvokeArgs(), options.WithDefaults());
     }
 
 

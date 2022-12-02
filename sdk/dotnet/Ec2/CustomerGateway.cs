@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ec2
         /// The IPv4 address for the customer gateway device's outside interface.
         /// </summary>
         [Output("ipAddress")]
-        public Output<string> IpAddress { get; private set; } = null!;
+        public Output<string?> IpAddress { get; private set; } = null!;
 
         /// <summary>
         /// Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -162,8 +162,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The IPv4 address for the customer gateway device's outside interface.
         /// </summary>
-        [Input("ipAddress", required: true)]
-        public Input<string> IpAddress { get; set; } = null!;
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

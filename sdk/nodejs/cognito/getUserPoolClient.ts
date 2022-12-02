@@ -16,18 +16,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const client = pulumi.output(aws.cognito.getUserPoolClient({
+ * const client = aws.cognito.getUserPoolClient({
  *     clientId: "38fjsnc484p94kpqsnet7mpld0",
  *     userPoolId: "us-west-2_aaaaaaaaa",
- * }));
+ * });
  * ```
  */
 export function getUserPoolClient(args: GetUserPoolClientArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolClientResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getUserPoolClient:getUserPoolClient", {
         "clientId": args.clientId,
         "userPoolId": args.userPoolId,

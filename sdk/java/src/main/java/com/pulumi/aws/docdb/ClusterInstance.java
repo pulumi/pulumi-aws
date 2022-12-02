@@ -201,6 +201,20 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.dbiResourceId;
     }
     /**
+     * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     * 
+     */
+    @Export(name="enablePerformanceInsights", type=Boolean.class, parameters={})
+    private Output<Boolean> enablePerformanceInsights;
+
+    /**
+     * @return A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     * 
+     */
+    public Output<Boolean> enablePerformanceInsights() {
+        return this.enablePerformanceInsights;
+    }
+    /**
      * The DNS address for this instance. May not be writable
      * 
      */
@@ -325,6 +339,20 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
+    }
+    /**
+     * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     * 
+     */
+    @Export(name="performanceInsightsKmsKeyId", type=String.class, parameters={})
+    private Output<String> performanceInsightsKmsKeyId;
+
+    /**
+     * @return The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     * 
+     */
+    public Output<String> performanceInsightsKmsKeyId() {
+        return this.performanceInsightsKmsKeyId;
     }
     /**
      * The database port

@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .attachment_accepter import *
+from .connect_attachment import *
 from .connection import *
 from .customer_gateway_association import *
 from .device import *

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.LookupDomainName(ctx, &apigateway.LookupDomainNameArgs{
+//			_, err = apigateway.LookupDomainName(ctx, &apigateway.LookupDomainNameArgs{
 //				DomainName: "api.example.com",
 //			}, nil)
 //			if err != nil {

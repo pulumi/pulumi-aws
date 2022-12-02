@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//			_, err = ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 //				ExecutableUsers: []string{
 //					"self",
 //				},

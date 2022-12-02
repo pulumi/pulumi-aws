@@ -83,9 +83,9 @@ import (
 //							return _zero, err
 //						}
 //						json1 := string(tmpJSON1)
-//						return json1, nil
+//						return pulumi.String(json1), nil
 //					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
-//						return sha1Hash(toJSON), nil
+//						return pulumi.String(sha1Hash(toJSON)), nil
 //					}).(pulumi.StringOutput),
 //				},
 //			})
@@ -177,7 +177,7 @@ import (
 //						json0 := string(tmpJSON0)
 //						return json0, nil
 //					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
-//						return sha1Hash(toJSON), nil
+//						return pulumi.String(sha1Hash(toJSON)), nil
 //					}).(pulumi.StringOutput),
 //				},
 //			})

@@ -14,9 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.codedeploy.Application("example", {
- *     computePlatform: "ECS",
- * });
+ * const example = new aws.codedeploy.Application("example", {computePlatform: "ECS"});
  * ```
  * ### Lambda Application
  *
@@ -24,9 +22,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.codedeploy.Application("example", {
- *     computePlatform: "Lambda",
- * });
+ * const example = new aws.codedeploy.Application("example", {computePlatform: "Lambda"});
  * ```
  * ### Server Application
  *
@@ -34,9 +30,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.codedeploy.Application("example", {
- *     computePlatform: "Server",
- * });
+ * const example = new aws.codedeploy.Application("example", {computePlatform: "Server"});
  * ```
  *
  * ## Import

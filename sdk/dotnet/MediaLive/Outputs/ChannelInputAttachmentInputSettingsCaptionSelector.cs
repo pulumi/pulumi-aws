@@ -13,60 +13,27 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelector
     {
-        public readonly string? DeblockFilter;
-        public readonly string? DenoiseFilter;
-        public readonly int? FilterStrength;
-        public readonly string? InputFilter;
+        /// <summary>
+        /// When specified this field indicates the three letter language code of the caption track to extract from the source.
+        /// </summary>
         public readonly string? LanguageCode;
         /// <summary>
-        /// Custom output group name defined by the user.
+        /// The name of the video description.
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorNetworkInputSettings? NetworkInputSettings;
-        public readonly int? Scte35Pid;
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings? SelectorSettings;
-        public readonly string? Smpte2038DataPreference;
-        public readonly string? SourceEndBehavior;
-        public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorVideoSelector? VideoSelector;
 
         [OutputConstructor]
         private ChannelInputAttachmentInputSettingsCaptionSelector(
-            string? deblockFilter,
-
-            string? denoiseFilter,
-
-            int? filterStrength,
-
-            string? inputFilter,
-
             string? languageCode,
 
             string name,
 
-            Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorNetworkInputSettings? networkInputSettings,
-
-            int? scte35Pid,
-
-            Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings? selectorSettings,
-
-            string? smpte2038DataPreference,
-
-            string? sourceEndBehavior,
-
-            Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorVideoSelector? videoSelector)
+            Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings? selectorSettings)
         {
-            DeblockFilter = deblockFilter;
-            DenoiseFilter = denoiseFilter;
-            FilterStrength = filterStrength;
-            InputFilter = inputFilter;
             LanguageCode = languageCode;
             Name = name;
-            NetworkInputSettings = networkInputSettings;
-            Scte35Pid = scte35Pid;
             SelectorSettings = selectorSettings;
-            Smpte2038DataPreference = smpte2038DataPreference;
-            SourceEndBehavior = sourceEndBehavior;
-            VideoSelector = videoSelector;
         }
     }
 }

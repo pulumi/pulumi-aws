@@ -13,17 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const clusterName = pulumi.output(aws.rds.getCluster({
+ * const clusterName = aws.rds.getCluster({
  *     clusterIdentifier: "clusterName",
- * }));
+ * });
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getCluster:getCluster", {
         "clusterIdentifier": args.clusterIdentifier,
         "tags": args.tags,
@@ -58,6 +55,7 @@ export interface GetClusterResult {
     readonly enabledCloudwatchLogsExports: string[];
     readonly endpoint: string;
     readonly engine: string;
+    readonly engineMode: string;
     readonly engineVersion: string;
     readonly finalSnapshotIdentifier: string;
     readonly hostedZoneId: string;

@@ -97,6 +97,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### OAuth Authorization
+ * 
  * ```java
  * package generated_program;
  * 
@@ -146,6 +147,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Invocation Http Parameters
+ * 
  * ```java
  * package generated_program;
  * 

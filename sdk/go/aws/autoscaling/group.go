@@ -154,8 +154,8 @@ import (
 //				MaxSize:           pulumi.Int(15),
 //				MinSize:           pulumi.Int(12),
 //				VpcZoneIdentifiers: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Example1.Id),
-//					pulumi.Any(aws_subnet.Example2.Id),
+//					aws_subnet.Example1.Id,
+//					aws_subnet.Example2.Id,
 //				},
 //				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
 //					InstancesDistribution: &autoscaling.GroupMixedInstancesPolicyInstancesDistributionArgs{

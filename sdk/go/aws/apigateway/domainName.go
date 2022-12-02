@@ -202,6 +202,13 @@ func NewDomainName(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
+	if args.CertificatePrivateKey != nil {
+		args.CertificatePrivateKey = pulumi.ToSecret(args.CertificatePrivateKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"certificatePrivateKey",
+	})
+	opts = append(opts, secrets)
 	var resource DomainName
 	err := ctx.RegisterResource("aws:apigateway/domainName:DomainName", name, args, &resource, opts...)
 	if err != nil {

@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupSecurityProfile(ctx, &connect.LookupSecurityProfileArgs{
+//			_, err = connect.LookupSecurityProfile(ctx, &connect.LookupSecurityProfileArgs{
 //				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
 //				Name:       pulumi.StringRef("Example"),
 //			}, nil)
@@ -55,7 +55,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupSecurityProfile(ctx, &connect.LookupSecurityProfileArgs{
+//			_, err = connect.LookupSecurityProfile(ctx, &connect.LookupSecurityProfileArgs{
 //				InstanceId:        "aaaaaaaa-bbbb-cccc-dddd-111111111111",
 //				SecurityProfileId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
 //			}, nil)

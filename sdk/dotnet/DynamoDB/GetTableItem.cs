@@ -46,7 +46,7 @@ namespace Pulumi.Aws.DynamoDB
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTableItemResult> InvokeAsync(GetTableItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableItemResult>("aws:dynamodb/getTableItem:getTableItem", args ?? new GetTableItemArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableItemResult>("aws:dynamodb/getTableItem:getTableItem", args ?? new GetTableItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for retrieving a value from an AWS DynamoDB table.
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.DynamoDB
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTableItemResult> Invoke(GetTableItemInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTableItemResult>("aws:dynamodb/getTableItem:getTableItem", args ?? new GetTableItemInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableItemResult>("aws:dynamodb/getTableItem:getTableItem", args ?? new GetTableItemInvokeArgs(), options.WithDefaults());
     }
 
 

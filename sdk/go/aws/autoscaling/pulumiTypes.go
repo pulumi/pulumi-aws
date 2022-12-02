@@ -326,8 +326,9 @@ type GroupInstanceRefreshPreferences struct {
 	// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup *string `pulumi:"instanceWarmup"`
 	// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
-	MinHealthyPercentage *int  `pulumi:"minHealthyPercentage"`
-	SkipMatching         *bool `pulumi:"skipMatching"`
+	MinHealthyPercentage *int `pulumi:"minHealthyPercentage"`
+	// Replace instances that already have your desired configuration. Defaults to `false`.
+	SkipMatching *bool `pulumi:"skipMatching"`
 }
 
 // GroupInstanceRefreshPreferencesInput is an input type that accepts GroupInstanceRefreshPreferencesArgs and GroupInstanceRefreshPreferencesOutput values.
@@ -349,8 +350,9 @@ type GroupInstanceRefreshPreferencesArgs struct {
 	// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup pulumi.StringPtrInput `pulumi:"instanceWarmup"`
 	// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
-	MinHealthyPercentage pulumi.IntPtrInput  `pulumi:"minHealthyPercentage"`
-	SkipMatching         pulumi.BoolPtrInput `pulumi:"skipMatching"`
+	MinHealthyPercentage pulumi.IntPtrInput `pulumi:"minHealthyPercentage"`
+	// Replace instances that already have your desired configuration. Defaults to `false`.
+	SkipMatching pulumi.BoolPtrInput `pulumi:"skipMatching"`
 }
 
 func (GroupInstanceRefreshPreferencesArgs) ElementType() reflect.Type {
@@ -450,6 +452,7 @@ func (o GroupInstanceRefreshPreferencesOutput) MinHealthyPercentage() pulumi.Int
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *int { return v.MinHealthyPercentage }).(pulumi.IntPtrOutput)
 }
 
+// Replace instances that already have your desired configuration. Defaults to `false`.
 func (o GroupInstanceRefreshPreferencesOutput) SkipMatching() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *bool { return v.SkipMatching }).(pulumi.BoolPtrOutput)
 }
@@ -518,6 +521,7 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) MinHealthyPercentage() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// Replace instances that already have your desired configuration. Defaults to `false`.
 func (o GroupInstanceRefreshPreferencesPtrOutput) SkipMatching() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *bool {
 		if v == nil {
@@ -867,7 +871,7 @@ type GroupMixedInstancesPolicyInstancesDistribution struct {
 	OnDemandBaseCapacity *int `pulumi:"onDemandBaseCapacity"`
 	// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
 	OnDemandPercentageAboveBaseCapacity *int `pulumi:"onDemandPercentageAboveBaseCapacity"`
-	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
 	SpotAllocationStrategy *string `pulumi:"spotAllocationStrategy"`
 	// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
 	SpotInstancePools *int `pulumi:"spotInstancePools"`
@@ -893,7 +897,7 @@ type GroupMixedInstancesPolicyInstancesDistributionArgs struct {
 	OnDemandBaseCapacity pulumi.IntPtrInput `pulumi:"onDemandBaseCapacity"`
 	// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
 	OnDemandPercentageAboveBaseCapacity pulumi.IntPtrInput `pulumi:"onDemandPercentageAboveBaseCapacity"`
-	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
 	SpotAllocationStrategy pulumi.StringPtrInput `pulumi:"spotAllocationStrategy"`
 	// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
 	SpotInstancePools pulumi.IntPtrInput `pulumi:"spotInstancePools"`
@@ -995,7 +999,7 @@ func (o GroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandPercentage
 	}).(pulumi.IntPtrOutput)
 }
 
-// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
 func (o GroupMixedInstancesPolicyInstancesDistributionOutput) SpotAllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *string { return v.SpotAllocationStrategy }).(pulumi.StringPtrOutput)
 }
@@ -1064,7 +1068,7 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) OnDemandPercent
 	}).(pulumi.IntPtrOutput)
 }
 
-// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) SpotAllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyInstancesDistribution) *string {
 		if v == nil {

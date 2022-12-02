@@ -18,11 +18,21 @@ namespace Pulumi.Aws.Ssm.Inputs
         [Input("clientContext")]
         public Input<string>? ClientContext { get; set; }
 
+        [Input("payload")]
+        private Input<string>? _payload;
+
         /// <summary>
         /// JSON to provide to your Lambda function as input.
         /// </summary>
-        [Input("payload")]
-        public Input<string>? Payload { get; set; }
+        public Input<string>? Payload
+        {
+            get => _payload;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _payload = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specify a Lambda function version or alias name.

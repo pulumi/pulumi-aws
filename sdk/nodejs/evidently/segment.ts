@@ -35,7 +35,8 @@ import * as utilities from "../utilities";
  *       }
  *     ]
  *   }
- *   `,
+ *   
+ * `,
  *     tags: {
  *         Key1: "example Segment",
  *     },

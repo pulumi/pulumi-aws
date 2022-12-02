@@ -220,6 +220,12 @@ namespace Pulumi.Aws.Neptune
         public Output<string?> ReplicationSourceIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+        /// </summary>
+        [Output("serverlessV2ScalingConfiguration")]
+        public Output<Outputs.ClusterServerlessV2ScalingConfiguration?> ServerlessV2ScalingConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
         [Output("skipFinalSnapshot")]
@@ -444,6 +450,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }
+
+        /// <summary>
+        /// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+        /// </summary>
+        [Input("serverlessV2ScalingConfiguration")]
+        public Input<Inputs.ClusterServerlessV2ScalingConfigurationArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
         /// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
@@ -680,6 +692,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }
+
+        /// <summary>
+        /// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+        /// </summary>
+        [Input("serverlessV2ScalingConfiguration")]
+        public Input<Inputs.ClusterServerlessV2ScalingConfigurationGetArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
         /// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.

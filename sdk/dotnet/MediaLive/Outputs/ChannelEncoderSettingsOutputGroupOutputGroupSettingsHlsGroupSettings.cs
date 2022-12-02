@@ -35,6 +35,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly string? EncryptionType;
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting> HlsCdnSettings;
         public readonly string? HlsId3SegmentTagging;
+        public readonly string? IframeOnlyPlaylists;
         public readonly string? IncompleteSegmentBehavior;
         public readonly int? IndexNSegments;
         /// <summary>
@@ -43,13 +44,15 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly string? InputLossAction;
         public readonly string? IvInManifest;
         public readonly string? IvSource;
-        public readonly int? KeepSegment;
+        public readonly int? KeepSegments;
         public readonly string? KeyFormat;
         public readonly string? KeyFormatVersions;
+        public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings? KeyProviderSettings;
         public readonly string? ManifestCompression;
         public readonly string? ManifestDurationFormat;
         public readonly int? MinSegmentLength;
         public readonly string? Mode;
+        public readonly string? OutputSelection;
         public readonly string? ProgramDateTime;
         public readonly string? ProgramDateTimeClock;
         public readonly int? ProgramDateTimePeriod;
@@ -57,7 +60,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly int? SegmentLength;
         public readonly int? SegmentsPerSubdirectory;
         public readonly string? StreamInfResolution;
-        public readonly string? TimeMetadataId3Frame;
+        /// <summary>
+        /// Indicates ID3 frame that has the timecode.
+        /// </summary>
+        public readonly string? TimedMetadataId3Frame;
+        public readonly int? TimedMetadataId3Period;
         public readonly int? TimestampDeltaMilliseconds;
         public readonly string? TsFileMode;
 
@@ -95,6 +102,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             string? hlsId3SegmentTagging,
 
+            string? iframeOnlyPlaylists,
+
             string? incompleteSegmentBehavior,
 
             int? indexNSegments,
@@ -105,11 +114,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             string? ivSource,
 
-            int? keepSegment,
+            int? keepSegments,
 
             string? keyFormat,
 
             string? keyFormatVersions,
+
+            Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings? keyProviderSettings,
 
             string? manifestCompression,
 
@@ -118,6 +129,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
             int? minSegmentLength,
 
             string? mode,
+
+            string? outputSelection,
 
             string? programDateTime,
 
@@ -133,7 +146,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             string? streamInfResolution,
 
-            string? timeMetadataId3Frame,
+            string? timedMetadataId3Frame,
+
+            int? timedMetadataId3Period,
 
             int? timestampDeltaMilliseconds,
 
@@ -155,18 +170,21 @@ namespace Pulumi.Aws.MediaLive.Outputs
             EncryptionType = encryptionType;
             HlsCdnSettings = hlsCdnSettings;
             HlsId3SegmentTagging = hlsId3SegmentTagging;
+            IframeOnlyPlaylists = iframeOnlyPlaylists;
             IncompleteSegmentBehavior = incompleteSegmentBehavior;
             IndexNSegments = indexNSegments;
             InputLossAction = inputLossAction;
             IvInManifest = ivInManifest;
             IvSource = ivSource;
-            KeepSegment = keepSegment;
+            KeepSegments = keepSegments;
             KeyFormat = keyFormat;
             KeyFormatVersions = keyFormatVersions;
+            KeyProviderSettings = keyProviderSettings;
             ManifestCompression = manifestCompression;
             ManifestDurationFormat = manifestDurationFormat;
             MinSegmentLength = minSegmentLength;
             Mode = mode;
+            OutputSelection = outputSelection;
             ProgramDateTime = programDateTime;
             ProgramDateTimeClock = programDateTimeClock;
             ProgramDateTimePeriod = programDateTimePeriod;
@@ -174,7 +192,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
             SegmentLength = segmentLength;
             SegmentsPerSubdirectory = segmentsPerSubdirectory;
             StreamInfResolution = streamInfResolution;
-            TimeMetadataId3Frame = timeMetadataId3Frame;
+            TimedMetadataId3Frame = timedMetadataId3Frame;
+            TimedMetadataId3Period = timedMetadataId3Period;
             TimestampDeltaMilliseconds = timestampDeltaMilliseconds;
             TsFileMode = tsFileMode;
         }

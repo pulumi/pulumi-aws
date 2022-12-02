@@ -31,7 +31,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = aws.GetService(ctx, &GetServiceArgs{
+//			_, err = aws.GetService(ctx, &aws.GetServiceArgs{
 //				Region:    pulumi.StringRef(current.Name),
 //				ServiceId: pulumi.StringRef("ec2"),
 //			}, nil)
@@ -57,7 +57,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.GetService(ctx, &GetServiceArgs{
+//			_, err = aws.GetService(ctx, &aws.GetServiceArgs{
 //				ReverseDnsName: pulumi.StringRef("cn.com.amazonaws.cn-north-1.s3"),
 //			}, nil)
 //			if err != nil {
@@ -82,7 +82,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.GetService(ctx, &GetServiceArgs{
+//			_, err = aws.GetService(ctx, &aws.GetServiceArgs{
 //				ReverseDnsName: pulumi.StringRef("com.amazonaws.us-gov-west-1.waf"),
 //			}, nil)
 //			if err != nil {

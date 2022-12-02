@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Kendra
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetIndexResult> InvokeAsync(GetIndexArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIndexResult>("aws:kendra/getIndex:getIndex", args ?? new GetIndexArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIndexResult>("aws:kendra/getIndex:getIndex", args ?? new GetIndexArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Kendra Index.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Kendra
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetIndexResult> Invoke(GetIndexInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIndexResult>("aws:kendra/getIndex:getIndex", args ?? new GetIndexInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIndexResult>("aws:kendra/getIndex:getIndex", args ?? new GetIndexInvokeArgs(), options.WithDefaults());
     }
 
 

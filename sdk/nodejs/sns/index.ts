@@ -8,34 +8,34 @@ import * as utilities from "../utilities";
 export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
 export const getTopic: typeof import("./getTopic").getTopic = null as any;
 export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
 
 export { PlatformApplicationArgs, PlatformApplicationState } from "./platformApplication";
 export type PlatformApplication = import("./platformApplication").PlatformApplication;
 export const PlatformApplication: typeof import("./platformApplication").PlatformApplication = null as any;
+utilities.lazyLoad(exports, ["PlatformApplication"], () => require("./platformApplication"));
 
 export { SmsPreferencesArgs, SmsPreferencesState } from "./smsPreferences";
 export type SmsPreferences = import("./smsPreferences").SmsPreferences;
 export const SmsPreferences: typeof import("./smsPreferences").SmsPreferences = null as any;
+utilities.lazyLoad(exports, ["SmsPreferences"], () => require("./smsPreferences"));
 
 export * from "./snsMixins";
 export { TopicArgs, TopicState } from "./topic";
 export type Topic = import("./topic").Topic;
 export const Topic: typeof import("./topic").Topic = null as any;
+utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
 
 export { TopicPolicyArgs, TopicPolicyState } from "./topicPolicy";
 export type TopicPolicy = import("./topicPolicy").TopicPolicy;
 export const TopicPolicy: typeof import("./topicPolicy").TopicPolicy = null as any;
+utilities.lazyLoad(exports, ["TopicPolicy"], () => require("./topicPolicy"));
 
 export { TopicSubscriptionArgs, TopicSubscriptionState } from "./topicSubscription";
 export type TopicSubscription = import("./topicSubscription").TopicSubscription;
 export const TopicSubscription: typeof import("./topicSubscription").TopicSubscription = null as any;
-
-utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
-utilities.lazyLoad(exports, ["PlatformApplication"], () => require("./platformApplication"));
-utilities.lazyLoad(exports, ["SmsPreferences"], () => require("./smsPreferences"));
-utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
-utilities.lazyLoad(exports, ["TopicPolicy"], () => require("./topicPolicy"));
 utilities.lazyLoad(exports, ["TopicSubscription"], () => require("./topicSubscription"));
+
 
 const _module = {
     version: utilities.getVersion(),

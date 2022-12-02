@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2transitgateway.getConnectPeer({
+ * const example = aws.ec2transitgateway.getConnectPeer({
  *     filters: [{
  *         name: "transit-gateway-attachment-id",
  *         values: ["tgw-attach-12345678"],
  *     }],
- * }));
+ * });
  * ```
  * ### By Identifier
  *
@@ -30,18 +30,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2transitgateway.getConnectPeer({
+ * const example = aws.ec2transitgateway.getConnectPeer({
  *     transitGatewayConnectPeerId: "tgw-connect-peer-12345678",
- * }));
+ * });
  * ```
  */
 export function getConnectPeer(args?: GetConnectPeerArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectPeerResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getConnectPeer:getConnectPeer", {
         "filters": args.filters,
         "tags": args.tags,

@@ -12,11 +12,21 @@ namespace Pulumi.Aws.AppConfig.Inputs
 
     public sealed class ConfigurationProfileValidatorGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("content")]
+        private Input<string>? _content;
+
         /// <summary>
         /// Either the JSON Schema content or the ARN of an AWS Lambda function.
         /// </summary>
-        [Input("content")]
-        public Input<string>? Content { get; set; }
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.

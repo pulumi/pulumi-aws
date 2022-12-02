@@ -1882,7 +1882,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
             __props__.__dict__["apply_immediately"] = apply_immediately
             __props__.__dict__["at_rest_encryption_enabled"] = at_rest_encryption_enabled
-            __props__.__dict__["auth_token"] = auth_token
+            __props__.__dict__["auth_token"] = None if auth_token is None else pulumi.Output.secret(auth_token)
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
             __props__.__dict__["availability_zones"] = availability_zones
@@ -1935,6 +1935,8 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["primary_endpoint_address"] = None
             __props__.__dict__["reader_endpoint_address"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["authToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReplicationGroup, __self__).__init__(
             'aws:elasticache/replicationGroup:ReplicationGroup',
             resource_name,

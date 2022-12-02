@@ -8,68 +8,68 @@ import * as utilities from "../utilities";
 export { GeofenceCollectionArgs, GeofenceCollectionState } from "./geofenceCollection";
 export type GeofenceCollection = import("./geofenceCollection").GeofenceCollection;
 export const GeofenceCollection: typeof import("./geofenceCollection").GeofenceCollection = null as any;
+utilities.lazyLoad(exports, ["GeofenceCollection"], () => require("./geofenceCollection"));
 
 export { GetGeofenceCollectionArgs, GetGeofenceCollectionResult, GetGeofenceCollectionOutputArgs } from "./getGeofenceCollection";
 export const getGeofenceCollection: typeof import("./getGeofenceCollection").getGeofenceCollection = null as any;
 export const getGeofenceCollectionOutput: typeof import("./getGeofenceCollection").getGeofenceCollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getGeofenceCollection","getGeofenceCollectionOutput"], () => require("./getGeofenceCollection"));
 
 export { GetMapArgs, GetMapResult, GetMapOutputArgs } from "./getMap";
 export const getMap: typeof import("./getMap").getMap = null as any;
 export const getMapOutput: typeof import("./getMap").getMapOutput = null as any;
+utilities.lazyLoad(exports, ["getMap","getMapOutput"], () => require("./getMap"));
 
 export { GetPlaceIndexArgs, GetPlaceIndexResult, GetPlaceIndexOutputArgs } from "./getPlaceIndex";
 export const getPlaceIndex: typeof import("./getPlaceIndex").getPlaceIndex = null as any;
 export const getPlaceIndexOutput: typeof import("./getPlaceIndex").getPlaceIndexOutput = null as any;
+utilities.lazyLoad(exports, ["getPlaceIndex","getPlaceIndexOutput"], () => require("./getPlaceIndex"));
 
 export { GetRouteCalculatorArgs, GetRouteCalculatorResult, GetRouteCalculatorOutputArgs } from "./getRouteCalculator";
 export const getRouteCalculator: typeof import("./getRouteCalculator").getRouteCalculator = null as any;
 export const getRouteCalculatorOutput: typeof import("./getRouteCalculator").getRouteCalculatorOutput = null as any;
+utilities.lazyLoad(exports, ["getRouteCalculator","getRouteCalculatorOutput"], () => require("./getRouteCalculator"));
 
 export { GetTrackerArgs, GetTrackerResult, GetTrackerOutputArgs } from "./getTracker";
 export const getTracker: typeof import("./getTracker").getTracker = null as any;
 export const getTrackerOutput: typeof import("./getTracker").getTrackerOutput = null as any;
+utilities.lazyLoad(exports, ["getTracker","getTrackerOutput"], () => require("./getTracker"));
 
 export { GetTrackerAssociationArgs, GetTrackerAssociationResult, GetTrackerAssociationOutputArgs } from "./getTrackerAssociation";
 export const getTrackerAssociation: typeof import("./getTrackerAssociation").getTrackerAssociation = null as any;
 export const getTrackerAssociationOutput: typeof import("./getTrackerAssociation").getTrackerAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getTrackerAssociation","getTrackerAssociationOutput"], () => require("./getTrackerAssociation"));
 
 export { GetTrackerAssociationsArgs, GetTrackerAssociationsResult, GetTrackerAssociationsOutputArgs } from "./getTrackerAssociations";
 export const getTrackerAssociations: typeof import("./getTrackerAssociations").getTrackerAssociations = null as any;
 export const getTrackerAssociationsOutput: typeof import("./getTrackerAssociations").getTrackerAssociationsOutput = null as any;
+utilities.lazyLoad(exports, ["getTrackerAssociations","getTrackerAssociationsOutput"], () => require("./getTrackerAssociations"));
 
 export { MapArgs, MapState } from "./map";
 export type Map = import("./map").Map;
 export const Map: typeof import("./map").Map = null as any;
+utilities.lazyLoad(exports, ["Map"], () => require("./map"));
 
 export { PlaceIndexArgs, PlaceIndexState } from "./placeIndex";
 export type PlaceIndex = import("./placeIndex").PlaceIndex;
 export const PlaceIndex: typeof import("./placeIndex").PlaceIndex = null as any;
+utilities.lazyLoad(exports, ["PlaceIndex"], () => require("./placeIndex"));
 
 export { RouteCalculationArgs, RouteCalculationState } from "./routeCalculation";
 export type RouteCalculation = import("./routeCalculation").RouteCalculation;
 export const RouteCalculation: typeof import("./routeCalculation").RouteCalculation = null as any;
+utilities.lazyLoad(exports, ["RouteCalculation"], () => require("./routeCalculation"));
 
 export { TrackerArgs, TrackerState } from "./tracker";
 export type Tracker = import("./tracker").Tracker;
 export const Tracker: typeof import("./tracker").Tracker = null as any;
+utilities.lazyLoad(exports, ["Tracker"], () => require("./tracker"));
 
 export { TrackerAssociationArgs, TrackerAssociationState } from "./trackerAssociation";
 export type TrackerAssociation = import("./trackerAssociation").TrackerAssociation;
 export const TrackerAssociation: typeof import("./trackerAssociation").TrackerAssociation = null as any;
-
-utilities.lazyLoad(exports, ["GeofenceCollection"], () => require("./geofenceCollection"));
-utilities.lazyLoad(exports, ["getGeofenceCollection","getGeofenceCollectionOutput"], () => require("./getGeofenceCollection"));
-utilities.lazyLoad(exports, ["getMap","getMapOutput"], () => require("./getMap"));
-utilities.lazyLoad(exports, ["getPlaceIndex","getPlaceIndexOutput"], () => require("./getPlaceIndex"));
-utilities.lazyLoad(exports, ["getRouteCalculator","getRouteCalculatorOutput"], () => require("./getRouteCalculator"));
-utilities.lazyLoad(exports, ["getTracker","getTrackerOutput"], () => require("./getTracker"));
-utilities.lazyLoad(exports, ["getTrackerAssociation","getTrackerAssociationOutput"], () => require("./getTrackerAssociation"));
-utilities.lazyLoad(exports, ["getTrackerAssociations","getTrackerAssociationsOutput"], () => require("./getTrackerAssociations"));
-utilities.lazyLoad(exports, ["Map"], () => require("./map"));
-utilities.lazyLoad(exports, ["PlaceIndex"], () => require("./placeIndex"));
-utilities.lazyLoad(exports, ["RouteCalculation"], () => require("./routeCalculation"));
-utilities.lazyLoad(exports, ["Tracker"], () => require("./tracker"));
 utilities.lazyLoad(exports, ["TrackerAssociation"], () => require("./trackerAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),

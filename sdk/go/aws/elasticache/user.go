@@ -95,6 +95,13 @@ func NewUser(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	if args.Passwords != nil {
+		args.Passwords = pulumi.ToSecret(args.Passwords).(pulumi.StringArrayOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"passwords",
+	})
+	opts = append(opts, secrets)
 	var resource User
 	err := ctx.RegisterResource("aws:elasticache/user:User", name, args, &resource, opts...)
 	if err != nil {

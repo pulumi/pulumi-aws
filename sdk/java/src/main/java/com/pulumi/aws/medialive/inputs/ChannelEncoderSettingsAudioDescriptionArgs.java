@@ -94,16 +94,32 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         return Optional.ofNullable(this.audioWatermarkSettings);
     }
 
+    /**
+     * The video codec settings. See Video Codec Settings for more details.
+     * 
+     */
     @Import(name="codecSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs> codecSettings;
 
+    /**
+     * @return The video codec settings. See Video Codec Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs>> codecSettings() {
         return Optional.ofNullable(this.codecSettings);
     }
 
+    /**
+     * When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * 
+     */
     @Import(name="languageCode")
     private @Nullable Output<String> languageCode;
 
+    /**
+     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * 
+     */
     public Optional<Output<String>> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
@@ -116,14 +132,14 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
     }
 
     /**
-     * Custom output group name defined by the user.
+     * The name of the video description.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     public Output<String> name() {
@@ -291,20 +307,44 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
             return audioWatermarkSettings(Output.of(audioWatermarkSettings));
         }
 
+        /**
+         * @param codecSettings The video codec settings. See Video Codec Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codecSettings(@Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs> codecSettings) {
             $.codecSettings = codecSettings;
             return this;
         }
 
+        /**
+         * @param codecSettings The video codec settings. See Video Codec Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codecSettings(ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs codecSettings) {
             return codecSettings(Output.of(codecSettings));
         }
 
+        /**
+         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(@Nullable Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
+        /**
+         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }
@@ -319,7 +359,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param name Custom output group name defined by the user.
+         * @param name The name of the video description.
          * 
          * @return builder
          * 
@@ -330,7 +370,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param name Custom output group name defined by the user.
+         * @param name The name of the video description.
          * 
          * @return builder
          * 

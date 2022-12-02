@@ -14,9 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.timestreamwrite.Database("example", {
- *     databaseName: "database-example",
- * });
+ * const example = new aws.timestreamwrite.Database("example", {databaseName: "database-example"});
  * ```
  * ### Full usage
  *

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.LookupVirtualService(ctx, &appmesh.LookupVirtualServiceArgs{
+//			_, err = appmesh.LookupVirtualService(ctx, &appmesh.LookupVirtualServiceArgs{
 //				MeshName: "example-mesh",
 //				Name:     "example.mesh.local",
 //			}, nil)

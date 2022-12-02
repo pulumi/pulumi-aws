@@ -7,5 +7,5 @@ import * as utilities from "../utilities";
 export { GetProductArgs, GetProductResult, GetProductOutputArgs } from "./getProduct";
 export const getProduct: typeof import("./getProduct").getProduct = null as any;
 export const getProductOutput: typeof import("./getProduct").getProductOutput = null as any;
-
 utilities.lazyLoad(exports, ["getProduct","getProductOutput"], () => require("./getProduct"));
+

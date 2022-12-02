@@ -30,7 +30,7 @@ import (
 //			_, err := datasync.NewLocationFsxLustre(ctx, "example", &datasync.LocationFsxLustreArgs{
 //				FsxFilesystemArn: pulumi.Any(aws_fsx_lustre_file_system.Example.Arn),
 //				SecurityGroupArns: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Example.Arn),
+//					aws_security_group.Example.Arn,
 //				},
 //			})
 //			if err != nil {

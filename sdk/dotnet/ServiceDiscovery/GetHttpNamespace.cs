@@ -34,7 +34,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetHttpNamespaceResult> InvokeAsync(GetHttpNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHttpNamespaceResult>("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args ?? new GetHttpNamespaceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHttpNamespaceResult>("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args ?? new GetHttpNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetHttpNamespaceResult> Invoke(GetHttpNamespaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHttpNamespaceResult>("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args ?? new GetHttpNamespaceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHttpNamespaceResult>("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args ?? new GetHttpNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

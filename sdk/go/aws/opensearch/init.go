@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DomainPolicy{}
 	case "aws:opensearch/domainSamlOptions:DomainSamlOptions":
 		r = &DomainSamlOptions{}
+	case "aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter":
+		r = &InboundConnectionAccepter{}
+	case "aws:opensearch/outboundConnection:OutboundConnection":
+		r = &OutboundConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +57,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"opensearch/domainSamlOptions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opensearch/inboundConnectionAccepter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opensearch/outboundConnection",
 		&module{version},
 	)
 }

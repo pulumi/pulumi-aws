@@ -48,11 +48,21 @@ namespace Pulumi.Aws.Mq.Inputs
         [Input("roleSearchSubtree")]
         public Input<bool>? RoleSearchSubtree { get; set; }
 
+        [Input("serviceAccountPassword")]
+        private Input<string>? _serviceAccountPassword;
+
         /// <summary>
         /// Service account password.
         /// </summary>
-        [Input("serviceAccountPassword")]
-        public Input<string>? ServiceAccountPassword { get; set; }
+        public Input<string>? ServiceAccountPassword
+        {
+            get => _serviceAccountPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serviceAccountPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Service account username.

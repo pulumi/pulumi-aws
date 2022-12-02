@@ -359,6 +359,20 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.filterPolicy);
     }
     /**
+     * Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+     * 
+     */
+    @Export(name="filterPolicyScope", type=String.class, parameters={})
+    private Output<String> filterPolicyScope;
+
+    /**
+     * @return Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+     * 
+     */
+    public Output<String> filterPolicyScope() {
+        return this.filterPolicyScope;
+    }
+    /**
      * AWS account ID of the subscription&#39;s owner.
      * 
      */

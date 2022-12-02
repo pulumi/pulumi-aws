@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.LookupResource(ctx, &lakeformation.LookupResourceArgs{
+//			_, err = lakeformation.LookupResource(ctx, &lakeformation.LookupResourceArgs{
 //				Arn: "arn:aws:s3:::tf-acc-test-9151654063908211878",
 //			}, nil)
 //			if err != nil {

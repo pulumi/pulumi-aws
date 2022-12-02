@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := acmpca.LookupCertificateAuthority(ctx, &acmpca.LookupCertificateAuthorityArgs{
+//			_, err = acmpca.LookupCertificateAuthority(ctx, &acmpca.LookupCertificateAuthorityArgs{
 //				Arn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
 //			}, nil)
 //			if err != nil {

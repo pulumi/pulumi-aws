@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *             analysisScheme: "_en_default_",
  *             highlight: false,
  *             name: "headline",
- *             return: true,
+ *             "return": true,
  *             search: true,
  *             sort: true,
  *             type: "text",
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *         {
  *             facet: true,
  *             name: "price",
- *             return: true,
+ *             "return": true,
  *             search: true,
  *             sort: true,
  *             sourceFields: "headline",

@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * **Using certs on file:**
- * 
  * ```java
  * package generated_program;
  * 

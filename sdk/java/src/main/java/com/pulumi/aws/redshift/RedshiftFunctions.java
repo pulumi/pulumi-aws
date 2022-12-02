@@ -271,10 +271,9 @@ public final class RedshiftFunctions {
         return Deployment.getInstance().invokeAsync("aws:redshift/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides redshift subnet group.
+     * Provides redshift cluster temporary credentials.
      * 
      * ## Example Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -297,7 +296,8 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
-     *             .name(aws_redshift_cluster_credentials.example().name())
+     *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
+     *             .dbUser(aws_redshift_cluster.example().master_username())
      *             .build());
      * 
      *     }
@@ -309,10 +309,9 @@ public final class RedshiftFunctions {
         return getClusterCredentials(args, InvokeOptions.Empty);
     }
     /**
-     * Provides redshift subnet group.
+     * Provides redshift cluster temporary credentials.
      * 
      * ## Example Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -335,7 +334,8 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
-     *             .name(aws_redshift_cluster_credentials.example().name())
+     *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
+     *             .dbUser(aws_redshift_cluster.example().master_username())
      *             .build());
      * 
      *     }
@@ -347,10 +347,9 @@ public final class RedshiftFunctions {
         return getClusterCredentialsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides redshift subnet group.
+     * Provides redshift cluster temporary credentials.
      * 
      * ## Example Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -373,7 +372,8 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
-     *             .name(aws_redshift_cluster_credentials.example().name())
+     *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
+     *             .dbUser(aws_redshift_cluster.example().master_username())
      *             .build());
      * 
      *     }
@@ -385,10 +385,9 @@ public final class RedshiftFunctions {
         return Deployment.getInstance().invoke("aws:redshift/getClusterCredentials:getClusterCredentials", TypeShape.of(GetClusterCredentialsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides redshift subnet group.
+     * Provides redshift cluster temporary credentials.
      * 
      * ## Example Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -411,7 +410,8 @@ public final class RedshiftFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
-     *             .name(aws_redshift_cluster_credentials.example().name())
+     *             .clusterIdentifier(aws_redshift_cluster.example().cluster_identifier())
+     *             .dbUser(aws_redshift_cluster.example().master_username())
      *             .build());
      * 
      *     }

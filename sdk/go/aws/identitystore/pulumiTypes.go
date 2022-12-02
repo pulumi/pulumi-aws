@@ -1074,8 +1074,584 @@ func (o UserPhoneNumbersPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetGroupAlternateIdentifier struct {
+	// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+	ExternalId *GetGroupAlternateIdentifierExternalId `pulumi:"externalId"`
+	// An entity attribute that's unique to a specific entity. Detailed below.
+	UniqueAttribute *GetGroupAlternateIdentifierUniqueAttribute `pulumi:"uniqueAttribute"`
+}
+
+// GetGroupAlternateIdentifierInput is an input type that accepts GetGroupAlternateIdentifierArgs and GetGroupAlternateIdentifierOutput values.
+// You can construct a concrete instance of `GetGroupAlternateIdentifierInput` via:
+//
+//	GetGroupAlternateIdentifierArgs{...}
+type GetGroupAlternateIdentifierInput interface {
+	pulumi.Input
+
+	ToGetGroupAlternateIdentifierOutput() GetGroupAlternateIdentifierOutput
+	ToGetGroupAlternateIdentifierOutputWithContext(context.Context) GetGroupAlternateIdentifierOutput
+}
+
+type GetGroupAlternateIdentifierArgs struct {
+	// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+	ExternalId GetGroupAlternateIdentifierExternalIdPtrInput `pulumi:"externalId"`
+	// An entity attribute that's unique to a specific entity. Detailed below.
+	UniqueAttribute GetGroupAlternateIdentifierUniqueAttributePtrInput `pulumi:"uniqueAttribute"`
+}
+
+func (GetGroupAlternateIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupAlternateIdentifier)(nil)).Elem()
+}
+
+func (i GetGroupAlternateIdentifierArgs) ToGetGroupAlternateIdentifierOutput() GetGroupAlternateIdentifierOutput {
+	return i.ToGetGroupAlternateIdentifierOutputWithContext(context.Background())
+}
+
+func (i GetGroupAlternateIdentifierArgs) ToGetGroupAlternateIdentifierOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierOutput)
+}
+
+func (i GetGroupAlternateIdentifierArgs) ToGetGroupAlternateIdentifierPtrOutput() GetGroupAlternateIdentifierPtrOutput {
+	return i.ToGetGroupAlternateIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i GetGroupAlternateIdentifierArgs) ToGetGroupAlternateIdentifierPtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierOutput).ToGetGroupAlternateIdentifierPtrOutputWithContext(ctx)
+}
+
+// GetGroupAlternateIdentifierPtrInput is an input type that accepts GetGroupAlternateIdentifierArgs, GetGroupAlternateIdentifierPtr and GetGroupAlternateIdentifierPtrOutput values.
+// You can construct a concrete instance of `GetGroupAlternateIdentifierPtrInput` via:
+//
+//	        GetGroupAlternateIdentifierArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGroupAlternateIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToGetGroupAlternateIdentifierPtrOutput() GetGroupAlternateIdentifierPtrOutput
+	ToGetGroupAlternateIdentifierPtrOutputWithContext(context.Context) GetGroupAlternateIdentifierPtrOutput
+}
+
+type getGroupAlternateIdentifierPtrType GetGroupAlternateIdentifierArgs
+
+func GetGroupAlternateIdentifierPtr(v *GetGroupAlternateIdentifierArgs) GetGroupAlternateIdentifierPtrInput {
+	return (*getGroupAlternateIdentifierPtrType)(v)
+}
+
+func (*getGroupAlternateIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGroupAlternateIdentifier)(nil)).Elem()
+}
+
+func (i *getGroupAlternateIdentifierPtrType) ToGetGroupAlternateIdentifierPtrOutput() GetGroupAlternateIdentifierPtrOutput {
+	return i.ToGetGroupAlternateIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *getGroupAlternateIdentifierPtrType) ToGetGroupAlternateIdentifierPtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierPtrOutput)
+}
+
+type GetGroupAlternateIdentifierOutput struct{ *pulumi.OutputState }
+
+func (GetGroupAlternateIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupAlternateIdentifier)(nil)).Elem()
+}
+
+func (o GetGroupAlternateIdentifierOutput) ToGetGroupAlternateIdentifierOutput() GetGroupAlternateIdentifierOutput {
+	return o
+}
+
+func (o GetGroupAlternateIdentifierOutput) ToGetGroupAlternateIdentifierOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierOutput {
+	return o
+}
+
+func (o GetGroupAlternateIdentifierOutput) ToGetGroupAlternateIdentifierPtrOutput() GetGroupAlternateIdentifierPtrOutput {
+	return o.ToGetGroupAlternateIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o GetGroupAlternateIdentifierOutput) ToGetGroupAlternateIdentifierPtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGroupAlternateIdentifier) *GetGroupAlternateIdentifier {
+		return &v
+	}).(GetGroupAlternateIdentifierPtrOutput)
+}
+
+// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+func (o GetGroupAlternateIdentifierOutput) ExternalId() GetGroupAlternateIdentifierExternalIdPtrOutput {
+	return o.ApplyT(func(v GetGroupAlternateIdentifier) *GetGroupAlternateIdentifierExternalId { return v.ExternalId }).(GetGroupAlternateIdentifierExternalIdPtrOutput)
+}
+
+// An entity attribute that's unique to a specific entity. Detailed below.
+func (o GetGroupAlternateIdentifierOutput) UniqueAttribute() GetGroupAlternateIdentifierUniqueAttributePtrOutput {
+	return o.ApplyT(func(v GetGroupAlternateIdentifier) *GetGroupAlternateIdentifierUniqueAttribute {
+		return v.UniqueAttribute
+	}).(GetGroupAlternateIdentifierUniqueAttributePtrOutput)
+}
+
+type GetGroupAlternateIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (GetGroupAlternateIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGroupAlternateIdentifier)(nil)).Elem()
+}
+
+func (o GetGroupAlternateIdentifierPtrOutput) ToGetGroupAlternateIdentifierPtrOutput() GetGroupAlternateIdentifierPtrOutput {
+	return o
+}
+
+func (o GetGroupAlternateIdentifierPtrOutput) ToGetGroupAlternateIdentifierPtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierPtrOutput {
+	return o
+}
+
+func (o GetGroupAlternateIdentifierPtrOutput) Elem() GetGroupAlternateIdentifierOutput {
+	return o.ApplyT(func(v *GetGroupAlternateIdentifier) GetGroupAlternateIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret GetGroupAlternateIdentifier
+		return ret
+	}).(GetGroupAlternateIdentifierOutput)
+}
+
+// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+func (o GetGroupAlternateIdentifierPtrOutput) ExternalId() GetGroupAlternateIdentifierExternalIdPtrOutput {
+	return o.ApplyT(func(v *GetGroupAlternateIdentifier) *GetGroupAlternateIdentifierExternalId {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(GetGroupAlternateIdentifierExternalIdPtrOutput)
+}
+
+// An entity attribute that's unique to a specific entity. Detailed below.
+func (o GetGroupAlternateIdentifierPtrOutput) UniqueAttribute() GetGroupAlternateIdentifierUniqueAttributePtrOutput {
+	return o.ApplyT(func(v *GetGroupAlternateIdentifier) *GetGroupAlternateIdentifierUniqueAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.UniqueAttribute
+	}).(GetGroupAlternateIdentifierUniqueAttributePtrOutput)
+}
+
+type GetGroupAlternateIdentifierExternalId struct {
+	// The identifier issued to this resource by an external identity provider.
+	Id string `pulumi:"id"`
+	// The issuer for an external identifier.
+	Issuer string `pulumi:"issuer"`
+}
+
+// GetGroupAlternateIdentifierExternalIdInput is an input type that accepts GetGroupAlternateIdentifierExternalIdArgs and GetGroupAlternateIdentifierExternalIdOutput values.
+// You can construct a concrete instance of `GetGroupAlternateIdentifierExternalIdInput` via:
+//
+//	GetGroupAlternateIdentifierExternalIdArgs{...}
+type GetGroupAlternateIdentifierExternalIdInput interface {
+	pulumi.Input
+
+	ToGetGroupAlternateIdentifierExternalIdOutput() GetGroupAlternateIdentifierExternalIdOutput
+	ToGetGroupAlternateIdentifierExternalIdOutputWithContext(context.Context) GetGroupAlternateIdentifierExternalIdOutput
+}
+
+type GetGroupAlternateIdentifierExternalIdArgs struct {
+	// The identifier issued to this resource by an external identity provider.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The issuer for an external identifier.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+}
+
+func (GetGroupAlternateIdentifierExternalIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupAlternateIdentifierExternalId)(nil)).Elem()
+}
+
+func (i GetGroupAlternateIdentifierExternalIdArgs) ToGetGroupAlternateIdentifierExternalIdOutput() GetGroupAlternateIdentifierExternalIdOutput {
+	return i.ToGetGroupAlternateIdentifierExternalIdOutputWithContext(context.Background())
+}
+
+func (i GetGroupAlternateIdentifierExternalIdArgs) ToGetGroupAlternateIdentifierExternalIdOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierExternalIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierExternalIdOutput)
+}
+
+func (i GetGroupAlternateIdentifierExternalIdArgs) ToGetGroupAlternateIdentifierExternalIdPtrOutput() GetGroupAlternateIdentifierExternalIdPtrOutput {
+	return i.ToGetGroupAlternateIdentifierExternalIdPtrOutputWithContext(context.Background())
+}
+
+func (i GetGroupAlternateIdentifierExternalIdArgs) ToGetGroupAlternateIdentifierExternalIdPtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierExternalIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierExternalIdOutput).ToGetGroupAlternateIdentifierExternalIdPtrOutputWithContext(ctx)
+}
+
+// GetGroupAlternateIdentifierExternalIdPtrInput is an input type that accepts GetGroupAlternateIdentifierExternalIdArgs, GetGroupAlternateIdentifierExternalIdPtr and GetGroupAlternateIdentifierExternalIdPtrOutput values.
+// You can construct a concrete instance of `GetGroupAlternateIdentifierExternalIdPtrInput` via:
+//
+//	        GetGroupAlternateIdentifierExternalIdArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGroupAlternateIdentifierExternalIdPtrInput interface {
+	pulumi.Input
+
+	ToGetGroupAlternateIdentifierExternalIdPtrOutput() GetGroupAlternateIdentifierExternalIdPtrOutput
+	ToGetGroupAlternateIdentifierExternalIdPtrOutputWithContext(context.Context) GetGroupAlternateIdentifierExternalIdPtrOutput
+}
+
+type getGroupAlternateIdentifierExternalIdPtrType GetGroupAlternateIdentifierExternalIdArgs
+
+func GetGroupAlternateIdentifierExternalIdPtr(v *GetGroupAlternateIdentifierExternalIdArgs) GetGroupAlternateIdentifierExternalIdPtrInput {
+	return (*getGroupAlternateIdentifierExternalIdPtrType)(v)
+}
+
+func (*getGroupAlternateIdentifierExternalIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGroupAlternateIdentifierExternalId)(nil)).Elem()
+}
+
+func (i *getGroupAlternateIdentifierExternalIdPtrType) ToGetGroupAlternateIdentifierExternalIdPtrOutput() GetGroupAlternateIdentifierExternalIdPtrOutput {
+	return i.ToGetGroupAlternateIdentifierExternalIdPtrOutputWithContext(context.Background())
+}
+
+func (i *getGroupAlternateIdentifierExternalIdPtrType) ToGetGroupAlternateIdentifierExternalIdPtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierExternalIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierExternalIdPtrOutput)
+}
+
+type GetGroupAlternateIdentifierExternalIdOutput struct{ *pulumi.OutputState }
+
+func (GetGroupAlternateIdentifierExternalIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupAlternateIdentifierExternalId)(nil)).Elem()
+}
+
+func (o GetGroupAlternateIdentifierExternalIdOutput) ToGetGroupAlternateIdentifierExternalIdOutput() GetGroupAlternateIdentifierExternalIdOutput {
+	return o
+}
+
+func (o GetGroupAlternateIdentifierExternalIdOutput) ToGetGroupAlternateIdentifierExternalIdOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierExternalIdOutput {
+	return o
+}
+
+func (o GetGroupAlternateIdentifierExternalIdOutput) ToGetGroupAlternateIdentifierExternalIdPtrOutput() GetGroupAlternateIdentifierExternalIdPtrOutput {
+	return o.ToGetGroupAlternateIdentifierExternalIdPtrOutputWithContext(context.Background())
+}
+
+func (o GetGroupAlternateIdentifierExternalIdOutput) ToGetGroupAlternateIdentifierExternalIdPtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierExternalIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGroupAlternateIdentifierExternalId) *GetGroupAlternateIdentifierExternalId {
+		return &v
+	}).(GetGroupAlternateIdentifierExternalIdPtrOutput)
+}
+
+// The identifier issued to this resource by an external identity provider.
+func (o GetGroupAlternateIdentifierExternalIdOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAlternateIdentifierExternalId) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The issuer for an external identifier.
+func (o GetGroupAlternateIdentifierExternalIdOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAlternateIdentifierExternalId) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+type GetGroupAlternateIdentifierExternalIdPtrOutput struct{ *pulumi.OutputState }
+
+func (GetGroupAlternateIdentifierExternalIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGroupAlternateIdentifierExternalId)(nil)).Elem()
+}
+
+func (o GetGroupAlternateIdentifierExternalIdPtrOutput) ToGetGroupAlternateIdentifierExternalIdPtrOutput() GetGroupAlternateIdentifierExternalIdPtrOutput {
+	return o
+}
+
+func (o GetGroupAlternateIdentifierExternalIdPtrOutput) ToGetGroupAlternateIdentifierExternalIdPtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierExternalIdPtrOutput {
+	return o
+}
+
+func (o GetGroupAlternateIdentifierExternalIdPtrOutput) Elem() GetGroupAlternateIdentifierExternalIdOutput {
+	return o.ApplyT(func(v *GetGroupAlternateIdentifierExternalId) GetGroupAlternateIdentifierExternalId {
+		if v != nil {
+			return *v
+		}
+		var ret GetGroupAlternateIdentifierExternalId
+		return ret
+	}).(GetGroupAlternateIdentifierExternalIdOutput)
+}
+
+// The identifier issued to this resource by an external identity provider.
+func (o GetGroupAlternateIdentifierExternalIdPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGroupAlternateIdentifierExternalId) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The issuer for an external identifier.
+func (o GetGroupAlternateIdentifierExternalIdPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGroupAlternateIdentifierExternalId) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetGroupAlternateIdentifierUniqueAttribute struct {
+	// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+	AttributePath string `pulumi:"attributePath"`
+	// Value for an attribute.
+	AttributeValue string `pulumi:"attributeValue"`
+}
+
+// GetGroupAlternateIdentifierUniqueAttributeInput is an input type that accepts GetGroupAlternateIdentifierUniqueAttributeArgs and GetGroupAlternateIdentifierUniqueAttributeOutput values.
+// You can construct a concrete instance of `GetGroupAlternateIdentifierUniqueAttributeInput` via:
+//
+//	GetGroupAlternateIdentifierUniqueAttributeArgs{...}
+type GetGroupAlternateIdentifierUniqueAttributeInput interface {
+	pulumi.Input
+
+	ToGetGroupAlternateIdentifierUniqueAttributeOutput() GetGroupAlternateIdentifierUniqueAttributeOutput
+	ToGetGroupAlternateIdentifierUniqueAttributeOutputWithContext(context.Context) GetGroupAlternateIdentifierUniqueAttributeOutput
+}
+
+type GetGroupAlternateIdentifierUniqueAttributeArgs struct {
+	// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+	AttributePath pulumi.StringInput `pulumi:"attributePath"`
+	// Value for an attribute.
+	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
+}
+
+func (GetGroupAlternateIdentifierUniqueAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupAlternateIdentifierUniqueAttribute)(nil)).Elem()
+}
+
+func (i GetGroupAlternateIdentifierUniqueAttributeArgs) ToGetGroupAlternateIdentifierUniqueAttributeOutput() GetGroupAlternateIdentifierUniqueAttributeOutput {
+	return i.ToGetGroupAlternateIdentifierUniqueAttributeOutputWithContext(context.Background())
+}
+
+func (i GetGroupAlternateIdentifierUniqueAttributeArgs) ToGetGroupAlternateIdentifierUniqueAttributeOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierUniqueAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierUniqueAttributeOutput)
+}
+
+func (i GetGroupAlternateIdentifierUniqueAttributeArgs) ToGetGroupAlternateIdentifierUniqueAttributePtrOutput() GetGroupAlternateIdentifierUniqueAttributePtrOutput {
+	return i.ToGetGroupAlternateIdentifierUniqueAttributePtrOutputWithContext(context.Background())
+}
+
+func (i GetGroupAlternateIdentifierUniqueAttributeArgs) ToGetGroupAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierUniqueAttributePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierUniqueAttributeOutput).ToGetGroupAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx)
+}
+
+// GetGroupAlternateIdentifierUniqueAttributePtrInput is an input type that accepts GetGroupAlternateIdentifierUniqueAttributeArgs, GetGroupAlternateIdentifierUniqueAttributePtr and GetGroupAlternateIdentifierUniqueAttributePtrOutput values.
+// You can construct a concrete instance of `GetGroupAlternateIdentifierUniqueAttributePtrInput` via:
+//
+//	        GetGroupAlternateIdentifierUniqueAttributeArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGroupAlternateIdentifierUniqueAttributePtrInput interface {
+	pulumi.Input
+
+	ToGetGroupAlternateIdentifierUniqueAttributePtrOutput() GetGroupAlternateIdentifierUniqueAttributePtrOutput
+	ToGetGroupAlternateIdentifierUniqueAttributePtrOutputWithContext(context.Context) GetGroupAlternateIdentifierUniqueAttributePtrOutput
+}
+
+type getGroupAlternateIdentifierUniqueAttributePtrType GetGroupAlternateIdentifierUniqueAttributeArgs
+
+func GetGroupAlternateIdentifierUniqueAttributePtr(v *GetGroupAlternateIdentifierUniqueAttributeArgs) GetGroupAlternateIdentifierUniqueAttributePtrInput {
+	return (*getGroupAlternateIdentifierUniqueAttributePtrType)(v)
+}
+
+func (*getGroupAlternateIdentifierUniqueAttributePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGroupAlternateIdentifierUniqueAttribute)(nil)).Elem()
+}
+
+func (i *getGroupAlternateIdentifierUniqueAttributePtrType) ToGetGroupAlternateIdentifierUniqueAttributePtrOutput() GetGroupAlternateIdentifierUniqueAttributePtrOutput {
+	return i.ToGetGroupAlternateIdentifierUniqueAttributePtrOutputWithContext(context.Background())
+}
+
+func (i *getGroupAlternateIdentifierUniqueAttributePtrType) ToGetGroupAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierUniqueAttributePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierUniqueAttributePtrOutput)
+}
+
+type GetGroupAlternateIdentifierUniqueAttributeOutput struct{ *pulumi.OutputState }
+
+func (GetGroupAlternateIdentifierUniqueAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupAlternateIdentifierUniqueAttribute)(nil)).Elem()
+}
+
+func (o GetGroupAlternateIdentifierUniqueAttributeOutput) ToGetGroupAlternateIdentifierUniqueAttributeOutput() GetGroupAlternateIdentifierUniqueAttributeOutput {
+	return o
+}
+
+func (o GetGroupAlternateIdentifierUniqueAttributeOutput) ToGetGroupAlternateIdentifierUniqueAttributeOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierUniqueAttributeOutput {
+	return o
+}
+
+func (o GetGroupAlternateIdentifierUniqueAttributeOutput) ToGetGroupAlternateIdentifierUniqueAttributePtrOutput() GetGroupAlternateIdentifierUniqueAttributePtrOutput {
+	return o.ToGetGroupAlternateIdentifierUniqueAttributePtrOutputWithContext(context.Background())
+}
+
+func (o GetGroupAlternateIdentifierUniqueAttributeOutput) ToGetGroupAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierUniqueAttributePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGroupAlternateIdentifierUniqueAttribute) *GetGroupAlternateIdentifierUniqueAttribute {
+		return &v
+	}).(GetGroupAlternateIdentifierUniqueAttributePtrOutput)
+}
+
+// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+func (o GetGroupAlternateIdentifierUniqueAttributeOutput) AttributePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAlternateIdentifierUniqueAttribute) string { return v.AttributePath }).(pulumi.StringOutput)
+}
+
+// Value for an attribute.
+func (o GetGroupAlternateIdentifierUniqueAttributeOutput) AttributeValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAlternateIdentifierUniqueAttribute) string { return v.AttributeValue }).(pulumi.StringOutput)
+}
+
+type GetGroupAlternateIdentifierUniqueAttributePtrOutput struct{ *pulumi.OutputState }
+
+func (GetGroupAlternateIdentifierUniqueAttributePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGroupAlternateIdentifierUniqueAttribute)(nil)).Elem()
+}
+
+func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) ToGetGroupAlternateIdentifierUniqueAttributePtrOutput() GetGroupAlternateIdentifierUniqueAttributePtrOutput {
+	return o
+}
+
+func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) ToGetGroupAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierUniqueAttributePtrOutput {
+	return o
+}
+
+func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) Elem() GetGroupAlternateIdentifierUniqueAttributeOutput {
+	return o.ApplyT(func(v *GetGroupAlternateIdentifierUniqueAttribute) GetGroupAlternateIdentifierUniqueAttribute {
+		if v != nil {
+			return *v
+		}
+		var ret GetGroupAlternateIdentifierUniqueAttribute
+		return ret
+	}).(GetGroupAlternateIdentifierUniqueAttributeOutput)
+}
+
+// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) AttributePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGroupAlternateIdentifierUniqueAttribute) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value for an attribute.
+func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) AttributeValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGroupAlternateIdentifierUniqueAttribute) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributeValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetGroupExternalId struct {
+	// The identifier issued to this resource by an external identity provider.
+	Id string `pulumi:"id"`
+	// The issuer for an external identifier.
+	Issuer string `pulumi:"issuer"`
+}
+
+// GetGroupExternalIdInput is an input type that accepts GetGroupExternalIdArgs and GetGroupExternalIdOutput values.
+// You can construct a concrete instance of `GetGroupExternalIdInput` via:
+//
+//	GetGroupExternalIdArgs{...}
+type GetGroupExternalIdInput interface {
+	pulumi.Input
+
+	ToGetGroupExternalIdOutput() GetGroupExternalIdOutput
+	ToGetGroupExternalIdOutputWithContext(context.Context) GetGroupExternalIdOutput
+}
+
+type GetGroupExternalIdArgs struct {
+	// The identifier issued to this resource by an external identity provider.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The issuer for an external identifier.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+}
+
+func (GetGroupExternalIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupExternalId)(nil)).Elem()
+}
+
+func (i GetGroupExternalIdArgs) ToGetGroupExternalIdOutput() GetGroupExternalIdOutput {
+	return i.ToGetGroupExternalIdOutputWithContext(context.Background())
+}
+
+func (i GetGroupExternalIdArgs) ToGetGroupExternalIdOutputWithContext(ctx context.Context) GetGroupExternalIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupExternalIdOutput)
+}
+
+// GetGroupExternalIdArrayInput is an input type that accepts GetGroupExternalIdArray and GetGroupExternalIdArrayOutput values.
+// You can construct a concrete instance of `GetGroupExternalIdArrayInput` via:
+//
+//	GetGroupExternalIdArray{ GetGroupExternalIdArgs{...} }
+type GetGroupExternalIdArrayInput interface {
+	pulumi.Input
+
+	ToGetGroupExternalIdArrayOutput() GetGroupExternalIdArrayOutput
+	ToGetGroupExternalIdArrayOutputWithContext(context.Context) GetGroupExternalIdArrayOutput
+}
+
+type GetGroupExternalIdArray []GetGroupExternalIdInput
+
+func (GetGroupExternalIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupExternalId)(nil)).Elem()
+}
+
+func (i GetGroupExternalIdArray) ToGetGroupExternalIdArrayOutput() GetGroupExternalIdArrayOutput {
+	return i.ToGetGroupExternalIdArrayOutputWithContext(context.Background())
+}
+
+func (i GetGroupExternalIdArray) ToGetGroupExternalIdArrayOutputWithContext(ctx context.Context) GetGroupExternalIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupExternalIdArrayOutput)
+}
+
+type GetGroupExternalIdOutput struct{ *pulumi.OutputState }
+
+func (GetGroupExternalIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupExternalId)(nil)).Elem()
+}
+
+func (o GetGroupExternalIdOutput) ToGetGroupExternalIdOutput() GetGroupExternalIdOutput {
+	return o
+}
+
+func (o GetGroupExternalIdOutput) ToGetGroupExternalIdOutputWithContext(ctx context.Context) GetGroupExternalIdOutput {
+	return o
+}
+
+// The identifier issued to this resource by an external identity provider.
+func (o GetGroupExternalIdOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupExternalId) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The issuer for an external identifier.
+func (o GetGroupExternalIdOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupExternalId) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+type GetGroupExternalIdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGroupExternalIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupExternalId)(nil)).Elem()
+}
+
+func (o GetGroupExternalIdArrayOutput) ToGetGroupExternalIdArrayOutput() GetGroupExternalIdArrayOutput {
+	return o
+}
+
+func (o GetGroupExternalIdArrayOutput) ToGetGroupExternalIdArrayOutputWithContext(ctx context.Context) GetGroupExternalIdArrayOutput {
+	return o
+}
+
+func (o GetGroupExternalIdArrayOutput) Index(i pulumi.IntInput) GetGroupExternalIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupExternalId {
+		return vs[0].([]GetGroupExternalId)[vs[1].(int)]
+	}).(GetGroupExternalIdOutput)
+}
+
 type GetGroupFilter struct {
-	// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+	// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
 	AttributePath string `pulumi:"attributePath"`
 	// Value for an attribute.
 	AttributeValue string `pulumi:"attributeValue"`
@@ -1093,7 +1669,7 @@ type GetGroupFilterInput interface {
 }
 
 type GetGroupFilterArgs struct {
-	// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+	// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
 	AttributePath pulumi.StringInput `pulumi:"attributePath"`
 	// Value for an attribute.
 	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
@@ -1111,29 +1687,45 @@ func (i GetGroupFilterArgs) ToGetGroupFilterOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupFilterOutput)
 }
 
-// GetGroupFilterArrayInput is an input type that accepts GetGroupFilterArray and GetGroupFilterArrayOutput values.
-// You can construct a concrete instance of `GetGroupFilterArrayInput` via:
+func (i GetGroupFilterArgs) ToGetGroupFilterPtrOutput() GetGroupFilterPtrOutput {
+	return i.ToGetGroupFilterPtrOutputWithContext(context.Background())
+}
+
+func (i GetGroupFilterArgs) ToGetGroupFilterPtrOutputWithContext(ctx context.Context) GetGroupFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupFilterOutput).ToGetGroupFilterPtrOutputWithContext(ctx)
+}
+
+// GetGroupFilterPtrInput is an input type that accepts GetGroupFilterArgs, GetGroupFilterPtr and GetGroupFilterPtrOutput values.
+// You can construct a concrete instance of `GetGroupFilterPtrInput` via:
 //
-//	GetGroupFilterArray{ GetGroupFilterArgs{...} }
-type GetGroupFilterArrayInput interface {
+//	        GetGroupFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGroupFilterPtrInput interface {
 	pulumi.Input
 
-	ToGetGroupFilterArrayOutput() GetGroupFilterArrayOutput
-	ToGetGroupFilterArrayOutputWithContext(context.Context) GetGroupFilterArrayOutput
+	ToGetGroupFilterPtrOutput() GetGroupFilterPtrOutput
+	ToGetGroupFilterPtrOutputWithContext(context.Context) GetGroupFilterPtrOutput
 }
 
-type GetGroupFilterArray []GetGroupFilterInput
+type getGroupFilterPtrType GetGroupFilterArgs
 
-func (GetGroupFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetGroupFilter)(nil)).Elem()
+func GetGroupFilterPtr(v *GetGroupFilterArgs) GetGroupFilterPtrInput {
+	return (*getGroupFilterPtrType)(v)
 }
 
-func (i GetGroupFilterArray) ToGetGroupFilterArrayOutput() GetGroupFilterArrayOutput {
-	return i.ToGetGroupFilterArrayOutputWithContext(context.Background())
+func (*getGroupFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGroupFilter)(nil)).Elem()
 }
 
-func (i GetGroupFilterArray) ToGetGroupFilterArrayOutputWithContext(ctx context.Context) GetGroupFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetGroupFilterArrayOutput)
+func (i *getGroupFilterPtrType) ToGetGroupFilterPtrOutput() GetGroupFilterPtrOutput {
+	return i.ToGetGroupFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *getGroupFilterPtrType) ToGetGroupFilterPtrOutputWithContext(ctx context.Context) GetGroupFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupFilterPtrOutput)
 }
 
 type GetGroupFilterOutput struct{ *pulumi.OutputState }
@@ -1150,7 +1742,17 @@ func (o GetGroupFilterOutput) ToGetGroupFilterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+func (o GetGroupFilterOutput) ToGetGroupFilterPtrOutput() GetGroupFilterPtrOutput {
+	return o.ToGetGroupFilterPtrOutputWithContext(context.Background())
+}
+
+func (o GetGroupFilterOutput) ToGetGroupFilterPtrOutputWithContext(ctx context.Context) GetGroupFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGroupFilter) *GetGroupFilter {
+		return &v
+	}).(GetGroupFilterPtrOutput)
+}
+
+// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
 func (o GetGroupFilterOutput) AttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupFilter) string { return v.AttributePath }).(pulumi.StringOutput)
 }
@@ -1160,24 +1762,48 @@ func (o GetGroupFilterOutput) AttributeValue() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupFilter) string { return v.AttributeValue }).(pulumi.StringOutput)
 }
 
-type GetGroupFilterArrayOutput struct{ *pulumi.OutputState }
+type GetGroupFilterPtrOutput struct{ *pulumi.OutputState }
 
-func (GetGroupFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetGroupFilter)(nil)).Elem()
+func (GetGroupFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGroupFilter)(nil)).Elem()
 }
 
-func (o GetGroupFilterArrayOutput) ToGetGroupFilterArrayOutput() GetGroupFilterArrayOutput {
+func (o GetGroupFilterPtrOutput) ToGetGroupFilterPtrOutput() GetGroupFilterPtrOutput {
 	return o
 }
 
-func (o GetGroupFilterArrayOutput) ToGetGroupFilterArrayOutputWithContext(ctx context.Context) GetGroupFilterArrayOutput {
+func (o GetGroupFilterPtrOutput) ToGetGroupFilterPtrOutputWithContext(ctx context.Context) GetGroupFilterPtrOutput {
 	return o
 }
 
-func (o GetGroupFilterArrayOutput) Index(i pulumi.IntInput) GetGroupFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupFilter {
-		return vs[0].([]GetGroupFilter)[vs[1].(int)]
+func (o GetGroupFilterPtrOutput) Elem() GetGroupFilterOutput {
+	return o.ApplyT(func(v *GetGroupFilter) GetGroupFilter {
+		if v != nil {
+			return *v
+		}
+		var ret GetGroupFilter
+		return ret
 	}).(GetGroupFilterOutput)
+}
+
+// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+func (o GetGroupFilterPtrOutput) AttributePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGroupFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value for an attribute.
+func (o GetGroupFilterPtrOutput) AttributeValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGroupFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributeValue
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetUserAddress struct {
@@ -2457,8 +3083,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserNamePtrInput)(nil)).Elem(), UserNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneNumbersInput)(nil)).Elem(), UserPhoneNumbersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneNumbersPtrInput)(nil)).Elem(), UserPhoneNumbersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupAlternateIdentifierInput)(nil)).Elem(), GetGroupAlternateIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupAlternateIdentifierPtrInput)(nil)).Elem(), GetGroupAlternateIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupAlternateIdentifierExternalIdInput)(nil)).Elem(), GetGroupAlternateIdentifierExternalIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupAlternateIdentifierExternalIdPtrInput)(nil)).Elem(), GetGroupAlternateIdentifierExternalIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupAlternateIdentifierUniqueAttributeInput)(nil)).Elem(), GetGroupAlternateIdentifierUniqueAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupAlternateIdentifierUniqueAttributePtrInput)(nil)).Elem(), GetGroupAlternateIdentifierUniqueAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupExternalIdInput)(nil)).Elem(), GetGroupExternalIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupExternalIdArrayInput)(nil)).Elem(), GetGroupExternalIdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupFilterInput)(nil)).Elem(), GetGroupFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupFilterArrayInput)(nil)).Elem(), GetGroupFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupFilterPtrInput)(nil)).Elem(), GetGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAddressInput)(nil)).Elem(), GetUserAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAddressArrayInput)(nil)).Elem(), GetUserAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAlternateIdentifierInput)(nil)).Elem(), GetUserAlternateIdentifierArgs{})
@@ -2489,8 +3123,16 @@ func init() {
 	pulumi.RegisterOutputType(UserNamePtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneNumbersOutput{})
 	pulumi.RegisterOutputType(UserPhoneNumbersPtrOutput{})
+	pulumi.RegisterOutputType(GetGroupAlternateIdentifierOutput{})
+	pulumi.RegisterOutputType(GetGroupAlternateIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(GetGroupAlternateIdentifierExternalIdOutput{})
+	pulumi.RegisterOutputType(GetGroupAlternateIdentifierExternalIdPtrOutput{})
+	pulumi.RegisterOutputType(GetGroupAlternateIdentifierUniqueAttributeOutput{})
+	pulumi.RegisterOutputType(GetGroupAlternateIdentifierUniqueAttributePtrOutput{})
+	pulumi.RegisterOutputType(GetGroupExternalIdOutput{})
+	pulumi.RegisterOutputType(GetGroupExternalIdArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupFilterOutput{})
-	pulumi.RegisterOutputType(GetGroupFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetGroupFilterPtrOutput{})
 	pulumi.RegisterOutputType(GetUserAddressOutput{})
 	pulumi.RegisterOutputType(GetUserAddressArrayOutput{})
 	pulumi.RegisterOutputType(GetUserAlternateIdentifierOutput{})

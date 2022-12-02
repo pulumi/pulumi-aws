@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { DatabaseArgs, DatabaseState } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
 export { TableArgs, TableState } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
-
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 utilities.lazyLoad(exports, ["Table"], () => require("./table"));
+
 
 const _module = {
     version: utilities.getVersion(),

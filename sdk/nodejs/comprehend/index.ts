@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { DocumentClassifierArgs, DocumentClassifierState } from "./documentClassifier";
 export type DocumentClassifier = import("./documentClassifier").DocumentClassifier;
 export const DocumentClassifier: typeof import("./documentClassifier").DocumentClassifier = null as any;
+utilities.lazyLoad(exports, ["DocumentClassifier"], () => require("./documentClassifier"));
 
 export { EntityRecognizerArgs, EntityRecognizerState } from "./entityRecognizer";
 export type EntityRecognizer = import("./entityRecognizer").EntityRecognizer;
 export const EntityRecognizer: typeof import("./entityRecognizer").EntityRecognizer = null as any;
-
-utilities.lazyLoad(exports, ["DocumentClassifier"], () => require("./documentClassifier"));
 utilities.lazyLoad(exports, ["EntityRecognizer"], () => require("./entityRecognizer"));
+
 
 const _module = {
     version: utilities.getVersion(),

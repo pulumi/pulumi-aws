@@ -13,9 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ses.EmailIdentity("example", {
- *     email: "email@example.com",
- * });
+ * const example = new aws.ses.EmailIdentity("example", {email: "email@example.com"});
  * ```
  *
  * ## Import
@@ -59,7 +57,7 @@ export class EmailIdentity extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The email address to assign to SES
+     * The email address to assign to SES.
      */
     public readonly email!: pulumi.Output<string>;
 
@@ -100,7 +98,7 @@ export interface EmailIdentityState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The email address to assign to SES
+     * The email address to assign to SES.
      */
     email?: pulumi.Input<string>;
 }
@@ -110,7 +108,7 @@ export interface EmailIdentityState {
  */
 export interface EmailIdentityArgs {
     /**
-     * The email address to assign to SES
+     * The email address to assign to SES.
      */
     email: pulumi.Input<string>;
 }

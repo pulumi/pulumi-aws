@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Iam
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSessionContextResult> InvokeAsync(GetSessionContextArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSessionContextResult>("aws:iam/getSessionContext:getSessionContext", args ?? new GetSessionContextArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSessionContextResult>("aws:iam/getSessionContext:getSessionContext", args ?? new GetSessionContextArgs(), options.WithDefaults());
 
         /// <summary>
         /// This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Iam
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSessionContextResult> Invoke(GetSessionContextInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSessionContextResult>("aws:iam/getSessionContext:getSessionContext", args ?? new GetSessionContextInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSessionContextResult>("aws:iam/getSessionContext:getSessionContext", args ?? new GetSessionContextInvokeArgs(), options.WithDefaults());
     }
 
 

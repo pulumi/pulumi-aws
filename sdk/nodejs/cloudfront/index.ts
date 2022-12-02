@@ -8,113 +8,113 @@ import * as utilities from "../utilities";
 export { CachePolicyArgs, CachePolicyState } from "./cachePolicy";
 export type CachePolicy = import("./cachePolicy").CachePolicy;
 export const CachePolicy: typeof import("./cachePolicy").CachePolicy = null as any;
+utilities.lazyLoad(exports, ["CachePolicy"], () => require("./cachePolicy"));
 
 export { DistributionArgs, DistributionState } from "./distribution";
 export type Distribution = import("./distribution").Distribution;
 export const Distribution: typeof import("./distribution").Distribution = null as any;
+utilities.lazyLoad(exports, ["Distribution"], () => require("./distribution"));
 
 export { FieldLevelEncryptionConfigArgs, FieldLevelEncryptionConfigState } from "./fieldLevelEncryptionConfig";
 export type FieldLevelEncryptionConfig = import("./fieldLevelEncryptionConfig").FieldLevelEncryptionConfig;
 export const FieldLevelEncryptionConfig: typeof import("./fieldLevelEncryptionConfig").FieldLevelEncryptionConfig = null as any;
+utilities.lazyLoad(exports, ["FieldLevelEncryptionConfig"], () => require("./fieldLevelEncryptionConfig"));
 
 export { FieldLevelEncryptionProfileArgs, FieldLevelEncryptionProfileState } from "./fieldLevelEncryptionProfile";
 export type FieldLevelEncryptionProfile = import("./fieldLevelEncryptionProfile").FieldLevelEncryptionProfile;
 export const FieldLevelEncryptionProfile: typeof import("./fieldLevelEncryptionProfile").FieldLevelEncryptionProfile = null as any;
+utilities.lazyLoad(exports, ["FieldLevelEncryptionProfile"], () => require("./fieldLevelEncryptionProfile"));
 
 export { FunctionArgs, FunctionState } from "./function";
 export type Function = import("./function").Function;
 export const Function: typeof import("./function").Function = null as any;
+utilities.lazyLoad(exports, ["Function"], () => require("./function"));
 
 export { GetCachePolicyArgs, GetCachePolicyResult, GetCachePolicyOutputArgs } from "./getCachePolicy";
 export const getCachePolicy: typeof import("./getCachePolicy").getCachePolicy = null as any;
 export const getCachePolicyOutput: typeof import("./getCachePolicy").getCachePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getCachePolicy","getCachePolicyOutput"], () => require("./getCachePolicy"));
 
 export { GetDistributionArgs, GetDistributionResult, GetDistributionOutputArgs } from "./getDistribution";
 export const getDistribution: typeof import("./getDistribution").getDistribution = null as any;
 export const getDistributionOutput: typeof import("./getDistribution").getDistributionOutput = null as any;
+utilities.lazyLoad(exports, ["getDistribution","getDistributionOutput"], () => require("./getDistribution"));
 
 export { GetFunctionArgs, GetFunctionResult, GetFunctionOutputArgs } from "./getFunction";
 export const getFunction: typeof import("./getFunction").getFunction = null as any;
 export const getFunctionOutput: typeof import("./getFunction").getFunctionOutput = null as any;
+utilities.lazyLoad(exports, ["getFunction","getFunctionOutput"], () => require("./getFunction"));
 
 export { GetLogDeliveryCanonicalUserIdArgs, GetLogDeliveryCanonicalUserIdResult, GetLogDeliveryCanonicalUserIdOutputArgs } from "./getLogDeliveryCanonicalUserId";
 export const getLogDeliveryCanonicalUserId: typeof import("./getLogDeliveryCanonicalUserId").getLogDeliveryCanonicalUserId = null as any;
 export const getLogDeliveryCanonicalUserIdOutput: typeof import("./getLogDeliveryCanonicalUserId").getLogDeliveryCanonicalUserIdOutput = null as any;
+utilities.lazyLoad(exports, ["getLogDeliveryCanonicalUserId","getLogDeliveryCanonicalUserIdOutput"], () => require("./getLogDeliveryCanonicalUserId"));
 
 export { GetOriginAccessIdentitiesArgs, GetOriginAccessIdentitiesResult, GetOriginAccessIdentitiesOutputArgs } from "./getOriginAccessIdentities";
 export const getOriginAccessIdentities: typeof import("./getOriginAccessIdentities").getOriginAccessIdentities = null as any;
 export const getOriginAccessIdentitiesOutput: typeof import("./getOriginAccessIdentities").getOriginAccessIdentitiesOutput = null as any;
+utilities.lazyLoad(exports, ["getOriginAccessIdentities","getOriginAccessIdentitiesOutput"], () => require("./getOriginAccessIdentities"));
 
 export { GetOriginAccessIdentityArgs, GetOriginAccessIdentityResult, GetOriginAccessIdentityOutputArgs } from "./getOriginAccessIdentity";
 export const getOriginAccessIdentity: typeof import("./getOriginAccessIdentity").getOriginAccessIdentity = null as any;
 export const getOriginAccessIdentityOutput: typeof import("./getOriginAccessIdentity").getOriginAccessIdentityOutput = null as any;
+utilities.lazyLoad(exports, ["getOriginAccessIdentity","getOriginAccessIdentityOutput"], () => require("./getOriginAccessIdentity"));
 
 export { GetOriginRequestPolicyArgs, GetOriginRequestPolicyResult, GetOriginRequestPolicyOutputArgs } from "./getOriginRequestPolicy";
 export const getOriginRequestPolicy: typeof import("./getOriginRequestPolicy").getOriginRequestPolicy = null as any;
 export const getOriginRequestPolicyOutput: typeof import("./getOriginRequestPolicy").getOriginRequestPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getOriginRequestPolicy","getOriginRequestPolicyOutput"], () => require("./getOriginRequestPolicy"));
 
 export { GetRealtimeLogConfigArgs, GetRealtimeLogConfigResult, GetRealtimeLogConfigOutputArgs } from "./getRealtimeLogConfig";
 export const getRealtimeLogConfig: typeof import("./getRealtimeLogConfig").getRealtimeLogConfig = null as any;
 export const getRealtimeLogConfigOutput: typeof import("./getRealtimeLogConfig").getRealtimeLogConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getRealtimeLogConfig","getRealtimeLogConfigOutput"], () => require("./getRealtimeLogConfig"));
 
 export { GetResponseHeadersPolicyArgs, GetResponseHeadersPolicyResult, GetResponseHeadersPolicyOutputArgs } from "./getResponseHeadersPolicy";
 export const getResponseHeadersPolicy: typeof import("./getResponseHeadersPolicy").getResponseHeadersPolicy = null as any;
 export const getResponseHeadersPolicyOutput: typeof import("./getResponseHeadersPolicy").getResponseHeadersPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getResponseHeadersPolicy","getResponseHeadersPolicyOutput"], () => require("./getResponseHeadersPolicy"));
 
 export { KeyGroupArgs, KeyGroupState } from "./keyGroup";
 export type KeyGroup = import("./keyGroup").KeyGroup;
 export const KeyGroup: typeof import("./keyGroup").KeyGroup = null as any;
+utilities.lazyLoad(exports, ["KeyGroup"], () => require("./keyGroup"));
 
 export { MonitoringSubscriptionArgs, MonitoringSubscriptionState } from "./monitoringSubscription";
 export type MonitoringSubscription = import("./monitoringSubscription").MonitoringSubscription;
 export const MonitoringSubscription: typeof import("./monitoringSubscription").MonitoringSubscription = null as any;
+utilities.lazyLoad(exports, ["MonitoringSubscription"], () => require("./monitoringSubscription"));
 
 export { OriginAccessControlArgs, OriginAccessControlState } from "./originAccessControl";
 export type OriginAccessControl = import("./originAccessControl").OriginAccessControl;
 export const OriginAccessControl: typeof import("./originAccessControl").OriginAccessControl = null as any;
+utilities.lazyLoad(exports, ["OriginAccessControl"], () => require("./originAccessControl"));
 
 export { OriginAccessIdentityArgs, OriginAccessIdentityState } from "./originAccessIdentity";
 export type OriginAccessIdentity = import("./originAccessIdentity").OriginAccessIdentity;
 export const OriginAccessIdentity: typeof import("./originAccessIdentity").OriginAccessIdentity = null as any;
+utilities.lazyLoad(exports, ["OriginAccessIdentity"], () => require("./originAccessIdentity"));
 
 export { OriginRequestPolicyArgs, OriginRequestPolicyState } from "./originRequestPolicy";
 export type OriginRequestPolicy = import("./originRequestPolicy").OriginRequestPolicy;
 export const OriginRequestPolicy: typeof import("./originRequestPolicy").OriginRequestPolicy = null as any;
+utilities.lazyLoad(exports, ["OriginRequestPolicy"], () => require("./originRequestPolicy"));
 
 export { PublicKeyArgs, PublicKeyState } from "./publicKey";
 export type PublicKey = import("./publicKey").PublicKey;
 export const PublicKey: typeof import("./publicKey").PublicKey = null as any;
+utilities.lazyLoad(exports, ["PublicKey"], () => require("./publicKey"));
 
 export { RealtimeLogConfigArgs, RealtimeLogConfigState } from "./realtimeLogConfig";
 export type RealtimeLogConfig = import("./realtimeLogConfig").RealtimeLogConfig;
 export const RealtimeLogConfig: typeof import("./realtimeLogConfig").RealtimeLogConfig = null as any;
+utilities.lazyLoad(exports, ["RealtimeLogConfig"], () => require("./realtimeLogConfig"));
 
 export { ResponseHeadersPolicyArgs, ResponseHeadersPolicyState } from "./responseHeadersPolicy";
 export type ResponseHeadersPolicy = import("./responseHeadersPolicy").ResponseHeadersPolicy;
 export const ResponseHeadersPolicy: typeof import("./responseHeadersPolicy").ResponseHeadersPolicy = null as any;
-
-utilities.lazyLoad(exports, ["CachePolicy"], () => require("./cachePolicy"));
-utilities.lazyLoad(exports, ["Distribution"], () => require("./distribution"));
-utilities.lazyLoad(exports, ["FieldLevelEncryptionConfig"], () => require("./fieldLevelEncryptionConfig"));
-utilities.lazyLoad(exports, ["FieldLevelEncryptionProfile"], () => require("./fieldLevelEncryptionProfile"));
-utilities.lazyLoad(exports, ["Function"], () => require("./function"));
-utilities.lazyLoad(exports, ["getCachePolicy","getCachePolicyOutput"], () => require("./getCachePolicy"));
-utilities.lazyLoad(exports, ["getDistribution","getDistributionOutput"], () => require("./getDistribution"));
-utilities.lazyLoad(exports, ["getFunction","getFunctionOutput"], () => require("./getFunction"));
-utilities.lazyLoad(exports, ["getLogDeliveryCanonicalUserId","getLogDeliveryCanonicalUserIdOutput"], () => require("./getLogDeliveryCanonicalUserId"));
-utilities.lazyLoad(exports, ["getOriginAccessIdentities","getOriginAccessIdentitiesOutput"], () => require("./getOriginAccessIdentities"));
-utilities.lazyLoad(exports, ["getOriginAccessIdentity","getOriginAccessIdentityOutput"], () => require("./getOriginAccessIdentity"));
-utilities.lazyLoad(exports, ["getOriginRequestPolicy","getOriginRequestPolicyOutput"], () => require("./getOriginRequestPolicy"));
-utilities.lazyLoad(exports, ["getRealtimeLogConfig","getRealtimeLogConfigOutput"], () => require("./getRealtimeLogConfig"));
-utilities.lazyLoad(exports, ["getResponseHeadersPolicy","getResponseHeadersPolicyOutput"], () => require("./getResponseHeadersPolicy"));
-utilities.lazyLoad(exports, ["KeyGroup"], () => require("./keyGroup"));
-utilities.lazyLoad(exports, ["MonitoringSubscription"], () => require("./monitoringSubscription"));
-utilities.lazyLoad(exports, ["OriginAccessControl"], () => require("./originAccessControl"));
-utilities.lazyLoad(exports, ["OriginAccessIdentity"], () => require("./originAccessIdentity"));
-utilities.lazyLoad(exports, ["OriginRequestPolicy"], () => require("./originRequestPolicy"));
-utilities.lazyLoad(exports, ["PublicKey"], () => require("./publicKey"));
-utilities.lazyLoad(exports, ["RealtimeLogConfig"], () => require("./realtimeLogConfig"));
 utilities.lazyLoad(exports, ["ResponseHeadersPolicy"], () => require("./responseHeadersPolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),

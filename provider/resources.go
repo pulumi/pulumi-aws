@@ -84,6 +84,7 @@ const (
 	cognitoMod                  = "Cognito"                  // Cognito
 	comprehendMod               = "Comprehend"               // Comprehend
 	connectMod                  = "Connect"                  // Connect
+	controlTowerMod             = "ControlTower"             // Control Tower
 	costExplorerMod             = "CostExplorer"             // CostExplorer
 	curMod                      = "Cur"                      // Cost and Usage Report
 	cfgMod                      = "Cfg"                      // Resource Config
@@ -135,6 +136,7 @@ const (
 	inspector2Mod               = "Inspector2"               // Inspector V2
 	iotMod                      = "Iot"                      // Internet of Things (IoT)
 	ivsMod                      = "Ivs"                      // Interactive Video Service
+	ivsChatMod                  = "IvsChat"                  // Interactive Video Service Chat
 	kendraMod                   = "Kendra"                   // Kendra
 	keyspacesMod                = "Keyspaces"                // Keyspaces
 	kinesisMod                  = "Kinesis"                  // Kinesis
@@ -182,6 +184,7 @@ const (
 	route53DomainsMod           = "Route53Domains"           // Route 53 Domains
 	rumMod                      = "Rum"                      // RUM
 	sagemakerMod                = "Sagemaker"                // Sagemaker
+	schedulerMod                = "Scheduler"                // EventBridge Scheduler
 	schemasMod                  = "Schemas"                  // Schemas
 	securityhubMod              = "SecurityHub"              // SecurityHub
 	serverlessRepositoryMod     = "ServerlessRepository"     // ServerlessRepository
@@ -1010,11 +1013,12 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_cloudwatch_query_definition":      {Tok: awsResource(cloudwatchMod, "QueryDefinition")},
-			"aws_cloudwatch_metric_stream":         {Tok: awsResource(cloudwatchMod, "MetricStream")},
-			"aws_cloudwatch_event_api_destination": {Tok: awsResource(cloudwatchMod, "EventApiDestination")},
-			"aws_cloudwatch_event_connection":      {Tok: awsResource(cloudwatchMod, "EventConnection")},
-			"aws_cloudwatch_event_bus_policy":      {Tok: awsResource(cloudwatchMod, "EventBusPolicy")},
+			"aws_cloudwatch_query_definition":           {Tok: awsResource(cloudwatchMod, "QueryDefinition")},
+			"aws_cloudwatch_metric_stream":              {Tok: awsResource(cloudwatchMod, "MetricStream")},
+			"aws_cloudwatch_event_api_destination":      {Tok: awsResource(cloudwatchMod, "EventApiDestination")},
+			"aws_cloudwatch_event_connection":           {Tok: awsResource(cloudwatchMod, "EventConnection")},
+			"aws_cloudwatch_event_bus_policy":           {Tok: awsResource(cloudwatchMod, "EventBusPolicy")},
+			"aws_cloudwatch_log_data_protection_policy": {Tok: awsResource(cloudwatchMod, "LogDataProtectionPolicy")},
 			// CodeBuild
 			"aws_codebuild_project":           {Tok: awsResource(codebuildMod, "Project")},
 			"aws_codebuild_webhook":           {Tok: awsResource(codebuildMod, "Webhook")},
@@ -1800,6 +1804,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Cloudwatch Evidently
 			"aws_evidently_project": {Tok: awsResource(evidentlyMod, "Project")},
 			"aws_evidently_segment": {Tok: awsResource(evidentlyMod, "Segment")},
+			"aws_evidently_feature": {Tok: awsResource(evidentlyMod, "Feature")},
 
 			// FSX
 			"aws_fsx_backup":                        {Tok: awsResource(fsxMod, "Backup")},
@@ -2162,6 +2167,11 @@ func Provider() tfbridge.ProviderInfo {
 			// IVS
 			"aws_ivs_playback_key_pair":       {Tok: awsResource(ivsMod, "PlaybackKeyPair")},
 			"aws_ivs_recording_configuration": {Tok: awsResource(ivsMod, "RecordingConfiguration")},
+			"aws_ivs_channel":                 {Tok: awsResource(ivsMod, "Channel")},
+
+			// IVS Chat
+			"aws_ivschat_logging_configuration": {Tok: awsResource(ivsChatMod, "LoggingConfiguration")},
+			"aws_ivschat_room":                  {Tok: awsResource(ivsChatMod, "Room")},
 
 			// Kendra
 			"aws_kendra_index":                        {Tok: awsResource(kendraMod, "Index")},
@@ -2417,6 +2427,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_networkmanager_vpc_attachment":                           {Tok: awsResource(networkManagerMod, "VpcAttachment")},
 			"aws_networkmanager_transit_gateway_peering":                  {Tok: awsResource(networkManagerMod, "TransitGatewayPeering")},
 			"aws_networkmanager_transit_gateway_route_table_attachment":   {Tok: awsResource(networkManagerMod, "TransitGatewayRouteTableAttachment")},
+			"aws_networkmanager_connect_attachment":                       {Tok: awsResource(networkManagerMod, "ConnectAttachment")},
+
 			// OpenSearch
 			"aws_opensearch_domain": {
 				Tok: awsResource(opensearchMod, "Domain"),
@@ -2424,8 +2436,11 @@ func Provider() tfbridge.ProviderInfo {
 					"domain_name": tfbridge.AutoName("domainName", 255, "-"),
 				},
 			},
-			"aws_opensearch_domain_policy":       {Tok: awsResource(opensearchMod, "DomainPolicy")},
-			"aws_opensearch_domain_saml_options": {Tok: awsResource(opensearchMod, "DomainSamlOptions")},
+			"aws_opensearch_domain_policy":               {Tok: awsResource(opensearchMod, "DomainPolicy")},
+			"aws_opensearch_domain_saml_options":         {Tok: awsResource(opensearchMod, "DomainSamlOptions")},
+			"aws_opensearch_inbound_connection_accepter": {Tok: awsResource(opensearchMod, "InboundConnectionAccepter")},
+			"aws_opensearch_outbound_connection":         {Tok: awsResource(opensearchMod, "OutboundConnection")},
+
 			// OpsWorks
 			"aws_opsworks_application": {Tok: awsResource(opsworksMod, "Application")},
 			"aws_opsworks_stack": {
@@ -2634,6 +2649,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshiftserverless_snapshot":        {Tok: awsResource(redshiftServerlessMod, "Snapshot")},
 			"aws_redshiftserverless_usage_limit":     {Tok: awsResource(redshiftServerlessMod, "UsageLimit")},
 			"aws_redshiftserverless_workgroup":       {Tok: awsResource(redshiftServerlessMod, "Workgroup")},
+			"aws_redshiftserverless_resource_policy": {Tok: awsResource(redshiftServerlessMod, "ResourcePolicy")},
 			// Resource Groups
 			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Roles Anywhere
@@ -2736,9 +2752,10 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_sagemaker_project": {Tok: awsResource(sagemakerMod, "Project")},
 			// Schemas
-			"aws_schemas_discoverer": {Tok: awsResource(schemasMod, "Discoverer")},
-			"aws_schemas_registry":   {Tok: awsResource(schemasMod, "Registry")},
-			"aws_schemas_schema":     {Tok: awsResource(schemasMod, "Schema")},
+			"aws_schemas_discoverer":      {Tok: awsResource(schemasMod, "Discoverer")},
+			"aws_schemas_registry":        {Tok: awsResource(schemasMod, "Registry")},
+			"aws_schemas_registry_policy": {Tok: awsResource(schemasMod, "RegistryPolicy")},
+			"aws_schemas_schema":          {Tok: awsResource(schemasMod, "Schema")},
 			// Secrets Manager
 			"aws_secretsmanager_secret":          {Tok: awsResource(secretsmanagerMod, "Secret")},
 			"aws_secretsmanager_secret_version":  {Tok: awsResource(secretsmanagerMod, "SecretVersion")},
@@ -2799,10 +2816,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_event_destination":            {Tok: awsResource(sesMod, "EventDestination")},
 			"aws_ses_template":                     {Tok: awsResource(sesMod, "Template")},
 
-			"aws_sesv2_configuration_set":                  {Tok: awsResource(sesV2Mod, "ConfigurationSet")},
-			"aws_sesv2_dedicated_ip_assignment":            {Tok: awsResource(sesV2Mod, "DedicatedIpAssignment")},
-			"aws_sesv2_dedicated_ip_pool":                  {Tok: awsResource(sesV2Mod, "DedicatedIpPool")},
-			"aws_sesv2_email_identity_feedback_attributes": {Tok: awsResource(sesV2Mod, "EmailIdentityFeedbackAttributes")},
+			"aws_sesv2_configuration_set":                   {Tok: awsResource(sesV2Mod, "ConfigurationSet")},
+			"aws_sesv2_dedicated_ip_assignment":             {Tok: awsResource(sesV2Mod, "DedicatedIpAssignment")},
+			"aws_sesv2_dedicated_ip_pool":                   {Tok: awsResource(sesV2Mod, "DedicatedIpPool")},
+			"aws_sesv2_email_identity_feedback_attributes":  {Tok: awsResource(sesV2Mod, "EmailIdentityFeedbackAttributes")},
+			"aws_sesv2_email_identity_mail_from_attributes": {Tok: awsResource(sesV2Mod, "EmailIdentityMailFromAttributes")},
 			"aws_sesv2_email_identity": {
 				Tok: awsResource(sesV2Mod, "EmailIdentity"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -3547,6 +3565,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appconfig_environment":                  {Tok: awsResource(appConfigMod, "Environment")},
 			"aws_appconfig_hosted_configuration_version": {Tok: awsResource(appConfigMod, "HostedConfigurationVersion")},
 			"aws_appconfig_deployment":                   {Tok: awsResource(appConfigMod, "Deployment")},
+			"aws_appconfig_extension":                    {Tok: awsResource(appConfigMod, "Extension")},
+			"aws_appconfig_extension_association":        {Tok: awsResource(appConfigMod, "ExtensionAssociation")},
 
 			// AppIntegrations
 			"aws_appintegrations_event_integration": {Tok: awsResource(appConfigMod, "EventIntegration")},
@@ -3574,6 +3594,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_apprunner_vpc_connector":                      {Tok: awsResource(appRunnerMod, "VpcConnector")},
 			"aws_apprunner_vpc_ingress_connection":             {Tok: awsResource(appRunnerMod, "VpcIngressConnection")},
 			"aws_apprunner_observability_configuration":        {Tok: awsResource(appRunnerMod, "ObservabilityConfiguration")},
+
+			// scheduler
+			"aws_scheduler_schedule":       {Tok: awsResource(schedulerMod, "Schedule")},
+			"aws_scheduler_schedule_group": {Tok: awsResource(schedulerMod, "ScheduleGroup")},
+
+			// controlTower
+			"aws_controltower_control": {Tok: awsResource(controlTowerMod, "ControlTowerControl")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws:index/Region:Region": {
@@ -5108,6 +5135,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_pricing_product": {Tok: awsDataSource(pricingMod, "getProduct")},
 			// RDS
 			"aws_rds_cluster":                    {Tok: awsDataSource(rdsMod, "getCluster")},
+			"aws_rds_clusters":                   {Tok: awsDataSource(rdsMod, "getClusters")},
 			"aws_db_cluster_snapshot":            {Tok: awsDataSource(rdsMod, "getClusterSnapshot")},
 			"aws_db_event_categories":            {Tok: awsDataSource(rdsMod, "getEventCategories")},
 			"aws_db_instance":                    {Tok: awsDataSource(rdsMod, "getInstance")},
@@ -5126,6 +5154,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshift_orderable_cluster":   {Tok: awsDataSource(redshiftMod, "getOrderableCluster")},
 			"aws_redshift_subnet_group":        {Tok: awsDataSource(redshiftMod, "getSubnetGroup")},
 			"aws_redshift_cluster_credentials": {Tok: awsDataSource(redshiftMod, "getClusterCredentials")},
+			// RedShift Serverless
+			"aws_redshiftserverless_credentials": {Tok: awsDataSource(redshiftServerlessMod, "getCredentials")},
 			// Route53
 			"aws_route53_zone":                                     {Tok: awsDataSource(route53Mod, "getZone")},
 			"aws_route53_delegation_set":                           {Tok: awsDataSource(route53Mod, "getDelegationSet")},
@@ -5157,7 +5187,8 @@ func Provider() tfbridge.ProviderInfo {
 			// SNS
 			"aws_sns_topic": {Tok: awsDataSource(snsMod, "getTopic")},
 			// SQS
-			"aws_sqs_queue": {Tok: awsDataSource(sqsMod, "getQueue")},
+			"aws_sqs_queue":  {Tok: awsDataSource(sqsMod, "getQueue")},
+			"aws_sqs_queues": {Tok: awsDataSource(sqsMod, "getQueues")},
 			// SSM
 			"aws_ssm_document":            {Tok: awsDataSource(ssmMod, "getDocument")},
 			"aws_ssm_parameter":           {Tok: awsDataSource(ssmMod, "getParameter")},
@@ -5345,6 +5376,12 @@ func Provider() tfbridge.ProviderInfo {
 
 			// SES v2
 			"aws_sesv2_dedicated_ip_pool": {Tok: awsDataSource(sesV2Mod, "getDedicatedIpPool")},
+
+			// Control Tower
+			"aws_controltower_controls": {Tok: awsDataSource(controlTowerMod, "getControls")},
+
+			// Interactive Video Service
+			"aws_ivs_stream_key": {Tok: awsDataSource(ivsMod, "getStreamKey")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

@@ -175,6 +175,10 @@ namespace Pulumi.Aws.Fsx
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "svmAdminPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -223,7 +227,16 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? RootVolumeSecurityStyle { get; set; }
 
         [Input("svmAdminPassword")]
-        public Input<string>? SvmAdminPassword { get; set; }
+        private Input<string>? _svmAdminPassword;
+        public Input<string>? SvmAdminPassword
+        {
+            get => _svmAdminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _svmAdminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -294,7 +307,16 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Subtype { get; set; }
 
         [Input("svmAdminPassword")]
-        public Input<string>? SvmAdminPassword { get; set; }
+        private Input<string>? _svmAdminPassword;
+        public Input<string>? SvmAdminPassword
+        {
+            get => _svmAdminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _svmAdminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

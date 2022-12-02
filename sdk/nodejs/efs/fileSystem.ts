@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.efs.FileSystem("foo", {
- *     tags: {
- *         Name: "MyProduct",
- *     },
- * });
+ * const foo = new aws.efs.FileSystem("foo", {tags: {
+ *     Name: "MyProduct",
+ * }});
  * ```
  * ### Using lifecycle policy
  *
@@ -29,11 +27,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooWithLifecylePolicy = new aws.efs.FileSystem("foo_with_lifecyle_policy", {
- *     lifecyclePolicies: [{
- *         transitionToIa: "AFTER_30_DAYS",
- *     }],
- * });
+ * const fooWithLifecylePolicy = new aws.efs.FileSystem("fooWithLifecylePolicy", {lifecyclePolicies: [{
+ *     transitionToIa: "AFTER_30_DAYS",
+ * }]});
  * ```
  *
  * ## Import
@@ -136,7 +132,7 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
+     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */
     public readonly throughputMode!: pulumi.Output<string | undefined>;
 
@@ -261,7 +257,7 @@ export interface FileSystemState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
+     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */
     throughputMode?: pulumi.Input<string>;
 }
@@ -306,7 +302,7 @@ export interface FileSystemArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
+     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */
     throughputMode?: pulumi.Input<string>;
 }

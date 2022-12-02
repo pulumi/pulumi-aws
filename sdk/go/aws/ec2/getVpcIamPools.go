@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetVpcIamPools(ctx, &ec2.GetVpcIamPoolsArgs{
+//			_, err = ec2.GetVpcIamPools(ctx, &ec2.GetVpcIamPoolsArgs{
 //				Filters: []ec2.GetVpcIamPoolsFilter{
 //					ec2.GetVpcIamPoolsFilter{
 //						Name: "description",

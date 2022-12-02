@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.GetSecrets(ctx, &secretsmanager.GetSecretsArgs{
+//			_, err = secretsmanager.GetSecrets(ctx, &secretsmanager.GetSecretsArgs{
 //				Filters: []secretsmanager.GetSecretsFilter{
 //					secretsmanager.GetSecretsFilter{
 //						Name: "name",

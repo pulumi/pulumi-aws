@@ -14,8 +14,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = pulumi.output(aws.getPartition());
- * const s3Policy = current.apply(current => aws.iam.getPolicyDocument({
+ * const current = aws.getPartition({});
+ * const s3Policy = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["s3:ListBucket"],
  *         resources: [`arn:${current.partition}:s3:::my-bucket`],
@@ -25,11 +25,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getPartition:getPartition", {
     }, opts);
 }

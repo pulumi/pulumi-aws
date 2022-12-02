@@ -8,49 +8,49 @@ import * as utilities from "../utilities";
 export { ContributorInsightsArgs, ContributorInsightsState } from "./contributorInsights";
 export type ContributorInsights = import("./contributorInsights").ContributorInsights;
 export const ContributorInsights: typeof import("./contributorInsights").ContributorInsights = null as any;
+utilities.lazyLoad(exports, ["ContributorInsights"], () => require("./contributorInsights"));
 
 export * from "./dynamodbMixins";
 export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
 export const getTable: typeof import("./getTable").getTable = null as any;
 export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
 
 export { GetTableItemArgs, GetTableItemResult, GetTableItemOutputArgs } from "./getTableItem";
 export const getTableItem: typeof import("./getTableItem").getTableItem = null as any;
 export const getTableItemOutput: typeof import("./getTableItem").getTableItemOutput = null as any;
+utilities.lazyLoad(exports, ["getTableItem","getTableItemOutput"], () => require("./getTableItem"));
 
 export { GlobalTableArgs, GlobalTableState } from "./globalTable";
 export type GlobalTable = import("./globalTable").GlobalTable;
 export const GlobalTable: typeof import("./globalTable").GlobalTable = null as any;
+utilities.lazyLoad(exports, ["GlobalTable"], () => require("./globalTable"));
 
 export { KinesisStreamingDestinationArgs, KinesisStreamingDestinationState } from "./kinesisStreamingDestination";
 export type KinesisStreamingDestination = import("./kinesisStreamingDestination").KinesisStreamingDestination;
 export const KinesisStreamingDestination: typeof import("./kinesisStreamingDestination").KinesisStreamingDestination = null as any;
+utilities.lazyLoad(exports, ["KinesisStreamingDestination"], () => require("./kinesisStreamingDestination"));
 
 export { TableArgs, TableState } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
+utilities.lazyLoad(exports, ["Table"], () => require("./table"));
 
 export { TableItemArgs, TableItemState } from "./tableItem";
 export type TableItem = import("./tableItem").TableItem;
 export const TableItem: typeof import("./tableItem").TableItem = null as any;
+utilities.lazyLoad(exports, ["TableItem"], () => require("./tableItem"));
 
 export { TableReplicaArgs, TableReplicaState } from "./tableReplica";
 export type TableReplica = import("./tableReplica").TableReplica;
 export const TableReplica: typeof import("./tableReplica").TableReplica = null as any;
+utilities.lazyLoad(exports, ["TableReplica"], () => require("./tableReplica"));
 
 export { TagArgs, TagState } from "./tag";
 export type Tag = import("./tag").Tag;
 export const Tag: typeof import("./tag").Tag = null as any;
-
-utilities.lazyLoad(exports, ["ContributorInsights"], () => require("./contributorInsights"));
-utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
-utilities.lazyLoad(exports, ["getTableItem","getTableItemOutput"], () => require("./getTableItem"));
-utilities.lazyLoad(exports, ["GlobalTable"], () => require("./globalTable"));
-utilities.lazyLoad(exports, ["KinesisStreamingDestination"], () => require("./kinesisStreamingDestination"));
-utilities.lazyLoad(exports, ["Table"], () => require("./table"));
-utilities.lazyLoad(exports, ["TableItem"], () => require("./tableItem"));
-utilities.lazyLoad(exports, ["TableReplica"], () => require("./tableReplica"));
 utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
+
 
 const _module = {
     version: utilities.getVersion(),

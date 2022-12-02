@@ -17,18 +17,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.directconnect.getRouterConfiguration({
+ * const example = aws.directconnect.getRouterConfiguration({
  *     routerTypeIdentifier: "CiscoSystemsInc-2900SeriesRouters-IOS124",
  *     virtualInterfaceId: "dxvif-abcde123",
- * }));
+ * });
  * ```
  */
 export function getRouterConfiguration(args: GetRouterConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRouterConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getRouterConfiguration:getRouterConfiguration", {
         "routerTypeIdentifier": args.routerTypeIdentifier,
         "virtualInterfaceId": args.virtualInterfaceId,

@@ -471,7 +471,7 @@ class Connection(pulumi.CustomResource):
             __props__ = ConnectionArgs.__new__(ConnectionArgs)
 
             __props__.__dict__["catalog_id"] = catalog_id
-            __props__.__dict__["connection_properties"] = connection_properties
+            __props__.__dict__["connection_properties"] = None if connection_properties is None else pulumi.Output.secret(connection_properties)
             __props__.__dict__["connection_type"] = connection_type
             __props__.__dict__["description"] = description
             __props__.__dict__["match_criterias"] = match_criterias
@@ -480,6 +480,8 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionProperties"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Connection, __self__).__init__(
             'aws:glue/connection:Connection',
             resource_name,

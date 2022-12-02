@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentPartition = pulumi.output(aws.getPartition());
- * const currentRegion = pulumi.output(aws.getRegion());
+ * const currentPartition = aws.getPartition({});
+ * const currentRegion = aws.getRegion({});
  * const postgres_rotator = new aws.serverlessrepository.CloudFormationStack("postgres-rotator", {
  *     applicationId: "arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
  *     capabilities: [
@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *         "CAPABILITY_RESOURCE_POLICY",
  *     ],
  *     parameters: {
- *         endpoint: pulumi.interpolate`secretsmanager.${currentRegion.name!}.${currentPartition.dnsSuffix}`,
+ *         endpoint: Promise.all([currentRegion, currentPartition]).then(([currentRegion, currentPartition]) => `secretsmanager.${currentRegion.name}.${currentPartition.dnsSuffix}`),
  *         functionName: "func-postgres-rotator",
  *     },
  * });

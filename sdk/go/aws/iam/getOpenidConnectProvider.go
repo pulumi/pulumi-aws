@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetOpenidConnectProvider(ctx, &iam.GetOpenidConnectProviderArgs{
+//			_, err = iam.GetOpenidConnectProvider(ctx, &iam.GetOpenidConnectProviderArgs{
 //				Arn: pulumi.StringRef("arn:aws:iam::123456789012:oidc-provider/accounts.google.com"),
 //			}, nil)
 //			if err != nil {
@@ -52,7 +52,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetOpenidConnectProvider(ctx, &iam.GetOpenidConnectProviderArgs{
+//			_, err = iam.GetOpenidConnectProvider(ctx, &iam.GetOpenidConnectProviderArgs{
 //				Url: pulumi.StringRef("https://accounts.google.com"),
 //			}, nil)
 //			if err != nil {

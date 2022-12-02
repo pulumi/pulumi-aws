@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Waf
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpsetResult> InvokeAsync(GetIpsetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpsetResult>("aws:waf/getIpset:getIpset", args ?? new GetIpsetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpsetResult>("aws:waf/getIpset:getIpset", args ?? new GetIpsetArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Waf
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetIpsetResult> Invoke(GetIpsetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIpsetResult>("aws:waf/getIpset:getIpset", args ?? new GetIpsetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpsetResult>("aws:waf/getIpset:getIpset", args ?? new GetIpsetInvokeArgs(), options.WithDefaults());
     }
 
 

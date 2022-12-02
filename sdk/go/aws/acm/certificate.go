@@ -134,8 +134,8 @@ import (
 //			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "exampleSelfSignedCert", &tls.SelfSignedCertArgs{
 //				KeyAlgorithm:  pulumi.String("RSA"),
 //				PrivateKeyPem: examplePrivateKey.PrivateKeyPem,
-//				Subjects: SelfSignedCertSubjectArray{
-//					&SelfSignedCertSubjectArgs{
+//				Subjects: tls.SelfSignedCertSubjectArray{
+//					&tls.SelfSignedCertSubjectArgs{
 //						CommonName:   pulumi.String("example.com"),
 //						Organization: pulumi.String("ACME Examples, Inc"),
 //					},
@@ -196,6 +196,8 @@ type Certificate struct {
 	// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
 	// or a string such as `2160h`.
 	EarlyRenewalDuration pulumi.StringPtrOutput `pulumi:"earlyRenewalDuration"`
+	// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+	KeyAlgorithm pulumi.StringOutput `pulumi:"keyAlgorithm"`
 	// Expiration date and time of the certificate.
 	NotAfter pulumi.StringOutput `pulumi:"notAfter"`
 	// Start of the validity period of the certificate.
@@ -237,6 +239,13 @@ func NewCertificate(ctx *pulumi.Context,
 		args = &CertificateArgs{}
 	}
 
+	if args.PrivateKey != nil {
+		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"privateKey",
+	})
+	opts = append(opts, secrets)
 	var resource Certificate
 	err := ctx.RegisterResource("aws:acm/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {
@@ -280,6 +289,8 @@ type certificateState struct {
 	// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
 	// or a string such as `2160h`.
 	EarlyRenewalDuration *string `pulumi:"earlyRenewalDuration"`
+	// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+	KeyAlgorithm *string `pulumi:"keyAlgorithm"`
 	// Expiration date and time of the certificate.
 	NotAfter *string `pulumi:"notAfter"`
 	// Start of the validity period of the certificate.
@@ -336,6 +347,8 @@ type CertificateState struct {
 	// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
 	// or a string such as `2160h`.
 	EarlyRenewalDuration pulumi.StringPtrInput
+	// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+	KeyAlgorithm pulumi.StringPtrInput
 	// Expiration date and time of the certificate.
 	NotAfter pulumi.StringPtrInput
 	// Start of the validity period of the certificate.
@@ -390,6 +403,8 @@ type certificateArgs struct {
 	// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
 	// or a string such as `2160h`.
 	EarlyRenewalDuration *string `pulumi:"earlyRenewalDuration"`
+	// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+	KeyAlgorithm *string `pulumi:"keyAlgorithm"`
 	// Configuration block used to set certificate options. Detailed below.
 	Options *CertificateOptions `pulumi:"options"`
 	// Certificate's PEM-formatted private key
@@ -423,6 +438,8 @@ type CertificateArgs struct {
 	// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
 	// or a string such as `2160h`.
 	EarlyRenewalDuration pulumi.StringPtrInput
+	// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+	KeyAlgorithm pulumi.StringPtrInput
 	// Configuration block used to set certificate options. Detailed below.
 	Options CertificateOptionsPtrInput
 	// Certificate's PEM-formatted private key
@@ -566,6 +583,11 @@ func (o CertificateOutput) DomainValidationOptions() CertificateDomainValidation
 // or a string such as `2160h`.
 func (o CertificateOutput) EarlyRenewalDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.EarlyRenewalDuration }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
+func (o CertificateOutput) KeyAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.KeyAlgorithm }).(pulumi.StringOutput)
 }
 
 // Expiration date and time of the certificate.

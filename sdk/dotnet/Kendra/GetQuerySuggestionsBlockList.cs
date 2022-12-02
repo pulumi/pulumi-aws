@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Kendra
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetQuerySuggestionsBlockListResult> InvokeAsync(GetQuerySuggestionsBlockListArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQuerySuggestionsBlockListResult>("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args ?? new GetQuerySuggestionsBlockListArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuerySuggestionsBlockListResult>("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args ?? new GetQuerySuggestionsBlockListArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Kendra
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetQuerySuggestionsBlockListResult> Invoke(GetQuerySuggestionsBlockListInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQuerySuggestionsBlockListResult>("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args ?? new GetQuerySuggestionsBlockListInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetQuerySuggestionsBlockListResult>("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args ?? new GetQuerySuggestionsBlockListInvokeArgs(), options.WithDefaults());
     }
 
 

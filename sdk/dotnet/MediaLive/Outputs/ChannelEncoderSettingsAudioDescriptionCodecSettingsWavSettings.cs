@@ -14,7 +14,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings
     {
         public readonly double? BitDepth;
+        /// <summary>
+        /// Dolby Digital Plus coding mode.
+        /// </summary>
         public readonly string? CodingMode;
+        /// <summary>
+        /// Sample rate in Hz.
+        /// </summary>
         public readonly double? SampleRate;
 
         [OutputConstructor]

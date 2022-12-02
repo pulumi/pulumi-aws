@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { LifecyclePolicyArgs, LifecyclePolicyState } from "./lifecyclePolicy";
 export type LifecyclePolicy = import("./lifecyclePolicy").LifecyclePolicy;
 export const LifecyclePolicy: typeof import("./lifecyclePolicy").LifecyclePolicy = null as any;
-
 utilities.lazyLoad(exports, ["LifecyclePolicy"], () => require("./lifecyclePolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),

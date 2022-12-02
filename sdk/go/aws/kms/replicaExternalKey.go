@@ -118,6 +118,13 @@ func NewReplicaExternalKey(ctx *pulumi.Context,
 	if args.PrimaryKeyArn == nil {
 		return nil, errors.New("invalid value for required argument 'PrimaryKeyArn'")
 	}
+	if args.KeyMaterialBase64 != nil {
+		args.KeyMaterialBase64 = pulumi.ToSecret(args.KeyMaterialBase64).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"keyMaterialBase64",
+	})
+	opts = append(opts, secrets)
 	var resource ReplicaExternalKey
 	err := ctx.RegisterResource("aws:kms/replicaExternalKey:ReplicaExternalKey", name, args, &resource, opts...)
 	if err != nil {

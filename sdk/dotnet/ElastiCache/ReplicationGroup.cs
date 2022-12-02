@@ -526,6 +526,10 @@ namespace Pulumi.Aws.ElastiCache
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "authToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -561,11 +565,21 @@ namespace Pulumi.Aws.ElastiCache
         [Input("atRestEncryptionEnabled")]
         public Input<bool>? AtRestEncryptionEnabled { get; set; }
 
+        [Input("authToken")]
+        private Input<string>? _authToken;
+
         /// <summary>
         /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         /// </summary>
-        [Input("authToken")]
-        public Input<string>? AuthToken { get; set; }
+        public Input<string>? AuthToken
+        {
+            get => _authToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -857,11 +871,21 @@ namespace Pulumi.Aws.ElastiCache
         [Input("atRestEncryptionEnabled")]
         public Input<bool>? AtRestEncryptionEnabled { get; set; }
 
+        [Input("authToken")]
+        private Input<string>? _authToken;
+
         /// <summary>
         /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         /// </summary>
-        [Input("authToken")]
-        public Input<string>? AuthToken { get; set; }
+        public Input<string>? AuthToken
+        {
+            get => _authToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.

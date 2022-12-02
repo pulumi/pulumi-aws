@@ -437,6 +437,7 @@ type Endpoints struct {
 	Iottwinmaker                        *string `pulumi:"iottwinmaker"`
 	Iotwireless                         *string `pulumi:"iotwireless"`
 	Ivs                                 *string `pulumi:"ivs"`
+	Ivschat                             *string `pulumi:"ivschat"`
 	Kafka                               *string `pulumi:"kafka"`
 	Kafkaconnect                        *string `pulumi:"kafkaconnect"`
 	Kendra                              *string `pulumi:"kendra"`
@@ -565,6 +566,7 @@ type Endpoints struct {
 	Sagemakerfeaturestoreruntime        *string `pulumi:"sagemakerfeaturestoreruntime"`
 	Sagemakerruntime                    *string `pulumi:"sagemakerruntime"`
 	Savingsplans                        *string `pulumi:"savingsplans"`
+	Scheduler                           *string `pulumi:"scheduler"`
 	Schemas                             *string `pulumi:"schemas"`
 	Sdb                                 *string `pulumi:"sdb"`
 	Secretsmanager                      *string `pulumi:"secretsmanager"`
@@ -821,6 +823,7 @@ type EndpointsArgs struct {
 	Iottwinmaker                        pulumi.StringPtrInput `pulumi:"iottwinmaker"`
 	Iotwireless                         pulumi.StringPtrInput `pulumi:"iotwireless"`
 	Ivs                                 pulumi.StringPtrInput `pulumi:"ivs"`
+	Ivschat                             pulumi.StringPtrInput `pulumi:"ivschat"`
 	Kafka                               pulumi.StringPtrInput `pulumi:"kafka"`
 	Kafkaconnect                        pulumi.StringPtrInput `pulumi:"kafkaconnect"`
 	Kendra                              pulumi.StringPtrInput `pulumi:"kendra"`
@@ -949,6 +952,7 @@ type EndpointsArgs struct {
 	Sagemakerfeaturestoreruntime        pulumi.StringPtrInput `pulumi:"sagemakerfeaturestoreruntime"`
 	Sagemakerruntime                    pulumi.StringPtrInput `pulumi:"sagemakerruntime"`
 	Savingsplans                        pulumi.StringPtrInput `pulumi:"savingsplans"`
+	Scheduler                           pulumi.StringPtrInput `pulumi:"scheduler"`
 	Schemas                             pulumi.StringPtrInput `pulumi:"schemas"`
 	Sdb                                 pulumi.StringPtrInput `pulumi:"sdb"`
 	Secretsmanager                      pulumi.StringPtrInput `pulumi:"secretsmanager"`
@@ -1802,6 +1806,10 @@ func (o EndpointsOutput) Ivs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ivs }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) Ivschat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Ivschat }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Kafka() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Kafka }).(pulumi.StringPtrOutput)
 }
@@ -2312,6 +2320,10 @@ func (o EndpointsOutput) Sagemakerruntime() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Savingsplans() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Savingsplans }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Scheduler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Scheduler }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Schemas() pulumi.StringPtrOutput {

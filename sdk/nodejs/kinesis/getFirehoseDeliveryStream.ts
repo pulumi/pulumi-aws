@@ -15,17 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const stream = pulumi.output(aws.kinesis.getFirehoseDeliveryStream({
+ * const stream = aws.kinesis.getFirehoseDeliveryStream({
  *     name: "stream-name",
- * }));
+ * });
  * ```
  */
 export function getFirehoseDeliveryStream(args: GetFirehoseDeliveryStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetFirehoseDeliveryStreamResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", {
         "name": args.name,
     }, opts);

@@ -146,6 +146,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:emrserverless/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
     /**
+     * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+     * 
+     */
+    @Export(name="architecture", type=String.class, parameters={})
+    private Output</* @Nullable */ String> architecture;
+
+    /**
+     * @return The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+     * 
+     */
+    public Output<Optional<String>> architecture() {
+        return Codegen.optional(this.architecture);
+    }
+    /**
      * ARN of the cluster.
      * 
      */
@@ -206,14 +220,14 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maximumCapacity", type=ApplicationMaximumCapacity.class, parameters={})
-    private Output</* @Nullable */ ApplicationMaximumCapacity> maximumCapacity;
+    private Output<ApplicationMaximumCapacity> maximumCapacity;
 
     /**
      * @return The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      * 
      */
-    public Output<Optional<ApplicationMaximumCapacity>> maximumCapacity() {
-        return Codegen.optional(this.maximumCapacity);
+    public Output<ApplicationMaximumCapacity> maximumCapacity() {
+        return this.maximumCapacity;
     }
     /**
      * The name of the application.

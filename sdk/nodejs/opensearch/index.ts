@@ -8,23 +8,33 @@ import * as utilities from "../utilities";
 export { DomainArgs, DomainState } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
 export { DomainPolicyArgs, DomainPolicyState } from "./domainPolicy";
 export type DomainPolicy = import("./domainPolicy").DomainPolicy;
 export const DomainPolicy: typeof import("./domainPolicy").DomainPolicy = null as any;
+utilities.lazyLoad(exports, ["DomainPolicy"], () => require("./domainPolicy"));
 
 export { DomainSamlOptionsArgs, DomainSamlOptionsState } from "./domainSamlOptions";
 export type DomainSamlOptions = import("./domainSamlOptions").DomainSamlOptions;
 export const DomainSamlOptions: typeof import("./domainSamlOptions").DomainSamlOptions = null as any;
+utilities.lazyLoad(exports, ["DomainSamlOptions"], () => require("./domainSamlOptions"));
 
 export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
-
-utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
-utilities.lazyLoad(exports, ["DomainPolicy"], () => require("./domainPolicy"));
-utilities.lazyLoad(exports, ["DomainSamlOptions"], () => require("./domainSamlOptions"));
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+
+export { InboundConnectionAccepterArgs, InboundConnectionAccepterState } from "./inboundConnectionAccepter";
+export type InboundConnectionAccepter = import("./inboundConnectionAccepter").InboundConnectionAccepter;
+export const InboundConnectionAccepter: typeof import("./inboundConnectionAccepter").InboundConnectionAccepter = null as any;
+utilities.lazyLoad(exports, ["InboundConnectionAccepter"], () => require("./inboundConnectionAccepter"));
+
+export { OutboundConnectionArgs, OutboundConnectionState } from "./outboundConnection";
+export type OutboundConnection = import("./outboundConnection").OutboundConnection;
+export const OutboundConnection: typeof import("./outboundConnection").OutboundConnection = null as any;
+utilities.lazyLoad(exports, ["OutboundConnection"], () => require("./outboundConnection"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -36,6 +46,10 @@ const _module = {
                 return new DomainPolicy(name, <any>undefined, { urn })
             case "aws:opensearch/domainSamlOptions:DomainSamlOptions":
                 return new DomainSamlOptions(name, <any>undefined, { urn })
+            case "aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter":
+                return new InboundConnectionAccepter(name, <any>undefined, { urn })
+            case "aws:opensearch/outboundConnection:OutboundConnection":
+                return new OutboundConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -44,3 +58,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "opensearch/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/domainPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/domainSamlOptions", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/inboundConnectionAccepter", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/outboundConnection", _module)

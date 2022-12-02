@@ -40,7 +40,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.getAvailabilityZones({
+ * const example = aws.getAvailabilityZones({
  *     allAvailabilityZones: true,
  *     filters: [{
  *         name: "opt-in-status",
@@ -49,7 +49,7 @@ import * as utilities from "./utilities";
  *             "opted-in",
  *         ],
  *     }],
- * }));
+ * });
  * ```
  *
  * Only Availability Zones (no Local Zones):
@@ -58,21 +58,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.getAvailabilityZones({
+ * const example = aws.getAvailabilityZones({
  *     filters: [{
  *         name: "opt-in-status",
  *         values: ["opt-in-not-required"],
  *     }],
- * }));
+ * });
  * ```
  */
 export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZonesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getAvailabilityZones:getAvailabilityZones", {
         "allAvailabilityZones": args.allAvailabilityZones,
         "excludeNames": args.excludeNames,

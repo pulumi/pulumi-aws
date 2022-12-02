@@ -50,7 +50,7 @@ class SpotFleetRequestArgs:
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
         :param pulumi.Input[str] allocation_strategy: Indicates how to allocate the target capacity across
-               the Spot pools specified by the Spot fleet request. The default is
+               the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
                `lowestPrice`.
         :param pulumi.Input[str] excess_capacity_termination_policy: Indicates whether running Spot
                instances should be terminated if the target capacity of the Spot fleet
@@ -170,7 +170,7 @@ class SpotFleetRequestArgs:
     def allocation_strategy(self) -> Optional[pulumi.Input[str]]:
         """
         Indicates how to allocate the target capacity across
-        the Spot pools specified by the Spot fleet request. The default is
+        the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
         `lowestPrice`.
         """
         return pulumi.get(self, "allocation_strategy")
@@ -480,7 +480,7 @@ class _SpotFleetRequestState:
         """
         Input properties used for looking up and filtering SpotFleetRequest resources.
         :param pulumi.Input[str] allocation_strategy: Indicates how to allocate the target capacity across
-               the Spot pools specified by the Spot fleet request. The default is
+               the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
                `lowestPrice`.
         :param pulumi.Input[str] excess_capacity_termination_policy: Indicates whether running Spot
                instances should be terminated if the target capacity of the Spot fleet
@@ -588,7 +588,7 @@ class _SpotFleetRequestState:
     def allocation_strategy(self) -> Optional[pulumi.Input[str]]:
         """
         Indicates how to allocate the target capacity across
-        the Spot pools specified by the Spot fleet request. The default is
+        the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
         `lowestPrice`.
         """
         return pulumi.get(self, "allocation_strategy")
@@ -1075,7 +1075,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_strategy: Indicates how to allocate the target capacity across
-               the Spot pools specified by the Spot fleet request. The default is
+               the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
                `lowestPrice`.
         :param pulumi.Input[str] excess_capacity_termination_policy: Indicates whether running Spot
                instances should be terminated if the target capacity of the Spot fleet
@@ -1366,7 +1366,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_strategy: Indicates how to allocate the target capacity across
-               the Spot pools specified by the Spot fleet request. The default is
+               the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
                `lowestPrice`.
         :param pulumi.Input[str] excess_capacity_termination_policy: Indicates whether running Spot
                instances should be terminated if the target capacity of the Spot fleet
@@ -1452,7 +1452,7 @@ class SpotFleetRequest(pulumi.CustomResource):
     def allocation_strategy(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates how to allocate the target capacity across
-        the Spot pools specified by the Spot fleet request. The default is
+        the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
         `lowestPrice`.
         """
         return pulumi.get(self, "allocation_strategy")

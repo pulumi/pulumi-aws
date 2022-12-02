@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 export { PolicyArgs, PolicyState } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
 export { ScheduledActionArgs, ScheduledActionState } from "./scheduledAction";
 export type ScheduledAction = import("./scheduledAction").ScheduledAction;
 export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
+utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
 
 export { TargetArgs, TargetState } from "./target";
 export type Target = import("./target").Target;
 export const Target: typeof import("./target").Target = null as any;
-
-utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
-utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
 utilities.lazyLoad(exports, ["Target"], () => require("./target"));
+
 
 const _module = {
     version: utilities.getVersion(),

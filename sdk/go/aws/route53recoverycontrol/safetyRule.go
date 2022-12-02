@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53recoverycontrol.NewSafetyRule(ctx, "example", &route53recoverycontrol.SafetyRuleArgs{
 //				AssertedControls: pulumi.StringArray{
-//					pulumi.Any(aws_route53recoverycontrolconfig_routing_control.Example.Arn),
+//					aws_route53recoverycontrolconfig_routing_control.Example.Arn,
 //				},
 //				ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
 //				WaitPeriodMs:    pulumi.Int(5000),
@@ -64,10 +64,10 @@ import (
 //				ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
 //				WaitPeriodMs:    pulumi.Int(5000),
 //				GatingControls: pulumi.StringArray{
-//					pulumi.Any(aws_route53recoverycontrolconfig_routing_control.Example.Arn),
+//					aws_route53recoverycontrolconfig_routing_control.Example.Arn,
 //				},
 //				TargetControls: pulumi.StringArray{
-//					pulumi.Any(aws_route53recoverycontrolconfig_routing_control.Example.Arn),
+//					aws_route53recoverycontrolconfig_routing_control.Example.Arn,
 //				},
 //				RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
 //					Inverted:  pulumi.Bool(false),

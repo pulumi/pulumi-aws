@@ -8,38 +8,38 @@ import * as utilities from "../utilities";
 export { CloudFormationTypeArgs, CloudFormationTypeState } from "./cloudFormationType";
 export type CloudFormationType = import("./cloudFormationType").CloudFormationType;
 export const CloudFormationType: typeof import("./cloudFormationType").CloudFormationType = null as any;
+utilities.lazyLoad(exports, ["CloudFormationType"], () => require("./cloudFormationType"));
 
 export { GetCloudFormationTypeArgs, GetCloudFormationTypeResult, GetCloudFormationTypeOutputArgs } from "./getCloudFormationType";
 export const getCloudFormationType: typeof import("./getCloudFormationType").getCloudFormationType = null as any;
 export const getCloudFormationTypeOutput: typeof import("./getCloudFormationType").getCloudFormationTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudFormationType","getCloudFormationTypeOutput"], () => require("./getCloudFormationType"));
 
 export { GetExportArgs, GetExportResult, GetExportOutputArgs } from "./getExport";
 export const getExport: typeof import("./getExport").getExport = null as any;
 export const getExportOutput: typeof import("./getExport").getExportOutput = null as any;
+utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
 
 export { GetStackArgs, GetStackResult, GetStackOutputArgs } from "./getStack";
 export const getStack: typeof import("./getStack").getStack = null as any;
 export const getStackOutput: typeof import("./getStack").getStackOutput = null as any;
+utilities.lazyLoad(exports, ["getStack","getStackOutput"], () => require("./getStack"));
 
 export { StackArgs, StackState } from "./stack";
 export type Stack = import("./stack").Stack;
 export const Stack: typeof import("./stack").Stack = null as any;
+utilities.lazyLoad(exports, ["Stack"], () => require("./stack"));
 
 export { StackSetArgs, StackSetState } from "./stackSet";
 export type StackSet = import("./stackSet").StackSet;
 export const StackSet: typeof import("./stackSet").StackSet = null as any;
+utilities.lazyLoad(exports, ["StackSet"], () => require("./stackSet"));
 
 export { StackSetInstanceArgs, StackSetInstanceState } from "./stackSetInstance";
 export type StackSetInstance = import("./stackSetInstance").StackSetInstance;
 export const StackSetInstance: typeof import("./stackSetInstance").StackSetInstance = null as any;
-
-utilities.lazyLoad(exports, ["CloudFormationType"], () => require("./cloudFormationType"));
-utilities.lazyLoad(exports, ["getCloudFormationType","getCloudFormationTypeOutput"], () => require("./getCloudFormationType"));
-utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
-utilities.lazyLoad(exports, ["getStack","getStackOutput"], () => require("./getStack"));
-utilities.lazyLoad(exports, ["Stack"], () => require("./stack"));
-utilities.lazyLoad(exports, ["StackSet"], () => require("./stackSet"));
 utilities.lazyLoad(exports, ["StackSetInstance"], () => require("./stackSetInstance"));
+
 
 const _module = {
     version: utilities.getVersion(),

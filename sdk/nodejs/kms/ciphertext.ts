@@ -102,10 +102,12 @@ export class Ciphertext extends pulumi.CustomResource {
             }
             resourceInputs["context"] = args ? args.context : undefined;
             resourceInputs["keyId"] = args ? args.keyId : undefined;
-            resourceInputs["plaintext"] = args ? args.plaintext : undefined;
+            resourceInputs["plaintext"] = args?.plaintext ? pulumi.secret(args.plaintext) : undefined;
             resourceInputs["ciphertextBlob"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["plaintext"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Ciphertext.__pulumiType, name, resourceInputs, opts);
     }
 }

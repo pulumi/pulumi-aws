@@ -16,9 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.resourcegroups.Group("test", {
- *     resourceQuery: {
- *         query: `{
+ * const test = new aws.resourcegroups.Group("test", {resourceQuery: {
+ *     query: `{
  *   "ResourceTypeFilters": [
  *     "AWS::EC2::Instance"
  *   ],
@@ -29,9 +28,9 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
+ *
  * `,
- *     },
- * });
+ * }});
  * ```
  *
  * ## Import

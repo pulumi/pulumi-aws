@@ -8,88 +8,88 @@ import * as utilities from "../utilities";
 export { ApplicationArgs, ApplicationState } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
 export { CustomLayerArgs, CustomLayerState } from "./customLayer";
 export type CustomLayer = import("./customLayer").CustomLayer;
 export const CustomLayer: typeof import("./customLayer").CustomLayer = null as any;
+utilities.lazyLoad(exports, ["CustomLayer"], () => require("./customLayer"));
 
 export { EcsClusterLayerArgs, EcsClusterLayerState } from "./ecsClusterLayer";
 export type EcsClusterLayer = import("./ecsClusterLayer").EcsClusterLayer;
 export const EcsClusterLayer: typeof import("./ecsClusterLayer").EcsClusterLayer = null as any;
+utilities.lazyLoad(exports, ["EcsClusterLayer"], () => require("./ecsClusterLayer"));
 
 export { GangliaLayerArgs, GangliaLayerState } from "./gangliaLayer";
 export type GangliaLayer = import("./gangliaLayer").GangliaLayer;
 export const GangliaLayer: typeof import("./gangliaLayer").GangliaLayer = null as any;
+utilities.lazyLoad(exports, ["GangliaLayer"], () => require("./gangliaLayer"));
 
 export { HaproxyLayerArgs, HaproxyLayerState } from "./haproxyLayer";
 export type HaproxyLayer = import("./haproxyLayer").HaproxyLayer;
 export const HaproxyLayer: typeof import("./haproxyLayer").HaproxyLayer = null as any;
+utilities.lazyLoad(exports, ["HaproxyLayer"], () => require("./haproxyLayer"));
 
 export { InstanceArgs, InstanceState } from "./instance";
 export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 
 export { JavaAppLayerArgs, JavaAppLayerState } from "./javaAppLayer";
 export type JavaAppLayer = import("./javaAppLayer").JavaAppLayer;
 export const JavaAppLayer: typeof import("./javaAppLayer").JavaAppLayer = null as any;
+utilities.lazyLoad(exports, ["JavaAppLayer"], () => require("./javaAppLayer"));
 
 export { MemcachedLayerArgs, MemcachedLayerState } from "./memcachedLayer";
 export type MemcachedLayer = import("./memcachedLayer").MemcachedLayer;
 export const MemcachedLayer: typeof import("./memcachedLayer").MemcachedLayer = null as any;
+utilities.lazyLoad(exports, ["MemcachedLayer"], () => require("./memcachedLayer"));
 
 export { MysqlLayerArgs, MysqlLayerState } from "./mysqlLayer";
 export type MysqlLayer = import("./mysqlLayer").MysqlLayer;
 export const MysqlLayer: typeof import("./mysqlLayer").MysqlLayer = null as any;
+utilities.lazyLoad(exports, ["MysqlLayer"], () => require("./mysqlLayer"));
 
 export { NodejsAppLayerArgs, NodejsAppLayerState } from "./nodejsAppLayer";
 export type NodejsAppLayer = import("./nodejsAppLayer").NodejsAppLayer;
 export const NodejsAppLayer: typeof import("./nodejsAppLayer").NodejsAppLayer = null as any;
+utilities.lazyLoad(exports, ["NodejsAppLayer"], () => require("./nodejsAppLayer"));
 
 export { PermissionArgs, PermissionState } from "./permission";
 export type Permission = import("./permission").Permission;
 export const Permission: typeof import("./permission").Permission = null as any;
+utilities.lazyLoad(exports, ["Permission"], () => require("./permission"));
 
 export { PhpAppLayerArgs, PhpAppLayerState } from "./phpAppLayer";
 export type PhpAppLayer = import("./phpAppLayer").PhpAppLayer;
 export const PhpAppLayer: typeof import("./phpAppLayer").PhpAppLayer = null as any;
+utilities.lazyLoad(exports, ["PhpAppLayer"], () => require("./phpAppLayer"));
 
 export { RailsAppLayerArgs, RailsAppLayerState } from "./railsAppLayer";
 export type RailsAppLayer = import("./railsAppLayer").RailsAppLayer;
 export const RailsAppLayer: typeof import("./railsAppLayer").RailsAppLayer = null as any;
+utilities.lazyLoad(exports, ["RailsAppLayer"], () => require("./railsAppLayer"));
 
 export { RdsDbInstanceArgs, RdsDbInstanceState } from "./rdsDbInstance";
 export type RdsDbInstance = import("./rdsDbInstance").RdsDbInstance;
 export const RdsDbInstance: typeof import("./rdsDbInstance").RdsDbInstance = null as any;
+utilities.lazyLoad(exports, ["RdsDbInstance"], () => require("./rdsDbInstance"));
 
 export { StackArgs, StackState } from "./stack";
 export type Stack = import("./stack").Stack;
 export const Stack: typeof import("./stack").Stack = null as any;
+utilities.lazyLoad(exports, ["Stack"], () => require("./stack"));
 
 export { StaticWebLayerArgs, StaticWebLayerState } from "./staticWebLayer";
 export type StaticWebLayer = import("./staticWebLayer").StaticWebLayer;
 export const StaticWebLayer: typeof import("./staticWebLayer").StaticWebLayer = null as any;
+utilities.lazyLoad(exports, ["StaticWebLayer"], () => require("./staticWebLayer"));
 
 export { UserProfileArgs, UserProfileState } from "./userProfile";
 export type UserProfile = import("./userProfile").UserProfile;
 export const UserProfile: typeof import("./userProfile").UserProfile = null as any;
-
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
-utilities.lazyLoad(exports, ["CustomLayer"], () => require("./customLayer"));
-utilities.lazyLoad(exports, ["EcsClusterLayer"], () => require("./ecsClusterLayer"));
-utilities.lazyLoad(exports, ["GangliaLayer"], () => require("./gangliaLayer"));
-utilities.lazyLoad(exports, ["HaproxyLayer"], () => require("./haproxyLayer"));
-utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
-utilities.lazyLoad(exports, ["JavaAppLayer"], () => require("./javaAppLayer"));
-utilities.lazyLoad(exports, ["MemcachedLayer"], () => require("./memcachedLayer"));
-utilities.lazyLoad(exports, ["MysqlLayer"], () => require("./mysqlLayer"));
-utilities.lazyLoad(exports, ["NodejsAppLayer"], () => require("./nodejsAppLayer"));
-utilities.lazyLoad(exports, ["Permission"], () => require("./permission"));
-utilities.lazyLoad(exports, ["PhpAppLayer"], () => require("./phpAppLayer"));
-utilities.lazyLoad(exports, ["RailsAppLayer"], () => require("./railsAppLayer"));
-utilities.lazyLoad(exports, ["RdsDbInstance"], () => require("./rdsDbInstance"));
-utilities.lazyLoad(exports, ["Stack"], () => require("./stack"));
-utilities.lazyLoad(exports, ["StaticWebLayer"], () => require("./staticWebLayer"));
 utilities.lazyLoad(exports, ["UserProfile"], () => require("./userProfile"));
+
 
 const _module = {
     version: utilities.getVersion(),

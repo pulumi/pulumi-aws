@@ -15,30 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Find a certificate that is issued
- * const issued = pulumi.output(aws.acm.getCertificate({
+ * const issued = aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     statuses: ["ISSUED"],
- * }));
- * // Find a certificate issued by (not imported into) ACM
- * const amazonIssued = pulumi.output(aws.acm.getCertificate({
+ * });
+ * const amazonIssued = aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     mostRecent: true,
  *     types: ["AMAZON_ISSUED"],
- * }));
- * // Find a RSA 4096 bit certificate
- * const rsa4096 = pulumi.output(aws.acm.getCertificate({
+ * });
+ * const rsa4096 = aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     keyTypes: ["RSA_4096"],
- * }));
+ * });
  * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:acm/getCertificate:getCertificate", {
         "domain": args.domain,
         "keyTypes": args.keyTypes,

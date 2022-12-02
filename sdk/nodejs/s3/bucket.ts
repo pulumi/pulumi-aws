@@ -22,7 +22,7 @@ import {RoutingRule} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("b", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
  *     tags: {
  *         Environment: "Dev",
@@ -61,7 +61,7 @@ import {RoutingRule} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("b", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "public-read",
  *     corsRules: [{
  *         allowedHeaders: ["*"],
@@ -81,7 +81,7 @@ import {RoutingRule} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("b", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
  *     versioning: {
  *         enabled: true,
@@ -126,7 +126,7 @@ import {RoutingRule} from "./index";
  *             transitions: [
  *                 {
  *                     days: 30,
- *                     storageClass: "STANDARD_IA", // or "ONEZONE_IA"
+ *                     storageClass: "STANDARD_IA",
  *                 },
  *                 {
  *                     days: 60,
@@ -144,7 +144,7 @@ import {RoutingRule} from "./index";
  *         },
  *     ],
  * });
- * const versioningBucket = new aws.s3.Bucket("versioning_bucket", {
+ * const versioningBucket = new aws.s3.Bucket("versioningBucket", {
  *     acl: "private",
  *     lifecycleRules: [{
  *         enabled: true,

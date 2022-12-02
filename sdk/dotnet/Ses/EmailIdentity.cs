@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ses
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The email address to assign to SES
+        /// The email address to assign to SES.
         /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Ses
     public sealed class EmailIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The email address to assign to SES
+        /// The email address to assign to SES.
         /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Ses
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The email address to assign to SES
+        /// The email address to assign to SES.
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }

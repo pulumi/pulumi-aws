@@ -137,7 +137,8 @@ type User struct {
 	TemporaryPassword pulumi.StringPtrOutput `pulumi:"temporaryPassword"`
 	// The user pool ID for the user pool where the user will be created.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
-	Username   pulumi.StringOutput `pulumi:"username"`
+	// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+	Username pulumi.StringOutput `pulumi:"username"`
 	// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validationData` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
 	ValidationData pulumi.StringMapOutput `pulumi:"validationData"`
 }
@@ -155,6 +156,17 @@ func NewUser(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrOutput)
+	}
+	if args.TemporaryPassword != nil {
+		args.TemporaryPassword = pulumi.ToSecret(args.TemporaryPassword).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+		"temporaryPassword",
+	})
+	opts = append(opts, secrets)
 	var resource User
 	err := ctx.RegisterResource("aws:cognito/user:User", name, args, &resource, opts...)
 	if err != nil {
@@ -203,7 +215,8 @@ type userState struct {
 	TemporaryPassword *string `pulumi:"temporaryPassword"`
 	// The user pool ID for the user pool where the user will be created.
 	UserPoolId *string `pulumi:"userPoolId"`
-	Username   *string `pulumi:"username"`
+	// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+	Username *string `pulumi:"username"`
 	// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validationData` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
 	ValidationData map[string]string `pulumi:"validationData"`
 }
@@ -235,7 +248,8 @@ type UserState struct {
 	TemporaryPassword pulumi.StringPtrInput
 	// The user pool ID for the user pool where the user will be created.
 	UserPoolId pulumi.StringPtrInput
-	Username   pulumi.StringPtrInput
+	// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+	Username pulumi.StringPtrInput
 	// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validationData` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
 	ValidationData pulumi.StringMapInput
 }
@@ -263,7 +277,8 @@ type userArgs struct {
 	TemporaryPassword *string `pulumi:"temporaryPassword"`
 	// The user pool ID for the user pool where the user will be created.
 	UserPoolId string `pulumi:"userPoolId"`
-	Username   string `pulumi:"username"`
+	// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+	Username string `pulumi:"username"`
 	// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validationData` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
 	ValidationData map[string]string `pulumi:"validationData"`
 }
@@ -288,7 +303,8 @@ type UserArgs struct {
 	TemporaryPassword pulumi.StringPtrInput
 	// The user pool ID for the user pool where the user will be created.
 	UserPoolId pulumi.StringInput
-	Username   pulumi.StringInput
+	// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+	Username pulumi.StringInput
 	// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validationData` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
 	ValidationData pulumi.StringMapInput
 }
@@ -451,6 +467,7 @@ func (o UserOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }
 
+// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
 func (o UserOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

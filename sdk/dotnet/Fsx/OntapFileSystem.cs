@@ -224,6 +224,10 @@ namespace Pulumi.Aws.Fsx
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "fsxAdminPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -277,11 +281,21 @@ namespace Pulumi.Aws.Fsx
         [Input("endpointIpAddressRange")]
         public Input<string>? EndpointIpAddressRange { get; set; }
 
+        [Input("fsxAdminPassword")]
+        private Input<string>? _fsxAdminPassword;
+
         /// <summary>
         /// The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         /// </summary>
-        [Input("fsxAdminPassword")]
-        public Input<string>? FsxAdminPassword { get; set; }
+        public Input<string>? FsxAdminPassword
+        {
+            get => _fsxAdminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _fsxAdminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -429,11 +443,21 @@ namespace Pulumi.Aws.Fsx
             set => _endpoints = value;
         }
 
+        [Input("fsxAdminPassword")]
+        private Input<string>? _fsxAdminPassword;
+
         /// <summary>
         /// The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         /// </summary>
-        [Input("fsxAdminPassword")]
-        public Input<string>? FsxAdminPassword { get; set; }
+        public Input<string>? FsxAdminPassword
+        {
+            get => _fsxAdminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _fsxAdminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.

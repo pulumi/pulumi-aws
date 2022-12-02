@@ -8,50 +8,50 @@ import * as utilities from "../utilities";
 export { AttachmentArgs, AttachmentState } from "./attachment";
 export type Attachment = import("./attachment").Attachment;
 export const Attachment: typeof import("./attachment").Attachment = null as any;
+utilities.lazyLoad(exports, ["Attachment"], () => require("./attachment"));
 
 export { GetAmiIdsArgs, GetAmiIdsResult, GetAmiIdsOutputArgs } from "./getAmiIds";
 export const getAmiIds: typeof import("./getAmiIds").getAmiIds = null as any;
 export const getAmiIdsOutput: typeof import("./getAmiIds").getAmiIdsOutput = null as any;
+utilities.lazyLoad(exports, ["getAmiIds","getAmiIdsOutput"], () => require("./getAmiIds"));
 
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
 export { LifecycleHookArgs, LifecycleHookState } from "./lifecycleHook";
 export type LifecycleHook = import("./lifecycleHook").LifecycleHook;
 export const LifecycleHook: typeof import("./lifecycleHook").LifecycleHook = null as any;
+utilities.lazyLoad(exports, ["LifecycleHook"], () => require("./lifecycleHook"));
 
 export * from "./metrics";
 export { NotificationArgs, NotificationState } from "./notification";
 export type Notification = import("./notification").Notification;
 export const Notification: typeof import("./notification").Notification = null as any;
+utilities.lazyLoad(exports, ["Notification"], () => require("./notification"));
 
 export * from "./notificationType";
 export { PolicyArgs, PolicyState } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
 export { ScheduleArgs, ScheduleState } from "./schedule";
 export type Schedule = import("./schedule").Schedule;
 export const Schedule: typeof import("./schedule").Schedule = null as any;
+utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
 
 export { TagArgs, TagState } from "./tag";
 export type Tag = import("./tag").Tag;
 export const Tag: typeof import("./tag").Tag = null as any;
-
-utilities.lazyLoad(exports, ["Attachment"], () => require("./attachment"));
-utilities.lazyLoad(exports, ["getAmiIds","getAmiIdsOutput"], () => require("./getAmiIds"));
-utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
-utilities.lazyLoad(exports, ["Group"], () => require("./group"));
-utilities.lazyLoad(exports, ["LifecycleHook"], () => require("./lifecycleHook"));
-utilities.lazyLoad(exports, ["Notification"], () => require("./notification"));
-utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
-utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
 utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
+
 
 // Export enums:
 export * from "../types/enums/autoscaling";

@@ -101,6 +101,13 @@ func NewHsmConfiguration(ctx *pulumi.Context,
 	if args.HsmServerPublicCertificate == nil {
 		return nil, errors.New("invalid value for required argument 'HsmServerPublicCertificate'")
 	}
+	if args.HsmPartitionPassword != nil {
+		args.HsmPartitionPassword = pulumi.ToSecret(args.HsmPartitionPassword).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"hsmPartitionPassword",
+	})
+	opts = append(opts, secrets)
 	var resource HsmConfiguration
 	err := ctx.RegisterResource("aws:redshift/hsmConfiguration:HsmConfiguration", name, args, &resource, opts...)
 	if err != nil {

@@ -16,22 +16,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.imagebuilder.getContainerRecipes({
+ * const example = aws.imagebuilder.getContainerRecipes({
  *     filters: [{
  *         name: "platform",
  *         values: ["Linux"],
  *     }],
  *     owner: "Self",
- * }));
+ * });
  * ```
  */
 export function getContainerRecipes(args?: GetContainerRecipesArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRecipesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getContainerRecipes:getContainerRecipes", {
         "filters": args.filters,
         "owner": args.owner,

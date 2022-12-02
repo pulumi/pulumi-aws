@@ -12,6 +12,7 @@ import com.pulumi.aws.medialive.inputs.ChannelMaintenanceArgs;
 import com.pulumi.aws.medialive.inputs.ChannelVpcArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -145,14 +146,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom output group name defined by the user.
+     * The name of the video description.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Custom output group name defined by the user.
+     * @return The name of the video description.
      * 
      */
     public Optional<Output<String>> name() {
@@ -172,6 +173,21 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
+    }
+
+    /**
+     * Whether to start/stop channel. Default: `false`
+     * 
+     */
+    @Import(name="startChannel")
+    private @Nullable Output<Boolean> startChannel;
+
+    /**
+     * @return Whether to start/stop channel. Default: `false`
+     * 
+     */
+    public Optional<Output<Boolean>> startChannel() {
+        return Optional.ofNullable(this.startChannel);
     }
 
     /**
@@ -217,6 +233,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         this.maintenance = $.maintenance;
         this.name = $.name;
         this.roleArn = $.roleArn;
+        this.startChannel = $.startChannel;
         this.tags = $.tags;
         this.vpc = $.vpc;
     }
@@ -428,7 +445,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Custom output group name defined by the user.
+         * @param name The name of the video description.
          * 
          * @return builder
          * 
@@ -439,7 +456,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Custom output group name defined by the user.
+         * @param name The name of the video description.
          * 
          * @return builder
          * 
@@ -467,6 +484,27 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
+        }
+
+        /**
+         * @param startChannel Whether to start/stop channel. Default: `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startChannel(@Nullable Output<Boolean> startChannel) {
+            $.startChannel = startChannel;
+            return this;
+        }
+
+        /**
+         * @param startChannel Whether to start/stop channel. Default: `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startChannel(Boolean startChannel) {
+            return startChannel(Output.of(startChannel));
         }
 
         /**

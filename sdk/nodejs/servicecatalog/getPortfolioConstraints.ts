@@ -17,17 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.servicecatalog.getPortfolioConstraints({
+ * const example = aws.servicecatalog.getPortfolioConstraints({
  *     portfolioId: "port-3lli3b3an",
- * }));
+ * });
  * ```
  */
 export function getPortfolioConstraints(args: GetPortfolioConstraintsArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioConstraintsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", {
         "acceptLanguage": args.acceptLanguage,
         "portfolioId": args.portfolioId,

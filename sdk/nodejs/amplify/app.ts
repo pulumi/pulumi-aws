@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
- *     // The default build_spec added by the Amplify Console for React.
  *     buildSpec: `  version: 0.1
  *   frontend:
  *     phases:
@@ -36,8 +35,8 @@ import * as utilities from "../utilities";
  *     cache:
  *       paths:
  *         - node_modules/**&#47;*
+ *
  * `,
- *     // The default rewrites and redirects added by the Amplify Console.
  *     customRules: [{
  *         source: "/<*>",
  *         status: "404",
@@ -58,7 +57,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
- *     // GitHub personal access token
  *     accessToken: "...",
  *     repository: "https://github.com/example/app",
  * });
@@ -73,10 +71,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.amplify.App("example", {
  *     autoBranchCreationConfig: {
- *         // Enable auto build for the created branch.
  *         enableAutoBuild: true,
  *     },
- *     // The default patterns added by the Amplify Console.
  *     autoBranchCreationPatterns: [
  *         "*",
  *         "*&#47;**",
@@ -90,24 +86,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {
- *     customRules: [
- *         // Reverse Proxy Rewrite for API requests
- *         // https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#reverse-proxy-rewrite
- *         {
- *             source: "/api/<*>",
- *             status: "200",
- *             target: "https://api.example.com/api/<*>",
- *         },
- *         // Redirects for Single Page Web Apps (SPA)
- *         // https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#redirects-for-single-page-web-apps-spa
- *         {
- *             source: "</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
- *             status: "200",
- *             target: "/index.html",
- *         },
- *     ],
- * });
+ * const example = new aws.amplify.App("example", {customRules: [
+ *     {
+ *         source: "/api/<*>",
+ *         status: "200",
+ *         target: "https://api.example.com/api/<*>",
+ *     },
+ *     {
+ *         source: `</^[^.]+$|\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>`,
+ *         status: "200",
+ *         target: "/index.html",
+ *     },
+ * ]});
  * ```
  *
  * ## Import
@@ -217,7 +207,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly oauthToken!: pulumi.Output<string | undefined>;
     /**
-     * Platform or framework for an Amplify app. Valid values: `WEB`.
+     * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      */
     public readonly platform!: pulumi.Output<string | undefined>;
     /**
@@ -274,10 +264,10 @@ export class App extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AppArgs | undefined;
-            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
+            resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
             resourceInputs["autoBranchCreationConfig"] = args ? args.autoBranchCreationConfig : undefined;
             resourceInputs["autoBranchCreationPatterns"] = args ? args.autoBranchCreationPatterns : undefined;
-            resourceInputs["basicAuthCredentials"] = args ? args.basicAuthCredentials : undefined;
+            resourceInputs["basicAuthCredentials"] = args?.basicAuthCredentials ? pulumi.secret(args.basicAuthCredentials) : undefined;
             resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
             resourceInputs["customRules"] = args ? args.customRules : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -288,7 +278,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["iamServiceRoleArn"] = args ? args.iamServiceRoleArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["oauthToken"] = args ? args.oauthToken : undefined;
+            resourceInputs["oauthToken"] = args?.oauthToken ? pulumi.secret(args.oauthToken) : undefined;
             resourceInputs["platform"] = args ? args.platform : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -298,6 +288,8 @@ export class App extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "basicAuthCredentials", "oauthToken"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(App.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -375,7 +367,7 @@ export interface AppState {
      */
     oauthToken?: pulumi.Input<string>;
     /**
-     * Platform or framework for an Amplify app. Valid values: `WEB`.
+     * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      */
     platform?: pulumi.Input<string>;
     /**
@@ -461,7 +453,7 @@ export interface AppArgs {
      */
     oauthToken?: pulumi.Input<string>;
     /**
-     * Platform or framework for an Amplify app. Valid values: `WEB`.
+     * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      */
     platform?: pulumi.Input<string>;
     /**

@@ -22,7 +22,8 @@ class InstanceArgs:
                  contact_lens_enabled: Optional[pulumi.Input[bool]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  early_media_enabled: Optional[pulumi.Input[bool]] = None,
-                 instance_alias: Optional[pulumi.Input[str]] = None):
+                 instance_alias: Optional[pulumi.Input[str]] = None,
+                 multi_party_conference_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input[str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
@@ -35,6 +36,7 @@ class InstanceArgs:
         :param pulumi.Input[str] directory_id: The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
         :param pulumi.Input[bool] early_media_enabled: Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
         :param pulumi.Input[str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
+        :param pulumi.Input[bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         """
         pulumi.set(__self__, "identity_management_type", identity_management_type)
         pulumi.set(__self__, "inbound_calls_enabled", inbound_calls_enabled)
@@ -51,6 +53,8 @@ class InstanceArgs:
             pulumi.set(__self__, "early_media_enabled", early_media_enabled)
         if instance_alias is not None:
             pulumi.set(__self__, "instance_alias", instance_alias)
+        if multi_party_conference_enabled is not None:
+            pulumi.set(__self__, "multi_party_conference_enabled", multi_party_conference_enabled)
 
     @property
     @pulumi.getter(name="identityManagementType")
@@ -161,6 +165,18 @@ class InstanceArgs:
     def instance_alias(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_alias", value)
 
+    @property
+    @pulumi.getter(name="multiPartyConferenceEnabled")
+    def multi_party_conference_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "multi_party_conference_enabled")
+
+    @multi_party_conference_enabled.setter
+    def multi_party_conference_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multi_party_conference_enabled", value)
+
 
 @pulumi.input_type
 class _InstanceState:
@@ -175,6 +191,7 @@ class _InstanceState:
                  identity_management_type: Optional[pulumi.Input[str]] = None,
                  inbound_calls_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_alias: Optional[pulumi.Input[str]] = None,
+                 multi_party_conference_enabled: Optional[pulumi.Input[bool]] = None,
                  outbound_calls_enabled: Optional[pulumi.Input[bool]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
@@ -190,6 +207,7 @@ class _InstanceState:
         :param pulumi.Input[str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
         :param pulumi.Input[bool] inbound_calls_enabled: Specifies whether inbound calls are enabled.
         :param pulumi.Input[str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
+        :param pulumi.Input[bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         :param pulumi.Input[bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
                <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         :param pulumi.Input[str] service_role: The service role of the instance.
@@ -215,6 +233,8 @@ class _InstanceState:
             pulumi.set(__self__, "inbound_calls_enabled", inbound_calls_enabled)
         if instance_alias is not None:
             pulumi.set(__self__, "instance_alias", instance_alias)
+        if multi_party_conference_enabled is not None:
+            pulumi.set(__self__, "multi_party_conference_enabled", multi_party_conference_enabled)
         if outbound_calls_enabled is not None:
             pulumi.set(__self__, "outbound_calls_enabled", outbound_calls_enabled)
         if service_role is not None:
@@ -343,6 +363,18 @@ class _InstanceState:
         pulumi.set(self, "instance_alias", value)
 
     @property
+    @pulumi.getter(name="multiPartyConferenceEnabled")
+    def multi_party_conference_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "multi_party_conference_enabled")
+
+    @multi_party_conference_enabled.setter
+    def multi_party_conference_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multi_party_conference_enabled", value)
+
+    @property
     @pulumi.getter(name="outboundCallsEnabled")
     def outbound_calls_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -393,6 +425,7 @@ class Instance(pulumi.CustomResource):
                  identity_management_type: Optional[pulumi.Input[str]] = None,
                  inbound_calls_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_alias: Optional[pulumi.Input[str]] = None,
+                 multi_party_conference_enabled: Optional[pulumi.Input[bool]] = None,
                  outbound_calls_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -457,6 +490,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
         :param pulumi.Input[bool] inbound_calls_enabled: Specifies whether inbound calls are enabled.
         :param pulumi.Input[str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
+        :param pulumi.Input[bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         :param pulumi.Input[bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
                <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         """
@@ -541,6 +575,7 @@ class Instance(pulumi.CustomResource):
                  identity_management_type: Optional[pulumi.Input[str]] = None,
                  inbound_calls_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_alias: Optional[pulumi.Input[str]] = None,
+                 multi_party_conference_enabled: Optional[pulumi.Input[bool]] = None,
                  outbound_calls_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -563,6 +598,7 @@ class Instance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'inbound_calls_enabled'")
             __props__.__dict__["inbound_calls_enabled"] = inbound_calls_enabled
             __props__.__dict__["instance_alias"] = instance_alias
+            __props__.__dict__["multi_party_conference_enabled"] = multi_party_conference_enabled
             if outbound_calls_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'outbound_calls_enabled'")
             __props__.__dict__["outbound_calls_enabled"] = outbound_calls_enabled
@@ -590,6 +626,7 @@ class Instance(pulumi.CustomResource):
             identity_management_type: Optional[pulumi.Input[str]] = None,
             inbound_calls_enabled: Optional[pulumi.Input[bool]] = None,
             instance_alias: Optional[pulumi.Input[str]] = None,
+            multi_party_conference_enabled: Optional[pulumi.Input[bool]] = None,
             outbound_calls_enabled: Optional[pulumi.Input[bool]] = None,
             service_role: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None) -> 'Instance':
@@ -610,6 +647,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
         :param pulumi.Input[bool] inbound_calls_enabled: Specifies whether inbound calls are enabled.
         :param pulumi.Input[str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
+        :param pulumi.Input[bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         :param pulumi.Input[bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
                <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         :param pulumi.Input[str] service_role: The service role of the instance.
@@ -629,6 +667,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["identity_management_type"] = identity_management_type
         __props__.__dict__["inbound_calls_enabled"] = inbound_calls_enabled
         __props__.__dict__["instance_alias"] = instance_alias
+        __props__.__dict__["multi_party_conference_enabled"] = multi_party_conference_enabled
         __props__.__dict__["outbound_calls_enabled"] = outbound_calls_enabled
         __props__.__dict__["service_role"] = service_role
         __props__.__dict__["status"] = status
@@ -713,6 +752,14 @@ class Instance(pulumi.CustomResource):
         Specifies the name of the instance. Required if `directory_id` not specified.
         """
         return pulumi.get(self, "instance_alias")
+
+    @property
+    @pulumi.getter(name="multiPartyConferenceEnabled")
+    def multi_party_conference_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "multi_party_conference_enabled")
 
     @property
     @pulumi.getter(name="outboundCallsEnabled")

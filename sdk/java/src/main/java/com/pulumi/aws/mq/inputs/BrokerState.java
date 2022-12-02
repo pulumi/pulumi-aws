@@ -192,7 +192,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * List of information about allocated brokers (both active &amp; standby).
-     * * `instances.0.console_url` - The URL of the broker&#39;s [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+     * * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
      * * `instances.0.ip_address` - IP Address of the broker.
      * * `instances.0.endpoints` - Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
      * * For `ActiveMQ`:
@@ -210,7 +210,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return List of information about allocated brokers (both active &amp; standby).
-     * * `instances.0.console_url` - The URL of the broker&#39;s [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+     * * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
      * * `instances.0.ip_address` - IP Address of the broker.
      * * `instances.0.endpoints` - Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
      * * For `ActiveMQ`:
@@ -655,7 +655,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instances List of information about allocated brokers (both active &amp; standby).
-         * * `instances.0.console_url` - The URL of the broker&#39;s [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+         * * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
          * * `instances.0.ip_address` - IP Address of the broker.
          * * `instances.0.endpoints` - Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
          * * For `ActiveMQ`:
@@ -677,7 +677,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instances List of information about allocated brokers (both active &amp; standby).
-         * * `instances.0.console_url` - The URL of the broker&#39;s [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+         * * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
          * * `instances.0.ip_address` - IP Address of the broker.
          * * `instances.0.endpoints` - Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
          * * For `ActiveMQ`:
@@ -698,7 +698,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instances List of information about allocated brokers (both active &amp; standby).
-         * * `instances.0.console_url` - The URL of the broker&#39;s [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+         * * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
          * * `instances.0.ip_address` - IP Address of the broker.
          * * `instances.0.endpoints` - Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
          * * For `ActiveMQ`:

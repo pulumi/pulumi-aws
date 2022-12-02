@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2clientvpn.getEndpoint({
+ * const example = aws.ec2clientvpn.getEndpoint({
  *     filters: [{
  *         name: "tag:Name",
  *         values: ["ExampleVpn"],
  *     }],
- * }));
+ * });
  * ```
  * ### By Identifier
  *
@@ -30,18 +30,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2clientvpn.getEndpoint({
+ * const example = aws.ec2clientvpn.getEndpoint({
  *     clientVpnEndpointId: "cvpn-endpoint-083cf50d6eb314f21",
- * }));
+ * });
  * ```
  */
 export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2clientvpn/getEndpoint:getEndpoint", {
         "clientVpnEndpointId": args.clientVpnEndpointId,
         "filters": args.filters,

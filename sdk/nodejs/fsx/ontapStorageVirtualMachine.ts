@@ -170,7 +170,7 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
             resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["rootVolumeSecurityStyle"] = args ? args.rootVolumeSecurityStyle : undefined;
-            resourceInputs["svmAdminPassword"] = args ? args.svmAdminPassword : undefined;
+            resourceInputs["svmAdminPassword"] = args?.svmAdminPassword ? pulumi.secret(args.svmAdminPassword) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
@@ -179,6 +179,8 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["svmAdminPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OntapStorageVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }
 }

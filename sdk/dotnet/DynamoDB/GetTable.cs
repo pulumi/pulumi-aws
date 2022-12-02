@@ -36,7 +36,7 @@ namespace Pulumi.Aws.DynamoDB
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws:dynamodb/getTable:getTable", args ?? new GetTableArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws:dynamodb/getTable:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a DynamoDB table.
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.DynamoDB
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws:dynamodb/getTable:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws:dynamodb/getTable:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 

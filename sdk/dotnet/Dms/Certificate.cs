@@ -105,6 +105,11 @@ namespace Pulumi.Aws.Dms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "certificatePem",
+                    "certificateWallet",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -134,17 +139,37 @@ namespace Pulumi.Aws.Dms
         [Input("certificateId", required: true)]
         public Input<string> CertificateId { get; set; } = null!;
 
+        [Input("certificatePem")]
+        private Input<string>? _certificatePem;
+
         /// <summary>
         /// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
-        [Input("certificatePem")]
-        public Input<string>? CertificatePem { get; set; }
+        public Input<string>? CertificatePem
+        {
+            get => _certificatePem;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificatePem = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("certificateWallet")]
+        private Input<string>? _certificateWallet;
 
         /// <summary>
         /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
-        [Input("certificateWallet")]
-        public Input<string>? CertificateWallet { get; set; }
+        public Input<string>? CertificateWallet
+        {
+            get => _certificateWallet;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificateWallet = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -178,17 +203,37 @@ namespace Pulumi.Aws.Dms
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }
 
+        [Input("certificatePem")]
+        private Input<string>? _certificatePem;
+
         /// <summary>
         /// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
-        [Input("certificatePem")]
-        public Input<string>? CertificatePem { get; set; }
+        public Input<string>? CertificatePem
+        {
+            get => _certificatePem;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificatePem = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("certificateWallet")]
+        private Input<string>? _certificateWallet;
 
         /// <summary>
         /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
-        [Input("certificateWallet")]
-        public Input<string>? CertificateWallet { get; set; }
+        public Input<string>? CertificateWallet
+        {
+            get => _certificateWallet;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificateWallet = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

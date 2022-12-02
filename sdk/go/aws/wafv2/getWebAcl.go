@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.LookupWebAcl(ctx, &wafv2.LookupWebAclArgs{
+//			_, err = wafv2.LookupWebAcl(ctx, &wafv2.LookupWebAclArgs{
 //				Name:  "some-web-acl",
 //				Scope: "REGIONAL",
 //			}, nil)

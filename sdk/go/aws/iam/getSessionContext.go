@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetSessionContext(ctx, &iam.GetSessionContextArgs{
+//			_, err = iam.GetSessionContext(ctx, &iam.GetSessionContextArgs{
 //				Arn: "arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes",
 //			}, nil)
 //			if err != nil {

@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { LanguageModelArgs, LanguageModelState } from "./languageModel";
 export type LanguageModel = import("./languageModel").LanguageModel;
 export const LanguageModel: typeof import("./languageModel").LanguageModel = null as any;
+utilities.lazyLoad(exports, ["LanguageModel"], () => require("./languageModel"));
 
 export { MedicalVocabularyArgs, MedicalVocabularyState } from "./medicalVocabulary";
 export type MedicalVocabulary = import("./medicalVocabulary").MedicalVocabulary;
 export const MedicalVocabulary: typeof import("./medicalVocabulary").MedicalVocabulary = null as any;
+utilities.lazyLoad(exports, ["MedicalVocabulary"], () => require("./medicalVocabulary"));
 
 export { VocabularyArgs, VocabularyState } from "./vocabulary";
 export type Vocabulary = import("./vocabulary").Vocabulary;
 export const Vocabulary: typeof import("./vocabulary").Vocabulary = null as any;
+utilities.lazyLoad(exports, ["Vocabulary"], () => require("./vocabulary"));
 
 export { VocabularyFilterArgs, VocabularyFilterState } from "./vocabularyFilter";
 export type VocabularyFilter = import("./vocabularyFilter").VocabularyFilter;
 export const VocabularyFilter: typeof import("./vocabularyFilter").VocabularyFilter = null as any;
-
-utilities.lazyLoad(exports, ["LanguageModel"], () => require("./languageModel"));
-utilities.lazyLoad(exports, ["MedicalVocabulary"], () => require("./medicalVocabulary"));
-utilities.lazyLoad(exports, ["Vocabulary"], () => require("./vocabulary"));
 utilities.lazyLoad(exports, ["VocabularyFilter"], () => require("./vocabularyFilter"));
+
 
 const _module = {
     version: utilities.getVersion(),

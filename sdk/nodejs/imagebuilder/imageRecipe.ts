@@ -108,7 +108,7 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
-     * Platform of the image recipe.
+     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      */
     public readonly parentImage!: pulumi.Output<string>;
     /**
@@ -132,7 +132,7 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     public readonly userDataBase64!: pulumi.Output<string>;
     /**
-     * Version of the image recipe.
+     * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      */
     public readonly version!: pulumi.Output<string>;
     /**
@@ -233,7 +233,7 @@ export interface ImageRecipeState {
      */
     owner?: pulumi.Input<string>;
     /**
-     * Platform of the image recipe.
+     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      */
     parentImage?: pulumi.Input<string>;
     /**
@@ -257,7 +257,7 @@ export interface ImageRecipeState {
      */
     userDataBase64?: pulumi.Input<string>;
     /**
-     * Version of the image recipe.
+     * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      */
     version?: pulumi.Input<string>;
     /**
@@ -287,7 +287,7 @@ export interface ImageRecipeArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Platform of the image recipe.
+     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      */
     parentImage: pulumi.Input<string>;
     /**
@@ -303,7 +303,7 @@ export interface ImageRecipeArgs {
      */
     userDataBase64?: pulumi.Input<string>;
     /**
-     * Version of the image recipe.
+     * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      */
     version: pulumi.Input<string>;
     /**

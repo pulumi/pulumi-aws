@@ -19,14 +19,30 @@ import * as utilities from "../utilities";
  * to instruct the service to apply the change immediately (see documentation
  * below).
  *
- * When upgrading the major version of an engine, `allowMajorVersionUpgrade`
- * must be set to `true`.
+ * When upgrading the major version of an engine, `allowMajorVersionUpgrade` must be set to `true`.
+ *
+ * > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
+ * See the AWS Docs on [RDS Instance Maintenance][instance-maintenance] for more information.
+ *
+ * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+ * Read more about sensitive data instate.
  *
  * ## RDS Instance Class Types
  *
- * Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
- * and Burstable Performance. For more information please read the AWS RDS documentation
- * about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
+ * Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
+ * For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
+ *
+ * ## Low-Downtime Updates
+ *
+ * By default, RDS applies updates to DB Instances in-place, which can lead to service interruptions.
+ * Low-downtime updates minimize service interruptions by performing the updates with an [RDS Blue/Green deployment][blue-green] and switching over the instances when complete.
+ *
+ * Low-downtime updates are only available for DB Instances using MySQL and MariaDB,
+ * as other engines are not supported by RDS Blue/Green deployments.
+ *
+ * Backups must be enabled to use low-downtime updates.
+ *
+ * Enable low-downtime updates by setting `blue_green_update.enabled` to `true`.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -35,7 +51,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultInstance = new aws.rds.Instance("default", {
+ * const _default = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
  *     dbName: "mydb",
  *     engine: "mysql",
@@ -133,16 +149,24 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * The days to retain backups for. Must be
-     * between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+     * The days to retain backups for.
+     * Must be between `0` and `35`.
+     * Default is `0`.
+     * Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+     * uses low-downtime updates,
+     * or will use [RDS Blue/Green deployments][blue-green].
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number>;
     /**
-     * The daily time range (in UTC) during which
-     * automated backups are created if they are enabled. Example: "09:46-10:16". Must
-     * not overlap with `maintenanceWindow`.
+     * The daily time range (in UTC) during which automated backups are created if they are enabled.
+     * Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
      */
     public readonly backupWindow!: pulumi.Output<string>;
+    /**
+     * Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+     * See blueGreenUpdate below
+     */
+    public readonly blueGreenUpdate!: pulumi.Output<outputs.rds.InstanceBlueGreenUpdate | undefined>;
     /**
      * The identifier of the CA certificate for the DB instance.
      */
@@ -367,7 +391,7 @@ export class Instance extends pulumi.CustomResource {
      * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
      * cross-region). Note that if you are
      * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
+     * specify a `kmsKeyId`. See [DB Instance Replication][instance-replication] and [Working with
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
      * for more information on using Replication.
      */
@@ -472,6 +496,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["backupRetentionPeriod"] = state ? state.backupRetentionPeriod : undefined;
             resourceInputs["backupWindow"] = state ? state.backupWindow : undefined;
+            resourceInputs["blueGreenUpdate"] = state ? state.blueGreenUpdate : undefined;
             resourceInputs["caCertIdentifier"] = state ? state.caCertIdentifier : undefined;
             resourceInputs["characterSetName"] = state ? state.characterSetName : undefined;
             resourceInputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
@@ -543,6 +568,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
             resourceInputs["backupWindow"] = args ? args.backupWindow : undefined;
+            resourceInputs["blueGreenUpdate"] = args ? args.blueGreenUpdate : undefined;
             resourceInputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
             resourceInputs["characterSetName"] = args ? args.characterSetName : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
@@ -575,7 +601,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["optionGroupName"] = args ? args.optionGroupName : undefined;
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["performanceInsightsEnabled"] = args ? args.performanceInsightsEnabled : undefined;
             resourceInputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
             resourceInputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
@@ -606,6 +632,8 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -650,16 +678,24 @@ export interface InstanceState {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The days to retain backups for. Must be
-     * between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+     * The days to retain backups for.
+     * Must be between `0` and `35`.
+     * Default is `0`.
+     * Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+     * uses low-downtime updates,
+     * or will use [RDS Blue/Green deployments][blue-green].
      */
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
-     * The daily time range (in UTC) during which
-     * automated backups are created if they are enabled. Example: "09:46-10:16". Must
-     * not overlap with `maintenanceWindow`.
+     * The daily time range (in UTC) during which automated backups are created if they are enabled.
+     * Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
      */
     backupWindow?: pulumi.Input<string>;
+    /**
+     * Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+     * See blueGreenUpdate below
+     */
+    blueGreenUpdate?: pulumi.Input<inputs.rds.InstanceBlueGreenUpdate>;
     /**
      * The identifier of the CA certificate for the DB instance.
      */
@@ -884,7 +920,7 @@ export interface InstanceState {
      * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
      * cross-region). Note that if you are
      * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
+     * specify a `kmsKeyId`. See [DB Instance Replication][instance-replication] and [Working with
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
      * for more information on using Replication.
      */
@@ -1000,16 +1036,24 @@ export interface InstanceArgs {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The days to retain backups for. Must be
-     * between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
+     * The days to retain backups for.
+     * Must be between `0` and `35`.
+     * Default is `0`.
+     * Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+     * uses low-downtime updates,
+     * or will use [RDS Blue/Green deployments][blue-green].
      */
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
-     * The daily time range (in UTC) during which
-     * automated backups are created if they are enabled. Example: "09:46-10:16". Must
-     * not overlap with `maintenanceWindow`.
+     * The daily time range (in UTC) during which automated backups are created if they are enabled.
+     * Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
      */
     backupWindow?: pulumi.Input<string>;
+    /**
+     * Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+     * See blueGreenUpdate below
+     */
+    blueGreenUpdate?: pulumi.Input<inputs.rds.InstanceBlueGreenUpdate>;
     /**
      * The identifier of the CA certificate for the DB instance.
      */
@@ -1216,7 +1260,7 @@ export interface InstanceArgs {
      * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
      * cross-region). Note that if you are
      * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
+     * specify a `kmsKeyId`. See [DB Instance Replication][instance-replication] and [Working with
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
      * for more information on using Replication.
      */

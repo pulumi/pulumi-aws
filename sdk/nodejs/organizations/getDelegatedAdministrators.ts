@@ -16,18 +16,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.organizations.getDelegatedAdministrators({
+ * const example = aws.organizations.getDelegatedAdministrators({
  *     servicePrincipal: "SERVICE PRINCIPAL",
- * }));
+ * });
  * ```
  */
 export function getDelegatedAdministrators(args?: GetDelegatedAdministratorsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedAdministratorsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", {
         "servicePrincipal": args.servicePrincipal,
     }, opts);

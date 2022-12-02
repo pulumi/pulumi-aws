@@ -13,19 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.secretsmanager.getRandomPassword({
+ * const test = aws.secretsmanager.getRandomPassword({
  *     excludeNumbers: true,
  *     passwordLength: 50,
- * }));
+ * });
  * ```
  */
 export function getRandomPassword(args?: GetRandomPasswordArgs, opts?: pulumi.InvokeOptions): Promise<GetRandomPasswordResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getRandomPassword:getRandomPassword", {
         "excludeCharacters": args.excludeCharacters,
         "excludeLowercase": args.excludeLowercase,

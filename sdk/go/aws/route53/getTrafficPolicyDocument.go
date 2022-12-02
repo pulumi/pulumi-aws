@@ -119,7 +119,7 @@ import (
 //						Value: pulumi.StringRef("elb-444444.ap-northeast-2.elb.amazonaws.com"),
 //					},
 //				},
-//				Rules: []route53.GetTrafficPolicyDocumentRule{
+//				Rules: pulumi.Array{
 //					route53.GetTrafficPolicyDocumentRule{
 //						Id:   "na_rule",
 //						Type: pulumi.StringRef("failover"),

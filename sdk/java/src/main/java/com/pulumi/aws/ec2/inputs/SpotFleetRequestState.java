@@ -24,7 +24,7 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
 
     /**
      * Indicates how to allocate the target capacity across
-     * the Spot pools specified by the Spot fleet request. The default is
+     * the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
      * `lowestPrice`.
      * 
      */
@@ -33,7 +33,7 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
 
     /**
      * @return Indicates how to allocate the target capacity across
-     * the Spot pools specified by the Spot fleet request. The default is
+     * the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
      * `lowestPrice`.
      * 
      */
@@ -515,7 +515,7 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param allocationStrategy Indicates how to allocate the target capacity across
-         * the Spot pools specified by the Spot fleet request. The default is
+         * the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
          * `lowestPrice`.
          * 
          * @return builder
@@ -528,7 +528,7 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param allocationStrategy Indicates how to allocate the target capacity across
-         * the Spot pools specified by the Spot fleet request. The default is
+         * the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
          * `lowestPrice`.
          * 
          * @return builder

@@ -120,11 +120,13 @@ export class SharedDirectory extends pulumi.CustomResource {
             }
             resourceInputs["directoryId"] = args ? args.directoryId : undefined;
             resourceInputs["method"] = args ? args.method : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["notes"] = args?.notes ? pulumi.secret(args.notes) : undefined;
             resourceInputs["target"] = args ? args.target : undefined;
             resourceInputs["sharedDirectoryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["notes"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SharedDirectory.__pulumiType, name, resourceInputs, opts);
     }
 }

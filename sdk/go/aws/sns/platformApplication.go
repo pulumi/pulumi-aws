@@ -152,6 +152,17 @@ func NewPlatformApplication(ctx *pulumi.Context,
 	if args.PlatformCredential == nil {
 		return nil, errors.New("invalid value for required argument 'PlatformCredential'")
 	}
+	if args.PlatformCredential != nil {
+		args.PlatformCredential = pulumi.ToSecret(args.PlatformCredential).(pulumi.StringOutput)
+	}
+	if args.PlatformPrincipal != nil {
+		args.PlatformPrincipal = pulumi.ToSecret(args.PlatformPrincipal).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"platformCredential",
+		"platformPrincipal",
+	})
+	opts = append(opts, secrets)
 	var resource PlatformApplication
 	err := ctx.RegisterResource("aws:sns/platformApplication:PlatformApplication", name, args, &resource, opts...)
 	if err != nil {

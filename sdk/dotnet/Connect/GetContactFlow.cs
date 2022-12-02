@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetContactFlowResult> InvokeAsync(GetContactFlowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContactFlowResult>("aws:connect/getContactFlow:getContactFlow", args ?? new GetContactFlowArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactFlowResult>("aws:connect/getContactFlow:getContactFlow", args ?? new GetContactFlowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Connect Contact Flow.
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Connect
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetContactFlowResult> Invoke(GetContactFlowInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContactFlowResult>("aws:connect/getContactFlow:getContactFlow", args ?? new GetContactFlowInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetContactFlowResult>("aws:connect/getContactFlow:getContactFlow", args ?? new GetContactFlowInvokeArgs(), options.WithDefaults());
     }
 
 

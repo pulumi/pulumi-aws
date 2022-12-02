@@ -62,14 +62,14 @@ public final class GroupMixedInstancesPolicyInstancesDistributionArgs extends co
     }
 
     /**
-     * How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+     * How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
      * 
      */
     @Import(name="spotAllocationStrategy")
     private @Nullable Output<String> spotAllocationStrategy;
 
     /**
-     * @return How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+     * @return How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
      * 
      */
     public Optional<Output<String>> spotAllocationStrategy() {
@@ -199,7 +199,7 @@ public final class GroupMixedInstancesPolicyInstancesDistributionArgs extends co
         }
 
         /**
-         * @param spotAllocationStrategy How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+         * @param spotAllocationStrategy How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class GroupMixedInstancesPolicyInstancesDistributionArgs extends co
         }
 
         /**
-         * @param spotAllocationStrategy How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
+         * @param spotAllocationStrategy How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
          * 
          * @return builder
          * 

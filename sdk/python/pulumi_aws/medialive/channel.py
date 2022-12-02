@@ -26,6 +26,7 @@ class ChannelArgs:
                  maintenance: Optional[pulumi.Input['ChannelMaintenanceArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 start_channel: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc: Optional[pulumi.Input['ChannelVpcArgs']] = None):
         """
@@ -38,8 +39,9 @@ class ChannelArgs:
         :param pulumi.Input['ChannelCdiInputSpecificationArgs'] cdi_input_specification: Specification of CDI inputs for this channel. See CDI Input Specification for more details.
         :param pulumi.Input[str] log_level: The log level to write to Cloudwatch logs.
         :param pulumi.Input['ChannelMaintenanceArgs'] maintenance: Maintenance settings for this channel. See Maintenance for more details.
-        :param pulumi.Input[str] name: Custom output group name defined by the user.
+        :param pulumi.Input[str] name: The name of the video description.
         :param pulumi.Input[str] role_arn: Concise argument description.
+        :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ChannelVpcArgs'] vpc: Settings for the VPC outputs.
         """
@@ -58,6 +60,8 @@ class ChannelArgs:
             pulumi.set(__self__, "name", name)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
+        if start_channel is not None:
+            pulumi.set(__self__, "start_channel", start_channel)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vpc is not None:
@@ -163,7 +167,7 @@ class ChannelArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom output group name defined by the user.
+        The name of the video description.
         """
         return pulumi.get(self, "name")
 
@@ -182,6 +186,18 @@ class ChannelArgs:
     @role_arn.setter
     def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="startChannel")
+    def start_channel(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to start/stop channel. Default: `false`
+        """
+        return pulumi.get(self, "start_channel")
+
+    @start_channel.setter
+    def start_channel(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "start_channel", value)
 
     @property
     @pulumi.getter
@@ -223,6 +239,7 @@ class _ChannelState:
                  maintenance: Optional[pulumi.Input['ChannelMaintenanceArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 start_channel: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc: Optional[pulumi.Input['ChannelVpcArgs']] = None):
@@ -238,8 +255,9 @@ class _ChannelState:
         :param pulumi.Input['ChannelInputSpecificationArgs'] input_specification: Specification of network and file inputs for the channel.
         :param pulumi.Input[str] log_level: The log level to write to Cloudwatch logs.
         :param pulumi.Input['ChannelMaintenanceArgs'] maintenance: Maintenance settings for this channel. See Maintenance for more details.
-        :param pulumi.Input[str] name: Custom output group name defined by the user.
+        :param pulumi.Input[str] name: The name of the video description.
         :param pulumi.Input[str] role_arn: Concise argument description.
+        :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ChannelVpcArgs'] vpc: Settings for the VPC outputs.
         """
@@ -267,6 +285,8 @@ class _ChannelState:
             pulumi.set(__self__, "name", name)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
+        if start_channel is not None:
+            pulumi.set(__self__, "start_channel", start_channel)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -398,7 +418,7 @@ class _ChannelState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom output group name defined by the user.
+        The name of the video description.
         """
         return pulumi.get(self, "name")
 
@@ -417,6 +437,18 @@ class _ChannelState:
     @role_arn.setter
     def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="startChannel")
+    def start_channel(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to start/stop channel. Default: `false`
+        """
+        return pulumi.get(self, "start_channel")
+
+    @start_channel.setter
+    def start_channel(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "start_channel", value)
 
     @property
     @pulumi.getter
@@ -467,6 +499,7 @@ class Channel(pulumi.CustomResource):
                  maintenance: Optional[pulumi.Input[pulumi.InputType['ChannelMaintenanceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 start_channel: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc: Optional[pulumi.Input[pulumi.InputType['ChannelVpcArgs']]] = None,
                  __props__=None):
@@ -562,8 +595,9 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ChannelInputSpecificationArgs']] input_specification: Specification of network and file inputs for the channel.
         :param pulumi.Input[str] log_level: The log level to write to Cloudwatch logs.
         :param pulumi.Input[pulumi.InputType['ChannelMaintenanceArgs']] maintenance: Maintenance settings for this channel. See Maintenance for more details.
-        :param pulumi.Input[str] name: Custom output group name defined by the user.
+        :param pulumi.Input[str] name: The name of the video description.
         :param pulumi.Input[str] role_arn: Concise argument description.
+        :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ChannelVpcArgs']] vpc: Settings for the VPC outputs.
         """
@@ -680,6 +714,7 @@ class Channel(pulumi.CustomResource):
                  maintenance: Optional[pulumi.Input[pulumi.InputType['ChannelMaintenanceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 start_channel: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc: Optional[pulumi.Input[pulumi.InputType['ChannelVpcArgs']]] = None,
                  __props__=None):
@@ -711,6 +746,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["maintenance"] = maintenance
             __props__.__dict__["name"] = name
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["start_channel"] = start_channel
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
@@ -738,6 +774,7 @@ class Channel(pulumi.CustomResource):
             maintenance: Optional[pulumi.Input[pulumi.InputType['ChannelMaintenanceArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
+            start_channel: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpc: Optional[pulumi.Input[pulumi.InputType['ChannelVpcArgs']]] = None) -> 'Channel':
@@ -758,8 +795,9 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ChannelInputSpecificationArgs']] input_specification: Specification of network and file inputs for the channel.
         :param pulumi.Input[str] log_level: The log level to write to Cloudwatch logs.
         :param pulumi.Input[pulumi.InputType['ChannelMaintenanceArgs']] maintenance: Maintenance settings for this channel. See Maintenance for more details.
-        :param pulumi.Input[str] name: Custom output group name defined by the user.
+        :param pulumi.Input[str] name: The name of the video description.
         :param pulumi.Input[str] role_arn: Concise argument description.
+        :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ChannelVpcArgs']] vpc: Settings for the VPC outputs.
         """
@@ -779,6 +817,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["maintenance"] = maintenance
         __props__.__dict__["name"] = name
         __props__.__dict__["role_arn"] = role_arn
+        __props__.__dict__["start_channel"] = start_channel
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["vpc"] = vpc
@@ -868,7 +907,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Custom output group name defined by the user.
+        The name of the video description.
         """
         return pulumi.get(self, "name")
 
@@ -879,6 +918,14 @@ class Channel(pulumi.CustomResource):
         Concise argument description.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="startChannel")
+    def start_channel(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to start/stop channel. Default: `false`
+        """
+        return pulumi.get(self, "start_channel")
 
     @property
     @pulumi.getter

@@ -28,6 +28,8 @@ class ClusterCacheNode(dict):
         suggest = None
         if key == "availabilityZone":
             suggest = "availability_zone"
+        elif key == "outpostArn":
+            suggest = "outpost_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterCacheNode. Access the value via the '{suggest}' property getter instead.")
@@ -44,6 +46,7 @@ class ClusterCacheNode(dict):
                  address: Optional[str] = None,
                  availability_zone: Optional[str] = None,
                  id: Optional[str] = None,
+                 outpost_arn: Optional[str] = None,
                  port: Optional[int] = None):
         """
         :param str availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
@@ -55,6 +58,8 @@ class ClusterCacheNode(dict):
             pulumi.set(__self__, "availability_zone", availability_zone)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if outpost_arn is not None:
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if port is not None:
             pulumi.set(__self__, "port", port)
 
@@ -75,6 +80,11 @@ class ClusterCacheNode(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> Optional[str]:
+        return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter
@@ -362,6 +372,7 @@ class GetClusterCacheNodeResult(dict):
                  address: str,
                  availability_zone: str,
                  id: str,
+                 outpost_arn: str,
                  port: int):
         """
         :param str availability_zone: Availability Zone for the cache cluster.
@@ -371,6 +382,7 @@ class GetClusterCacheNodeResult(dict):
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "outpost_arn", outpost_arn)
         pulumi.set(__self__, "port", port)
 
     @property
@@ -390,6 +402,11 @@ class GetClusterCacheNodeResult(dict):
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> str:
+        return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter

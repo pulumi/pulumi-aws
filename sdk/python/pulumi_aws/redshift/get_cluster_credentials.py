@@ -130,7 +130,17 @@ def get_cluster_credentials(auto_create: Optional[bool] = None,
                             duration_seconds: Optional[int] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterCredentialsResult:
     """
-    Provides redshift subnet group.
+    Provides redshift cluster temporary credentials.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.redshift.get_cluster_credentials(cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
+        db_user=aws_redshift_cluster["example"]["master_username"])
+    ```
 
 
     :param bool auto_create: Create a database user with the name specified for the user named in `db_user` if one does not exist.
@@ -171,7 +181,17 @@ def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[b
                                    duration_seconds: Optional[pulumi.Input[Optional[int]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterCredentialsResult]:
     """
-    Provides redshift subnet group.
+    Provides redshift cluster temporary credentials.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.redshift.get_cluster_credentials(cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
+        db_user=aws_redshift_cluster["example"]["master_username"])
+    ```
 
 
     :param bool auto_create: Create a database user with the name specified for the user named in `db_user` if one does not exist.

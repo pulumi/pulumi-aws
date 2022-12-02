@@ -8,28 +8,28 @@ import * as utilities from "../utilities";
 export { AuthorizationRuleArgs, AuthorizationRuleState } from "./authorizationRule";
 export type AuthorizationRule = import("./authorizationRule").AuthorizationRule;
 export const AuthorizationRule: typeof import("./authorizationRule").AuthorizationRule = null as any;
+utilities.lazyLoad(exports, ["AuthorizationRule"], () => require("./authorizationRule"));
 
 export { EndpointArgs, EndpointState } from "./endpoint";
 export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
 
 export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
 export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
 
 export { NetworkAssociationArgs, NetworkAssociationState } from "./networkAssociation";
 export type NetworkAssociation = import("./networkAssociation").NetworkAssociation;
 export const NetworkAssociation: typeof import("./networkAssociation").NetworkAssociation = null as any;
+utilities.lazyLoad(exports, ["NetworkAssociation"], () => require("./networkAssociation"));
 
 export { RouteArgs, RouteState } from "./route";
 export type Route = import("./route").Route;
 export const Route: typeof import("./route").Route = null as any;
-
-utilities.lazyLoad(exports, ["AuthorizationRule"], () => require("./authorizationRule"));
-utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
-utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
-utilities.lazyLoad(exports, ["NetworkAssociation"], () => require("./networkAssociation"));
 utilities.lazyLoad(exports, ["Route"], () => require("./route"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.workspaces.getBundle({
+ * const example = aws.workspaces.getBundle({
  *     bundleId: "wsb-b0s22j3d7",
- * }));
+ * });
  * ```
  * ### By Owner & Name
  *
@@ -27,19 +27,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.workspaces.getBundle({
+ * const example = aws.workspaces.getBundle({
  *     name: "Value with Windows 10 and Office 2016",
  *     owner: "AMAZON",
- * }));
+ * });
  * ```
  */
 export function getBundle(args?: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:workspaces/getBundle:getBundle", {
         "bundleId": args.bundleId,
         "name": args.name,

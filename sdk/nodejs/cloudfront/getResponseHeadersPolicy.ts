@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.cloudfront.getResponseHeadersPolicy({
+ * const example = aws.cloudfront.getResponseHeadersPolicy({
  *     name: "example-policy",
- * }));
+ * });
  * ```
  * ### AWS-Managed Policies
  *
@@ -29,18 +29,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.cloudfront.getResponseHeadersPolicy({
+ * const example = aws.cloudfront.getResponseHeadersPolicy({
  *     name: "Managed-SimpleCORS",
- * }));
+ * });
  * ```
  */
 export function getResponseHeadersPolicy(args?: GetResponseHeadersPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResponseHeadersPolicyResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", {
         "id": args.id,
         "name": args.name,

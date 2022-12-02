@@ -25,7 +25,7 @@ namespace Pulumi.Aws
         /// which provides a list of the available zones.
         /// </summary>
         public static Task<GetAvailabilityZoneResult> InvokeAsync(GetAvailabilityZoneArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? new GetAvailabilityZoneArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? new GetAvailabilityZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
@@ -41,7 +41,7 @@ namespace Pulumi.Aws
         /// which provides a list of the available zones.
         /// </summary>
         public static Output<GetAvailabilityZoneResult> Invoke(GetAvailabilityZoneInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? new GetAvailabilityZoneInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? new GetAvailabilityZoneInvokeArgs(), options.WithDefaults());
     }
 
 

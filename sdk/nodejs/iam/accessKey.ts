@@ -159,6 +159,8 @@ export class AccessKey extends pulumi.CustomResource {
             resourceInputs["sesSmtpPasswordV4"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["secret", "sesSmtpPasswordV4"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(AccessKey.__pulumiType, name, resourceInputs, opts);
     }
 }

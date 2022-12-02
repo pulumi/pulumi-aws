@@ -16,17 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myCluster = pulumi.output(aws.elasticache.getCluster({
+ * const myCluster = aws.elasticache.getCluster({
  *     clusterId: "my-cluster-id",
- * }));
+ * });
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticache/getCluster:getCluster", {
         "clusterId": args.clusterId,
         "tags": args.tags,
@@ -57,7 +54,7 @@ export interface GetClusterResult {
      */
     readonly availabilityZone: string;
     /**
-     * List of node objects including `id`, `address`, `port` and `availabilityZone`.
+     * List of node objects including `id`, `address`, `port`, `availabilityZone` and `outpostArn`.
      * Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
      */
     readonly cacheNodes: outputs.elasticache.GetClusterCacheNode[];
@@ -83,6 +80,10 @@ export interface GetClusterResult {
      */
     readonly id: string;
     /**
+     * The IP version advertised in the discovery protocol.
+     */
+    readonly ipDiscovery: string;
+    /**
      * Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
      */
     readonly logDeliveryConfigurations: outputs.elasticache.GetClusterLogDeliveryConfiguration[];
@@ -91,6 +92,10 @@ export interface GetClusterResult {
      * on the cache cluster is performed.
      */
     readonly maintenanceWindow: string;
+    /**
+     * The IP versions for cache cluster connections.
+     */
+    readonly networkType: string;
     /**
      * The cluster node type.
      */
@@ -113,6 +118,10 @@ export interface GetClusterResult {
      * accept connections.
      */
     readonly port: number;
+    /**
+     * The outpost ARN in which the cache cluster was created if created in outpost.
+     */
+    readonly preferredOutpostArn: string;
     /**
      * The replication group to which this cache cluster belongs.
      */
