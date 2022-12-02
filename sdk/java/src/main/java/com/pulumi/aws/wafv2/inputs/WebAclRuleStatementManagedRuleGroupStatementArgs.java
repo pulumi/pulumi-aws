@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -19,16 +20,24 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
     public static final WebAclRuleStatementManagedRuleGroupStatementArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementArgs();
 
     /**
-     * The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+     * The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+     * 
+     * @deprecated
+     * Use rule_action_override instead
      * 
      */
+    @Deprecated /* Use rule_action_override instead */
     @Import(name="excludedRules")
     private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>> excludedRules;
 
     /**
-     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+     * 
+     * @deprecated
+     * Use rule_action_override instead
      * 
      */
+    @Deprecated /* Use rule_action_override instead */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>>> excludedRules() {
         return Optional.ofNullable(this.excludedRules);
     }
@@ -46,6 +55,21 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
      */
     public Output<String> name() {
         return this.name;
+    }
+
+    /**
+     * Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+     * 
+     */
+    @Import(name="ruleActionOverrides")
+    private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>> ruleActionOverrides;
+
+    /**
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+     * 
+     */
+    public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>>> ruleActionOverrides() {
+        return Optional.ofNullable(this.ruleActionOverrides);
     }
 
     /**
@@ -98,6 +122,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
     private WebAclRuleStatementManagedRuleGroupStatementArgs(WebAclRuleStatementManagedRuleGroupStatementArgs $) {
         this.excludedRules = $.excludedRules;
         this.name = $.name;
+        this.ruleActionOverrides = $.ruleActionOverrides;
         this.scopeDownStatement = $.scopeDownStatement;
         this.vendorName = $.vendorName;
         this.version = $.version;
@@ -122,32 +147,44 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use rule_action_override instead
+         * 
          */
+        @Deprecated /* Use rule_action_override instead */
         public Builder excludedRules(@Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>> excludedRules) {
             $.excludedRules = excludedRules;
             return this;
         }
 
         /**
-         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use rule_action_override instead
+         * 
          */
+        @Deprecated /* Use rule_action_override instead */
         public Builder excludedRules(List<WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs> excludedRules) {
             return excludedRules(Output.of(excludedRules));
         }
 
         /**
-         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use rule_action_override instead
+         * 
          */
+        @Deprecated /* Use rule_action_override instead */
         public Builder excludedRules(WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs... excludedRules) {
             return excludedRules(List.of(excludedRules));
         }
@@ -171,6 +208,37 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleActionOverrides(@Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>> ruleActionOverrides) {
+            $.ruleActionOverrides = ruleActionOverrides;
+            return this;
+        }
+
+        /**
+         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleActionOverrides(List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs> ruleActionOverrides) {
+            return ruleActionOverrides(Output.of(ruleActionOverrides));
+        }
+
+        /**
+         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleActionOverrides(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs... ruleActionOverrides) {
+            return ruleActionOverrides(List.of(ruleActionOverrides));
         }
 
         /**

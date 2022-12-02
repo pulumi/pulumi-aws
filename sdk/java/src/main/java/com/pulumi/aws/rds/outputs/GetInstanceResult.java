@@ -195,6 +195,11 @@ public final class GetInstanceResult {
      */
     private Boolean storageEncrypted;
     /**
+     * @return Storage throughput value for the DB instance.
+     * 
+     */
+    private Integer storageThroughput;
+    /**
      * @return Storage type associated with DB instance.
      * 
      */
@@ -468,6 +473,13 @@ public final class GetInstanceResult {
         return this.storageEncrypted;
     }
     /**
+     * @return Storage throughput value for the DB instance.
+     * 
+     */
+    public Integer storageThroughput() {
+        return this.storageThroughput;
+    }
+    /**
      * @return Storage type associated with DB instance.
      * 
      */
@@ -538,6 +550,7 @@ public final class GetInstanceResult {
         private String replicateSourceDb;
         private String resourceId;
         private Boolean storageEncrypted;
+        private Integer storageThroughput;
         private String storageType;
         private Map<String,String> tags;
         private String timezone;
@@ -582,6 +595,7 @@ public final class GetInstanceResult {
     	      this.replicateSourceDb = defaults.replicateSourceDb;
     	      this.resourceId = defaults.resourceId;
     	      this.storageEncrypted = defaults.storageEncrypted;
+    	      this.storageThroughput = defaults.storageThroughput;
     	      this.storageType = defaults.storageType;
     	      this.tags = defaults.tags;
     	      this.timezone = defaults.timezone;
@@ -786,6 +800,11 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder storageThroughput(Integer storageThroughput) {
+            this.storageThroughput = Objects.requireNonNull(storageThroughput);
+            return this;
+        }
+        @CustomType.Setter
         public Builder storageType(String storageType) {
             this.storageType = Objects.requireNonNull(storageType);
             return this;
@@ -847,6 +866,7 @@ public final class GetInstanceResult {
             o.replicateSourceDb = replicateSourceDb;
             o.resourceId = resourceId;
             o.storageEncrypted = storageEncrypted;
+            o.storageThroughput = storageThroughput;
             o.storageType = storageType;
             o.tags = tags;
             o.timezone = timezone;

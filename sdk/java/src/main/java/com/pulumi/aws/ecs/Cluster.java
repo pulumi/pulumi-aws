@@ -8,6 +8,7 @@ import com.pulumi.aws.ecs.ClusterArgs;
 import com.pulumi.aws.ecs.inputs.ClusterState;
 import com.pulumi.aws.ecs.outputs.ClusterConfiguration;
 import com.pulumi.aws.ecs.outputs.ClusterDefaultCapacityProviderStrategy;
+import com.pulumi.aws.ecs.outputs.ClusterServiceConnectDefaults;
 import com.pulumi.aws.ecs.outputs.ClusterSetting;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -245,6 +246,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Configures a default Service Connect namespace. Detailed below.
+     * 
+     */
+    @Export(name="serviceConnectDefaults", type=ClusterServiceConnectDefaults.class, parameters={})
+    private Output</* @Nullable */ ClusterServiceConnectDefaults> serviceConnectDefaults;
+
+    /**
+     * @return Configures a default Service Connect namespace. Detailed below.
+     * 
+     */
+    public Output<Optional<ClusterServiceConnectDefaults>> serviceConnectDefaults() {
+        return Codegen.optional(this.serviceConnectDefaults);
     }
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.

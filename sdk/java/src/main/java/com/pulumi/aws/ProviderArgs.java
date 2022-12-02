@@ -366,14 +366,22 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Skip getting the supported EC2 platforms. Used by users that don&#39;t have ec2:DescribeAccountAttributes permissions.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version. */
     @Import(name="skipGetEc2Platforms", json=true)
     private @Nullable Output<Boolean> skipGetEc2Platforms;
 
     /**
      * @return Skip getting the supported EC2 platforms. Used by users that don&#39;t have ec2:DescribeAccountAttributes permissions.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version. */
     public Optional<Output<Boolean>> skipGetEc2Platforms() {
         return Optional.ofNullable(this.skipGetEc2Platforms);
     }
@@ -1033,7 +1041,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version. */
         public Builder skipGetEc2Platforms(@Nullable Output<Boolean> skipGetEc2Platforms) {
             $.skipGetEc2Platforms = skipGetEc2Platforms;
             return this;
@@ -1044,7 +1056,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
+         * 
          */
+        @Deprecated /* With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version. */
         public Builder skipGetEc2Platforms(Boolean skipGetEc2Platforms) {
             return skipGetEc2Platforms(Output.of(skipGetEc2Platforms));
         }

@@ -29,6 +29,17 @@ export interface ClusterServerlessV2ScalingConfiguration {
     minCapacity?: number;
 }
 
+export interface GlobalClusterGlobalClusterMember {
+    /**
+     * Amazon Resource Name (ARN) of member DB Cluster.
+     */
+    dbClusterArn: string;
+    /**
+     * Whether the member is the primary DB Cluster.
+     */
+    isWriter: boolean;
+}
+
 export interface ParameterGroupParameter {
     /**
      * The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.

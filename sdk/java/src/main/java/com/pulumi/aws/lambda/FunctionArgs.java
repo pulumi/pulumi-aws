@@ -10,6 +10,7 @@ import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
 import com.pulumi.aws.lambda.inputs.FunctionEphemeralStorageArgs;
 import com.pulumi.aws.lambda.inputs.FunctionFileSystemConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionImageConfigArgs;
+import com.pulumi.aws.lambda.inputs.FunctionSnapStartArgs;
 import com.pulumi.aws.lambda.inputs.FunctionTracingConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
 import com.pulumi.core.Either;
@@ -375,6 +376,21 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Snap start settings block. Detailed below.
+     * 
+     */
+    @Import(name="snapStart")
+    private @Nullable Output<FunctionSnapStartArgs> snapStart;
+
+    /**
+     * @return Snap start settings block. Detailed below.
+     * 
+     */
+    public Optional<Output<FunctionSnapStartArgs>> snapStart() {
+        return Optional.ofNullable(this.snapStart);
+    }
+
+    /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
@@ -475,6 +491,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         this.s3Bucket = $.s3Bucket;
         this.s3Key = $.s3Key;
         this.s3ObjectVersion = $.s3ObjectVersion;
+        this.snapStart = $.snapStart;
         this.sourceCodeHash = $.sourceCodeHash;
         this.tags = $.tags;
         this.timeout = $.timeout;
@@ -1021,6 +1038,27 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder s3ObjectVersion(String s3ObjectVersion) {
             return s3ObjectVersion(Output.of(s3ObjectVersion));
+        }
+
+        /**
+         * @param snapStart Snap start settings block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapStart(@Nullable Output<FunctionSnapStartArgs> snapStart) {
+            $.snapStart = snapStart;
+            return this;
+        }
+
+        /**
+         * @param snapStart Snap start settings block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapStart(FunctionSnapStartArgs snapStart) {
+            return snapStart(Output.of(snapStart));
         }
 
         /**

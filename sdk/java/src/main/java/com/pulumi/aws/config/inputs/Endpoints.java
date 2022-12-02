@@ -303,6 +303,7 @@ public final class Endpoints {
     private @Nullable String redshiftserverless;
     private @Nullable String rekognition;
     private @Nullable String resiliencehub;
+    private @Nullable String resourceexplorer2;
     private @Nullable String resourcegroups;
     private @Nullable String resourcegroupstagging;
     private @Nullable String resourcegroupstaggingapi;
@@ -1261,6 +1262,9 @@ public final class Endpoints {
     public Optional<String> resiliencehub() {
         return Optional.ofNullable(this.resiliencehub);
     }
+    public Optional<String> resourceexplorer2() {
+        return Optional.ofNullable(this.resourceexplorer2);
+    }
     public Optional<String> resourcegroups() {
         return Optional.ofNullable(this.resourcegroups);
     }
@@ -1803,6 +1807,7 @@ public final class Endpoints {
         private @Nullable String redshiftserverless;
         private @Nullable String rekognition;
         private @Nullable String resiliencehub;
+        private @Nullable String resourceexplorer2;
         private @Nullable String resourcegroups;
         private @Nullable String resourcegroupstagging;
         private @Nullable String resourcegroupstaggingapi;
@@ -2178,6 +2183,7 @@ public final class Endpoints {
     	      this.redshiftserverless = defaults.redshiftserverless;
     	      this.rekognition = defaults.rekognition;
     	      this.resiliencehub = defaults.resiliencehub;
+    	      this.resourceexplorer2 = defaults.resourceexplorer2;
     	      this.resourcegroups = defaults.resourcegroups;
     	      this.resourcegroupstagging = defaults.resourcegroupstagging;
     	      this.resourcegroupstaggingapi = defaults.resourcegroupstaggingapi;
@@ -3721,6 +3727,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceexplorer2(@Nullable String resourceexplorer2) {
+            this.resourceexplorer2 = resourceexplorer2;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourcegroups(@Nullable String resourcegroups) {
             this.resourcegroups = resourcegroups;
             return this;
@@ -4414,6 +4425,7 @@ public final class Endpoints {
             o.redshiftserverless = redshiftserverless;
             o.rekognition = rekognition;
             o.resiliencehub = resiliencehub;
+            o.resourceexplorer2 = resourceexplorer2;
             o.resourcegroups = resourcegroups;
             o.resourcegroupstagging = resourcegroupstagging;
             o.resourcegroupstaggingapi = resourcegroupstaggingapi;

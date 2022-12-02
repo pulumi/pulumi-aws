@@ -543,6 +543,7 @@ type Endpoints struct {
 	Redshiftserverless                  *string `pulumi:"redshiftserverless"`
 	Rekognition                         *string `pulumi:"rekognition"`
 	Resiliencehub                       *string `pulumi:"resiliencehub"`
+	Resourceexplorer2                   *string `pulumi:"resourceexplorer2"`
 	Resourcegroups                      *string `pulumi:"resourcegroups"`
 	Resourcegroupstagging               *string `pulumi:"resourcegroupstagging"`
 	Resourcegroupstaggingapi            *string `pulumi:"resourcegroupstaggingapi"`
@@ -929,6 +930,7 @@ type EndpointsArgs struct {
 	Redshiftserverless                  pulumi.StringPtrInput `pulumi:"redshiftserverless"`
 	Rekognition                         pulumi.StringPtrInput `pulumi:"rekognition"`
 	Resiliencehub                       pulumi.StringPtrInput `pulumi:"resiliencehub"`
+	Resourceexplorer2                   pulumi.StringPtrInput `pulumi:"resourceexplorer2"`
 	Resourcegroups                      pulumi.StringPtrInput `pulumi:"resourcegroups"`
 	Resourcegroupstagging               pulumi.StringPtrInput `pulumi:"resourcegroupstagging"`
 	Resourcegroupstaggingapi            pulumi.StringPtrInput `pulumi:"resourcegroupstaggingapi"`
@@ -2228,6 +2230,10 @@ func (o EndpointsOutput) Rekognition() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Resiliencehub() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Resiliencehub }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Resourceexplorer2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Resourceexplorer2 }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Resourcegroups() pulumi.StringPtrOutput {

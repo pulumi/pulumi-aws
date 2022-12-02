@@ -144,6 +144,9 @@ class ProviderArgs:
         if skip_get_ec2_platforms is None:
             skip_get_ec2_platforms = True
         if skip_get_ec2_platforms is not None:
+            warnings.warn("""With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""skip_get_ec2_platforms is deprecated: With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.""")
+        if skip_get_ec2_platforms is not None:
             pulumi.set(__self__, "skip_get_ec2_platforms", skip_get_ec2_platforms)
         if skip_metadata_api_check is None:
             skip_metadata_api_check = True
@@ -716,6 +719,9 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["skip_credentials_validation"] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
             if skip_get_ec2_platforms is None:
                 skip_get_ec2_platforms = True
+            if skip_get_ec2_platforms is not None and not opts.urn:
+                warnings.warn("""With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+                pulumi.log.warn("""skip_get_ec2_platforms is deprecated: With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.""")
             __props__.__dict__["skip_get_ec2_platforms"] = pulumi.Output.from_input(skip_get_ec2_platforms).apply(pulumi.runtime.to_json) if skip_get_ec2_platforms is not None else None
             if skip_metadata_api_check is None:
                 skip_metadata_api_check = True

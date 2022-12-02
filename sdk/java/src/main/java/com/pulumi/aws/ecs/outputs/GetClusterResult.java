@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.GetClusterServiceConnectDefault;
 import com.pulumi.aws.ecs.outputs.GetClusterSetting;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
@@ -39,7 +40,12 @@ public final class GetClusterResult {
      */
     private Integer runningTasksCount;
     /**
-     * @return Settings associated with the ECS Cluster.
+     * @return The default Service Connect namespace
+     * 
+     */
+    private List<GetClusterServiceConnectDefault> serviceConnectDefaults;
+    /**
+     * @return Settings associated with the ECS Cluster
      * 
      */
     private List<GetClusterSetting> settings;
@@ -89,7 +95,14 @@ public final class GetClusterResult {
         return this.runningTasksCount;
     }
     /**
-     * @return Settings associated with the ECS Cluster.
+     * @return The default Service Connect namespace
+     * 
+     */
+    public List<GetClusterServiceConnectDefault> serviceConnectDefaults() {
+        return this.serviceConnectDefaults;
+    }
+    /**
+     * @return Settings associated with the ECS Cluster
      * 
      */
     public List<GetClusterSetting> settings() {
@@ -118,6 +131,7 @@ public final class GetClusterResult {
         private Integer pendingTasksCount;
         private Integer registeredContainerInstancesCount;
         private Integer runningTasksCount;
+        private List<GetClusterServiceConnectDefault> serviceConnectDefaults;
         private List<GetClusterSetting> settings;
         private String status;
         public Builder() {}
@@ -129,6 +143,7 @@ public final class GetClusterResult {
     	      this.pendingTasksCount = defaults.pendingTasksCount;
     	      this.registeredContainerInstancesCount = defaults.registeredContainerInstancesCount;
     	      this.runningTasksCount = defaults.runningTasksCount;
+    	      this.serviceConnectDefaults = defaults.serviceConnectDefaults;
     	      this.settings = defaults.settings;
     	      this.status = defaults.status;
         }
@@ -164,6 +179,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder serviceConnectDefaults(List<GetClusterServiceConnectDefault> serviceConnectDefaults) {
+            this.serviceConnectDefaults = Objects.requireNonNull(serviceConnectDefaults);
+            return this;
+        }
+        public Builder serviceConnectDefaults(GetClusterServiceConnectDefault... serviceConnectDefaults) {
+            return serviceConnectDefaults(List.of(serviceConnectDefaults));
+        }
+        @CustomType.Setter
         public Builder settings(List<GetClusterSetting> settings) {
             this.settings = Objects.requireNonNull(settings);
             return this;
@@ -184,6 +207,7 @@ public final class GetClusterResult {
             o.pendingTasksCount = pendingTasksCount;
             o.registeredContainerInstancesCount = registeredContainerInstancesCount;
             o.runningTasksCount = runningTasksCount;
+            o.serviceConnectDefaults = serviceConnectDefaults;
             o.settings = settings;
             o.status = status;
             return o;

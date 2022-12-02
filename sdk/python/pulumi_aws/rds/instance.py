@@ -71,6 +71,7 @@ class InstanceArgs:
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -143,7 +144,7 @@ class InstanceArgs:
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
-               storage_type of "io1".
+               storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
@@ -208,9 +209,11 @@ class InstanceArgs:
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
                default is `false` if not specified.
+        :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
-               purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-               specified, "gp2" if not.
+               purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+               or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+               "gp2" if not.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
                only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -332,6 +335,8 @@ class InstanceArgs:
             pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if storage_encrypted is not None:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+        if storage_throughput is not None:
+            pulumi.set(__self__, "storage_throughput", storage_throughput)
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
@@ -709,7 +714,7 @@ class InstanceArgs:
     def iops(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of provisioned IOPS. Setting this implies a
-        storage_type of "io1".
+        storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
         """
         return pulumi.get(self, "iops")
 
@@ -1068,12 +1073,25 @@ class InstanceArgs:
         pulumi.set(self, "storage_encrypted", value)
 
     @property
+    @pulumi.getter(name="storageThroughput")
+    def storage_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        """
+        return pulumi.get(self, "storage_throughput")
+
+    @storage_throughput.setter
+    def storage_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_throughput", value)
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[Union[str, 'StorageType']]]:
         """
         One of "standard" (magnetic), "gp2" (general
-        purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-        specified, "gp2" if not.
+        purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+        or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+        "gp2" if not.
         """
         return pulumi.get(self, "storage_type")
 
@@ -1202,6 +1220,7 @@ class _InstanceState:
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1281,7 +1300,7 @@ class _InstanceState:
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
-               storage_type of "io1".
+               storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[str] latest_restorable_time: The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
@@ -1349,9 +1368,11 @@ class _InstanceState:
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
                default is `false` if not specified.
+        :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
-               purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-               specified, "gp2" if not.
+               purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+               or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+               "gp2" if not.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
@@ -1493,6 +1514,8 @@ class _InstanceState:
             pulumi.set(__self__, "status", status)
         if storage_encrypted is not None:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+        if storage_throughput is not None:
+            pulumi.set(__self__, "storage_throughput", storage_throughput)
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
@@ -1933,7 +1956,7 @@ class _InstanceState:
     def iops(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of provisioned IOPS. Setting this implies a
-        storage_type of "io1".
+        storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
         """
         return pulumi.get(self, "iops")
 
@@ -2337,12 +2360,25 @@ class _InstanceState:
         pulumi.set(self, "storage_encrypted", value)
 
     @property
+    @pulumi.getter(name="storageThroughput")
+    def storage_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        """
+        return pulumi.get(self, "storage_throughput")
+
+    @storage_throughput.setter
+    def storage_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_throughput", value)
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[Union[str, 'StorageType']]]:
         """
         One of "standard" (magnetic), "gp2" (general
-        purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-        specified, "gp2" if not.
+        purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+        or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+        "gp2" if not.
         """
         return pulumi.get(self, "storage_type")
 
@@ -2476,6 +2512,7 @@ class Instance(pulumi.CustomResource):
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -2625,7 +2662,7 @@ class Instance(pulumi.CustomResource):
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
-               storage_type of "io1".
+               storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
@@ -2690,9 +2727,11 @@ class Instance(pulumi.CustomResource):
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
                default is `false` if not specified.
+        :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
-               purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-               specified, "gp2" if not.
+               purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+               or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+               "gp2" if not.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
                only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -2855,6 +2894,7 @@ class Instance(pulumi.CustomResource):
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -2928,6 +2968,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["storage_encrypted"] = storage_encrypted
+            __props__.__dict__["storage_throughput"] = storage_throughput
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timezone"] = timezone
@@ -3018,6 +3059,7 @@ class Instance(pulumi.CustomResource):
             snapshot_identifier: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             storage_encrypted: Optional[pulumi.Input[bool]] = None,
+            storage_throughput: Optional[pulumi.Input[int]] = None,
             storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -3102,7 +3144,7 @@ class Instance(pulumi.CustomResource):
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
-               storage_type of "io1".
+               storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[str] latest_restorable_time: The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
@@ -3170,9 +3212,11 @@ class Instance(pulumi.CustomResource):
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
                default is `false` if not specified.
+        :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
-               purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-               specified, "gp2" if not.
+               purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+               or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+               "gp2" if not.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
@@ -3252,6 +3296,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["snapshot_identifier"] = snapshot_identifier
         __props__.__dict__["status"] = status
         __props__.__dict__["storage_encrypted"] = storage_encrypted
+        __props__.__dict__["storage_throughput"] = storage_throughput
         __props__.__dict__["storage_type"] = storage_type
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -3556,10 +3601,10 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def iops(self) -> pulumi.Output[Optional[int]]:
+    def iops(self) -> pulumi.Output[int]:
         """
         The amount of provisioned IOPS. Setting this implies a
-        storage_type of "io1".
+        storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
         """
         return pulumi.get(self, "iops")
 
@@ -3839,12 +3884,21 @@ class Instance(pulumi.CustomResource):
         return pulumi.get(self, "storage_encrypted")
 
     @property
+    @pulumi.getter(name="storageThroughput")
+    def storage_throughput(self) -> pulumi.Output[int]:
+        """
+        The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        """
+        return pulumi.get(self, "storage_throughput")
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[str]:
         """
         One of "standard" (magnetic), "gp2" (general
-        purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-        specified, "gp2" if not.
+        purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+        or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+        "gp2" if not.
         """
         return pulumi.get(self, "storage_type")
 

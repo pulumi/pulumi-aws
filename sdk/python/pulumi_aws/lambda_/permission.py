@@ -29,12 +29,12 @@ class PermissionArgs:
         The set of arguments for constructing a Permission resource.
         :param pulumi.Input[str] action: The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[str] function: Name of the Lambda function whose resource policy you are updating
-        :param pulumi.Input[str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        :param pulumi.Input[str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         :param pulumi.Input[str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
-        :param pulumi.Input[str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+        :param pulumi.Input[str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         :param pulumi.Input[str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
         :param pulumi.Input[str] qualifier: Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
-        :param pulumi.Input[str] source_account: This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+        :param pulumi.Input[str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
                Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
                For S3, this should be the ARN of the S3 Bucket.
@@ -91,7 +91,7 @@ class PermissionArgs:
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
         """
-        The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         """
         return pulumi.get(self, "principal")
 
@@ -115,7 +115,7 @@ class PermissionArgs:
     @pulumi.getter(name="functionUrlAuthType")
     def function_url_auth_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+        Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         """
         return pulumi.get(self, "function_url_auth_type")
 
@@ -151,7 +151,7 @@ class PermissionArgs:
     @pulumi.getter(name="sourceAccount")
     def source_account(self) -> Optional[pulumi.Input[str]]:
         """
-        This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+        This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         """
         return pulumi.get(self, "source_account")
 
@@ -219,11 +219,11 @@ class _PermissionState:
         :param pulumi.Input[str] action: The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         :param pulumi.Input[str] function: Name of the Lambda function whose resource policy you are updating
-        :param pulumi.Input[str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
-        :param pulumi.Input[str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        :param pulumi.Input[str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+        :param pulumi.Input[str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         :param pulumi.Input[str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
         :param pulumi.Input[str] qualifier: Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
-        :param pulumi.Input[str] source_account: This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+        :param pulumi.Input[str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
                Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
                For S3, this should be the ARN of the S3 Bucket.
@@ -295,7 +295,7 @@ class _PermissionState:
     @pulumi.getter(name="functionUrlAuthType")
     def function_url_auth_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+        Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         """
         return pulumi.get(self, "function_url_auth_type")
 
@@ -307,7 +307,7 @@ class _PermissionState:
     @pulumi.getter
     def principal(self) -> Optional[pulumi.Input[str]]:
         """
-        The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         """
         return pulumi.get(self, "principal")
 
@@ -343,7 +343,7 @@ class _PermissionState:
     @pulumi.getter(name="sourceAccount")
     def source_account(self) -> Optional[pulumi.Input[str]]:
         """
-        This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+        This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         """
         return pulumi.get(self, "source_account")
 
@@ -533,6 +533,23 @@ class Permission(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[logging_permission]))
         ```
 
+        ## Example function URL cross-account invoke policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        url_function_url = aws.lambda_.FunctionUrl("urlFunctionUrl",
+            function_name=aws_lambda_function["example"]["function_name"],
+            authorization_type="AWS_IAM")
+        url_permission = aws.lambda_.Permission("urlPermission",
+            action="lambda:InvokeFunctionUrl",
+            function=aws_lambda_function["example"]["function_name"],
+            principal="arn:aws:iam::444455556666:role/example",
+            source_account="444455556666",
+            function_url_auth_type="AWS_IAM")
+        ```
+
         ## Import
 
         Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
@@ -550,11 +567,11 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[str] action: The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         :param pulumi.Input[str] function: Name of the Lambda function whose resource policy you are updating
-        :param pulumi.Input[str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
-        :param pulumi.Input[str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        :param pulumi.Input[str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+        :param pulumi.Input[str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         :param pulumi.Input[str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
         :param pulumi.Input[str] qualifier: Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
-        :param pulumi.Input[str] source_account: This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+        :param pulumi.Input[str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
                Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
                For S3, this should be the ARN of the S3 Bucket.
@@ -693,6 +710,23 @@ class Permission(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[logging_permission]))
         ```
 
+        ## Example function URL cross-account invoke policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        url_function_url = aws.lambda_.FunctionUrl("urlFunctionUrl",
+            function_name=aws_lambda_function["example"]["function_name"],
+            authorization_type="AWS_IAM")
+        url_permission = aws.lambda_.Permission("urlPermission",
+            action="lambda:InvokeFunctionUrl",
+            function=aws_lambda_function["example"]["function_name"],
+            principal="arn:aws:iam::444455556666:role/example",
+            source_account="444455556666",
+            function_url_auth_type="AWS_IAM")
+        ```
+
         ## Import
 
         Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
@@ -788,11 +822,11 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[str] action: The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         :param pulumi.Input[str] function: Name of the Lambda function whose resource policy you are updating
-        :param pulumi.Input[str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
-        :param pulumi.Input[str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        :param pulumi.Input[str] function_url_auth_type: Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+        :param pulumi.Input[str] principal: The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         :param pulumi.Input[str] principal_org_id: The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
         :param pulumi.Input[str] qualifier: Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
-        :param pulumi.Input[str] source_account: This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+        :param pulumi.Input[str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
                Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
                For S3, this should be the ARN of the S3 Bucket.
@@ -846,7 +880,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter(name="functionUrlAuthType")
     def function_url_auth_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+        Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         """
         return pulumi.get(self, "function_url_auth_type")
 
@@ -854,7 +888,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
         """
-        The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         """
         return pulumi.get(self, "principal")
 
@@ -878,7 +912,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter(name="sourceAccount")
     def source_account(self) -> pulumi.Output[Optional[str]]:
         """
-        This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+        This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         """
         return pulumi.get(self, "source_account")
 

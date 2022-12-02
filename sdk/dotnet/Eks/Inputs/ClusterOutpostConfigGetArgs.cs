@@ -18,6 +18,13 @@ namespace Pulumi.Aws.Eks.Inputs
         [Input("controlPlaneInstanceType", required: true)]
         public Input<string> ControlPlaneInstanceType { get; set; } = null!;
 
+        /// <summary>
+        /// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+        /// The following arguments are supported in the `control_plane_placement` configuration block:
+        /// </summary>
+        [Input("controlPlanePlacement")]
+        public Input<Inputs.ClusterOutpostConfigControlPlanePlacementGetArgs>? ControlPlanePlacement { get; set; }
+
         [Input("outpostArns", required: true)]
         private InputList<string>? _outpostArns;
 

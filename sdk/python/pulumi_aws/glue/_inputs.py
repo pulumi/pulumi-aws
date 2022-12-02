@@ -868,6 +868,8 @@ class ClassifierCsvClassifierArgs:
     def __init__(__self__, *,
                  allow_single_column: Optional[pulumi.Input[bool]] = None,
                  contains_header: Optional[pulumi.Input[str]] = None,
+                 custom_datatype_configured: Optional[pulumi.Input[bool]] = None,
+                 custom_datatypes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  delimiter: Optional[pulumi.Input[str]] = None,
                  disable_value_trimming: Optional[pulumi.Input[bool]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -875,6 +877,8 @@ class ClassifierCsvClassifierArgs:
         """
         :param pulumi.Input[bool] allow_single_column: Enables the processing of files that contain only one column.
         :param pulumi.Input[str] contains_header: Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
+        :param pulumi.Input[bool] custom_datatype_configured: A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_datatypes: A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
         :param pulumi.Input[str] delimiter: The delimiter used in the Csv to separate columns.
         :param pulumi.Input[bool] disable_value_trimming: Specifies whether to trim column values.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers: A list of strings representing column names.
@@ -884,6 +888,10 @@ class ClassifierCsvClassifierArgs:
             pulumi.set(__self__, "allow_single_column", allow_single_column)
         if contains_header is not None:
             pulumi.set(__self__, "contains_header", contains_header)
+        if custom_datatype_configured is not None:
+            pulumi.set(__self__, "custom_datatype_configured", custom_datatype_configured)
+        if custom_datatypes is not None:
+            pulumi.set(__self__, "custom_datatypes", custom_datatypes)
         if delimiter is not None:
             pulumi.set(__self__, "delimiter", delimiter)
         if disable_value_trimming is not None:
@@ -916,6 +924,30 @@ class ClassifierCsvClassifierArgs:
     @contains_header.setter
     def contains_header(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "contains_header", value)
+
+    @property
+    @pulumi.getter(name="customDatatypeConfigured")
+    def custom_datatype_configured(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        """
+        return pulumi.get(self, "custom_datatype_configured")
+
+    @custom_datatype_configured.setter
+    def custom_datatype_configured(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_datatype_configured", value)
+
+    @property
+    @pulumi.getter(name="customDatatypes")
+    def custom_datatypes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+        """
+        return pulumi.get(self, "custom_datatypes")
+
+    @custom_datatypes.setter
+    def custom_datatypes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_datatypes", value)
 
     @property
     @pulumi.getter

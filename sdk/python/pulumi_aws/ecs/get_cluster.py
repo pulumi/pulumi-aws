@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, cluster_name=None, id=None, pending_tasks_count=None, registered_container_instances_count=None, running_tasks_count=None, settings=None, status=None):
+    def __init__(__self__, arn=None, cluster_name=None, id=None, pending_tasks_count=None, registered_container_instances_count=None, running_tasks_count=None, service_connect_defaults=None, settings=None, status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetClusterResult:
         if running_tasks_count and not isinstance(running_tasks_count, int):
             raise TypeError("Expected argument 'running_tasks_count' to be a int")
         pulumi.set(__self__, "running_tasks_count", running_tasks_count)
+        if service_connect_defaults and not isinstance(service_connect_defaults, list):
+            raise TypeError("Expected argument 'service_connect_defaults' to be a list")
+        pulumi.set(__self__, "service_connect_defaults", service_connect_defaults)
         if settings and not isinstance(settings, list):
             raise TypeError("Expected argument 'settings' to be a list")
         pulumi.set(__self__, "settings", settings)
@@ -94,10 +97,18 @@ class GetClusterResult:
         return pulumi.get(self, "running_tasks_count")
 
     @property
+    @pulumi.getter(name="serviceConnectDefaults")
+    def service_connect_defaults(self) -> Sequence['outputs.GetClusterServiceConnectDefaultResult']:
+        """
+        The default Service Connect namespace
+        """
+        return pulumi.get(self, "service_connect_defaults")
+
+    @property
     @pulumi.getter
     def settings(self) -> Sequence['outputs.GetClusterSettingResult']:
         """
-        Settings associated with the ECS Cluster.
+        Settings associated with the ECS Cluster
         """
         return pulumi.get(self, "settings")
 
@@ -122,6 +133,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             pending_tasks_count=self.pending_tasks_count,
             registered_container_instances_count=self.registered_container_instances_count,
             running_tasks_count=self.running_tasks_count,
+            service_connect_defaults=self.service_connect_defaults,
             settings=self.settings,
             status=self.status)
 
@@ -156,6 +168,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         pending_tasks_count=__ret__.pending_tasks_count,
         registered_container_instances_count=__ret__.registered_container_instances_count,
         running_tasks_count=__ret__.running_tasks_count,
+        service_connect_defaults=__ret__.service_connect_defaults,
         settings=__ret__.settings,
         status=__ret__.status)
 

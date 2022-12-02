@@ -506,7 +506,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storage_type of &#34;io1&#34;.
+     * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
      * 
      */
     @Import(name="iops")
@@ -514,7 +514,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The amount of provisioned IOPS. Setting this implies a
-     * storage_type of &#34;io1&#34;.
+     * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
      * 
      */
     public Optional<Output<Integer>> iops() {
@@ -996,9 +996,25 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`.
+     * 
+     */
+    @Import(name="storageThroughput")
+    private @Nullable Output<Integer> storageThroughput;
+
+    /**
+     * @return The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`.
+     * 
+     */
+    public Optional<Output<Integer>> storageThroughput() {
+        return Optional.ofNullable(this.storageThroughput);
+    }
+
+    /**
      * One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
-     * purpose SSD), or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is
-     * specified, &#34;gp2&#34; if not.
+     * purpose SSD), &#34;gp3&#34; (general purpose SSD that needs `iops` independently)
+     * or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is specified,
+     * &#34;gp2&#34; if not.
      * 
      */
     @Import(name="storageType")
@@ -1006,8 +1022,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
-     * purpose SSD), or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is
-     * specified, &#34;gp2&#34; if not.
+     * purpose SSD), &#34;gp3&#34; (general purpose SSD that needs `iops` independently)
+     * or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is specified,
+     * &#34;gp2&#34; if not.
      * 
      */
     public Optional<Output<Either<String,StorageType>>> storageType() {
@@ -1143,6 +1160,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.snapshotIdentifier = $.snapshotIdentifier;
         this.storageEncrypted = $.storageEncrypted;
+        this.storageThroughput = $.storageThroughput;
         this.storageType = $.storageType;
         this.tags = $.tags;
         this.timezone = $.timezone;
@@ -1841,7 +1859,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param iops The amount of provisioned IOPS. Setting this implies a
-         * storage_type of &#34;io1&#34;.
+         * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
          * 
          * @return builder
          * 
@@ -1853,7 +1871,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param iops The amount of provisioned IOPS. Setting this implies a
-         * storage_type of &#34;io1&#34;.
+         * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
          * 
          * @return builder
          * 
@@ -2509,9 +2527,31 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param storageThroughput The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageThroughput(@Nullable Output<Integer> storageThroughput) {
+            $.storageThroughput = storageThroughput;
+            return this;
+        }
+
+        /**
+         * @param storageThroughput The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageThroughput(Integer storageThroughput) {
+            return storageThroughput(Output.of(storageThroughput));
+        }
+
+        /**
          * @param storageType One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
-         * purpose SSD), or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is
-         * specified, &#34;gp2&#34; if not.
+         * purpose SSD), &#34;gp3&#34; (general purpose SSD that needs `iops` independently)
+         * or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is specified,
+         * &#34;gp2&#34; if not.
          * 
          * @return builder
          * 
@@ -2523,8 +2563,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageType One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
-         * purpose SSD), or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is
-         * specified, &#34;gp2&#34; if not.
+         * purpose SSD), &#34;gp3&#34; (general purpose SSD that needs `iops` independently)
+         * or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is specified,
+         * &#34;gp2&#34; if not.
          * 
          * @return builder
          * 
@@ -2535,8 +2576,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageType One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
-         * purpose SSD), or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is
-         * specified, &#34;gp2&#34; if not.
+         * purpose SSD), &#34;gp3&#34; (general purpose SSD that needs `iops` independently)
+         * or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is specified,
+         * &#34;gp2&#34; if not.
          * 
          * @return builder
          * 
@@ -2547,8 +2589,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageType One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
-         * purpose SSD), or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is
-         * specified, &#34;gp2&#34; if not.
+         * purpose SSD), &#34;gp3&#34; (general purpose SSD that needs `iops` independently)
+         * or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is specified,
+         * &#34;gp2&#34; if not.
          * 
          * @return builder
          * 

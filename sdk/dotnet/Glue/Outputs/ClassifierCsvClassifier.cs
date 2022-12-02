@@ -22,6 +22,14 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? ContainsHeader;
         /// <summary>
+        /// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        /// </summary>
+        public readonly bool? CustomDatatypeConfigured;
+        /// <summary>
+        /// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+        /// </summary>
+        public readonly ImmutableArray<string> CustomDatatypes;
+        /// <summary>
         /// The delimiter used in the Csv to separate columns.
         /// </summary>
         public readonly string? Delimiter;
@@ -44,6 +52,10 @@ namespace Pulumi.Aws.Glue.Outputs
 
             string? containsHeader,
 
+            bool? customDatatypeConfigured,
+
+            ImmutableArray<string> customDatatypes,
+
             string? delimiter,
 
             bool? disableValueTrimming,
@@ -54,6 +66,8 @@ namespace Pulumi.Aws.Glue.Outputs
         {
             AllowSingleColumn = allowSingleColumn;
             ContainsHeader = containsHeader;
+            CustomDatatypeConfigured = customDatatypeConfigured;
+            CustomDatatypes = customDatatypes;
             Delimiter = delimiter;
             DisableValueTrimming = disableValueTrimming;
             Headers = headers;

@@ -207,16 +207,14 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.rootVolumeSecurityStyle);
     }
     /**
-     * Describes the SVM&#39;s subtype, e.g. `DEFAULT`
+     * @deprecated
+     * this trait has been removed from the API
      * 
      */
+    @Deprecated /* this trait has been removed from the API */
     @Export(name="subtype", type=String.class, parameters={})
     private Output<String> subtype;
 
-    /**
-     * @return Describes the SVM&#39;s subtype, e.g. `DEFAULT`
-     * 
-     */
     public Output<String> subtype() {
         return this.subtype;
     }

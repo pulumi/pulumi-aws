@@ -139,6 +139,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+     */
+    public readonly globalClusterIdentifier!: pulumi.Output<string | undefined>;
+    /**
      * The Route53 Hosted Zone ID of the endpoint
      */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
@@ -240,6 +244,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["engine"] = state ? state.engine : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
+            resourceInputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
             resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             resourceInputs["iamDatabaseAuthenticationEnabled"] = state ? state.iamDatabaseAuthenticationEnabled : undefined;
             resourceInputs["iamRoles"] = state ? state.iamRoles : undefined;
@@ -272,6 +277,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
+            resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
             resourceInputs["iamDatabaseAuthenticationEnabled"] = args ? args.iamDatabaseAuthenticationEnabled : undefined;
             resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
@@ -368,6 +374,10 @@ export interface ClusterState {
      * The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
+    /**
+     * The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+     */
+    globalClusterIdentifier?: pulumi.Input<string>;
     /**
      * The Route53 Hosted Zone ID of the endpoint
      */
@@ -494,6 +504,10 @@ export interface ClusterArgs {
      * The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
+    /**
+     * The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+     */
+    globalClusterIdentifier?: pulumi.Input<string>;
     /**
      * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */

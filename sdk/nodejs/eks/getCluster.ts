@@ -67,6 +67,10 @@ export interface GetClusterResult {
      */
     readonly certificateAuthorities: outputs.eks.GetClusterCertificateAuthority[];
     /**
+     * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
+     */
+    readonly clusterId: string;
+    /**
      * Unix epoch time stamp in seconds for when the cluster was created.
      */
     readonly createdAt: string;

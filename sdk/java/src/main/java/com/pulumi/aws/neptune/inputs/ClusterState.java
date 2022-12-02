@@ -261,6 +261,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+     * 
+     */
+    @Import(name="globalClusterIdentifier")
+    private @Nullable Output<String> globalClusterIdentifier;
+
+    /**
+     * @return The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+     * 
+     */
+    public Optional<Output<String>> globalClusterIdentifier() {
+        return Optional.ofNullable(this.globalClusterIdentifier);
+    }
+
+    /**
      * The Route53 Hosted Zone ID of the endpoint
      * 
      */
@@ -549,6 +564,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.engine = $.engine;
         this.engineVersion = $.engineVersion;
         this.finalSnapshotIdentifier = $.finalSnapshotIdentifier;
+        this.globalClusterIdentifier = $.globalClusterIdentifier;
         this.hostedZoneId = $.hostedZoneId;
         this.iamDatabaseAuthenticationEnabled = $.iamDatabaseAuthenticationEnabled;
         this.iamRoles = $.iamRoles;
@@ -951,6 +967,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder finalSnapshotIdentifier(String finalSnapshotIdentifier) {
             return finalSnapshotIdentifier(Output.of(finalSnapshotIdentifier));
+        }
+
+        /**
+         * @param globalClusterIdentifier The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalClusterIdentifier(@Nullable Output<String> globalClusterIdentifier) {
+            $.globalClusterIdentifier = globalClusterIdentifier;
+            return this;
+        }
+
+        /**
+         * @param globalClusterIdentifier The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalClusterIdentifier(String globalClusterIdentifier) {
+            return globalClusterIdentifier(Output.of(globalClusterIdentifier));
         }
 
         /**

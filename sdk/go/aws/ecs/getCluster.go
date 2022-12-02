@@ -66,7 +66,9 @@ type LookupClusterResult struct {
 	RegisteredContainerInstancesCount int `pulumi:"registeredContainerInstancesCount"`
 	// Number of running tasks for the ECS Cluster
 	RunningTasksCount int `pulumi:"runningTasksCount"`
-	// Settings associated with the ECS Cluster.
+	// The default Service Connect namespace
+	ServiceConnectDefaults []GetClusterServiceConnectDefault `pulumi:"serviceConnectDefaults"`
+	// Settings associated with the ECS Cluster
 	Settings []GetClusterSetting `pulumi:"settings"`
 	// Status of the ECS Cluster
 	Status string `pulumi:"status"`
@@ -139,7 +141,12 @@ func (o LookupClusterResultOutput) RunningTasksCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.RunningTasksCount }).(pulumi.IntOutput)
 }
 
-// Settings associated with the ECS Cluster.
+// The default Service Connect namespace
+func (o LookupClusterResultOutput) ServiceConnectDefaults() GetClusterServiceConnectDefaultArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterServiceConnectDefault { return v.ServiceConnectDefaults }).(GetClusterServiceConnectDefaultArrayOutput)
+}
+
+// Settings associated with the ECS Cluster
 func (o LookupClusterResultOutput) Settings() GetClusterSettingArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterSetting { return v.Settings }).(GetClusterSettingArrayOutput)
 }

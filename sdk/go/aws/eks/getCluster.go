@@ -63,6 +63,8 @@ type LookupClusterResult struct {
 	Arn string `pulumi:"arn"`
 	// Nested attribute containing `certificate-authority-data` for your cluster.
 	CertificateAuthorities []GetClusterCertificateAuthority `pulumi:"certificateAuthorities"`
+	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
+	ClusterId string `pulumi:"clusterId"`
 	// Unix epoch time stamp in seconds for when the cluster was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// The enabled control plane logs.
@@ -140,6 +142,11 @@ func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 // Nested attribute containing `certificate-authority-data` for your cluster.
 func (o LookupClusterResultOutput) CertificateAuthorities() GetClusterCertificateAuthorityArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterCertificateAuthority { return v.CertificateAuthorities }).(GetClusterCertificateAuthorityArrayOutput)
+}
+
+// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
+func (o LookupClusterResultOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterId }).(pulumi.StringOutput)
 }
 
 // Unix epoch time stamp in seconds for when the cluster was created.

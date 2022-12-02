@@ -200,6 +200,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly schedulingStrategy!: pulumi.Output<string | undefined>;
     /**
+     * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     */
+    public readonly serviceConnectConfiguration!: pulumi.Output<outputs.ecs.ServiceServiceConnectConfiguration | undefined>;
+    /**
      * Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
      */
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceServiceRegistries | undefined>;
@@ -258,6 +262,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["platformVersion"] = state ? state.platformVersion : undefined;
             resourceInputs["propagateTags"] = state ? state.propagateTags : undefined;
             resourceInputs["schedulingStrategy"] = state ? state.schedulingStrategy : undefined;
+            resourceInputs["serviceConnectConfiguration"] = state ? state.serviceConnectConfiguration : undefined;
             resourceInputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -287,6 +292,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["platformVersion"] = args ? args.platformVersion : undefined;
             resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
             resourceInputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
+            resourceInputs["serviceConnectConfiguration"] = args ? args.serviceConnectConfiguration : undefined;
             resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
@@ -387,6 +393,10 @@ export interface ServiceState {
      * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */
     schedulingStrategy?: pulumi.Input<string>;
+    /**
+     * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     */
+    serviceConnectConfiguration?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfiguration>;
     /**
      * Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
      */
@@ -501,6 +511,10 @@ export interface ServiceArgs {
      * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */
     schedulingStrategy?: pulumi.Input<string>;
+    /**
+     * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     */
+    serviceConnectConfiguration?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfiguration>;
     /**
      * Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
      */

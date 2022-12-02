@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'ClusterParameterGroupParameter',
     'ClusterServerlessV2ScalingConfiguration',
+    'GlobalClusterGlobalClusterMember',
     'ParameterGroupParameter',
 ]
 
@@ -111,6 +112,56 @@ class ClusterServerlessV2ScalingConfiguration(dict):
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[float]:
         return pulumi.get(self, "min_capacity")
+
+
+@pulumi.output_type
+class GlobalClusterGlobalClusterMember(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dbClusterArn":
+            suggest = "db_cluster_arn"
+        elif key == "isWriter":
+            suggest = "is_writer"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalClusterGlobalClusterMember. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalClusterGlobalClusterMember.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalClusterGlobalClusterMember.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 db_cluster_arn: Optional[str] = None,
+                 is_writer: Optional[bool] = None):
+        """
+        :param str db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
+        :param bool is_writer: Whether the member is the primary DB Cluster.
+        """
+        if db_cluster_arn is not None:
+            pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
+        if is_writer is not None:
+            pulumi.set(__self__, "is_writer", is_writer)
+
+    @property
+    @pulumi.getter(name="dbClusterArn")
+    def db_cluster_arn(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of member DB Cluster.
+        """
+        return pulumi.get(self, "db_cluster_arn")
+
+    @property
+    @pulumi.getter(name="isWriter")
+    def is_writer(self) -> Optional[bool]:
+        """
+        Whether the member is the primary DB Cluster.
+        """
+        return pulumi.get(self, "is_writer")
 
 
 @pulumi.output_type

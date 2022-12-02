@@ -27,6 +27,11 @@ public final class GetClusterResult {
      */
     private List<GetClusterCertificateAuthority> certificateAuthorities;
     /**
+     * @return The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn&#39;t available for an AWS EKS cluster on AWS cloud.
+     * 
+     */
+    private String clusterId;
+    /**
      * @return Unix epoch time stamp in seconds for when the cluster was created.
      * 
      */
@@ -107,6 +112,13 @@ public final class GetClusterResult {
      */
     public List<GetClusterCertificateAuthority> certificateAuthorities() {
         return this.certificateAuthorities;
+    }
+    /**
+     * @return The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn&#39;t available for an AWS EKS cluster on AWS cloud.
+     * 
+     */
+    public String clusterId() {
+        return this.clusterId;
     }
     /**
      * @return Unix epoch time stamp in seconds for when the cluster was created.
@@ -214,6 +226,7 @@ public final class GetClusterResult {
     public static final class Builder {
         private String arn;
         private List<GetClusterCertificateAuthority> certificateAuthorities;
+        private String clusterId;
         private String createdAt;
         private List<String> enabledClusterLogTypes;
         private String endpoint;
@@ -233,6 +246,7 @@ public final class GetClusterResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.certificateAuthorities = defaults.certificateAuthorities;
+    	      this.clusterId = defaults.clusterId;
     	      this.createdAt = defaults.createdAt;
     	      this.enabledClusterLogTypes = defaults.enabledClusterLogTypes;
     	      this.endpoint = defaults.endpoint;
@@ -261,6 +275,11 @@ public final class GetClusterResult {
         }
         public Builder certificateAuthorities(GetClusterCertificateAuthority... certificateAuthorities) {
             return certificateAuthorities(List.of(certificateAuthorities));
+        }
+        @CustomType.Setter
+        public Builder clusterId(String clusterId) {
+            this.clusterId = Objects.requireNonNull(clusterId);
+            return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
@@ -348,6 +367,7 @@ public final class GetClusterResult {
             final var o = new GetClusterResult();
             o.arn = arn;
             o.certificateAuthorities = certificateAuthorities;
+            o.clusterId = clusterId;
             o.createdAt = createdAt;
             o.enabledClusterLogTypes = enabledClusterLogTypes;
             o.endpoint = endpoint;

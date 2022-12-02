@@ -154,6 +154,12 @@ namespace Pulumi.Aws.Neptune
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+        /// </summary>
+        [Output("globalClusterIdentifier")]
+        public Output<string?> GlobalClusterIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// The Route53 Hosted Zone ID of the endpoint
         /// </summary>
         [Output("hostedZoneId")]
@@ -392,6 +398,12 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
+        /// The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+        /// </summary>
+        [Input("globalClusterIdentifier")]
+        public Input<string>? GlobalClusterIdentifier { get; set; }
+
+        /// <summary>
         /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]
@@ -620,6 +632,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
+
+        /// <summary>
+        /// The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+        /// </summary>
+        [Input("globalClusterIdentifier")]
+        public Input<string>? GlobalClusterIdentifier { get; set; }
 
         /// <summary>
         /// The Route53 Hosted Zone ID of the endpoint

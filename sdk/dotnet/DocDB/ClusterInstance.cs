@@ -80,7 +80,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
         /// </summary>
         [Output("autoMinorVersionUpgrade")]
         public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Aws.DocDB
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
@@ -409,7 +409,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }

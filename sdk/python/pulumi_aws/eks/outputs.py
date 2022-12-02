@@ -18,6 +18,7 @@ __all__ = [
     'ClusterIdentityOidc',
     'ClusterKubernetesNetworkConfig',
     'ClusterOutpostConfig',
+    'ClusterOutpostConfigControlPlanePlacement',
     'ClusterVpcConfig',
     'FargateProfileSelector',
     'IdentityProviderConfigOidc',
@@ -231,6 +232,8 @@ class ClusterOutpostConfig(dict):
             suggest = "control_plane_instance_type"
         elif key == "outpostArns":
             suggest = "outpost_arns"
+        elif key == "controlPlanePlacement":
+            suggest = "control_plane_placement"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterOutpostConfig. Access the value via the '{suggest}' property getter instead.")
@@ -245,13 +248,18 @@ class ClusterOutpostConfig(dict):
 
     def __init__(__self__, *,
                  control_plane_instance_type: str,
-                 outpost_arns: Sequence[str]):
+                 outpost_arns: Sequence[str],
+                 control_plane_placement: Optional['outputs.ClusterOutpostConfigControlPlanePlacement'] = None):
         """
         :param str control_plane_instance_type: The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
         :param Sequence[str] outpost_arns: The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
+        :param 'ClusterOutpostConfigControlPlanePlacementArgs' control_plane_placement: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+               The following arguments are supported in the `control_plane_placement` configuration block:
         """
         pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
         pulumi.set(__self__, "outpost_arns", outpost_arns)
+        if control_plane_placement is not None:
+            pulumi.set(__self__, "control_plane_placement", control_plane_placement)
 
     @property
     @pulumi.getter(name="controlPlaneInstanceType")
@@ -268,6 +276,50 @@ class ClusterOutpostConfig(dict):
         The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
         """
         return pulumi.get(self, "outpost_arns")
+
+    @property
+    @pulumi.getter(name="controlPlanePlacement")
+    def control_plane_placement(self) -> Optional['outputs.ClusterOutpostConfigControlPlanePlacement']:
+        """
+        An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+        The following arguments are supported in the `control_plane_placement` configuration block:
+        """
+        return pulumi.get(self, "control_plane_placement")
+
+
+@pulumi.output_type
+class ClusterOutpostConfigControlPlanePlacement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupName":
+            suggest = "group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOutpostConfigControlPlanePlacement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterOutpostConfigControlPlanePlacement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterOutpostConfigControlPlanePlacement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_name: str):
+        """
+        :param str group_name: The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+        """
+        pulumi.set(__self__, "group_name", group_name)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> str:
+        """
+        The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+        """
+        return pulumi.get(self, "group_name")
 
 
 @pulumi.output_type

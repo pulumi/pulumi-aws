@@ -370,6 +370,16 @@ class Deployment(pulumi.CustomResource):
             stage_name="example")
         ```
 
+        ## Import
+
+        `aws_api_gateway_deployment` can be imported using `REST-API-ID/DEPLOYMENT-ID`, e.g.,
+
+        ```sh
+         $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
+        ```
+
+         The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages. The `triggers` argument cannot be imported.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the deployment
@@ -470,6 +480,16 @@ class Deployment(pulumi.CustomResource):
             rest_api=example_rest_api.id,
             stage_name="example")
         ```
+
+        ## Import
+
+        `aws_api_gateway_deployment` can be imported using `REST-API-ID/DEPLOYMENT-ID`, e.g.,
+
+        ```sh
+         $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
+        ```
+
+         The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages. The `triggers` argument cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

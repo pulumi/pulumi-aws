@@ -123,7 +123,11 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly int RunningTasksCount;
         /// <summary>
-        /// Settings associated with the ECS Cluster.
+        /// The default Service Connect namespace
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterServiceConnectDefaultResult> ServiceConnectDefaults;
+        /// <summary>
+        /// Settings associated with the ECS Cluster
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterSettingResult> Settings;
         /// <summary>
@@ -145,6 +149,8 @@ namespace Pulumi.Aws.Ecs
 
             int runningTasksCount,
 
+            ImmutableArray<Outputs.GetClusterServiceConnectDefaultResult> serviceConnectDefaults,
+
             ImmutableArray<Outputs.GetClusterSettingResult> settings,
 
             string status)
@@ -155,6 +161,7 @@ namespace Pulumi.Aws.Ecs
             PendingTasksCount = pendingTasksCount;
             RegisteredContainerInstancesCount = registeredContainerInstancesCount;
             RunningTasksCount = runningTasksCount;
+            ServiceConnectDefaults = serviceConnectDefaults;
             Settings = settings;
             Status = status;
         }

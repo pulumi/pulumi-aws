@@ -45,6 +45,11 @@ export const getOrderableDbInstance: typeof import("./getOrderableDbInstance").g
 export const getOrderableDbInstanceOutput: typeof import("./getOrderableDbInstance").getOrderableDbInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getOrderableDbInstance","getOrderableDbInstanceOutput"], () => require("./getOrderableDbInstance"));
 
+export { GlobalClusterArgs, GlobalClusterState } from "./globalCluster";
+export type GlobalCluster = import("./globalCluster").GlobalCluster;
+export const GlobalCluster: typeof import("./globalCluster").GlobalCluster = null as any;
+utilities.lazyLoad(exports, ["GlobalCluster"], () => require("./globalCluster"));
+
 export { ParameterGroupArgs, ParameterGroupState } from "./parameterGroup";
 export type ParameterGroup = import("./parameterGroup").ParameterGroup;
 export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
@@ -72,6 +77,8 @@ const _module = {
                 return new ClusterSnapshot(name, <any>undefined, { urn })
             case "aws:neptune/eventSubscription:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
+            case "aws:neptune/globalCluster:GlobalCluster":
+                return new GlobalCluster(name, <any>undefined, { urn })
             case "aws:neptune/parameterGroup:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
             case "aws:neptune/subnetGroup:SubnetGroup":
@@ -87,5 +94,6 @@ pulumi.runtime.registerResourceModule("aws", "neptune/clusterInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "neptune/clusterParameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "neptune/clusterSnapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "neptune/eventSubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "neptune/globalCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "neptune/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "neptune/subnetGroup", _module)

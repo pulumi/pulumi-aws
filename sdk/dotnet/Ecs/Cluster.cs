@@ -155,6 +155,12 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Configures a default Service Connect namespace. Detailed below.
+        /// </summary>
+        [Output("serviceConnectDefaults")]
+        public Output<Outputs.ClusterServiceConnectDefaults?> ServiceConnectDefaults { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         /// </summary>
         [Output("settings")]
@@ -256,6 +262,12 @@ namespace Pulumi.Aws.Ecs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Configures a default Service Connect namespace. Detailed below.
+        /// </summary>
+        [Input("serviceConnectDefaults")]
+        public Input<Inputs.ClusterServiceConnectDefaultsArgs>? ServiceConnectDefaults { get; set; }
+
         [Input("settings")]
         private InputList<Inputs.ClusterSettingArgs>? _settings;
 
@@ -331,6 +343,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Configures a default Service Connect namespace. Detailed below.
+        /// </summary>
+        [Input("serviceConnectDefaults")]
+        public Input<Inputs.ClusterServiceConnectDefaultsGetArgs>? ServiceConnectDefaults { get; set; }
 
         [Input("settings")]
         private InputList<Inputs.ClusterSettingGetArgs>? _settings;

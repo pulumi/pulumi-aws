@@ -3,10 +3,13 @@
 
 package com.pulumi.aws.eks.outputs;
 
+import com.pulumi.aws.eks.outputs.ClusterOutpostConfigControlPlanePlacement;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterOutpostConfig {
@@ -15,6 +18,12 @@ public final class ClusterOutpostConfig {
      * 
      */
     private String controlPlaneInstanceType;
+    /**
+     * @return An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+     * The following arguments are supported in the `control_plane_placement` configuration block:
+     * 
+     */
+    private @Nullable ClusterOutpostConfigControlPlanePlacement controlPlanePlacement;
     /**
      * @return The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
      * 
@@ -28,6 +37,14 @@ public final class ClusterOutpostConfig {
      */
     public String controlPlaneInstanceType() {
         return this.controlPlaneInstanceType;
+    }
+    /**
+     * @return An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+     * The following arguments are supported in the `control_plane_placement` configuration block:
+     * 
+     */
+    public Optional<ClusterOutpostConfigControlPlanePlacement> controlPlanePlacement() {
+        return Optional.ofNullable(this.controlPlanePlacement);
     }
     /**
      * @return The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
@@ -47,17 +64,24 @@ public final class ClusterOutpostConfig {
     @CustomType.Builder
     public static final class Builder {
         private String controlPlaneInstanceType;
+        private @Nullable ClusterOutpostConfigControlPlanePlacement controlPlanePlacement;
         private List<String> outpostArns;
         public Builder() {}
         public Builder(ClusterOutpostConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.controlPlaneInstanceType = defaults.controlPlaneInstanceType;
+    	      this.controlPlanePlacement = defaults.controlPlanePlacement;
     	      this.outpostArns = defaults.outpostArns;
         }
 
         @CustomType.Setter
         public Builder controlPlaneInstanceType(String controlPlaneInstanceType) {
             this.controlPlaneInstanceType = Objects.requireNonNull(controlPlaneInstanceType);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder controlPlanePlacement(@Nullable ClusterOutpostConfigControlPlanePlacement controlPlanePlacement) {
+            this.controlPlanePlacement = controlPlanePlacement;
             return this;
         }
         @CustomType.Setter
@@ -71,6 +95,7 @@ public final class ClusterOutpostConfig {
         public ClusterOutpostConfig build() {
             final var o = new ClusterOutpostConfig();
             o.controlPlaneInstanceType = controlPlaneInstanceType;
+            o.controlPlanePlacement = controlPlanePlacement;
             o.outpostArns = outpostArns;
             return o;
         }

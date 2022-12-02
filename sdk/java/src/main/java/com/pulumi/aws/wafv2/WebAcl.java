@@ -74,10 +74,10 @@ import javax.annotation.Nullable;
  *                 .priority(1)
  *                 .statement(WebAclRuleStatementArgs.builder()
  *                     .managedRuleGroupStatement(WebAclRuleStatementManagedRuleGroupStatementArgs.builder()
- *                         .excludedRule(                        
+ *                         .name(&#34;AWSManagedRulesCommonRuleSet&#34;)
+ *                         .ruleActionOverride(                        
  *                             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
  *                             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .name(&#34;AWSManagedRulesCommonRuleSet&#34;)
  *                         .scopeDownStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs.builder()
  *                             .geoMatchStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs.builder()
  *                                 .countryCodes(                                

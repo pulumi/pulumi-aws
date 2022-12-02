@@ -3,11 +3,14 @@
 
 package com.pulumi.aws.eks.inputs;
 
+import com.pulumi.aws.eks.inputs.ClusterOutpostConfigControlPlanePlacementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ClusterOutpostConfigArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,6 +33,23 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+     * The following arguments are supported in the `control_plane_placement` configuration block:
+     * 
+     */
+    @Import(name="controlPlanePlacement")
+    private @Nullable Output<ClusterOutpostConfigControlPlanePlacementArgs> controlPlanePlacement;
+
+    /**
+     * @return An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+     * The following arguments are supported in the `control_plane_placement` configuration block:
+     * 
+     */
+    public Optional<Output<ClusterOutpostConfigControlPlanePlacementArgs>> controlPlanePlacement() {
+        return Optional.ofNullable(this.controlPlanePlacement);
+    }
+
+    /**
      * The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
      * 
      */
@@ -48,6 +68,7 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
 
     private ClusterOutpostConfigArgs(ClusterOutpostConfigArgs $) {
         this.controlPlaneInstanceType = $.controlPlaneInstanceType;
+        this.controlPlanePlacement = $.controlPlanePlacement;
         this.outpostArns = $.outpostArns;
     }
 
@@ -88,6 +109,29 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
          */
         public Builder controlPlaneInstanceType(String controlPlaneInstanceType) {
             return controlPlaneInstanceType(Output.of(controlPlaneInstanceType));
+        }
+
+        /**
+         * @param controlPlanePlacement An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+         * The following arguments are supported in the `control_plane_placement` configuration block:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder controlPlanePlacement(@Nullable Output<ClusterOutpostConfigControlPlanePlacementArgs> controlPlanePlacement) {
+            $.controlPlanePlacement = controlPlanePlacement;
+            return this;
+        }
+
+        /**
+         * @param controlPlanePlacement An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+         * The following arguments are supported in the `control_plane_placement` configuration block:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder controlPlanePlacement(ClusterOutpostConfigControlPlanePlacementArgs controlPlanePlacement) {
+            return controlPlanePlacement(Output.of(controlPlanePlacement));
         }
 
         /**

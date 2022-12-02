@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRule;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -15,15 +16,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatement {
     /**
-     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+     * 
+     * @deprecated
+     * Use rule_action_override instead
      * 
      */
+    @Deprecated /* Use rule_action_override instead */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules;
     /**
      * @return Name of the managed rule group.
      * 
      */
     private String name;
+    /**
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+     * 
+     */
+    private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides;
     /**
      * @return Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
      * 
@@ -42,9 +52,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
 
     private WebAclRuleStatementManagedRuleGroupStatement() {}
     /**
-     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+     * 
+     * @deprecated
+     * Use rule_action_override instead
      * 
      */
+    @Deprecated /* Use rule_action_override instead */
     public List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules() {
         return this.excludedRules == null ? List.of() : this.excludedRules;
     }
@@ -54,6 +68,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+     * 
+     */
+    public List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides() {
+        return this.ruleActionOverrides == null ? List.of() : this.ruleActionOverrides;
     }
     /**
      * @return Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
@@ -88,6 +109,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
     public static final class Builder {
         private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules;
         private String name;
+        private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement scopeDownStatement;
         private String vendorName;
         private @Nullable String version;
@@ -96,6 +118,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
     	      Objects.requireNonNull(defaults);
     	      this.excludedRules = defaults.excludedRules;
     	      this.name = defaults.name;
+    	      this.ruleActionOverrides = defaults.ruleActionOverrides;
     	      this.scopeDownStatement = defaults.scopeDownStatement;
     	      this.vendorName = defaults.vendorName;
     	      this.version = defaults.version;
@@ -113,6 +136,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
+        }
+        @CustomType.Setter
+        public Builder ruleActionOverrides(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides) {
+            this.ruleActionOverrides = ruleActionOverrides;
+            return this;
+        }
+        public Builder ruleActionOverrides(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride... ruleActionOverrides) {
+            return ruleActionOverrides(List.of(ruleActionOverrides));
         }
         @CustomType.Setter
         public Builder scopeDownStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement scopeDownStatement) {
@@ -133,6 +164,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
             final var o = new WebAclRuleStatementManagedRuleGroupStatement();
             o.excludedRules = excludedRules;
             o.name = name;
+            o.ruleActionOverrides = ruleActionOverrides;
             o.scopeDownStatement = scopeDownStatement;
             o.vendorName = vendorName;
             o.version = version;

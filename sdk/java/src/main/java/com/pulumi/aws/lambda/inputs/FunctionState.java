@@ -10,6 +10,7 @@ import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
 import com.pulumi.aws.lambda.inputs.FunctionEphemeralStorageArgs;
 import com.pulumi.aws.lambda.inputs.FunctionFileSystemConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionImageConfigArgs;
+import com.pulumi.aws.lambda.inputs.FunctionSnapStartArgs;
 import com.pulumi.aws.lambda.inputs.FunctionTracingConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
 import com.pulumi.core.Either;
@@ -466,6 +467,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * ARN of the signing profile version.
+     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      * 
      */
     @Import(name="signingProfileVersionArn")
@@ -473,10 +475,26 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return ARN of the signing profile version.
+     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      * 
      */
     public Optional<Output<String>> signingProfileVersionArn() {
         return Optional.ofNullable(this.signingProfileVersionArn);
+    }
+
+    /**
+     * Snap start settings block. Detailed below.
+     * 
+     */
+    @Import(name="snapStart")
+    private @Nullable Output<FunctionSnapStartArgs> snapStart;
+
+    /**
+     * @return Snap start settings block. Detailed below.
+     * 
+     */
+    public Optional<Output<FunctionSnapStartArgs>> snapStart() {
+        return Optional.ofNullable(this.snapStart);
     }
 
     /**
@@ -634,6 +652,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         this.s3ObjectVersion = $.s3ObjectVersion;
         this.signingJobArn = $.signingJobArn;
         this.signingProfileVersionArn = $.signingProfileVersionArn;
+        this.snapStart = $.snapStart;
         this.sourceCodeHash = $.sourceCodeHash;
         this.sourceCodeSize = $.sourceCodeSize;
         this.tags = $.tags;
@@ -1313,6 +1332,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param signingProfileVersionArn ARN of the signing profile version.
+         * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
          * 
          * @return builder
          * 
@@ -1324,12 +1344,34 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param signingProfileVersionArn ARN of the signing profile version.
+         * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
          * 
          * @return builder
          * 
          */
         public Builder signingProfileVersionArn(String signingProfileVersionArn) {
             return signingProfileVersionArn(Output.of(signingProfileVersionArn));
+        }
+
+        /**
+         * @param snapStart Snap start settings block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapStart(@Nullable Output<FunctionSnapStartArgs> snapStart) {
+            $.snapStart = snapStart;
+            return this;
+        }
+
+        /**
+         * @param snapStart Snap start settings block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapStart(FunctionSnapStartArgs snapStart) {
+            return snapStart(Output.of(snapStart));
         }
 
         /**

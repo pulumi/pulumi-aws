@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs;
 
 import com.pulumi.aws.ecs.inputs.ClusterConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.ClusterDefaultCapacityProviderStrategyArgs;
+import com.pulumi.aws.ecs.inputs.ClusterServiceConnectDefaultsArgs;
 import com.pulumi.aws.ecs.inputs.ClusterSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -97,6 +98,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configures a default Service Connect namespace. Detailed below.
+     * 
+     */
+    @Import(name="serviceConnectDefaults")
+    private @Nullable Output<ClusterServiceConnectDefaultsArgs> serviceConnectDefaults;
+
+    /**
+     * @return Configures a default Service Connect namespace. Detailed below.
+     * 
+     */
+    public Optional<Output<ClusterServiceConnectDefaultsArgs>> serviceConnectDefaults() {
+        return Optional.ofNullable(this.serviceConnectDefaults);
+    }
+
+    /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      * 
      */
@@ -133,6 +149,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.configuration = $.configuration;
         this.defaultCapacityProviderStrategies = $.defaultCapacityProviderStrategies;
         this.name = $.name;
+        this.serviceConnectDefaults = $.serviceConnectDefaults;
         this.settings = $.settings;
         this.tags = $.tags;
     }
@@ -281,6 +298,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param serviceConnectDefaults Configures a default Service Connect namespace. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceConnectDefaults(@Nullable Output<ClusterServiceConnectDefaultsArgs> serviceConnectDefaults) {
+            $.serviceConnectDefaults = serviceConnectDefaults;
+            return this;
+        }
+
+        /**
+         * @param serviceConnectDefaults Configures a default Service Connect namespace. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceConnectDefaults(ClusterServiceConnectDefaultsArgs serviceConnectDefaults) {
+            return serviceConnectDefaults(Output.of(serviceConnectDefaults));
         }
 
         /**

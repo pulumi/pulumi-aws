@@ -99,6 +99,8 @@ type Cluster struct {
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
+	// The global cluster identifier specified on `neptune.GlobalCluster`.
+	GlobalClusterIdentifier pulumi.StringPtrOutput `pulumi:"globalClusterIdentifier"`
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 	// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
@@ -198,6 +200,8 @@ type clusterState struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
+	// The global cluster identifier specified on `neptune.GlobalCluster`.
+	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
@@ -269,6 +273,8 @@ type ClusterState struct {
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
+	// The global cluster identifier specified on `neptune.GlobalCluster`.
+	GlobalClusterIdentifier pulumi.StringPtrInput
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId pulumi.StringPtrInput
 	// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
@@ -336,6 +342,8 @@ type clusterArgs struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
+	// The global cluster identifier specified on `neptune.GlobalCluster`.
+	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
 	// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
 	IamDatabaseAuthenticationEnabled *bool `pulumi:"iamDatabaseAuthenticationEnabled"`
 	// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
@@ -394,6 +402,8 @@ type ClusterArgs struct {
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
+	// The global cluster identifier specified on `neptune.GlobalCluster`.
+	GlobalClusterIdentifier pulumi.StringPtrInput
 	// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrInput
 	// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
@@ -591,6 +601,11 @@ func (o ClusterOutput) EngineVersion() pulumi.StringOutput {
 // The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
 func (o ClusterOutput) FinalSnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.FinalSnapshotIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The global cluster identifier specified on `neptune.GlobalCluster`.
+func (o ClusterOutput) GlobalClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.GlobalClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The Route53 Hosted Zone ID of the endpoint

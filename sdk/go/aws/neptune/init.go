@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterSnapshot{}
 	case "aws:neptune/eventSubscription:EventSubscription":
 		r = &EventSubscription{}
+	case "aws:neptune/globalCluster:GlobalCluster":
+		r = &GlobalCluster{}
 	case "aws:neptune/parameterGroup:ParameterGroup":
 		r = &ParameterGroup{}
 	case "aws:neptune/subnetGroup:SubnetGroup":
@@ -78,6 +80,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"neptune/eventSubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"neptune/globalCluster",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

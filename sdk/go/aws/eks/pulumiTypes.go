@@ -853,6 +853,9 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv6Cidr() pulumi.String
 type ClusterOutpostConfig struct {
 	// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
 	ControlPlaneInstanceType string `pulumi:"controlPlaneInstanceType"`
+	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+	// The following arguments are supported in the `controlPlanePlacement` configuration block:
+	ControlPlanePlacement *ClusterOutpostConfigControlPlanePlacement `pulumi:"controlPlanePlacement"`
 	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
 	OutpostArns []string `pulumi:"outpostArns"`
 }
@@ -871,6 +874,9 @@ type ClusterOutpostConfigInput interface {
 type ClusterOutpostConfigArgs struct {
 	// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
 	ControlPlaneInstanceType pulumi.StringInput `pulumi:"controlPlaneInstanceType"`
+	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+	// The following arguments are supported in the `controlPlanePlacement` configuration block:
+	ControlPlanePlacement ClusterOutpostConfigControlPlanePlacementPtrInput `pulumi:"controlPlanePlacement"`
 	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
 	OutpostArns pulumi.StringArrayInput `pulumi:"outpostArns"`
 }
@@ -957,6 +963,14 @@ func (o ClusterOutpostConfigOutput) ControlPlaneInstanceType() pulumi.StringOutp
 	return o.ApplyT(func(v ClusterOutpostConfig) string { return v.ControlPlaneInstanceType }).(pulumi.StringOutput)
 }
 
+// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+// The following arguments are supported in the `controlPlanePlacement` configuration block:
+func (o ClusterOutpostConfigOutput) ControlPlanePlacement() ClusterOutpostConfigControlPlanePlacementPtrOutput {
+	return o.ApplyT(func(v ClusterOutpostConfig) *ClusterOutpostConfigControlPlanePlacement {
+		return v.ControlPlanePlacement
+	}).(ClusterOutpostConfigControlPlanePlacementPtrOutput)
+}
+
 // The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
 func (o ClusterOutpostConfigOutput) OutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterOutpostConfig) []string { return v.OutpostArns }).(pulumi.StringArrayOutput)
@@ -996,6 +1010,17 @@ func (o ClusterOutpostConfigPtrOutput) ControlPlaneInstanceType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+// The following arguments are supported in the `controlPlanePlacement` configuration block:
+func (o ClusterOutpostConfigPtrOutput) ControlPlanePlacement() ClusterOutpostConfigControlPlanePlacementPtrOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfig) *ClusterOutpostConfigControlPlanePlacement {
+		if v == nil {
+			return nil
+		}
+		return v.ControlPlanePlacement
+	}).(ClusterOutpostConfigControlPlanePlacementPtrOutput)
+}
+
 // The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
 func (o ClusterOutpostConfigPtrOutput) OutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterOutpostConfig) []string {
@@ -1004,6 +1029,143 @@ func (o ClusterOutpostConfigPtrOutput) OutpostArns() pulumi.StringArrayOutput {
 		}
 		return v.OutpostArns
 	}).(pulumi.StringArrayOutput)
+}
+
+type ClusterOutpostConfigControlPlanePlacement struct {
+	// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+	GroupName string `pulumi:"groupName"`
+}
+
+// ClusterOutpostConfigControlPlanePlacementInput is an input type that accepts ClusterOutpostConfigControlPlanePlacementArgs and ClusterOutpostConfigControlPlanePlacementOutput values.
+// You can construct a concrete instance of `ClusterOutpostConfigControlPlanePlacementInput` via:
+//
+//	ClusterOutpostConfigControlPlanePlacementArgs{...}
+type ClusterOutpostConfigControlPlanePlacementInput interface {
+	pulumi.Input
+
+	ToClusterOutpostConfigControlPlanePlacementOutput() ClusterOutpostConfigControlPlanePlacementOutput
+	ToClusterOutpostConfigControlPlanePlacementOutputWithContext(context.Context) ClusterOutpostConfigControlPlanePlacementOutput
+}
+
+type ClusterOutpostConfigControlPlanePlacementArgs struct {
+	// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+}
+
+func (ClusterOutpostConfigControlPlanePlacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOutpostConfigControlPlanePlacement)(nil)).Elem()
+}
+
+func (i ClusterOutpostConfigControlPlanePlacementArgs) ToClusterOutpostConfigControlPlanePlacementOutput() ClusterOutpostConfigControlPlanePlacementOutput {
+	return i.ToClusterOutpostConfigControlPlanePlacementOutputWithContext(context.Background())
+}
+
+func (i ClusterOutpostConfigControlPlanePlacementArgs) ToClusterOutpostConfigControlPlanePlacementOutputWithContext(ctx context.Context) ClusterOutpostConfigControlPlanePlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigControlPlanePlacementOutput)
+}
+
+func (i ClusterOutpostConfigControlPlanePlacementArgs) ToClusterOutpostConfigControlPlanePlacementPtrOutput() ClusterOutpostConfigControlPlanePlacementPtrOutput {
+	return i.ToClusterOutpostConfigControlPlanePlacementPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOutpostConfigControlPlanePlacementArgs) ToClusterOutpostConfigControlPlanePlacementPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigControlPlanePlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigControlPlanePlacementOutput).ToClusterOutpostConfigControlPlanePlacementPtrOutputWithContext(ctx)
+}
+
+// ClusterOutpostConfigControlPlanePlacementPtrInput is an input type that accepts ClusterOutpostConfigControlPlanePlacementArgs, ClusterOutpostConfigControlPlanePlacementPtr and ClusterOutpostConfigControlPlanePlacementPtrOutput values.
+// You can construct a concrete instance of `ClusterOutpostConfigControlPlanePlacementPtrInput` via:
+//
+//	        ClusterOutpostConfigControlPlanePlacementArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterOutpostConfigControlPlanePlacementPtrInput interface {
+	pulumi.Input
+
+	ToClusterOutpostConfigControlPlanePlacementPtrOutput() ClusterOutpostConfigControlPlanePlacementPtrOutput
+	ToClusterOutpostConfigControlPlanePlacementPtrOutputWithContext(context.Context) ClusterOutpostConfigControlPlanePlacementPtrOutput
+}
+
+type clusterOutpostConfigControlPlanePlacementPtrType ClusterOutpostConfigControlPlanePlacementArgs
+
+func ClusterOutpostConfigControlPlanePlacementPtr(v *ClusterOutpostConfigControlPlanePlacementArgs) ClusterOutpostConfigControlPlanePlacementPtrInput {
+	return (*clusterOutpostConfigControlPlanePlacementPtrType)(v)
+}
+
+func (*clusterOutpostConfigControlPlanePlacementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOutpostConfigControlPlanePlacement)(nil)).Elem()
+}
+
+func (i *clusterOutpostConfigControlPlanePlacementPtrType) ToClusterOutpostConfigControlPlanePlacementPtrOutput() ClusterOutpostConfigControlPlanePlacementPtrOutput {
+	return i.ToClusterOutpostConfigControlPlanePlacementPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOutpostConfigControlPlanePlacementPtrType) ToClusterOutpostConfigControlPlanePlacementPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigControlPlanePlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigControlPlanePlacementPtrOutput)
+}
+
+type ClusterOutpostConfigControlPlanePlacementOutput struct{ *pulumi.OutputState }
+
+func (ClusterOutpostConfigControlPlanePlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOutpostConfigControlPlanePlacement)(nil)).Elem()
+}
+
+func (o ClusterOutpostConfigControlPlanePlacementOutput) ToClusterOutpostConfigControlPlanePlacementOutput() ClusterOutpostConfigControlPlanePlacementOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigControlPlanePlacementOutput) ToClusterOutpostConfigControlPlanePlacementOutputWithContext(ctx context.Context) ClusterOutpostConfigControlPlanePlacementOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigControlPlanePlacementOutput) ToClusterOutpostConfigControlPlanePlacementPtrOutput() ClusterOutpostConfigControlPlanePlacementPtrOutput {
+	return o.ToClusterOutpostConfigControlPlanePlacementPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOutpostConfigControlPlanePlacementOutput) ToClusterOutpostConfigControlPlanePlacementPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigControlPlanePlacementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOutpostConfigControlPlanePlacement) *ClusterOutpostConfigControlPlanePlacement {
+		return &v
+	}).(ClusterOutpostConfigControlPlanePlacementPtrOutput)
+}
+
+// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+func (o ClusterOutpostConfigControlPlanePlacementOutput) GroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterOutpostConfigControlPlanePlacement) string { return v.GroupName }).(pulumi.StringOutput)
+}
+
+type ClusterOutpostConfigControlPlanePlacementPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOutpostConfigControlPlanePlacementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOutpostConfigControlPlanePlacement)(nil)).Elem()
+}
+
+func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) ToClusterOutpostConfigControlPlanePlacementPtrOutput() ClusterOutpostConfigControlPlanePlacementPtrOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) ToClusterOutpostConfigControlPlanePlacementPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigControlPlanePlacementPtrOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) Elem() ClusterOutpostConfigControlPlanePlacementOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfigControlPlanePlacement) ClusterOutpostConfigControlPlanePlacement {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOutpostConfigControlPlanePlacement
+		return ret
+	}).(ClusterOutpostConfigControlPlanePlacementOutput)
+}
+
+// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfigControlPlanePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupName
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterVpcConfig struct {
@@ -3786,6 +3948,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigPtrInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigControlPlanePlacementInput)(nil)).Elem(), ClusterOutpostConfigControlPlanePlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigControlPlanePlacementPtrInput)(nil)).Elem(), ClusterOutpostConfigControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigPtrInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileSelectorInput)(nil)).Elem(), FargateProfileSelectorArgs{})
@@ -3842,6 +4006,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOutpostConfigControlPlanePlacementOutput{})
+	pulumi.RegisterOutputType(ClusterOutpostConfigControlPlanePlacementPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorOutput{})

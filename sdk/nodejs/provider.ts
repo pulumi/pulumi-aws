@@ -225,6 +225,8 @@ export interface ProviderArgs {
     skipCredentialsValidation?: pulumi.Input<boolean>;
     /**
      * Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
+     *
+     * @deprecated With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
      */
     skipGetEc2Platforms?: pulumi.Input<boolean>;
     /**

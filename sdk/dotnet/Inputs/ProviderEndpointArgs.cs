@@ -888,6 +888,9 @@ namespace Pulumi.Aws.Inputs
         [Input("resiliencehub")]
         public Input<string>? Resiliencehub { get; set; }
 
+        [Input("resourceexplorer2")]
+        public Input<string>? Resourceexplorer2 { get; set; }
+
         [Input("resourcegroups")]
         public Input<string>? Resourcegroups { get; set; }
 

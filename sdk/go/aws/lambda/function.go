@@ -403,7 +403,10 @@ type Function struct {
 	// ARN of the signing job.
 	SigningJobArn pulumi.StringOutput `pulumi:"signingJobArn"`
 	// ARN of the signing profile version.
+	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	SigningProfileVersionArn pulumi.StringOutput `pulumi:"signingProfileVersionArn"`
+	// Snap start settings block. Detailed below.
+	SnapStart FunctionSnapStartPtrOutput `pulumi:"snapStart"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
@@ -514,7 +517,10 @@ type functionState struct {
 	// ARN of the signing job.
 	SigningJobArn *string `pulumi:"signingJobArn"`
 	// ARN of the signing profile version.
+	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	SigningProfileVersionArn *string `pulumi:"signingProfileVersionArn"`
+	// Snap start settings block. Detailed below.
+	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
@@ -594,7 +600,10 @@ type FunctionState struct {
 	// ARN of the signing job.
 	SigningJobArn pulumi.StringPtrInput
 	// ARN of the signing profile version.
+	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	SigningProfileVersionArn pulumi.StringPtrInput
+	// Snap start settings block. Detailed below.
+	SnapStart FunctionSnapStartPtrInput
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash pulumi.StringPtrInput
 	// Size in bytes of the function .zip file.
@@ -665,6 +674,8 @@ type functionArgs struct {
 	S3Key *string `pulumi:"s3Key"`
 	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
+	// Snap start settings block. Detailed below.
+	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -725,6 +736,8 @@ type FunctionArgs struct {
 	S3Key pulumi.StringPtrInput
 	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
 	S3ObjectVersion pulumi.StringPtrInput
+	// Snap start settings block. Detailed below.
+	SnapStart FunctionSnapStartPtrInput
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -970,8 +983,14 @@ func (o FunctionOutput) SigningJobArn() pulumi.StringOutput {
 }
 
 // ARN of the signing profile version.
+// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 func (o FunctionOutput) SigningProfileVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SigningProfileVersionArn }).(pulumi.StringOutput)
+}
+
+// Snap start settings block. Detailed below.
+func (o FunctionOutput) SnapStart() FunctionSnapStartPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionSnapStartPtrOutput { return v.SnapStart }).(FunctionSnapStartPtrOutput)
 }
 
 // Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.

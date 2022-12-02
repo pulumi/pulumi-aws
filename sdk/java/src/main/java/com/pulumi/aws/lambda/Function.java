@@ -12,6 +12,7 @@ import com.pulumi.aws.lambda.outputs.FunctionEnvironment;
 import com.pulumi.aws.lambda.outputs.FunctionEphemeralStorage;
 import com.pulumi.aws.lambda.outputs.FunctionFileSystemConfig;
 import com.pulumi.aws.lambda.outputs.FunctionImageConfig;
+import com.pulumi.aws.lambda.outputs.FunctionSnapStart;
 import com.pulumi.aws.lambda.outputs.FunctionTracingConfig;
 import com.pulumi.aws.lambda.outputs.FunctionVpcConfig;
 import com.pulumi.core.Output;
@@ -765,6 +766,7 @@ public class Function extends com.pulumi.resources.CustomResource {
     }
     /**
      * ARN of the signing profile version.
+     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      * 
      */
     @Export(name="signingProfileVersionArn", type=String.class, parameters={})
@@ -772,10 +774,25 @@ public class Function extends com.pulumi.resources.CustomResource {
 
     /**
      * @return ARN of the signing profile version.
+     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      * 
      */
     public Output<String> signingProfileVersionArn() {
         return this.signingProfileVersionArn;
+    }
+    /**
+     * Snap start settings block. Detailed below.
+     * 
+     */
+    @Export(name="snapStart", type=FunctionSnapStart.class, parameters={})
+    private Output</* @Nullable */ FunctionSnapStart> snapStart;
+
+    /**
+     * @return Snap start settings block. Detailed below.
+     * 
+     */
+    public Output<Optional<FunctionSnapStart>> snapStart() {
+        return Codegen.optional(this.snapStart);
     }
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.

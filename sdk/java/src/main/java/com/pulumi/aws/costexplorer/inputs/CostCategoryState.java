@@ -65,14 +65,14 @@ public final class CostCategoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Effective state data of your Cost Category.
+     * The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      * 
      */
     @Import(name="effectiveStart")
     private @Nullable Output<String> effectiveStart;
 
     /**
-     * @return Effective state data of your Cost Category.
+     * @return The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      * 
      */
     public Optional<Output<String>> effectiveStart() {
@@ -266,7 +266,7 @@ public final class CostCategoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param effectiveStart Effective state data of your Cost Category.
+         * @param effectiveStart The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class CostCategoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param effectiveStart Effective state data of your Cost Category.
+         * @param effectiveStart The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
          * 
          * @return builder
          * 

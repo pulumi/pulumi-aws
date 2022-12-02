@@ -214,6 +214,33 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
+    /// ## Example function URL cross-account invoke policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var urlFunctionUrl = new Aws.Lambda.FunctionUrl("urlFunctionUrl", new()
+    ///     {
+    ///         FunctionName = aws_lambda_function.Example.Function_name,
+    ///         AuthorizationType = "AWS_IAM",
+    ///     });
+    /// 
+    ///     var urlPermission = new Aws.Lambda.Permission("urlPermission", new()
+    ///     {
+    ///         Action = "lambda:InvokeFunctionUrl",
+    ///         Function = aws_lambda_function.Example.Function_name,
+    ///         Principal = "arn:aws:iam::444455556666:role/example",
+    ///         SourceAccount = "444455556666",
+    ///         FunctionUrlAuthType = "AWS_IAM",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
@@ -248,13 +275,13 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Function { get; private set; } = null!;
 
         /// <summary>
-        /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+        /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         /// </summary>
         [Output("functionUrlAuthType")]
         public Output<string?> FunctionUrlAuthType { get; private set; } = null!;
 
         /// <summary>
-        /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
@@ -272,7 +299,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> Qualifier { get; private set; } = null!;
 
         /// <summary>
-        /// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+        /// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         /// </summary>
         [Output("sourceAccount")]
         public Output<string?> SourceAccount { get; private set; } = null!;
@@ -364,13 +391,13 @@ namespace Pulumi.Aws.Lambda
         public Input<string> Function { get; set; } = null!;
 
         /// <summary>
-        /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+        /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         /// </summary>
         [Input("functionUrlAuthType")]
         public Input<string>? FunctionUrlAuthType { get; set; }
 
         /// <summary>
-        /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
@@ -388,7 +415,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Qualifier { get; set; }
 
         /// <summary>
-        /// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+        /// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         /// </summary>
         [Input("sourceAccount")]
         public Input<string>? SourceAccount { get; set; }
@@ -442,13 +469,13 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Function { get; set; }
 
         /// <summary>
-        /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+        /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         /// </summary>
         [Input("functionUrlAuthType")]
         public Input<string>? FunctionUrlAuthType { get; set; }
 
         /// <summary>
-        /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+        /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
@@ -466,7 +493,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Qualifier { get; set; }
 
         /// <summary>
-        /// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+        /// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         /// </summary>
         [Input("sourceAccount")]
         public Input<string>? SourceAccount { get; set; }

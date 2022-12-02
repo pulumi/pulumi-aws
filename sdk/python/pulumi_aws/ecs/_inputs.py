@@ -17,6 +17,7 @@ __all__ = [
     'ClusterConfigurationExecuteCommandConfigurationArgs',
     'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs',
     'ClusterDefaultCapacityProviderStrategyArgs',
+    'ClusterServiceConnectDefaultsArgs',
     'ClusterSettingArgs',
     'ServiceCapacityProviderStrategyArgs',
     'ServiceDeploymentCircuitBreakerArgs',
@@ -25,6 +26,11 @@ __all__ = [
     'ServiceNetworkConfigurationArgs',
     'ServiceOrderedPlacementStrategyArgs',
     'ServicePlacementConstraintArgs',
+    'ServiceServiceConnectConfigurationArgs',
+    'ServiceServiceConnectConfigurationLogConfigurationArgs',
+    'ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs',
+    'ServiceServiceConnectConfigurationServiceArgs',
+    'ServiceServiceConnectConfigurationServiceClientAliasArgs',
     'ServiceServiceRegistriesArgs',
     'TaskDefinitionEphemeralStorageArgs',
     'TaskDefinitionInferenceAcceleratorArgs',
@@ -459,6 +465,28 @@ class ClusterDefaultCapacityProviderStrategyArgs:
 
 
 @pulumi.input_type
+class ClusterServiceConnectDefaultsArgs:
+    def __init__(__self__, *,
+                 namespace: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] namespace: The ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        """
+        The ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
 class ClusterSettingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -812,6 +840,275 @@ class ServicePlacementConstraintArgs:
     @expression.setter
     def expression(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "expression", value)
+
+
+@pulumi.input_type
+class ServiceServiceConnectConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 log_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArgs']] = None,
+                 namespace: Optional[pulumi.Input[str]] = None,
+                 service: Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceArgs']] = None):
+        """
+        :param pulumi.Input[bool] enabled: Specifies whether to use Service Connect with this service.
+        :param pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArgs'] log_configuration: The log configuration for the container. See below.
+        :param pulumi.Input[str] namespace: The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
+        :param pulumi.Input['ServiceServiceConnectConfigurationServiceArgs'] service: The list of Service Connect service objects. See below.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether to use Service Connect with this service.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArgs']]:
+        """
+        The log configuration for the container. See below.
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: Optional[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceArgs']]:
+        """
+        The list of Service Connect service objects. See below.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceArgs']]):
+        pulumi.set(self, "service", value)
+
+
+@pulumi.input_type
+class ServiceServiceConnectConfigurationLogConfigurationArgs:
+    def __init__(__self__, *,
+                 log_driver: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 secret_options: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs']]]] = None):
+        """
+        :param pulumi.Input[str] log_driver: The log driver to use for the container.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: The configuration options to send to the log driver.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs']]] secret_options: The secrets to pass to the log configuration. See below.
+        """
+        if log_driver is not None:
+            pulumi.set(__self__, "log_driver", log_driver)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if secret_options is not None:
+            pulumi.set(__self__, "secret_options", secret_options)
+
+    @property
+    @pulumi.getter(name="logDriver")
+    def log_driver(self) -> Optional[pulumi.Input[str]]:
+        """
+        The log driver to use for the container.
+        """
+        return pulumi.get(self, "log_driver")
+
+    @log_driver.setter
+    def log_driver(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_driver", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The configuration options to send to the log driver.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter(name="secretOptions")
+    def secret_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs']]]]:
+        """
+        The secrets to pass to the log configuration. See below.
+        """
+        return pulumi.get(self, "secret_options")
+
+    @secret_options.setter
+    def secret_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs']]]]):
+        pulumi.set(self, "secret_options", value)
+
+
+@pulumi.input_type
+class ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value_from: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the secret.
+        :param pulumi.Input[str] value_from: The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_from", value_from)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the secret.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> pulumi.Input[str]:
+        """
+        The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+        """
+        return pulumi.get(self, "value_from")
+
+    @value_from.setter
+    def value_from(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value_from", value)
+
+
+@pulumi.input_type
+class ServiceServiceConnectConfigurationServiceArgs:
+    def __init__(__self__, *,
+                 client_aliases: pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]],
+                 port_name: pulumi.Input[str],
+                 discovery_name: Optional[pulumi.Input[str]] = None,
+                 ingress_port_override: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]] client_aliases: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        :param pulumi.Input[str] port_name: The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+        :param pulumi.Input[str] discovery_name: The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+        :param pulumi.Input[int] ingress_port_override: The port number for the Service Connect proxy to listen on.
+        """
+        pulumi.set(__self__, "client_aliases", client_aliases)
+        pulumi.set(__self__, "port_name", port_name)
+        if discovery_name is not None:
+            pulumi.set(__self__, "discovery_name", discovery_name)
+        if ingress_port_override is not None:
+            pulumi.set(__self__, "ingress_port_override", ingress_port_override)
+
+    @property
+    @pulumi.getter(name="clientAliases")
+    def client_aliases(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]]:
+        """
+        The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        """
+        return pulumi.get(self, "client_aliases")
+
+    @client_aliases.setter
+    def client_aliases(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]]):
+        pulumi.set(self, "client_aliases", value)
+
+    @property
+    @pulumi.getter(name="portName")
+    def port_name(self) -> pulumi.Input[str]:
+        """
+        The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+        """
+        return pulumi.get(self, "port_name")
+
+    @port_name.setter
+    def port_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "port_name", value)
+
+    @property
+    @pulumi.getter(name="discoveryName")
+    def discovery_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+        """
+        return pulumi.get(self, "discovery_name")
+
+    @discovery_name.setter
+    def discovery_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "discovery_name", value)
+
+    @property
+    @pulumi.getter(name="ingressPortOverride")
+    def ingress_port_override(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port number for the Service Connect proxy to listen on.
+        """
+        return pulumi.get(self, "ingress_port_override")
+
+    @ingress_port_override.setter
+    def ingress_port_override(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ingress_port_override", value)
+
+
+@pulumi.input_type
+class ServiceServiceConnectConfigurationServiceClientAliasArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int],
+                 dns_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+        :param pulumi.Input[str] dns_name: The name that you use in the applications of client tasks to connect to this service.
+        """
+        pulumi.set(__self__, "port", port)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name that you use in the applications of client tasks to connect to this service.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @dns_name.setter
+    def dns_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_name", value)
 
 
 @pulumi.input_type

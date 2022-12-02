@@ -274,6 +274,47 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Example function URL cross-account invoke policy
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.FunctionUrl;
+ * import com.pulumi.aws.lambda.FunctionUrlArgs;
+ * import com.pulumi.aws.lambda.Permission;
+ * import com.pulumi.aws.lambda.PermissionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var urlFunctionUrl = new FunctionUrl(&#34;urlFunctionUrl&#34;, FunctionUrlArgs.builder()        
+ *             .functionName(aws_lambda_function.example().function_name())
+ *             .authorizationType(&#34;AWS_IAM&#34;)
+ *             .build());
+ * 
+ *         var urlPermission = new Permission(&#34;urlPermission&#34;, PermissionArgs.builder()        
+ *             .action(&#34;lambda:InvokeFunctionUrl&#34;)
+ *             .function(aws_lambda_function.example().function_name())
+ *             .principal(&#34;arn:aws:iam::444455556666:role/example&#34;)
+ *             .sourceAccount(&#34;444455556666&#34;)
+ *             .functionUrlAuthType(&#34;AWS_IAM&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
@@ -332,28 +373,28 @@ public class Permission extends com.pulumi.resources.CustomResource {
         return this.function;
     }
     /**
-     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
      * 
      */
     @Export(name="functionUrlAuthType", type=String.class, parameters={})
     private Output</* @Nullable */ String> functionUrlAuthType;
 
     /**
-     * @return Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+     * @return Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
      * 
      */
     public Output<Optional<String>> functionUrlAuthType() {
         return Codegen.optional(this.functionUrlAuthType);
     }
     /**
-     * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      * 
      */
     @Export(name="principal", type=String.class, parameters={})
     private Output<String> principal;
 
     /**
-     * @return The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * @return The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      * 
      */
     public Output<String> principal() {
@@ -388,14 +429,14 @@ public class Permission extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.qualifier);
     }
     /**
-     * This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+     * This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
      * 
      */
     @Export(name="sourceAccount", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceAccount;
 
     /**
-     * @return This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+     * @return This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
      * 
      */
     public Output<Optional<String>> sourceAccount() {

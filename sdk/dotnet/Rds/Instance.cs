@@ -334,10 +334,10 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
-        /// storage_type of "io1".
+        /// storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
         /// </summary>
         [Output("iops")]
-        public Output<int?> Iops { get; private set; } = null!;
+        public Output<int> Iops { get; private set; } = null!;
 
         /// <summary>
         /// The ARN for the KMS encryption key. If creating an
@@ -555,9 +555,16 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
+        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        /// </summary>
+        [Output("storageThroughput")]
+        public Output<int> StorageThroughput { get; private set; } = null!;
+
+        /// <summary>
         /// One of "standard" (magnetic), "gp2" (general
-        /// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-        /// specified, "gp2" if not.
+        /// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+        /// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+        /// "gp2" if not.
         /// </summary>
         [Output("storageType")]
         public Output<string> StorageType { get; private set; } = null!;
@@ -855,7 +862,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
-        /// storage_type of "io1".
+        /// storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -1072,9 +1079,16 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
+        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        /// </summary>
+        [Input("storageThroughput")]
+        public Input<int>? StorageThroughput { get; set; }
+
+        /// <summary>
         /// One of "standard" (magnetic), "gp2" (general
-        /// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-        /// specified, "gp2" if not.
+        /// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+        /// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+        /// "gp2" if not.
         /// </summary>
         [Input("storageType")]
         public InputUnion<string, Pulumi.Aws.Rds.StorageType>? StorageType { get; set; }
@@ -1367,7 +1381,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
-        /// storage_type of "io1".
+        /// storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -1610,9 +1624,16 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
+        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        /// </summary>
+        [Input("storageThroughput")]
+        public Input<int>? StorageThroughput { get; set; }
+
+        /// <summary>
         /// One of "standard" (magnetic), "gp2" (general
-        /// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-        /// specified, "gp2" if not.
+        /// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+        /// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+        /// "gp2" if not.
         /// </summary>
         [Input("storageType")]
         public InputUnion<string, Pulumi.Aws.Rds.StorageType>? StorageType { get; set; }
