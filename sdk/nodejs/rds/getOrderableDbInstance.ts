@@ -49,8 +49,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:rds/getOrderableDbInstance:getOrderableDbInstance", {
         "availabilityZoneGroup": args.availabilityZoneGroup,
         "engine": args.engine,

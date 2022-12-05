@@ -85,28 +85,6 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        foo_outbound_connection = aws.opensearch.OutboundConnection("fooOutboundConnection",
-            connection_alias="outbound_connection",
-            local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
-            ),
-            remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
-            ))
-        foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("fooInboundConnectionAccepter", connection_id=foo_outbound_connection.id)
-        ```
 
         ## Import
 
@@ -130,28 +108,6 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        foo_outbound_connection = aws.opensearch.OutboundConnection("fooOutboundConnection",
-            connection_alias="outbound_connection",
-            local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
-            ),
-            remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
-            ))
-        foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("fooInboundConnectionAccepter", connection_id=foo_outbound_connection.id)
-        ```
 
         ## Import
 

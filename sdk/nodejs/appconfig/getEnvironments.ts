@@ -21,8 +21,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEnvironments(args: GetEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:appconfig/getEnvironments:getEnvironments", {
         "applicationId": args.applicationId,
     }, opts);

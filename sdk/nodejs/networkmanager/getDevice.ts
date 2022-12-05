@@ -11,8 +11,11 @@ import * as utilities from "../utilities";
  * Retrieve information about a device.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:networkmanager/getDevice:getDevice", {
         "deviceId": args.deviceId,
         "globalNetworkId": args.globalNetworkId,

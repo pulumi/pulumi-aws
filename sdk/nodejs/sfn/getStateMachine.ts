@@ -21,8 +21,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:sfn/getStateMachine:getStateMachine", {
         "name": args.name,
     }, opts);

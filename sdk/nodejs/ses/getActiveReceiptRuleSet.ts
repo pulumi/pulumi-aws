@@ -6,19 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the active SES receipt rule set
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = aws.ses.getActiveReceiptRuleSet({});
- * ```
  */
 export function getActiveReceiptRuleSet(opts?: pulumi.InvokeOptions): Promise<GetActiveReceiptRuleSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", {
     }, opts);
 }

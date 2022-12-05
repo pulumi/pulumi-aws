@@ -35,8 +35,11 @@ import * as utilities from "../utilities";
  */
 export function getWorkspace(args?: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:workspaces/getWorkspace:getWorkspace", {
         "directoryId": args.directoryId,
         "tags": args.tags,

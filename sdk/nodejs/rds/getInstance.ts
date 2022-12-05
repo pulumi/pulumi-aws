@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
         "tags": args.tags,

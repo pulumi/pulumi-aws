@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStreamKey(args: GetStreamKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamKeyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ivs/getStreamKey:getStreamKey", {
         "channelArn": args.channelArn,
         "tags": args.tags,

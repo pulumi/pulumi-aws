@@ -26,8 +26,11 @@ import * as utilities from "../utilities";
  */
 export function getReleaseLabels(args?: GetReleaseLabelsArgs, opts?: pulumi.InvokeOptions): Promise<GetReleaseLabelsResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:emr/getReleaseLabels:getReleaseLabels", {
         "filters": args.filters,
     }, opts);

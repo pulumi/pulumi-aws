@@ -35,7 +35,7 @@ import (
 //				EngineSecurityGroupId: pulumi.Any(aws_security_group.Test.Id),
 //				ServiceRole:           pulumi.Any(aws_iam_role.Test.Arn),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test.Id,
+//					pulumi.Any(aws_subnet.Test.Id),
 //				},
 //				UserRole:                 pulumi.Any(aws_iam_role.Test.Arn),
 //				VpcId:                    pulumi.Any(aws_vpc.Test.Id),

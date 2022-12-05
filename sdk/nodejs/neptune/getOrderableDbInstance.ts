@@ -25,8 +25,11 @@ import * as utilities from "../utilities";
  */
 export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", {
         "engine": args.engine,
         "engineVersion": args.engineVersion,

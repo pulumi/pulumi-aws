@@ -8,8 +8,8 @@ require (
 	github.com/hashicorp/terraform-provider-aws/shim v0.0.0
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.33.1-0.20221104131001-330791e758b8
-	github.com/pulumi/pulumi/pkg/v3 v3.48.0
-	github.com/pulumi/pulumi/sdk/v3 v3.48.0
+	github.com/pulumi/pulumi/pkg/v3 v3.46.1
+	github.com/pulumi/pulumi/sdk/v3 v3.46.1
 )
 
 replace (

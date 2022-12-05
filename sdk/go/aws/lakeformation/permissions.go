@@ -18,65 +18,6 @@ import (
 // > **NOTE:** In general, the `principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `lakeformation.DataLakeSettings`, _not_ with this resource.
 //
 // ## Default Behavior and `IAMAllowedPrincipals`
-//
-// **_Lake Formation permissions are not in effect by default within AWS._** `IAMAllowedPrincipals` (i.e., `IAM_ALLOWED_PRINCIPALS`) conflicts with individual Lake Formation permissions (i.e., non-`IAMAllowedPrincipals` permissions), will cause unexpected behavior, and may result in errors.
-//
-// When using Lake Formation, choose ONE of the following options as they are mutually exclusive:
-//
-// 1. Use this resource (`lakeformation.Permissions`), change the default security settings using `lakeformation.DataLakeSettings`, and remove existing `IAMAllowedPrincipals` permissions
-// 2. Use `IAMAllowedPrincipals` without `lakeformation.Permissions`
-//
-// This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `createDatabaseDefaultPermissions` and `createTableDefaultPermissions` are not set in the `lakeformation.DataLakeSettings` resource, they are cleared.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentSessionContext, err := iam.GetSessionContext(ctx, &iam.GetSessionContextArgs{
-//				Arn: currentCallerIdentity.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lakeformation.NewDataLakeSettings(ctx, "test", &lakeformation.DataLakeSettingsArgs{
-//				Admins: pulumi.StringArray{
-//					pulumi.String(currentSessionContext.IssuerArn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
-//
-// `IAMAllowedPrincipals` is a hook to maintain backwards compatibility with AWS Glue. `IAMAllowedPrincipals` is a pseudo-entity group that acts like a Lake Formation principal. The group includes any IAM users and roles that are allowed access to your Data Catalog resources by your IAM policies.
-//
-// This is Lake Formation's default behavior:
-//
-// * Lake Formation grants `Super` permission to `IAMAllowedPrincipals` on all existing AWS Glue Data Catalog resources.
-// * Lake Formation enables "Use only IAM access control" for new Data Catalog resources.
-//
-// For more details, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html).
-//
 // ### Problem Using `IAMAllowedPrincipals`
 //
 // AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.

@@ -28,8 +28,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPublicKey(args: GetPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicKeyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:kms/getPublicKey:getPublicKey", {
         "grantTokens": args.grantTokens,
         "keyId": args.keyId,

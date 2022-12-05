@@ -61,8 +61,11 @@ import * as utilities from "./utilities";
 export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> {
     pulumi.log.warn("getPrefixList is deprecated: aws.getPrefixList has been deprecated in favor of aws.ec2.getPrefixList")
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:index/getPrefixList:getPrefixList", {
         "filters": args.filters,
         "name": args.name,

@@ -36,7 +36,7 @@ import (
 //					ContentSourceConfiguration: &kendra.ExperienceConfigurationContentSourceConfigurationArgs{
 //						DirectPutContent: pulumi.Bool(true),
 //						FaqIds: pulumi.StringArray{
-//							aws_kendra_faq.Example.Faq_id,
+//							pulumi.Any(aws_kendra_faq.Example.Faq_id),
 //						},
 //					},
 //					UserIdentityConfiguration: &kendra.ExperienceConfigurationUserIdentityConfigurationArgs{

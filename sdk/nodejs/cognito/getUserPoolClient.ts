@@ -23,8 +23,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserPoolClient(args: GetUserPoolClientArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolClientResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cognito/getUserPoolClient:getUserPoolClient", {
         "clientId": args.clientId,
         "userPoolId": args.userPoolId,

@@ -12,61 +12,6 @@ namespace Pulumi.Aws.Ecr
     /// <summary>
     /// Provides an Elastic Container Registry Policy.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var example = new Aws.Ecr.RegistryPolicy("example", new()
-    ///     {
-    ///         Policy = Output.Tuple(currentPartition.Apply(getPartitionResult =&gt; getPartitionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), currentPartition.Apply(getPartitionResult =&gt; getPartitionResult), currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult)).Apply(values =&gt;
-    ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             var currentPartition1 = values.Item3;
-    ///             var currentRegion = values.Item4;
-    ///             var currentCallerIdentity1 = values.Item5;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["Version"] = "2012-10-17",
-    ///                 ["Statement"] = new[]
-    ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Sid"] = "testpolicy",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["AWS"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                         },
-    ///                         ["Action"] = new[]
-    ///                         {
-    ///                             "ecr:ReplicateImage",
-    ///                         },
-    ///                         ["Resource"] = new[]
-    ///                         {
-    ///                             $"arn:{currentPartition1.Partition}:ecr:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity1.AccountId}:repository/*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             });
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ECR Registry Policy can be imported using the registry id, e.g.,

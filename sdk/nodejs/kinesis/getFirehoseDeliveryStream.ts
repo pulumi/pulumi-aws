@@ -21,8 +21,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFirehoseDeliveryStream(args: GetFirehoseDeliveryStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetFirehoseDeliveryStreamResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", {
         "name": args.name,
     }, opts);

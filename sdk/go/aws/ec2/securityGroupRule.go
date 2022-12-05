@@ -47,10 +47,10 @@ import (
 //				ToPort:   pulumi.Int(65535),
 //				Protocol: pulumi.String("tcp"),
 //				CidrBlocks: pulumi.StringArray{
-//					aws_vpc.Example.Cidr_block,
+//					pulumi.Any(aws_vpc.Example.Cidr_block),
 //				},
 //				Ipv6CidrBlocks: pulumi.StringArray{
-//					aws_vpc.Example.Ipv6_cidr_block,
+//					pulumi.Any(aws_vpc.Example.Ipv6_cidr_block),
 //				},
 //				SecurityGroupId: pulumi.String("sg-123456"),
 //			})

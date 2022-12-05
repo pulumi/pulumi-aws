@@ -21,8 +21,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEventConnection(args: GetEventConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventConnectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cloudwatch/getEventConnection:getEventConnection", {
         "name": args.name,
     }, opts);

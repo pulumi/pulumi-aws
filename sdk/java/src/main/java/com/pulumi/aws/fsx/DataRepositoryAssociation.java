@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Data Repository Associations are only compatible with AWS FSx for Lustre File Systems and `PERSISTENT_2` deployment type.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 

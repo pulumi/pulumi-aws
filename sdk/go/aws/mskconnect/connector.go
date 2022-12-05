@@ -53,12 +53,12 @@ import (
 //						BootstrapServers: pulumi.Any(aws_msk_cluster.Example.Bootstrap_brokers_tls),
 //						Vpc: &mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpcArgs{
 //							SecurityGroups: pulumi.StringArray{
-//								aws_security_group.Example.Id,
+//								pulumi.Any(aws_security_group.Example.Id),
 //							},
 //							Subnets: pulumi.StringArray{
-//								aws_subnet.Example1.Id,
-//								aws_subnet.Example2.Id,
-//								aws_subnet.Example3.Id,
+//								pulumi.Any(aws_subnet.Example1.Id),
+//								pulumi.Any(aws_subnet.Example2.Id),
+//								pulumi.Any(aws_subnet.Example3.Id),
 //							},
 //						},
 //					},

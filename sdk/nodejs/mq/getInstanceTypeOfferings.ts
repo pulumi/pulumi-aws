@@ -35,8 +35,11 @@ import * as utilities from "../utilities";
  */
 export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", {
         "engineType": args.engineType,
         "hostInstanceType": args.hostInstanceType,

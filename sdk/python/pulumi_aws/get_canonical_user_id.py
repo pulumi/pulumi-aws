@@ -63,16 +63,6 @@ def get_canonical_user_id(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     for the effective account in which this provider is working.
 
     > **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.s3.get_canonical_user_id()
-    pulumi.export("canonicalUserId", current.id)
-    ```
     """
     pulumi.log.warn("""get_canonical_user_id is deprecated: aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId""")
     __args__ = dict()

@@ -30,8 +30,11 @@ import * as utilities from "../utilities";
  */
 export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:efs/getFileSystem:getFileSystem", {
         "creationToken": args.creationToken,
         "fileSystemId": args.fileSystemId,

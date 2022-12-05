@@ -8,8 +8,11 @@ import * as utilities from "../utilities";
  * Use this data source to get a Single Sign-On (SSO) Permission Set.
  */
 export function getPermissionSet(args: GetPermissionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ssoadmin/getPermissionSet:getPermissionSet", {
         "arn": args.arn,
         "instanceArn": args.instanceArn,

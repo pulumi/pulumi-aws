@@ -221,17 +221,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
             group="all",
             image_id="ami-12345678")
         ```
-        ### Organization Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.organizations.get_organization()
-        example = aws.ec2.AmiLaunchPermission("example",
-            image_id="ami-12345678",
-            organization_arn=current.arn)
-        ```
 
         ## Import
 
@@ -278,17 +267,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
         example = aws.ec2.AmiLaunchPermission("example",
             group="all",
             image_id="ami-12345678")
-        ```
-        ### Organization Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.organizations.get_organization()
-        example = aws.ec2.AmiLaunchPermission("example",
-            image_id="ami-12345678",
-            organization_arn=current.arn)
         ```
 
         ## Import

@@ -31,9 +31,9 @@ import (
 //			exampleCluster, err := docdb.NewCluster(ctx, "exampleCluster", &docdb.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("example"),
 //				AvailabilityZones: pulumi.StringArray{
-//					data.Aws_availability_zones.Available.Names[0],
-//					data.Aws_availability_zones.Available.Names[1],
-//					data.Aws_availability_zones.Available.Names[2],
+//					pulumi.Any(data.Aws_availability_zones.Available.Names[0]),
+//					pulumi.Any(data.Aws_availability_zones.Available.Names[1]),
+//					pulumi.Any(data.Aws_availability_zones.Available.Names[2]),
 //				},
 //				MasterUsername:    pulumi.String("foo"),
 //				MasterPassword:    pulumi.String("mustbeeightcharaters"),

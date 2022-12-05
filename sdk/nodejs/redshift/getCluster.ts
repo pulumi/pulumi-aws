@@ -41,8 +41,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:redshift/getCluster:getCluster", {
         "clusterIdentifier": args.clusterIdentifier,
         "tags": args.tags,

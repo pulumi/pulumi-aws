@@ -61,8 +61,11 @@ import * as utilities from "./utilities";
 export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
     pulumi.log.warn("getElasticIp is deprecated: aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp")
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:index/getElasticIp:getElasticIp", {
         "filters": args.filters,
         "id": args.id,

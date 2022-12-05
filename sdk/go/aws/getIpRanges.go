@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			europeanEc2, err := aws.GetIpRanges(ctx, &aws.GetIpRangesArgs{
+//			europeanEc2, err := aws.GetIpRanges(ctx, &GetIpRangesArgs{
 //				Regions: []string{
 //					"eu-west-1",
 //					"eu-central-1",

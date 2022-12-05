@@ -36,8 +36,11 @@ import * as utilities from "../utilities";
  */
 export function getResponseHeadersPolicy(args?: GetResponseHeadersPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResponseHeadersPolicyResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", {
         "id": args.id,
         "name": args.name,

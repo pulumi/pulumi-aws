@@ -35,7 +35,7 @@ import (
 //				InstanceType:                pulumi.String("stream.standard.large"),
 //				VpcConfig: &appstream.ImageBuilderVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example.Id,
+//						pulumi.Any(aws_subnet.Example.Id),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

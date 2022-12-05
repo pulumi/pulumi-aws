@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSigningProfile(args: GetSigningProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningProfileResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:signer/getSigningProfile:getSigningProfile", {
         "name": args.name,
         "tags": args.tags,

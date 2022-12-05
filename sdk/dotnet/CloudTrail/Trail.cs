@@ -17,74 +17,7 @@ namespace Pulumi.Aws.CloudTrail
     /// &gt; **Tip:** For an organization trail, this resource must be in the master account of the organization.
     /// 
     /// ## Example Usage
-    /// ### Basic
     /// 
-    /// Enable CloudTrail to capture all compatible management events in region.
-    /// For capturing events from services like IAM, `include_global_service_events` must be enabled.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var fooBucketV2 = new Aws.S3.BucketV2("fooBucketV2", new()
-    ///     {
-    ///         ForceDestroy = true,
-    ///     });
-    /// 
-    ///     var foobar = new Aws.CloudTrail.Trail("foobar", new()
-    ///     {
-    ///         S3BucketName = fooBucketV2.Id,
-    ///         S3KeyPrefix = "prefix",
-    ///         IncludeGlobalServiceEvents = false,
-    ///     });
-    /// 
-    ///     var fooBucketPolicy = new Aws.S3.BucketPolicy("fooBucketPolicy", new()
-    ///     {
-    ///         Bucket = fooBucketV2.Id,
-    ///         Policy = Output.Tuple(fooBucketV2.Arn, fooBucketV2.Arn, current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult)).Apply(values =&gt;
-    ///         {
-    ///             var fooBucketV2Arn = values.Item1;
-    ///             var fooBucketV2Arn1 = values.Item2;
-    ///             var current = values.Item3;
-    ///             return @$"{{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    ///         {{
-    ///             ""Sid"": ""AWSCloudTrailAclCheck"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": {{
-    ///               ""Service"": ""cloudtrail.amazonaws.com""
-    ///             }},
-    ///             ""Action"": ""s3:GetBucketAcl"",
-    ///             ""Resource"": ""{fooBucketV2Arn}""
-    ///         }},
-    ///         {{
-    ///             ""Sid"": ""AWSCloudTrailWrite"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": {{
-    ///               ""Service"": ""cloudtrail.amazonaws.com""
-    ///             }},
-    ///             ""Action"": ""s3:PutObject"",
-    ///             ""Resource"": ""{fooBucketV2Arn1}/prefix/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*"",
-    ///             ""Condition"": {{
-    ///                 ""StringEquals"": {{
-    ///                     ""s3:x-amz-acl"": ""bucket-owner-full-control""
-    ///                 }}
-    ///             }}
-    ///         }}
-    ///     ]
-    /// }}
-    /// ";
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Data Event Logging
     /// 
     /// CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:

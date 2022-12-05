@@ -413,11 +413,11 @@ import (
 //				},
 //				VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
 //					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.First.Id,
+//						pulumi.Any(aws_security_group.First.Id),
 //					},
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.First.Id,
-//						aws_subnet.Second.Id,
+//						pulumi.Any(aws_subnet.First.Id),
+//						pulumi.Any(aws_subnet.Second.Id),
 //					},
 //				},
 //			})
@@ -481,11 +481,11 @@ import (
 //					TypeName:  pulumi.String("test"),
 //					VpcConfig: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs{
 //						SubnetIds: pulumi.StringArray{
-//							aws_subnet.First.Id,
-//							aws_subnet.Second.Id,
+//							pulumi.Any(aws_subnet.First.Id),
+//							pulumi.Any(aws_subnet.Second.Id),
 //						},
 //						SecurityGroupIds: pulumi.StringArray{
-//							aws_security_group.First.Id,
+//							pulumi.Any(aws_security_group.First.Id),
 //						},
 //						RoleArn: pulumi.Any(aws_iam_role.Firehose.Arn),
 //					},

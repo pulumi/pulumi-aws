@@ -21,8 +21,11 @@ import * as utilities from "../utilities";
  */
 export function getRandomPassword(args?: GetRandomPasswordArgs, opts?: pulumi.InvokeOptions): Promise<GetRandomPasswordResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:secretsmanager/getRandomPassword:getRandomPassword", {
         "excludeCharacters": args.excludeCharacters,
         "excludeLowercase": args.excludeLowercase,

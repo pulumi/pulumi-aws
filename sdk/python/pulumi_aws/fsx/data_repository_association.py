@@ -349,43 +349,6 @@ class DataRepositoryAssociation(pulumi.CustomResource):
 
         > **NOTE:** Data Repository Associations are only compatible with AWS FSx for Lustre File Systems and `PERSISTENT_2` deployment type.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private")
-        example_lustre_file_system = aws.fsx.LustreFileSystem("exampleLustreFileSystem",
-            storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="PERSISTENT_2",
-            per_unit_storage_throughput=125)
-        example_data_repository_association = aws.fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation",
-            file_system_id=example_lustre_file_system.id,
-            data_repository_path=example_bucket_v2.id.apply(lambda id: f"s3://{id}"),
-            file_system_path="/my-bucket",
-            s3=aws.fsx.DataRepositoryAssociationS3Args(
-                auto_export_policy=aws.fsx.DataRepositoryAssociationS3AutoExportPolicyArgs(
-                    events=[
-                        "NEW",
-                        "CHANGED",
-                        "DELETED",
-                    ],
-                ),
-                auto_import_policy=aws.fsx.DataRepositoryAssociationS3AutoImportPolicyArgs(
-                    events=[
-                        "NEW",
-                        "CHANGED",
-                        "DELETED",
-                    ],
-                ),
-            ))
-        ```
-
         ## Import
 
         FSx Data Repository Associations can be imported using the `id`, e.g.,
@@ -416,43 +379,6 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         Manages a FSx for Lustre Data Repository Association. See [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html) for more information.
 
         > **NOTE:** Data Repository Associations are only compatible with AWS FSx for Lustre File Systems and `PERSISTENT_2` deployment type.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private")
-        example_lustre_file_system = aws.fsx.LustreFileSystem("exampleLustreFileSystem",
-            storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="PERSISTENT_2",
-            per_unit_storage_throughput=125)
-        example_data_repository_association = aws.fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation",
-            file_system_id=example_lustre_file_system.id,
-            data_repository_path=example_bucket_v2.id.apply(lambda id: f"s3://{id}"),
-            file_system_path="/my-bucket",
-            s3=aws.fsx.DataRepositoryAssociationS3Args(
-                auto_export_policy=aws.fsx.DataRepositoryAssociationS3AutoExportPolicyArgs(
-                    events=[
-                        "NEW",
-                        "CHANGED",
-                        "DELETED",
-                    ],
-                ),
-                auto_import_policy=aws.fsx.DataRepositoryAssociationS3AutoImportPolicyArgs(
-                    events=[
-                        "NEW",
-                        "CHANGED",
-                        "DELETED",
-                    ],
-                ),
-            ))
-        ```
 
         ## Import
 

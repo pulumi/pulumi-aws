@@ -38,8 +38,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAddonVersion(args: GetAddonVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonVersionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:eks/getAddonVersion:getAddonVersion", {
         "addonName": args.addonName,
         "kubernetesVersion": args.kubernetesVersion,

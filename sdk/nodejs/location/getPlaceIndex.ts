@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPlaceIndex(args: GetPlaceIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaceIndexResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:location/getPlaceIndex:getPlaceIndex", {
         "indexName": args.indexName,
         "tags": args.tags,

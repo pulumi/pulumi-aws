@@ -32,8 +32,8 @@ import (
 //				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example1.Id,
-//						aws_subnet.Example2.Id,
+//						pulumi.Any(aws_subnet.Example1.Id),
+//						pulumi.Any(aws_subnet.Example2.Id),
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -186,7 +186,7 @@ import (
 //				OutpostConfig: &eks.ClusterOutpostConfigArgs{
 //					ControlPlaneInstanceType: pulumi.String("m5d.large"),
 //					OutpostArns: pulumi.StringArray{
-//						data.Aws_outposts_outpost.Example.Arn,
+//						pulumi.Any(data.Aws_outposts_outpost.Example.Arn),
 //					},
 //				},
 //			})

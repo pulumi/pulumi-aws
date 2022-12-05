@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCustomPlugin(args: GetCustomPluginArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomPluginResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:mskconnect/getCustomPlugin:getCustomPlugin", {
         "name": args.name,
     }, opts);

@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserPoolSigningCertificate(args: GetUserPoolSigningCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolSigningCertificateResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", {
         "userPoolId": args.userPoolId,
     }, opts);

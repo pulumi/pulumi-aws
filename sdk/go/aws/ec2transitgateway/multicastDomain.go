@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+//			available, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
 //				State: pulumi.StringRef("available"),
 //			}, nil)
 //			if err != nil {

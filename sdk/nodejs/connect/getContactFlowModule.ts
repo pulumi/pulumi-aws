@@ -34,8 +34,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getContactFlowModule(args: GetContactFlowModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetContactFlowModuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:connect/getContactFlowModule:getContactFlowModule", {
         "contactFlowModuleId": args.contactFlowModuleId,
         "instanceId": args.instanceId,

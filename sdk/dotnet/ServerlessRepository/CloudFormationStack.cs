@@ -12,42 +12,6 @@ namespace Pulumi.Aws.ServerlessRepository
     /// <summary>
     /// Deploys an Application CloudFormation Stack from the Serverless Application Repository.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var postgres_rotator = new Aws.ServerlessRepository.CloudFormationStack("postgres-rotator", new()
-    ///     {
-    ///         ApplicationId = "arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
-    ///         Capabilities = new[]
-    ///         {
-    ///             "CAPABILITY_IAM",
-    ///             "CAPABILITY_RESOURCE_POLICY",
-    ///         },
-    ///         Parameters = 
-    ///         {
-    ///             { "endpoint", Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentPartition.Apply(getPartitionResult =&gt; getPartitionResult)).Apply(values =&gt;
-    ///             {
-    ///                 var currentRegion = values.Item1;
-    ///                 var currentPartition = values.Item2;
-    ///                 return $"secretsmanager.{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}.{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
-    ///             }) },
-    ///             { "functionName", "func-postgres-rotator" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Serverless Application Repository Stack can be imported using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID, e.g.,

@@ -61,8 +61,11 @@ import * as utilities from "../utilities";
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     pulumi.log.warn("getServiceAccount is deprecated: aws.elasticloadbalancing.getServiceAccount has been deprecated in favor of aws.elb.getServiceAccount")
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:elasticloadbalancing/getServiceAccount:getServiceAccount", {
         "region": args.region,
     }, opts);

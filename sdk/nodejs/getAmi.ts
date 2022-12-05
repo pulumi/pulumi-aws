@@ -43,8 +43,11 @@ import * as utilities from "./utilities";
 export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
     pulumi.log.warn("getAmi is deprecated: aws.getAmi has been deprecated in favor of aws.ec2.getAmi")
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:index/getAmi:getAmi", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,

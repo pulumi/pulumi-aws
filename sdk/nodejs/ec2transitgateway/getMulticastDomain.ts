@@ -37,8 +37,11 @@ import * as utilities from "../utilities";
  */
 export function getMulticastDomain(args?: GetMulticastDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetMulticastDomainResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", {
         "filters": args.filters,
         "tags": args.tags,

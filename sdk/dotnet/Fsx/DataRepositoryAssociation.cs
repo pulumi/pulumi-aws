@@ -14,65 +14,6 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// &gt; **NOTE:** Data Repository Associations are only compatible with AWS FSx for Lustre File Systems and `PERSISTENT_2` deployment type.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    ///     var exampleLustreFileSystem = new Aws.Fsx.LustreFileSystem("exampleLustreFileSystem", new()
-    ///     {
-    ///         StorageCapacity = 1200,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
-    ///         DeploymentType = "PERSISTENT_2",
-    ///         PerUnitStorageThroughput = 125,
-    ///     });
-    /// 
-    ///     var exampleDataRepositoryAssociation = new Aws.Fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation", new()
-    ///     {
-    ///         FileSystemId = exampleLustreFileSystem.Id,
-    ///         DataRepositoryPath = exampleBucketV2.Id.Apply(id =&gt; $"s3://{id}"),
-    ///         FileSystemPath = "/my-bucket",
-    ///         S3 = new Aws.Fsx.Inputs.DataRepositoryAssociationS3Args
-    ///         {
-    ///             AutoExportPolicy = new Aws.Fsx.Inputs.DataRepositoryAssociationS3AutoExportPolicyArgs
-    ///             {
-    ///                 Events = new[]
-    ///                 {
-    ///                     "NEW",
-    ///                     "CHANGED",
-    ///                     "DELETED",
-    ///                 },
-    ///             },
-    ///             AutoImportPolicy = new Aws.Fsx.Inputs.DataRepositoryAssociationS3AutoImportPolicyArgs
-    ///             {
-    ///                 Events = new[]
-    ///                 {
-    ///                     "NEW",
-    ///                     "CHANGED",
-    ///                     "DELETED",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// FSx Data Repository Associations can be imported using the `id`, e.g.,

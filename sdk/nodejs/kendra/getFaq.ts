@@ -23,8 +23,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFaq(args: GetFaqArgs, opts?: pulumi.InvokeOptions): Promise<GetFaqResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:kendra/getFaq:getFaq", {
         "faqId": args.faqId,
         "indexId": args.indexId,

@@ -35,8 +35,11 @@ import * as utilities from "../utilities";
  */
 export function getBundle(args?: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:workspaces/getBundle:getBundle", {
         "bundleId": args.bundleId,
         "name": args.name,

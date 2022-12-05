@@ -37,8 +37,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getQuickConnect(args: GetQuickConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetQuickConnectResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:connect/getQuickConnect:getQuickConnect", {
         "instanceId": args.instanceId,
         "name": args.name,

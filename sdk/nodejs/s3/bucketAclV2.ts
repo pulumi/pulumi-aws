@@ -25,39 +25,6 @@ import * as utilities from "../utilities";
  *     acl: "private",
  * });
  * ```
- * ### With Grants
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.s3.getCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     accessControlPolicy: {
- *         grants: [
- *             {
- *                 grantee: {
- *                     id: current.then(current => current.id),
- *                     type: "CanonicalUser",
- *                 },
- *                 permission: "READ",
- *             },
- *             {
- *                 grantee: {
- *                     type: "Group",
- *                     uri: "http://acs.amazonaws.com/groups/s3/LogDelivery",
- *                 },
- *                 permission: "READ_ACP",
- *             },
- *         ],
- *         owner: {
- *             id: current.then(current => current.id),
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

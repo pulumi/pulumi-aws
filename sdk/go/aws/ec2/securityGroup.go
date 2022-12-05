@@ -48,10 +48,10 @@ import (
 //						ToPort:      pulumi.Int(443),
 //						Protocol:    pulumi.String("tcp"),
 //						CidrBlocks: pulumi.StringArray{
-//							aws_vpc.Main.Cidr_block,
+//							pulumi.Any(aws_vpc.Main.Cidr_block),
 //						},
 //						Ipv6CidrBlocks: pulumi.StringArray{
-//							aws_vpc.Main.Ipv6_cidr_block,
+//							pulumi.Any(aws_vpc.Main.Ipv6_cidr_block),
 //						},
 //					},
 //				},

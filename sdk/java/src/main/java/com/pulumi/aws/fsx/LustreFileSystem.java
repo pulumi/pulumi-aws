@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** `auto_import_policy`, `export_path`, `import_path` and `imported_file_chunk_size` are not supported with the `PERSISTENT_2` deployment type. Use `aws.fsx.DataRepositoryAssociation` instead.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 

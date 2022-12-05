@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBotAlias(args: GetBotAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAliasResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:lex/getBotAlias:getBotAlias", {
         "botName": args.botName,
         "name": args.name,

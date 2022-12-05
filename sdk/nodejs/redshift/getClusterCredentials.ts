@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getClusterCredentials(args: GetClusterCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterCredentialsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:redshift/getClusterCredentials:getClusterCredentials", {
         "autoCreate": args.autoCreate,
         "clusterIdentifier": args.clusterIdentifier,

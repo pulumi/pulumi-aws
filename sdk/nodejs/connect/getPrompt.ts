@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPrompt(args: GetPromptArgs, opts?: pulumi.InvokeOptions): Promise<GetPromptResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:connect/getPrompt:getPrompt", {
         "instanceId": args.instanceId,
         "name": args.name,

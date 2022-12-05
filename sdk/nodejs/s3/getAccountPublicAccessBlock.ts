@@ -18,8 +18,11 @@ import * as utilities from "../utilities";
  */
 export function getAccountPublicAccessBlock(args?: GetAccountPublicAccessBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountPublicAccessBlockResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", {
         "accountId": args.accountId,
     }, opts);

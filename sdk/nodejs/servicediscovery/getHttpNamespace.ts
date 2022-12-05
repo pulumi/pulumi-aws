@@ -17,8 +17,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getHttpNamespace(args: GetHttpNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetHttpNamespaceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:servicediscovery/getHttpNamespace:getHttpNamespace", {
         "name": args.name,
         "tags": args.tags,

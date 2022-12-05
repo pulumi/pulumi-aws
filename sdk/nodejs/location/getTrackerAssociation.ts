@@ -21,8 +21,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTrackerAssociation(args: GetTrackerAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerAssociationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:location/getTrackerAssociation:getTrackerAssociation", {
         "consumerArn": args.consumerArn,
         "trackerName": args.trackerName,

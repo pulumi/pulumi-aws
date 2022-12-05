@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:acmpca/getCertificateAuthority:getCertificateAuthority", {
         "arn": args.arn,
         "revocationConfigurations": args.revocationConfigurations,

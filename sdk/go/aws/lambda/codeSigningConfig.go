@@ -32,8 +32,8 @@ import (
 //			_, err := lambda.NewCodeSigningConfig(ctx, "newCsc", &lambda.CodeSigningConfigArgs{
 //				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
 //					SigningProfileVersionArns: pulumi.StringArray{
-//						aws_signer_signing_profile.Example1.Arn,
-//						aws_signer_signing_profile.Example2.Arn,
+//						pulumi.Any(aws_signer_signing_profile.Example1.Arn),
+//						pulumi.Any(aws_signer_signing_profile.Example2.Arn),
 //					},
 //				},
 //				Policies: &lambda.CodeSigningConfigPoliciesArgs{

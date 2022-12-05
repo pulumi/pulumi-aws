@@ -35,7 +35,7 @@ import (
 //				},
 //				SnsTopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
 //				SourceIds: pulumi.StringArray{
-//					aws_dms_replication_task.Example.Replication_task_id,
+//					pulumi.Any(aws_dms_replication_task.Example.Replication_task_id),
 //				},
 //				SourceType: pulumi.String("replication-task"),
 //				Tags: pulumi.StringMap{

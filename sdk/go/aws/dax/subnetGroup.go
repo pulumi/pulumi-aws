@@ -29,8 +29,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dax.NewSubnetGroup(ctx, "example", &dax.SubnetGroupArgs{
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example1.Id,
-//					aws_subnet.Example2.Id,
+//					pulumi.Any(aws_subnet.Example1.Id),
+//					pulumi.Any(aws_subnet.Example2.Id),
 //				},
 //			})
 //			if err != nil {

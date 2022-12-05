@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  */
 export function getCustomKeyStore(args?: GetCustomKeyStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomKeyStoreResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:kms/getCustomKeyStore:getCustomKeyStore", {
         "customKeyStoreId": args.customKeyStoreId,
         "customKeyStoreName": args.customKeyStoreName,

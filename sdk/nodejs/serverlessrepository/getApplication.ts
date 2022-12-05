@@ -24,8 +24,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:serverlessrepository/getApplication:getApplication", {
         "applicationId": args.applicationId,
         "semanticVersion": args.semanticVersion,

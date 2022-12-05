@@ -87,10 +87,10 @@ import (
 //				EndpointType: pulumi.String("VPC"),
 //				EndpointDetails: &transfer.ServerEndpointDetailsArgs{
 //					AddressAllocationIds: pulumi.StringArray{
-//						aws_eip.Example.Id,
+//						pulumi.Any(aws_eip.Example.Id),
 //					},
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example.Id,
+//						pulumi.Any(aws_subnet.Example.Id),
 //					},
 //					VpcId: pulumi.Any(aws_vpc.Example.Id),
 //				},
@@ -175,7 +175,7 @@ import (
 //				EndpointType: pulumi.String("VPC"),
 //				EndpointDetails: &transfer.ServerEndpointDetailsArgs{
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example.Id,
+//						pulumi.Any(aws_subnet.Example.Id),
 //					},
 //					VpcId: pulumi.Any(aws_vpc.Example.Id),
 //				},

@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLocation(args: GetLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:directconnect/getLocation:getLocation", {
         "locationCode": args.locationCode,
     }, opts);

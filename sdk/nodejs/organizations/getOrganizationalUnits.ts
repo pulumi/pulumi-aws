@@ -9,22 +9,13 @@ import * as utilities from "../utilities";
 
 /**
  * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const org = aws.organizations.getOrganization({});
- * const ou = org.then(org => aws.organizations.getOrganizationalUnits({
- *     parentId: org.roots?[0]?.id,
- * }));
- * ```
  */
 export function getOrganizationalUnits(args: GetOrganizationalUnitsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationalUnitsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", {
         "parentId": args.parentId,
     }, opts);

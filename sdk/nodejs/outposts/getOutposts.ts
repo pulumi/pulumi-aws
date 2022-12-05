@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  */
 export function getOutposts(args?: GetOutpostsArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostsResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:outposts/getOutposts:getOutposts", {
         "availabilityZone": args.availabilityZone,
         "availabilityZoneId": args.availabilityZoneId,

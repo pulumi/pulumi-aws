@@ -24,8 +24,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFunctionUrl(args: GetFunctionUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionUrlResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:lambda/getFunctionUrl:getFunctionUrl", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,

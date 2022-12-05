@@ -34,54 +34,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// ### With Grants
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.S3.GetCanonicalUserId.Invoke();
-    /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         AccessControlPolicy = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyArgs
-    ///         {
-    ///             Grants = new[]
-    ///             {
-    ///                 new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
-    ///                 {
-    ///                     Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
-    ///                     {
-    ///                         Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-    ///                         Type = "CanonicalUser",
-    ///                     },
-    ///                     Permission = "READ",
-    ///                 },
-    ///                 new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
-    ///                 {
-    ///                     Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
-    ///                     {
-    ///                         Type = "Group",
-    ///                         Uri = "http://acs.amazonaws.com/groups/s3/LogDelivery",
-    ///                     },
-    ///                     Permission = "READ_ACP",
-    ///                 },
-    ///             },
-    ///             Owner = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyOwnerArgs
-    ///             {
-    ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

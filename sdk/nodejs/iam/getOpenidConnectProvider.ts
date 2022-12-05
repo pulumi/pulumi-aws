@@ -31,8 +31,11 @@ import * as utilities from "../utilities";
  */
 export function getOpenidConnectProvider(args?: GetOpenidConnectProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenidConnectProviderResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getOpenidConnectProvider:getOpenidConnectProvider", {
         "arn": args.arn,
         "tags": args.tags,

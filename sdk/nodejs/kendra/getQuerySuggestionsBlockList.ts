@@ -23,8 +23,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getQuerySuggestionsBlockList(args: GetQuerySuggestionsBlockListArgs, opts?: pulumi.InvokeOptions): Promise<GetQuerySuggestionsBlockListResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", {
         "indexId": args.indexId,
         "querySuggestionsBlockListId": args.querySuggestionsBlockListId,

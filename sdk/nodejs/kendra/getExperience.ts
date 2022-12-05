@@ -23,8 +23,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getExperience(args: GetExperienceArgs, opts?: pulumi.InvokeOptions): Promise<GetExperienceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:kendra/getExperience:getExperience", {
         "experienceId": args.experienceId,
         "indexId": args.indexId,

@@ -58,25 +58,6 @@ import * as utilities from "../utilities";
  *     privateDnsEnabled: true,
  * });
  * ```
- * ### Gateway Load Balancer Endpoint Type
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const exampleVpcEndpointService = new aws.ec2.VpcEndpointService("exampleVpcEndpointService", {
- *     acceptanceRequired: false,
- *     allowedPrincipals: [current.then(current => current.arn)],
- *     gatewayLoadBalancerArns: [aws_lb.example.arn],
- * });
- * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("exampleVpcEndpoint", {
- *     serviceName: exampleVpcEndpointService.serviceName,
- *     subnetIds: [aws_subnet.example.id],
- *     vpcEndpointType: exampleVpcEndpointService.serviceType,
- *     vpcId: aws_vpc.example.id,
- * });
- * ```
  *
  * ## Import
  *

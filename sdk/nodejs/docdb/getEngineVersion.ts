@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  */
 export function getEngineVersion(args?: GetEngineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEngineVersionResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:docdb/getEngineVersion:getEngineVersion", {
         "engine": args.engine,
         "parameterGroupFamily": args.parameterGroupFamily,

@@ -1206,29 +1206,6 @@ class BucketV2(pulumi.CustomResource):
             )],
         )])
         ```
-        ### Using ACL policy grants
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_user = aws.s3.get_canonical_user_id()
-        bucket = aws.s3.BucketV2("bucket", grants=[
-            aws.s3.BucketV2GrantArgs(
-                id=current_user.id,
-                type="CanonicalUser",
-                permissions=["FULL_CONTROL"],
-            ),
-            aws.s3.BucketV2GrantArgs(
-                type="Group",
-                permissions=[
-                    "READ_ACP",
-                    "WRITE",
-                ],
-                uri="http://acs.amazonaws.com/groups/s3/LogDelivery",
-            ),
-        ])
-        ```
 
         ## Import
 
@@ -1591,29 +1568,6 @@ class BucketV2(pulumi.CustomResource):
                 )],
             )],
         )])
-        ```
-        ### Using ACL policy grants
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_user = aws.s3.get_canonical_user_id()
-        bucket = aws.s3.BucketV2("bucket", grants=[
-            aws.s3.BucketV2GrantArgs(
-                id=current_user.id,
-                type="CanonicalUser",
-                permissions=["FULL_CONTROL"],
-            ),
-            aws.s3.BucketV2GrantArgs(
-                type="Group",
-                permissions=[
-                    "READ_ACP",
-                    "WRITE",
-                ],
-                uri="http://acs.amazonaws.com/groups/s3/LogDelivery",
-            ),
-        ])
         ```
 
         ## Import

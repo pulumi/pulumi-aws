@@ -26,8 +26,11 @@ import * as utilities from "../utilities";
  */
 export function getInfrastructureConfigurations(args?: GetInfrastructureConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureConfigurationsResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", {
         "filters": args.filters,
     }, opts);

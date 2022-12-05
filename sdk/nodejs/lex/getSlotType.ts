@@ -23,8 +23,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSlotType(args: GetSlotTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSlotTypeResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:lex/getSlotType:getSlotType", {
         "name": args.name,
         "version": args.version,

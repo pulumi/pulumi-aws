@@ -44,34 +44,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### Access Policy
- *
- * > See also: `aws.opensearch.DomainPolicy` resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const domain = config.get("domain") || "tf-test";
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const example = new aws.opensearch.Domain("example", {accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "es:*",
- *       "Principal": "*",
- *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*",
- *       "Condition": {
- *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
- *       }
- *     }
- *   ]
- * }
- * `)});
- * ```
  * ### Log publishing to CloudWatch Logs
  *
  * ```typescript
@@ -105,74 +77,6 @@ import * as utilities from "../utilities";
  *     cloudwatchLogGroupArn: exampleLogGroup.arn,
  *     logType: "INDEX_SLOW_LOGS",
  * }]});
- * ```
- * ### VPC based OpenSearch
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const vpc = config.requireObject("vpc");
- * const domain = config.get("domain") || "tf-test";
- * const exampleVpc = aws.ec2.getVpc({
- *     tags: {
- *         Name: vpc,
- *     },
- * });
- * const exampleSubnetIds = exampleVpc.then(exampleVpc => aws.ec2.getSubnetIds({
- *     vpcId: exampleVpc.id,
- *     tags: {
- *         Tier: "private",
- *     },
- * }));
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const exampleSecurityGroup = new aws.ec2.SecurityGroup("exampleSecurityGroup", {
- *     description: "Managed by Pulumi",
- *     vpcId: exampleVpc.then(exampleVpc => exampleVpc.id),
- *     ingress: [{
- *         fromPort: 443,
- *         toPort: 443,
- *         protocol: "tcp",
- *         cidrBlocks: [exampleVpc.then(exampleVpc => exampleVpc.cidrBlock)],
- *     }],
- * });
- * const exampleServiceLinkedRole = new aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", {awsServiceName: "opensearchservice.amazonaws.com"});
- * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {
- *     engineVersion: "OpenSearch_1.0",
- *     clusterConfig: {
- *         instanceType: "m4.large.search",
- *         zoneAwarenessEnabled: true,
- *     },
- *     vpcOptions: {
- *         subnetIds: [
- *             exampleSubnetIds.then(exampleSubnetIds => exampleSubnetIds.ids?[0]),
- *             exampleSubnetIds.then(exampleSubnetIds => exampleSubnetIds.ids?[1]),
- *         ],
- *         securityGroupIds: [exampleSecurityGroup.id],
- *     },
- *     advancedOptions: {
- *         "rest.action.multi.allow_explicit_index": "true",
- *     },
- *     accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 			"Action": "es:*",
- * 			"Principal": "*",
- * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*"
- * 		}
- * 	]
- * }
- * `),
- *     tags: {
- *         Domain: "TestDomain",
- *     },
- * }, {
- *     dependsOn: [exampleServiceLinkedRole],
- * });
  * ```
  * ### Enabling fine-grained access control on an existing domain
  *

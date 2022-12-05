@@ -21,8 +21,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserSshKey(args: GetUserSshKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSshKeyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getUserSshKey:getUserSshKey", {
         "encoding": args.encoding,
         "sshPublicKeyId": args.sshPublicKeyId,

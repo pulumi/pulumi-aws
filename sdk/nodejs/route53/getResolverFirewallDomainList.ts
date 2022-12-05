@@ -23,8 +23,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResolverFirewallDomainList(args: GetResolverFirewallDomainListArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallDomainListResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", {
         "firewallDomainListId": args.firewallDomainListId,
     }, opts);

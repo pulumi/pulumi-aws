@@ -48,8 +48,11 @@ import * as utilities from "../utilities";
  */
 export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcesResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:resourcegroupstaggingapi/getResources:getResources", {
         "excludeCompliantResources": args.excludeCompliantResources,
         "includeComplianceDetails": args.includeComplianceDetails,

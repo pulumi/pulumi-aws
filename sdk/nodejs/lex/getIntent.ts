@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIntent(args: GetIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetIntentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:lex/getIntent:getIntent", {
         "name": args.name,
         "version": args.version,

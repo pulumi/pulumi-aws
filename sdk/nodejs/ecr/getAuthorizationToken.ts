@@ -18,8 +18,11 @@ import * as utilities from "../utilities";
  */
 export function getAuthorizationToken(args?: GetAuthorizationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationTokenResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ecr/getAuthorizationToken:getAuthorizationToken", {
         "registryId": args.registryId,
     }, opts);

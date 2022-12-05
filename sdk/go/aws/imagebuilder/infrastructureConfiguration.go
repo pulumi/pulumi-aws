@@ -36,7 +36,7 @@ import (
 //				},
 //				KeyPair: pulumi.Any(aws_key_pair.Example.Key_name),
 //				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
+//					pulumi.Any(aws_security_group.Example.Id),
 //				},
 //				SnsTopicArn:                pulumi.Any(aws_sns_topic.Example.Arn),
 //				SubnetId:                   pulumi.Any(aws_subnet.Main.Id),

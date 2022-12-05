@@ -215,20 +215,6 @@ class Backup(pulumi.CustomResource):
         """
         Provides a FSx Backup resource.
 
-        ## Lustre Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_lustre_file_system = aws.fsx.LustreFileSystem("exampleLustreFileSystem",
-            storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="PERSISTENT_1",
-            per_unit_storage_throughput=50)
-        example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_lustre_file_system.id)
-        ```
-
         ## Windows Example
 
         ```python
@@ -256,20 +242,6 @@ class Backup(pulumi.CustomResource):
             storage_efficiency_enabled=True,
             storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
         example_backup = aws.fsx.Backup("exampleBackup", volume_id=example_ontap_volume.id)
-        ```
-
-        ## OpenZFS Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
-            storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="SINGLE_AZ_1",
-            throughput_capacity=64)
-        example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_open_zfs_file_system.id)
         ```
 
         ## Import
@@ -295,20 +267,6 @@ class Backup(pulumi.CustomResource):
         """
         Provides a FSx Backup resource.
 
-        ## Lustre Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_lustre_file_system = aws.fsx.LustreFileSystem("exampleLustreFileSystem",
-            storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="PERSISTENT_1",
-            per_unit_storage_throughput=50)
-        example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_lustre_file_system.id)
-        ```
-
         ## Windows Example
 
         ```python
@@ -336,20 +294,6 @@ class Backup(pulumi.CustomResource):
             storage_efficiency_enabled=True,
             storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
         example_backup = aws.fsx.Backup("exampleBackup", volume_id=example_ontap_volume.id)
-        ```
-
-        ## OpenZFS Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
-            storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="SINGLE_AZ_1",
-            throughput_capacity=64)
-        example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_open_zfs_file_system.id)
         ```
 
         ## Import

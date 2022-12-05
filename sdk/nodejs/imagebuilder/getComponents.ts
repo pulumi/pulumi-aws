@@ -27,8 +27,11 @@ import * as utilities from "../utilities";
  */
 export function getComponents(args?: GetComponentsArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentsResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:imagebuilder/getComponents:getComponents", {
         "filters": args.filters,
         "owner": args.owner,

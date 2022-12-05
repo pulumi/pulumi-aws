@@ -38,8 +38,11 @@ import * as utilities from "../utilities";
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
     pulumi.log.warn("getListener is deprecated: aws.elasticloadbalancingv2.getListener has been deprecated in favor of aws.lb.getListener")
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:elasticloadbalancingv2/getListener:getListener", {
         "arn": args.arn,
         "loadBalancerArn": args.loadBalancerArn,
