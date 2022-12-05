@@ -58,15 +58,6 @@ class AwaitableGetSerialConsoleAccessResult(GetSerialConsoleAccessResult):
 def get_serial_console_access(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSerialConsoleAccessResult:
     """
     Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.ec2.get_serial_console_access()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

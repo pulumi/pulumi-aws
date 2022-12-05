@@ -11,8 +11,11 @@ import * as utilities from "../utilities";
  * Use this data source to get an Identity Store User.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:identitystore/getUser:getUser", {
         "alternateIdentifier": args.alternateIdentifier,
         "filter": args.filter,

@@ -69,7 +69,7 @@ import (
 //				PhysicalConnectionRequirements: &glue.ConnectionPhysicalConnectionRequirementsArgs{
 //					AvailabilityZone: pulumi.Any(aws_subnet.Example.Availability_zone),
 //					SecurityGroupIdLists: pulumi.StringArray{
-//						aws_security_group.Example.Id,
+//						pulumi.Any(aws_security_group.Example.Id),
 //					},
 //					SubnetId: pulumi.Any(aws_subnet.Example.Id),
 //				},

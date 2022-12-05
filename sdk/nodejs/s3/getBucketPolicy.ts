@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBucketPolicy(args: GetBucketPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:s3/getBucketPolicy:getBucketPolicy", {
         "bucket": args.bucket,
     }, opts);

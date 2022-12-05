@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConnections(args: GetConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:networkmanager/getConnections:getConnections", {
         "deviceId": args.deviceId,
         "globalNetworkId": args.globalNetworkId,

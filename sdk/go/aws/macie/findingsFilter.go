@@ -41,7 +41,7 @@ import (
 //						&macie.FindingsFilterFindingCriteriaCriterionArgs{
 //							Field: pulumi.String("region"),
 //							Eqs: pulumi.StringArray{
-//								data.Aws_region.Current.Name,
+//								pulumi.Any(data.Aws_region.Current.Name),
 //							},
 //						},
 //					},

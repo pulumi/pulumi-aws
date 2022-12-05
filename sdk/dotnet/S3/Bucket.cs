@@ -419,45 +419,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// ### Using ACL policy grants
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentUser = Aws.S3.GetCanonicalUserId.Invoke();
-    /// 
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
-    ///     {
-    ///         Grants = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketGrantArgs
-    ///             {
-    ///                 Id = currentUser.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-    ///                 Type = "CanonicalUser",
-    ///                 Permissions = new[]
-    ///                 {
-    ///                     "FULL_CONTROL",
-    ///                 },
-    ///             },
-    ///             new Aws.S3.Inputs.BucketGrantArgs
-    ///             {
-    ///                 Type = "Group",
-    ///                 Permissions = new[]
-    ///                 {
-    ///                     "READ_ACP",
-    ///                     "WRITE",
-    ///                 },
-    ///                 Uri = "http://acs.amazonaws.com/groups/s3/LogDelivery",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

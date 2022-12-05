@@ -23,8 +23,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDedicatedIpPool(args: GetDedicatedIpPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedIpPoolResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", {
         "poolName": args.poolName,
         "tags": args.tags,

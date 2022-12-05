@@ -237,7 +237,7 @@ import (
 //			}
 //			_, err = aws.NewProvider(ctx, "awsSns", &aws.ProviderArgs{
 //				Region: pulumi.String(sns.Region),
-//				AssumeRole: &aws.ProviderAssumeRoleArgs{
+//				AssumeRole: &ProviderAssumeRoleArgs{
 //					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sns.AccountId, sns.RoleName)),
 //					SessionName: pulumi.String(fmt.Sprintf("sns-%v", sns.Region)),
 //				},
@@ -247,7 +247,7 @@ import (
 //			}
 //			_, err = aws.NewProvider(ctx, "awsSqs", &aws.ProviderArgs{
 //				Region: pulumi.String(sqs.Region),
-//				AssumeRole: &aws.ProviderAssumeRoleArgs{
+//				AssumeRole: &ProviderAssumeRoleArgs{
 //					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.AccountId, sqs.RoleName)),
 //					SessionName: pulumi.String(fmt.Sprintf("sqs-%v", sqs.Region)),
 //				},
@@ -257,7 +257,7 @@ import (
 //			}
 //			_, err = aws.NewProvider(ctx, "sns2sqs", &aws.ProviderArgs{
 //				Region: pulumi.String(sns.Region),
-//				AssumeRole: &aws.ProviderAssumeRoleArgs{
+//				AssumeRole: &ProviderAssumeRoleArgs{
 //					RoleArn:     pulumi.String(fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.AccountId, sqs.RoleName)),
 //					SessionName: pulumi.String(fmt.Sprintf("sns2sqs-%v", sns.Region)),
 //				},

@@ -35,7 +35,7 @@ import (
 //			}
 //			exampleVpcAttachment, err := ec2transitgateway.NewVpcAttachment(ctx, "exampleVpcAttachment", &ec2transitgateway.VpcAttachmentArgs{
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
+//					pulumi.Any(aws_subnet.Example.Id),
 //				},
 //				TransitGatewayId: exampleTransitGateway.ID(),
 //				VpcId:            pulumi.Any(aws_vpc.Example.Id),

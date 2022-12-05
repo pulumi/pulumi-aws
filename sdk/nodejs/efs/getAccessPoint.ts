@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:efs/getAccessPoint:getAccessPoint", {
         "accessPointId": args.accessPointId,
         "tags": args.tags,

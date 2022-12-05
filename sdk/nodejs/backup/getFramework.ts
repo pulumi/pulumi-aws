@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions): Promise<GetFrameworkResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:backup/getFramework:getFramework", {
         "name": args.name,
         "tags": args.tags,

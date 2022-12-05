@@ -12,8 +12,11 @@ import * as utilities from "../utilities";
  */
 export function getLocalGatewayRouteTables(args?: GetLocalGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTablesResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", {
         "filters": args.filters,
         "tags": args.tags,

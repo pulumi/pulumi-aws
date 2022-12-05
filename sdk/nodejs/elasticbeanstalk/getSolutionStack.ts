@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSolutionStack(args: GetSolutionStackArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionStackResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", {
         "mostRecent": args.mostRecent,
         "nameRegex": args.nameRegex,

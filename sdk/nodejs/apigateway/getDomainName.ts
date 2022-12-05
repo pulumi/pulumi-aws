@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:apigateway/getDomainName:getDomainName", {
         "domainName": args.domainName,
         "tags": args.tags,

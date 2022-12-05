@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGeofenceCollection(args: GetGeofenceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGeofenceCollectionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:location/getGeofenceCollection:getGeofenceCollection", {
         "collectionName": args.collectionName,
         "kmsKeyId": args.kmsKeyId,

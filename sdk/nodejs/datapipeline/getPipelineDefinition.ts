@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPipelineDefinition(args: GetPipelineDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineDefinitionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", {
         "parameterValues": args.parameterValues,
         "pipelineId": args.pipelineId,

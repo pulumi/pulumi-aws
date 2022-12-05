@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getReportPlan(args: GetReportPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReportPlanResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:backup/getReportPlan:getReportPlan", {
         "name": args.name,
         "tags": args.tags,

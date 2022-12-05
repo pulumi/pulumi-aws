@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cloudfront/getDistribution:getDistribution", {
         "id": args.id,
         "tags": args.tags,

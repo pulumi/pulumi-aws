@@ -28,8 +28,11 @@ import * as utilities from "../utilities";
  */
 export function getOpenZfsSnapshot(args?: GetOpenZfsSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenZfsSnapshotResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,

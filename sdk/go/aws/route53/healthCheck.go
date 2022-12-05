@@ -96,7 +96,7 @@ import (
 //				Type:                 pulumi.String("CALCULATED"),
 //				ChildHealthThreshold: pulumi.Int(1),
 //				ChildHealthchecks: pulumi.StringArray{
-//					aws_route53_health_check.Child.Id,
+//					pulumi.Any(aws_route53_health_check.Child.Id),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-test-calculated-health-check"),

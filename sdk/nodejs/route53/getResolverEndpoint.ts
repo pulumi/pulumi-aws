@@ -37,8 +37,11 @@ import * as utilities from "../utilities";
  */
 export function getResolverEndpoint(args?: GetResolverEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverEndpointResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:route53/getResolverEndpoint:getResolverEndpoint", {
         "filters": args.filters,
         "resolverEndpointId": args.resolverEndpointId,

@@ -32,8 +32,11 @@ import * as utilities from "../utilities";
  */
 export function getAttachment(args?: GetAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachmentResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2transitgateway/getAttachment:getAttachment", {
         "filters": args.filters,
         "tags": args.tags,

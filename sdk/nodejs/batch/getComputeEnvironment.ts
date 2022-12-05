@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", {
         "computeEnvironmentName": args.computeEnvironmentName,
         "tags": args.tags,

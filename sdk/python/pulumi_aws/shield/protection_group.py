@@ -277,23 +277,6 @@ class ProtectionGroup(pulumi.CustomResource):
             pattern="ALL",
             protection_group_id="example")
         ```
-        ### Create protection group for arbitrary number of resources
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_eip = aws.ec2.Eip("exampleEip", vpc=True)
-        example_protection = aws.shield.Protection("exampleProtection", resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"))
-        example_protection_group = aws.shield.ProtectionGroup("exampleProtectionGroup",
-            protection_group_id="example",
-            aggregation="MEAN",
-            pattern="ARBITRARY",
-            members=[example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}")],
-            opts=pulumi.ResourceOptions(depends_on=[example_protection]))
-        ```
         ### Create protection group for a type of resource
 
         ```python
@@ -346,23 +329,6 @@ class ProtectionGroup(pulumi.CustomResource):
             aggregation="MAX",
             pattern="ALL",
             protection_group_id="example")
-        ```
-        ### Create protection group for arbitrary number of resources
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_eip = aws.ec2.Eip("exampleEip", vpc=True)
-        example_protection = aws.shield.Protection("exampleProtection", resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"))
-        example_protection_group = aws.shield.ProtectionGroup("exampleProtectionGroup",
-            protection_group_id="example",
-            aggregation="MEAN",
-            pattern="ARBITRARY",
-            members=[example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}")],
-            opts=pulumi.ResourceOptions(depends_on=[example_protection]))
         ```
         ### Create protection group for a type of resource
 

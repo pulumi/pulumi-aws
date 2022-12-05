@@ -21,8 +21,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSamlProvider(args: GetSamlProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlProviderResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getSamlProvider:getSamlProvider", {
         "arn": args.arn,
         "tags": args.tags,

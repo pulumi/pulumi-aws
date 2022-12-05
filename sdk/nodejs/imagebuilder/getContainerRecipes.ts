@@ -27,8 +27,11 @@ import * as utilities from "../utilities";
  */
 export function getContainerRecipes(args?: GetContainerRecipesArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRecipesResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:imagebuilder/getContainerRecipes:getContainerRecipes", {
         "filters": args.filters,
         "owner": args.owner,

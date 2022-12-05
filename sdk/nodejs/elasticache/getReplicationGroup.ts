@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", {
         "replicationGroupId": args.replicationGroupId,
     }, opts);

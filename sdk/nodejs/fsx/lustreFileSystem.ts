@@ -12,19 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** `autoImportPolicy`, `exportPath`, `importPath` and `importedFileChunkSize` are not supported with the `PERSISTENT_2` deployment type. Use `aws.fsx.DataRepositoryAssociation` instead.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.fsx.LustreFileSystem("example", {
- *     importPath: `s3://${aws_s3_bucket.example.bucket}`,
- *     storageCapacity: 1200,
- *     subnetIds: [aws_subnet.example.id],
- * });
- * ```
- *
  * ## Import
  *
  * FSx File Systems can be imported using the `id`, e.g.,

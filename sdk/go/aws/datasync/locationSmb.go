@@ -35,7 +35,7 @@ import (
 //				User:           pulumi.String("Guest"),
 //				Password:       pulumi.String("ANotGreatPassword"),
 //				AgentArns: pulumi.StringArray{
-//					aws_datasync_agent.Example.Arn,
+//					pulumi.Any(aws_datasync_agent.Example.Arn),
 //				},
 //			})
 //			if err != nil {

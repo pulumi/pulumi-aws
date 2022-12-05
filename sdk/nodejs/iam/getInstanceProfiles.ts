@@ -21,8 +21,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInstanceProfiles(args: GetInstanceProfilesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfilesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getInstanceProfiles:getInstanceProfiles", {
         "roleName": args.roleName,
     }, opts);

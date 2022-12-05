@@ -103,9 +103,9 @@ import (
 //				Kind:             pulumi.String("PIPELINE"),
 //				PipelineConfig: &appsync.ResolverPipelineConfigArgs{
 //					Functions: pulumi.StringArray{
-//						aws_appsync_function.Test1.Function_id,
-//						aws_appsync_function.Test2.Function_id,
-//						aws_appsync_function.Test3.Function_id,
+//						pulumi.Any(aws_appsync_function.Test1.Function_id),
+//						pulumi.Any(aws_appsync_function.Test2.Function_id),
+//						pulumi.Any(aws_appsync_function.Test3.Function_id),
 //					},
 //				},
 //			})

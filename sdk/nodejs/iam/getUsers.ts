@@ -41,8 +41,11 @@ import * as utilities from "../utilities";
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getUsers:getUsers", {
         "nameRegex": args.nameRegex,
         "pathPrefix": args.pathPrefix,

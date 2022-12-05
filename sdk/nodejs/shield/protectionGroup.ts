@@ -22,25 +22,6 @@ import * as utilities from "../utilities";
  *     protectionGroupId: "example",
  * });
  * ```
- * ### Create protection group for arbitrary number of resources
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const exampleEip = new aws.ec2.Eip("exampleEip", {vpc: true});
- * const exampleProtection = new aws.shield.Protection("exampleProtection", {resourceArn: pulumi.all([currentRegion, currentCallerIdentity, exampleEip.id]).apply(([currentRegion, currentCallerIdentity, id]) => `arn:aws:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${id}`)});
- * const exampleProtectionGroup = new aws.shield.ProtectionGroup("exampleProtectionGroup", {
- *     protectionGroupId: "example",
- *     aggregation: "MEAN",
- *     pattern: "ARBITRARY",
- *     members: [pulumi.all([currentRegion, currentCallerIdentity, exampleEip.id]).apply(([currentRegion, currentCallerIdentity, id]) => `arn:aws:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${id}`)],
- * }, {
- *     dependsOn: [exampleProtection],
- * });
- * ```
  * ### Create protection group for a type of resource
  *
  * ```typescript

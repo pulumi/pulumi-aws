@@ -37,8 +37,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getHoursOfOperation(args: GetHoursOfOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetHoursOfOperationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:connect/getHoursOfOperation:getHoursOfOperation", {
         "hoursOfOperationId": args.hoursOfOperationId,
         "instanceId": args.instanceId,

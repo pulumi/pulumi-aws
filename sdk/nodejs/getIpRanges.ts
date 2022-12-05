@@ -36,8 +36,11 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:index/getIpRanges:getIpRanges", {
         "regions": args.regions,
         "services": args.services,

@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDnsNamespace(args: GetDnsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsNamespaceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:servicediscovery/getDnsNamespace:getDnsNamespace", {
         "name": args.name,
         "tags": args.tags,

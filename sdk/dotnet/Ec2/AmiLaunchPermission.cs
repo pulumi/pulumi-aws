@@ -47,25 +47,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// ### Organization Access
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.Organizations.GetOrganization.Invoke();
-    /// 
-    ///     var example = new Aws.Ec2.AmiLaunchPermission("example", new()
-    ///     {
-    ///         ImageId = "ami-12345678",
-    ///         OrganizationArn = current.Apply(getOrganizationResult =&gt; getOrganizationResult.Arn),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

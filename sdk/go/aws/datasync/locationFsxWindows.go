@@ -32,7 +32,7 @@ import (
 //				User:             pulumi.String("SomeUser"),
 //				Password:         pulumi.String("SuperSecretPassw0rd"),
 //				SecurityGroupArns: pulumi.StringArray{
-//					aws_security_group.Example.Arn,
+//					pulumi.Any(aws_security_group.Example.Arn),
 //				},
 //			})
 //			if err != nil {

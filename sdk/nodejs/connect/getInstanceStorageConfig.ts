@@ -24,8 +24,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInstanceStorageConfig(args: GetInstanceStorageConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceStorageConfigResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", {
         "associationId": args.associationId,
         "instanceId": args.instanceId,

@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSites(args: GetSitesArgs, opts?: pulumi.InvokeOptions): Promise<GetSitesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:networkmanager/getSites:getSites", {
         "globalNetworkId": args.globalNetworkId,
         "tags": args.tags,

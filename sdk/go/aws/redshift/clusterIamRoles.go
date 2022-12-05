@@ -32,7 +32,7 @@ import (
 //			_, err := redshift.NewClusterIamRoles(ctx, "example", &redshift.ClusterIamRolesArgs{
 //				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
 //				IamRoleArns: pulumi.StringArray{
-//					aws_iam_role.Example.Arn,
+//					pulumi.Any(aws_iam_role.Example.Arn),
 //				},
 //			})
 //			if err != nil {

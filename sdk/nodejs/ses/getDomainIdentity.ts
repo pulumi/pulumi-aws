@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDomainIdentity(args: GetDomainIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainIdentityResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ses/getDomainIdentity:getDomainIdentity", {
         "domain": args.domain,
     }, opts);

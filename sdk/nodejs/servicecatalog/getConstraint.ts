@@ -21,8 +21,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConstraint(args: GetConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetConstraintResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:servicecatalog/getConstraint:getConstraint", {
         "acceptLanguage": args.acceptLanguage,
         "description": args.description,

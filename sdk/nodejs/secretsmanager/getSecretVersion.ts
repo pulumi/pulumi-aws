@@ -33,8 +33,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", {
         "secretId": args.secretId,
         "versionId": args.versionId,

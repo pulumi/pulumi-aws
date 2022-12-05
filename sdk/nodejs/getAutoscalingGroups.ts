@@ -45,8 +45,11 @@ import * as utilities from "./utilities";
 export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscalingGroupsResult> {
     pulumi.log.warn("getAutoscalingGroups is deprecated: aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds")
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", {
         "filters": args.filters,
         "names": args.names,

@@ -12,50 +12,6 @@ namespace Pulumi.Aws.MediaStore
     /// <summary>
     /// Provides a MediaStore Container Policy.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var exampleContainer = new Aws.MediaStore.Container("exampleContainer");
-    /// 
-    ///     var exampleContainerPolicy = new Aws.MediaStore.ContainerPolicy("exampleContainerPolicy", new()
-    ///     {
-    ///         ContainerName = exampleContainer.Name,
-    ///         Policy = Output.Tuple(currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleContainer.Name).Apply(values =&gt;
-    ///         {
-    ///             var currentCallerIdentity = values.Item1;
-    ///             var currentRegion = values.Item2;
-    ///             var currentCallerIdentity1 = values.Item3;
-    ///             var name = values.Item4;
-    ///             return @$"{{
-    /// 	""Version"": ""2012-10-17"",
-    /// 	""Statement"": [{{
-    /// 		""Sid"": ""MediaStoreFullAccess"",
-    /// 		""Action"": [ ""mediastore:*"" ],
-    /// 		""Principal"": {{""AWS"" : ""arn:aws:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root""}},
-    /// 		""Effect"": ""Allow"",
-    /// 		""Resource"": ""arn:aws:mediastore:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity1.AccountId}:container/{name}/*"",
-    /// 		""Condition"": {{
-    /// 			""Bool"": {{ ""aws:SecureTransport"": ""true"" }}
-    /// 		}}
-    /// 	}}]
-    /// }}
-    /// ";
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.,

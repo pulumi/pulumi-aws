@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  */
 export function getApis(args?: GetApisArgs, opts?: pulumi.InvokeOptions): Promise<GetApisResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:apigatewayv2/getApis:getApis", {
         "name": args.name,
         "protocolType": args.protocolType,

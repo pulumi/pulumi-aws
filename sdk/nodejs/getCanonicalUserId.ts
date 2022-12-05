@@ -9,22 +9,15 @@ import * as utilities from "./utilities";
  * for the effective account in which this provider is working.
  *
  * > **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.s3.getCanonicalUserId({});
- * export const canonicalUserId = current.then(current => current.id);
- * ```
  */
 /** @deprecated aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId */
 export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> {
     pulumi.log.warn("getCanonicalUserId is deprecated: aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId")
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:index/getCanonicalUserId:getCanonicalUserId", {
     }, opts);
 }

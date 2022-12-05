@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:grafana/getWorkspace:getWorkspace", {
         "tags": args.tags,
         "workspaceId": args.workspaceId,

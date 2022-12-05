@@ -23,8 +23,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetJobQueueResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:batch/getJobQueue:getJobQueue", {
         "name": args.name,
         "tags": args.tags,

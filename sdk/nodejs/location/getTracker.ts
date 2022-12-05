@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTracker(args: GetTrackerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:location/getTracker:getTracker", {
         "tags": args.tags,
         "trackerName": args.trackerName,

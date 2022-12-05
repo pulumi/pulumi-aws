@@ -23,8 +23,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResolverFirewallConfig(args: GetResolverFirewallConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallConfigResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", {
         "resourceId": args.resourceId,
     }, opts);

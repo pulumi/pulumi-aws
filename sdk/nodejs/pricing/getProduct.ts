@@ -72,8 +72,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:pricing/getProduct:getProduct", {
         "filters": args.filters,
         "serviceCode": args.serviceCode,

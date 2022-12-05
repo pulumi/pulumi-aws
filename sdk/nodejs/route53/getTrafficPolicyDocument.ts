@@ -128,8 +128,11 @@ import * as utilities from "../utilities";
  */
 export function getTrafficPolicyDocument(args?: GetTrafficPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficPolicyDocumentResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", {
         "endpoints": args.endpoints,
         "recordType": args.recordType,

@@ -175,10 +175,10 @@ import (
 //				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
 //					MaxVcpus: pulumi.Int(16),
 //					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.Sample.Id,
+//						pulumi.Any(aws_security_group.Sample.Id),
 //					},
 //					Subnets: pulumi.StringArray{
-//						aws_subnet.Sample.Id,
+//						pulumi.Any(aws_subnet.Sample.Id),
 //					},
 //					Type: pulumi.String("FARGATE"),
 //				},

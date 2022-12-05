@@ -34,7 +34,7 @@ import (
 //				AuthMode:   pulumi.String("IAM"),
 //				VpcId:      pulumi.Any(aws_vpc.Test.Id),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test.Id,
+//					pulumi.Any(aws_subnet.Test.Id),
 //				},
 //				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
 //					ExecutionRole: pulumi.Any(aws_iam_role.Test.Arn),
@@ -119,7 +119,7 @@ import (
 //				AuthMode:   pulumi.String("IAM"),
 //				VpcId:      pulumi.Any(aws_vpc.Test.Id),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test.Id,
+//					pulumi.Any(aws_subnet.Test.Id),
 //				},
 //				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
 //					ExecutionRole: pulumi.Any(aws_iam_role.Test.Arn),

@@ -23,8 +23,11 @@ import * as utilities from "../utilities";
  */
 export function getDataLakeSettings(args?: GetDataLakeSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataLakeSettingsResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", {
         "catalogId": args.catalogId,
     }, opts);

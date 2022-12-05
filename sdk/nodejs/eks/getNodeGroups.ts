@@ -8,8 +8,11 @@ import * as utilities from "../utilities";
  * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
  */
 export function getNodeGroups(args: GetNodeGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeGroupsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:eks/getNodeGroups:getNodeGroups", {
         "clusterName": args.clusterName,
     }, opts);

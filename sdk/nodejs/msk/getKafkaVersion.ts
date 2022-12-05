@@ -27,8 +27,11 @@ import * as utilities from "../utilities";
  */
 export function getKafkaVersion(args?: GetKafkaVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaVersionResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:msk/getKafkaVersion:getKafkaVersion", {
         "preferredVersions": args.preferredVersions,
         "version": args.version,

@@ -29,82 +29,12 @@ public final class EbsFunctions {
     /**
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import com.pulumi.aws.ebs.Volume;
-     * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
-     * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey() {
         return getDefaultKmsKey(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the default EBS encryption KMS key in the current region.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import com.pulumi.aws.ebs.Volume;
-     * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
-     * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain() {
@@ -113,82 +43,12 @@ public final class EbsFunctions {
     /**
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import com.pulumi.aws.ebs.Volume;
-     * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
-     * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey(InvokeArgs args) {
         return getDefaultKmsKey(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the default EBS encryption KMS key in the current region.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import com.pulumi.aws.ebs.Volume;
-     * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
-     * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain(InvokeArgs args) {
@@ -197,82 +57,12 @@ public final class EbsFunctions {
     /**
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import com.pulumi.aws.ebs.Volume;
-     * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
-     * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", TypeShape.of(GetDefaultKmsKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the default EBS encryption KMS key in the current region.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import com.pulumi.aws.ebs.Volume;
-     * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getDefaultKmsKey();
-     * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain(InvokeArgs args, InvokeOptions options) {
@@ -335,66 +125,12 @@ public final class EbsFunctions {
     /**
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault() {
         return getEncryptionByDefault(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain() {
@@ -403,66 +139,12 @@ public final class EbsFunctions {
     /**
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault(InvokeArgs args) {
         return getEncryptionByDefault(args, InvokeOptions.Empty);
     }
     /**
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain(InvokeArgs args) {
@@ -471,66 +153,12 @@ public final class EbsFunctions {
     /**
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", TypeShape.of(GetEncryptionByDefaultResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ebs.EbsFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = EbsFunctions.getEncryptionByDefault();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain(InvokeArgs args, InvokeOptions options) {

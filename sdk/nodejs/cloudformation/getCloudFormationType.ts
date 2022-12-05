@@ -24,8 +24,11 @@ import * as utilities from "../utilities";
  */
 export function getCloudFormationType(args?: GetCloudFormationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationTypeResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cloudformation/getCloudFormationType:getCloudFormationType", {
         "arn": args.arn,
         "type": args.type,

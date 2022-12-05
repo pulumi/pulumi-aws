@@ -26,8 +26,11 @@ import * as utilities from "../utilities";
  */
 export function getDistributionConfigurations(args?: GetDistributionConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionConfigurationsResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", {
         "filters": args.filters,
     }, opts);

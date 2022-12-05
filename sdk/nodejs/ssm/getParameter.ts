@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ssm/getParameter:getParameter", {
         "name": args.name,
         "withDecryption": args.withDecryption,

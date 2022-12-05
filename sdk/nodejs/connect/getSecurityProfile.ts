@@ -34,8 +34,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSecurityProfile(args: GetSecurityProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityProfileResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:connect/getSecurityProfile:getSecurityProfile", {
         "instanceId": args.instanceId,
         "name": args.name,

@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  */
 export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:rds/getCertificate:getCertificate", {
         "id": args.id,
         "latestValidTill": args.latestValidTill,

@@ -26,8 +26,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBotAssociation(args: GetBotAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAssociationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:connect/getBotAssociation:getBotAssociation", {
         "instanceId": args.instanceId,
         "lexBot": args.lexBot,

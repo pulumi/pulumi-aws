@@ -345,8 +345,11 @@ import * as utilities from "../utilities";
  */
 export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:iam/getPolicyDocument:getPolicyDocument", {
         "overrideJson": args.overrideJson,
         "overridePolicyDocuments": args.overridePolicyDocuments,

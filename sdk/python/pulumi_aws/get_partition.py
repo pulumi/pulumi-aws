@@ -83,20 +83,6 @@ def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPa
     """
     Use this data source to lookup information about the current AWS partition in
     which the provider is working.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_partition()
-    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-        actions=["s3:ListBucket"],
-        resources=[f"arn:{current.partition}:s3:::my-bucket"],
-        sid="1",
-    )])
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

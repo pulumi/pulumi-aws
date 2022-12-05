@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getImagePipeline(args: GetImagePipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelineResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:imagebuilder/getImagePipeline:getImagePipeline", {
         "arn": args.arn,
         "tags": args.tags,

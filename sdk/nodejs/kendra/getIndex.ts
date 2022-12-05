@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetIndexResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:kendra/getIndex:getIndex", {
         "id": args.id,
         "tags": args.tags,

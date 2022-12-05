@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Enables the IPAM Service and promotes a delegated administrator.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const delegated = aws.getCallerIdentity({});
- * const example = new aws.ec2.VpcIpamOrganizationAdminAccount("example", {delegatedAdminAccountId: delegated.then(delegated => delegated.accountId)});
- * ```
- *
  * ## Import
  *
  * IPAMs can be imported using the `delegate account id`, e.g.

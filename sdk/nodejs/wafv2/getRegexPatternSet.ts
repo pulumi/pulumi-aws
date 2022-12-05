@@ -23,8 +23,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRegexPatternSet(args: GetRegexPatternSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRegexPatternSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:wafv2/getRegexPatternSet:getRegexPatternSet", {
         "name": args.name,
         "scope": args.scope,

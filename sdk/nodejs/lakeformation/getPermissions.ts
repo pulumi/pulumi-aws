@@ -68,8 +68,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPermissions(args: GetPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:lakeformation/getPermissions:getPermissions", {
         "catalogId": args.catalogId,
         "catalogResource": args.catalogResource,

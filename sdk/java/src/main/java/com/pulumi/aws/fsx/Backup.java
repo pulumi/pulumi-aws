@@ -19,6 +19,7 @@ import javax.annotation.Nullable;
  * Provides a FSx Backup resource.
  * 
  * ## Lustre Example
+ * 
  * ```java
  * package generated_program;
  * 
@@ -137,6 +138,7 @@ import javax.annotation.Nullable;
  * ```
  * 
  * ## OpenZFS Example
+ * 
  * ```java
  * package generated_program;
  * 

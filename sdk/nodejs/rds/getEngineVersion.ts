@@ -43,8 +43,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEngineVersionResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:rds/getEngineVersion:getEngineVersion", {
         "defaultOnly": args.defaultOnly,
         "engine": args.engine,

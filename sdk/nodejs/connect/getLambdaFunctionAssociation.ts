@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLambdaFunctionAssociation(args: GetLambdaFunctionAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLambdaFunctionAssociationResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", {
         "functionArn": args.functionArn,
         "instanceId": args.instanceId,

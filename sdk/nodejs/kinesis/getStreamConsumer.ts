@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStreamConsumer(args: GetStreamConsumerArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamConsumerResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:kinesis/getStreamConsumer:getStreamConsumer", {
         "arn": args.arn,
         "name": args.name,

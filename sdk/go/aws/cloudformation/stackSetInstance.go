@@ -61,7 +61,7 @@ import (
 //			_, err := cloudformation.NewStackSetInstance(ctx, "example", &cloudformation.StackSetInstanceArgs{
 //				DeploymentTargets: &cloudformation.StackSetInstanceDeploymentTargetsArgs{
 //					OrganizationalUnitIds: pulumi.StringArray{
-//						aws_organizations_organization.Example.Roots[0].Id,
+//						pulumi.Any(aws_organizations_organization.Example.Roots[0].Id),
 //					},
 //				},
 //				Region:       pulumi.String("us-east-1"),

@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPortfolio(args: GetPortfolioArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:servicecatalog/getPortfolio:getPortfolio", {
         "acceptLanguage": args.acceptLanguage,
         "id": args.id,

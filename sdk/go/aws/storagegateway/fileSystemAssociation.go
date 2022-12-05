@@ -72,7 +72,7 @@ import (
 //				AssociatePublicIpAddress: pulumi.Bool(true),
 //				InstanceType:             ec2.InstanceType(data.Aws_ec2_instance_type_offering.Available.Instance_type),
 //				VpcSecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Test.Id,
+//					pulumi.Any(aws_security_group.Test.Id),
 //				},
 //				SubnetId: pulumi.Any(aws_subnet.Test[0].Id),
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -99,12 +99,12 @@ import (
 //			testWindowsFileSystem, err := fsx.NewWindowsFileSystem(ctx, "testWindowsFileSystem", &fsx.WindowsFileSystemArgs{
 //				ActiveDirectoryId: pulumi.Any(aws_directory_service_directory.Test.Id),
 //				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Test.Id,
+//					pulumi.Any(aws_security_group.Test.Id),
 //				},
 //				SkipFinalBackup: pulumi.Bool(true),
 //				StorageCapacity: pulumi.Int(32),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test[0].Id,
+//					pulumi.Any(aws_subnet.Test[0].Id),
 //				},
 //				ThroughputCapacity: pulumi.Int(8),
 //			})

@@ -34,7 +34,7 @@ import (
 //				EfsFileSystemArn: pulumi.Any(aws_efs_mount_target.Example.File_system_arn),
 //				Ec2Config: &datasync.EfsLocationEc2ConfigArgs{
 //					SecurityGroupArns: pulumi.StringArray{
-//						aws_security_group.Example.Arn,
+//						pulumi.Any(aws_security_group.Example.Arn),
 //					},
 //					SubnetArn: pulumi.Any(aws_subnet.Example.Arn),
 //				},

@@ -29,8 +29,11 @@ import * as utilities from "../utilities";
  */
 export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,

@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIpSet(args: GetIpSetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpSetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:wafv2/getIpSet:getIpSet", {
         "name": args.name,
         "scope": args.scope,

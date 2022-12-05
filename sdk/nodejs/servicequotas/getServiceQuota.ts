@@ -26,8 +26,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceQuotaResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:servicequotas/getServiceQuota:getServiceQuota", {
         "quotaCode": args.quotaCode,
         "quotaName": args.quotaName,

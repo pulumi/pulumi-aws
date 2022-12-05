@@ -35,8 +35,11 @@ import * as utilities from "../utilities";
 export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
     pulumi.log.warn("getTargetGroup is deprecated: aws.applicationloadbalancing.getTargetGroup has been deprecated in favor of aws.alb.getTargetGroup")
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:applicationloadbalancing/getTargetGroup:getTargetGroup", {
         "arn": args.arn,
         "name": args.name,

@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:wafregional/getIpset:getIpset", {
         "name": args.name,
     }, opts);

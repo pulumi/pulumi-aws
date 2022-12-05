@@ -23,8 +23,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNodeGroup(args: GetNodeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:eks/getNodeGroup:getNodeGroup", {
         "clusterName": args.clusterName,
         "nodeGroupName": args.nodeGroupName,

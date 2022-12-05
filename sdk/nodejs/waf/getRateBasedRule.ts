@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRateBasedRule(args: GetRateBasedRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedRuleResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:waf/getRateBasedRule:getRateBasedRule", {
         "name": args.name,
     }, opts);

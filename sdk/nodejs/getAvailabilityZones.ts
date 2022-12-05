@@ -68,8 +68,11 @@ import * as utilities from "./utilities";
  */
 export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZonesResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:index/getAvailabilityZones:getAvailabilityZones", {
         "allAvailabilityZones": args.allAvailabilityZones,
         "excludeNames": args.excludeNames,

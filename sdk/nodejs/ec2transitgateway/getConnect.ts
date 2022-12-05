@@ -37,8 +37,11 @@ import * as utilities from "../utilities";
  */
 export function getConnect(args?: GetConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2transitgateway/getConnect:getConnect", {
         "filters": args.filters,
         "tags": args.tags,

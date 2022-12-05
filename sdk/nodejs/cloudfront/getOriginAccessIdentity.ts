@@ -21,8 +21,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getOriginAccessIdentity(args: GetOriginAccessIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginAccessIdentityResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", {
         "id": args.id,
     }, opts);

@@ -33,60 +33,6 @@ namespace Pulumi.Aws.Shield
     /// 
     /// });
     /// ```
-    /// ### Create protection group for arbitrary number of resources
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
-    ///     {
-    ///         Vpc = true,
-    ///     });
-    /// 
-    ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
-    ///     {
-    ///         ResourceArn = Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleEip.Id).Apply(values =&gt;
-    ///         {
-    ///             var currentRegion = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             var id = values.Item3;
-    ///             return $"arn:aws:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleProtectionGroup = new Aws.Shield.ProtectionGroup("exampleProtectionGroup", new()
-    ///     {
-    ///         ProtectionGroupId = "example",
-    ///         Aggregation = "MEAN",
-    ///         Pattern = "ARBITRARY",
-    ///         Members = new[]
-    ///         {
-    ///             Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleEip.Id).Apply(values =&gt;
-    ///             {
-    ///                 var currentRegion = values.Item1;
-    ///                 var currentCallerIdentity = values.Item2;
-    ///                 var id = values.Item3;
-    ///                 return $"arn:aws:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
-    ///             }),
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleProtection,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Create protection group for a type of resource
     /// 
     /// ```csharp

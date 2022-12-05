@@ -31,8 +31,8 @@ import (
 //			_, err := fsx.NewOntapFileSystem(ctx, "test", &fsx.OntapFileSystemArgs{
 //				StorageCapacity: pulumi.Int(1024),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test1.Id,
-//					aws_subnet.Test2.Id,
+//					pulumi.Any(aws_subnet.Test1.Id),
+//					pulumi.Any(aws_subnet.Test2.Id),
 //				},
 //				DeploymentType:     pulumi.String("MULTI_AZ_1"),
 //				ThroughputCapacity: pulumi.Int(512),

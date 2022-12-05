@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getOutpostInstanceTypes(args: GetOutpostInstanceTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostInstanceTypesResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", {
         "arn": args.arn,
     }, opts);

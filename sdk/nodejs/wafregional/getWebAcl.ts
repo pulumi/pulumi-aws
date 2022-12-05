@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:wafregional/getWebAcl:getWebAcl", {
         "name": args.name,
     }, opts);

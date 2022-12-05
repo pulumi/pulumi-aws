@@ -33,7 +33,7 @@ import (
 //					pulumi.String("10.0.0.50"),
 //				},
 //				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Web.Id,
+//					pulumi.Any(aws_security_group.Web.Id),
 //				},
 //				Attachments: ec2.NetworkInterfaceAttachmentTypeArray{
 //					&ec2.NetworkInterfaceAttachmentTypeArgs{

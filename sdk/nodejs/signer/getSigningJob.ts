@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSigningJob(args: GetSigningJobArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningJobResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:signer/getSigningJob:getSigningJob", {
         "jobId": args.jobId,
     }, opts);

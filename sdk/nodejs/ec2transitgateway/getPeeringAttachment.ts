@@ -37,8 +37,11 @@ import * as utilities from "../utilities";
  */
 export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringAttachmentResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", {
         "filters": args.filters,
         "id": args.id,

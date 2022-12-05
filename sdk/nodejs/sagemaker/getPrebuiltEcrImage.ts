@@ -24,8 +24,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPrebuiltEcrImage(args: GetPrebuiltEcrImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPrebuiltEcrImageResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", {
         "dnsSuffix": args.dnsSuffix,
         "imageTag": args.imageTag,

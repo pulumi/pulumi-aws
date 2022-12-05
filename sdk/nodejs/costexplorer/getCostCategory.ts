@@ -22,8 +22,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCostCategory(args: GetCostCategoryArgs, opts?: pulumi.InvokeOptions): Promise<GetCostCategoryResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:costexplorer/getCostCategory:getCostCategory", {
         "costCategoryArn": args.costCategoryArn,
         "tags": args.tags,

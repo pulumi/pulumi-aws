@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRouteCalculator(args: GetRouteCalculatorArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteCalculatorResult> {
+    if (!opts) {
+        opts = {}
+    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:location/getRouteCalculator:getRouteCalculator", {
         "calculatorName": args.calculatorName,
         "tags": args.tags,

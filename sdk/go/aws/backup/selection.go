@@ -181,9 +181,9 @@ import (
 //				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
 //				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
 //				Resources: pulumi.StringArray{
-//					aws_db_instance.Example.Arn,
-//					aws_ebs_volume.Example.Arn,
-//					aws_efs_file_system.Example.Arn,
+//					pulumi.Any(aws_db_instance.Example.Arn),
+//					pulumi.Any(aws_ebs_volume.Example.Arn),
+//					pulumi.Any(aws_efs_file_system.Example.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -212,9 +212,9 @@ import (
 //				IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
 //				PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
 //				NotResources: pulumi.StringArray{
-//					aws_db_instance.Example.Arn,
-//					aws_ebs_volume.Example.Arn,
-//					aws_efs_file_system.Example.Arn,
+//					pulumi.Any(aws_db_instance.Example.Arn),
+//					pulumi.Any(aws_ebs_volume.Example.Arn),
+//					pulumi.Any(aws_efs_file_system.Example.Arn),
 //				},
 //			})
 //			if err != nil {

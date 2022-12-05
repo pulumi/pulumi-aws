@@ -34,7 +34,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclLoggingConfiguration(ctx, "example", &wafv2.WebAclLoggingConfigurationArgs{
 //				LogDestinationConfigs: pulumi.StringArray{
-//					aws_kinesis_firehose_delivery_stream.Example.Arn,
+//					pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
 //				},
 //				ResourceArn: pulumi.Any(aws_wafv2_web_acl.Example.Arn),
 //				RedactedFields: wafv2.WebAclLoggingConfigurationRedactedFieldArray{
@@ -69,7 +69,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewWebAclLoggingConfiguration(ctx, "example", &wafv2.WebAclLoggingConfigurationArgs{
 //				LogDestinationConfigs: pulumi.StringArray{
-//					aws_kinesis_firehose_delivery_stream.Example.Arn,
+//					pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
 //				},
 //				ResourceArn: pulumi.Any(aws_wafv2_web_acl.Example.Arn),
 //				LoggingFilter: &wafv2.WebAclLoggingConfigurationLoggingFilterArgs{
