@@ -139,6 +139,25 @@ import {Function} from "./index";
  * });
  * ```
  *
+ * ## Example function URL cross-account invoke policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const urlFunctionUrl = new aws.lambda.FunctionUrl("urlFunctionUrl", {
+ *     functionName: aws_lambda_function.example.function_name,
+ *     authorizationType: "AWS_IAM",
+ * });
+ * const urlPermission = new aws.lambda.Permission("urlPermission", {
+ *     action: "lambda:InvokeFunctionUrl",
+ *     "function": aws_lambda_function.example.function_name,
+ *     principal: "arn:aws:iam::444455556666:role/example",
+ *     sourceAccount: "444455556666",
+ *     functionUrlAuthType: "AWS_IAM",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
@@ -192,11 +211,11 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly function!: pulumi.Output<string>;
     /**
-     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
      */
     public readonly functionUrlAuthType!: pulumi.Output<string | undefined>;
     /**
-     * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
     public readonly principal!: pulumi.Output<string>;
     /**
@@ -208,7 +227,7 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
     /**
-     * This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+     * This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
      */
     public readonly sourceAccount!: pulumi.Output<string | undefined>;
     /**
@@ -297,11 +316,11 @@ export interface PermissionState {
      */
     function?: pulumi.Input<string | Function>;
     /**
-     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
      */
     functionUrlAuthType?: pulumi.Input<string>;
     /**
-     * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
     principal?: pulumi.Input<string>;
     /**
@@ -313,7 +332,7 @@ export interface PermissionState {
      */
     qualifier?: pulumi.Input<string>;
     /**
-     * This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+     * This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
      */
     sourceAccount?: pulumi.Input<string>;
     /**
@@ -351,11 +370,11 @@ export interface PermissionArgs {
      */
     function: pulumi.Input<string | Function>;
     /**
-     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
      */
     functionUrlAuthType?: pulumi.Input<string>;
     /**
-     * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
     principal: pulumi.Input<string>;
     /**
@@ -367,7 +386,7 @@ export interface PermissionArgs {
      */
     qualifier?: pulumi.Input<string>;
     /**
-     * This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+     * This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
      */
     sourceAccount?: pulumi.Input<string>;
     /**

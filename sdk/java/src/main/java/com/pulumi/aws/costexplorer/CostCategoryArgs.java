@@ -35,6 +35,21 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+     * 
+     */
+    @Import(name="effectiveStart")
+    private @Nullable Output<String> effectiveStart;
+
+    /**
+     * @return The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+     * 
+     */
+    public Optional<Output<String>> effectiveStart() {
+        return Optional.ofNullable(this.effectiveStart);
+    }
+
+    /**
      * Unique name for the Cost Category.
      * 
      */
@@ -113,6 +128,7 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
 
     private CostCategoryArgs(CostCategoryArgs $) {
         this.defaultValue = $.defaultValue;
+        this.effectiveStart = $.effectiveStart;
         this.name = $.name;
         this.ruleVersion = $.ruleVersion;
         this.rules = $.rules;
@@ -157,6 +173,27 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder defaultValue(String defaultValue) {
             return defaultValue(Output.of(defaultValue));
+        }
+
+        /**
+         * @param effectiveStart The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder effectiveStart(@Nullable Output<String> effectiveStart) {
+            $.effectiveStart = effectiveStart;
+            return this;
+        }
+
+        /**
+         * @param effectiveStart The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder effectiveStart(String effectiveStart) {
+            return effectiveStart(Output.of(effectiveStart));
         }
 
         /**

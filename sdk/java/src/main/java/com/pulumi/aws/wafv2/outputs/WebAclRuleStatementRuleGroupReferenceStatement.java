@@ -20,7 +20,11 @@ public final class WebAclRuleStatementRuleGroupReferenceStatement {
     /**
      * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
      * 
+     * @deprecated
+     * Use rule_action_override instead
+     * 
      */
+    @Deprecated /* Use rule_action_override instead */
     private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> excludedRules;
 
     private WebAclRuleStatementRuleGroupReferenceStatement() {}
@@ -34,7 +38,11 @@ public final class WebAclRuleStatementRuleGroupReferenceStatement {
     /**
      * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
      * 
+     * @deprecated
+     * Use rule_action_override instead
+     * 
      */
+    @Deprecated /* Use rule_action_override instead */
     public List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> excludedRules() {
         return this.excludedRules == null ? List.of() : this.excludedRules;
     }

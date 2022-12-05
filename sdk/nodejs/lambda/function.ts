@@ -352,8 +352,13 @@ export class Function extends pulumi.CustomResource {
     public /*out*/ readonly signingJobArn!: pulumi.Output<string>;
     /**
      * ARN of the signing profile version.
+     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      */
     public /*out*/ readonly signingProfileVersionArn!: pulumi.Output<string>;
+    /**
+     * Snap start settings block. Detailed below.
+     */
+    public readonly snapStart!: pulumi.Output<outputs.lambda.FunctionSnapStart | undefined>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
      */
@@ -431,6 +436,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["s3ObjectVersion"] = state ? state.s3ObjectVersion : undefined;
             resourceInputs["signingJobArn"] = state ? state.signingJobArn : undefined;
             resourceInputs["signingProfileVersionArn"] = state ? state.signingProfileVersionArn : undefined;
+            resourceInputs["snapStart"] = state ? state.snapStart : undefined;
             resourceInputs["sourceCodeHash"] = state ? state.sourceCodeHash : undefined;
             resourceInputs["sourceCodeSize"] = state ? state.sourceCodeSize : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -467,6 +473,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
             resourceInputs["s3Key"] = args ? args.s3Key : undefined;
             resourceInputs["s3ObjectVersion"] = args ? args.s3ObjectVersion : undefined;
+            resourceInputs["snapStart"] = args ? args.snapStart : undefined;
             resourceInputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
@@ -610,8 +617,13 @@ export interface FunctionState {
     signingJobArn?: pulumi.Input<string>;
     /**
      * ARN of the signing profile version.
+     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      */
     signingProfileVersionArn?: pulumi.Input<string>;
+    /**
+     * Snap start settings block. Detailed below.
+     */
+    snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
      */
@@ -743,6 +755,10 @@ export interface FunctionArgs {
      * Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
      */
     s3ObjectVersion?: pulumi.Input<string>;
+    /**
+     * Snap start settings block. Detailed below.
+     */
+    snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
      */

@@ -11,5 +11,6 @@ from .event_subscription import *
 from .replication_instance import *
 from .replication_subnet_group import *
 from .replication_task import *
+from .s3_endpoint import *
 from ._inputs import *
 from . import outputs

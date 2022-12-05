@@ -117,14 +117,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+     * This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      * 
      */
     @Export(name="autoMinorVersionUpgrade", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoMinorVersionUpgrade;
 
     /**
-     * @return Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+     * @return This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      * 
      */
     public Output<Optional<Boolean>> autoMinorVersionUpgrade() {

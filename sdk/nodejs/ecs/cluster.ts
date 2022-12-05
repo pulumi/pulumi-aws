@@ -127,6 +127,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Configures a default Service Connect namespace. Detailed below.
+     */
+    public readonly serviceConnectDefaults!: pulumi.Output<outputs.ecs.ClusterServiceConnectDefaults | undefined>;
+    /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      */
     public readonly settings!: pulumi.Output<outputs.ecs.ClusterSetting[]>;
@@ -157,6 +161,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["defaultCapacityProviderStrategies"] = state ? state.defaultCapacityProviderStrategies : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["serviceConnectDefaults"] = state ? state.serviceConnectDefaults : undefined;
             resourceInputs["settings"] = state ? state.settings : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -166,6 +171,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["defaultCapacityProviderStrategies"] = args ? args.defaultCapacityProviderStrategies : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["serviceConnectDefaults"] = args ? args.serviceConnectDefaults : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -205,6 +211,10 @@ export interface ClusterState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Configures a default Service Connect namespace. Detailed below.
+     */
+    serviceConnectDefaults?: pulumi.Input<inputs.ecs.ClusterServiceConnectDefaults>;
+    /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      */
     settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
@@ -242,6 +252,10 @@ export interface ClusterArgs {
      * Name of the setting to manage. Valid values: `containerInsights`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configures a default Service Connect namespace. Detailed below.
+     */
+    serviceConnectDefaults?: pulumi.Input<inputs.ecs.ClusterServiceConnectDefaults>;
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      */

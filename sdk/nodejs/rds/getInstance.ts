@@ -188,6 +188,10 @@ export interface GetInstanceResult {
      */
     readonly storageEncrypted: boolean;
     /**
+     * Storage throughput value for the DB instance.
+     */
+    readonly storageThroughput: number;
+    /**
      * Storage type associated with DB instance.
      */
     readonly storageType: string;

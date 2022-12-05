@@ -144,6 +144,10 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterCertificateAuthorityResult> CertificateAuthorities;
         /// <summary>
+        /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
+        /// </summary>
+        public readonly string ClusterId;
+        /// <summary>
         /// Unix epoch time stamp in seconds for when the cluster was created.
         /// </summary>
         public readonly string CreatedAt;
@@ -203,6 +207,8 @@ namespace Pulumi.Aws.Eks
 
             ImmutableArray<Outputs.GetClusterCertificateAuthorityResult> certificateAuthorities,
 
+            string clusterId,
+
             string createdAt,
 
             ImmutableArray<string> enabledClusterLogTypes,
@@ -233,6 +239,7 @@ namespace Pulumi.Aws.Eks
         {
             Arn = arn;
             CertificateAuthorities = certificateAuthorities;
+            ClusterId = clusterId;
             CreatedAt = createdAt;
             EnabledClusterLogTypes = enabledClusterLogTypes;
             Endpoint = endpoint;

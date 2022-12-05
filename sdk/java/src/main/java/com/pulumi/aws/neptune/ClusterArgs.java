@@ -201,6 +201,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+     * 
+     */
+    @Import(name="globalClusterIdentifier")
+    private @Nullable Output<String> globalClusterIdentifier;
+
+    /**
+     * @return The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+     * 
+     */
+    public Optional<Output<String>> globalClusterIdentifier() {
+        return Optional.ofNullable(this.globalClusterIdentifier);
+    }
+
+    /**
      * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      * 
      */
@@ -440,6 +455,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.engine = $.engine;
         this.engineVersion = $.engineVersion;
         this.finalSnapshotIdentifier = $.finalSnapshotIdentifier;
+        this.globalClusterIdentifier = $.globalClusterIdentifier;
         this.iamDatabaseAuthenticationEnabled = $.iamDatabaseAuthenticationEnabled;
         this.iamRoles = $.iamRoles;
         this.kmsKeyArn = $.kmsKeyArn;
@@ -745,6 +761,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder finalSnapshotIdentifier(String finalSnapshotIdentifier) {
             return finalSnapshotIdentifier(Output.of(finalSnapshotIdentifier));
+        }
+
+        /**
+         * @param globalClusterIdentifier The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalClusterIdentifier(@Nullable Output<String> globalClusterIdentifier) {
+            $.globalClusterIdentifier = globalClusterIdentifier;
+            return this;
+        }
+
+        /**
+         * @param globalClusterIdentifier The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalClusterIdentifier(String globalClusterIdentifier) {
+            return globalClusterIdentifier(Output.of(globalClusterIdentifier));
         }
 
         /**

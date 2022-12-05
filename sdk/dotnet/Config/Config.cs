@@ -664,6 +664,7 @@ namespace Pulumi.Aws
                 public string? Redshiftserverless { get; set; } = null!;
                 public string? Rekognition { get; set; } = null!;
                 public string? Resiliencehub { get; set; } = null!;
+                public string? Resourceexplorer2 { get; set; } = null!;
                 public string? Resourcegroups { get; set; } = null!;
                 public string? Resourcegroupstagging { get; set; } = null!;
                 public string? Resourcegroupstaggingapi { get; set; } = null!;

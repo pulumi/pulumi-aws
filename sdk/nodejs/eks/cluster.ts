@@ -162,6 +162,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority>;
     /**
+     * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
+     */
+    public /*out*/ readonly clusterId!: pulumi.Output<string>;
+    /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
@@ -240,6 +244,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["certificateAuthorities"] = state ? state.certificateAuthorities : undefined;
             resourceInputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
+            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["defaultAddonsToRemoves"] = state ? state.defaultAddonsToRemoves : undefined;
             resourceInputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
@@ -277,6 +282,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateAuthorities"] = undefined /*out*/;
             resourceInputs["certificateAuthority"] = undefined /*out*/;
+            resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["identities"] = undefined /*out*/;
@@ -302,6 +308,10 @@ export interface ClusterState {
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
     certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthority>;
+    /**
+     * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
+     */
+    clusterId?: pulumi.Input<string>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */

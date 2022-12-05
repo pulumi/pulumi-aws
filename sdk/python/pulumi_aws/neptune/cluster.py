@@ -28,6 +28,7 @@ class ClusterArgs:
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -57,6 +58,7 @@ class ClusterArgs:
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `neptune.GlobalCluster`.
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the Neptune Cluster.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
@@ -97,6 +99,8 @@ class ClusterArgs:
             pulumi.set(__self__, "engine_version", engine_version)
         if final_snapshot_identifier is not None:
             pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+        if global_cluster_identifier is not None:
+            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
         if iam_database_authentication_enabled is not None:
             pulumi.set(__self__, "iam_database_authentication_enabled", iam_database_authentication_enabled)
         if iam_roles is not None:
@@ -271,6 +275,18 @@ class ClusterArgs:
     @final_snapshot_identifier.setter
     def final_snapshot_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "final_snapshot_identifier", value)
+
+    @property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The global cluster identifier specified on `neptune.GlobalCluster`.
+        """
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @global_cluster_identifier.setter
+    def global_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "global_cluster_identifier", value)
 
     @property
     @pulumi.getter(name="iamDatabaseAuthenticationEnabled")
@@ -472,6 +488,7 @@ class _ClusterState:
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -508,6 +525,7 @@ class _ClusterState:
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `neptune.GlobalCluster`.
         :param pulumi.Input[str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the Neptune Cluster.
@@ -559,6 +577,8 @@ class _ClusterState:
             pulumi.set(__self__, "engine_version", engine_version)
         if final_snapshot_identifier is not None:
             pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+        if global_cluster_identifier is not None:
+            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
         if hosted_zone_id is not None:
             pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         if iam_database_authentication_enabled is not None:
@@ -787,6 +807,18 @@ class _ClusterState:
     @final_snapshot_identifier.setter
     def final_snapshot_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "final_snapshot_identifier", value)
+
+    @property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The global cluster identifier specified on `neptune.GlobalCluster`.
+        """
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @global_cluster_identifier.setter
+    def global_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "global_cluster_identifier", value)
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -1022,6 +1054,7 @@ class Cluster(pulumi.CustomResource):
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -1090,6 +1123,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `neptune.GlobalCluster`.
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the Neptune Cluster.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
@@ -1177,6 +1211,7 @@ class Cluster(pulumi.CustomResource):
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -1213,6 +1248,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
+            __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
             __props__.__dict__["iam_database_authentication_enabled"] = iam_database_authentication_enabled
             __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["kms_key_arn"] = kms_key_arn
@@ -1261,6 +1297,7 @@ class Cluster(pulumi.CustomResource):
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+            global_cluster_identifier: Optional[pulumi.Input[str]] = None,
             hosted_zone_id: Optional[pulumi.Input[str]] = None,
             iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1302,6 +1339,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `neptune.GlobalCluster`.
         :param pulumi.Input[str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the Neptune Cluster.
@@ -1341,6 +1379,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["engine"] = engine
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
+        __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
         __props__.__dict__["hosted_zone_id"] = hosted_zone_id
         __props__.__dict__["iam_database_authentication_enabled"] = iam_database_authentication_enabled
         __props__.__dict__["iam_roles"] = iam_roles
@@ -1488,6 +1527,14 @@ class Cluster(pulumi.CustomResource):
         The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
         """
         return pulumi.get(self, "final_snapshot_identifier")
+
+    @property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The global cluster identifier specified on `neptune.GlobalCluster`.
+        """
+        return pulumi.get(self, "global_cluster_identifier")
 
     @property
     @pulumi.getter(name="hostedZoneId")

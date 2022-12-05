@@ -24,6 +24,16 @@ public final class ClassifierCsvClassifier {
      */
     private @Nullable String containsHeader;
     /**
+     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * 
+     */
+    private @Nullable Boolean customDatatypeConfigured;
+    /**
+     * @return A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+     * 
+     */
+    private @Nullable List<String> customDatatypes;
+    /**
      * @return The delimiter used in the Csv to separate columns.
      * 
      */
@@ -58,6 +68,20 @@ public final class ClassifierCsvClassifier {
      */
     public Optional<String> containsHeader() {
         return Optional.ofNullable(this.containsHeader);
+    }
+    /**
+     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * 
+     */
+    public Optional<Boolean> customDatatypeConfigured() {
+        return Optional.ofNullable(this.customDatatypeConfigured);
+    }
+    /**
+     * @return A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+     * 
+     */
+    public List<String> customDatatypes() {
+        return this.customDatatypes == null ? List.of() : this.customDatatypes;
     }
     /**
      * @return The delimiter used in the Csv to separate columns.
@@ -99,6 +123,8 @@ public final class ClassifierCsvClassifier {
     public static final class Builder {
         private @Nullable Boolean allowSingleColumn;
         private @Nullable String containsHeader;
+        private @Nullable Boolean customDatatypeConfigured;
+        private @Nullable List<String> customDatatypes;
         private @Nullable String delimiter;
         private @Nullable Boolean disableValueTrimming;
         private @Nullable List<String> headers;
@@ -108,6 +134,8 @@ public final class ClassifierCsvClassifier {
     	      Objects.requireNonNull(defaults);
     	      this.allowSingleColumn = defaults.allowSingleColumn;
     	      this.containsHeader = defaults.containsHeader;
+    	      this.customDatatypeConfigured = defaults.customDatatypeConfigured;
+    	      this.customDatatypes = defaults.customDatatypes;
     	      this.delimiter = defaults.delimiter;
     	      this.disableValueTrimming = defaults.disableValueTrimming;
     	      this.headers = defaults.headers;
@@ -123,6 +151,19 @@ public final class ClassifierCsvClassifier {
         public Builder containsHeader(@Nullable String containsHeader) {
             this.containsHeader = containsHeader;
             return this;
+        }
+        @CustomType.Setter
+        public Builder customDatatypeConfigured(@Nullable Boolean customDatatypeConfigured) {
+            this.customDatatypeConfigured = customDatatypeConfigured;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customDatatypes(@Nullable List<String> customDatatypes) {
+            this.customDatatypes = customDatatypes;
+            return this;
+        }
+        public Builder customDatatypes(String... customDatatypes) {
+            return customDatatypes(List.of(customDatatypes));
         }
         @CustomType.Setter
         public Builder delimiter(@Nullable String delimiter) {
@@ -151,6 +192,8 @@ public final class ClassifierCsvClassifier {
             final var o = new ClassifierCsvClassifier();
             o.allowSingleColumn = allowSingleColumn;
             o.containsHeader = containsHeader;
+            o.customDatatypeConfigured = customDatatypeConfigured;
+            o.customDatatypes = customDatatypes;
             o.delimiter = delimiter;
             o.disableValueTrimming = disableValueTrimming;
             o.headers = headers;

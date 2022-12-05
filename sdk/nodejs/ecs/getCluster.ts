@@ -66,7 +66,11 @@ export interface GetClusterResult {
      */
     readonly runningTasksCount: number;
     /**
-     * Settings associated with the ECS Cluster.
+     * The default Service Connect namespace
+     */
+    readonly serviceConnectDefaults: outputs.ecs.GetClusterServiceConnectDefault[];
+    /**
+     * Settings associated with the ECS Cluster
      */
     readonly settings: outputs.ecs.GetClusterSetting[];
     /**

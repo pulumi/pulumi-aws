@@ -636,6 +636,7 @@ export interface ProviderEndpoint {
     redshiftserverless?: pulumi.Input<string>;
     rekognition?: pulumi.Input<string>;
     resiliencehub?: pulumi.Input<string>;
+    resourceexplorer2?: pulumi.Input<string>;
     resourcegroups?: pulumi.Input<string>;
     resourcegroupstagging?: pulumi.Input<string>;
     resourcegroupstaggingapi?: pulumi.Input<string>;

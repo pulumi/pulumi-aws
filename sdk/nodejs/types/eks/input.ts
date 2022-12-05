@@ -66,9 +66,21 @@ export interface ClusterOutpostConfig {
      */
     controlPlaneInstanceType: pulumi.Input<string>;
     /**
+     * An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+     * The following arguments are supported in the `controlPlanePlacement` configuration block:
+     */
+    controlPlanePlacement?: pulumi.Input<inputs.eks.ClusterOutpostConfigControlPlanePlacement>;
+    /**
      * The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
      */
     outpostArns: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ClusterOutpostConfigControlPlanePlacement {
+    /**
+     * The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+     */
+    groupName: pulumi.Input<string>;
 }
 
 export interface ClusterVpcConfig {

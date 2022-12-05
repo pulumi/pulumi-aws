@@ -1191,6 +1191,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Data Migration Service
 			"aws_dms_certificate":              {Tok: awsResource(dmsMod, "Certificate")},
 			"aws_dms_endpoint":                 {Tok: awsResource(dmsMod, "Endpoint")},
+			"aws_dms_s3_endpoint":              {Tok: awsResource(dmsMod, "S3Endpoint")},
 			"aws_dms_replication_instance":     {Tok: awsResource(dmsMod, "ReplicationInstance")},
 			"aws_dms_replication_subnet_group": {Tok: awsResource(dmsMod, "ReplicationSubnetGroup")},
 			"aws_dms_replication_task":         {Tok: awsResource(dmsMod, "ReplicationTask")},
@@ -2401,6 +2402,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_neptune_cluster_instance":        {Tok: awsResource(neptuneMod, "ClusterInstance")},
 			"aws_neptune_cluster_parameter_group": {Tok: awsResource(neptuneMod, "ClusterParameterGroup")},
 			"aws_neptune_cluster_snapshot":        {Tok: awsResource(neptuneMod, "ClusterSnapshot")},
+			"aws_neptune_global_cluster":          {Tok: awsResource(neptuneMod, "GlobalCluster")},
 			"aws_neptune_event_subscription":      {Tok: awsResource(neptuneMod, "EventSubscription")},
 			"aws_neptune_parameter_group":         {Tok: awsResource(neptuneMod, "ParameterGroup")},
 			"aws_neptune_cluster_endpoint":        {Tok: awsResource(neptuneMod, "ClusterEndpoint")},

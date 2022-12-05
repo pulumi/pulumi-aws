@@ -16,8 +16,9 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>? _excludedRules;
 
         /// <summary>
-        /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+        /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
         /// </summary>
+        [Obsolete(@"Use rule_action_override instead")]
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs> ExcludedRules
         {
             get => _excludedRules ?? (_excludedRules = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>());
@@ -29,6 +30,18 @@ namespace Pulumi.Aws.WafV2.Inputs
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("ruleActionOverrides")]
+        private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>? _ruleActionOverrides;
+
+        /// <summary>
+        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs> RuleActionOverrides
+        {
+            get => _ruleActionOverrides ?? (_ruleActionOverrides = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>());
+            set => _ruleActionOverrides = value;
+        }
 
         /// <summary>
         /// Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.

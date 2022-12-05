@@ -102,9 +102,9 @@ export class CostCategory extends pulumi.CustomResource {
      */
     public /*out*/ readonly effectiveEnd!: pulumi.Output<string>;
     /**
-     * Effective state data of your Cost Category.
+     * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      */
-    public /*out*/ readonly effectiveStart!: pulumi.Output<string>;
+    public readonly effectiveStart!: pulumi.Output<string>;
     /**
      * Unique name for the Cost Category.
      */
@@ -162,6 +162,7 @@ export class CostCategory extends pulumi.CustomResource {
                 throw new Error("Missing required property 'rules'");
             }
             resourceInputs["defaultValue"] = args ? args.defaultValue : undefined;
+            resourceInputs["effectiveStart"] = args ? args.effectiveStart : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ruleVersion"] = args ? args.ruleVersion : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
@@ -169,7 +170,6 @@ export class CostCategory extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["effectiveEnd"] = undefined /*out*/;
-            resourceInputs["effectiveStart"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -194,7 +194,7 @@ export interface CostCategoryState {
      */
     effectiveEnd?: pulumi.Input<string>;
     /**
-     * Effective state data of your Cost Category.
+     * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      */
     effectiveStart?: pulumi.Input<string>;
     /**
@@ -231,6 +231,10 @@ export interface CostCategoryArgs {
      * Default value for the cost category.
      */
     defaultValue?: pulumi.Input<string>;
+    /**
+     * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+     */
+    effectiveStart?: pulumi.Input<string>;
     /**
      * Unique name for the Cost Category.
      */

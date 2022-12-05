@@ -86,7 +86,7 @@ type ClusterInstance struct {
 	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster instance
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+	// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
@@ -190,7 +190,7 @@ type clusterInstanceState struct {
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster instance
 	Arn *string `pulumi:"arn"`
-	// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+	// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -260,7 +260,7 @@ type ClusterInstanceState struct {
 	ApplyImmediately pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of cluster instance
 	Arn pulumi.StringPtrInput
-	// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+	// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone pulumi.StringPtrInput
@@ -332,7 +332,7 @@ type clusterInstanceArgs struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is`false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
-	// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+	// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -380,7 +380,7 @@ type ClusterInstanceArgs struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is`false`.
 	ApplyImmediately pulumi.BoolPtrInput
-	// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+	// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone pulumi.StringPtrInput
@@ -521,7 +521,7 @@ func (o ClusterInstanceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
 func (o ClusterInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }

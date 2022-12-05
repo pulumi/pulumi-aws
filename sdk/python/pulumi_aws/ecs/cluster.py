@@ -20,6 +20,7 @@ class ClusterArgs:
                  configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
                  default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -28,6 +29,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterConfigurationArgs'] configuration: The execute command configuration for the cluster. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
+        :param pulumi.Input['ClusterServiceConnectDefaultsArgs'] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -45,6 +47,8 @@ class ClusterArgs:
             pulumi.set(__self__, "default_capacity_provider_strategies", default_capacity_provider_strategies)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if service_connect_defaults is not None:
+            pulumi.set(__self__, "service_connect_defaults", service_connect_defaults)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
         if tags is not None:
@@ -99,6 +103,18 @@ class ClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="serviceConnectDefaults")
+    def service_connect_defaults(self) -> Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]:
+        """
+        Configures a default Service Connect namespace. Detailed below.
+        """
+        return pulumi.get(self, "service_connect_defaults")
+
+    @service_connect_defaults.setter
+    def service_connect_defaults(self, value: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]):
+        pulumi.set(self, "service_connect_defaults", value)
+
+    @property
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]]:
         """
@@ -131,6 +147,7 @@ class _ClusterState:
                  configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
                  default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -141,6 +158,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterConfigurationArgs'] configuration: The execute command configuration for the cluster. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
+        :param pulumi.Input['ClusterServiceConnectDefaultsArgs'] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -161,6 +179,8 @@ class _ClusterState:
             pulumi.set(__self__, "default_capacity_provider_strategies", default_capacity_provider_strategies)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if service_connect_defaults is not None:
+            pulumi.set(__self__, "service_connect_defaults", service_connect_defaults)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
         if tags is not None:
@@ -229,6 +249,18 @@ class _ClusterState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="serviceConnectDefaults")
+    def service_connect_defaults(self) -> Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]:
+        """
+        Configures a default Service Connect namespace. Detailed below.
+        """
+        return pulumi.get(self, "service_connect_defaults")
+
+    @service_connect_defaults.setter
+    def service_connect_defaults(self, value: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]):
+        pulumi.set(self, "service_connect_defaults", value)
+
+    @property
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]]:
         """
@@ -274,6 +306,7 @@ class Cluster(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
                  default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']]] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -348,6 +381,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']] configuration: The execute command configuration for the cluster. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]] default_capacity_provider_strategies: Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
+        :param pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -441,6 +475,7 @@ class Cluster(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
                  default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']]] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -462,6 +497,7 @@ class Cluster(pulumi.CustomResource):
                 pulumi.log.warn("""default_capacity_provider_strategies is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
             __props__.__dict__["default_capacity_provider_strategies"] = default_capacity_provider_strategies
             __props__.__dict__["name"] = name
+            __props__.__dict__["service_connect_defaults"] = service_connect_defaults
             __props__.__dict__["settings"] = settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -481,6 +517,7 @@ class Cluster(pulumi.CustomResource):
             configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
             default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']]] = None,
             settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Cluster':
@@ -496,6 +533,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']] configuration: The execute command configuration for the cluster. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]] default_capacity_provider_strategies: Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
+        :param pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -509,6 +547,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["configuration"] = configuration
         __props__.__dict__["default_capacity_provider_strategies"] = default_capacity_provider_strategies
         __props__.__dict__["name"] = name
+        __props__.__dict__["service_connect_defaults"] = service_connect_defaults
         __props__.__dict__["settings"] = settings
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -553,6 +592,14 @@ class Cluster(pulumi.CustomResource):
         Name of the setting to manage. Valid values: `containerInsights`.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serviceConnectDefaults")
+    def service_connect_defaults(self) -> pulumi.Output[Optional['outputs.ClusterServiceConnectDefaults']]:
+        """
+        Configures a default Service Connect namespace. Detailed below.
+        """
+        return pulumi.get(self, "service_connect_defaults")
 
     @property
     @pulumi.getter

@@ -281,9 +281,9 @@ export class Instance extends pulumi.CustomResource {
     public readonly instanceClass!: pulumi.Output<string>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storageType of "io1".
+     * storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
      */
-    public readonly iops!: pulumi.Output<number | undefined>;
+    public readonly iops!: pulumi.Output<number>;
     /**
      * The ARN for the KMS encryption key. If creating an
      * encrypted replica, set this to the destination KMS ARN.
@@ -442,9 +442,14 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
+     * The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+     */
+    public readonly storageThroughput!: pulumi.Output<number>;
+    /**
      * One of "standard" (magnetic), "gp2" (general
-     * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-     * specified, "gp2" if not.
+     * purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+     * or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+     * "gp2" if not.
      */
     public readonly storageType!: pulumi.Output<string>;
     /**
@@ -550,6 +555,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["storageThroughput"] = state ? state.storageThroughput : undefined;
             resourceInputs["storageType"] = state ? state.storageType : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -615,6 +621,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["storageThroughput"] = args ? args.storageThroughput : undefined;
             resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timezone"] = args ? args.timezone : undefined;
@@ -810,7 +817,7 @@ export interface InstanceState {
     instanceClass?: pulumi.Input<string | enums.rds.InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storageType of "io1".
+     * storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
      */
     iops?: pulumi.Input<number>;
     /**
@@ -971,9 +978,14 @@ export interface InstanceState {
      */
     storageEncrypted?: pulumi.Input<boolean>;
     /**
+     * The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+     */
+    storageThroughput?: pulumi.Input<number>;
+    /**
      * One of "standard" (magnetic), "gp2" (general
-     * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-     * specified, "gp2" if not.
+     * purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+     * or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+     * "gp2" if not.
      */
     storageType?: pulumi.Input<string | enums.rds.StorageType>;
     /**
@@ -1155,7 +1167,7 @@ export interface InstanceArgs {
     instanceClass: pulumi.Input<string | enums.rds.InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storageType of "io1".
+     * storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
      */
     iops?: pulumi.Input<number>;
     /**
@@ -1303,9 +1315,14 @@ export interface InstanceArgs {
      */
     storageEncrypted?: pulumi.Input<boolean>;
     /**
+     * The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+     */
+    storageThroughput?: pulumi.Input<number>;
+    /**
      * One of "standard" (magnetic), "gp2" (general
-     * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-     * specified, "gp2" if not.
+     * purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+     * or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+     * "gp2" if not.
      */
     storageType?: pulumi.Input<string | enums.rds.StorageType>;
     /**

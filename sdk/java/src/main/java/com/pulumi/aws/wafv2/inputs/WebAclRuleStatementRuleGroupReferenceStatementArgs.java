@@ -35,14 +35,22 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
     /**
      * The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
      * 
+     * @deprecated
+     * Use rule_action_override instead
+     * 
      */
+    @Deprecated /* Use rule_action_override instead */
     @Import(name="excludedRules")
     private @Nullable Output<List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs>> excludedRules;
 
     /**
      * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
      * 
+     * @deprecated
+     * Use rule_action_override instead
+     * 
      */
+    @Deprecated /* Use rule_action_override instead */
     public Optional<Output<List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs>>> excludedRules() {
         return Optional.ofNullable(this.excludedRules);
     }
@@ -98,7 +106,11 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use rule_action_override instead
+         * 
          */
+        @Deprecated /* Use rule_action_override instead */
         public Builder excludedRules(@Nullable Output<List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs>> excludedRules) {
             $.excludedRules = excludedRules;
             return this;
@@ -109,7 +121,11 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use rule_action_override instead
+         * 
          */
+        @Deprecated /* Use rule_action_override instead */
         public Builder excludedRules(List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs> excludedRules) {
             return excludedRules(Output.of(excludedRules));
         }
@@ -119,7 +135,11 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use rule_action_override instead
+         * 
          */
+        @Deprecated /* Use rule_action_override instead */
         public Builder excludedRules(WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs... excludedRules) {
             return excludedRules(List.of(excludedRules));
         }

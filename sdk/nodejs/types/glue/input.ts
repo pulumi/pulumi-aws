@@ -235,6 +235,14 @@ export interface ClassifierCsvClassifier {
      */
     containsHeader?: pulumi.Input<string>;
     /**
+     * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     */
+    customDatatypeConfigured?: pulumi.Input<boolean>;
+    /**
+     * A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+     */
+    customDatatypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The delimiter used in the Csv to separate columns.
      */
     delimiter?: pulumi.Input<string>;

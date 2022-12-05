@@ -2059,6 +2059,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.resiliencehub);
     }
 
+    @Import(name="resourceexplorer2")
+    private @Nullable Output<String> resourceexplorer2;
+
+    public Optional<Output<String>> resourceexplorer2() {
+        return Optional.ofNullable(this.resourceexplorer2);
+    }
+
     @Import(name="resourcegroups")
     private @Nullable Output<String> resourcegroups;
 
@@ -2914,6 +2921,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.redshiftserverless = $.redshiftserverless;
         this.rekognition = $.rekognition;
         this.resiliencehub = $.resiliencehub;
+        this.resourceexplorer2 = $.resourceexplorer2;
         this.resourcegroups = $.resourcegroups;
         this.resourcegroupstagging = $.resourcegroupstagging;
         this.resourcegroupstaggingapi = $.resourcegroupstaggingapi;
@@ -5640,6 +5648,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder resiliencehub(String resiliencehub) {
             return resiliencehub(Output.of(resiliencehub));
+        }
+
+        public Builder resourceexplorer2(@Nullable Output<String> resourceexplorer2) {
+            $.resourceexplorer2 = resourceexplorer2;
+            return this;
+        }
+
+        public Builder resourceexplorer2(String resourceexplorer2) {
+            return resourceexplorer2(Output.of(resourceexplorer2));
         }
 
         public Builder resourcegroups(@Nullable Output<String> resourcegroups) {

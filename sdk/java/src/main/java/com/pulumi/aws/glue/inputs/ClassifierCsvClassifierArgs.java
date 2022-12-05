@@ -48,6 +48,36 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * 
+     */
+    @Import(name="customDatatypeConfigured")
+    private @Nullable Output<Boolean> customDatatypeConfigured;
+
+    /**
+     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * 
+     */
+    public Optional<Output<Boolean>> customDatatypeConfigured() {
+        return Optional.ofNullable(this.customDatatypeConfigured);
+    }
+
+    /**
+     * A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+     * 
+     */
+    @Import(name="customDatatypes")
+    private @Nullable Output<List<String>> customDatatypes;
+
+    /**
+     * @return A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+     * 
+     */
+    public Optional<Output<List<String>>> customDatatypes() {
+        return Optional.ofNullable(this.customDatatypes);
+    }
+
+    /**
      * The delimiter used in the Csv to separate columns.
      * 
      */
@@ -112,6 +142,8 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
     private ClassifierCsvClassifierArgs(ClassifierCsvClassifierArgs $) {
         this.allowSingleColumn = $.allowSingleColumn;
         this.containsHeader = $.containsHeader;
+        this.customDatatypeConfigured = $.customDatatypeConfigured;
+        this.customDatatypes = $.customDatatypes;
         this.delimiter = $.delimiter;
         this.disableValueTrimming = $.disableValueTrimming;
         this.headers = $.headers;
@@ -176,6 +208,58 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
          */
         public Builder containsHeader(String containsHeader) {
             return containsHeader(Output.of(containsHeader));
+        }
+
+        /**
+         * @param customDatatypeConfigured A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customDatatypeConfigured(@Nullable Output<Boolean> customDatatypeConfigured) {
+            $.customDatatypeConfigured = customDatatypeConfigured;
+            return this;
+        }
+
+        /**
+         * @param customDatatypeConfigured A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customDatatypeConfigured(Boolean customDatatypeConfigured) {
+            return customDatatypeConfigured(Output.of(customDatatypeConfigured));
+        }
+
+        /**
+         * @param customDatatypes A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customDatatypes(@Nullable Output<List<String>> customDatatypes) {
+            $.customDatatypes = customDatatypes;
+            return this;
+        }
+
+        /**
+         * @param customDatatypes A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customDatatypes(List<String> customDatatypes) {
+            return customDatatypes(Output.of(customDatatypes));
+        }
+
+        /**
+         * @param customDatatypes A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customDatatypes(String... customDatatypes) {
+            return customDatatypes(List.of(customDatatypes));
         }
 
         /**

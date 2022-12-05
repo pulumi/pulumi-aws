@@ -31,6 +31,7 @@ __all__ = [
     'FunctionEventInvokeConfigDestinationConfigOnSuccess',
     'FunctionFileSystemConfig',
     'FunctionImageConfig',
+    'FunctionSnapStart',
     'FunctionTracingConfig',
     'FunctionUrlCors',
     'FunctionVpcConfig',
@@ -644,6 +645,51 @@ class FunctionImageConfig(dict):
         Working directory.
         """
         return pulumi.get(self, "working_directory")
+
+
+@pulumi.output_type
+class FunctionSnapStart(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyOn":
+            suggest = "apply_on"
+        elif key == "optimizationStatus":
+            suggest = "optimization_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionSnapStart. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionSnapStart.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionSnapStart.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apply_on: str,
+                 optimization_status: Optional[str] = None):
+        """
+        :param str apply_on: Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+        """
+        pulumi.set(__self__, "apply_on", apply_on)
+        if optimization_status is not None:
+            pulumi.set(__self__, "optimization_status", optimization_status)
+
+    @property
+    @pulumi.getter(name="applyOn")
+    def apply_on(self) -> str:
+        """
+        Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+        """
+        return pulumi.get(self, "apply_on")
+
+    @property
+    @pulumi.getter(name="optimizationStatus")
+    def optimization_status(self) -> Optional[str]:
+        return pulumi.get(self, "optimization_status")
 
 
 @pulumi.output_type

@@ -196,6 +196,12 @@ namespace Pulumi.Aws.Eks
         public Output<Outputs.ClusterCertificateAuthority> CertificateAuthority { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
+        /// </summary>
+        [Output("clusterId")]
+        public Output<string> ClusterId { get; private set; } = null!;
+
+        /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.
         /// </summary>
         [Output("createdAt")]
@@ -436,6 +442,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("certificateAuthority")]
         public Input<Inputs.ClusterCertificateAuthorityGetArgs>? CertificateAuthority { get; set; }
+
+        /// <summary>
+        /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
+        /// </summary>
+        [Input("clusterId")]
+        public Input<string>? ClusterId { get; set; }
 
         /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.

@@ -202,6 +202,8 @@ type Service struct {
 	PropagateTags pulumi.StringPtrOutput `pulumi:"propagateTags"`
 	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy pulumi.StringPtrOutput `pulumi:"schedulingStrategy"`
+	// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+	ServiceConnectConfiguration ServiceServiceConnectConfigurationPtrOutput `pulumi:"serviceConnectConfiguration"`
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
 	ServiceRegistries ServiceServiceRegistriesPtrOutput `pulumi:"serviceRegistries"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -287,6 +289,8 @@ type serviceState struct {
 	PropagateTags *string `pulumi:"propagateTags"`
 	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy *string `pulumi:"schedulingStrategy"`
+	// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+	ServiceConnectConfiguration *ServiceServiceConnectConfiguration `pulumi:"serviceConnectConfiguration"`
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
 	ServiceRegistries *ServiceServiceRegistries `pulumi:"serviceRegistries"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -344,6 +348,8 @@ type ServiceState struct {
 	PropagateTags pulumi.StringPtrInput
 	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy pulumi.StringPtrInput
+	// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+	ServiceConnectConfiguration ServiceServiceConnectConfigurationPtrInput
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
 	ServiceRegistries ServiceServiceRegistriesPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -405,6 +411,8 @@ type serviceArgs struct {
 	PropagateTags *string `pulumi:"propagateTags"`
 	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy *string `pulumi:"schedulingStrategy"`
+	// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+	ServiceConnectConfiguration *ServiceServiceConnectConfiguration `pulumi:"serviceConnectConfiguration"`
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
 	ServiceRegistries *ServiceServiceRegistries `pulumi:"serviceRegistries"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -461,6 +469,8 @@ type ServiceArgs struct {
 	PropagateTags pulumi.StringPtrInput
 	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy pulumi.StringPtrInput
+	// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+	ServiceConnectConfiguration ServiceServiceConnectConfigurationPtrInput
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
 	ServiceRegistries ServiceServiceRegistriesPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -663,6 +673,11 @@ func (o ServiceOutput) PropagateTags() pulumi.StringPtrOutput {
 // Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 func (o ServiceOutput) SchedulingStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.SchedulingStrategy }).(pulumi.StringPtrOutput)
+}
+
+// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+func (o ServiceOutput) ServiceConnectConfiguration() ServiceServiceConnectConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceServiceConnectConfigurationPtrOutput { return v.ServiceConnectConfiguration }).(ServiceServiceConnectConfigurationPtrOutput)
 }
 
 // Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.

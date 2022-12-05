@@ -305,6 +305,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.finalSnapshotIdentifier);
     }
     /**
+     * The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+     * 
+     */
+    @Export(name="globalClusterIdentifier", type=String.class, parameters={})
+    private Output</* @Nullable */ String> globalClusterIdentifier;
+
+    /**
+     * @return The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+     * 
+     */
+    public Output<Optional<String>> globalClusterIdentifier() {
+        return Codegen.optional(this.globalClusterIdentifier);
+    }
+    /**
      * The Route53 Hosted Zone ID of the endpoint
      * 
      */

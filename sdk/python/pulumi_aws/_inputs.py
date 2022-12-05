@@ -555,6 +555,7 @@ class ProviderEndpointArgs:
                  redshiftserverless: Optional[pulumi.Input[str]] = None,
                  rekognition: Optional[pulumi.Input[str]] = None,
                  resiliencehub: Optional[pulumi.Input[str]] = None,
+                 resourceexplorer2: Optional[pulumi.Input[str]] = None,
                  resourcegroups: Optional[pulumi.Input[str]] = None,
                  resourcegroupstagging: Optional[pulumi.Input[str]] = None,
                  resourcegroupstaggingapi: Optional[pulumi.Input[str]] = None,
@@ -1219,6 +1220,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "rekognition", rekognition)
         if resiliencehub is not None:
             pulumi.set(__self__, "resiliencehub", resiliencehub)
+        if resourceexplorer2 is not None:
+            pulumi.set(__self__, "resourceexplorer2", resourceexplorer2)
         if resourcegroups is not None:
             pulumi.set(__self__, "resourcegroups", resourcegroups)
         if resourcegroupstagging is not None:
@@ -4007,6 +4010,15 @@ class ProviderEndpointArgs:
     @resiliencehub.setter
     def resiliencehub(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resiliencehub", value)
+
+    @property
+    @pulumi.getter
+    def resourceexplorer2(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resourceexplorer2")
+
+    @resourceexplorer2.setter
+    def resourceexplorer2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resourceexplorer2", value)
 
     @property
     @pulumi.getter

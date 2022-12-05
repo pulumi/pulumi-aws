@@ -21,7 +21,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
@@ -133,6 +133,9 @@ class GetInstanceResult:
         if storage_encrypted and not isinstance(storage_encrypted, bool):
             raise TypeError("Expected argument 'storage_encrypted' to be a bool")
         pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+        if storage_throughput and not isinstance(storage_throughput, int):
+            raise TypeError("Expected argument 'storage_throughput' to be a int")
+        pulumi.set(__self__, "storage_throughput", storage_throughput)
         if storage_type and not isinstance(storage_type, str):
             raise TypeError("Expected argument 'storage_type' to be a str")
         pulumi.set(__self__, "storage_type", storage_type)
@@ -440,6 +443,14 @@ class GetInstanceResult:
         return pulumi.get(self, "storage_encrypted")
 
     @property
+    @pulumi.getter(name="storageThroughput")
+    def storage_throughput(self) -> int:
+        """
+        Storage throughput value for the DB instance.
+        """
+        return pulumi.get(self, "storage_throughput")
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> str:
         """
@@ -512,6 +523,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             replicate_source_db=self.replicate_source_db,
             resource_id=self.resource_id,
             storage_encrypted=self.storage_encrypted,
+            storage_throughput=self.storage_throughput,
             storage_type=self.storage_type,
             tags=self.tags,
             timezone=self.timezone,
@@ -580,6 +592,7 @@ def get_instance(db_instance_identifier: Optional[str] = None,
         replicate_source_db=__ret__.replicate_source_db,
         resource_id=__ret__.resource_id,
         storage_encrypted=__ret__.storage_encrypted,
+        storage_throughput=__ret__.storage_throughput,
         storage_type=__ret__.storage_type,
         tags=__ret__.tags,
         timezone=__ret__.timezone,

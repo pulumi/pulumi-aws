@@ -139,14 +139,14 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
         return this.effectiveEnd;
     }
     /**
-     * Effective state data of your Cost Category.
+     * The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      * 
      */
     @Export(name="effectiveStart", type=String.class, parameters={})
     private Output<String> effectiveStart;
 
     /**
-     * @return Effective state data of your Cost Category.
+     * @return The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      * 
      */
     public Output<String> effectiveStart() {

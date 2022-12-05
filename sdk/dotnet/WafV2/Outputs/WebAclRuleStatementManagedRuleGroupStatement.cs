@@ -14,13 +14,17 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatement
     {
         /// <summary>
-        /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+        /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRule> ExcludedRules;
         /// <summary>
         /// Name of the managed rule group.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> RuleActionOverrides;
         /// <summary>
         /// Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
         /// </summary>
@@ -40,6 +44,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             string name,
 
+            ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides,
+
             Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement? scopeDownStatement,
 
             string vendorName,
@@ -48,6 +54,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         {
             ExcludedRules = excludedRules;
             Name = name;
+            RuleActionOverrides = ruleActionOverrides;
             ScopeDownStatement = scopeDownStatement;
             VendorName = vendorName;
             Version = version;

@@ -122,6 +122,13 @@ export interface ClusterDefaultCapacityProviderStrategy {
     weight?: pulumi.Input<number>;
 }
 
+export interface ClusterServiceConnectDefaults {
+    /**
+     * The ARN of the `aws.servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+     */
+    namespace: pulumi.Input<string>;
+}
+
 export interface ClusterSetting {
     /**
      * Name of the setting to manage. Valid values: `containerInsights`.
@@ -223,6 +230,81 @@ export interface ServicePlacementConstraint {
      * Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
      */
     type: pulumi.Input<string>;
+}
+
+export interface ServiceServiceConnectConfiguration {
+    /**
+     * Specifies whether to use Service Connect with this service.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * The log configuration for the container. See below.
+     */
+    logConfiguration?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationLogConfiguration>;
+    /**
+     * The namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * The list of Service Connect service objects. See below.
+     */
+    service?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationService>;
+}
+
+export interface ServiceServiceConnectConfigurationLogConfiguration {
+    /**
+     * The log driver to use for the container.
+     */
+    logDriver?: pulumi.Input<string>;
+    /**
+     * The configuration options to send to the log driver.
+     */
+    options?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The secrets to pass to the log configuration. See below.
+     */
+    secretOptions?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationLogConfigurationSecretOption>[]>;
+}
+
+export interface ServiceServiceConnectConfigurationLogConfigurationSecretOption {
+    /**
+     * The name of the secret.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+     */
+    valueFrom: pulumi.Input<string>;
+}
+
+export interface ServiceServiceConnectConfigurationService {
+    /**
+     * The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+     */
+    clientAliases: pulumi.Input<pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationServiceClientAlias>[]>;
+    /**
+     * The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+     */
+    discoveryName?: pulumi.Input<string>;
+    /**
+     * The port number for the Service Connect proxy to listen on.
+     */
+    ingressPortOverride?: pulumi.Input<number>;
+    /**
+     * The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+     */
+    portName: pulumi.Input<string>;
+}
+
+export interface ServiceServiceConnectConfigurationServiceClientAlias {
+    /**
+     * The name that you use in the applications of client tasks to connect to this service.
+     */
+    dnsName?: pulumi.Input<string>;
+    /**
+     * The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+     */
+    port: pulumi.Input<number>;
 }
 
 export interface ServiceServiceRegistries {

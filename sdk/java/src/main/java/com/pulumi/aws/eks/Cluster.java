@@ -264,6 +264,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.certificateAuthority;
     }
     /**
+     * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn&#39;t available for an AWS EKS cluster on AWS cloud.
+     * 
+     */
+    @Export(name="clusterId", type=String.class, parameters={})
+    private Output<String> clusterId;
+
+    /**
+     * @return The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn&#39;t available for an AWS EKS cluster on AWS cloud.
+     * 
+     */
+    public Output<String> clusterId() {
+        return this.clusterId;
+    }
+    /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      * 
      */

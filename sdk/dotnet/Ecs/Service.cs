@@ -262,6 +262,12 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> SchedulingStrategy { get; private set; } = null!;
 
         /// <summary>
+        /// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+        /// </summary>
+        [Output("serviceConnectConfiguration")]
+        public Output<Outputs.ServiceServiceConnectConfiguration?> ServiceConnectConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         /// </summary>
         [Output("serviceRegistries")]
@@ -494,6 +500,12 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? SchedulingStrategy { get; set; }
 
         /// <summary>
+        /// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+        /// </summary>
+        [Input("serviceConnectConfiguration")]
+        public Input<Inputs.ServiceServiceConnectConfigurationArgs>? ServiceConnectConfiguration { get; set; }
+
+        /// <summary>
         /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         /// </summary>
         [Input("serviceRegistries")]
@@ -692,6 +704,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("schedulingStrategy")]
         public Input<string>? SchedulingStrategy { get; set; }
+
+        /// <summary>
+        /// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+        /// </summary>
+        [Input("serviceConnectConfiguration")]
+        public Input<Inputs.ServiceServiceConnectConfigurationGetArgs>? ServiceConnectConfiguration { get; set; }
 
         /// <summary>
         /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.

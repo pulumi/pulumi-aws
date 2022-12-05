@@ -135,6 +135,8 @@ func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 }
 
 // Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
+//
+// Deprecated: With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
 func GetSkipGetEc2Platforms(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "aws:skipGetEc2Platforms")
 	if err == nil {

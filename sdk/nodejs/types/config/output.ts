@@ -332,6 +332,7 @@ export interface Endpoints {
     redshiftserverless?: string;
     rekognition?: string;
     resiliencehub?: string;
+    resourceexplorer2?: string;
     resourcegroups?: string;
     resourcegroupstagging?: string;
     resourcegroupstaggingapi?: string;

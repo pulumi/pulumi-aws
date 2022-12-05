@@ -35,6 +35,11 @@ export type ReplicationTask = import("./replicationTask").ReplicationTask;
 export const ReplicationTask: typeof import("./replicationTask").ReplicationTask = null as any;
 utilities.lazyLoad(exports, ["ReplicationTask"], () => require("./replicationTask"));
 
+export { S3EndpointArgs, S3EndpointState } from "./s3endpoint";
+export type S3Endpoint = import("./s3endpoint").S3Endpoint;
+export const S3Endpoint: typeof import("./s3endpoint").S3Endpoint = null as any;
+utilities.lazyLoad(exports, ["S3Endpoint"], () => require("./s3endpoint"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -52,6 +57,8 @@ const _module = {
                 return new ReplicationSubnetGroup(name, <any>undefined, { urn })
             case "aws:dms/replicationTask:ReplicationTask":
                 return new ReplicationTask(name, <any>undefined, { urn })
+            case "aws:dms/s3Endpoint:S3Endpoint":
+                return new S3Endpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -63,3 +70,4 @@ pulumi.runtime.registerResourceModule("aws", "dms/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/replicationInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/replicationSubnetGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/replicationTask", _module)
+pulumi.runtime.registerResourceModule("aws", "dms/s3Endpoint", _module)

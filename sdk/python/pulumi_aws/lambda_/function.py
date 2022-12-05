@@ -40,6 +40,7 @@ class FunctionArgs:
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_object_version: Optional[pulumi.Input[str]] = None,
+                 snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
                  source_code_hash: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
@@ -70,6 +71,7 @@ class FunctionArgs:
         :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
@@ -121,6 +123,8 @@ class FunctionArgs:
             pulumi.set(__self__, "s3_key", s3_key)
         if s3_object_version is not None:
             pulumi.set(__self__, "s3_object_version", s3_object_version)
+        if snap_start is not None:
+            pulumi.set(__self__, "snap_start", snap_start)
         if source_code_hash is not None:
             pulumi.set(__self__, "source_code_hash", source_code_hash)
         if tags is not None:
@@ -409,6 +413,18 @@ class FunctionArgs:
         pulumi.set(self, "s3_object_version", value)
 
     @property
+    @pulumi.getter(name="snapStart")
+    def snap_start(self) -> Optional[pulumi.Input['FunctionSnapStartArgs']]:
+        """
+        Snap start settings block. Detailed below.
+        """
+        return pulumi.get(self, "snap_start")
+
+    @snap_start.setter
+    def snap_start(self, value: Optional[pulumi.Input['FunctionSnapStartArgs']]):
+        pulumi.set(self, "snap_start", value)
+
+    @property
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[str]]:
         """
@@ -502,6 +518,7 @@ class _FunctionState:
                  s3_object_version: Optional[pulumi.Input[str]] = None,
                  signing_job_arn: Optional[pulumi.Input[str]] = None,
                  signing_profile_version_arn: Optional[pulumi.Input[str]] = None,
+                 snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
                  source_code_hash: Optional[pulumi.Input[str]] = None,
                  source_code_size: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -542,6 +559,8 @@ class _FunctionState:
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[str] signing_job_arn: ARN of the signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN of the signing profile version.
+               * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+        :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -612,6 +631,8 @@ class _FunctionState:
             pulumi.set(__self__, "signing_job_arn", signing_job_arn)
         if signing_profile_version_arn is not None:
             pulumi.set(__self__, "signing_profile_version_arn", signing_profile_version_arn)
+        if snap_start is not None:
+            pulumi.set(__self__, "snap_start", snap_start)
         if source_code_hash is not None:
             pulumi.set(__self__, "source_code_hash", source_code_hash)
         if source_code_size is not None:
@@ -982,12 +1003,25 @@ class _FunctionState:
     def signing_profile_version_arn(self) -> Optional[pulumi.Input[str]]:
         """
         ARN of the signing profile version.
+        * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         """
         return pulumi.get(self, "signing_profile_version_arn")
 
     @signing_profile_version_arn.setter
     def signing_profile_version_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "signing_profile_version_arn", value)
+
+    @property
+    @pulumi.getter(name="snapStart")
+    def snap_start(self) -> Optional[pulumi.Input['FunctionSnapStartArgs']]:
+        """
+        Snap start settings block. Detailed below.
+        """
+        return pulumi.get(self, "snap_start")
+
+    @snap_start.setter
+    def snap_start(self, value: Optional[pulumi.Input['FunctionSnapStartArgs']]):
+        pulumi.set(self, "snap_start", value)
 
     @property
     @pulumi.getter(name="sourceCodeHash")
@@ -1115,6 +1149,7 @@ class Function(pulumi.CustomResource):
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_object_version: Optional[pulumi.Input[str]] = None,
+                 snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']]] = None,
                  source_code_hash: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
@@ -1335,6 +1370,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        :param pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
@@ -1574,6 +1610,7 @@ class Function(pulumi.CustomResource):
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_object_version: Optional[pulumi.Input[str]] = None,
+                 snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']]] = None,
                  source_code_hash: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
@@ -1613,6 +1650,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["s3_bucket"] = s3_bucket
             __props__.__dict__["s3_key"] = s3_key
             __props__.__dict__["s3_object_version"] = s3_object_version
+            __props__.__dict__["snap_start"] = snap_start
             __props__.__dict__["source_code_hash"] = source_code_hash
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
@@ -1668,6 +1706,7 @@ class Function(pulumi.CustomResource):
             s3_object_version: Optional[pulumi.Input[str]] = None,
             signing_job_arn: Optional[pulumi.Input[str]] = None,
             signing_profile_version_arn: Optional[pulumi.Input[str]] = None,
+            snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']]] = None,
             source_code_hash: Optional[pulumi.Input[str]] = None,
             source_code_size: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1713,6 +1752,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[str] signing_job_arn: ARN of the signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN of the signing profile version.
+               * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+        :param pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1757,6 +1798,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["s3_object_version"] = s3_object_version
         __props__.__dict__["signing_job_arn"] = signing_job_arn
         __props__.__dict__["signing_profile_version_arn"] = signing_profile_version_arn
+        __props__.__dict__["snap_start"] = snap_start
         __props__.__dict__["source_code_hash"] = source_code_hash
         __props__.__dict__["source_code_size"] = source_code_size
         __props__.__dict__["tags"] = tags
@@ -2004,8 +2046,17 @@ class Function(pulumi.CustomResource):
     def signing_profile_version_arn(self) -> pulumi.Output[str]:
         """
         ARN of the signing profile version.
+        * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         """
         return pulumi.get(self, "signing_profile_version_arn")
+
+    @property
+    @pulumi.getter(name="snapStart")
+    def snap_start(self) -> pulumi.Output[Optional['outputs.FunctionSnapStart']]:
+        """
+        Snap start settings block. Detailed below.
+        """
+        return pulumi.get(self, "snap_start")
 
     @property
     @pulumi.getter(name="sourceCodeHash")

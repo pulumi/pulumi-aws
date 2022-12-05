@@ -30,6 +30,7 @@ __all__ = [
     'FunctionEventInvokeConfigDestinationConfigOnSuccessArgs',
     'FunctionFileSystemConfigArgs',
     'FunctionImageConfigArgs',
+    'FunctionSnapStartArgs',
     'FunctionTracingConfigArgs',
     'FunctionUrlCorsArgs',
     'FunctionVpcConfigArgs',
@@ -539,6 +540,40 @@ class FunctionImageConfigArgs:
     @working_directory.setter
     def working_directory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "working_directory", value)
+
+
+@pulumi.input_type
+class FunctionSnapStartArgs:
+    def __init__(__self__, *,
+                 apply_on: pulumi.Input[str],
+                 optimization_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] apply_on: Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+        """
+        pulumi.set(__self__, "apply_on", apply_on)
+        if optimization_status is not None:
+            pulumi.set(__self__, "optimization_status", optimization_status)
+
+    @property
+    @pulumi.getter(name="applyOn")
+    def apply_on(self) -> pulumi.Input[str]:
+        """
+        Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+        """
+        return pulumi.get(self, "apply_on")
+
+    @apply_on.setter
+    def apply_on(self, value: pulumi.Input[str]):
+        pulumi.set(self, "apply_on", value)
+
+    @property
+    @pulumi.getter(name="optimizationStatus")
+    def optimization_status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "optimization_status")
+
+    @optimization_status.setter
+    def optimization_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "optimization_status", value)
 
 
 @pulumi.input_type

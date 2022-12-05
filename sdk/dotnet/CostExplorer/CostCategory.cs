@@ -119,7 +119,7 @@ namespace Pulumi.Aws.CostExplorer
         public Output<string> EffectiveEnd { get; private set; } = null!;
 
         /// <summary>
-        /// Effective state data of your Cost Category.
+        /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         /// </summary>
         [Output("effectiveStart")]
         public Output<string> EffectiveStart { get; private set; } = null!;
@@ -213,6 +213,12 @@ namespace Pulumi.Aws.CostExplorer
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
+        /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+        /// </summary>
+        [Input("effectiveStart")]
+        public Input<string>? EffectiveStart { get; set; }
+
+        /// <summary>
         /// Unique name for the Cost Category.
         /// </summary>
         [Input("name")]
@@ -287,7 +293,7 @@ namespace Pulumi.Aws.CostExplorer
         public Input<string>? EffectiveEnd { get; set; }
 
         /// <summary>
-        /// Effective state data of your Cost Category.
+        /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         /// </summary>
         [Input("effectiveStart")]
         public Input<string>? EffectiveStart { get; set; }

@@ -3130,6 +3130,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "dms/s3Endpoint",
+  "fqn": "pulumi_aws.dms",
+  "classes": {
+   "aws:dms/s3Endpoint:S3Endpoint": "S3Endpoint"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "docdb/cluster",
   "fqn": "pulumi_aws.docdb",
   "classes": {
@@ -6702,6 +6710,14 @@ _utilities.register(
   "fqn": "pulumi_aws.neptune",
   "classes": {
    "aws:neptune/eventSubscription:EventSubscription": "EventSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "neptune/globalCluster",
+  "fqn": "pulumi_aws.neptune",
+  "classes": {
+   "aws:neptune/globalCluster:GlobalCluster": "GlobalCluster"
   }
  },
  {

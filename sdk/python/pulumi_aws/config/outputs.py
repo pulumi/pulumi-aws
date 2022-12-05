@@ -471,6 +471,7 @@ class Endpoints(dict):
                  redshiftserverless: Optional[str] = None,
                  rekognition: Optional[str] = None,
                  resiliencehub: Optional[str] = None,
+                 resourceexplorer2: Optional[str] = None,
                  resourcegroups: Optional[str] = None,
                  resourcegroupstagging: Optional[str] = None,
                  resourcegroupstaggingapi: Optional[str] = None,
@@ -1135,6 +1136,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "rekognition", rekognition)
         if resiliencehub is not None:
             pulumi.set(__self__, "resiliencehub", resiliencehub)
+        if resourceexplorer2 is not None:
+            pulumi.set(__self__, "resourceexplorer2", resourceexplorer2)
         if resourcegroups is not None:
             pulumi.set(__self__, "resourcegroups", resourcegroups)
         if resourcegroupstagging is not None:
@@ -2755,6 +2758,11 @@ class Endpoints(dict):
     @pulumi.getter
     def resiliencehub(self) -> Optional[str]:
         return pulumi.get(self, "resiliencehub")
+
+    @property
+    @pulumi.getter
+    def resourceexplorer2(self) -> Optional[str]:
+        return pulumi.get(self, "resourceexplorer2")
 
     @property
     @pulumi.getter

@@ -13,6 +13,7 @@ import com.pulumi.aws.ecs.outputs.ServiceLoadBalancer;
 import com.pulumi.aws.ecs.outputs.ServiceNetworkConfiguration;
 import com.pulumi.aws.ecs.outputs.ServiceOrderedPlacementStrategy;
 import com.pulumi.aws.ecs.outputs.ServicePlacementConstraint;
+import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfiguration;
 import com.pulumi.aws.ecs.outputs.ServiceServiceRegistries;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -484,6 +485,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> schedulingStrategy() {
         return Codegen.optional(this.schedulingStrategy);
+    }
+    /**
+     * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     * 
+     */
+    @Export(name="serviceConnectConfiguration", type=ServiceServiceConnectConfiguration.class, parameters={})
+    private Output</* @Nullable */ ServiceServiceConnectConfiguration> serviceConnectConfiguration;
+
+    /**
+     * @return The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     * 
+     */
+    public Output<Optional<ServiceServiceConnectConfiguration>> serviceConnectConfiguration() {
+        return Codegen.optional(this.serviceConnectConfiguration);
     }
     /**
      * Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.

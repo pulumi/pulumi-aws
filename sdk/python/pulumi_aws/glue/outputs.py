@@ -901,6 +901,10 @@ class ClassifierCsvClassifier(dict):
             suggest = "allow_single_column"
         elif key == "containsHeader":
             suggest = "contains_header"
+        elif key == "customDatatypeConfigured":
+            suggest = "custom_datatype_configured"
+        elif key == "customDatatypes":
+            suggest = "custom_datatypes"
         elif key == "disableValueTrimming":
             suggest = "disable_value_trimming"
         elif key == "quoteSymbol":
@@ -920,6 +924,8 @@ class ClassifierCsvClassifier(dict):
     def __init__(__self__, *,
                  allow_single_column: Optional[bool] = None,
                  contains_header: Optional[str] = None,
+                 custom_datatype_configured: Optional[bool] = None,
+                 custom_datatypes: Optional[Sequence[str]] = None,
                  delimiter: Optional[str] = None,
                  disable_value_trimming: Optional[bool] = None,
                  headers: Optional[Sequence[str]] = None,
@@ -927,6 +933,8 @@ class ClassifierCsvClassifier(dict):
         """
         :param bool allow_single_column: Enables the processing of files that contain only one column.
         :param str contains_header: Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
+        :param bool custom_datatype_configured: A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        :param Sequence[str] custom_datatypes: A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
         :param str delimiter: The delimiter used in the Csv to separate columns.
         :param bool disable_value_trimming: Specifies whether to trim column values.
         :param Sequence[str] headers: A list of strings representing column names.
@@ -936,6 +944,10 @@ class ClassifierCsvClassifier(dict):
             pulumi.set(__self__, "allow_single_column", allow_single_column)
         if contains_header is not None:
             pulumi.set(__self__, "contains_header", contains_header)
+        if custom_datatype_configured is not None:
+            pulumi.set(__self__, "custom_datatype_configured", custom_datatype_configured)
+        if custom_datatypes is not None:
+            pulumi.set(__self__, "custom_datatypes", custom_datatypes)
         if delimiter is not None:
             pulumi.set(__self__, "delimiter", delimiter)
         if disable_value_trimming is not None:
@@ -960,6 +972,22 @@ class ClassifierCsvClassifier(dict):
         Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
         """
         return pulumi.get(self, "contains_header")
+
+    @property
+    @pulumi.getter(name="customDatatypeConfigured")
+    def custom_datatype_configured(self) -> Optional[bool]:
+        """
+        A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        """
+        return pulumi.get(self, "custom_datatype_configured")
+
+    @property
+    @pulumi.getter(name="customDatatypes")
+    def custom_datatypes(self) -> Optional[Sequence[str]]:
+        """
+        A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+        """
+        return pulumi.get(self, "custom_datatypes")
 
     @property
     @pulumi.getter

@@ -24,6 +24,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         /// <summary>
         /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
         /// </summary>
+        [Obsolete(@"Use rule_action_override instead")]
         public InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs> ExcludedRules
         {
             get => _excludedRules ?? (_excludedRules = new InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs>());

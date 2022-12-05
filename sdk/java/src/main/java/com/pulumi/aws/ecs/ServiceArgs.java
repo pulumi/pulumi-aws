@@ -10,6 +10,7 @@ import com.pulumi.aws.ecs.inputs.ServiceLoadBalancerArgs;
 import com.pulumi.aws.ecs.inputs.ServiceNetworkConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.ServiceOrderedPlacementStrategyArgs;
 import com.pulumi.aws.ecs.inputs.ServicePlacementConstraintArgs;
+import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.ServiceServiceRegistriesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -343,6 +344,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     * 
+     */
+    @Import(name="serviceConnectConfiguration")
+    private @Nullable Output<ServiceServiceConnectConfigurationArgs> serviceConnectConfiguration;
+
+    /**
+     * @return The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     * 
+     */
+    public Optional<Output<ServiceServiceConnectConfigurationArgs>> serviceConnectConfiguration() {
+        return Optional.ofNullable(this.serviceConnectConfiguration);
+    }
+
+    /**
      * Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
      * 
      */
@@ -441,6 +457,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         this.platformVersion = $.platformVersion;
         this.propagateTags = $.propagateTags;
         this.schedulingStrategy = $.schedulingStrategy;
+        this.serviceConnectConfiguration = $.serviceConnectConfiguration;
         this.serviceRegistries = $.serviceRegistries;
         this.tags = $.tags;
         this.taskDefinition = $.taskDefinition;
@@ -945,6 +962,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder schedulingStrategy(String schedulingStrategy) {
             return schedulingStrategy(Output.of(schedulingStrategy));
+        }
+
+        /**
+         * @param serviceConnectConfiguration The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceConnectConfiguration(@Nullable Output<ServiceServiceConnectConfigurationArgs> serviceConnectConfiguration) {
+            $.serviceConnectConfiguration = serviceConnectConfiguration;
+            return this;
+        }
+
+        /**
+         * @param serviceConnectConfiguration The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceConnectConfiguration(ServiceServiceConnectConfigurationArgs serviceConnectConfiguration) {
+            return serviceConnectConfiguration(Output.of(serviceConnectConfiguration));
         }
 
         /**

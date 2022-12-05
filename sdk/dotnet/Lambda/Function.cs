@@ -470,9 +470,16 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// ARN of the signing profile version.
+        /// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         /// </summary>
         [Output("signingProfileVersionArn")]
         public Output<string> SigningProfileVersionArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Snap start settings block. Detailed below.
+        /// </summary>
+        [Output("snapStart")]
+        public Output<Outputs.FunctionSnapStart?> SnapStart { get; private set; } = null!;
 
         /// <summary>
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
@@ -720,6 +727,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? S3ObjectVersion { get; set; }
 
         /// <summary>
+        /// Snap start settings block. Detailed below.
+        /// </summary>
+        [Input("snapStart")]
+        public Input<Inputs.FunctionSnapStartArgs>? SnapStart { get; set; }
+
+        /// <summary>
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         /// </summary>
         [Input("sourceCodeHash")]
@@ -951,9 +964,16 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// ARN of the signing profile version.
+        /// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         /// </summary>
         [Input("signingProfileVersionArn")]
         public Input<string>? SigningProfileVersionArn { get; set; }
+
+        /// <summary>
+        /// Snap start settings block. Detailed below.
+        /// </summary>
+        [Input("snapStart")]
+        public Input<Inputs.FunctionSnapStartGetArgs>? SnapStart { get; set; }
 
         /// <summary>
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.

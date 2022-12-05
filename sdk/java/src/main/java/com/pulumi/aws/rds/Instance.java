@@ -666,19 +666,19 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storage_type of &#34;io1&#34;.
+     * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
      * 
      */
     @Export(name="iops", type=Integer.class, parameters={})
-    private Output</* @Nullable */ Integer> iops;
+    private Output<Integer> iops;
 
     /**
      * @return The amount of provisioned IOPS. Setting this implies a
-     * storage_type of &#34;io1&#34;.
+     * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
      * 
      */
-    public Output<Optional<Integer>> iops() {
-        return Codegen.optional(this.iops);
+    public Output<Integer> iops() {
+        return this.iops;
     }
     /**
      * The ARN for the KMS encryption key. If creating an
@@ -1173,9 +1173,24 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageEncrypted);
     }
     /**
+     * The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`.
+     * 
+     */
+    @Export(name="storageThroughput", type=Integer.class, parameters={})
+    private Output<Integer> storageThroughput;
+
+    /**
+     * @return The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`.
+     * 
+     */
+    public Output<Integer> storageThroughput() {
+        return this.storageThroughput;
+    }
+    /**
      * One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
-     * purpose SSD), or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is
-     * specified, &#34;gp2&#34; if not.
+     * purpose SSD), &#34;gp3&#34; (general purpose SSD that needs `iops` independently)
+     * or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is specified,
+     * &#34;gp2&#34; if not.
      * 
      */
     @Export(name="storageType", type=String.class, parameters={})
@@ -1183,8 +1198,9 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
-     * purpose SSD), or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is
-     * specified, &#34;gp2&#34; if not.
+     * purpose SSD), &#34;gp3&#34; (general purpose SSD that needs `iops` independently)
+     * or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is specified,
+     * &#34;gp2&#34; if not.
      * 
      */
     public Output<String> storageType() {

@@ -165,6 +165,8 @@ type Cluster struct {
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayOutput `pulumi:"defaultCapacityProviderStrategies"`
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Configures a default Service Connect namespace. Detailed below.
+	ServiceConnectDefaults ClusterServiceConnectDefaultsPtrOutput `pulumi:"serviceConnectDefaults"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings ClusterSettingArrayOutput `pulumi:"settings"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -216,6 +218,8 @@ type clusterState struct {
 	DefaultCapacityProviderStrategies []ClusterDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name *string `pulumi:"name"`
+	// Configures a default Service Connect namespace. Detailed below.
+	ServiceConnectDefaults *ClusterServiceConnectDefaults `pulumi:"serviceConnectDefaults"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings []ClusterSetting `pulumi:"settings"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -239,6 +243,8 @@ type ClusterState struct {
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayInput
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name pulumi.StringPtrInput
+	// Configures a default Service Connect namespace. Detailed below.
+	ServiceConnectDefaults ClusterServiceConnectDefaultsPtrInput
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings ClusterSettingArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -264,6 +270,8 @@ type clusterArgs struct {
 	DefaultCapacityProviderStrategies []ClusterDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name *string `pulumi:"name"`
+	// Configures a default Service Connect namespace. Detailed below.
+	ServiceConnectDefaults *ClusterServiceConnectDefaults `pulumi:"serviceConnectDefaults"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings []ClusterSetting `pulumi:"settings"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -284,6 +292,8 @@ type ClusterArgs struct {
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayInput
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name pulumi.StringPtrInput
+	// Configures a default Service Connect namespace. Detailed below.
+	ServiceConnectDefaults ClusterServiceConnectDefaultsPtrInput
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings ClusterSettingArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -406,6 +416,11 @@ func (o ClusterOutput) DefaultCapacityProviderStrategies() ClusterDefaultCapacit
 // Name of the setting to manage. Valid values: `containerInsights`.
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configures a default Service Connect namespace. Detailed below.
+func (o ClusterOutput) ServiceConnectDefaults() ClusterServiceConnectDefaultsPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterServiceConnectDefaultsPtrOutput { return v.ServiceConnectDefaults }).(ClusterServiceConnectDefaultsPtrOutput)
 }
 
 // Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.

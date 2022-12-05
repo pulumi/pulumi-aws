@@ -225,8 +225,8 @@ type Instance struct {
 	// The instance type of the RDS instance.
 	InstanceClass pulumi.StringOutput `pulumi:"instanceClass"`
 	// The amount of provisioned IOPS. Setting this implies a
-	// storageType of "io1".
-	Iops pulumi.IntPtrOutput `pulumi:"iops"`
+	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+	Iops pulumi.IntOutput `pulumi:"iops"`
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
@@ -326,9 +326,12 @@ type Instance struct {
 	// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
 	// default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+	StorageThroughput pulumi.IntOutput `pulumi:"storageThroughput"`
 	// One of "standard" (magnetic), "gp2" (general
-	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-	// specified, "gp2" if not.
+	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+	// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+	// "gp2" if not.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -490,7 +493,7 @@ type instanceState struct {
 	// The instance type of the RDS instance.
 	InstanceClass *string `pulumi:"instanceClass"`
 	// The amount of provisioned IOPS. Setting this implies a
-	// storageType of "io1".
+	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
 	Iops *int `pulumi:"iops"`
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
@@ -591,9 +594,12 @@ type instanceState struct {
 	// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
 	// default is `false` if not specified.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+	StorageThroughput *int `pulumi:"storageThroughput"`
 	// One of "standard" (magnetic), "gp2" (general
-	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-	// specified, "gp2" if not.
+	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+	// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+	// "gp2" if not.
 	StorageType *string `pulumi:"storageType"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -717,7 +723,7 @@ type InstanceState struct {
 	// The instance type of the RDS instance.
 	InstanceClass pulumi.StringPtrInput
 	// The amount of provisioned IOPS. Setting this implies a
-	// storageType of "io1".
+	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
 	Iops pulumi.IntPtrInput
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
@@ -818,9 +824,12 @@ type InstanceState struct {
 	// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
 	// default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrInput
+	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+	StorageThroughput pulumi.IntPtrInput
 	// One of "standard" (magnetic), "gp2" (general
-	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-	// specified, "gp2" if not.
+	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+	// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+	// "gp2" if not.
 	StorageType pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -937,7 +946,7 @@ type instanceArgs struct {
 	// The instance type of the RDS instance.
 	InstanceClass string `pulumi:"instanceClass"`
 	// The amount of provisioned IOPS. Setting this implies a
-	// storageType of "io1".
+	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
 	Iops *int `pulumi:"iops"`
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
@@ -1031,9 +1040,12 @@ type instanceArgs struct {
 	// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
 	// default is `false` if not specified.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+	StorageThroughput *int `pulumi:"storageThroughput"`
 	// One of "standard" (magnetic), "gp2" (general
-	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-	// specified, "gp2" if not.
+	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+	// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+	// "gp2" if not.
 	StorageType *string `pulumi:"storageType"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -1145,7 +1157,7 @@ type InstanceArgs struct {
 	// The instance type of the RDS instance.
 	InstanceClass pulumi.StringInput
 	// The amount of provisioned IOPS. Setting this implies a
-	// storageType of "io1".
+	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
 	Iops pulumi.IntPtrInput
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
@@ -1239,9 +1251,12 @@ type InstanceArgs struct {
 	// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
 	// default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrInput
+	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+	StorageThroughput pulumi.IntPtrInput
 	// One of "standard" (magnetic), "gp2" (general
-	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-	// specified, "gp2" if not.
+	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+	// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+	// "gp2" if not.
 	StorageType pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -1545,9 +1560,9 @@ func (o InstanceOutput) InstanceClass() pulumi.StringOutput {
 }
 
 // The amount of provisioned IOPS. Setting this implies a
-// storageType of "io1".
-func (o InstanceOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Instance) pulumi.IntPtrOutput { return v.Iops }).(pulumi.IntPtrOutput)
+// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+func (o InstanceOutput) Iops() pulumi.IntOutput {
+	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.Iops }).(pulumi.IntOutput)
 }
 
 // The ARN for the KMS encryption key. If creating an
@@ -1739,9 +1754,15 @@ func (o InstanceOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+func (o InstanceOutput) StorageThroughput() pulumi.IntOutput {
+	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.StorageThroughput }).(pulumi.IntOutput)
+}
+
 // One of "standard" (magnetic), "gp2" (general
-// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-// specified, "gp2" if not.
+// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
+// "gp2" if not.
 func (o InstanceOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.StorageType }).(pulumi.StringOutput)
 }

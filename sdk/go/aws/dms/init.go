@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReplicationSubnetGroup{}
 	case "aws:dms/replicationTask:ReplicationTask":
 		r = &ReplicationTask{}
+	case "aws:dms/s3Endpoint:S3Endpoint":
+		r = &S3Endpoint{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -74,6 +76,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dms/replicationTask",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dms/s3Endpoint",
 		&module{version},
 	)
 }

@@ -25,6 +25,24 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? ContainsHeader { get; set; }
 
         /// <summary>
+        /// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        /// </summary>
+        [Input("customDatatypeConfigured")]
+        public Input<bool>? CustomDatatypeConfigured { get; set; }
+
+        [Input("customDatatypes")]
+        private InputList<string>? _customDatatypes;
+
+        /// <summary>
+        /// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+        /// </summary>
+        public InputList<string> CustomDatatypes
+        {
+            get => _customDatatypes ?? (_customDatatypes = new InputList<string>());
+            set => _customDatatypes = value;
+        }
+
+        /// <summary>
         /// The delimiter used in the Csv to separate columns.
         /// </summary>
         [Input("delimiter")]

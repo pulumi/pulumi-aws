@@ -122,6 +122,13 @@ export interface ClusterDefaultCapacityProviderStrategy {
     weight?: number;
 }
 
+export interface ClusterServiceConnectDefaults {
+    /**
+     * The ARN of the `aws.servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+     */
+    namespace: string;
+}
+
 export interface ClusterSetting {
     /**
      * Name of the setting to manage. Valid values: `containerInsights`.
@@ -131,6 +138,10 @@ export interface ClusterSetting {
      * The value to assign to the setting. Valid values are `enabled` and `disabled`.
      */
     value: string;
+}
+
+export interface GetClusterServiceConnectDefault {
+    namespace: string;
 }
 
 export interface GetClusterSetting {
@@ -228,6 +239,81 @@ export interface ServicePlacementConstraint {
      * Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
      */
     type: string;
+}
+
+export interface ServiceServiceConnectConfiguration {
+    /**
+     * Specifies whether to use Service Connect with this service.
+     */
+    enabled: boolean;
+    /**
+     * The log configuration for the container. See below.
+     */
+    logConfiguration?: outputs.ecs.ServiceServiceConnectConfigurationLogConfiguration;
+    /**
+     * The namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
+     */
+    namespace?: string;
+    /**
+     * The list of Service Connect service objects. See below.
+     */
+    service?: outputs.ecs.ServiceServiceConnectConfigurationService;
+}
+
+export interface ServiceServiceConnectConfigurationLogConfiguration {
+    /**
+     * The log driver to use for the container.
+     */
+    logDriver?: string;
+    /**
+     * The configuration options to send to the log driver.
+     */
+    options: {[key: string]: string};
+    /**
+     * The secrets to pass to the log configuration. See below.
+     */
+    secretOptions?: outputs.ecs.ServiceServiceConnectConfigurationLogConfigurationSecretOption[];
+}
+
+export interface ServiceServiceConnectConfigurationLogConfigurationSecretOption {
+    /**
+     * The name of the secret.
+     */
+    name: string;
+    /**
+     * The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+     */
+    valueFrom: string;
+}
+
+export interface ServiceServiceConnectConfigurationService {
+    /**
+     * The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+     */
+    clientAliases: outputs.ecs.ServiceServiceConnectConfigurationServiceClientAlias[];
+    /**
+     * The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+     */
+    discoveryName?: string;
+    /**
+     * The port number for the Service Connect proxy to listen on.
+     */
+    ingressPortOverride?: number;
+    /**
+     * The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+     */
+    portName: string;
+}
+
+export interface ServiceServiceConnectConfigurationServiceClientAlias {
+    /**
+     * The name that you use in the applications of client tasks to connect to this service.
+     */
+    dnsName?: string;
+    /**
+     * The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+     */
+    port: number;
 }
 
 export interface ServiceServiceRegistries {

@@ -128,6 +128,8 @@ type LookupInstanceResult struct {
 	ResourceId string `pulumi:"resourceId"`
 	// Whether the DB instance is encrypted.
 	StorageEncrypted bool `pulumi:"storageEncrypted"`
+	// Storage throughput value for the DB instance.
+	StorageThroughput int `pulumi:"storageThroughput"`
 	// Storage type associated with DB instance.
 	StorageType string            `pulumi:"storageType"`
 	Tags        map[string]string `pulumi:"tags"`
@@ -358,6 +360,11 @@ func (o LookupInstanceResultOutput) ResourceId() pulumi.StringOutput {
 // Whether the DB instance is encrypted.
 func (o LookupInstanceResultOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupInstanceResult) bool { return v.StorageEncrypted }).(pulumi.BoolOutput)
+}
+
+// Storage throughput value for the DB instance.
+func (o LookupInstanceResultOutput) StorageThroughput() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupInstanceResult) int { return v.StorageThroughput }).(pulumi.IntOutput)
 }
 
 // Storage type associated with DB instance.

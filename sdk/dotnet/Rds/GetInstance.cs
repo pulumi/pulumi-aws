@@ -261,6 +261,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly bool StorageEncrypted;
         /// <summary>
+        /// Storage throughput value for the DB instance.
+        /// </summary>
+        public readonly int StorageThroughput;
+        /// <summary>
         /// Storage type associated with DB instance.
         /// </summary>
         public readonly string StorageType;
@@ -350,6 +354,8 @@ namespace Pulumi.Aws.Rds
 
             bool storageEncrypted,
 
+            int storageThroughput,
+
             string storageType,
 
             ImmutableDictionary<string, string> tags,
@@ -395,6 +401,7 @@ namespace Pulumi.Aws.Rds
             ReplicateSourceDb = replicateSourceDb;
             ResourceId = resourceId;
             StorageEncrypted = storageEncrypted;
+            StorageThroughput = storageThroughput;
             StorageType = storageType;
             Tags = tags;
             Timezone = timezone;
