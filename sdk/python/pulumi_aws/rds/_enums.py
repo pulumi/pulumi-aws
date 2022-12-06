@@ -110,4 +110,5 @@ class InstanceType(str, Enum):
 class StorageType(str, Enum):
     STANDARD = "standard"
     GP2 = "gp2"
+    GP3 = "gp3"
     IO1 = "io1"
