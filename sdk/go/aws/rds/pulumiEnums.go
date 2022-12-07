@@ -587,6 +587,7 @@ type StorageType string
 const (
 	StorageTypeStandard = StorageType("standard")
 	StorageTypeGP2      = StorageType("gp2")
+	StorageTypeGP3      = StorageType("gp3")
 	StorageTypeIO1      = StorageType("io1")
 )
 

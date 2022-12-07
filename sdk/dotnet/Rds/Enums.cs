@@ -183,6 +183,7 @@ namespace Pulumi.Aws.Rds
 
         public static StorageType Standard { get; } = new StorageType("standard");
         public static StorageType GP2 { get; } = new StorageType("gp2");
+        public static StorageType GP3 { get; } = new StorageType("gp3");
         public static StorageType IO1 { get; } = new StorageType("io1");
 
         public static bool operator ==(StorageType left, StorageType right) => left.Equals(right);

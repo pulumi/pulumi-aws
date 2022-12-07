@@ -106,6 +106,7 @@ export type InstanceType = (typeof InstanceType)[keyof typeof InstanceType];
 export const StorageType = {
     Standard: "standard",
     GP2: "gp2",
+    GP3: "gp3",
     IO1: "io1",
 } as const;
 

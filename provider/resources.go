@@ -4672,6 +4672,7 @@ func Provider() tfbridge.ProviderInfo {
 				Enum: []schema.EnumValueSpec{
 					{Name: "Standard", Value: "standard"},
 					{Name: "GP2", Value: "gp2"},
+					{Name: "GP3", Value: "gp3"},
 					{Name: "IO1", Value: "io1"},
 				},
 			},

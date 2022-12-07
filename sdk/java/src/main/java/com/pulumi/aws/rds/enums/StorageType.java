@@ -12,6 +12,7 @@ import java.util.StringJoiner;
     public enum StorageType {
         Standard("standard"),
         GP2("gp2"),
+        GP3("gp3"),
         IO1("io1");
 
         private final String value;
