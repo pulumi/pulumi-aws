@@ -113,4 +113,18 @@ tfgen: install_plugins
 bin/pulumi-java-gen: 
 	pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java
 
+init_upstream:
+	@if [ ! -f "upstream/.git" ]; then \
+			echo "Initializing upstream submodule" ; \
+			(cd upstream && git submodule update --init && git remote add source git@github.com:hashicorp/terraform-provider-aws.git) ; \
+		fi; \
+
+update_upstream: init_upstream
+	# Find latest tag, create new branch, rebase on new tag, push
+	export TAG=$$(cd upstream && git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1) && \
+		cd upstream && \
+		git checkout -b "patched-$$TAG" && \
+		git rebase "$$TAG" && \
+		git push origin "patched-$$TAG"
+
 .PHONY: development build build_sdks install_go_sdk install_java_sdk install_python_sdk install_sdks only_build build_dotnet build_go build_java build_nodejs build_python clean cleanup help install_dotnet_sdk install_nodejs_sdk install_plugins lint_provider provider test tfgen
