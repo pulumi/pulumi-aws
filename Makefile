@@ -119,6 +119,13 @@ init_upstream:
 			(cd upstream && git submodule update --init && git remote add source git@github.com:hashicorp/terraform-provider-aws.git) ; \
 		fi; \
 
+patch_upstream:
+	cd upstream-tools && \
+		yarn install --frozen-lockfile --silent
+	cd upstream && git checkout . && cd - || exit
+	cd upstream-tools && \
+		yarn --silent run tf-patch apply --cwd ../upstream
+
 update_upstream: init_upstream
 	# Find latest tag, create new branch, rebase on new tag, push
 	export TAG=$$(cd upstream && git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1) && \
