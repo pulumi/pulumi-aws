@@ -65,9 +65,6 @@ the language of choice, while having Pulumi itself do the appropriate transforma
 This makes many APIs easier to use, such as defining a Lambda to execute when an S3 Bucket is manipulated,
 or a CloudWatch timer is fired. To see some examples of this in action, please refer to the `examples/` directory.
 
-The [pulumi/pulumi-cloud](https://github.com/pulumi/pulumi-cloud) repo offer higher level abstractions that build on top
-of this underlying capability.
-
 ## Configuration
 
 The following configuration points are available:
