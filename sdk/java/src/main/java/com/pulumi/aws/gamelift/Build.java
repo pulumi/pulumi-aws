@@ -70,7 +70,7 @@ public class Build extends com.pulumi.resources.CustomResource {
      * GameLift Build ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -84,7 +84,7 @@ public class Build extends com.pulumi.resources.CustomResource {
      * Name of the build
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -98,7 +98,7 @@ public class Build extends com.pulumi.resources.CustomResource {
      * Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
      * 
      */
-    @Export(name="operatingSystem", type=String.class, parameters={})
+    @Export(name="operatingSystem", refs={String.class}, tree="[0]")
     private Output<String> operatingSystem;
 
     /**
@@ -112,7 +112,7 @@ public class Build extends com.pulumi.resources.CustomResource {
      * Information indicating where your game build files are stored. See below.
      * 
      */
-    @Export(name="storageLocation", type=BuildStorageLocation.class, parameters={})
+    @Export(name="storageLocation", refs={BuildStorageLocation.class}, tree="[0]")
     private Output<BuildStorageLocation> storageLocation;
 
     /**
@@ -126,7 +126,7 @@ public class Build extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -140,7 +140,7 @@ public class Build extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -154,7 +154,7 @@ public class Build extends com.pulumi.resources.CustomResource {
      * Version that is associated with this build.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> version;
 
     /**

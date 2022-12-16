@@ -80,7 +80,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * ARN of the Document Classifier version.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -94,7 +94,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
      * 
      */
-    @Export(name="dataAccessRoleArn", type=String.class, parameters={})
+    @Export(name="dataAccessRoleArn", refs={String.class}, tree="[0]")
     private Output<String> dataAccessRoleArn;
 
     /**
@@ -109,7 +109,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * See the `input_data_config` Configuration Block section below.
      * 
      */
-    @Export(name="inputDataConfig", type=DocumentClassifierInputDataConfig.class, parameters={})
+    @Export(name="inputDataConfig", refs={DocumentClassifierInputDataConfig.class}, tree="[0]")
     private Output<DocumentClassifierInputDataConfig> inputDataConfig;
 
     /**
@@ -125,7 +125,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
      * 
      */
-    @Export(name="languageCode", type=String.class, parameters={})
+    @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
@@ -142,7 +142,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * `MULTI_CLASS` is also known as &#34;Single Label&#34; in the AWS Console.
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mode;
 
     /**
@@ -159,7 +159,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * Can be a KMS Key ID or a KMS Key ARN.
      * 
      */
-    @Export(name="modelKmsKeyId", type=String.class, parameters={})
+    @Export(name="modelKmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> modelKmsKeyId;
 
     /**
@@ -176,7 +176,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -193,7 +193,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * See the `output_data_config` Configuration Block section below.
      * 
      */
-    @Export(name="outputDataConfig", type=DocumentClassifierOutputDataConfig.class, parameters={})
+    @Export(name="outputDataConfig", refs={DocumentClassifierOutputDataConfig.class}, tree="[0]")
     private Output<DocumentClassifierOutputDataConfig> outputDataConfig;
 
     /**
@@ -208,7 +208,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -222,7 +222,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -242,7 +242,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * Conflicts with `version_name_prefix`.
      * 
      */
-    @Export(name="versionName", type=String.class, parameters={})
+    @Export(name="versionName", refs={String.class}, tree="[0]")
     private Output<String> versionName;
 
     /**
@@ -265,7 +265,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * Conflicts with `version_name`.
      * 
      */
-    @Export(name="versionNamePrefix", type=String.class, parameters={})
+    @Export(name="versionNamePrefix", refs={String.class}, tree="[0]")
     private Output<String> versionNamePrefix;
 
     /**
@@ -283,7 +283,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * Can be a KMS Key ID or a KMS Key ARN.
      * 
      */
-    @Export(name="volumeKmsKeyId", type=String.class, parameters={})
+    @Export(name="volumeKmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> volumeKmsKeyId;
 
     /**
@@ -299,7 +299,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * See the `vpc_config` Configuration Block section below.
      * 
      */
-    @Export(name="vpcConfig", type=DocumentClassifierVpcConfig.class, parameters={})
+    @Export(name="vpcConfig", refs={DocumentClassifierVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ DocumentClassifierVpcConfig> vpcConfig;
 
     /**

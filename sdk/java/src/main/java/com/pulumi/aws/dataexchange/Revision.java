@@ -63,7 +63,7 @@ public class Revision extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name of this data set.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -77,7 +77,7 @@ public class Revision extends com.pulumi.resources.CustomResource {
      * An optional comment about the revision.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -91,7 +91,7 @@ public class Revision extends com.pulumi.resources.CustomResource {
      * The dataset id.
      * 
      */
-    @Export(name="dataSetId", type=String.class, parameters={})
+    @Export(name="dataSetId", refs={String.class}, tree="[0]")
     private Output<String> dataSetId;
 
     /**
@@ -105,7 +105,7 @@ public class Revision extends com.pulumi.resources.CustomResource {
      * The Id of the revision.
      * 
      */
-    @Export(name="revisionId", type=String.class, parameters={})
+    @Export(name="revisionId", refs={String.class}, tree="[0]")
     private Output<String> revisionId;
 
     /**
@@ -119,7 +119,7 @@ public class Revision extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -133,7 +133,7 @@ public class Revision extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

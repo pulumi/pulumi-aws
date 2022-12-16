@@ -118,7 +118,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name of the job queue.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -134,7 +134,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      * in the list will dictate the order.
      * 
      */
-    @Export(name="computeEnvironments", type=List.class, parameters={String.class})
+    @Export(name="computeEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> computeEnvironments;
 
     /**
@@ -150,7 +150,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      * Specifies the name of the job queue.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -165,7 +165,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      * are evaluated first when associated with the same compute environment.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
@@ -180,7 +180,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
      * 
      */
-    @Export(name="schedulingPolicyArn", type=String.class, parameters={})
+    @Export(name="schedulingPolicyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schedulingPolicyArn;
 
     /**
@@ -194,7 +194,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -208,7 +208,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -222,7 +222,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

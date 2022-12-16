@@ -65,7 +65,7 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
      * A description of the subnet group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -79,7 +79,7 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
      * The name of the subnet group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -93,7 +93,7 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
      * A list of VPC subnet IDs for the subnet group.
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
@@ -107,7 +107,7 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
      * VPC ID of the subnet group.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

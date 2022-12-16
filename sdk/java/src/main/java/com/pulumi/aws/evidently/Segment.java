@@ -135,7 +135,7 @@ public class Segment extends com.pulumi.resources.CustomResource {
      * The ARN of the segment.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -149,7 +149,7 @@ public class Segment extends com.pulumi.resources.CustomResource {
      * The date and time that the segment is created.
      * 
      */
-    @Export(name="createdTime", type=String.class, parameters={})
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
@@ -163,7 +163,7 @@ public class Segment extends com.pulumi.resources.CustomResource {
      * Specifies the description of the segment.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -177,7 +177,7 @@ public class Segment extends com.pulumi.resources.CustomResource {
      * The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
      * 
      */
-    @Export(name="experimentCount", type=Integer.class, parameters={})
+    @Export(name="experimentCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> experimentCount;
 
     /**
@@ -191,7 +191,7 @@ public class Segment extends com.pulumi.resources.CustomResource {
      * The date and time that this segment was most recently updated.
      * 
      */
-    @Export(name="lastUpdatedTime", type=String.class, parameters={})
+    @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
     /**
@@ -205,7 +205,7 @@ public class Segment extends com.pulumi.resources.CustomResource {
      * The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
      * 
      */
-    @Export(name="launchCount", type=Integer.class, parameters={})
+    @Export(name="launchCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> launchCount;
 
     /**
@@ -219,7 +219,7 @@ public class Segment extends com.pulumi.resources.CustomResource {
      * A name for the segment.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -233,7 +233,7 @@ public class Segment extends com.pulumi.resources.CustomResource {
      * The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
      * 
      */
-    @Export(name="pattern", type=String.class, parameters={})
+    @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output<String> pattern;
 
     /**
@@ -247,7 +247,7 @@ public class Segment extends com.pulumi.resources.CustomResource {
      * Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -261,7 +261,7 @@ public class Segment extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

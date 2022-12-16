@@ -163,7 +163,7 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * updates to the origin access identity.
      * 
      */
-    @Export(name="callerReference", type=String.class, parameters={})
+    @Export(name="callerReference", refs={String.class}, tree="[0]")
     private Output<String> callerReference;
 
     /**
@@ -179,7 +179,7 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * origin access identity to use in CloudFront, see below.
      * 
      */
-    @Export(name="cloudfrontAccessIdentityPath", type=String.class, parameters={})
+    @Export(name="cloudfrontAccessIdentityPath", refs={String.class}, tree="[0]")
     private Output<String> cloudfrontAccessIdentityPath;
 
     /**
@@ -194,7 +194,7 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * An optional comment for the origin access identity.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -209,7 +209,7 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -226,7 +226,7 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * E2QWRUHAPOMQZL`.
      * 
      */
-    @Export(name="iamArn", type=String.class, parameters={})
+    @Export(name="iamArn", refs={String.class}, tree="[0]")
     private Output<String> iamArn;
 
     /**
@@ -244,7 +244,7 @@ public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
      * permission to an object in Amazon S3.
      * 
      */
-    @Export(name="s3CanonicalUserId", type=String.class, parameters={})
+    @Export(name="s3CanonicalUserId", refs={String.class}, tree="[0]")
     private Output<String> s3CanonicalUserId;
 
     /**

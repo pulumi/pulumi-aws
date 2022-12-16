@@ -142,7 +142,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * The ARN of the Glue Table.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -156,7 +156,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * ID of the Data Catalog in which the table resides.
      * 
      */
-    @Export(name="catalogId", type=String.class, parameters={})
+    @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
@@ -170,7 +170,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * Name of the catalog database that contains the target table.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -184,7 +184,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * Description of the table.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -198,7 +198,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * Name of the target table.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -212,7 +212,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * Owner of the table.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> owner;
 
     /**
@@ -226,7 +226,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * Map of initialization parameters for the SerDe, in key-value form.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -240,7 +240,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
      * 
      */
-    @Export(name="partitionIndices", type=List.class, parameters={CatalogTablePartitionIndex.class})
+    @Export(name="partitionIndices", refs={List.class,CatalogTablePartitionIndex.class}, tree="[0,1]")
     private Output<List<CatalogTablePartitionIndex>> partitionIndices;
 
     /**
@@ -254,7 +254,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
      * 
      */
-    @Export(name="partitionKeys", type=List.class, parameters={CatalogTablePartitionKey.class})
+    @Export(name="partitionKeys", refs={List.class,CatalogTablePartitionKey.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CatalogTablePartitionKey>> partitionKeys;
 
     /**
@@ -268,7 +268,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * Retention time for this table.
      * 
      */
-    @Export(name="retention", type=Integer.class, parameters={})
+    @Export(name="retention", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retention;
 
     /**
@@ -282,7 +282,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
      * 
      */
-    @Export(name="storageDescriptor", type=CatalogTableStorageDescriptor.class, parameters={})
+    @Export(name="storageDescriptor", refs={CatalogTableStorageDescriptor.class}, tree="[0]")
     private Output</* @Nullable */ CatalogTableStorageDescriptor> storageDescriptor;
 
     /**
@@ -296,7 +296,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      * 
      */
-    @Export(name="tableType", type=String.class, parameters={})
+    @Export(name="tableType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tableType;
 
     /**
@@ -310,7 +310,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * Configuration block of a target table for resource linking. See `target_table` below.
      * 
      */
-    @Export(name="targetTable", type=CatalogTableTargetTable.class, parameters={})
+    @Export(name="targetTable", refs={CatalogTableTargetTable.class}, tree="[0]")
     private Output</* @Nullable */ CatalogTableTargetTable> targetTable;
 
     /**
@@ -324,7 +324,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * If the table is a view, the expanded text of the view; otherwise null.
      * 
      */
-    @Export(name="viewExpandedText", type=String.class, parameters={})
+    @Export(name="viewExpandedText", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> viewExpandedText;
 
     /**
@@ -338,7 +338,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * If the table is a view, the original text of the view; otherwise null.
      * 
      */
-    @Export(name="viewOriginalText", type=String.class, parameters={})
+    @Export(name="viewOriginalText", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> viewOriginalText;
 
     /**

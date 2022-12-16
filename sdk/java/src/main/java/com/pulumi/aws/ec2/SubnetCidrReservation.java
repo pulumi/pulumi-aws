@@ -64,7 +64,7 @@ public class SubnetCidrReservation extends com.pulumi.resources.CustomResource {
      * The CIDR block for the reservation.
      * 
      */
-    @Export(name="cidrBlock", type=String.class, parameters={})
+    @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output<String> cidrBlock;
 
     /**
@@ -78,7 +78,7 @@ public class SubnetCidrReservation extends com.pulumi.resources.CustomResource {
      * A brief description of the reservation.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -92,7 +92,7 @@ public class SubnetCidrReservation extends com.pulumi.resources.CustomResource {
      * ID of the AWS account that owns this CIDR reservation.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -106,7 +106,7 @@ public class SubnetCidrReservation extends com.pulumi.resources.CustomResource {
      * The type of reservation to create. Valid values: `explicit`, `prefix`
      * 
      */
-    @Export(name="reservationType", type=String.class, parameters={})
+    @Export(name="reservationType", refs={String.class}, tree="[0]")
     private Output<String> reservationType;
 
     /**
@@ -120,7 +120,7 @@ public class SubnetCidrReservation extends com.pulumi.resources.CustomResource {
      * The ID of the subnet to create the reservation for.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**

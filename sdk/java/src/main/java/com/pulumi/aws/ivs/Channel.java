@@ -62,7 +62,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * ARN of the Channel.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -76,7 +76,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * If `true`, channel is private (enabled for playback authorization).
      * 
      */
-    @Export(name="authorized", type=Boolean.class, parameters={})
+    @Export(name="authorized", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> authorized;
 
     /**
@@ -90,7 +90,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
      * 
      */
-    @Export(name="ingestEndpoint", type=String.class, parameters={})
+    @Export(name="ingestEndpoint", refs={String.class}, tree="[0]")
     private Output<String> ingestEndpoint;
 
     /**
@@ -104,7 +104,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Channel latency mode. Valid values: `NORMAL`, `LOW`.
      * 
      */
-    @Export(name="latencyMode", type=String.class, parameters={})
+    @Export(name="latencyMode", refs={String.class}, tree="[0]")
     private Output<String> latencyMode;
 
     /**
@@ -118,7 +118,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Channel name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -132,7 +132,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Channel playback URL.
      * 
      */
-    @Export(name="playbackUrl", type=String.class, parameters={})
+    @Export(name="playbackUrl", refs={String.class}, tree="[0]")
     private Output<String> playbackUrl;
 
     /**
@@ -146,7 +146,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Recording configuration ARN.
      * 
      */
-    @Export(name="recordingConfigurationArn", type=String.class, parameters={})
+    @Export(name="recordingConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> recordingConfigurationArn;
 
     /**
@@ -160,7 +160,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -174,7 +174,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -188,7 +188,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

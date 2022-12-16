@@ -216,7 +216,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * The ARN of the Kinesis Analytics Appliation.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -231,7 +231,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * See CloudWatch Logging Options below for more details.
      * 
      */
-    @Export(name="cloudwatchLoggingOptions", type=AnalyticsApplicationCloudwatchLoggingOptions.class, parameters={})
+    @Export(name="cloudwatchLoggingOptions", refs={AnalyticsApplicationCloudwatchLoggingOptions.class}, tree="[0]")
     private Output</* @Nullable */ AnalyticsApplicationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
 
     /**
@@ -246,7 +246,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * SQL Code to transform input data, and generate output.
      * 
      */
-    @Export(name="code", type=String.class, parameters={})
+    @Export(name="code", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> code;
 
     /**
@@ -260,7 +260,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * The Timestamp when the application version was created.
      * 
      */
-    @Export(name="createTimestamp", type=String.class, parameters={})
+    @Export(name="createTimestamp", refs={String.class}, tree="[0]")
     private Output<String> createTimestamp;
 
     /**
@@ -274,7 +274,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * Description of the application.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -288,7 +288,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * Input configuration of the application. See Inputs below for more details.
      * 
      */
-    @Export(name="inputs", type=AnalyticsApplicationInputs.class, parameters={})
+    @Export(name="inputs", refs={AnalyticsApplicationInputs.class}, tree="[0]")
     private Output</* @Nullable */ AnalyticsApplicationInputs> inputs;
 
     /**
@@ -302,7 +302,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * The Timestamp when the application was last updated.
      * 
      */
-    @Export(name="lastUpdateTimestamp", type=String.class, parameters={})
+    @Export(name="lastUpdateTimestamp", refs={String.class}, tree="[0]")
     private Output<String> lastUpdateTimestamp;
 
     /**
@@ -316,7 +316,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * Name of the Kinesis Analytics Application.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -330,7 +330,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * Output destination configuration of the application. See Outputs below for more details.
      * 
      */
-    @Export(name="outputs", type=List.class, parameters={AnalyticsApplicationOutput.class})
+    @Export(name="outputs", refs={List.class,AnalyticsApplicationOutput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AnalyticsApplicationOutput>> outputs;
 
     /**
@@ -345,7 +345,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * See Reference Data Sources below for more details.
      * 
      */
-    @Export(name="referenceDataSources", type=AnalyticsApplicationReferenceDataSources.class, parameters={})
+    @Export(name="referenceDataSources", refs={AnalyticsApplicationReferenceDataSources.class}, tree="[0]")
     private Output</* @Nullable */ AnalyticsApplicationReferenceDataSources> referenceDataSources;
 
     /**
@@ -361,7 +361,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * To modify an application&#39;s starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
      * 
      */
-    @Export(name="startApplication", type=Boolean.class, parameters={})
+    @Export(name="startApplication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> startApplication;
 
     /**
@@ -376,7 +376,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * The Status of the application.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -390,7 +390,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -404,7 +404,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -418,7 +418,7 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * The Version of the application.
      * 
      */
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**

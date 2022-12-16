@@ -120,7 +120,7 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      * ARN of the Default Network ACL
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -134,7 +134,7 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      * 
      */
-    @Export(name="defaultNetworkAclId", type=String.class, parameters={})
+    @Export(name="defaultNetworkAclId", refs={String.class}, tree="[0]")
     private Output<String> defaultNetworkAclId;
 
     /**
@@ -148,7 +148,7 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      * Configuration block for an egress rule. Detailed below.
      * 
      */
-    @Export(name="egress", type=List.class, parameters={DefaultNetworkAclEgress.class})
+    @Export(name="egress", refs={List.class,DefaultNetworkAclEgress.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DefaultNetworkAclEgress>> egress;
 
     /**
@@ -162,7 +162,7 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      * Configuration block for an ingress rule. Detailed below.
      * 
      */
-    @Export(name="ingress", type=List.class, parameters={DefaultNetworkAclIngress.class})
+    @Export(name="ingress", refs={List.class,DefaultNetworkAclIngress.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DefaultNetworkAclIngress>> ingress;
 
     /**
@@ -176,7 +176,7 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      * ID of the AWS account that owns the Default Network ACL
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -190,7 +190,7 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> subnetIds;
 
     /**
@@ -204,7 +204,7 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -218,7 +218,7 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -232,7 +232,7 @@ public class DefaultNetworkAcl extends com.pulumi.resources.CustomResource {
      * ID of the associated VPC
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

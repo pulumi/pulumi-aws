@@ -138,7 +138,7 @@ public class Inventory extends com.pulumi.resources.CustomResource {
      * The name of the source bucket that inventory lists the objects for.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -152,7 +152,7 @@ public class Inventory extends com.pulumi.resources.CustomResource {
      * Contains information about where to publish the inventory results (documented below).
      * 
      */
-    @Export(name="destination", type=InventoryDestination.class, parameters={})
+    @Export(name="destination", refs={InventoryDestination.class}, tree="[0]")
     private Output<InventoryDestination> destination;
 
     /**
@@ -166,7 +166,7 @@ public class Inventory extends com.pulumi.resources.CustomResource {
      * Specifies whether the inventory is enabled or disabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -180,7 +180,7 @@ public class Inventory extends com.pulumi.resources.CustomResource {
      * Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
      * 
      */
-    @Export(name="filter", type=InventoryFilter.class, parameters={})
+    @Export(name="filter", refs={InventoryFilter.class}, tree="[0]")
     private Output</* @Nullable */ InventoryFilter> filter;
 
     /**
@@ -194,7 +194,7 @@ public class Inventory extends com.pulumi.resources.CustomResource {
      * Object versions to include in the inventory list. Valid values: `All`, `Current`.
      * 
      */
-    @Export(name="includedObjectVersions", type=String.class, parameters={})
+    @Export(name="includedObjectVersions", refs={String.class}, tree="[0]")
     private Output<String> includedObjectVersions;
 
     /**
@@ -208,7 +208,7 @@ public class Inventory extends com.pulumi.resources.CustomResource {
      * Unique identifier of the inventory configuration for the bucket.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -222,7 +222,7 @@ public class Inventory extends com.pulumi.resources.CustomResource {
      * List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
      * 
      */
-    @Export(name="optionalFields", type=List.class, parameters={String.class})
+    @Export(name="optionalFields", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> optionalFields;
 
     /**
@@ -236,7 +236,7 @@ public class Inventory extends com.pulumi.resources.CustomResource {
      * Specifies the schedule for generating inventory results (documented below).
      * 
      */
-    @Export(name="schedule", type=InventorySchedule.class, parameters={})
+    @Export(name="schedule", refs={InventorySchedule.class}, tree="[0]")
     private Output<InventorySchedule> schedule;
 
     /**

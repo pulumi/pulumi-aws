@@ -71,7 +71,7 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      * ARN of this observability configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -85,7 +85,7 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      * Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
      * 
      */
-    @Export(name="latest", type=Boolean.class, parameters={})
+    @Export(name="latest", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> latest;
 
     /**
@@ -99,7 +99,7 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      * Name of the observability configuration.
      * 
      */
-    @Export(name="observabilityConfigurationName", type=String.class, parameters={})
+    @Export(name="observabilityConfigurationName", refs={String.class}, tree="[0]")
     private Output<String> observabilityConfigurationName;
 
     /**
@@ -113,7 +113,7 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      * The revision of this observability configuration.
      * 
      */
-    @Export(name="observabilityConfigurationRevision", type=Integer.class, parameters={})
+    @Export(name="observabilityConfigurationRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> observabilityConfigurationRevision;
 
     /**
@@ -127,7 +127,7 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      * Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -141,7 +141,7 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -155,7 +155,7 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -169,7 +169,7 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
      * Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
      * 
      */
-    @Export(name="traceConfiguration", type=ObservabilityConfigurationTraceConfiguration.class, parameters={})
+    @Export(name="traceConfiguration", refs={ObservabilityConfigurationTraceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ObservabilityConfigurationTraceConfiguration> traceConfiguration;
 
     /**

@@ -119,7 +119,7 @@ public class SshKey extends com.pulumi.resources.CustomResource {
      * The public key portion of an SSH key pair.
      * 
      */
-    @Export(name="body", type=String.class, parameters={})
+    @Export(name="body", refs={String.class}, tree="[0]")
     private Output<String> body;
 
     /**
@@ -133,7 +133,7 @@ public class SshKey extends com.pulumi.resources.CustomResource {
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
-    @Export(name="serverId", type=String.class, parameters={})
+    @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
     /**
@@ -147,7 +147,7 @@ public class SshKey extends com.pulumi.resources.CustomResource {
      * The name of the user account that is assigned to one or more servers.
      * 
      */
-    @Export(name="userName", type=String.class, parameters={})
+    @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**

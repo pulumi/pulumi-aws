@@ -74,7 +74,7 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
      * The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -88,7 +88,7 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**

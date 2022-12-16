@@ -68,7 +68,7 @@ public class ServiceAction extends com.pulumi.resources.CustomResource {
      * Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
      * 
      */
-    @Export(name="acceptLanguage", type=String.class, parameters={})
+    @Export(name="acceptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acceptLanguage;
 
     /**
@@ -82,7 +82,7 @@ public class ServiceAction extends com.pulumi.resources.CustomResource {
      * Self-service action definition configuration block. Detailed below.
      * 
      */
-    @Export(name="definition", type=ServiceActionDefinition.class, parameters={})
+    @Export(name="definition", refs={ServiceActionDefinition.class}, tree="[0]")
     private Output<ServiceActionDefinition> definition;
 
     /**
@@ -96,7 +96,7 @@ public class ServiceAction extends com.pulumi.resources.CustomResource {
      * Self-service action description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -110,7 +110,7 @@ public class ServiceAction extends com.pulumi.resources.CustomResource {
      * Self-service action name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

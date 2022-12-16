@@ -53,7 +53,7 @@ public class ConnectionConfirmation extends com.pulumi.resources.CustomResource 
      * The ID of the hosted connection.
      * 
      */
-    @Export(name="connectionId", type=String.class, parameters={})
+    @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
     /**

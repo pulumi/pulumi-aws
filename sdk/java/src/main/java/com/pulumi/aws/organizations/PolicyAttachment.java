@@ -123,7 +123,7 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      * The unique identifier (ID) of the policy that you want to attach to the target.
      * 
      */
-    @Export(name="policyId", type=String.class, parameters={})
+    @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
@@ -137,7 +137,7 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      * 
      */
-    @Export(name="targetId", type=String.class, parameters={})
+    @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
     /**

@@ -132,7 +132,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * The ARN that identifies the provisioning template.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -146,7 +146,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * The default version of the fleet provisioning template.
      * 
      */
-    @Export(name="defaultVersionId", type=Integer.class, parameters={})
+    @Export(name="defaultVersionId", refs={Integer.class}, tree="[0]")
     private Output<Integer> defaultVersionId;
 
     /**
@@ -160,7 +160,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * The description of the fleet provisioning template.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -174,7 +174,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * True to enable the fleet provisioning template, otherwise false.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -188,7 +188,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * The name of the fleet provisioning template.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -202,7 +202,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * Creates a pre-provisioning hook template. Details below.
      * 
      */
-    @Export(name="preProvisioningHook", type=ProvisioningTemplatePreProvisioningHook.class, parameters={})
+    @Export(name="preProvisioningHook", refs={ProvisioningTemplatePreProvisioningHook.class}, tree="[0]")
     private Output</* @Nullable */ ProvisioningTemplatePreProvisioningHook> preProvisioningHook;
 
     /**
@@ -216,7 +216,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
      * 
      */
-    @Export(name="provisioningRoleArn", type=String.class, parameters={})
+    @Export(name="provisioningRoleArn", refs={String.class}, tree="[0]")
     private Output<String> provisioningRoleArn;
 
     /**
@@ -230,7 +230,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -244,7 +244,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -258,7 +258,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * The JSON formatted contents of the fleet provisioning template.
      * 
      */
-    @Export(name="templateBody", type=String.class, parameters={})
+    @Export(name="templateBody", refs={String.class}, tree="[0]")
     private Output<String> templateBody;
 
     /**

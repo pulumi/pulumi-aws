@@ -270,7 +270,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * ARN of the CodeBuild project.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -284,7 +284,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="artifacts", type=ProjectArtifacts.class, parameters={})
+    @Export(name="artifacts", refs={ProjectArtifacts.class}, tree="[0]")
     private Output<ProjectArtifacts> artifacts;
 
     /**
@@ -298,7 +298,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
      * 
      */
-    @Export(name="badgeEnabled", type=Boolean.class, parameters={})
+    @Export(name="badgeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> badgeEnabled;
 
     /**
@@ -312,7 +312,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * URL of the build badge when `badge_enabled` is enabled.
      * 
      */
-    @Export(name="badgeUrl", type=String.class, parameters={})
+    @Export(name="badgeUrl", refs={String.class}, tree="[0]")
     private Output<String> badgeUrl;
 
     /**
@@ -326,7 +326,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Defines the batch build options for the project.
      * 
      */
-    @Export(name="buildBatchConfig", type=ProjectBuildBatchConfig.class, parameters={})
+    @Export(name="buildBatchConfig", refs={ProjectBuildBatchConfig.class}, tree="[0]")
     private Output</* @Nullable */ ProjectBuildBatchConfig> buildBatchConfig;
 
     /**
@@ -340,7 +340,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
      * 
      */
-    @Export(name="buildTimeout", type=Integer.class, parameters={})
+    @Export(name="buildTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> buildTimeout;
 
     /**
@@ -354,7 +354,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="cache", type=ProjectCache.class, parameters={})
+    @Export(name="cache", refs={ProjectCache.class}, tree="[0]")
     private Output</* @Nullable */ ProjectCache> cache;
 
     /**
@@ -368,7 +368,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
      * 
      */
-    @Export(name="concurrentBuildLimit", type=Integer.class, parameters={})
+    @Export(name="concurrentBuildLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> concurrentBuildLimit;
 
     /**
@@ -382,7 +382,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Short description of the project.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -396,7 +396,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project&#39;s build output artifacts.
      * 
      */
-    @Export(name="encryptionKey", type=String.class, parameters={})
+    @Export(name="encryptionKey", refs={String.class}, tree="[0]")
     private Output<String> encryptionKey;
 
     /**
@@ -410,7 +410,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="environment", type=ProjectEnvironment.class, parameters={})
+    @Export(name="environment", refs={ProjectEnvironment.class}, tree="[0]")
     private Output<ProjectEnvironment> environment;
 
     /**
@@ -424,7 +424,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * A set of file system locations to to mount inside the build. File system locations are documented below.
      * 
      */
-    @Export(name="fileSystemLocations", type=List.class, parameters={ProjectFileSystemLocation.class})
+    @Export(name="fileSystemLocations", refs={List.class,ProjectFileSystemLocation.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProjectFileSystemLocation>> fileSystemLocations;
 
     /**
@@ -438,7 +438,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="logsConfig", type=ProjectLogsConfig.class, parameters={})
+    @Export(name="logsConfig", refs={ProjectLogsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ProjectLogsConfig> logsConfig;
 
     /**
@@ -452,7 +452,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -466,7 +466,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
      * 
      */
-    @Export(name="projectVisibility", type=String.class, parameters={})
+    @Export(name="projectVisibility", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectVisibility;
 
     /**
@@ -480,7 +480,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The project identifier used with the public build APIs.
      * 
      */
-    @Export(name="publicProjectAlias", type=String.class, parameters={})
+    @Export(name="publicProjectAlias", refs={String.class}, tree="[0]")
     private Output<String> publicProjectAlias;
 
     /**
@@ -494,7 +494,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
      * 
      */
-    @Export(name="queuedTimeout", type=Integer.class, parameters={})
+    @Export(name="queuedTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> queuedTimeout;
 
     /**
@@ -508,7 +508,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
      * 
      */
-    @Export(name="resourceAccessRole", type=String.class, parameters={})
+    @Export(name="resourceAccessRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceAccessRole;
 
     /**
@@ -522,7 +522,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="secondaryArtifacts", type=List.class, parameters={ProjectSecondaryArtifact.class})
+    @Export(name="secondaryArtifacts", refs={List.class,ProjectSecondaryArtifact.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProjectSecondaryArtifact>> secondaryArtifacts;
 
     /**
@@ -536,7 +536,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="secondarySourceVersions", type=List.class, parameters={ProjectSecondarySourceVersion.class})
+    @Export(name="secondarySourceVersions", refs={List.class,ProjectSecondarySourceVersion.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProjectSecondarySourceVersion>> secondarySourceVersions;
 
     /**
@@ -550,7 +550,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="secondarySources", type=List.class, parameters={ProjectSecondarySource.class})
+    @Export(name="secondarySources", refs={List.class,ProjectSecondarySource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProjectSecondarySource>> secondarySources;
 
     /**
@@ -564,7 +564,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Specifies the service role ARN for the batch build project.
      * 
      */
-    @Export(name="serviceRole", type=String.class, parameters={})
+    @Export(name="serviceRole", refs={String.class}, tree="[0]")
     private Output<String> serviceRole;
 
     /**
@@ -578,7 +578,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="source", type=ProjectSource.class, parameters={})
+    @Export(name="source", refs={ProjectSource.class}, tree="[0]")
     private Output<ProjectSource> source;
 
     /**
@@ -592,7 +592,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
      * 
      */
-    @Export(name="sourceVersion", type=String.class, parameters={})
+    @Export(name="sourceVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceVersion;
 
     /**
@@ -606,7 +606,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -620,7 +620,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -634,7 +634,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="vpcConfig", type=ProjectVpcConfig.class, parameters={})
+    @Export(name="vpcConfig", refs={ProjectVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ ProjectVpcConfig> vpcConfig;
 
     /**

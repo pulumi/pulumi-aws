@@ -227,7 +227,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The ARN of the config rule
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -241,7 +241,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * Description of the rule
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -255,7 +255,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      * 
      */
-    @Export(name="inputParameters", type=String.class, parameters={})
+    @Export(name="inputParameters", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inputParameters;
 
     /**
@@ -269,7 +269,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
      * 
      */
-    @Export(name="maximumExecutionFrequency", type=String.class, parameters={})
+    @Export(name="maximumExecutionFrequency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maximumExecutionFrequency;
 
     /**
@@ -283,7 +283,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The name of the rule
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -297,7 +297,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The ID of the config rule
      * 
      */
-    @Export(name="ruleId", type=String.class, parameters={})
+    @Export(name="ruleId", refs={String.class}, tree="[0]")
     private Output<String> ruleId;
 
     /**
@@ -311,7 +311,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
      * 
      */
-    @Export(name="scope", type=RuleScope.class, parameters={})
+    @Export(name="scope", refs={RuleScope.class}, tree="[0]")
     private Output</* @Nullable */ RuleScope> scope;
 
     /**
@@ -325,7 +325,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
      * 
      */
-    @Export(name="source", type=RuleSource.class, parameters={})
+    @Export(name="source", refs={RuleSource.class}, tree="[0]")
     private Output<RuleSource> source;
 
     /**
@@ -339,7 +339,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -353,7 +353,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

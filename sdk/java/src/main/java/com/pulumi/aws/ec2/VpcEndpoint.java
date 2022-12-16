@@ -141,7 +141,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the VPC endpoint.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -155,7 +155,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      * 
      */
-    @Export(name="autoAccept", type=Boolean.class, parameters={})
+    @Export(name="autoAccept", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoAccept;
 
     /**
@@ -169,7 +169,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
-    @Export(name="cidrBlocks", type=List.class, parameters={String.class})
+    @Export(name="cidrBlocks", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cidrBlocks;
 
     /**
@@ -183,7 +183,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      * 
      */
-    @Export(name="dnsEntries", type=List.class, parameters={VpcEndpointDnsEntry.class})
+    @Export(name="dnsEntries", refs={List.class,VpcEndpointDnsEntry.class}, tree="[0,1]")
     private Output<List<VpcEndpointDnsEntry>> dnsEntries;
 
     /**
@@ -197,7 +197,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * The DNS options for the endpoint. See dns_options below.
      * 
      */
-    @Export(name="dnsOptions", type=VpcEndpointDnsOptions.class, parameters={})
+    @Export(name="dnsOptions", refs={VpcEndpointDnsOptions.class}, tree="[0]")
     private Output<VpcEndpointDnsOptions> dnsOptions;
 
     /**
@@ -211,7 +211,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      * 
      */
-    @Export(name="ipAddressType", type=String.class, parameters={})
+    @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output<String> ipAddressType;
 
     /**
@@ -225,7 +225,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      * 
      */
-    @Export(name="networkInterfaceIds", type=List.class, parameters={String.class})
+    @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> networkInterfaceIds;
 
     /**
@@ -239,7 +239,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * The ID of the AWS account that owns the VPC endpoint.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -253,7 +253,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -267,7 +267,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
-    @Export(name="prefixListId", type=String.class, parameters={})
+    @Export(name="prefixListId", refs={String.class}, tree="[0]")
     private Output<String> prefixListId;
 
     /**
@@ -282,7 +282,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * Defaults to `false`.
      * 
      */
-    @Export(name="privateDnsEnabled", type=Boolean.class, parameters={})
+    @Export(name="privateDnsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> privateDnsEnabled;
 
     /**
@@ -297,7 +297,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      * 
      */
-    @Export(name="requesterManaged", type=Boolean.class, parameters={})
+    @Export(name="requesterManaged", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> requesterManaged;
 
     /**
@@ -311,7 +311,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      * 
      */
-    @Export(name="routeTableIds", type=List.class, parameters={String.class})
+    @Export(name="routeTableIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> routeTableIds;
 
     /**
@@ -326,7 +326,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      * 
      */
-    @Export(name="securityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
@@ -341,7 +341,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
      * 
      */
-    @Export(name="serviceName", type=String.class, parameters={})
+    @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
     /**
@@ -355,7 +355,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * The state of the VPC endpoint.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -369,7 +369,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
@@ -383,7 +383,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -397,7 +397,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -411,7 +411,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
      * 
      */
-    @Export(name="vpcEndpointType", type=String.class, parameters={})
+    @Export(name="vpcEndpointType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcEndpointType;
 
     /**
@@ -425,7 +425,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * The ID of the VPC in which the endpoint will be used.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

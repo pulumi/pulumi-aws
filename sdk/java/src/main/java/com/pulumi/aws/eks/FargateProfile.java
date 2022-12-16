@@ -118,7 +118,7 @@ public class FargateProfile extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the EKS Fargate Profile.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -132,7 +132,7 @@ public class FargateProfile extends com.pulumi.resources.CustomResource {
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
@@ -146,7 +146,7 @@ public class FargateProfile extends com.pulumi.resources.CustomResource {
      * Name of the EKS Fargate Profile.
      * 
      */
-    @Export(name="fargateProfileName", type=String.class, parameters={})
+    @Export(name="fargateProfileName", refs={String.class}, tree="[0]")
     private Output<String> fargateProfileName;
 
     /**
@@ -160,7 +160,7 @@ public class FargateProfile extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
      * 
      */
-    @Export(name="podExecutionRoleArn", type=String.class, parameters={})
+    @Export(name="podExecutionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> podExecutionRoleArn;
 
     /**
@@ -174,7 +174,7 @@ public class FargateProfile extends com.pulumi.resources.CustomResource {
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      * 
      */
-    @Export(name="selectors", type=List.class, parameters={FargateProfileSelector.class})
+    @Export(name="selectors", refs={List.class,FargateProfileSelector.class}, tree="[0,1]")
     private Output<List<FargateProfileSelector>> selectors;
 
     /**
@@ -188,7 +188,7 @@ public class FargateProfile extends com.pulumi.resources.CustomResource {
      * Status of the EKS Fargate Profile.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -202,7 +202,7 @@ public class FargateProfile extends com.pulumi.resources.CustomResource {
      * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> subnetIds;
 
     /**
@@ -216,7 +216,7 @@ public class FargateProfile extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -230,7 +230,7 @@ public class FargateProfile extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

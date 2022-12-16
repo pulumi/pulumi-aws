@@ -80,7 +80,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The access permissions string used for this user.
      * 
      */
-    @Export(name="accessString", type=String.class, parameters={})
+    @Export(name="accessString", refs={String.class}, tree="[0]")
     private Output<String> accessString;
 
     /**
@@ -94,7 +94,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The ARN of the user.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -108,7 +108,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Denotes the user&#39;s authentication properties. Detailed below.
      * 
      */
-    @Export(name="authenticationMode", type=UserAuthenticationMode.class, parameters={})
+    @Export(name="authenticationMode", refs={UserAuthenticationMode.class}, tree="[0]")
     private Output<UserAuthenticationMode> authenticationMode;
 
     /**
@@ -123,7 +123,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * * `authentication_mode` configuration block
      * 
      */
-    @Export(name="minimumEngineVersion", type=String.class, parameters={})
+    @Export(name="minimumEngineVersion", refs={String.class}, tree="[0]")
     private Output<String> minimumEngineVersion;
 
     /**
@@ -138,7 +138,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -152,7 +152,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -166,7 +166,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Name of the MemoryDB user. Up to 40 characters.
      * 
      */
-    @Export(name="userName", type=String.class, parameters={})
+    @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**

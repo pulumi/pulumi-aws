@@ -52,7 +52,7 @@ public class SmsPreferences extends com.pulumi.resources.CustomResource {
      * A string, such as your business brand, that is displayed as the sender on the receiving device.
      * 
      */
-    @Export(name="defaultSenderId", type=String.class, parameters={})
+    @Export(name="defaultSenderId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultSenderId;
 
     /**
@@ -66,7 +66,7 @@ public class SmsPreferences extends com.pulumi.resources.CustomResource {
      * The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
      * 
      */
-    @Export(name="defaultSmsType", type=String.class, parameters={})
+    @Export(name="defaultSmsType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultSmsType;
 
     /**
@@ -80,7 +80,7 @@ public class SmsPreferences extends com.pulumi.resources.CustomResource {
      * The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
      * 
      */
-    @Export(name="deliveryStatusIamRoleArn", type=String.class, parameters={})
+    @Export(name="deliveryStatusIamRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryStatusIamRoleArn;
 
     /**
@@ -94,7 +94,7 @@ public class SmsPreferences extends com.pulumi.resources.CustomResource {
      * The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
      * 
      */
-    @Export(name="deliveryStatusSuccessSamplingRate", type=String.class, parameters={})
+    @Export(name="deliveryStatusSuccessSamplingRate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryStatusSuccessSamplingRate;
 
     /**
@@ -108,7 +108,7 @@ public class SmsPreferences extends com.pulumi.resources.CustomResource {
      * The maximum amount in USD that you are willing to spend each month to send SMS messages.
      * 
      */
-    @Export(name="monthlySpendLimit", type=Integer.class, parameters={})
+    @Export(name="monthlySpendLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> monthlySpendLimit;
 
     /**
@@ -122,7 +122,7 @@ public class SmsPreferences extends com.pulumi.resources.CustomResource {
      * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
      * 
      */
-    @Export(name="usageReportS3Bucket", type=String.class, parameters={})
+    @Export(name="usageReportS3Bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usageReportS3Bucket;
 
     /**

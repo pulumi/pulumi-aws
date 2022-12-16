@@ -71,7 +71,7 @@ public class RuleGroupNamespace extends com.pulumi.resources.CustomResource {
      * the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
      * 
      */
-    @Export(name="data", type=String.class, parameters={})
+    @Export(name="data", refs={String.class}, tree="[0]")
     private Output<String> data;
 
     /**
@@ -85,7 +85,7 @@ public class RuleGroupNamespace extends com.pulumi.resources.CustomResource {
      * The name of the rule group namespace
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -99,7 +99,7 @@ public class RuleGroupNamespace extends com.pulumi.resources.CustomResource {
      * ID of the prometheus workspace the rule group namespace should be linked to
      * 
      */
-    @Export(name="workspaceId", type=String.class, parameters={})
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**

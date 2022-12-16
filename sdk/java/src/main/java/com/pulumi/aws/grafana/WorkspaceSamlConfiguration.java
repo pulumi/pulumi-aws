@@ -94,7 +94,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The admin role values.
      * 
      */
-    @Export(name="adminRoleValues", type=List.class, parameters={String.class})
+    @Export(name="adminRoleValues", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> adminRoleValues;
 
     /**
@@ -108,7 +108,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The allowed organizations.
      * 
      */
-    @Export(name="allowedOrganizations", type=List.class, parameters={String.class})
+    @Export(name="allowedOrganizations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedOrganizations;
 
     /**
@@ -122,7 +122,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The editor role values.
      * 
      */
-    @Export(name="editorRoleValues", type=List.class, parameters={String.class})
+    @Export(name="editorRoleValues", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> editorRoleValues;
 
     /**
@@ -136,7 +136,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The email assertion.
      * 
      */
-    @Export(name="emailAssertion", type=String.class, parameters={})
+    @Export(name="emailAssertion", refs={String.class}, tree="[0]")
     private Output<String> emailAssertion;
 
     /**
@@ -150,7 +150,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The groups assertion.
      * 
      */
-    @Export(name="groupsAssertion", type=String.class, parameters={})
+    @Export(name="groupsAssertion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupsAssertion;
 
     /**
@@ -164,7 +164,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
      * 
      */
-    @Export(name="idpMetadataUrl", type=String.class, parameters={})
+    @Export(name="idpMetadataUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> idpMetadataUrl;
 
     /**
@@ -178,7 +178,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
      * 
      */
-    @Export(name="idpMetadataXml", type=String.class, parameters={})
+    @Export(name="idpMetadataXml", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> idpMetadataXml;
 
     /**
@@ -192,7 +192,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The login assertion.
      * 
      */
-    @Export(name="loginAssertion", type=String.class, parameters={})
+    @Export(name="loginAssertion", refs={String.class}, tree="[0]")
     private Output<String> loginAssertion;
 
     /**
@@ -206,7 +206,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The login validity duration.
      * 
      */
-    @Export(name="loginValidityDuration", type=Integer.class, parameters={})
+    @Export(name="loginValidityDuration", refs={Integer.class}, tree="[0]")
     private Output<Integer> loginValidityDuration;
 
     /**
@@ -220,7 +220,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The name assertion.
      * 
      */
-    @Export(name="nameAssertion", type=String.class, parameters={})
+    @Export(name="nameAssertion", refs={String.class}, tree="[0]")
     private Output<String> nameAssertion;
 
     /**
@@ -234,7 +234,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The org assertion.
      * 
      */
-    @Export(name="orgAssertion", type=String.class, parameters={})
+    @Export(name="orgAssertion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> orgAssertion;
 
     /**
@@ -248,7 +248,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The role assertion.
      * 
      */
-    @Export(name="roleAssertion", type=String.class, parameters={})
+    @Export(name="roleAssertion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleAssertion;
 
     /**
@@ -262,7 +262,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The status of the SAML configuration.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -276,7 +276,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
      * The workspace id.
      * 
      */
-    @Export(name="workspaceId", type=String.class, parameters={})
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**

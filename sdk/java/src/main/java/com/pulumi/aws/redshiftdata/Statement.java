@@ -68,7 +68,7 @@ public class Statement extends com.pulumi.resources.CustomResource {
      * The cluster identifier.
      * 
      */
-    @Export(name="clusterIdentifier", type=String.class, parameters={})
+    @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
@@ -82,7 +82,7 @@ public class Statement extends com.pulumi.resources.CustomResource {
      * The name of the database.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -96,7 +96,7 @@ public class Statement extends com.pulumi.resources.CustomResource {
      * The database user name.
      * 
      */
-    @Export(name="dbUser", type=String.class, parameters={})
+    @Export(name="dbUser", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dbUser;
 
     /**
@@ -106,7 +106,7 @@ public class Statement extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> dbUser() {
         return Codegen.optional(this.dbUser);
     }
-    @Export(name="parameters", type=List.class, parameters={StatementParameter.class})
+    @Export(name="parameters", refs={List.class,StatementParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<StatementParameter>> parameters;
 
     public Output<Optional<List<StatementParameter>>> parameters() {
@@ -116,7 +116,7 @@ public class Statement extends com.pulumi.resources.CustomResource {
      * The name or ARN of the secret that enables access to the database.
      * 
      */
-    @Export(name="secretArn", type=String.class, parameters={})
+    @Export(name="secretArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretArn;
 
     /**
@@ -130,7 +130,7 @@ public class Statement extends com.pulumi.resources.CustomResource {
      * The SQL statement text to run.
      * 
      */
-    @Export(name="sql", type=String.class, parameters={})
+    @Export(name="sql", refs={String.class}, tree="[0]")
     private Output<String> sql;
 
     /**
@@ -144,7 +144,7 @@ public class Statement extends com.pulumi.resources.CustomResource {
      * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
      * 
      */
-    @Export(name="statementName", type=String.class, parameters={})
+    @Export(name="statementName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> statementName;
 
     /**
@@ -158,7 +158,7 @@ public class Statement extends com.pulumi.resources.CustomResource {
      * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
      * 
      */
-    @Export(name="withEvent", type=Boolean.class, parameters={})
+    @Export(name="withEvent", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withEvent;
 
     /**

@@ -64,7 +64,7 @@ public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResou
      * The ENI Attachment ID.
      * 
      */
-    @Export(name="attachmentId", type=String.class, parameters={})
+    @Export(name="attachmentId", refs={String.class}, tree="[0]")
     private Output<String> attachmentId;
 
     /**
@@ -78,7 +78,7 @@ public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResou
      * Network interface index (int).
      * 
      */
-    @Export(name="deviceIndex", type=Integer.class, parameters={})
+    @Export(name="deviceIndex", refs={Integer.class}, tree="[0]")
     private Output<Integer> deviceIndex;
 
     /**
@@ -92,7 +92,7 @@ public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResou
      * Instance ID to attach.
      * 
      */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
@@ -106,7 +106,7 @@ public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResou
      * ENI ID to attach.
      * 
      */
-    @Export(name="networkInterfaceId", type=String.class, parameters={})
+    @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
     /**
@@ -120,7 +120,7 @@ public class NetworkInterfaceAttachment extends com.pulumi.resources.CustomResou
      * The status of the Network Interface Attachment.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

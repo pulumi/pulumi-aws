@@ -107,7 +107,7 @@ public class EventArchive extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the event archive.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -121,7 +121,7 @@ public class EventArchive extends com.pulumi.resources.CustomResource {
      * The description of the new event archive.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -135,7 +135,7 @@ public class EventArchive extends com.pulumi.resources.CustomResource {
      * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
      * 
      */
-    @Export(name="eventPattern", type=String.class, parameters={})
+    @Export(name="eventPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventPattern;
 
     /**
@@ -149,7 +149,7 @@ public class EventArchive extends com.pulumi.resources.CustomResource {
      * Event bus source ARN from where these events should be archived.
      * 
      */
-    @Export(name="eventSourceArn", type=String.class, parameters={})
+    @Export(name="eventSourceArn", refs={String.class}, tree="[0]")
     private Output<String> eventSourceArn;
 
     /**
@@ -163,7 +163,7 @@ public class EventArchive extends com.pulumi.resources.CustomResource {
      * The name of the new event archive. The archive name cannot exceed 48 characters.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -177,7 +177,7 @@ public class EventArchive extends com.pulumi.resources.CustomResource {
      * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
      * 
      */
-    @Export(name="retentionDays", type=Integer.class, parameters={})
+    @Export(name="retentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retentionDays;
 
     /**

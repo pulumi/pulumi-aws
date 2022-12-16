@@ -120,7 +120,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Contact Flow Module.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -134,7 +134,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * The identifier of the Contact Flow Module.
      * 
      */
-    @Export(name="contactFlowModuleId", type=String.class, parameters={})
+    @Export(name="contactFlowModuleId", refs={String.class}, tree="[0]")
     private Output<String> contactFlowModuleId;
 
     /**
@@ -148,7 +148,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      * 
      */
-    @Export(name="content", type=String.class, parameters={})
+    @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
@@ -162,7 +162,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
      * 
      */
-    @Export(name="contentHash", type=String.class, parameters={})
+    @Export(name="contentHash", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentHash;
 
     /**
@@ -176,7 +176,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * Specifies the description of the Contact Flow Module.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -190,7 +190,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
      * 
      */
-    @Export(name="filename", type=String.class, parameters={})
+    @Export(name="filename", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> filename;
 
     /**
@@ -204,7 +204,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
@@ -218,7 +218,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Contact Flow Module.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -232,7 +232,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * Tags to apply to the Contact Flow Module. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -246,7 +246,7 @@ public class ContactFlowModule extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

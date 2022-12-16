@@ -618,7 +618,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * ARN of the Data Source.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -632,7 +632,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
      * 
      */
-    @Export(name="configuration", type=DataSourceConfiguration.class, parameters={})
+    @Export(name="configuration", refs={DataSourceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceConfiguration> configuration;
 
     /**
@@ -646,7 +646,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The Unix timestamp of when the Data Source was created.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -660,7 +660,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
      * 
      */
-    @Export(name="customDocumentEnrichmentConfiguration", type=DataSourceCustomDocumentEnrichmentConfiguration.class, parameters={})
+    @Export(name="customDocumentEnrichmentConfiguration", refs={DataSourceCustomDocumentEnrichmentConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceCustomDocumentEnrichmentConfiguration> customDocumentEnrichmentConfiguration;
 
     /**
@@ -674,7 +674,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The unique identifiers of the Data Source.
      * 
      */
-    @Export(name="dataSourceId", type=String.class, parameters={})
+    @Export(name="dataSourceId", refs={String.class}, tree="[0]")
     private Output<String> dataSourceId;
 
     /**
@@ -688,7 +688,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * A description for the Data Source connector.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -702,7 +702,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
      * 
      */
-    @Export(name="errorMessage", type=String.class, parameters={})
+    @Export(name="errorMessage", refs={String.class}, tree="[0]")
     private Output<String> errorMessage;
 
     /**
@@ -716,7 +716,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The identifier of the index for your Amazon Kendra data_source.
      * 
      */
-    @Export(name="indexId", type=String.class, parameters={})
+    @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
     /**
@@ -730,7 +730,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      * 
      */
-    @Export(name="languageCode", type=String.class, parameters={})
+    @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
@@ -744,7 +744,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * A name for your Data Source connector.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -758,7 +758,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can&#39;t specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
@@ -772,7 +772,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don&#39;t set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
      * 
      */
-    @Export(name="schedule", type=String.class, parameters={})
+    @Export(name="schedule", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schedule;
 
     /**
@@ -786,7 +786,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -800,7 +800,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -814,7 +814,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -828,7 +828,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -842,7 +842,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The Unix timestamp of when the Data Source was last updated.
      * 
      */
-    @Export(name="updatedAt", type=String.class, parameters={})
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**

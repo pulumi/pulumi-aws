@@ -78,7 +78,7 @@ public class GroupPolicy extends com.pulumi.resources.CustomResource {
      * The IAM group to attach to the policy.
      * 
      */
-    @Export(name="group", type=String.class, parameters={})
+    @Export(name="group", refs={String.class}, tree="[0]")
     private Output<String> group;
 
     /**
@@ -93,7 +93,7 @@ public class GroupPolicy extends com.pulumi.resources.CustomResource {
      * assign a random, unique name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -109,7 +109,7 @@ public class GroupPolicy extends com.pulumi.resources.CustomResource {
      * prefix. Conflicts with `name`.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namePrefix;
 
     /**
@@ -124,7 +124,7 @@ public class GroupPolicy extends com.pulumi.resources.CustomResource {
      * The policy document. This is a JSON formatted string.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**

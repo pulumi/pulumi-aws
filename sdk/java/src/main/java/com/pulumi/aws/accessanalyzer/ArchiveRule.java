@@ -79,7 +79,7 @@ public class ArchiveRule extends com.pulumi.resources.CustomResource {
      * Analyzer name.
      * 
      */
-    @Export(name="analyzerName", type=String.class, parameters={})
+    @Export(name="analyzerName", refs={String.class}, tree="[0]")
     private Output<String> analyzerName;
 
     /**
@@ -93,7 +93,7 @@ public class ArchiveRule extends com.pulumi.resources.CustomResource {
      * Filter criteria for the archive rule. See Filter for more details.
      * 
      */
-    @Export(name="filters", type=List.class, parameters={ArchiveRuleFilter.class})
+    @Export(name="filters", refs={List.class,ArchiveRuleFilter.class}, tree="[0,1]")
     private Output<List<ArchiveRuleFilter>> filters;
 
     /**
@@ -107,7 +107,7 @@ public class ArchiveRule extends com.pulumi.resources.CustomResource {
      * Rule name.
      * 
      */
-    @Export(name="ruleName", type=String.class, parameters={})
+    @Export(name="ruleName", refs={String.class}, tree="[0]")
     private Output<String> ruleName;
 
     /**

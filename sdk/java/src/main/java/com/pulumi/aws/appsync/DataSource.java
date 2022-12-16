@@ -134,7 +134,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * API ID for the GraphQL API for the data source.
      * 
      */
-    @Export(name="apiId", type=String.class, parameters={})
+    @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
     /**
@@ -148,7 +148,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * ARN
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -162,7 +162,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * Description of the data source.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -176,7 +176,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * DynamoDB settings. See below
      * 
      */
-    @Export(name="dynamodbConfig", type=DataSourceDynamodbConfig.class, parameters={})
+    @Export(name="dynamodbConfig", refs={DataSourceDynamodbConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceDynamodbConfig> dynamodbConfig;
 
     /**
@@ -190,7 +190,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * Amazon Elasticsearch settings. See below
      * 
      */
-    @Export(name="elasticsearchConfig", type=DataSourceElasticsearchConfig.class, parameters={})
+    @Export(name="elasticsearchConfig", refs={DataSourceElasticsearchConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceElasticsearchConfig> elasticsearchConfig;
 
     /**
@@ -204,7 +204,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * HTTP settings. See below
      * 
      */
-    @Export(name="httpConfig", type=DataSourceHttpConfig.class, parameters={})
+    @Export(name="httpConfig", refs={DataSourceHttpConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceHttpConfig> httpConfig;
 
     /**
@@ -218,7 +218,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * AWS Lambda settings. See below
      * 
      */
-    @Export(name="lambdaConfig", type=DataSourceLambdaConfig.class, parameters={})
+    @Export(name="lambdaConfig", refs={DataSourceLambdaConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceLambdaConfig> lambdaConfig;
 
     /**
@@ -232,7 +232,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * User-supplied name for the data source.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -246,7 +246,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * AWS RDS settings. See Relational Database Config
      * 
      */
-    @Export(name="relationalDatabaseConfig", type=DataSourceRelationalDatabaseConfig.class, parameters={})
+    @Export(name="relationalDatabaseConfig", refs={DataSourceRelationalDatabaseConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceRelationalDatabaseConfig> relationalDatabaseConfig;
 
     /**
@@ -260,7 +260,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * IAM service role ARN for the data source.
      * 
      */
-    @Export(name="serviceRoleArn", type=String.class, parameters={})
+    @Export(name="serviceRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceRoleArn;
 
     /**
@@ -274,7 +274,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

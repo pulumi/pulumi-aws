@@ -71,7 +71,7 @@ public class EmailIdentityMailFromAttributes extends com.pulumi.resources.Custom
      * The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      * 
      */
-    @Export(name="behaviorOnMxFailure", type=String.class, parameters={})
+    @Export(name="behaviorOnMxFailure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> behaviorOnMxFailure;
 
     /**
@@ -85,7 +85,7 @@ public class EmailIdentityMailFromAttributes extends com.pulumi.resources.Custom
      * The verified email identity.
      * 
      */
-    @Export(name="emailIdentity", type=String.class, parameters={})
+    @Export(name="emailIdentity", refs={String.class}, tree="[0]")
     private Output<String> emailIdentity;
 
     /**
@@ -99,7 +99,7 @@ public class EmailIdentityMailFromAttributes extends com.pulumi.resources.Custom
      * The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
      * 
      */
-    @Export(name="mailFromDomain", type=String.class, parameters={})
+    @Export(name="mailFromDomain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mailFromDomain;
 
     /**

@@ -61,7 +61,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The Arn of the queue
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -75,7 +75,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * A description of the queue
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -89,7 +89,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * A unique identifier describing the queue
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -103,7 +103,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
      * 
      */
-    @Export(name="pricingPlan", type=String.class, parameters={})
+    @Export(name="pricingPlan", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pricingPlan;
 
     /**
@@ -117,7 +117,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * A detail pricing plan of the  reserved queue. See below.
      * 
      */
-    @Export(name="reservationPlanSettings", type=QueueReservationPlanSettings.class, parameters={})
+    @Export(name="reservationPlanSettings", refs={QueueReservationPlanSettings.class}, tree="[0]")
     private Output<QueueReservationPlanSettings> reservationPlanSettings;
 
     /**
@@ -131,7 +131,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -145,7 +145,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -159,7 +159,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

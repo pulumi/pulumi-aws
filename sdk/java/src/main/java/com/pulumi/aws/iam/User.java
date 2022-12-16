@@ -93,7 +93,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The ARN assigned by AWS for this user.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -109,7 +109,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      * 
      */
-    @Export(name="forceDestroy", type=Boolean.class, parameters={})
+    @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     /**
@@ -125,7 +125,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The user&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both &#34;TESTUSER&#34; and &#34;testuser&#34;.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -139,7 +139,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Path in which to create the user.
      * 
      */
-    @Export(name="path", type=String.class, parameters={})
+    @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
     /**
@@ -153,7 +153,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The ARN of the policy that is used to set the permissions boundary for the user.
      * 
      */
-    @Export(name="permissionsBoundary", type=String.class, parameters={})
+    @Export(name="permissionsBoundary", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permissionsBoundary;
 
     /**
@@ -167,7 +167,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -181,7 +181,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -195,7 +195,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The [unique ID][1] assigned by AWS.
      * 
      */
-    @Export(name="uniqueId", type=String.class, parameters={})
+    @Export(name="uniqueId", refs={String.class}, tree="[0]")
     private Output<String> uniqueId;
 
     /**

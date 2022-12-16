@@ -86,7 +86,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The ARN of the Client VPN endpoint.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -100,7 +100,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Information about the authentication method to be used to authenticate clients.
      * 
      */
-    @Export(name="authenticationOptions", type=List.class, parameters={EndpointAuthenticationOption.class})
+    @Export(name="authenticationOptions", refs={List.class,EndpointAuthenticationOption.class}, tree="[0,1]")
     private Output<List<EndpointAuthenticationOption>> authenticationOptions;
 
     /**
@@ -114,7 +114,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      * 
      */
-    @Export(name="clientCidrBlock", type=String.class, parameters={})
+    @Export(name="clientCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> clientCidrBlock;
 
     /**
@@ -128,7 +128,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The options for managing connection authorization for new client connections.
      * 
      */
-    @Export(name="clientConnectOptions", type=EndpointClientConnectOptions.class, parameters={})
+    @Export(name="clientConnectOptions", refs={EndpointClientConnectOptions.class}, tree="[0]")
     private Output<EndpointClientConnectOptions> clientConnectOptions;
 
     /**
@@ -142,7 +142,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      * 
      */
-    @Export(name="clientLoginBannerOptions", type=EndpointClientLoginBannerOptions.class, parameters={})
+    @Export(name="clientLoginBannerOptions", refs={EndpointClientLoginBannerOptions.class}, tree="[0]")
     private Output<EndpointClientLoginBannerOptions> clientLoginBannerOptions;
 
     /**
@@ -156,7 +156,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Information about the client connection logging options.
      * 
      */
-    @Export(name="connectionLogOptions", type=EndpointConnectionLogOptions.class, parameters={})
+    @Export(name="connectionLogOptions", refs={EndpointConnectionLogOptions.class}, tree="[0]")
     private Output<EndpointConnectionLogOptions> connectionLogOptions;
 
     /**
@@ -170,7 +170,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A brief description of the Client VPN endpoint.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -184,7 +184,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The DNS name to be used by clients when establishing their VPN session.
      * 
      */
-    @Export(name="dnsName", type=String.class, parameters={})
+    @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
@@ -198,7 +198,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      * 
      */
-    @Export(name="dnsServers", type=List.class, parameters={String.class})
+    @Export(name="dnsServers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dnsServers;
 
     /**
@@ -212,7 +212,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
      * 
      */
-    @Export(name="securityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
@@ -226,7 +226,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
      * 
      */
-    @Export(name="selfServicePortal", type=String.class, parameters={})
+    @Export(name="selfServicePortal", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> selfServicePortal;
 
     /**
@@ -240,7 +240,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The ARN of the ACM server certificate.
      * 
      */
-    @Export(name="serverCertificateArn", type=String.class, parameters={})
+    @Export(name="serverCertificateArn", refs={String.class}, tree="[0]")
     private Output<String> serverCertificateArn;
 
     /**
@@ -254,7 +254,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
      * 
      */
-    @Export(name="sessionTimeoutHours", type=Integer.class, parameters={})
+    @Export(name="sessionTimeoutHours", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> sessionTimeoutHours;
 
     /**
@@ -268,7 +268,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      * 
      */
-    @Export(name="splitTunnel", type=Boolean.class, parameters={})
+    @Export(name="splitTunnel", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> splitTunnel;
 
     /**
@@ -286,7 +286,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This attribute has been deprecated. */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -300,7 +300,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -314,7 +314,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -328,7 +328,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      * 
      */
-    @Export(name="transportProtocol", type=String.class, parameters={})
+    @Export(name="transportProtocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transportProtocol;
 
     /**
@@ -342,7 +342,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
@@ -356,7 +356,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
      * 
      */
-    @Export(name="vpnPort", type=Integer.class, parameters={})
+    @Export(name="vpnPort", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> vpnPort;
 
     /**

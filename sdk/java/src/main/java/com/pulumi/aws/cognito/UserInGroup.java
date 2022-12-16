@@ -81,7 +81,7 @@ public class UserInGroup extends com.pulumi.resources.CustomResource {
      * The name of the group to which the user is to be added.
      * 
      */
-    @Export(name="groupName", type=String.class, parameters={})
+    @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
     /**
@@ -95,7 +95,7 @@ public class UserInGroup extends com.pulumi.resources.CustomResource {
      * The user pool ID of the user and group.
      * 
      */
-    @Export(name="userPoolId", type=String.class, parameters={})
+    @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
     /**
@@ -109,7 +109,7 @@ public class UserInGroup extends com.pulumi.resources.CustomResource {
      * The username of the user to be added to the group.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

@@ -75,7 +75,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of the Access Control List to associate with the cluster.
      * 
      */
-    @Export(name="aclName", type=String.class, parameters={})
+    @Export(name="aclName", refs={String.class}, tree="[0]")
     private Output<String> aclName;
 
     /**
@@ -90,7 +90,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * * `cluster_endpoint`
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -105,7 +105,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
      * 
      */
-    @Export(name="autoMinorVersionUpgrade", type=Boolean.class, parameters={})
+    @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoMinorVersionUpgrade;
 
     /**
@@ -115,7 +115,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> autoMinorVersionUpgrade() {
         return Codegen.optional(this.autoMinorVersionUpgrade);
     }
-    @Export(name="clusterEndpoints", type=List.class, parameters={ClusterClusterEndpoint.class})
+    @Export(name="clusterEndpoints", refs={List.class,ClusterClusterEndpoint.class}, tree="[0,1]")
     private Output<List<ClusterClusterEndpoint>> clusterEndpoints;
 
     public Output<List<ClusterClusterEndpoint>> clusterEndpoints() {
@@ -125,7 +125,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
      * 
      */
-    @Export(name="dataTiering", type=Boolean.class, parameters={})
+    @Export(name="dataTiering", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataTiering;
 
     /**
@@ -139,7 +139,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Description for the cluster.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -153,7 +153,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Patch version number of the Redis engine used by the cluster.
      * 
      */
-    @Export(name="enginePatchVersion", type=String.class, parameters={})
+    @Export(name="enginePatchVersion", refs={String.class}, tree="[0]")
     private Output<String> enginePatchVersion;
 
     /**
@@ -167,7 +167,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
      * 
      */
-    @Export(name="engineVersion", type=String.class, parameters={})
+    @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
@@ -181,7 +181,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
      * 
      */
-    @Export(name="finalSnapshotName", type=String.class, parameters={})
+    @Export(name="finalSnapshotName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> finalSnapshotName;
 
     /**
@@ -195,7 +195,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * ARN of the KMS key used to encrypt the cluster at rest.
      * 
      */
-    @Export(name="kmsKeyArn", type=String.class, parameters={})
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
@@ -209,7 +209,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      * 
      */
-    @Export(name="maintenanceWindow", type=String.class, parameters={})
+    @Export(name="maintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> maintenanceWindow;
 
     /**
@@ -223,7 +223,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -237,7 +237,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -251,7 +251,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      * 
      */
-    @Export(name="nodeType", type=String.class, parameters={})
+    @Export(name="nodeType", refs={String.class}, tree="[0]")
     private Output<String> nodeType;
 
     /**
@@ -265,7 +265,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
      * 
      */
-    @Export(name="numReplicasPerShard", type=Integer.class, parameters={})
+    @Export(name="numReplicasPerShard", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numReplicasPerShard;
 
     /**
@@ -279,7 +279,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The number of shards in the cluster. Defaults to `1`.
      * 
      */
-    @Export(name="numShards", type=Integer.class, parameters={})
+    @Export(name="numShards", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numShards;
 
     /**
@@ -293,7 +293,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of the parameter group associated with the cluster.
      * 
      */
-    @Export(name="parameterGroupName", type=String.class, parameters={})
+    @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> parameterGroupName;
 
     /**
@@ -307,7 +307,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
@@ -321,7 +321,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Set of VPC Security Group ID-s to associate with this cluster.
      * 
      */
-    @Export(name="securityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
@@ -335,7 +335,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Set of shards in this cluster.
      * 
      */
-    @Export(name="shards", type=List.class, parameters={ClusterShard.class})
+    @Export(name="shards", refs={List.class,ClusterShard.class}, tree="[0,1]")
     private Output<List<ClusterShard>> shards;
 
     /**
@@ -349,7 +349,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
      * 
      */
-    @Export(name="snapshotArns", type=List.class, parameters={String.class})
+    @Export(name="snapshotArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> snapshotArns;
 
     /**
@@ -363,7 +363,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of a snapshot from which to restore data into the new cluster.
      * 
      */
-    @Export(name="snapshotName", type=String.class, parameters={})
+    @Export(name="snapshotName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotName;
 
     /**
@@ -377,7 +377,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
      * 
      */
-    @Export(name="snapshotRetentionLimit", type=Integer.class, parameters={})
+    @Export(name="snapshotRetentionLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> snapshotRetentionLimit;
 
     /**
@@ -391,7 +391,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
-    @Export(name="snapshotWindow", type=String.class, parameters={})
+    @Export(name="snapshotWindow", refs={String.class}, tree="[0]")
     private Output<String> snapshotWindow;
 
     /**
@@ -405,7 +405,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * ARN of the SNS topic to which cluster notifications are sent.
      * 
      */
-    @Export(name="snsTopicArn", type=String.class, parameters={})
+    @Export(name="snsTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snsTopicArn;
 
     /**
@@ -419,7 +419,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
      * 
      */
-    @Export(name="subnetGroupName", type=String.class, parameters={})
+    @Export(name="subnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> subnetGroupName;
 
     /**
@@ -433,7 +433,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -447,7 +447,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -461,7 +461,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
      * 
      */
-    @Export(name="tlsEnabled", type=Boolean.class, parameters={})
+    @Export(name="tlsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> tlsEnabled;
 
     /**

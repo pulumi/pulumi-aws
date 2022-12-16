@@ -308,7 +308,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * `lowestPrice`.
      * 
      */
-    @Export(name="allocationStrategy", type=String.class, parameters={})
+    @Export(name="allocationStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allocationStrategy;
 
     /**
@@ -320,7 +320,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> allocationStrategy() {
         return Codegen.optional(this.allocationStrategy);
     }
-    @Export(name="clientToken", type=String.class, parameters={})
+    @Export(name="clientToken", refs={String.class}, tree="[0]")
     private Output<String> clientToken;
 
     public Output<String> clientToken() {
@@ -332,7 +332,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * request is decreased below the current size of the Spot fleet.
      * 
      */
-    @Export(name="excessCapacityTerminationPolicy", type=String.class, parameters={})
+    @Export(name="excessCapacityTerminationPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excessCapacityTerminationPolicy;
 
     /**
@@ -349,7 +349,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * capacity or also attempts to maintain it. Default is `maintain`.
      * 
      */
-    @Export(name="fleetType", type=String.class, parameters={})
+    @Export(name="fleetType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fleetType;
 
     /**
@@ -367,7 +367,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * terminateInstancesWithExpiration.
      * 
      */
-    @Export(name="iamFleetRole", type=String.class, parameters={})
+    @Export(name="iamFleetRole", refs={String.class}, tree="[0]")
     private Output<String> iamFleetRole;
 
     /**
@@ -386,7 +386,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * `terminate`.
      * 
      */
-    @Export(name="instanceInterruptionBehaviour", type=String.class, parameters={})
+    @Export(name="instanceInterruptionBehaviour", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceInterruptionBehaviour;
 
     /**
@@ -405,7 +405,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * the number of Spot pools that you specify.
      * 
      */
-    @Export(name="instancePoolsToUseCount", type=Integer.class, parameters={})
+    @Export(name="instancePoolsToUseCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> instancePoolsToUseCount;
 
     /**
@@ -424,7 +424,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
      * 
      */
-    @Export(name="launchSpecifications", type=List.class, parameters={SpotFleetRequestLaunchSpecification.class})
+    @Export(name="launchSpecifications", refs={List.class,SpotFleetRequestLaunchSpecification.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SpotFleetRequestLaunchSpecification>> launchSpecifications;
 
     /**
@@ -440,7 +440,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
      * 
      */
-    @Export(name="launchTemplateConfigs", type=List.class, parameters={SpotFleetRequestLaunchTemplateConfig.class})
+    @Export(name="launchTemplateConfigs", refs={List.class,SpotFleetRequestLaunchTemplateConfig.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SpotFleetRequestLaunchTemplateConfig>> launchTemplateConfigs;
 
     /**
@@ -454,7 +454,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * A list of elastic load balancer names to add to the Spot fleet.
      * 
      */
-    @Export(name="loadBalancers", type=List.class, parameters={String.class})
+    @Export(name="loadBalancers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> loadBalancers;
 
     /**
@@ -468,7 +468,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
      * 
      */
-    @Export(name="onDemandAllocationStrategy", type=String.class, parameters={})
+    @Export(name="onDemandAllocationStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onDemandAllocationStrategy;
 
     /**
@@ -482,7 +482,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * The maximum amount per hour for On-Demand Instances that you&#39;re willing to pay. When the maximum amount you&#39;re willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
      * 
      */
-    @Export(name="onDemandMaxTotalPrice", type=String.class, parameters={})
+    @Export(name="onDemandMaxTotalPrice", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onDemandMaxTotalPrice;
 
     /**
@@ -496,7 +496,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
      * 
      */
-    @Export(name="onDemandTargetCapacity", type=Integer.class, parameters={})
+    @Export(name="onDemandTargetCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> onDemandTargetCapacity;
 
     /**
@@ -510,7 +510,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      * 
      */
-    @Export(name="replaceUnhealthyInstances", type=Boolean.class, parameters={})
+    @Export(name="replaceUnhealthyInstances", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replaceUnhealthyInstances;
 
     /**
@@ -524,7 +524,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
      * 
      */
-    @Export(name="spotMaintenanceStrategies", type=SpotFleetRequestSpotMaintenanceStrategies.class, parameters={})
+    @Export(name="spotMaintenanceStrategies", refs={SpotFleetRequestSpotMaintenanceStrategies.class}, tree="[0]")
     private Output</* @Nullable */ SpotFleetRequestSpotMaintenanceStrategies> spotMaintenanceStrategies;
 
     /**
@@ -538,7 +538,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * The maximum spot bid for this override request.
      * 
      */
-    @Export(name="spotPrice", type=String.class, parameters={})
+    @Export(name="spotPrice", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> spotPrice;
 
     /**
@@ -552,7 +552,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * The state of the Spot fleet request.
      * 
      */
-    @Export(name="spotRequestState", type=String.class, parameters={})
+    @Export(name="spotRequestState", refs={String.class}, tree="[0]")
     private Output<String> spotRequestState;
 
     /**
@@ -566,7 +566,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -580,7 +580,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -596,7 +596,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * important to your application workload, such as vCPUs, memory, or I/O.
      * 
      */
-    @Export(name="targetCapacity", type=Integer.class, parameters={})
+    @Export(name="targetCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> targetCapacity;
 
     /**
@@ -612,7 +612,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * The unit for the target capacity. This can only be done with `instance_requirements` defined
      * 
      */
-    @Export(name="targetCapacityUnitType", type=String.class, parameters={})
+    @Export(name="targetCapacityUnitType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetCapacityUnitType;
 
     /**
@@ -626,7 +626,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      * 
      */
-    @Export(name="targetGroupArns", type=List.class, parameters={String.class})
+    @Export(name="targetGroupArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> targetGroupArns;
 
     /**
@@ -642,7 +642,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
      * 
      */
-    @Export(name="terminateInstancesOnDelete", type=String.class, parameters={})
+    @Export(name="terminateInstancesOnDelete", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> terminateInstancesOnDelete;
 
     /**
@@ -659,7 +659,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * instances should be terminated when the Spot fleet request expires.
      * 
      */
-    @Export(name="terminateInstancesWithExpiration", type=Boolean.class, parameters={})
+    @Export(name="terminateInstancesWithExpiration", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> terminateInstancesWithExpiration;
 
     /**
@@ -674,7 +674,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      * 
      */
-    @Export(name="validFrom", type=String.class, parameters={})
+    @Export(name="validFrom", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> validFrom;
 
     /**
@@ -688,7 +688,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
      * 
      */
-    @Export(name="validUntil", type=String.class, parameters={})
+    @Export(name="validUntil", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> validUntil;
 
     /**
@@ -704,7 +704,7 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
      * timeout of 10m is reached.
      * 
      */
-    @Export(name="waitForFulfillment", type=Boolean.class, parameters={})
+    @Export(name="waitForFulfillment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> waitForFulfillment;
 
     /**

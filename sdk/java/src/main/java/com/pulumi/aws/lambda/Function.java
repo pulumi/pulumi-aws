@@ -362,7 +362,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
      * 
      */
-    @Export(name="architectures", type=List.class, parameters={String.class})
+    @Export(name="architectures", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> architectures;
 
     /**
@@ -376,7 +376,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -390,7 +390,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
      * 
      */
-    @Export(name="code", type=Archive.class, parameters={})
+    @Export(name="code", refs={Archive.class}, tree="[0]")
     private Output</* @Nullable */ Archive> code;
 
     /**
@@ -404,7 +404,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
      * 
      */
-    @Export(name="codeSigningConfigArn", type=String.class, parameters={})
+    @Export(name="codeSigningConfigArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> codeSigningConfigArn;
 
     /**
@@ -418,7 +418,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="deadLetterConfig", type=FunctionDeadLetterConfig.class, parameters={})
+    @Export(name="deadLetterConfig", refs={FunctionDeadLetterConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionDeadLetterConfig> deadLetterConfig;
 
     /**
@@ -432,7 +432,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Description of what your Lambda Function does.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -446,7 +446,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="environment", type=FunctionEnvironment.class, parameters={})
+    @Export(name="environment", refs={FunctionEnvironment.class}, tree="[0]")
     private Output</* @Nullable */ FunctionEnvironment> environment;
 
     /**
@@ -460,7 +460,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
      * 
      */
-    @Export(name="ephemeralStorage", type=FunctionEphemeralStorage.class, parameters={})
+    @Export(name="ephemeralStorage", refs={FunctionEphemeralStorage.class}, tree="[0]")
     private Output<FunctionEphemeralStorage> ephemeralStorage;
 
     /**
@@ -474,7 +474,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="fileSystemConfig", type=FunctionFileSystemConfig.class, parameters={})
+    @Export(name="fileSystemConfig", refs={FunctionFileSystemConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionFileSystemConfig> fileSystemConfig;
 
     /**
@@ -488,7 +488,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      * 
      */
-    @Export(name="handler", type=String.class, parameters={})
+    @Export(name="handler", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> handler;
 
     /**
@@ -502,7 +502,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="imageConfig", type=FunctionImageConfig.class, parameters={})
+    @Export(name="imageConfig", refs={FunctionImageConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionImageConfig> imageConfig;
 
     /**
@@ -516,7 +516,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * ECR image URI containing the function&#39;s deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
      * 
      */
-    @Export(name="imageUri", type=String.class, parameters={})
+    @Export(name="imageUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageUri;
 
     /**
@@ -530,7 +530,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
-    @Export(name="invokeArn", type=String.class, parameters={})
+    @Export(name="invokeArn", refs={String.class}, tree="[0]")
     private Output<String> invokeArn;
 
     /**
@@ -544,7 +544,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
      * 
      */
-    @Export(name="kmsKeyArn", type=String.class, parameters={})
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
@@ -558,7 +558,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Date this resource was last modified.
      * 
      */
-    @Export(name="lastModified", type=String.class, parameters={})
+    @Export(name="lastModified", refs={String.class}, tree="[0]")
     private Output<String> lastModified;
 
     /**
@@ -572,7 +572,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
      * 
      */
-    @Export(name="layers", type=List.class, parameters={String.class})
+    @Export(name="layers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> layers;
 
     /**
@@ -586,7 +586,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      * 
      */
-    @Export(name="memorySize", type=Integer.class, parameters={})
+    @Export(name="memorySize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> memorySize;
 
     /**
@@ -600,7 +600,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Unique name for your Lambda Function.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -614,7 +614,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
      * 
      */
-    @Export(name="packageType", type=String.class, parameters={})
+    @Export(name="packageType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> packageType;
 
     /**
@@ -628,7 +628,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      * 
      */
-    @Export(name="publish", type=Boolean.class, parameters={})
+    @Export(name="publish", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publish;
 
     /**
@@ -642,7 +642,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
      * 
      */
-    @Export(name="qualifiedArn", type=String.class, parameters={})
+    @Export(name="qualifiedArn", refs={String.class}, tree="[0]")
     private Output<String> qualifiedArn;
 
     /**
@@ -656,7 +656,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
-    @Export(name="qualifiedInvokeArn", type=String.class, parameters={})
+    @Export(name="qualifiedInvokeArn", refs={String.class}, tree="[0]")
     private Output<String> qualifiedInvokeArn;
 
     /**
@@ -670,7 +670,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
      * 
      */
-    @Export(name="reservedConcurrentExecutions", type=Integer.class, parameters={})
+    @Export(name="reservedConcurrentExecutions", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> reservedConcurrentExecutions;
 
     /**
@@ -684,7 +684,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
@@ -698,7 +698,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      * 
      */
-    @Export(name="runtime", type=String.class, parameters={})
+    @Export(name="runtime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtime;
 
     /**
@@ -712,7 +712,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      * 
      */
-    @Export(name="s3Bucket", type=String.class, parameters={})
+    @Export(name="s3Bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3Bucket;
 
     /**
@@ -726,7 +726,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
      * 
      */
-    @Export(name="s3Key", type=String.class, parameters={})
+    @Export(name="s3Key", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3Key;
 
     /**
@@ -740,7 +740,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
      * 
      */
-    @Export(name="s3ObjectVersion", type=String.class, parameters={})
+    @Export(name="s3ObjectVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3ObjectVersion;
 
     /**
@@ -754,7 +754,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * ARN of the signing job.
      * 
      */
-    @Export(name="signingJobArn", type=String.class, parameters={})
+    @Export(name="signingJobArn", refs={String.class}, tree="[0]")
     private Output<String> signingJobArn;
 
     /**
@@ -769,7 +769,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      * 
      */
-    @Export(name="signingProfileVersionArn", type=String.class, parameters={})
+    @Export(name="signingProfileVersionArn", refs={String.class}, tree="[0]")
     private Output<String> signingProfileVersionArn;
 
     /**
@@ -784,7 +784,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Snap start settings block. Detailed below.
      * 
      */
-    @Export(name="snapStart", type=FunctionSnapStart.class, parameters={})
+    @Export(name="snapStart", refs={FunctionSnapStart.class}, tree="[0]")
     private Output</* @Nullable */ FunctionSnapStart> snapStart;
 
     /**
@@ -798,7 +798,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
-    @Export(name="sourceCodeHash", type=String.class, parameters={})
+    @Export(name="sourceCodeHash", refs={String.class}, tree="[0]")
     private Output<String> sourceCodeHash;
 
     /**
@@ -812,7 +812,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Size in bytes of the function .zip file.
      * 
      */
-    @Export(name="sourceCodeSize", type=Integer.class, parameters={})
+    @Export(name="sourceCodeSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> sourceCodeSize;
 
     /**
@@ -826,7 +826,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -840,7 +840,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -854,7 +854,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
      * 
      */
-    @Export(name="timeout", type=Integer.class, parameters={})
+    @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeout;
 
     /**
@@ -868,7 +868,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="tracingConfig", type=FunctionTracingConfig.class, parameters={})
+    @Export(name="tracingConfig", refs={FunctionTracingConfig.class}, tree="[0]")
     private Output<FunctionTracingConfig> tracingConfig;
 
     /**
@@ -883,7 +883,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * * `vpc_config.vpc_id` - ID of the VPC.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
@@ -898,7 +898,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="vpcConfig", type=FunctionVpcConfig.class, parameters={})
+    @Export(name="vpcConfig", refs={FunctionVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionVpcConfig> vpcConfig;
 
     /**

@@ -77,7 +77,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * Potential intermediate components of a feasible path. Described below.
      * 
      */
-    @Export(name="alternatePathHints", type=List.class, parameters={NetworkInsightsAnalysisAlternatePathHint.class})
+    @Export(name="alternatePathHints", refs={List.class,NetworkInsightsAnalysisAlternatePathHint.class}, tree="[0,1]")
     private Output<List<NetworkInsightsAnalysisAlternatePathHint>> alternatePathHints;
 
     /**
@@ -91,7 +91,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * ARN of the Network Insights Analysis.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -105,7 +105,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
      * 
      */
-    @Export(name="explanations", type=List.class, parameters={NetworkInsightsAnalysisExplanation.class})
+    @Export(name="explanations", refs={List.class,NetworkInsightsAnalysisExplanation.class}, tree="[0,1]")
     private Output<List<NetworkInsightsAnalysisExplanation>> explanations;
 
     /**
@@ -119,7 +119,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * A list of ARNs for resources the path must traverse.
      * 
      */
-    @Export(name="filterInArns", type=List.class, parameters={String.class})
+    @Export(name="filterInArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> filterInArns;
 
     /**
@@ -133,7 +133,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      * 
      */
-    @Export(name="forwardPathComponents", type=List.class, parameters={NetworkInsightsAnalysisForwardPathComponent.class})
+    @Export(name="forwardPathComponents", refs={List.class,NetworkInsightsAnalysisForwardPathComponent.class}, tree="[0,1]")
     private Output<List<NetworkInsightsAnalysisForwardPathComponent>> forwardPathComponents;
 
     /**
@@ -147,7 +147,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * ID of the Network Insights Path to run an analysis on.
      * 
      */
-    @Export(name="networkInsightsPathId", type=String.class, parameters={})
+    @Export(name="networkInsightsPathId", refs={String.class}, tree="[0]")
     private Output<String> networkInsightsPathId;
 
     /**
@@ -161,7 +161,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * Set to `true` if the destination was reachable.
      * 
      */
-    @Export(name="pathFound", type=Boolean.class, parameters={})
+    @Export(name="pathFound", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> pathFound;
 
     /**
@@ -175,7 +175,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      * 
      */
-    @Export(name="returnPathComponents", type=List.class, parameters={NetworkInsightsAnalysisReturnPathComponent.class})
+    @Export(name="returnPathComponents", refs={List.class,NetworkInsightsAnalysisReturnPathComponent.class}, tree="[0,1]")
     private Output<List<NetworkInsightsAnalysisReturnPathComponent>> returnPathComponents;
 
     /**
@@ -189,7 +189,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * The date/time the analysis was started.
      * 
      */
-    @Export(name="startDate", type=String.class, parameters={})
+    @Export(name="startDate", refs={String.class}, tree="[0]")
     private Output<String> startDate;
 
     /**
@@ -203,7 +203,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -217,7 +217,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * A message to provide more context when the `status` is `failed`.
      * 
      */
-    @Export(name="statusMessage", type=String.class, parameters={})
+    @Export(name="statusMessage", refs={String.class}, tree="[0]")
     private Output<String> statusMessage;
 
     /**
@@ -231,7 +231,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -245,7 +245,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -259,7 +259,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
      * 
      */
-    @Export(name="waitForCompletion", type=Boolean.class, parameters={})
+    @Export(name="waitForCompletion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> waitForCompletion;
 
     /**
@@ -273,7 +273,7 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
      * The warning message.
      * 
      */
-    @Export(name="warningMessage", type=String.class, parameters={})
+    @Export(name="warningMessage", refs={String.class}, tree="[0]")
     private Output<String> warningMessage;
 
     /**

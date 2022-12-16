@@ -76,7 +76,7 @@ public class SecretRotation extends com.pulumi.resources.CustomResource {
      * Specifies whether automatic rotation is enabled for this secret.
      * 
      */
-    @Export(name="rotationEnabled", type=Boolean.class, parameters={})
+    @Export(name="rotationEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> rotationEnabled;
 
     /**
@@ -90,7 +90,7 @@ public class SecretRotation extends com.pulumi.resources.CustomResource {
      * Specifies the ARN of the Lambda function that can rotate the secret.
      * 
      */
-    @Export(name="rotationLambdaArn", type=String.class, parameters={})
+    @Export(name="rotationLambdaArn", refs={String.class}, tree="[0]")
     private Output<String> rotationLambdaArn;
 
     /**
@@ -104,7 +104,7 @@ public class SecretRotation extends com.pulumi.resources.CustomResource {
      * A structure that defines the rotation configuration for this secret. Defined below.
      * 
      */
-    @Export(name="rotationRules", type=SecretRotationRotationRules.class, parameters={})
+    @Export(name="rotationRules", refs={SecretRotationRotationRules.class}, tree="[0]")
     private Output<SecretRotationRotationRules> rotationRules;
 
     /**
@@ -118,7 +118,7 @@ public class SecretRotation extends com.pulumi.resources.CustomResource {
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      * 
      */
-    @Export(name="secretId", type=String.class, parameters={})
+    @Export(name="secretId", refs={String.class}, tree="[0]")
     private Output<String> secretId;
 
     /**

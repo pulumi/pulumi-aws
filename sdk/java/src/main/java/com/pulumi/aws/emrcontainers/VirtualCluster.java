@@ -76,7 +76,7 @@ public class VirtualCluster extends com.pulumi.resources.CustomResource {
      * ARN of the cluster.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -90,7 +90,7 @@ public class VirtualCluster extends com.pulumi.resources.CustomResource {
      * Configuration block for the container provider associated with your cluster.
      * 
      */
-    @Export(name="containerProvider", type=VirtualClusterContainerProvider.class, parameters={})
+    @Export(name="containerProvider", refs={VirtualClusterContainerProvider.class}, tree="[0]")
     private Output<VirtualClusterContainerProvider> containerProvider;
 
     /**
@@ -104,7 +104,7 @@ public class VirtualCluster extends com.pulumi.resources.CustomResource {
      * Name of the virtual cluster.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -118,7 +118,7 @@ public class VirtualCluster extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -132,7 +132,7 @@ public class VirtualCluster extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

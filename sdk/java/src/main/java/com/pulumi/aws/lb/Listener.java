@@ -385,7 +385,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
      * 
      */
-    @Export(name="alpnPolicy", type=String.class, parameters={})
+    @Export(name="alpnPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alpnPolicy;
 
     /**
@@ -399,7 +399,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * ARN of the target group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -413,7 +413,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
      * 
      */
-    @Export(name="certificateArn", type=String.class, parameters={})
+    @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateArn;
 
     /**
@@ -427,7 +427,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * Configuration block for default actions. Detailed below.
      * 
      */
-    @Export(name="defaultActions", type=List.class, parameters={ListenerDefaultAction.class})
+    @Export(name="defaultActions", refs={List.class,ListenerDefaultAction.class}, tree="[0,1]")
     private Output<List<ListenerDefaultAction>> defaultActions;
 
     /**
@@ -441,7 +441,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * ARN of the load balancer.
      * 
      */
-    @Export(name="loadBalancerArn", type=String.class, parameters={})
+    @Export(name="loadBalancerArn", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerArn;
 
     /**
@@ -455,7 +455,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
     /**
@@ -469,7 +469,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
      * 
      */
-    @Export(name="protocol", type=String.class, parameters={})
+    @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
@@ -483,7 +483,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
      * 
      */
-    @Export(name="sslPolicy", type=String.class, parameters={})
+    @Export(name="sslPolicy", refs={String.class}, tree="[0]")
     private Output<String> sslPolicy;
 
     /**
@@ -497,7 +497,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -511,7 +511,7 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

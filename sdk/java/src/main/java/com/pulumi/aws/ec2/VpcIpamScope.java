@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ec2/vpcIpamScope:VpcIpamScope")
 public class VpcIpamScope extends com.pulumi.resources.CustomResource {
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     public Output<String> arn() {
@@ -87,7 +87,7 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      * A description for the scope you&#39;re creating.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -101,7 +101,7 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      * The ARN of the IPAM for which you&#39;re creating this scope.
      * 
      */
-    @Export(name="ipamArn", type=String.class, parameters={})
+    @Export(name="ipamArn", refs={String.class}, tree="[0]")
     private Output<String> ipamArn;
 
     /**
@@ -115,7 +115,7 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      * The ID of the IPAM for which you&#39;re creating this scope.
      * 
      */
-    @Export(name="ipamId", type=String.class, parameters={})
+    @Export(name="ipamId", refs={String.class}, tree="[0]")
     private Output<String> ipamId;
 
     /**
@@ -125,7 +125,7 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
     public Output<String> ipamId() {
         return this.ipamId;
     }
-    @Export(name="ipamScopeType", type=String.class, parameters={})
+    @Export(name="ipamScopeType", refs={String.class}, tree="[0]")
     private Output<String> ipamScopeType;
 
     public Output<String> ipamScopeType() {
@@ -135,7 +135,7 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      * Defines if the scope is the default scope or not.
      * 
      */
-    @Export(name="isDefault", type=Boolean.class, parameters={})
+    @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
     /**
@@ -149,7 +149,7 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      * Count of pools under this scope
      * 
      */
-    @Export(name="poolCount", type=Integer.class, parameters={})
+    @Export(name="poolCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> poolCount;
 
     /**
@@ -163,7 +163,7 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -173,7 +173,7 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {

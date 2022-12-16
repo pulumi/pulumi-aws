@@ -73,7 +73,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    @Export(name="addressFamily", type=String.class, parameters={})
+    @Export(name="addressFamily", refs={String.class}, tree="[0]")
     private Output<String> addressFamily;
 
     /**
@@ -87,7 +87,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      * 
      */
-    @Export(name="amazonAddress", type=String.class, parameters={})
+    @Export(name="amazonAddress", refs={String.class}, tree="[0]")
     private Output<String> amazonAddress;
 
     /**
@@ -97,7 +97,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
     public Output<String> amazonAddress() {
         return this.amazonAddress;
     }
-    @Export(name="amazonSideAsn", type=String.class, parameters={})
+    @Export(name="amazonSideAsn", refs={String.class}, tree="[0]")
     private Output<String> amazonSideAsn;
 
     public Output<String> amazonSideAsn() {
@@ -107,7 +107,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * The ARN of the virtual interface.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -121,7 +121,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * The Direct Connect endpoint on which the virtual interface terminates.
      * 
      */
-    @Export(name="awsDevice", type=String.class, parameters={})
+    @Export(name="awsDevice", refs={String.class}, tree="[0]")
     private Output<String> awsDevice;
 
     /**
@@ -135,7 +135,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    @Export(name="bgpAsn", type=Integer.class, parameters={})
+    @Export(name="bgpAsn", refs={Integer.class}, tree="[0]")
     private Output<Integer> bgpAsn;
 
     /**
@@ -149,7 +149,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * The authentication key for BGP configuration.
      * 
      */
-    @Export(name="bgpAuthKey", type=String.class, parameters={})
+    @Export(name="bgpAuthKey", refs={String.class}, tree="[0]")
     private Output<String> bgpAuthKey;
 
     /**
@@ -163,7 +163,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      * 
      */
-    @Export(name="connectionId", type=String.class, parameters={})
+    @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
     /**
@@ -177,7 +177,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      * 
      */
-    @Export(name="customerAddress", type=String.class, parameters={})
+    @Export(name="customerAddress", refs={String.class}, tree="[0]")
     private Output<String> customerAddress;
 
     /**
@@ -191,7 +191,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * The name for the virtual interface.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -205,7 +205,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * A list of routes to be advertised to the AWS network in this region.
      * 
      */
-    @Export(name="routeFilterPrefixes", type=List.class, parameters={String.class})
+    @Export(name="routeFilterPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> routeFilterPrefixes;
 
     /**
@@ -219,7 +219,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -233,7 +233,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -247,7 +247,7 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
      * The VLAN ID.
      * 
      */
-    @Export(name="vlan", type=Integer.class, parameters={})
+    @Export(name="vlan", refs={Integer.class}, tree="[0]")
     private Output<Integer> vlan;
 
     /**

@@ -125,7 +125,7 @@ public class BucketIntelligentTieringConfiguration extends com.pulumi.resources.
      * The name of the bucket this intelligent tiering configuration is associated with.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -139,7 +139,7 @@ public class BucketIntelligentTieringConfiguration extends com.pulumi.resources.
      * A bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
      * 
      */
-    @Export(name="filter", type=BucketIntelligentTieringConfigurationFilter.class, parameters={})
+    @Export(name="filter", refs={BucketIntelligentTieringConfigurationFilter.class}, tree="[0]")
     private Output</* @Nullable */ BucketIntelligentTieringConfigurationFilter> filter;
 
     /**
@@ -153,7 +153,7 @@ public class BucketIntelligentTieringConfiguration extends com.pulumi.resources.
      * The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -167,7 +167,7 @@ public class BucketIntelligentTieringConfiguration extends com.pulumi.resources.
      * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -181,7 +181,7 @@ public class BucketIntelligentTieringConfiguration extends com.pulumi.resources.
      * The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
      * 
      */
-    @Export(name="tierings", type=List.class, parameters={BucketIntelligentTieringConfigurationTiering.class})
+    @Export(name="tierings", refs={List.class,BucketIntelligentTieringConfigurationTiering.class}, tree="[0,1]")
     private Output<List<BucketIntelligentTieringConfigurationTiering>> tierings;
 
     /**

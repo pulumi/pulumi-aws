@@ -74,7 +74,7 @@ public class DataCatalogEncryptionSettings extends com.pulumi.resources.CustomRe
      * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      * 
      */
-    @Export(name="catalogId", type=String.class, parameters={})
+    @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
@@ -88,7 +88,7 @@ public class DataCatalogEncryptionSettings extends com.pulumi.resources.CustomRe
      * The security configuration to set. see Data Catalog Encryption Settings.
      * 
      */
-    @Export(name="dataCatalogEncryptionSettings", type=DataCatalogEncryptionSettingsDataCatalogEncryptionSettings.class, parameters={})
+    @Export(name="dataCatalogEncryptionSettings", refs={DataCatalogEncryptionSettingsDataCatalogEncryptionSettings.class}, tree="[0]")
     private Output<DataCatalogEncryptionSettingsDataCatalogEncryptionSettings> dataCatalogEncryptionSettings;
 
     /**

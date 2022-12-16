@@ -66,7 +66,7 @@ public class Invocation extends com.pulumi.resources.CustomResource {
      * Name of the lambda function.
      * 
      */
-    @Export(name="functionName", type=String.class, parameters={})
+    @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
     /**
@@ -80,7 +80,7 @@ public class Invocation extends com.pulumi.resources.CustomResource {
      * JSON payload to the lambda function.
      * 
      */
-    @Export(name="input", type=String.class, parameters={})
+    @Export(name="input", refs={String.class}, tree="[0]")
     private Output<String> input;
 
     /**
@@ -94,7 +94,7 @@ public class Invocation extends com.pulumi.resources.CustomResource {
      * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
      * 
      */
-    @Export(name="qualifier", type=String.class, parameters={})
+    @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> qualifier;
 
     /**
@@ -108,7 +108,7 @@ public class Invocation extends com.pulumi.resources.CustomResource {
      * String result of the lambda function invocation.
      * 
      */
-    @Export(name="result", type=String.class, parameters={})
+    @Export(name="result", refs={String.class}, tree="[0]")
     private Output<String> result;
 
     /**
@@ -122,7 +122,7 @@ public class Invocation extends com.pulumi.resources.CustomResource {
      * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
      * 
      */
-    @Export(name="triggers", type=Map.class, parameters={String.class, String.class})
+    @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> triggers;
 
     /**

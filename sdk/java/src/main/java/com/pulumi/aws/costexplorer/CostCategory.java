@@ -100,7 +100,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * ARN of the cost category.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -114,7 +114,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * Default value for the cost category.
      * 
      */
-    @Export(name="defaultValue", type=String.class, parameters={})
+    @Export(name="defaultValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultValue;
 
     /**
@@ -128,7 +128,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * Effective end data of your Cost Category.
      * 
      */
-    @Export(name="effectiveEnd", type=String.class, parameters={})
+    @Export(name="effectiveEnd", refs={String.class}, tree="[0]")
     private Output<String> effectiveEnd;
 
     /**
@@ -142,7 +142,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      * 
      */
-    @Export(name="effectiveStart", type=String.class, parameters={})
+    @Export(name="effectiveStart", refs={String.class}, tree="[0]")
     private Output<String> effectiveStart;
 
     /**
@@ -156,7 +156,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * Unique name for the Cost Category.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -170,7 +170,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * Rule schema version in this particular Cost Category.
      * 
      */
-    @Export(name="ruleVersion", type=String.class, parameters={})
+    @Export(name="ruleVersion", refs={String.class}, tree="[0]")
     private Output<String> ruleVersion;
 
     /**
@@ -184,7 +184,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * Configuration block for the `Expression` object used to categorize costs. See below.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={CostCategoryRule.class})
+    @Export(name="rules", refs={List.class,CostCategoryRule.class}, tree="[0,1]")
     private Output<List<CostCategoryRule>> rules;
 
     /**
@@ -198,7 +198,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      * 
      */
-    @Export(name="splitChargeRules", type=List.class, parameters={CostCategorySplitChargeRule.class})
+    @Export(name="splitChargeRules", refs={List.class,CostCategorySplitChargeRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CostCategorySplitChargeRule>> splitChargeRules;
 
     /**
@@ -212,7 +212,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * Configuration block for the specific `Tag` to use for `Expression`. See below.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -226,7 +226,7 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

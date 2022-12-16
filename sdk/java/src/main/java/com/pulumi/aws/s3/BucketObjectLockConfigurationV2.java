@@ -176,7 +176,7 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
      * The name of the bucket.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -190,7 +190,7 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
      * The account ID of the expected bucket owner.
      * 
      */
-    @Export(name="expectedBucketOwner", type=String.class, parameters={})
+    @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
@@ -204,7 +204,7 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
      * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      * 
      */
-    @Export(name="objectLockEnabled", type=String.class, parameters={})
+    @Export(name="objectLockEnabled", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> objectLockEnabled;
 
     /**
@@ -218,7 +218,7 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
      * Configuration block for specifying the Object Lock rule for the specified object detailed below.
      * 
      */
-    @Export(name="rule", type=BucketObjectLockConfigurationV2Rule.class, parameters={})
+    @Export(name="rule", refs={BucketObjectLockConfigurationV2Rule.class}, tree="[0]")
     private Output</* @Nullable */ BucketObjectLockConfigurationV2Rule> rule;
 
     /**
@@ -233,7 +233,7 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
      * The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
      * 
      */
-    @Export(name="token", type=String.class, parameters={})
+    @Export(name="token", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> token;
 
     /**

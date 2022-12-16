@@ -26,7 +26,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The access key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */
-    @Export(name="accessKey", type=String.class, parameters={})
+    @Export(name="accessKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessKey;
 
     /**
@@ -41,7 +41,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * variable. (Setting `ca_bundle` in the shared config file is not supported.)
      * 
      */
-    @Export(name="customCaBundle", type=String.class, parameters={})
+    @Export(name="customCaBundle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customCaBundle;
 
     /**
@@ -57,7 +57,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
      * 
      */
-    @Export(name="ec2MetadataServiceEndpoint", type=String.class, parameters={})
+    @Export(name="ec2MetadataServiceEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ec2MetadataServiceEndpoint;
 
     /**
@@ -73,7 +73,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
      * 
      */
-    @Export(name="ec2MetadataServiceEndpointMode", type=String.class, parameters={})
+    @Export(name="ec2MetadataServiceEndpointMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ec2MetadataServiceEndpointMode;
 
     /**
@@ -89,7 +89,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * `HTTPS_PROXY` environment variables.
      * 
      */
-    @Export(name="httpProxy", type=String.class, parameters={})
+    @Export(name="httpProxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpProxy;
 
     /**
@@ -104,7 +104,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
      * 
      */
-    @Export(name="profile", type=String.class, parameters={})
+    @Export(name="profile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> profile;
 
     /**
@@ -118,7 +118,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> region;
 
     /**
@@ -132,7 +132,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The secret key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */
-    @Export(name="secretKey", type=String.class, parameters={})
+    @Export(name="secretKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretKey;
 
     /**
@@ -150,7 +150,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * 
      */
     @Deprecated /* Use shared_credentials_files instead. */
-    @Export(name="sharedCredentialsFile", type=String.class, parameters={})
+    @Export(name="sharedCredentialsFile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedCredentialsFile;
 
     /**
@@ -164,7 +164,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
      * 
      */
-    @Export(name="stsRegion", type=String.class, parameters={})
+    @Export(name="stsRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stsRegion;
 
     /**
@@ -178,7 +178,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * session token. A session token is only required if you are using temporary security credentials.
      * 
      */
-    @Export(name="token", type=String.class, parameters={})
+    @Export(name="token", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> token;
 
     /**

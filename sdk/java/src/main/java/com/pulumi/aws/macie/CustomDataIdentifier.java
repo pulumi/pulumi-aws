@@ -75,7 +75,7 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the custom data identifier.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -89,7 +89,7 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -103,7 +103,7 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * A custom description of the custom data identifier. The description can contain as many as 512 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -117,7 +117,7 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
      * 
      */
-    @Export(name="ignoreWords", type=List.class, parameters={String.class})
+    @Export(name="ignoreWords", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ignoreWords;
 
     /**
@@ -131,7 +131,7 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren&#39;t case sensitive.
      * 
      */
-    @Export(name="keywords", type=List.class, parameters={String.class})
+    @Export(name="keywords", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> keywords;
 
     /**
@@ -145,7 +145,7 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
      * 
      */
-    @Export(name="maximumMatchDistance", type=Integer.class, parameters={})
+    @Export(name="maximumMatchDistance", refs={Integer.class}, tree="[0]")
     private Output<Integer> maximumMatchDistance;
 
     /**
@@ -159,7 +159,7 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -173,7 +173,7 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -187,7 +187,7 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
      * 
      */
-    @Export(name="regex", type=String.class, parameters={})
+    @Export(name="regex", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> regex;
 
     /**
@@ -201,7 +201,7 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
      * A map of key-value pairs that specifies the tags to associate with the custom data identifier.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -211,7 +211,7 @@ public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {

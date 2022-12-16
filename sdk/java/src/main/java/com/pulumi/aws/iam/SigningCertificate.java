@@ -101,7 +101,7 @@ public class SigningCertificate extends com.pulumi.resources.CustomResource {
      * The contents of the signing certificate in PEM-encoded format.
      * 
      */
-    @Export(name="certificateBody", type=String.class, parameters={})
+    @Export(name="certificateBody", refs={String.class}, tree="[0]")
     private Output<String> certificateBody;
 
     /**
@@ -115,7 +115,7 @@ public class SigningCertificate extends com.pulumi.resources.CustomResource {
      * The ID for the signing certificate.
      * 
      */
-    @Export(name="certificateId", type=String.class, parameters={})
+    @Export(name="certificateId", refs={String.class}, tree="[0]")
     private Output<String> certificateId;
 
     /**
@@ -129,7 +129,7 @@ public class SigningCertificate extends com.pulumi.resources.CustomResource {
      * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -143,7 +143,7 @@ public class SigningCertificate extends com.pulumi.resources.CustomResource {
      * The name of the user the signing certificate is for.
      * 
      */
-    @Export(name="userName", type=String.class, parameters={})
+    @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**

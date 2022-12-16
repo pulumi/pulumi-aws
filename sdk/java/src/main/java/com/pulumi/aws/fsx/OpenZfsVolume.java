@@ -70,7 +70,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name of the file system.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -84,7 +84,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
      * 
      */
-    @Export(name="copyTagsToSnapshots", type=Boolean.class, parameters={})
+    @Export(name="copyTagsToSnapshots", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToSnapshots;
 
     /**
@@ -98,7 +98,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      * 
      */
-    @Export(name="dataCompressionType", type=String.class, parameters={})
+    @Export(name="dataCompressionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dataCompressionType;
 
     /**
@@ -112,7 +112,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
      * 
      */
-    @Export(name="nfsExports", type=OpenZfsVolumeNfsExports.class, parameters={})
+    @Export(name="nfsExports", refs={OpenZfsVolumeNfsExports.class}, tree="[0]")
     private Output</* @Nullable */ OpenZfsVolumeNfsExports> nfsExports;
 
     /**
@@ -140,7 +140,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * The ARN of the source snapshot to create the volume from.
      * 
      */
-    @Export(name="originSnapshot", type=OpenZfsVolumeOriginSnapshot.class, parameters={})
+    @Export(name="originSnapshot", refs={OpenZfsVolumeOriginSnapshot.class}, tree="[0]")
     private Output</* @Nullable */ OpenZfsVolumeOriginSnapshot> originSnapshot;
 
     /**
@@ -154,7 +154,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `aws.fsx.OpenZfsVolume`.
      * 
      */
-    @Export(name="parentVolumeId", type=String.class, parameters={})
+    @Export(name="parentVolumeId", refs={String.class}, tree="[0]")
     private Output<String> parentVolumeId;
 
     /**
@@ -168,7 +168,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * specifies whether the volume is read-only. Default is false.
      * 
      */
-    @Export(name="readOnly", type=Boolean.class, parameters={})
+    @Export(name="readOnly", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> readOnly;
 
     /**
@@ -182,7 +182,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
      * 
      */
-    @Export(name="recordSizeKib", type=Integer.class, parameters={})
+    @Export(name="recordSizeKib", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> recordSizeKib;
 
     /**
@@ -196,7 +196,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
      * 
      */
-    @Export(name="storageCapacityQuotaGib", type=Integer.class, parameters={})
+    @Export(name="storageCapacityQuotaGib", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCapacityQuotaGib;
 
     /**
@@ -210,7 +210,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * The amount of storage in gibibytes (GiB) to reserve from the parent volume.
      * 
      */
-    @Export(name="storageCapacityReservationGib", type=Integer.class, parameters={})
+    @Export(name="storageCapacityReservationGib", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCapacityReservationGib;
 
     /**
@@ -224,7 +224,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -238,7 +238,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -252,7 +252,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
      * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      * 
      */
-    @Export(name="userAndGroupQuotas", type=List.class, parameters={OpenZfsVolumeUserAndGroupQuota.class})
+    @Export(name="userAndGroupQuotas", refs={List.class,OpenZfsVolumeUserAndGroupQuota.class}, tree="[0,1]")
     private Output<List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas;
 
     /**
@@ -262,7 +262,7 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
     public Output<List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas() {
         return this.userAndGroupQuotas;
     }
-    @Export(name="volumeType", type=String.class, parameters={})
+    @Export(name="volumeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> volumeType;
 
     public Output<Optional<String>> volumeType() {

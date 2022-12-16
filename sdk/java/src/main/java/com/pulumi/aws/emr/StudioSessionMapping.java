@@ -64,7 +64,7 @@ public class StudioSessionMapping extends com.pulumi.resources.CustomResource {
      * The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
      * 
      */
-    @Export(name="identityId", type=String.class, parameters={})
+    @Export(name="identityId", refs={String.class}, tree="[0]")
     private Output<String> identityId;
 
     /**
@@ -78,7 +78,7 @@ public class StudioSessionMapping extends com.pulumi.resources.CustomResource {
      * The name of the user or group from the Amazon Web Services SSO Identity Store.
      * 
      */
-    @Export(name="identityName", type=String.class, parameters={})
+    @Export(name="identityName", refs={String.class}, tree="[0]")
     private Output<String> identityName;
 
     /**
@@ -92,7 +92,7 @@ public class StudioSessionMapping extends com.pulumi.resources.CustomResource {
      * Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
      * 
      */
-    @Export(name="identityType", type=String.class, parameters={})
+    @Export(name="identityType", refs={String.class}, tree="[0]")
     private Output<String> identityType;
 
     /**
@@ -106,7 +106,7 @@ public class StudioSessionMapping extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
      * 
      */
-    @Export(name="sessionPolicyArn", type=String.class, parameters={})
+    @Export(name="sessionPolicyArn", refs={String.class}, tree="[0]")
     private Output<String> sessionPolicyArn;
 
     /**
@@ -120,7 +120,7 @@ public class StudioSessionMapping extends com.pulumi.resources.CustomResource {
      * The ID of the Amazon EMR Studio to which the user or group will be mapped.
      * 
      */
-    @Export(name="studioId", type=String.class, parameters={})
+    @Export(name="studioId", refs={String.class}, tree="[0]")
     private Output<String> studioId;
 
     /**

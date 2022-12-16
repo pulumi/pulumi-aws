@@ -138,7 +138,7 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -152,7 +152,7 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * A description for the DLM lifecycle policy.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -166,7 +166,7 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * The ARN of an IAM role that is able to be assumed by the DLM service.
      * 
      */
-    @Export(name="executionRoleArn", type=String.class, parameters={})
+    @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> executionRoleArn;
 
     /**
@@ -180,7 +180,7 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * See the `policy_details` configuration block. Max of 1.
      * 
      */
-    @Export(name="policyDetails", type=LifecyclePolicyPolicyDetails.class, parameters={})
+    @Export(name="policyDetails", refs={LifecyclePolicyPolicyDetails.class}, tree="[0]")
     private Output<LifecyclePolicyPolicyDetails> policyDetails;
 
     /**
@@ -194,7 +194,7 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
@@ -208,7 +208,7 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -222,7 +222,7 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

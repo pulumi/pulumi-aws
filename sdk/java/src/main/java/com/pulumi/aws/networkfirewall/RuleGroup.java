@@ -319,7 +319,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) that identifies the rule group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -333,7 +333,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
      * 
      */
-    @Export(name="capacity", type=Integer.class, parameters={})
+    @Export(name="capacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> capacity;
 
     /**
@@ -347,7 +347,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * A friendly description of the rule group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -361,7 +361,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * A friendly name of the rule group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -375,7 +375,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
      * 
      */
-    @Export(name="ruleGroup", type=RuleGroupRuleGroup.class, parameters={})
+    @Export(name="ruleGroup", refs={RuleGroupRuleGroup.class}, tree="[0]")
     private Output<RuleGroupRuleGroup> ruleGroup;
 
     /**
@@ -389,7 +389,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
      * 
      */
-    @Export(name="rules", type=String.class, parameters={})
+    @Export(name="rules", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rules;
 
     /**
@@ -403,7 +403,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -417,7 +417,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -431,7 +431,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -445,7 +445,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * A string token used when updating the rule group.
      * 
      */
-    @Export(name="updateToken", type=String.class, parameters={})
+    @Export(name="updateToken", refs={String.class}, tree="[0]")
     private Output<String> updateToken;
 
     /**

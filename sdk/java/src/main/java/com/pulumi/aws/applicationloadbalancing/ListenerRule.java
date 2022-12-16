@@ -234,7 +234,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * An Action block. Action blocks are documented below.
      * 
      */
-    @Export(name="actions", type=List.class, parameters={ListenerRuleAction.class})
+    @Export(name="actions", refs={List.class,ListenerRuleAction.class}, tree="[0,1]")
     private Output<List<ListenerRuleAction>> actions;
 
     /**
@@ -248,7 +248,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the target group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -262,7 +262,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      * 
      */
-    @Export(name="conditions", type=List.class, parameters={ListenerRuleCondition.class})
+    @Export(name="conditions", refs={List.class,ListenerRuleCondition.class}, tree="[0,1]")
     private Output<List<ListenerRuleCondition>> conditions;
 
     /**
@@ -276,7 +276,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * The ARN of the listener to which to attach the rule.
      * 
      */
-    @Export(name="listenerArn", type=String.class, parameters={})
+    @Export(name="listenerArn", refs={String.class}, tree="[0]")
     private Output<String> listenerArn;
 
     /**
@@ -290,7 +290,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can&#39;t have multiple rules with the same priority.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
@@ -304,7 +304,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -318,7 +318,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

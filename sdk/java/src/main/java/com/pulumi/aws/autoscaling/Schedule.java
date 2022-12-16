@@ -80,7 +80,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * ARN assigned by AWS to the autoscaling schedule.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -94,7 +94,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Name or ARN of the Auto Scaling group.
      * 
      */
-    @Export(name="autoscalingGroupName", type=String.class, parameters={})
+    @Export(name="autoscalingGroupName", refs={String.class}, tree="[0]")
     private Output<String> autoscalingGroupName;
 
     /**
@@ -108,7 +108,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
      * 
      */
-    @Export(name="desiredCapacity", type=Integer.class, parameters={})
+    @Export(name="desiredCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> desiredCapacity;
 
     /**
@@ -123,7 +123,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      * 
      */
-    @Export(name="endTime", type=String.class, parameters={})
+    @Export(name="endTime", refs={String.class}, tree="[0]")
     private Output<String> endTime;
 
     /**
@@ -139,7 +139,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Set to -1 if you don&#39;t want to change the maximum size at the scheduled time.
      * 
      */
-    @Export(name="maxSize", type=Integer.class, parameters={})
+    @Export(name="maxSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxSize;
 
     /**
@@ -155,7 +155,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Set to -1 if you don&#39;t want to change the minimum size at the scheduled time.
      * 
      */
-    @Export(name="minSize", type=Integer.class, parameters={})
+    @Export(name="minSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> minSize;
 
     /**
@@ -170,7 +170,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
      * 
      */
-    @Export(name="recurrence", type=String.class, parameters={})
+    @Export(name="recurrence", refs={String.class}, tree="[0]")
     private Output<String> recurrence;
 
     /**
@@ -184,7 +184,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Name of this scaling action.
      * 
      */
-    @Export(name="scheduledActionName", type=String.class, parameters={})
+    @Export(name="scheduledActionName", refs={String.class}, tree="[0]")
     private Output<String> scheduledActionName;
 
     /**
@@ -199,7 +199,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      * 
      */
-    @Export(name="startTime", type=String.class, parameters={})
+    @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output<String> startTime;
 
     /**
@@ -214,7 +214,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
      * 
      */
-    @Export(name="timeZone", type=String.class, parameters={})
+    @Export(name="timeZone", refs={String.class}, tree="[0]")
     private Output<String> timeZone;
 
     /**

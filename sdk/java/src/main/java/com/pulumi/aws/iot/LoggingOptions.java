@@ -56,7 +56,7 @@ public class LoggingOptions extends com.pulumi.resources.CustomResource {
      * The default logging level. Valid Values: `&#34;DEBUG&#34;`, `&#34;INFO&#34;`, `&#34;ERROR&#34;`, `&#34;WARN&#34;`, `&#34;DISABLED&#34;`.
      * 
      */
-    @Export(name="defaultLogLevel", type=String.class, parameters={})
+    @Export(name="defaultLogLevel", refs={String.class}, tree="[0]")
     private Output<String> defaultLogLevel;
 
     /**
@@ -70,7 +70,7 @@ public class LoggingOptions extends com.pulumi.resources.CustomResource {
      * If `true` all logs are disabled. The default is `false`.
      * 
      */
-    @Export(name="disableAllLogs", type=Boolean.class, parameters={})
+    @Export(name="disableAllLogs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableAllLogs;
 
     /**
@@ -84,7 +84,7 @@ public class LoggingOptions extends com.pulumi.resources.CustomResource {
      * The ARN of the role that allows IoT to write to Cloudwatch logs.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**

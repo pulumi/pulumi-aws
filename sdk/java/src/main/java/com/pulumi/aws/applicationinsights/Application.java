@@ -87,7 +87,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * ARN of the Application.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -101,7 +101,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
      * 
      */
-    @Export(name="autoConfigEnabled", type=Boolean.class, parameters={})
+    @Export(name="autoConfigEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoConfigEnabled;
 
     /**
@@ -115,7 +115,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Configures all of the resources in the resource group by applying the recommended configurations.
      * 
      */
-    @Export(name="autoCreate", type=Boolean.class, parameters={})
+    @Export(name="autoCreate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoCreate;
 
     /**
@@ -129,7 +129,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      * 
      */
-    @Export(name="cweMonitorEnabled", type=Boolean.class, parameters={})
+    @Export(name="cweMonitorEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cweMonitorEnabled;
 
     /**
@@ -143,7 +143,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
      * 
      */
-    @Export(name="groupingType", type=String.class, parameters={})
+    @Export(name="groupingType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupingType;
 
     /**
@@ -157,7 +157,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * When set to `true`, creates opsItems for any problems detected on an application.
      * 
      */
-    @Export(name="opsCenterEnabled", type=Boolean.class, parameters={})
+    @Export(name="opsCenterEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> opsCenterEnabled;
 
     /**
@@ -171,7 +171,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      * 
      */
-    @Export(name="opsItemSnsTopicArn", type=String.class, parameters={})
+    @Export(name="opsItemSnsTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> opsItemSnsTopicArn;
 
     /**
@@ -185,7 +185,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Name of the resource group.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -199,7 +199,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -213,7 +213,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

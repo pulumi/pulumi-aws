@@ -89,7 +89,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Profile
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -103,7 +103,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * The number of seconds the vended session credentials are valid for. Defaults to 3600.
      * 
      */
-    @Export(name="durationSeconds", type=Integer.class, parameters={})
+    @Export(name="durationSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> durationSeconds;
 
     /**
@@ -117,7 +117,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * Whether or not the Profile is enabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -131,7 +131,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * A list of managed policy ARNs that apply to the vended session credentials.
      * 
      */
-    @Export(name="managedPolicyArns", type=List.class, parameters={String.class})
+    @Export(name="managedPolicyArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> managedPolicyArns;
 
     /**
@@ -145,7 +145,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * The name of the Profile.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -159,7 +159,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
      * 
      */
-    @Export(name="requireInstanceProperties", type=Boolean.class, parameters={})
+    @Export(name="requireInstanceProperties", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requireInstanceProperties;
 
     /**
@@ -173,7 +173,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * A list of IAM roles that this profile can assume
      * 
      */
-    @Export(name="roleArns", type=List.class, parameters={String.class})
+    @Export(name="roleArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> roleArns;
 
     /**
@@ -187,7 +187,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * A session policy that applies to the trust boundary of the vended session credentials.
      * 
      */
-    @Export(name="sessionPolicy", type=String.class, parameters={})
+    @Export(name="sessionPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sessionPolicy;
 
     /**
@@ -201,7 +201,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -215,7 +215,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

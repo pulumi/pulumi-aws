@@ -83,7 +83,7 @@ public class IdentityPolicy extends com.pulumi.resources.CustomResource {
      * Name or Amazon Resource Name (ARN) of the SES Identity.
      * 
      */
-    @Export(name="identity", type=String.class, parameters={})
+    @Export(name="identity", refs={String.class}, tree="[0]")
     private Output<String> identity;
 
     /**
@@ -97,7 +97,7 @@ public class IdentityPolicy extends com.pulumi.resources.CustomResource {
      * Name of the policy.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -111,7 +111,7 @@ public class IdentityPolicy extends com.pulumi.resources.CustomResource {
      * JSON string of the policy.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**

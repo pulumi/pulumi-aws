@@ -157,7 +157,7 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * The ARN of the WAF WebACL.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -171,7 +171,7 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * Configuration block with action that you want AWS WAF to take when a request doesn&#39;t match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      * 
      */
-    @Export(name="defaultAction", type=WebAclDefaultAction.class, parameters={})
+    @Export(name="defaultAction", refs={WebAclDefaultAction.class}, tree="[0]")
     private Output<WebAclDefaultAction> defaultAction;
 
     /**
@@ -185,7 +185,7 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * Configuration block to enable WAF logging. Detailed below.
      * 
      */
-    @Export(name="loggingConfiguration", type=WebAclLoggingConfiguration.class, parameters={})
+    @Export(name="loggingConfiguration", refs={WebAclLoggingConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WebAclLoggingConfiguration> loggingConfiguration;
 
     /**
@@ -199,7 +199,7 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      * 
      */
-    @Export(name="metricName", type=String.class, parameters={})
+    @Export(name="metricName", refs={String.class}, tree="[0]")
     private Output<String> metricName;
 
     /**
@@ -213,7 +213,7 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * The name or description of the web ACL.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -227,7 +227,7 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={WebAclRule.class})
+    @Export(name="rules", refs={List.class,WebAclRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WebAclRule>> rules;
 
     /**
@@ -241,7 +241,7 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -255,7 +255,7 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

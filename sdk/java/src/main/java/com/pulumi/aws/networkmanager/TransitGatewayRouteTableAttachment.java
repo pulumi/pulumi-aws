@@ -65,7 +65,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * Attachment Amazon Resource Name (ARN).
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -79,7 +79,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * The policy rule number associated with the attachment.
      * 
      */
-    @Export(name="attachmentPolicyRuleNumber", type=Integer.class, parameters={})
+    @Export(name="attachmentPolicyRuleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> attachmentPolicyRuleNumber;
 
     /**
@@ -93,7 +93,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * The type of attachment.
      * 
      */
-    @Export(name="attachmentType", type=String.class, parameters={})
+    @Export(name="attachmentType", refs={String.class}, tree="[0]")
     private Output<String> attachmentType;
 
     /**
@@ -107,7 +107,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * The ARN of the core network.
      * 
      */
-    @Export(name="coreNetworkArn", type=String.class, parameters={})
+    @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
     /**
@@ -121,7 +121,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * The ID of the core network.
      * 
      */
-    @Export(name="coreNetworkId", type=String.class, parameters={})
+    @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
     /**
@@ -135,7 +135,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * The edge location for the peer.
      * 
      */
-    @Export(name="edgeLocation", type=String.class, parameters={})
+    @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
     /**
@@ -149,7 +149,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * The ID of the attachment account owner.
      * 
      */
-    @Export(name="ownerAccountId", type=String.class, parameters={})
+    @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
@@ -163,7 +163,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * The ID of the peer for the attachment.
      * 
      */
-    @Export(name="peeringId", type=String.class, parameters={})
+    @Export(name="peeringId", refs={String.class}, tree="[0]")
     private Output<String> peeringId;
 
     /**
@@ -177,7 +177,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * The attachment resource ARN.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
@@ -191,7 +191,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * The name of the segment attachment.
      * 
      */
-    @Export(name="segmentName", type=String.class, parameters={})
+    @Export(name="segmentName", refs={String.class}, tree="[0]")
     private Output<String> segmentName;
 
     /**
@@ -205,7 +205,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * The state of the attachment.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -219,7 +219,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -233,7 +233,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -247,7 +247,7 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
      * The ARN of the transit gateway route table for the attachment.
      * 
      */
-    @Export(name="transitGatewayRouteTableArn", type=String.class, parameters={})
+    @Export(name="transitGatewayRouteTableArn", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayRouteTableArn;
 
     /**

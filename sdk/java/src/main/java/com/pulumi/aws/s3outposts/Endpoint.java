@@ -65,7 +65,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the endpoint.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -79,7 +79,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * VPC CIDR block of the endpoint.
      * 
      */
-    @Export(name="cidrBlock", type=String.class, parameters={})
+    @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output<String> cidrBlock;
 
     /**
@@ -93,7 +93,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    @Export(name="creationTime", type=String.class, parameters={})
+    @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
@@ -107,7 +107,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
      * 
      */
-    @Export(name="networkInterfaces", type=List.class, parameters={EndpointNetworkInterface.class})
+    @Export(name="networkInterfaces", refs={List.class,EndpointNetworkInterface.class}, tree="[0,1]")
     private Output<List<EndpointNetworkInterface>> networkInterfaces;
 
     /**
@@ -121,7 +121,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Identifier of the Outpost to contain this endpoint.
      * 
      */
-    @Export(name="outpostId", type=String.class, parameters={})
+    @Export(name="outpostId", refs={String.class}, tree="[0]")
     private Output<String> outpostId;
 
     /**
@@ -135,7 +135,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Identifier of the EC2 Security Group.
      * 
      */
-    @Export(name="securityGroupId", type=String.class, parameters={})
+    @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
     /**
@@ -149,7 +149,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Identifier of the EC2 Subnet.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**

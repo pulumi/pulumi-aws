@@ -58,7 +58,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * Whether the user is allowed to use SSH to communicate with the instance
      * 
      */
-    @Export(name="allowSsh", type=Boolean.class, parameters={})
+    @Export(name="allowSsh", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> allowSsh;
 
     /**
@@ -72,7 +72,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * Whether the user is allowed to use sudo to elevate privileges
      * 
      */
-    @Export(name="allowSudo", type=Boolean.class, parameters={})
+    @Export(name="allowSudo", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> allowSudo;
 
     /**
@@ -86,7 +86,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
      * 
      */
-    @Export(name="level", type=String.class, parameters={})
+    @Export(name="level", refs={String.class}, tree="[0]")
     private Output<String> level;
 
     /**
@@ -100,7 +100,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * The stack to set the permissions for
      * 
      */
-    @Export(name="stackId", type=String.class, parameters={})
+    @Export(name="stackId", refs={String.class}, tree="[0]")
     private Output<String> stackId;
 
     /**
@@ -114,7 +114,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * The user&#39;s IAM ARN to set permissions for
      * 
      */
-    @Export(name="userArn", type=String.class, parameters={})
+    @Export(name="userArn", refs={String.class}, tree="[0]")
     private Output<String> userArn;
 
     /**

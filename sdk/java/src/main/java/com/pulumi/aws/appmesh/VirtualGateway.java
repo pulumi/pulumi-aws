@@ -138,7 +138,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * ARN of the virtual gateway.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -152,7 +152,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * Creation date of the virtual gateway.
      * 
      */
-    @Export(name="createdDate", type=String.class, parameters={})
+    @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
     /**
@@ -166,7 +166,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * Last update date of the virtual gateway.
      * 
      */
-    @Export(name="lastUpdatedDate", type=String.class, parameters={})
+    @Export(name="lastUpdatedDate", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedDate;
 
     /**
@@ -180,7 +180,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
      * 
      */
-    @Export(name="meshName", type=String.class, parameters={})
+    @Export(name="meshName", refs={String.class}, tree="[0]")
     private Output<String> meshName;
 
     /**
@@ -194,7 +194,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
-    @Export(name="meshOwner", type=String.class, parameters={})
+    @Export(name="meshOwner", refs={String.class}, tree="[0]")
     private Output<String> meshOwner;
 
     /**
@@ -208,7 +208,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -222,7 +222,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * Resource owner&#39;s AWS account ID.
      * 
      */
-    @Export(name="resourceOwner", type=String.class, parameters={})
+    @Export(name="resourceOwner", refs={String.class}, tree="[0]")
     private Output<String> resourceOwner;
 
     /**
@@ -236,7 +236,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * Virtual gateway specification to apply.
      * 
      */
-    @Export(name="spec", type=VirtualGatewaySpec.class, parameters={})
+    @Export(name="spec", refs={VirtualGatewaySpec.class}, tree="[0]")
     private Output<VirtualGatewaySpec> spec;
 
     /**
@@ -250,7 +250,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -264,7 +264,7 @@ public class VirtualGateway extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

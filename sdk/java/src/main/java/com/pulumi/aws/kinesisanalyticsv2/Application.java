@@ -344,7 +344,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The application&#39;s configuration
      * 
      */
-    @Export(name="applicationConfiguration", type=ApplicationApplicationConfiguration.class, parameters={})
+    @Export(name="applicationConfiguration", refs={ApplicationApplicationConfiguration.class}, tree="[0]")
     private Output<ApplicationApplicationConfiguration> applicationConfiguration;
 
     /**
@@ -358,7 +358,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The ARN of the application.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -372,7 +372,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A CloudWatch log stream to monitor application configuration errors.
      * 
      */
-    @Export(name="cloudwatchLoggingOptions", type=ApplicationCloudwatchLoggingOptions.class, parameters={})
+    @Export(name="cloudwatchLoggingOptions", refs={ApplicationCloudwatchLoggingOptions.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
 
     /**
@@ -386,7 +386,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The current timestamp when the application was created.
      * 
      */
-    @Export(name="createTimestamp", type=String.class, parameters={})
+    @Export(name="createTimestamp", refs={String.class}, tree="[0]")
     private Output<String> createTimestamp;
 
     /**
@@ -400,7 +400,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A summary description of the application.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -414,7 +414,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Whether to force stop an unresponsive Flink-based application.
      * 
      */
-    @Export(name="forceStop", type=Boolean.class, parameters={})
+    @Export(name="forceStop", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceStop;
 
     /**
@@ -428,7 +428,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The current timestamp when the application was last updated.
      * 
      */
-    @Export(name="lastUpdateTimestamp", type=String.class, parameters={})
+    @Export(name="lastUpdateTimestamp", refs={String.class}, tree="[0]")
     private Output<String> lastUpdateTimestamp;
 
     /**
@@ -442,7 +442,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name of the application.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -456,7 +456,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`.
      * 
      */
-    @Export(name="runtimeEnvironment", type=String.class, parameters={})
+    @Export(name="runtimeEnvironment", refs={String.class}, tree="[0]")
     private Output<String> runtimeEnvironment;
 
     /**
@@ -470,7 +470,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
      * 
      */
-    @Export(name="serviceExecutionRole", type=String.class, parameters={})
+    @Export(name="serviceExecutionRole", refs={String.class}, tree="[0]")
     private Output<String> serviceExecutionRole;
 
     /**
@@ -484,7 +484,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Whether to start or stop the application.
      * 
      */
-    @Export(name="startApplication", type=Boolean.class, parameters={})
+    @Export(name="startApplication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> startApplication;
 
     /**
@@ -498,7 +498,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The status of the application.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -512,7 +512,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -526,7 +526,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -540,7 +540,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
      * 
      */
-    @Export(name="versionId", type=Integer.class, parameters={})
+    @Export(name="versionId", refs={Integer.class}, tree="[0]")
     private Output<Integer> versionId;
 
     /**

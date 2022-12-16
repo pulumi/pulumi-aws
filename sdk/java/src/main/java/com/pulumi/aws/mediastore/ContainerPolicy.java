@@ -31,7 +31,7 @@ public class ContainerPolicy extends com.pulumi.resources.CustomResource {
      * The name of the container.
      * 
      */
-    @Export(name="containerName", type=String.class, parameters={})
+    @Export(name="containerName", refs={String.class}, tree="[0]")
     private Output<String> containerName;
 
     /**
@@ -45,7 +45,7 @@ public class ContainerPolicy extends com.pulumi.resources.CustomResource {
      * The contents of the policy.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**

@@ -66,7 +66,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
      * 
      */
-    @Export(name="activationKey", type=String.class, parameters={})
+    @Export(name="activationKey", refs={String.class}, tree="[0]")
     private Output<String> activationKey;
 
     /**
@@ -80,7 +80,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the DataSync Agent.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -94,7 +94,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
      * 
      */
-    @Export(name="ipAddress", type=String.class, parameters={})
+    @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
@@ -108,7 +108,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * Name of the DataSync Agent.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -122,7 +122,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
      * 
      */
-    @Export(name="privateLinkEndpoint", type=String.class, parameters={})
+    @Export(name="privateLinkEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateLinkEndpoint;
 
     /**
@@ -136,7 +136,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * The ARNs of the security groups used to protect your data transfer task subnets.
      * 
      */
-    @Export(name="securityGroupArns", type=List.class, parameters={String.class})
+    @Export(name="securityGroupArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupArns;
 
     /**
@@ -150,7 +150,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      * 
      */
-    @Export(name="subnetArns", type=List.class, parameters={String.class})
+    @Export(name="subnetArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> subnetArns;
 
     /**
@@ -164,7 +164,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -178,7 +178,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -192,7 +192,7 @@ public class Agent extends com.pulumi.resources.CustomResource {
      * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
      * 
      */
-    @Export(name="vpcEndpointId", type=String.class, parameters={})
+    @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcEndpointId;
 
     /**

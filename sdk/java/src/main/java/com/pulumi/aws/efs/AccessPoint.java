@@ -65,7 +65,7 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * ARN of the access point.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -79,7 +79,7 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * ARN of the file system.
      * 
      */
-    @Export(name="fileSystemArn", type=String.class, parameters={})
+    @Export(name="fileSystemArn", refs={String.class}, tree="[0]")
     private Output<String> fileSystemArn;
 
     /**
@@ -93,7 +93,7 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * ID of the file system for which the access point is intended.
      * 
      */
-    @Export(name="fileSystemId", type=String.class, parameters={})
+    @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
     /**
@@ -103,7 +103,7 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     public Output<String> ownerId() {
@@ -113,7 +113,7 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
      * 
      */
-    @Export(name="posixUser", type=AccessPointPosixUser.class, parameters={})
+    @Export(name="posixUser", refs={AccessPointPosixUser.class}, tree="[0]")
     private Output</* @Nullable */ AccessPointPosixUser> posixUser;
 
     /**
@@ -127,7 +127,7 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      * 
      */
-    @Export(name="rootDirectory", type=AccessPointRootDirectory.class, parameters={})
+    @Export(name="rootDirectory", refs={AccessPointRootDirectory.class}, tree="[0]")
     private Output<AccessPointRootDirectory> rootDirectory;
 
     /**
@@ -141,7 +141,7 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -155,7 +155,7 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

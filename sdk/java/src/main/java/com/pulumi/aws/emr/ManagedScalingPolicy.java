@@ -85,7 +85,7 @@ public class ManagedScalingPolicy extends com.pulumi.resources.CustomResource {
      * ID of the EMR cluster
      * 
      */
-    @Export(name="clusterId", type=String.class, parameters={})
+    @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
     /**
@@ -99,7 +99,7 @@ public class ManagedScalingPolicy extends com.pulumi.resources.CustomResource {
      * Configuration block with compute limit settings. Described below.
      * 
      */
-    @Export(name="computeLimits", type=List.class, parameters={ManagedScalingPolicyComputeLimit.class})
+    @Export(name="computeLimits", refs={List.class,ManagedScalingPolicyComputeLimit.class}, tree="[0,1]")
     private Output<List<ManagedScalingPolicyComputeLimit>> computeLimits;
 
     /**

@@ -39,7 +39,7 @@ public class ConnectorProfile extends com.pulumi.resources.CustomResource {
      * ARN of the connector profile.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -53,7 +53,7 @@ public class ConnectorProfile extends com.pulumi.resources.CustomResource {
      * Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
      * 
      */
-    @Export(name="connectionMode", type=String.class, parameters={})
+    @Export(name="connectionMode", refs={String.class}, tree="[0]")
     private Output<String> connectionMode;
 
     /**
@@ -67,7 +67,7 @@ public class ConnectorProfile extends com.pulumi.resources.CustomResource {
      * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
      * 
      */
-    @Export(name="connectorLabel", type=String.class, parameters={})
+    @Export(name="connectorLabel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectorLabel;
 
     /**
@@ -81,7 +81,7 @@ public class ConnectorProfile extends com.pulumi.resources.CustomResource {
      * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
      * 
      */
-    @Export(name="connectorProfileConfig", type=ConnectorProfileConnectorProfileConfig.class, parameters={})
+    @Export(name="connectorProfileConfig", refs={ConnectorProfileConnectorProfileConfig.class}, tree="[0]")
     private Output<ConnectorProfileConnectorProfileConfig> connectorProfileConfig;
 
     /**
@@ -95,7 +95,7 @@ public class ConnectorProfile extends com.pulumi.resources.CustomResource {
      * The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
      * 
      */
-    @Export(name="connectorType", type=String.class, parameters={})
+    @Export(name="connectorType", refs={String.class}, tree="[0]")
     private Output<String> connectorType;
 
     /**
@@ -109,7 +109,7 @@ public class ConnectorProfile extends com.pulumi.resources.CustomResource {
      * ARN of the connector profile credentials.
      * 
      */
-    @Export(name="credentialsArn", type=String.class, parameters={})
+    @Export(name="credentialsArn", refs={String.class}, tree="[0]")
     private Output<String> credentialsArn;
 
     /**
@@ -123,7 +123,7 @@ public class ConnectorProfile extends com.pulumi.resources.CustomResource {
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
-    @Export(name="kmsArn", type=String.class, parameters={})
+    @Export(name="kmsArn", refs={String.class}, tree="[0]")
     private Output<String> kmsArn;
 
     /**
@@ -133,7 +133,7 @@ public class ConnectorProfile extends com.pulumi.resources.CustomResource {
     public Output<String> kmsArn() {
         return this.kmsArn;
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {

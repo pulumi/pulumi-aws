@@ -79,7 +79,7 @@ public class KinesisStreamingDestination extends com.pulumi.resources.CustomReso
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      * 
      */
-    @Export(name="streamArn", type=String.class, parameters={})
+    @Export(name="streamArn", refs={String.class}, tree="[0]")
     private Output<String> streamArn;
 
     /**
@@ -94,7 +94,7 @@ public class KinesisStreamingDestination extends com.pulumi.resources.CustomReso
      * can only be one Kinesis streaming destination for a given DynamoDB table.
      * 
      */
-    @Export(name="tableName", type=String.class, parameters={})
+    @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     /**

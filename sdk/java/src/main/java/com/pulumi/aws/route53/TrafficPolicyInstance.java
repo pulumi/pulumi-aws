@@ -65,7 +65,7 @@ public class TrafficPolicyInstance extends com.pulumi.resources.CustomResource {
      * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
      * 
      */
-    @Export(name="hostedZoneId", type=String.class, parameters={})
+    @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
     /**
@@ -79,7 +79,7 @@ public class TrafficPolicyInstance extends com.pulumi.resources.CustomResource {
      * Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -93,7 +93,7 @@ public class TrafficPolicyInstance extends com.pulumi.resources.CustomResource {
      * ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
      * 
      */
-    @Export(name="trafficPolicyId", type=String.class, parameters={})
+    @Export(name="trafficPolicyId", refs={String.class}, tree="[0]")
     private Output<String> trafficPolicyId;
 
     /**
@@ -107,7 +107,7 @@ public class TrafficPolicyInstance extends com.pulumi.resources.CustomResource {
      * Version of the traffic policy
      * 
      */
-    @Export(name="trafficPolicyVersion", type=Integer.class, parameters={})
+    @Export(name="trafficPolicyVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> trafficPolicyVersion;
 
     /**
@@ -121,7 +121,7 @@ public class TrafficPolicyInstance extends com.pulumi.resources.CustomResource {
      * TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
      * 
      */
-    @Export(name="ttl", type=Integer.class, parameters={})
+    @Export(name="ttl", refs={Integer.class}, tree="[0]")
     private Output<Integer> ttl;
 
     /**

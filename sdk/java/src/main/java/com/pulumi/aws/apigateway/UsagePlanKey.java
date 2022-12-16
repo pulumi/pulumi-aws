@@ -79,7 +79,7 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
      * Identifier of the API key resource.
      * 
      */
-    @Export(name="keyId", type=String.class, parameters={})
+    @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
     /**
@@ -93,7 +93,7 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
      * Type of the API key resource. Currently, the valid key type is API_KEY.
      * 
      */
-    @Export(name="keyType", type=String.class, parameters={})
+    @Export(name="keyType", refs={String.class}, tree="[0]")
     private Output<String> keyType;
 
     /**
@@ -107,7 +107,7 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
      * Name of a usage plan key.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -121,7 +121,7 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
      * Id of the usage plan resource representing to associate the key to.
      * 
      */
-    @Export(name="usagePlanId", type=String.class, parameters={})
+    @Export(name="usagePlanId", refs={String.class}, tree="[0]")
     private Output<String> usagePlanId;
 
     /**
@@ -135,7 +135,7 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
      * Value of a usage plan key.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

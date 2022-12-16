@@ -34,7 +34,7 @@ public class HostedZoneDnsSec extends com.pulumi.resources.CustomResource {
      * Identifier of the Route 53 Hosted Zone.
      * 
      */
-    @Export(name="hostedZoneId", type=String.class, parameters={})
+    @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
     /**
@@ -48,7 +48,7 @@ public class HostedZoneDnsSec extends com.pulumi.resources.CustomResource {
      * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
      * 
      */
-    @Export(name="signingStatus", type=String.class, parameters={})
+    @Export(name="signingStatus", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signingStatus;
 
     /**

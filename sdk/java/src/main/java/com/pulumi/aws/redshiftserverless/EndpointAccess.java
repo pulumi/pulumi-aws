@@ -65,7 +65,7 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * The DNS address of the VPC endpoint.
      * 
      */
-    @Export(name="address", type=String.class, parameters={})
+    @Export(name="address", refs={String.class}, tree="[0]")
     private Output<String> address;
 
     /**
@@ -79,7 +79,7 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -93,7 +93,7 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * The name of the endpoint.
      * 
      */
-    @Export(name="endpointName", type=String.class, parameters={})
+    @Export(name="endpointName", refs={String.class}, tree="[0]")
     private Output<String> endpointName;
 
     /**
@@ -107,7 +107,7 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * The port that Amazon Redshift Serverless listens on.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
@@ -121,7 +121,7 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * An array of VPC subnet IDs to associate with the endpoint.
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
@@ -135,7 +135,7 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
      * 
      */
-    @Export(name="vpcEndpoints", type=List.class, parameters={EndpointAccessVpcEndpoint.class})
+    @Export(name="vpcEndpoints", refs={List.class,EndpointAccessVpcEndpoint.class}, tree="[0,1]")
     private Output<List<EndpointAccessVpcEndpoint>> vpcEndpoints;
 
     /**
@@ -149,7 +149,7 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * An array of security group IDs to associate with the workgroup.
      * 
      */
-    @Export(name="vpcSecurityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
     /**
@@ -163,7 +163,7 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
      * The name of the workgroup.
      * 
      */
-    @Export(name="workgroupName", type=String.class, parameters={})
+    @Export(name="workgroupName", refs={String.class}, tree="[0]")
     private Output<String> workgroupName;
 
     /**

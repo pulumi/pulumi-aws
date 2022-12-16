@@ -67,7 +67,7 @@ public class SnapshotCreateVolumePermission extends com.pulumi.resources.CustomR
      * An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot&#39;s owner
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -81,7 +81,7 @@ public class SnapshotCreateVolumePermission extends com.pulumi.resources.CustomR
      * A snapshot ID
      * 
      */
-    @Export(name="snapshotId", type=String.class, parameters={})
+    @Export(name="snapshotId", refs={String.class}, tree="[0]")
     private Output<String> snapshotId;
 
     /**

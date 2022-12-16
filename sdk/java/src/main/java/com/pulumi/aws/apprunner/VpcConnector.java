@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:apprunner/vpcConnector:VpcConnector")
 public class VpcConnector extends com.pulumi.resources.CustomResource {
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     public Output<String> arn() {
@@ -76,7 +76,7 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      * 
      */
-    @Export(name="securityGroups", type=List.class, parameters={String.class})
+    @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroups;
 
     /**
@@ -90,7 +90,7 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -104,7 +104,7 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
      * 
      */
-    @Export(name="subnets", type=List.class, parameters={String.class})
+    @Export(name="subnets", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnets;
 
     /**
@@ -118,7 +118,7 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tags;
 
     /**
@@ -132,7 +132,7 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -146,7 +146,7 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * Name for the VPC connector.
      * 
      */
-    @Export(name="vpcConnectorName", type=String.class, parameters={})
+    @Export(name="vpcConnectorName", refs={String.class}, tree="[0]")
     private Output<String> vpcConnectorName;
 
     /**
@@ -160,7 +160,7 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * The revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
      * 
      */
-    @Export(name="vpcConnectorRevision", type=Integer.class, parameters={})
+    @Export(name="vpcConnectorRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> vpcConnectorRevision;
 
     /**

@@ -245,7 +245,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the user.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -259,7 +259,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
      * 
      */
-    @Export(name="directoryUserId", type=String.class, parameters={})
+    @Export(name="directoryUserId", refs={String.class}, tree="[0]")
     private Output<String> directoryUserId;
 
     /**
@@ -273,7 +273,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The identifier of the hierarchy group for the user.
      * 
      */
-    @Export(name="hierarchyGroupId", type=String.class, parameters={})
+    @Export(name="hierarchyGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hierarchyGroupId;
 
     /**
@@ -287,7 +287,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A block that contains information about the identity of the user. Documented below.
      * 
      */
-    @Export(name="identityInfo", type=UserIdentityInfo.class, parameters={})
+    @Export(name="identityInfo", refs={UserIdentityInfo.class}, tree="[0]")
     private Output</* @Nullable */ UserIdentityInfo> identityInfo;
 
     /**
@@ -301,7 +301,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
@@ -315,7 +315,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -329,7 +329,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -343,7 +343,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A block that contains information about the phone settings for the user. Documented below.
      * 
      */
-    @Export(name="phoneConfig", type=UserPhoneConfig.class, parameters={})
+    @Export(name="phoneConfig", refs={UserPhoneConfig.class}, tree="[0]")
     private Output<UserPhoneConfig> phoneConfig;
 
     /**
@@ -357,7 +357,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The identifier of the routing profile for the user.
      * 
      */
-    @Export(name="routingProfileId", type=String.class, parameters={})
+    @Export(name="routingProfileId", refs={String.class}, tree="[0]")
     private Output<String> routingProfileId;
 
     /**
@@ -371,7 +371,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
      * 
      */
-    @Export(name="securityProfileIds", type=List.class, parameters={String.class})
+    @Export(name="securityProfileIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityProfileIds;
 
     /**
@@ -386,7 +386,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -401,7 +401,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -415,7 +415,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The identifier for the user.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**

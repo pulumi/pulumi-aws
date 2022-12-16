@@ -161,7 +161,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of VPC
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -175,7 +175,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
      * 
      */
-    @Export(name="assignGeneratedIpv6CidrBlock", type=Boolean.class, parameters={})
+    @Export(name="assignGeneratedIpv6CidrBlock", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> assignGeneratedIpv6CidrBlock;
 
     /**
@@ -189,7 +189,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
      * 
      */
-    @Export(name="cidrBlock", type=String.class, parameters={})
+    @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output<String> cidrBlock;
 
     /**
@@ -203,7 +203,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * The ID of the network ACL created by default on VPC creation
      * 
      */
-    @Export(name="defaultNetworkAclId", type=String.class, parameters={})
+    @Export(name="defaultNetworkAclId", refs={String.class}, tree="[0]")
     private Output<String> defaultNetworkAclId;
 
     /**
@@ -217,7 +217,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * The ID of the route table created by default on VPC creation
      * 
      */
-    @Export(name="defaultRouteTableId", type=String.class, parameters={})
+    @Export(name="defaultRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> defaultRouteTableId;
 
     /**
@@ -231,7 +231,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * The ID of the security group created by default on VPC creation
      * 
      */
-    @Export(name="defaultSecurityGroupId", type=String.class, parameters={})
+    @Export(name="defaultSecurityGroupId", refs={String.class}, tree="[0]")
     private Output<String> defaultSecurityGroupId;
 
     /**
@@ -241,7 +241,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
     public Output<String> defaultSecurityGroupId() {
         return this.defaultSecurityGroupId;
     }
-    @Export(name="dhcpOptionsId", type=String.class, parameters={})
+    @Export(name="dhcpOptionsId", refs={String.class}, tree="[0]")
     private Output<String> dhcpOptionsId;
 
     public Output<String> dhcpOptionsId() {
@@ -257,7 +257,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version. */
-    @Export(name="enableClassiclink", type=Boolean.class, parameters={})
+    @Export(name="enableClassiclink", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableClassiclink;
 
     /**
@@ -278,7 +278,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version. */
-    @Export(name="enableClassiclinkDnsSupport", type=Boolean.class, parameters={})
+    @Export(name="enableClassiclinkDnsSupport", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableClassiclinkDnsSupport;
 
     /**
@@ -293,7 +293,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
      * 
      */
-    @Export(name="enableDnsHostnames", type=Boolean.class, parameters={})
+    @Export(name="enableDnsHostnames", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableDnsHostnames;
 
     /**
@@ -307,7 +307,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
      * 
      */
-    @Export(name="enableDnsSupport", type=Boolean.class, parameters={})
+    @Export(name="enableDnsSupport", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableDnsSupport;
 
     /**
@@ -321,7 +321,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
      * 
      */
-    @Export(name="enableNetworkAddressUsageMetrics", type=Boolean.class, parameters={})
+    @Export(name="enableNetworkAddressUsageMetrics", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableNetworkAddressUsageMetrics;
 
     /**
@@ -335,7 +335,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
      * 
      */
-    @Export(name="instanceTenancy", type=String.class, parameters={})
+    @Export(name="instanceTenancy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceTenancy;
 
     /**
@@ -349,7 +349,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
      * 
      */
-    @Export(name="ipv4IpamPoolId", type=String.class, parameters={})
+    @Export(name="ipv4IpamPoolId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipv4IpamPoolId;
 
     /**
@@ -363,7 +363,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
      * 
      */
-    @Export(name="ipv4NetmaskLength", type=Integer.class, parameters={})
+    @Export(name="ipv4NetmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ipv4NetmaskLength;
 
     /**
@@ -377,7 +377,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * The association ID for the IPv6 CIDR block.
      * 
      */
-    @Export(name="ipv6AssociationId", type=String.class, parameters={})
+    @Export(name="ipv6AssociationId", refs={String.class}, tree="[0]")
     private Output<String> ipv6AssociationId;
 
     /**
@@ -391,7 +391,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
      * 
      */
-    @Export(name="ipv6CidrBlock", type=String.class, parameters={})
+    @Export(name="ipv6CidrBlock", refs={String.class}, tree="[0]")
     private Output<String> ipv6CidrBlock;
 
     /**
@@ -405,7 +405,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
      * 
      */
-    @Export(name="ipv6CidrBlockNetworkBorderGroup", type=String.class, parameters={})
+    @Export(name="ipv6CidrBlockNetworkBorderGroup", refs={String.class}, tree="[0]")
     private Output<String> ipv6CidrBlockNetworkBorderGroup;
 
     /**
@@ -419,7 +419,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
      * 
      */
-    @Export(name="ipv6IpamPoolId", type=String.class, parameters={})
+    @Export(name="ipv6IpamPoolId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipv6IpamPoolId;
 
     /**
@@ -433,7 +433,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
      * 
      */
-    @Export(name="ipv6NetmaskLength", type=Integer.class, parameters={})
+    @Export(name="ipv6NetmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ipv6NetmaskLength;
 
     /**
@@ -449,7 +449,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * `aws.ec2.MainRouteTableAssociation`.
      * 
      */
-    @Export(name="mainRouteTableId", type=String.class, parameters={})
+    @Export(name="mainRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> mainRouteTableId;
 
     /**
@@ -465,7 +465,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * The ID of the AWS account that owns the VPC.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -479,7 +479,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -493,7 +493,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

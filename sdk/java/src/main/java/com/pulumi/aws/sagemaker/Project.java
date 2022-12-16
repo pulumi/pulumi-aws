@@ -70,7 +70,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) assigned by AWS to this Project.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -84,7 +84,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * A description for the project.
      * 
      */
-    @Export(name="projectDescription", type=String.class, parameters={})
+    @Export(name="projectDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectDescription;
 
     /**
@@ -98,7 +98,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -112,7 +112,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The name of the Project.
      * 
      */
-    @Export(name="projectName", type=String.class, parameters={})
+    @Export(name="projectName", refs={String.class}, tree="[0]")
     private Output<String> projectName;
 
     /**
@@ -126,7 +126,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      * 
      */
-    @Export(name="serviceCatalogProvisioningDetails", type=ProjectServiceCatalogProvisioningDetails.class, parameters={})
+    @Export(name="serviceCatalogProvisioningDetails", refs={ProjectServiceCatalogProvisioningDetails.class}, tree="[0]")
     private Output<ProjectServiceCatalogProvisioningDetails> serviceCatalogProvisioningDetails;
 
     /**
@@ -140,7 +140,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -154,7 +154,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

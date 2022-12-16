@@ -76,7 +76,7 @@ public class ByteMatchSet extends com.pulumi.resources.CustomResource {
      * the location in requests that you want to search, and other settings.
      * 
      */
-    @Export(name="byteMatchTuples", type=List.class, parameters={ByteMatchSetByteMatchTuple.class})
+    @Export(name="byteMatchTuples", refs={List.class,ByteMatchSetByteMatchTuple.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ByteMatchSetByteMatchTuple>> byteMatchTuples;
 
     /**
@@ -92,7 +92,7 @@ public class ByteMatchSet extends com.pulumi.resources.CustomResource {
      * The name or description of the Byte Match Set.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

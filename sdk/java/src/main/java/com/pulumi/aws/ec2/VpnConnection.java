@@ -212,7 +212,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the VPN Connection.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -226,7 +226,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The ARN of the core network.
      * 
      */
-    @Export(name="coreNetworkArn", type=String.class, parameters={})
+    @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
     /**
@@ -240,7 +240,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The ARN of the core network attachment.
      * 
      */
-    @Export(name="coreNetworkAttachmentArn", type=String.class, parameters={})
+    @Export(name="coreNetworkAttachmentArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkAttachmentArn;
 
     /**
@@ -254,7 +254,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The configuration information for the VPN connection&#39;s customer gateway (in the native XML format).
      * 
      */
-    @Export(name="customerGatewayConfiguration", type=String.class, parameters={})
+    @Export(name="customerGatewayConfiguration", refs={String.class}, tree="[0]")
     private Output<String> customerGatewayConfiguration;
 
     /**
@@ -268,7 +268,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The ID of the customer gateway.
      * 
      */
-    @Export(name="customerGatewayId", type=String.class, parameters={})
+    @Export(name="customerGatewayId", refs={String.class}, tree="[0]")
     private Output<String> customerGatewayId;
 
     /**
@@ -282,7 +282,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
      * 
      */
-    @Export(name="enableAcceleration", type=Boolean.class, parameters={})
+    @Export(name="enableAcceleration", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableAcceleration;
 
     /**
@@ -296,7 +296,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
-    @Export(name="localIpv4NetworkCidr", type=String.class, parameters={})
+    @Export(name="localIpv4NetworkCidr", refs={String.class}, tree="[0]")
     private Output<String> localIpv4NetworkCidr;
 
     /**
@@ -310,7 +310,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
-    @Export(name="localIpv6NetworkCidr", type=String.class, parameters={})
+    @Export(name="localIpv6NetworkCidr", refs={String.class}, tree="[0]")
     private Output<String> localIpv6NetworkCidr;
 
     /**
@@ -324,7 +324,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
      * 
      */
-    @Export(name="outsideIpAddressType", type=String.class, parameters={})
+    @Export(name="outsideIpAddressType", refs={String.class}, tree="[0]")
     private Output<String> outsideIpAddressType;
 
     /**
@@ -338,7 +338,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
-    @Export(name="remoteIpv4NetworkCidr", type=String.class, parameters={})
+    @Export(name="remoteIpv4NetworkCidr", refs={String.class}, tree="[0]")
     private Output<String> remoteIpv4NetworkCidr;
 
     /**
@@ -352,7 +352,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
-    @Export(name="remoteIpv6NetworkCidr", type=String.class, parameters={})
+    @Export(name="remoteIpv6NetworkCidr", refs={String.class}, tree="[0]")
     private Output<String> remoteIpv6NetworkCidr;
 
     /**
@@ -366,7 +366,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The static routes associated with the VPN connection. Detailed below.
      * 
      */
-    @Export(name="routes", type=List.class, parameters={VpnConnectionRoute.class})
+    @Export(name="routes", refs={List.class,VpnConnectionRoute.class}, tree="[0,1]")
     private Output<List<VpnConnectionRoute>> routes;
 
     /**
@@ -380,7 +380,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don&#39;t support BGP.
      * 
      */
-    @Export(name="staticRoutesOnly", type=Boolean.class, parameters={})
+    @Export(name="staticRoutesOnly", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> staticRoutesOnly;
 
     /**
@@ -394,7 +394,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -408,7 +408,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -422,7 +422,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      * 
      */
-    @Export(name="transitGatewayAttachmentId", type=String.class, parameters={})
+    @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayAttachmentId;
 
     /**
@@ -436,7 +436,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The ID of the EC2 Transit Gateway.
      * 
      */
-    @Export(name="transitGatewayId", type=String.class, parameters={})
+    @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transitGatewayId;
 
     /**
@@ -450,7 +450,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
      * 
      */
-    @Export(name="transportTransitGatewayAttachmentId", type=String.class, parameters={})
+    @Export(name="transportTransitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transportTransitGatewayAttachmentId;
 
     /**
@@ -464,7 +464,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The public IP address of the first VPN tunnel.
      * 
      */
-    @Export(name="tunnel1Address", type=String.class, parameters={})
+    @Export(name="tunnel1Address", refs={String.class}, tree="[0]")
     private Output<String> tunnel1Address;
 
     /**
@@ -478,7 +478,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The bgp asn number of the first VPN tunnel.
      * 
      */
-    @Export(name="tunnel1BgpAsn", type=String.class, parameters={})
+    @Export(name="tunnel1BgpAsn", refs={String.class}, tree="[0]")
     private Output<String> tunnel1BgpAsn;
 
     /**
@@ -492,7 +492,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The bgp holdtime of the first VPN tunnel.
      * 
      */
-    @Export(name="tunnel1BgpHoldtime", type=Integer.class, parameters={})
+    @Export(name="tunnel1BgpHoldtime", refs={Integer.class}, tree="[0]")
     private Output<Integer> tunnel1BgpHoldtime;
 
     /**
@@ -506,7 +506,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
      * 
      */
-    @Export(name="tunnel1CgwInsideAddress", type=String.class, parameters={})
+    @Export(name="tunnel1CgwInsideAddress", refs={String.class}, tree="[0]")
     private Output<String> tunnel1CgwInsideAddress;
 
     /**
@@ -520,7 +520,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
-    @Export(name="tunnel1DpdTimeoutAction", type=String.class, parameters={})
+    @Export(name="tunnel1DpdTimeoutAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tunnel1DpdTimeoutAction;
 
     /**
@@ -534,7 +534,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
-    @Export(name="tunnel1DpdTimeoutSeconds", type=Integer.class, parameters={})
+    @Export(name="tunnel1DpdTimeoutSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1DpdTimeoutSeconds;
 
     /**
@@ -548,7 +548,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
-    @Export(name="tunnel1IkeVersions", type=List.class, parameters={String.class})
+    @Export(name="tunnel1IkeVersions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tunnel1IkeVersions;
 
     /**
@@ -562,7 +562,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
-    @Export(name="tunnel1InsideCidr", type=String.class, parameters={})
+    @Export(name="tunnel1InsideCidr", refs={String.class}, tree="[0]")
     private Output<String> tunnel1InsideCidr;
 
     /**
@@ -576,7 +576,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
-    @Export(name="tunnel1InsideIpv6Cidr", type=String.class, parameters={})
+    @Export(name="tunnel1InsideIpv6Cidr", refs={String.class}, tree="[0]")
     private Output<String> tunnel1InsideIpv6Cidr;
 
     /**
@@ -590,7 +590,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      * 
      */
-    @Export(name="tunnel1LogOptions", type=VpnConnectionTunnel1LogOptions.class, parameters={})
+    @Export(name="tunnel1LogOptions", refs={VpnConnectionTunnel1LogOptions.class}, tree="[0]")
     private Output<VpnConnectionTunnel1LogOptions> tunnel1LogOptions;
 
     /**
@@ -604,7 +604,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      * 
      */
-    @Export(name="tunnel1Phase1DhGroupNumbers", type=List.class, parameters={Integer.class})
+    @Export(name="tunnel1Phase1DhGroupNumbers", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> tunnel1Phase1DhGroupNumbers;
 
     /**
@@ -618,7 +618,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      * 
      */
-    @Export(name="tunnel1Phase1EncryptionAlgorithms", type=List.class, parameters={String.class})
+    @Export(name="tunnel1Phase1EncryptionAlgorithms", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tunnel1Phase1EncryptionAlgorithms;
 
     /**
@@ -632,7 +632,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      * 
      */
-    @Export(name="tunnel1Phase1IntegrityAlgorithms", type=List.class, parameters={String.class})
+    @Export(name="tunnel1Phase1IntegrityAlgorithms", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tunnel1Phase1IntegrityAlgorithms;
 
     /**
@@ -646,7 +646,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
-    @Export(name="tunnel1Phase1LifetimeSeconds", type=Integer.class, parameters={})
+    @Export(name="tunnel1Phase1LifetimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1Phase1LifetimeSeconds;
 
     /**
@@ -660,7 +660,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      * 
      */
-    @Export(name="tunnel1Phase2DhGroupNumbers", type=List.class, parameters={Integer.class})
+    @Export(name="tunnel1Phase2DhGroupNumbers", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> tunnel1Phase2DhGroupNumbers;
 
     /**
@@ -674,7 +674,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      * 
      */
-    @Export(name="tunnel1Phase2EncryptionAlgorithms", type=List.class, parameters={String.class})
+    @Export(name="tunnel1Phase2EncryptionAlgorithms", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tunnel1Phase2EncryptionAlgorithms;
 
     /**
@@ -688,7 +688,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      * 
      */
-    @Export(name="tunnel1Phase2IntegrityAlgorithms", type=List.class, parameters={String.class})
+    @Export(name="tunnel1Phase2IntegrityAlgorithms", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tunnel1Phase2IntegrityAlgorithms;
 
     /**
@@ -702,7 +702,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
-    @Export(name="tunnel1Phase2LifetimeSeconds", type=Integer.class, parameters={})
+    @Export(name="tunnel1Phase2LifetimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1Phase2LifetimeSeconds;
 
     /**
@@ -716,7 +716,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
-    @Export(name="tunnel1PresharedKey", type=String.class, parameters={})
+    @Export(name="tunnel1PresharedKey", refs={String.class}, tree="[0]")
     private Output<String> tunnel1PresharedKey;
 
     /**
@@ -730,7 +730,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
-    @Export(name="tunnel1RekeyFuzzPercentage", type=Integer.class, parameters={})
+    @Export(name="tunnel1RekeyFuzzPercentage", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1RekeyFuzzPercentage;
 
     /**
@@ -744,7 +744,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
      * 
      */
-    @Export(name="tunnel1RekeyMarginTimeSeconds", type=Integer.class, parameters={})
+    @Export(name="tunnel1RekeyMarginTimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1RekeyMarginTimeSeconds;
 
     /**
@@ -758,7 +758,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
-    @Export(name="tunnel1ReplayWindowSize", type=Integer.class, parameters={})
+    @Export(name="tunnel1ReplayWindowSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1ReplayWindowSize;
 
     /**
@@ -772,7 +772,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
-    @Export(name="tunnel1StartupAction", type=String.class, parameters={})
+    @Export(name="tunnel1StartupAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tunnel1StartupAction;
 
     /**
@@ -786,7 +786,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
      * 
      */
-    @Export(name="tunnel1VgwInsideAddress", type=String.class, parameters={})
+    @Export(name="tunnel1VgwInsideAddress", refs={String.class}, tree="[0]")
     private Output<String> tunnel1VgwInsideAddress;
 
     /**
@@ -800,7 +800,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The public IP address of the second VPN tunnel.
      * 
      */
-    @Export(name="tunnel2Address", type=String.class, parameters={})
+    @Export(name="tunnel2Address", refs={String.class}, tree="[0]")
     private Output<String> tunnel2Address;
 
     /**
@@ -814,7 +814,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The bgp asn number of the second VPN tunnel.
      * 
      */
-    @Export(name="tunnel2BgpAsn", type=String.class, parameters={})
+    @Export(name="tunnel2BgpAsn", refs={String.class}, tree="[0]")
     private Output<String> tunnel2BgpAsn;
 
     /**
@@ -828,7 +828,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The bgp holdtime of the second VPN tunnel.
      * 
      */
-    @Export(name="tunnel2BgpHoldtime", type=Integer.class, parameters={})
+    @Export(name="tunnel2BgpHoldtime", refs={Integer.class}, tree="[0]")
     private Output<Integer> tunnel2BgpHoldtime;
 
     /**
@@ -842,7 +842,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
      * 
      */
-    @Export(name="tunnel2CgwInsideAddress", type=String.class, parameters={})
+    @Export(name="tunnel2CgwInsideAddress", refs={String.class}, tree="[0]")
     private Output<String> tunnel2CgwInsideAddress;
 
     /**
@@ -856,7 +856,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
-    @Export(name="tunnel2DpdTimeoutAction", type=String.class, parameters={})
+    @Export(name="tunnel2DpdTimeoutAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tunnel2DpdTimeoutAction;
 
     /**
@@ -870,7 +870,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
-    @Export(name="tunnel2DpdTimeoutSeconds", type=Integer.class, parameters={})
+    @Export(name="tunnel2DpdTimeoutSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2DpdTimeoutSeconds;
 
     /**
@@ -884,7 +884,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
-    @Export(name="tunnel2IkeVersions", type=List.class, parameters={String.class})
+    @Export(name="tunnel2IkeVersions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tunnel2IkeVersions;
 
     /**
@@ -898,7 +898,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
-    @Export(name="tunnel2InsideCidr", type=String.class, parameters={})
+    @Export(name="tunnel2InsideCidr", refs={String.class}, tree="[0]")
     private Output<String> tunnel2InsideCidr;
 
     /**
@@ -912,7 +912,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
-    @Export(name="tunnel2InsideIpv6Cidr", type=String.class, parameters={})
+    @Export(name="tunnel2InsideIpv6Cidr", refs={String.class}, tree="[0]")
     private Output<String> tunnel2InsideIpv6Cidr;
 
     /**
@@ -926,7 +926,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      * 
      */
-    @Export(name="tunnel2LogOptions", type=VpnConnectionTunnel2LogOptions.class, parameters={})
+    @Export(name="tunnel2LogOptions", refs={VpnConnectionTunnel2LogOptions.class}, tree="[0]")
     private Output<VpnConnectionTunnel2LogOptions> tunnel2LogOptions;
 
     /**
@@ -940,7 +940,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      * 
      */
-    @Export(name="tunnel2Phase1DhGroupNumbers", type=List.class, parameters={Integer.class})
+    @Export(name="tunnel2Phase1DhGroupNumbers", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> tunnel2Phase1DhGroupNumbers;
 
     /**
@@ -954,7 +954,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      * 
      */
-    @Export(name="tunnel2Phase1EncryptionAlgorithms", type=List.class, parameters={String.class})
+    @Export(name="tunnel2Phase1EncryptionAlgorithms", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tunnel2Phase1EncryptionAlgorithms;
 
     /**
@@ -968,7 +968,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      * 
      */
-    @Export(name="tunnel2Phase1IntegrityAlgorithms", type=List.class, parameters={String.class})
+    @Export(name="tunnel2Phase1IntegrityAlgorithms", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tunnel2Phase1IntegrityAlgorithms;
 
     /**
@@ -982,7 +982,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
-    @Export(name="tunnel2Phase1LifetimeSeconds", type=Integer.class, parameters={})
+    @Export(name="tunnel2Phase1LifetimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2Phase1LifetimeSeconds;
 
     /**
@@ -996,7 +996,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      * 
      */
-    @Export(name="tunnel2Phase2DhGroupNumbers", type=List.class, parameters={Integer.class})
+    @Export(name="tunnel2Phase2DhGroupNumbers", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> tunnel2Phase2DhGroupNumbers;
 
     /**
@@ -1010,7 +1010,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      * 
      */
-    @Export(name="tunnel2Phase2EncryptionAlgorithms", type=List.class, parameters={String.class})
+    @Export(name="tunnel2Phase2EncryptionAlgorithms", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tunnel2Phase2EncryptionAlgorithms;
 
     /**
@@ -1024,7 +1024,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      * 
      */
-    @Export(name="tunnel2Phase2IntegrityAlgorithms", type=List.class, parameters={String.class})
+    @Export(name="tunnel2Phase2IntegrityAlgorithms", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tunnel2Phase2IntegrityAlgorithms;
 
     /**
@@ -1038,7 +1038,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
-    @Export(name="tunnel2Phase2LifetimeSeconds", type=Integer.class, parameters={})
+    @Export(name="tunnel2Phase2LifetimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2Phase2LifetimeSeconds;
 
     /**
@@ -1052,7 +1052,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
-    @Export(name="tunnel2PresharedKey", type=String.class, parameters={})
+    @Export(name="tunnel2PresharedKey", refs={String.class}, tree="[0]")
     private Output<String> tunnel2PresharedKey;
 
     /**
@@ -1066,7 +1066,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
-    @Export(name="tunnel2RekeyFuzzPercentage", type=Integer.class, parameters={})
+    @Export(name="tunnel2RekeyFuzzPercentage", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2RekeyFuzzPercentage;
 
     /**
@@ -1080,7 +1080,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
      * 
      */
-    @Export(name="tunnel2RekeyMarginTimeSeconds", type=Integer.class, parameters={})
+    @Export(name="tunnel2RekeyMarginTimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2RekeyMarginTimeSeconds;
 
     /**
@@ -1094,7 +1094,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
-    @Export(name="tunnel2ReplayWindowSize", type=Integer.class, parameters={})
+    @Export(name="tunnel2ReplayWindowSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2ReplayWindowSize;
 
     /**
@@ -1108,7 +1108,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
-    @Export(name="tunnel2StartupAction", type=String.class, parameters={})
+    @Export(name="tunnel2StartupAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tunnel2StartupAction;
 
     /**
@@ -1122,7 +1122,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
      * 
      */
-    @Export(name="tunnel2VgwInsideAddress", type=String.class, parameters={})
+    @Export(name="tunnel2VgwInsideAddress", refs={String.class}, tree="[0]")
     private Output<String> tunnel2VgwInsideAddress;
 
     /**
@@ -1136,7 +1136,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      * 
      */
-    @Export(name="tunnelInsideIpVersion", type=String.class, parameters={})
+    @Export(name="tunnelInsideIpVersion", refs={String.class}, tree="[0]")
     private Output<String> tunnelInsideIpVersion;
 
     /**
@@ -1150,7 +1150,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -1164,7 +1164,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * Telemetry for the VPN tunnels. Detailed below.
      * 
      */
-    @Export(name="vgwTelemetries", type=List.class, parameters={VpnConnectionVgwTelemetry.class})
+    @Export(name="vgwTelemetries", refs={List.class,VpnConnectionVgwTelemetry.class}, tree="[0,1]")
     private Output<List<VpnConnectionVgwTelemetry>> vgwTelemetries;
 
     /**
@@ -1178,7 +1178,7 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Private Gateway.
      * 
      */
-    @Export(name="vpnGatewayId", type=String.class, parameters={})
+    @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpnGatewayId;
 
     /**

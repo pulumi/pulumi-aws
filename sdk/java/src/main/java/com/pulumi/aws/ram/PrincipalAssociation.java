@@ -109,7 +109,7 @@ public class PrincipalAssociation extends com.pulumi.resources.CustomResource {
      * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -123,7 +123,7 @@ public class PrincipalAssociation extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the resource share.
      * 
      */
-    @Export(name="resourceShareArn", type=String.class, parameters={})
+    @Export(name="resourceShareArn", refs={String.class}, tree="[0]")
     private Output<String> resourceShareArn;
 
     /**

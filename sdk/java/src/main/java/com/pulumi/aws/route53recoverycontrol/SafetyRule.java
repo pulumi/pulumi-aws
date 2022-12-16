@@ -110,7 +110,7 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      * ARN of the safety rule.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -124,7 +124,7 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      * Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
      * 
      */
-    @Export(name="assertedControls", type=List.class, parameters={String.class})
+    @Export(name="assertedControls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> assertedControls;
 
     /**
@@ -138,7 +138,7 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      * ARN of the control panel in which this safety rule will reside.
      * 
      */
-    @Export(name="controlPanelArn", type=String.class, parameters={})
+    @Export(name="controlPanelArn", refs={String.class}, tree="[0]")
     private Output<String> controlPanelArn;
 
     /**
@@ -152,7 +152,7 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      * Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
      * 
      */
-    @Export(name="gatingControls", type=List.class, parameters={String.class})
+    @Export(name="gatingControls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> gatingControls;
 
     /**
@@ -166,7 +166,7 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      * Name describing the safety rule.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -180,7 +180,7 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      * Configuration block for safety rule criteria. See below.
      * 
      */
-    @Export(name="ruleConfig", type=SafetyRuleRuleConfig.class, parameters={})
+    @Export(name="ruleConfig", refs={SafetyRuleRuleConfig.class}, tree="[0]")
     private Output<SafetyRuleRuleConfig> ruleConfig;
 
     /**
@@ -194,7 +194,7 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      * Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -208,7 +208,7 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      * Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
      * 
      */
-    @Export(name="targetControls", type=List.class, parameters={String.class})
+    @Export(name="targetControls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> targetControls;
 
     /**
@@ -222,7 +222,7 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
      * 
      */
-    @Export(name="waitPeriodMs", type=Integer.class, parameters={})
+    @Export(name="waitPeriodMs", refs={Integer.class}, tree="[0]")
     private Output<Integer> waitPeriodMs;
 
     /**

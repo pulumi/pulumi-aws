@@ -62,7 +62,7 @@ public class RouteTablePropagation extends com.pulumi.resources.CustomResource {
      * Identifier of the resource
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -76,7 +76,7 @@ public class RouteTablePropagation extends com.pulumi.resources.CustomResource {
      * Type of the resource
      * 
      */
-    @Export(name="resourceType", type=String.class, parameters={})
+    @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
@@ -90,7 +90,7 @@ public class RouteTablePropagation extends com.pulumi.resources.CustomResource {
      * Identifier of EC2 Transit Gateway Attachment.
      * 
      */
-    @Export(name="transitGatewayAttachmentId", type=String.class, parameters={})
+    @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayAttachmentId;
 
     /**
@@ -104,7 +104,7 @@ public class RouteTablePropagation extends com.pulumi.resources.CustomResource {
      * Identifier of EC2 Transit Gateway Route Table.
      * 
      */
-    @Export(name="transitGatewayRouteTableId", type=String.class, parameters={})
+    @Export(name="transitGatewayRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayRouteTableId;
 
     /**

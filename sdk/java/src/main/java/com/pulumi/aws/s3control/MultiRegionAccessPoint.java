@@ -94,7 +94,7 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
      * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -108,7 +108,7 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
      * The alias for the Multi-Region Access Point.
      * 
      */
-    @Export(name="alias", type=String.class, parameters={})
+    @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
     /**
@@ -122,7 +122,7 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
      * Amazon Resource Name (ARN) of the Multi-Region Access Point.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -136,7 +136,7 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
      * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
      * 
      */
-    @Export(name="details", type=MultiRegionAccessPointDetails.class, parameters={})
+    @Export(name="details", refs={MultiRegionAccessPointDetails.class}, tree="[0]")
     private Output<MultiRegionAccessPointDetails> details;
 
     /**
@@ -150,7 +150,7 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
      * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -164,7 +164,7 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
      * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

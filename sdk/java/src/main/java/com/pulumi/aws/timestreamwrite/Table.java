@@ -103,7 +103,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * The ARN that uniquely identifies this table.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -117,7 +117,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * The name of the Timestream database.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -131,7 +131,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
      * 
      */
-    @Export(name="magneticStoreWriteProperties", type=TableMagneticStoreWriteProperties.class, parameters={})
+    @Export(name="magneticStoreWriteProperties", refs={TableMagneticStoreWriteProperties.class}, tree="[0]")
     private Output<TableMagneticStoreWriteProperties> magneticStoreWriteProperties;
 
     /**
@@ -145,7 +145,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
      * 
      */
-    @Export(name="retentionProperties", type=TableRetentionProperties.class, parameters={})
+    @Export(name="retentionProperties", refs={TableRetentionProperties.class}, tree="[0]")
     private Output<TableRetentionProperties> retentionProperties;
 
     /**
@@ -159,7 +159,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * The name of the Timestream table.
      * 
      */
-    @Export(name="tableName", type=String.class, parameters={})
+    @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     /**
@@ -173,7 +173,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -187,7 +187,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

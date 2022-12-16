@@ -64,7 +64,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -78,7 +78,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      * 
      */
-    @Export(name="defaultAssociationRouteTable", type=Boolean.class, parameters={})
+    @Export(name="defaultAssociationRouteTable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> defaultAssociationRouteTable;
 
     /**
@@ -92,7 +92,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      * 
      */
-    @Export(name="defaultPropagationRouteTable", type=Boolean.class, parameters={})
+    @Export(name="defaultPropagationRouteTable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> defaultPropagationRouteTable;
 
     /**
@@ -106,7 +106,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -120,7 +120,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -134,7 +134,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    @Export(name="transitGatewayId", type=String.class, parameters={})
+    @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayId;
 
     /**

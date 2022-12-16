@@ -33,7 +33,7 @@ public class InboundConnectionAccepter extends com.pulumi.resources.CustomResour
      * Specifies the ID of the connection to accept.
      * 
      */
-    @Export(name="connectionId", type=String.class, parameters={})
+    @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
     /**
@@ -47,7 +47,7 @@ public class InboundConnectionAccepter extends com.pulumi.resources.CustomResour
      * Status of the connection request.
      * 
      */
-    @Export(name="connectionStatus", type=String.class, parameters={})
+    @Export(name="connectionStatus", refs={String.class}, tree="[0]")
     private Output<String> connectionStatus;
 
     /**

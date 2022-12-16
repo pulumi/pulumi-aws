@@ -114,7 +114,7 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
      * The ARN of the route table.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -128,7 +128,7 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
      * ID of the default route table.
      * 
      */
-    @Export(name="defaultRouteTableId", type=String.class, parameters={})
+    @Export(name="defaultRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> defaultRouteTableId;
 
     /**
@@ -142,7 +142,7 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
      * ID of the AWS account that owns the route table.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -156,7 +156,7 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
      * List of virtual gateways for propagation.
      * 
      */
-    @Export(name="propagatingVgws", type=List.class, parameters={String.class})
+    @Export(name="propagatingVgws", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> propagatingVgws;
 
     /**
@@ -170,7 +170,7 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
      * Set of objects. Detailed below
      * 
      */
-    @Export(name="routes", type=List.class, parameters={DefaultRouteTableRoute.class})
+    @Export(name="routes", refs={List.class,DefaultRouteTableRoute.class}, tree="[0,1]")
     private Output<List<DefaultRouteTableRoute>> routes;
 
     /**
@@ -184,7 +184,7 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -198,7 +198,7 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -212,7 +212,7 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
      * ID of the VPC.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

@@ -90,7 +90,7 @@ public class RoutingControl extends com.pulumi.resources.CustomResource {
      * ARN of the routing control.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -104,7 +104,7 @@ public class RoutingControl extends com.pulumi.resources.CustomResource {
      * ARN of the cluster in which this routing control will reside.
      * 
      */
-    @Export(name="clusterArn", type=String.class, parameters={})
+    @Export(name="clusterArn", refs={String.class}, tree="[0]")
     private Output<String> clusterArn;
 
     /**
@@ -118,7 +118,7 @@ public class RoutingControl extends com.pulumi.resources.CustomResource {
      * ARN of the control panel in which this routing control will reside.
      * 
      */
-    @Export(name="controlPanelArn", type=String.class, parameters={})
+    @Export(name="controlPanelArn", refs={String.class}, tree="[0]")
     private Output<String> controlPanelArn;
 
     /**
@@ -132,7 +132,7 @@ public class RoutingControl extends com.pulumi.resources.CustomResource {
      * The name describing the routing control.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -146,7 +146,7 @@ public class RoutingControl extends com.pulumi.resources.CustomResource {
      * Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

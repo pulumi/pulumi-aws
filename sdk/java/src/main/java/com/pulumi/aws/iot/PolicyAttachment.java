@@ -80,7 +80,7 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      * The name of the policy to attach.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -94,7 +94,7 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      * The identity to which the policy is attached.
      * 
      */
-    @Export(name="target", type=String.class, parameters={})
+    @Export(name="target", refs={String.class}, tree="[0]")
     private Output<String> target;
 
     /**

@@ -90,7 +90,7 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
      * If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
      * 
      */
-    @Export(name="freeTrialExpiration", type=String.class, parameters={})
+    @Export(name="freeTrialExpiration", refs={String.class}, tree="[0]")
     private Output<String> freeTrialExpiration;
 
     /**
@@ -104,7 +104,7 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
      * If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      * 
      */
-    @Export(name="licenseExpiration", type=String.class, parameters={})
+    @Export(name="licenseExpiration", refs={String.class}, tree="[0]")
     private Output<String> licenseExpiration;
 
     /**
@@ -118,7 +118,7 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
      * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      * 
      */
-    @Export(name="licenseType", type=String.class, parameters={})
+    @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output<String> licenseType;
 
     /**
@@ -132,7 +132,7 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
      * The workspace id.
      * 
      */
-    @Export(name="workspaceId", type=String.class, parameters={})
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**

@@ -84,7 +84,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Redshift event notification subscription
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -98,7 +98,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * The AWS customer account associated with the Redshift event notification subscription
      * 
      */
-    @Export(name="customerAwsId", type=String.class, parameters={})
+    @Export(name="customerAwsId", refs={String.class}, tree="[0]")
     private Output<String> customerAwsId;
 
     /**
@@ -112,7 +112,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A boolean flag to enable/disable the subscription. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -126,7 +126,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
      * 
      */
-    @Export(name="eventCategories", type=List.class, parameters={String.class})
+    @Export(name="eventCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> eventCategories;
 
     /**
@@ -140,7 +140,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * The name of the Redshift event subscription.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -154,7 +154,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
      * 
      */
-    @Export(name="severity", type=String.class, parameters={})
+    @Export(name="severity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> severity;
 
     /**
@@ -168,7 +168,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * The ARN of the SNS topic to send events to.
      * 
      */
-    @Export(name="snsTopicArn", type=String.class, parameters={})
+    @Export(name="snsTopicArn", refs={String.class}, tree="[0]")
     private Output<String> snsTopicArn;
 
     /**
@@ -182,7 +182,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
      * 
      */
-    @Export(name="sourceIds", type=List.class, parameters={String.class})
+    @Export(name="sourceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceIds;
 
     /**
@@ -196,7 +196,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
      * 
      */
-    @Export(name="sourceType", type=String.class, parameters={})
+    @Export(name="sourceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceType;
 
     /**
@@ -206,7 +206,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> sourceType() {
         return Codegen.optional(this.sourceType);
     }
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     public Output<String> status() {
@@ -216,7 +216,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -230,7 +230,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

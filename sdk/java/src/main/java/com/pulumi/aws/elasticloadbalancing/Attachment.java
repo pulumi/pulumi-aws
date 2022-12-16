@@ -65,7 +65,7 @@ public class Attachment extends com.pulumi.resources.CustomResource {
      * The name of the ELB.
      * 
      */
-    @Export(name="elb", type=String.class, parameters={})
+    @Export(name="elb", refs={String.class}, tree="[0]")
     private Output<String> elb;
 
     /**
@@ -79,7 +79,7 @@ public class Attachment extends com.pulumi.resources.CustomResource {
      * Instance ID to place in the ELB pool.
      * 
      */
-    @Export(name="instance", type=String.class, parameters={})
+    @Export(name="instance", refs={String.class}, tree="[0]")
     private Output<String> instance;
 
     /**

@@ -106,7 +106,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -120,7 +120,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * Whether mutual CHAP is enabled for the iSCSI target.
      * 
      */
-    @Export(name="chapEnabled", type=Boolean.class, parameters={})
+    @Export(name="chapEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> chapEnabled;
 
     /**
@@ -134,7 +134,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * The unique identifier for the gateway local disk that is configured as a stored volume.
      * 
      */
-    @Export(name="diskId", type=String.class, parameters={})
+    @Export(name="diskId", refs={String.class}, tree="[0]")
     private Output<String> diskId;
 
     /**
@@ -148,7 +148,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    @Export(name="gatewayArn", type=String.class, parameters={})
+    @Export(name="gatewayArn", refs={String.class}, tree="[0]")
     private Output<String> gatewayArn;
 
     /**
@@ -162,7 +162,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
      * 
      */
-    @Export(name="kmsEncrypted", type=Boolean.class, parameters={})
+    @Export(name="kmsEncrypted", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> kmsEncrypted;
 
     /**
@@ -176,7 +176,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is `true`.
      * 
      */
-    @Export(name="kmsKey", type=String.class, parameters={})
+    @Export(name="kmsKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKey;
 
     /**
@@ -190,7 +190,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * Logical disk number.
      * 
      */
-    @Export(name="lunNumber", type=Integer.class, parameters={})
+    @Export(name="lunNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> lunNumber;
 
     /**
@@ -204,7 +204,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      * 
      */
-    @Export(name="networkInterfaceId", type=String.class, parameters={})
+    @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
     /**
@@ -218,7 +218,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * The port used to communicate with iSCSI targets.
      * 
      */
-    @Export(name="networkInterfacePort", type=Integer.class, parameters={})
+    @Export(name="networkInterfacePort", refs={Integer.class}, tree="[0]")
     private Output<Integer> networkInterfacePort;
 
     /**
@@ -232,7 +232,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
      * 
      */
-    @Export(name="preserveExistingData", type=Boolean.class, parameters={})
+    @Export(name="preserveExistingData", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> preserveExistingData;
 
     /**
@@ -246,7 +246,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
      * 
      */
-    @Export(name="snapshotId", type=String.class, parameters={})
+    @Export(name="snapshotId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotId;
 
     /**
@@ -260,7 +260,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -274,7 +274,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -288,7 +288,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
-    @Export(name="targetArn", type=String.class, parameters={})
+    @Export(name="targetArn", refs={String.class}, tree="[0]")
     private Output<String> targetArn;
 
     /**
@@ -302,7 +302,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      * 
      */
-    @Export(name="targetName", type=String.class, parameters={})
+    @Export(name="targetName", refs={String.class}, tree="[0]")
     private Output<String> targetName;
 
     /**
@@ -316,7 +316,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
      * 
      */
-    @Export(name="volumeAttachmentStatus", type=String.class, parameters={})
+    @Export(name="volumeAttachmentStatus", refs={String.class}, tree="[0]")
     private Output<String> volumeAttachmentStatus;
 
     /**
@@ -330,7 +330,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * Volume ID, e.g., `vol-12345678`.
      * 
      */
-    @Export(name="volumeId", type=String.class, parameters={})
+    @Export(name="volumeId", refs={String.class}, tree="[0]")
     private Output<String> volumeId;
 
     /**
@@ -344,7 +344,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * The size of the data stored on the volume in bytes.
      * 
      */
-    @Export(name="volumeSizeInBytes", type=Integer.class, parameters={})
+    @Export(name="volumeSizeInBytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> volumeSizeInBytes;
 
     /**
@@ -358,7 +358,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * indicates the state of the storage volume.
      * 
      */
-    @Export(name="volumeStatus", type=String.class, parameters={})
+    @Export(name="volumeStatus", refs={String.class}, tree="[0]")
     private Output<String> volumeStatus;
 
     /**
@@ -372,7 +372,7 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
      * indicates the type of the volume.
      * 
      */
-    @Export(name="volumeType", type=String.class, parameters={})
+    @Export(name="volumeType", refs={String.class}, tree="[0]")
     private Output<String> volumeType;
 
     /**

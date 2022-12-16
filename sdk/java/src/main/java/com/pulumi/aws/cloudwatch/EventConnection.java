@@ -209,7 +209,7 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the connection.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -223,7 +223,7 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
      * 
      */
-    @Export(name="authParameters", type=EventConnectionAuthParameters.class, parameters={})
+    @Export(name="authParameters", refs={EventConnectionAuthParameters.class}, tree="[0]")
     private Output<EventConnectionAuthParameters> authParameters;
 
     /**
@@ -237,7 +237,7 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
-    @Export(name="authorizationType", type=String.class, parameters={})
+    @Export(name="authorizationType", refs={String.class}, tree="[0]")
     private Output<String> authorizationType;
 
     /**
@@ -251,7 +251,7 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      * Enter a description for the connection. Maximum of 512 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -265,7 +265,7 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -279,7 +279,7 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
      * 
      */
-    @Export(name="secretArn", type=String.class, parameters={})
+    @Export(name="secretArn", refs={String.class}, tree="[0]")
     private Output<String> secretArn;
 
     /**

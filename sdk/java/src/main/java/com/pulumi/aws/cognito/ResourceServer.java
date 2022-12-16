@@ -107,7 +107,7 @@ public class ResourceServer extends com.pulumi.resources.CustomResource {
      * An identifier for the resource server.
      * 
      */
-    @Export(name="identifier", type=String.class, parameters={})
+    @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
     /**
@@ -121,7 +121,7 @@ public class ResourceServer extends com.pulumi.resources.CustomResource {
      * A name for the resource server.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -135,7 +135,7 @@ public class ResourceServer extends com.pulumi.resources.CustomResource {
      * A list of all scopes configured for this resource server in the format identifier/scope_name.
      * 
      */
-    @Export(name="scopeIdentifiers", type=List.class, parameters={String.class})
+    @Export(name="scopeIdentifiers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopeIdentifiers;
 
     /**
@@ -149,7 +149,7 @@ public class ResourceServer extends com.pulumi.resources.CustomResource {
      * A list of Authorization Scope.
      * 
      */
-    @Export(name="scopes", type=List.class, parameters={ResourceServerScope.class})
+    @Export(name="scopes", refs={List.class,ResourceServerScope.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceServerScope>> scopes;
 
     /**
@@ -159,7 +159,7 @@ public class ResourceServer extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<ResourceServerScope>>> scopes() {
         return Codegen.optional(this.scopes);
     }
-    @Export(name="userPoolId", type=String.class, parameters={})
+    @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
     public Output<String> userPoolId() {

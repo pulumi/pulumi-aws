@@ -83,7 +83,7 @@ public class InviteAccepter extends com.pulumi.resources.CustomResource {
      * The ID of the invitation.
      * 
      */
-    @Export(name="invitationId", type=String.class, parameters={})
+    @Export(name="invitationId", refs={String.class}, tree="[0]")
     private Output<String> invitationId;
 
     /**
@@ -97,7 +97,7 @@ public class InviteAccepter extends com.pulumi.resources.CustomResource {
      * The account ID of the master Security Hub account whose invitation you&#39;re accepting.
      * 
      */
-    @Export(name="masterId", type=String.class, parameters={})
+    @Export(name="masterId", refs={String.class}, tree="[0]")
     private Output<String> masterId;
 
     /**

@@ -84,7 +84,7 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * not included as an argument because the resource will add it automatically when updating the slot type.
      * 
      */
-    @Export(name="checksum", type=String.class, parameters={})
+    @Export(name="checksum", refs={String.class}, tree="[0]")
     private Output<String> checksum;
 
     /**
@@ -100,7 +100,7 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * update. Defaults to `false`.
      * 
      */
-    @Export(name="createVersion", type=Boolean.class, parameters={})
+    @Export(name="createVersion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> createVersion;
 
     /**
@@ -115,7 +115,7 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * The date when the slot type version was created.
      * 
      */
-    @Export(name="createdDate", type=String.class, parameters={})
+    @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
     /**
@@ -129,7 +129,7 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * A description of the slot type. Must be less than or equal to 200 characters in length.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -146,7 +146,7 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * documented under enumeration_value.
      * 
      */
-    @Export(name="enumerationValues", type=List.class, parameters={SlotTypeEnumerationValue.class})
+    @Export(name="enumerationValues", refs={List.class,SlotTypeEnumerationValue.class}, tree="[0,1]")
     private Output<List<SlotTypeEnumerationValue>> enumerationValues;
 
     /**
@@ -163,7 +163,7 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * The date when the `$LATEST` version of this slot type was updated.
      * 
      */
-    @Export(name="lastUpdatedDate", type=String.class, parameters={})
+    @Export(name="lastUpdatedDate", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedDate;
 
     /**
@@ -177,7 +177,7 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -194,7 +194,7 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
      * 
      */
-    @Export(name="valueSelectionStrategy", type=String.class, parameters={})
+    @Export(name="valueSelectionStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> valueSelectionStrategy;
 
     /**
@@ -211,7 +211,7 @@ public class SlotType extends com.pulumi.resources.CustomResource {
      * The version of the slot type.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**

@@ -94,7 +94,7 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
      * Unique ID for an Amplify app.
      * 
      */
-    @Export(name="appId", type=String.class, parameters={})
+    @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
@@ -108,7 +108,7 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
      * ARN for the domain association.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -122,7 +122,7 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
      * The DNS record for certificate verification.
      * 
      */
-    @Export(name="certificateVerificationDnsRecord", type=String.class, parameters={})
+    @Export(name="certificateVerificationDnsRecord", refs={String.class}, tree="[0]")
     private Output<String> certificateVerificationDnsRecord;
 
     /**
@@ -136,7 +136,7 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
      * Domain name for the domain association.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -150,7 +150,7 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
      * Setting for the subdomain. Documented below.
      * 
      */
-    @Export(name="subDomains", type=List.class, parameters={DomainAssociationSubDomain.class})
+    @Export(name="subDomains", refs={List.class,DomainAssociationSubDomain.class}, tree="[0,1]")
     private Output<List<DomainAssociationSubDomain>> subDomains;
 
     /**
@@ -164,7 +164,7 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
      * If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
      * 
      */
-    @Export(name="waitForVerification", type=Boolean.class, parameters={})
+    @Export(name="waitForVerification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> waitForVerification;
 
     /**

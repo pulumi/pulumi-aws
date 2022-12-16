@@ -134,7 +134,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `self_managed_active_directory`.
      * 
      */
-    @Export(name="activeDirectoryId", type=String.class, parameters={})
+    @Export(name="activeDirectoryId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> activeDirectoryId;
 
     /**
@@ -148,7 +148,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      * 
      */
-    @Export(name="aliases", type=List.class, parameters={String.class})
+    @Export(name="aliases", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> aliases;
 
     /**
@@ -162,7 +162,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name of the file system.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -176,7 +176,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
      * 
      */
-    @Export(name="auditLogConfiguration", type=WindowsFileSystemAuditLogConfiguration.class, parameters={})
+    @Export(name="auditLogConfiguration", refs={WindowsFileSystemAuditLogConfiguration.class}, tree="[0]")
     private Output<WindowsFileSystemAuditLogConfiguration> auditLogConfiguration;
 
     /**
@@ -190,7 +190,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      * 
      */
-    @Export(name="automaticBackupRetentionDays", type=Integer.class, parameters={})
+    @Export(name="automaticBackupRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> automaticBackupRetentionDays;
 
     /**
@@ -204,7 +204,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * The ID of the source backup to create the filesystem from.
      * 
      */
-    @Export(name="backupId", type=String.class, parameters={})
+    @Export(name="backupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backupId;
 
     /**
@@ -218,7 +218,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
      * 
      */
-    @Export(name="copyTagsToBackups", type=Boolean.class, parameters={})
+    @Export(name="copyTagsToBackups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToBackups;
 
     /**
@@ -232,7 +232,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
-    @Export(name="dailyAutomaticBackupStartTime", type=String.class, parameters={})
+    @Export(name="dailyAutomaticBackupStartTime", refs={String.class}, tree="[0]")
     private Output<String> dailyAutomaticBackupStartTime;
 
     /**
@@ -246,7 +246,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      * 
      */
-    @Export(name="deploymentType", type=String.class, parameters={})
+    @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deploymentType;
 
     /**
@@ -260,7 +260,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      * 
      */
-    @Export(name="dnsName", type=String.class, parameters={})
+    @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
@@ -274,7 +274,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -288,7 +288,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * Set of Elastic Network Interface identifiers from which the file system is accessible.
      * 
      */
-    @Export(name="networkInterfaceIds", type=List.class, parameters={String.class})
+    @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> networkInterfaceIds;
 
     /**
@@ -302,7 +302,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * AWS account identifier that created the file system.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -316,7 +316,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * The IP address of the primary, or preferred, file server.
      * 
      */
-    @Export(name="preferredFileServerIp", type=String.class, parameters={})
+    @Export(name="preferredFileServerIp", refs={String.class}, tree="[0]")
     private Output<String> preferredFileServerIp;
 
     /**
@@ -330,7 +330,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      * 
      */
-    @Export(name="preferredSubnetId", type=String.class, parameters={})
+    @Export(name="preferredSubnetId", refs={String.class}, tree="[0]")
     private Output<String> preferredSubnetId;
 
     /**
@@ -344,7 +344,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
      * 
      */
-    @Export(name="remoteAdministrationEndpoint", type=String.class, parameters={})
+    @Export(name="remoteAdministrationEndpoint", refs={String.class}, tree="[0]")
     private Output<String> remoteAdministrationEndpoint;
 
     /**
@@ -358,7 +358,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
-    @Export(name="securityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
@@ -372,7 +372,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
      * 
      */
-    @Export(name="selfManagedActiveDirectory", type=WindowsFileSystemSelfManagedActiveDirectory.class, parameters={})
+    @Export(name="selfManagedActiveDirectory", refs={WindowsFileSystemSelfManagedActiveDirectory.class}, tree="[0]")
     private Output</* @Nullable */ WindowsFileSystemSelfManagedActiveDirectory> selfManagedActiveDirectory;
 
     /**
@@ -386,7 +386,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
-    @Export(name="skipFinalBackup", type=Boolean.class, parameters={})
+    @Export(name="skipFinalBackup", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipFinalBackup;
 
     /**
@@ -400,7 +400,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
      * 
      */
-    @Export(name="storageCapacity", type=Integer.class, parameters={})
+    @Export(name="storageCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCapacity;
 
     /**
@@ -414,7 +414,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      * 
      */
-    @Export(name="storageType", type=String.class, parameters={})
+    @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageType;
 
     /**
@@ -428,7 +428,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
@@ -442,7 +442,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -456,7 +456,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -470,7 +470,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
      * 
      */
-    @Export(name="throughputCapacity", type=Integer.class, parameters={})
+    @Export(name="throughputCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughputCapacity;
 
     /**
@@ -484,7 +484,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * Identifier of the Virtual Private Cloud for the file system.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
@@ -498,7 +498,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    @Export(name="weeklyMaintenanceStartTime", type=String.class, parameters={})
+    @Export(name="weeklyMaintenanceStartTime", refs={String.class}, tree="[0]")
     private Output<String> weeklyMaintenanceStartTime;
 
     /**

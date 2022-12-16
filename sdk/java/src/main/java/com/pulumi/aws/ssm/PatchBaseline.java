@@ -272,7 +272,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * See `approval_rule` below.
      * 
      */
-    @Export(name="approvalRules", type=List.class, parameters={PatchBaselineApprovalRule.class})
+    @Export(name="approvalRules", refs={List.class,PatchBaselineApprovalRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PatchBaselineApprovalRule>> approvalRules;
 
     /**
@@ -289,7 +289,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * Cannot be specified with `approval_rule`.
      * 
      */
-    @Export(name="approvedPatches", type=List.class, parameters={String.class})
+    @Export(name="approvedPatches", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> approvedPatches;
 
     /**
@@ -307,7 +307,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * The default value is `UNSPECIFIED`.
      * 
      */
-    @Export(name="approvedPatchesComplianceLevel", type=String.class, parameters={})
+    @Export(name="approvedPatchesComplianceLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> approvedPatchesComplianceLevel;
 
     /**
@@ -325,7 +325,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * Applies to Linux instances only.
      * 
      */
-    @Export(name="approvedPatchesEnableNonSecurity", type=Boolean.class, parameters={})
+    @Export(name="approvedPatchesEnableNonSecurity", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> approvedPatchesEnableNonSecurity;
 
     /**
@@ -340,7 +340,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * The ARN of the patch baseline.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -354,7 +354,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * The description of the patch baseline.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -370,7 +370,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      * 
      */
-    @Export(name="globalFilters", type=List.class, parameters={PatchBaselineGlobalFilter.class})
+    @Export(name="globalFilters", refs={List.class,PatchBaselineGlobalFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PatchBaselineGlobalFilter>> globalFilters;
 
     /**
@@ -386,7 +386,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * The name specified to identify the patch source.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -415,7 +415,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * The default value is `WINDOWS`.
      * 
      */
-    @Export(name="operatingSystem", type=String.class, parameters={})
+    @Export(name="operatingSystem", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> operatingSystem;
 
     /**
@@ -444,7 +444,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * A list of rejected patches.
      * 
      */
-    @Export(name="rejectedPatches", type=List.class, parameters={String.class})
+    @Export(name="rejectedPatches", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> rejectedPatches;
 
     /**
@@ -459,7 +459,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      * 
      */
-    @Export(name="rejectedPatchesAction", type=String.class, parameters={})
+    @Export(name="rejectedPatchesAction", refs={String.class}, tree="[0]")
     private Output<String> rejectedPatchesAction;
 
     /**
@@ -476,7 +476,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * See `source` below.
      * 
      */
-    @Export(name="sources", type=List.class, parameters={PatchBaselineSource.class})
+    @Export(name="sources", refs={List.class,PatchBaselineSource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PatchBaselineSource>> sources;
 
     /**
@@ -492,7 +492,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -506,7 +506,7 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

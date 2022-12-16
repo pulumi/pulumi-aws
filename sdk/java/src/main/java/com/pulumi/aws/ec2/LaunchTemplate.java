@@ -160,7 +160,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the instance profile.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -175,7 +175,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * See Block Devices below for details.
      * 
      */
-    @Export(name="blockDeviceMappings", type=List.class, parameters={LaunchTemplateBlockDeviceMapping.class})
+    @Export(name="blockDeviceMappings", refs={List.class,LaunchTemplateBlockDeviceMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LaunchTemplateBlockDeviceMapping>> blockDeviceMappings;
 
     /**
@@ -190,7 +190,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      * 
      */
-    @Export(name="capacityReservationSpecification", type=LaunchTemplateCapacityReservationSpecification.class, parameters={})
+    @Export(name="capacityReservationSpecification", refs={LaunchTemplateCapacityReservationSpecification.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateCapacityReservationSpecification> capacityReservationSpecification;
 
     /**
@@ -204,7 +204,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The CPU options for the instance. See CPU Options below for more details.
      * 
      */
-    @Export(name="cpuOptions", type=LaunchTemplateCpuOptions.class, parameters={})
+    @Export(name="cpuOptions", refs={LaunchTemplateCpuOptions.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateCpuOptions> cpuOptions;
 
     /**
@@ -219,7 +219,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * Specification below for more details.
      * 
      */
-    @Export(name="creditSpecification", type=LaunchTemplateCreditSpecification.class, parameters={})
+    @Export(name="creditSpecification", refs={LaunchTemplateCreditSpecification.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateCreditSpecification> creditSpecification;
 
     /**
@@ -234,7 +234,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * Default Version of the launch template.
      * 
      */
-    @Export(name="defaultVersion", type=Integer.class, parameters={})
+    @Export(name="defaultVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> defaultVersion;
 
     /**
@@ -248,7 +248,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * Description of the launch template.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -262,7 +262,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      * 
      */
-    @Export(name="disableApiStop", type=Boolean.class, parameters={})
+    @Export(name="disableApiStop", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableApiStop;
 
     /**
@@ -277,7 +277,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
      * 
      */
-    @Export(name="disableApiTermination", type=Boolean.class, parameters={})
+    @Export(name="disableApiTermination", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableApiTermination;
 
     /**
@@ -292,7 +292,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * If `true`, the launched EC2 instance will be EBS-optimized.
      * 
      */
-    @Export(name="ebsOptimized", type=String.class, parameters={})
+    @Export(name="ebsOptimized", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ebsOptimized;
 
     /**
@@ -307,7 +307,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * below for more details.
      * 
      */
-    @Export(name="elasticGpuSpecifications", type=List.class, parameters={LaunchTemplateElasticGpuSpecification.class})
+    @Export(name="elasticGpuSpecifications", refs={List.class,LaunchTemplateElasticGpuSpecification.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LaunchTemplateElasticGpuSpecification>> elasticGpuSpecifications;
 
     /**
@@ -322,7 +322,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
      * 
      */
-    @Export(name="elasticInferenceAccelerator", type=LaunchTemplateElasticInferenceAccelerator.class, parameters={})
+    @Export(name="elasticInferenceAccelerator", refs={LaunchTemplateElasticInferenceAccelerator.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerator;
 
     /**
@@ -336,7 +336,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      * 
      */
-    @Export(name="enclaveOptions", type=LaunchTemplateEnclaveOptions.class, parameters={})
+    @Export(name="enclaveOptions", refs={LaunchTemplateEnclaveOptions.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateEnclaveOptions> enclaveOptions;
 
     /**
@@ -350,7 +350,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The hibernation options for the instance. See Hibernation Options below for more details.
      * 
      */
-    @Export(name="hibernationOptions", type=LaunchTemplateHibernationOptions.class, parameters={})
+    @Export(name="hibernationOptions", refs={LaunchTemplateHibernationOptions.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateHibernationOptions> hibernationOptions;
 
     /**
@@ -365,7 +365,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * below for more details.
      * 
      */
-    @Export(name="iamInstanceProfile", type=LaunchTemplateIamInstanceProfile.class, parameters={})
+    @Export(name="iamInstanceProfile", refs={LaunchTemplateIamInstanceProfile.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateIamInstanceProfile> iamInstanceProfile;
 
     /**
@@ -380,7 +380,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The AMI from which to launch the instance.
      * 
      */
-    @Export(name="imageId", type=String.class, parameters={})
+    @Export(name="imageId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageId;
 
     /**
@@ -395,7 +395,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * (Default: `stop`).
      * 
      */
-    @Export(name="instanceInitiatedShutdownBehavior", type=String.class, parameters={})
+    @Export(name="instanceInitiatedShutdownBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceInitiatedShutdownBehavior;
 
     /**
@@ -411,7 +411,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * below for details.
      * 
      */
-    @Export(name="instanceMarketOptions", type=LaunchTemplateInstanceMarketOptions.class, parameters={})
+    @Export(name="instanceMarketOptions", refs={LaunchTemplateInstanceMarketOptions.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateInstanceMarketOptions> instanceMarketOptions;
 
     /**
@@ -426,7 +426,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
      * 
      */
-    @Export(name="instanceRequirements", type=LaunchTemplateInstanceRequirements.class, parameters={})
+    @Export(name="instanceRequirements", refs={LaunchTemplateInstanceRequirements.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateInstanceRequirements> instanceRequirements;
 
     /**
@@ -440,7 +440,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The type of the instance. If present then `instance_requirements` cannot be present.
      * 
      */
-    @Export(name="instanceType", type=String.class, parameters={})
+    @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceType;
 
     /**
@@ -454,7 +454,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The kernel ID.
      * 
      */
-    @Export(name="kernelId", type=String.class, parameters={})
+    @Export(name="kernelId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kernelId;
 
     /**
@@ -468,7 +468,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The key name to use for the instance.
      * 
      */
-    @Export(name="keyName", type=String.class, parameters={})
+    @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyName;
 
     /**
@@ -482,7 +482,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The latest version of the launch template.
      * 
      */
-    @Export(name="latestVersion", type=Integer.class, parameters={})
+    @Export(name="latestVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> latestVersion;
 
     /**
@@ -496,7 +496,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * A list of license specifications to associate with. See License Specification below for more details.
      * 
      */
-    @Export(name="licenseSpecifications", type=List.class, parameters={LaunchTemplateLicenseSpecification.class})
+    @Export(name="licenseSpecifications", refs={List.class,LaunchTemplateLicenseSpecification.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LaunchTemplateLicenseSpecification>> licenseSpecifications;
 
     /**
@@ -510,7 +510,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The maintenance options for the instance. See Maintenance Options below for more details.
      * 
      */
-    @Export(name="maintenanceOptions", type=LaunchTemplateMaintenanceOptions.class, parameters={})
+    @Export(name="maintenanceOptions", refs={LaunchTemplateMaintenanceOptions.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateMaintenanceOptions> maintenanceOptions;
 
     /**
@@ -524,7 +524,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      * 
      */
-    @Export(name="metadataOptions", type=LaunchTemplateMetadataOptions.class, parameters={})
+    @Export(name="metadataOptions", refs={LaunchTemplateMetadataOptions.class}, tree="[0]")
     private Output<LaunchTemplateMetadataOptions> metadataOptions;
 
     /**
@@ -538,7 +538,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The monitoring option for the instance. See Monitoring below for more details.
      * 
      */
-    @Export(name="monitoring", type=LaunchTemplateMonitoring.class, parameters={})
+    @Export(name="monitoring", refs={LaunchTemplateMonitoring.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateMonitoring> monitoring;
 
     /**
@@ -552,7 +552,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -566,7 +566,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -581,7 +581,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * Interfaces below for more details.
      * 
      */
-    @Export(name="networkInterfaces", type=List.class, parameters={LaunchTemplateNetworkInterface.class})
+    @Export(name="networkInterfaces", refs={List.class,LaunchTemplateNetworkInterface.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LaunchTemplateNetworkInterface>> networkInterfaces;
 
     /**
@@ -596,7 +596,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The placement of the instance. See Placement below for more details.
      * 
      */
-    @Export(name="placement", type=LaunchTemplatePlacement.class, parameters={})
+    @Export(name="placement", refs={LaunchTemplatePlacement.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplatePlacement> placement;
 
     /**
@@ -610,7 +610,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
-    @Export(name="privateDnsNameOptions", type=LaunchTemplatePrivateDnsNameOptions.class, parameters={})
+    @Export(name="privateDnsNameOptions", refs={LaunchTemplatePrivateDnsNameOptions.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplatePrivateDnsNameOptions> privateDnsNameOptions;
 
     /**
@@ -624,7 +624,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The ID of the RAM disk.
      * 
      */
-    @Export(name="ramDiskId", type=String.class, parameters={})
+    @Export(name="ramDiskId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ramDiskId;
 
     /**
@@ -639,7 +639,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * `vpc_security_group_ids` instead.
      * 
      */
-    @Export(name="securityGroupNames", type=List.class, parameters={String.class})
+    @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupNames;
 
     /**
@@ -654,7 +654,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The tags to apply to the resources during launch. See Tag Specifications below for more details.
      * 
      */
-    @Export(name="tagSpecifications", type=List.class, parameters={LaunchTemplateTagSpecification.class})
+    @Export(name="tagSpecifications", refs={List.class,LaunchTemplateTagSpecification.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LaunchTemplateTagSpecification>> tagSpecifications;
 
     /**
@@ -668,7 +668,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -682,7 +682,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -696,7 +696,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * Whether to update Default Version each update. Conflicts with `default_version`.
      * 
      */
-    @Export(name="updateDefaultVersion", type=Boolean.class, parameters={})
+    @Export(name="updateDefaultVersion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> updateDefaultVersion;
 
     /**
@@ -710,7 +710,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * The base64-encoded user data to provide when launching the instance.
      * 
      */
-    @Export(name="userData", type=String.class, parameters={})
+    @Export(name="userData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userData;
 
     /**
@@ -724,7 +724,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
      * 
      */
-    @Export(name="vpcSecurityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> vpcSecurityGroupIds;
 
     /**

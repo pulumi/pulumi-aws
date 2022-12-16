@@ -69,7 +69,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    @Export(name="addressFamily", type=String.class, parameters={})
+    @Export(name="addressFamily", refs={String.class}, tree="[0]")
     private Output<String> addressFamily;
 
     /**
@@ -83,7 +83,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      * 
      */
-    @Export(name="amazonAddress", type=String.class, parameters={})
+    @Export(name="amazonAddress", refs={String.class}, tree="[0]")
     private Output<String> amazonAddress;
 
     /**
@@ -93,7 +93,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
     public Output<String> amazonAddress() {
         return this.amazonAddress;
     }
-    @Export(name="amazonSideAsn", type=String.class, parameters={})
+    @Export(name="amazonSideAsn", refs={String.class}, tree="[0]")
     private Output<String> amazonSideAsn;
 
     public Output<String> amazonSideAsn() {
@@ -103,7 +103,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * The ARN of the virtual interface.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -117,7 +117,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * The Direct Connect endpoint on which the virtual interface terminates.
      * 
      */
-    @Export(name="awsDevice", type=String.class, parameters={})
+    @Export(name="awsDevice", refs={String.class}, tree="[0]")
     private Output<String> awsDevice;
 
     /**
@@ -131,7 +131,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    @Export(name="bgpAsn", type=Integer.class, parameters={})
+    @Export(name="bgpAsn", refs={Integer.class}, tree="[0]")
     private Output<Integer> bgpAsn;
 
     /**
@@ -145,7 +145,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * The authentication key for BGP configuration.
      * 
      */
-    @Export(name="bgpAuthKey", type=String.class, parameters={})
+    @Export(name="bgpAuthKey", refs={String.class}, tree="[0]")
     private Output<String> bgpAuthKey;
 
     /**
@@ -159,7 +159,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      * 
      */
-    @Export(name="connectionId", type=String.class, parameters={})
+    @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
     /**
@@ -173,7 +173,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      * 
      */
-    @Export(name="customerAddress", type=String.class, parameters={})
+    @Export(name="customerAddress", refs={String.class}, tree="[0]")
     private Output<String> customerAddress;
 
     /**
@@ -187,7 +187,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * Indicates whether jumbo frames (8500 MTU) are supported.
      * 
      */
-    @Export(name="jumboFrameCapable", type=Boolean.class, parameters={})
+    @Export(name="jumboFrameCapable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> jumboFrameCapable;
 
     /**
@@ -201,7 +201,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
      * 
      */
-    @Export(name="mtu", type=Integer.class, parameters={})
+    @Export(name="mtu", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> mtu;
 
     /**
@@ -215,7 +215,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * The name for the virtual interface.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -229,7 +229,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * The AWS account that will own the new virtual interface.
      * 
      */
-    @Export(name="ownerAccountId", type=String.class, parameters={})
+    @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
@@ -243,7 +243,7 @@ public class HostedTransitVirtualInterface extends com.pulumi.resources.CustomRe
      * The VLAN ID.
      * 
      */
-    @Export(name="vlan", type=Integer.class, parameters={})
+    @Export(name="vlan", refs={Integer.class}, tree="[0]")
     private Output<Integer> vlan;
 
     /**

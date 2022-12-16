@@ -66,7 +66,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the certificate.
      * 
      */
-    @Export(name="certificateArn", type=String.class, parameters={})
+    @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output<String> certificateArn;
 
     /**
@@ -80,7 +80,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The certificate identifier.
      * 
      */
-    @Export(name="certificateId", type=String.class, parameters={})
+    @Export(name="certificateId", refs={String.class}, tree="[0]")
     private Output<String> certificateId;
 
     /**
@@ -94,7 +94,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
      * 
      */
-    @Export(name="certificatePem", type=String.class, parameters={})
+    @Export(name="certificatePem", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificatePem;
 
     /**
@@ -108,7 +108,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
      * 
      */
-    @Export(name="certificateWallet", type=String.class, parameters={})
+    @Export(name="certificateWallet", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateWallet;
 
     /**
@@ -122,7 +122,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -136,7 +136,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

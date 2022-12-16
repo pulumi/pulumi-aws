@@ -220,7 +220,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The access URL for the directory, such as `http://alias.awsapps.com`.
      * 
      */
-    @Export(name="accessUrl", type=String.class, parameters={})
+    @Export(name="accessUrl", refs={String.class}, tree="[0]")
     private Output<String> accessUrl;
 
     /**
@@ -234,7 +234,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
      * 
      */
-    @Export(name="alias", type=String.class, parameters={})
+    @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
     /**
@@ -248,7 +248,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * Connector related information about the directory. Fields documented below.
      * 
      */
-    @Export(name="connectSettings", type=DirectoryConnectSettings.class, parameters={})
+    @Export(name="connectSettings", refs={DirectoryConnectSettings.class}, tree="[0]")
     private Output</* @Nullable */ DirectoryConnectSettings> connectSettings;
 
     /**
@@ -262,7 +262,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * A textual description for the directory.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -276,7 +276,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
      * 
      */
-    @Export(name="desiredNumberOfDomainControllers", type=Integer.class, parameters={})
+    @Export(name="desiredNumberOfDomainControllers", refs={Integer.class}, tree="[0]")
     private Output<Integer> desiredNumberOfDomainControllers;
 
     /**
@@ -290,7 +290,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * A list of IP addresses of the DNS servers for the directory or connector.
      * 
      */
-    @Export(name="dnsIpAddresses", type=List.class, parameters={String.class})
+    @Export(name="dnsIpAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> dnsIpAddresses;
 
     /**
@@ -304,7 +304,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      * 
      */
-    @Export(name="edition", type=String.class, parameters={})
+    @Export(name="edition", refs={String.class}, tree="[0]")
     private Output<String> edition;
 
     /**
@@ -318,7 +318,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      * 
      */
-    @Export(name="enableSso", type=Boolean.class, parameters={})
+    @Export(name="enableSso", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableSso;
 
     /**
@@ -332,7 +332,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The fully qualified name for the directory, such as `corp.example.com`
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -346,7 +346,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The password for the directory administrator or connector user.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
@@ -360,7 +360,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The ID of the security group created by the directory.
      * 
      */
-    @Export(name="securityGroupId", type=String.class, parameters={})
+    @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
     /**
@@ -374,7 +374,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The short name of the directory, such as `CORP`.
      * 
      */
-    @Export(name="shortName", type=String.class, parameters={})
+    @Export(name="shortName", refs={String.class}, tree="[0]")
     private Output<String> shortName;
 
     /**
@@ -388,7 +388,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      * 
      */
-    @Export(name="size", type=String.class, parameters={})
+    @Export(name="size", refs={String.class}, tree="[0]")
     private Output<String> size;
 
     /**
@@ -402,7 +402,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -416,7 +416,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -430,7 +430,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -444,7 +444,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * VPC related information about the directory. Fields documented below.
      * 
      */
-    @Export(name="vpcSettings", type=DirectoryVpcSettings.class, parameters={})
+    @Export(name="vpcSettings", refs={DirectoryVpcSettings.class}, tree="[0]")
     private Output</* @Nullable */ DirectoryVpcSettings> vpcSettings;
 
     /**

@@ -33,7 +33,7 @@ public class DelegatedAdminAccount extends com.pulumi.resources.CustomResource {
      * Account to enable as delegated admin account.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -47,7 +47,7 @@ public class DelegatedAdminAccount extends com.pulumi.resources.CustomResource {
      * Status of this delegated admin account.
      * 
      */
-    @Export(name="relationshipStatus", type=String.class, parameters={})
+    @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
     private Output<String> relationshipStatus;
 
     /**

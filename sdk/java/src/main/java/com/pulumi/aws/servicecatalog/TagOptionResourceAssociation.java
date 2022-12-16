@@ -65,7 +65,7 @@ public class TagOptionResourceAssociation extends com.pulumi.resources.CustomRes
      * ARN of the resource.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
@@ -79,7 +79,7 @@ public class TagOptionResourceAssociation extends com.pulumi.resources.CustomRes
      * Creation time of the resource.
      * 
      */
-    @Export(name="resourceCreatedTime", type=String.class, parameters={})
+    @Export(name="resourceCreatedTime", refs={String.class}, tree="[0]")
     private Output<String> resourceCreatedTime;
 
     /**
@@ -93,7 +93,7 @@ public class TagOptionResourceAssociation extends com.pulumi.resources.CustomRes
      * Description of the resource.
      * 
      */
-    @Export(name="resourceDescription", type=String.class, parameters={})
+    @Export(name="resourceDescription", refs={String.class}, tree="[0]")
     private Output<String> resourceDescription;
 
     /**
@@ -107,7 +107,7 @@ public class TagOptionResourceAssociation extends com.pulumi.resources.CustomRes
      * Resource identifier.
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -121,7 +121,7 @@ public class TagOptionResourceAssociation extends com.pulumi.resources.CustomRes
      * Description of the resource.
      * 
      */
-    @Export(name="resourceName", type=String.class, parameters={})
+    @Export(name="resourceName", refs={String.class}, tree="[0]")
     private Output<String> resourceName;
 
     /**
@@ -135,7 +135,7 @@ public class TagOptionResourceAssociation extends com.pulumi.resources.CustomRes
      * Tag Option identifier.
      * 
      */
-    @Export(name="tagOptionId", type=String.class, parameters={})
+    @Export(name="tagOptionId", refs={String.class}, tree="[0]")
     private Output<String> tagOptionId;
 
     /**

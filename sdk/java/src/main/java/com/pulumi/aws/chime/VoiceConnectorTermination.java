@@ -77,7 +77,7 @@ public class VoiceConnectorTermination extends com.pulumi.resources.CustomResour
      * The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
      * 
      */
-    @Export(name="callingRegions", type=List.class, parameters={String.class})
+    @Export(name="callingRegions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> callingRegions;
 
     /**
@@ -91,7 +91,7 @@ public class VoiceConnectorTermination extends com.pulumi.resources.CustomResour
      * The IP addresses allowed to make calls, in CIDR format.
      * 
      */
-    @Export(name="cidrAllowLists", type=List.class, parameters={String.class})
+    @Export(name="cidrAllowLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cidrAllowLists;
 
     /**
@@ -105,7 +105,7 @@ public class VoiceConnectorTermination extends com.pulumi.resources.CustomResour
      * The limit on calls per second. Max value based on account service quota. Default value of `1`.
      * 
      */
-    @Export(name="cpsLimit", type=Integer.class, parameters={})
+    @Export(name="cpsLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> cpsLimit;
 
     /**
@@ -119,7 +119,7 @@ public class VoiceConnectorTermination extends com.pulumi.resources.CustomResour
      * The default caller ID phone number.
      * 
      */
-    @Export(name="defaultPhoneNumber", type=String.class, parameters={})
+    @Export(name="defaultPhoneNumber", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultPhoneNumber;
 
     /**
@@ -133,7 +133,7 @@ public class VoiceConnectorTermination extends com.pulumi.resources.CustomResour
      * When termination settings are disabled, outbound calls can not be made.
      * 
      */
-    @Export(name="disabled", type=Boolean.class, parameters={})
+    @Export(name="disabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disabled;
 
     /**
@@ -147,7 +147,7 @@ public class VoiceConnectorTermination extends com.pulumi.resources.CustomResour
      * The Amazon Chime Voice Connector ID.
      * 
      */
-    @Export(name="voiceConnectorId", type=String.class, parameters={})
+    @Export(name="voiceConnectorId", refs={String.class}, tree="[0]")
     private Output<String> voiceConnectorId;
 
     /**

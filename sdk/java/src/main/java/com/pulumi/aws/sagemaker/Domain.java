@@ -164,7 +164,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
      * 
      */
-    @Export(name="appNetworkAccessType", type=String.class, parameters={})
+    @Export(name="appNetworkAccessType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appNetworkAccessType;
 
     /**
@@ -178,7 +178,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
      * 
      */
-    @Export(name="appSecurityGroupManagement", type=String.class, parameters={})
+    @Export(name="appSecurityGroupManagement", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appSecurityGroupManagement;
 
     /**
@@ -192,7 +192,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -206,7 +206,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
      * 
      */
-    @Export(name="authMode", type=String.class, parameters={})
+    @Export(name="authMode", refs={String.class}, tree="[0]")
     private Output<String> authMode;
 
     /**
@@ -220,7 +220,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The default user settings. See Default User Settings below.
      * 
      */
-    @Export(name="defaultUserSettings", type=DomainDefaultUserSettings.class, parameters={})
+    @Export(name="defaultUserSettings", refs={DomainDefaultUserSettings.class}, tree="[0]")
     private Output<DomainDefaultUserSettings> defaultUserSettings;
 
     /**
@@ -234,7 +234,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The domain name.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -248,7 +248,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The domain settings. See Domain Settings below.
      * 
      */
-    @Export(name="domainSettings", type=DomainDomainSettings.class, parameters={})
+    @Export(name="domainSettings", refs={DomainDomainSettings.class}, tree="[0]")
     private Output</* @Nullable */ DomainDomainSettings> domainSettings;
 
     /**
@@ -262,7 +262,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      * 
      */
-    @Export(name="homeEfsFileSystemId", type=String.class, parameters={})
+    @Export(name="homeEfsFileSystemId", refs={String.class}, tree="[0]")
     private Output<String> homeEfsFileSystemId;
 
     /**
@@ -276,7 +276,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
@@ -290,7 +290,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
      * 
      */
-    @Export(name="retentionPolicy", type=DomainRetentionPolicy.class, parameters={})
+    @Export(name="retentionPolicy", refs={DomainRetentionPolicy.class}, tree="[0]")
     private Output</* @Nullable */ DomainRetentionPolicy> retentionPolicy;
 
     /**
@@ -304,7 +304,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      * 
      */
-    @Export(name="securityGroupIdForDomainBoundary", type=String.class, parameters={})
+    @Export(name="securityGroupIdForDomainBoundary", refs={String.class}, tree="[0]")
     private Output<String> securityGroupIdForDomainBoundary;
 
     /**
@@ -318,7 +318,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The SSO managed application instance ID.
      * 
      */
-    @Export(name="singleSignOnManagedApplicationInstanceId", type=String.class, parameters={})
+    @Export(name="singleSignOnManagedApplicationInstanceId", refs={String.class}, tree="[0]")
     private Output<String> singleSignOnManagedApplicationInstanceId;
 
     /**
@@ -332,7 +332,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The VPC subnets that Studio uses for communication.
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
@@ -346,7 +346,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -360,7 +360,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -374,7 +374,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The domain&#39;s URL.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
@@ -388,7 +388,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

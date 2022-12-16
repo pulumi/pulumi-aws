@@ -67,7 +67,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the key.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -81,7 +81,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * Specifies whether to disable the policy lockout check performed when creating or updating the key&#39;s policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
      * 
      */
-    @Export(name="bypassPolicyLockoutSafetyCheck", type=Boolean.class, parameters={})
+    @Export(name="bypassPolicyLockoutSafetyCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bypassPolicyLockoutSafetyCheck;
 
     /**
@@ -95,7 +95,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
      * 
      */
-    @Export(name="deletionWindowInDays", type=Integer.class, parameters={})
+    @Export(name="deletionWindowInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> deletionWindowInDays;
 
     /**
@@ -109,7 +109,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * Description of the key.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -123,7 +123,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -137,7 +137,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
      * 
      */
-    @Export(name="expirationModel", type=String.class, parameters={})
+    @Export(name="expirationModel", refs={String.class}, tree="[0]")
     private Output<String> expirationModel;
 
     /**
@@ -151,7 +151,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
      * 
      */
-    @Export(name="keyMaterialBase64", type=String.class, parameters={})
+    @Export(name="keyMaterialBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyMaterialBase64;
 
     /**
@@ -165,7 +165,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * The state of the CMK.
      * 
      */
-    @Export(name="keyState", type=String.class, parameters={})
+    @Export(name="keyState", refs={String.class}, tree="[0]")
     private Output<String> keyState;
 
     /**
@@ -179,7 +179,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * The cryptographic operations for which you can use the CMK.
      * 
      */
-    @Export(name="keyUsage", type=String.class, parameters={})
+    @Export(name="keyUsage", refs={String.class}, tree="[0]")
     private Output<String> keyUsage;
 
     /**
@@ -193,7 +193,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      * 
      */
-    @Export(name="multiRegion", type=Boolean.class, parameters={})
+    @Export(name="multiRegion", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> multiRegion;
 
     /**
@@ -207,7 +207,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -221,7 +221,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -235,7 +235,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -249,7 +249,7 @@ public class ExternalKey extends com.pulumi.resources.CustomResource {
      * Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    @Export(name="validTo", type=String.class, parameters={})
+    @Export(name="validTo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> validTo;
 
     /**

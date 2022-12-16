@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:glue/userDefinedFunction:UserDefinedFunction")
 public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     public Output<String> arn() {
@@ -85,7 +85,7 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
      * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
      * 
      */
-    @Export(name="catalogId", type=String.class, parameters={})
+    @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> catalogId;
 
     /**
@@ -99,7 +99,7 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
      * The Java class that contains the function code.
      * 
      */
-    @Export(name="className", type=String.class, parameters={})
+    @Export(name="className", refs={String.class}, tree="[0]")
     private Output<String> className;
 
     /**
@@ -109,7 +109,7 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
     public Output<String> className() {
         return this.className;
     }
-    @Export(name="createTime", type=String.class, parameters={})
+    @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     public Output<String> createTime() {
@@ -119,7 +119,7 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
      * The name of the Database to create the Function.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -133,7 +133,7 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
      * The name of the function.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -147,7 +147,7 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
      * The owner of the function.
      * 
      */
-    @Export(name="ownerName", type=String.class, parameters={})
+    @Export(name="ownerName", refs={String.class}, tree="[0]")
     private Output<String> ownerName;
 
     /**
@@ -161,7 +161,7 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
      * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      * 
      */
-    @Export(name="ownerType", type=String.class, parameters={})
+    @Export(name="ownerType", refs={String.class}, tree="[0]")
     private Output<String> ownerType;
 
     /**
@@ -175,7 +175,7 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
      * The configuration block for Resource URIs. See resource uris below for more details.
      * 
      */
-    @Export(name="resourceUris", type=List.class, parameters={UserDefinedFunctionResourceUri.class})
+    @Export(name="resourceUris", refs={List.class,UserDefinedFunctionResourceUri.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserDefinedFunctionResourceUri>> resourceUris;
 
     /**

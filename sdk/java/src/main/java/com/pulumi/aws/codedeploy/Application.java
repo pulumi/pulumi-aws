@@ -123,7 +123,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The application ID.
      * 
      */
-    @Export(name="applicationId", type=String.class, parameters={})
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
@@ -137,7 +137,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The ARN of the CodeDeploy application.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -151,7 +151,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      * 
      */
-    @Export(name="computePlatform", type=String.class, parameters={})
+    @Export(name="computePlatform", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> computePlatform;
 
     /**
@@ -165,7 +165,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name for a connection to a GitHub account.
      * 
      */
-    @Export(name="githubAccountName", type=String.class, parameters={})
+    @Export(name="githubAccountName", refs={String.class}, tree="[0]")
     private Output<String> githubAccountName;
 
     /**
@@ -179,7 +179,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Whether the user has authenticated with GitHub for the specified application.
      * 
      */
-    @Export(name="linkedToGithub", type=Boolean.class, parameters={})
+    @Export(name="linkedToGithub", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> linkedToGithub;
 
     /**
@@ -193,7 +193,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name of the application.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -207,7 +207,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -221,7 +221,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

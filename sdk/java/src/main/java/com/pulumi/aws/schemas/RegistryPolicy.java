@@ -80,7 +80,7 @@ public class RegistryPolicy extends com.pulumi.resources.CustomResource {
      * Resource Policy for EventBridge Schema Registry
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -94,7 +94,7 @@ public class RegistryPolicy extends com.pulumi.resources.CustomResource {
      * Name of EventBridge Schema Registry
      * 
      */
-    @Export(name="registryName", type=String.class, parameters={})
+    @Export(name="registryName", refs={String.class}, tree="[0]")
     private Output<String> registryName;
 
     /**

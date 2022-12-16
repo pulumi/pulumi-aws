@@ -92,7 +92,7 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * Address family (`IPv4` or `IPv6`) of this prefix list.
      * 
      */
-    @Export(name="addressFamily", type=String.class, parameters={})
+    @Export(name="addressFamily", refs={String.class}, tree="[0]")
     private Output<String> addressFamily;
 
     /**
@@ -106,7 +106,7 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * ARN of the prefix list.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -120,7 +120,7 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      * 
      */
-    @Export(name="entries", type=List.class, parameters={ManagedPrefixListEntry.class})
+    @Export(name="entries", refs={List.class,ManagedPrefixListEntry.class}, tree="[0,1]")
     private Output<List<ManagedPrefixListEntry>> entries;
 
     /**
@@ -134,7 +134,7 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * Maximum number of entries that this prefix list can contain.
      * 
      */
-    @Export(name="maxEntries", type=Integer.class, parameters={})
+    @Export(name="maxEntries", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxEntries;
 
     /**
@@ -148,7 +148,7 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * Name of this resource. The name must not start with `com.amazonaws`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -162,7 +162,7 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * ID of the AWS account that owns this prefix list.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -176,7 +176,7 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -190,7 +190,7 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -204,7 +204,7 @@ public class ManagedPrefixList extends com.pulumi.resources.CustomResource {
      * Latest version of this prefix list.
      * 
      */
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**

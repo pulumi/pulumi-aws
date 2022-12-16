@@ -72,7 +72,7 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
      * Whether to allow users to change their own password
      * 
      */
-    @Export(name="allowUsersToChangePassword", type=Boolean.class, parameters={})
+    @Export(name="allowUsersToChangePassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowUsersToChangePassword;
 
     /**
@@ -86,7 +86,7 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
      * Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
      * 
      */
-    @Export(name="expirePasswords", type=Boolean.class, parameters={})
+    @Export(name="expirePasswords", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> expirePasswords;
 
     /**
@@ -100,7 +100,7 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
      * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
      * 
      */
-    @Export(name="hardExpiry", type=Boolean.class, parameters={})
+    @Export(name="hardExpiry", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hardExpiry;
 
     /**
@@ -114,7 +114,7 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
      * The number of days that an user password is valid.
      * 
      */
-    @Export(name="maxPasswordAge", type=Integer.class, parameters={})
+    @Export(name="maxPasswordAge", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxPasswordAge;
 
     /**
@@ -128,7 +128,7 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
      * Minimum length to require for user passwords.
      * 
      */
-    @Export(name="minimumPasswordLength", type=Integer.class, parameters={})
+    @Export(name="minimumPasswordLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minimumPasswordLength;
 
     /**
@@ -142,7 +142,7 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
      * The number of previous passwords that users are prevented from reusing.
      * 
      */
-    @Export(name="passwordReusePrevention", type=Integer.class, parameters={})
+    @Export(name="passwordReusePrevention", refs={Integer.class}, tree="[0]")
     private Output<Integer> passwordReusePrevention;
 
     /**
@@ -156,7 +156,7 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
      * Whether to require lowercase characters for user passwords.
      * 
      */
-    @Export(name="requireLowercaseCharacters", type=Boolean.class, parameters={})
+    @Export(name="requireLowercaseCharacters", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> requireLowercaseCharacters;
 
     /**
@@ -170,7 +170,7 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
      * Whether to require numbers for user passwords.
      * 
      */
-    @Export(name="requireNumbers", type=Boolean.class, parameters={})
+    @Export(name="requireNumbers", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> requireNumbers;
 
     /**
@@ -184,7 +184,7 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
      * Whether to require symbols for user passwords.
      * 
      */
-    @Export(name="requireSymbols", type=Boolean.class, parameters={})
+    @Export(name="requireSymbols", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> requireSymbols;
 
     /**
@@ -198,7 +198,7 @@ public class AccountPasswordPolicy extends com.pulumi.resources.CustomResource {
      * Whether to require uppercase characters for user passwords.
      * 
      */
-    @Export(name="requireUppercaseCharacters", type=Boolean.class, parameters={})
+    @Export(name="requireUppercaseCharacters", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> requireUppercaseCharacters;
 
     /**

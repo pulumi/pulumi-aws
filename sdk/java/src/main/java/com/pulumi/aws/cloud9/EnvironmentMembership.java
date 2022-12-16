@@ -72,7 +72,7 @@ public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
      * The ID of the environment that contains the environment member you want to add.
      * 
      */
-    @Export(name="environmentId", type=String.class, parameters={})
+    @Export(name="environmentId", refs={String.class}, tree="[0]")
     private Output<String> environmentId;
 
     /**
@@ -86,7 +86,7 @@ public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
      * The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
      * 
      */
-    @Export(name="permissions", type=String.class, parameters={})
+    @Export(name="permissions", refs={String.class}, tree="[0]")
     private Output<String> permissions;
 
     /**
@@ -100,7 +100,7 @@ public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the environment member you want to add.
      * 
      */
-    @Export(name="userArn", type=String.class, parameters={})
+    @Export(name="userArn", refs={String.class}, tree="[0]")
     private Output<String> userArn;
 
     /**
@@ -114,7 +114,7 @@ public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
      * he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**

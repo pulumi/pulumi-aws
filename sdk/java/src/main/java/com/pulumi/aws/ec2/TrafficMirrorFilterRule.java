@@ -102,7 +102,7 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
      * ARN of the traffic mirror filter rule.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -116,7 +116,7 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
      * Description of the traffic mirror filter rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -130,7 +130,7 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
      * Destination CIDR block to assign to the Traffic Mirror rule.
      * 
      */
-    @Export(name="destinationCidrBlock", type=String.class, parameters={})
+    @Export(name="destinationCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> destinationCidrBlock;
 
     /**
@@ -144,7 +144,7 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
      * Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      * 
      */
-    @Export(name="destinationPortRange", type=TrafficMirrorFilterRuleDestinationPortRange.class, parameters={})
+    @Export(name="destinationPortRange", refs={TrafficMirrorFilterRuleDestinationPortRange.class}, tree="[0]")
     private Output</* @Nullable */ TrafficMirrorFilterRuleDestinationPortRange> destinationPortRange;
 
     /**
@@ -158,7 +158,7 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
      * Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
      * 
      */
-    @Export(name="protocol", type=Integer.class, parameters={})
+    @Export(name="protocol", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> protocol;
 
     /**
@@ -172,7 +172,7 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
      * Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
      * 
      */
-    @Export(name="ruleAction", type=String.class, parameters={})
+    @Export(name="ruleAction", refs={String.class}, tree="[0]")
     private Output<String> ruleAction;
 
     /**
@@ -186,7 +186,7 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
      * Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
      * 
      */
-    @Export(name="ruleNumber", type=Integer.class, parameters={})
+    @Export(name="ruleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleNumber;
 
     /**
@@ -200,7 +200,7 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
      * Source CIDR block to assign to the Traffic Mirror rule.
      * 
      */
-    @Export(name="sourceCidrBlock", type=String.class, parameters={})
+    @Export(name="sourceCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> sourceCidrBlock;
 
     /**
@@ -214,7 +214,7 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
      * Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      * 
      */
-    @Export(name="sourcePortRange", type=TrafficMirrorFilterRuleSourcePortRange.class, parameters={})
+    @Export(name="sourcePortRange", refs={TrafficMirrorFilterRuleSourcePortRange.class}, tree="[0]")
     private Output</* @Nullable */ TrafficMirrorFilterRuleSourcePortRange> sourcePortRange;
 
     /**
@@ -228,7 +228,7 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
      * Direction of traffic to be captured. Valid values are `ingress` and `egress`
      * 
      */
-    @Export(name="trafficDirection", type=String.class, parameters={})
+    @Export(name="trafficDirection", refs={String.class}, tree="[0]")
     private Output<String> trafficDirection;
 
     /**
@@ -242,7 +242,7 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
      * ID of the traffic mirror filter to which this rule should be added
      * 
      */
-    @Export(name="trafficMirrorFilterId", type=String.class, parameters={})
+    @Export(name="trafficMirrorFilterId", refs={String.class}, tree="[0]")
     private Output<String> trafficMirrorFilterId;
 
     /**

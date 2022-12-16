@@ -70,7 +70,7 @@ public class AdmChannel extends com.pulumi.resources.CustomResource {
      * The application ID.
      * 
      */
-    @Export(name="applicationId", type=String.class, parameters={})
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
@@ -84,7 +84,7 @@ public class AdmChannel extends com.pulumi.resources.CustomResource {
      * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
      * 
      */
-    @Export(name="clientId", type=String.class, parameters={})
+    @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
     /**
@@ -98,7 +98,7 @@ public class AdmChannel extends com.pulumi.resources.CustomResource {
      * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
      * 
      */
-    @Export(name="clientSecret", type=String.class, parameters={})
+    @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
     /**
@@ -112,7 +112,7 @@ public class AdmChannel extends com.pulumi.resources.CustomResource {
      * Specifies whether to enable the channel. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**

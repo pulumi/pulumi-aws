@@ -67,7 +67,7 @@ public class LocationFsxWindows extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -81,7 +81,7 @@ public class LocationFsxWindows extends com.pulumi.resources.CustomResource {
      * The time that the FSx for Windows location was created.
      * 
      */
-    @Export(name="creationTime", type=String.class, parameters={})
+    @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
@@ -95,7 +95,7 @@ public class LocationFsxWindows extends com.pulumi.resources.CustomResource {
      * The name of the Windows domain that the FSx for Windows server belongs to.
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domain;
 
     /**
@@ -109,7 +109,7 @@ public class LocationFsxWindows extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the FSx for Windows file system.
      * 
      */
-    @Export(name="fsxFilesystemArn", type=String.class, parameters={})
+    @Export(name="fsxFilesystemArn", refs={String.class}, tree="[0]")
     private Output<String> fsxFilesystemArn;
 
     /**
@@ -123,7 +123,7 @@ public class LocationFsxWindows extends com.pulumi.resources.CustomResource {
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
@@ -137,7 +137,7 @@ public class LocationFsxWindows extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
      * 
      */
-    @Export(name="securityGroupArns", type=List.class, parameters={String.class})
+    @Export(name="securityGroupArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupArns;
 
     /**
@@ -151,7 +151,7 @@ public class LocationFsxWindows extends com.pulumi.resources.CustomResource {
      * Subdirectory to perform actions as source or destination.
      * 
      */
-    @Export(name="subdirectory", type=String.class, parameters={})
+    @Export(name="subdirectory", refs={String.class}, tree="[0]")
     private Output<String> subdirectory;
 
     /**
@@ -165,7 +165,7 @@ public class LocationFsxWindows extends com.pulumi.resources.CustomResource {
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -179,7 +179,7 @@ public class LocationFsxWindows extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -193,7 +193,7 @@ public class LocationFsxWindows extends com.pulumi.resources.CustomResource {
      * The URL of the FSx for Windows location that was described.
      * 
      */
-    @Export(name="uri", type=String.class, parameters={})
+    @Export(name="uri", refs={String.class}, tree="[0]")
     private Output<String> uri;
 
     /**
@@ -207,7 +207,7 @@ public class LocationFsxWindows extends com.pulumi.resources.CustomResource {
      * The user who has the permissions to access files and folders in the FSx for Windows file system.
      * 
      */
-    @Export(name="user", type=String.class, parameters={})
+    @Export(name="user", refs={String.class}, tree="[0]")
     private Output<String> user;
 
     /**

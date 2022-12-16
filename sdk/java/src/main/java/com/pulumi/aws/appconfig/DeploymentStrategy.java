@@ -71,7 +71,7 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
      * ARN of the AppConfig Deployment Strategy.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -85,7 +85,7 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
      * Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
      * 
      */
-    @Export(name="deploymentDurationInMinutes", type=Integer.class, parameters={})
+    @Export(name="deploymentDurationInMinutes", refs={Integer.class}, tree="[0]")
     private Output<Integer> deploymentDurationInMinutes;
 
     /**
@@ -99,7 +99,7 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
      * Description of the deployment strategy. Can be at most 1024 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -113,7 +113,7 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
      * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      * 
      */
-    @Export(name="finalBakeTimeInMinutes", type=Integer.class, parameters={})
+    @Export(name="finalBakeTimeInMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> finalBakeTimeInMinutes;
 
     /**
@@ -127,7 +127,7 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
      * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      * 
      */
-    @Export(name="growthFactor", type=Double.class, parameters={})
+    @Export(name="growthFactor", refs={Double.class}, tree="[0]")
     private Output<Double> growthFactor;
 
     /**
@@ -141,7 +141,7 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
      * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      * 
      */
-    @Export(name="growthType", type=String.class, parameters={})
+    @Export(name="growthType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> growthType;
 
     /**
@@ -155,7 +155,7 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
      * Name for the deployment strategy. Must be between 1 and 64 characters in length.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -169,7 +169,7 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
      * Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
      * 
      */
-    @Export(name="replicateTo", type=String.class, parameters={})
+    @Export(name="replicateTo", refs={String.class}, tree="[0]")
     private Output<String> replicateTo;
 
     /**
@@ -183,7 +183,7 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -197,7 +197,7 @@ public class DeploymentStrategy extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

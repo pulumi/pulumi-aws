@@ -80,7 +80,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * A list of activated rules, see below
      * 
      */
-    @Export(name="activatedRules", type=List.class, parameters={RuleGroupActivatedRule.class})
+    @Export(name="activatedRules", refs={List.class,RuleGroupActivatedRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleGroupActivatedRule>> activatedRules;
 
     /**
@@ -94,7 +94,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * The ARN of the WAF Regional Rule Group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -108,7 +108,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * A friendly name for the metrics from the rule group
      * 
      */
-    @Export(name="metricName", type=String.class, parameters={})
+    @Export(name="metricName", refs={String.class}, tree="[0]")
     private Output<String> metricName;
 
     /**
@@ -122,7 +122,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * A friendly name of the rule group
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -136,7 +136,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -150,7 +150,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

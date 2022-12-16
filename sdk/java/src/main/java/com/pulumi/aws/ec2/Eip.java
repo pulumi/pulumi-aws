@@ -218,7 +218,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
      * 
      */
-    @Export(name="address", type=String.class, parameters={})
+    @Export(name="address", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> address;
 
     /**
@@ -232,7 +232,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
      * 
      */
-    @Export(name="allocationId", type=String.class, parameters={})
+    @Export(name="allocationId", refs={String.class}, tree="[0]")
     private Output<String> allocationId;
 
     /**
@@ -246,7 +246,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      * 
      */
-    @Export(name="associateWithPrivateIp", type=String.class, parameters={})
+    @Export(name="associateWithPrivateIp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> associateWithPrivateIp;
 
     /**
@@ -260,7 +260,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * ID representing the association of the address with an instance in a VPC.
      * 
      */
-    @Export(name="associationId", type=String.class, parameters={})
+    @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
     /**
@@ -274,7 +274,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * Carrier IP address.
      * 
      */
-    @Export(name="carrierIp", type=String.class, parameters={})
+    @Export(name="carrierIp", refs={String.class}, tree="[0]")
     private Output<String> carrierIp;
 
     /**
@@ -288,7 +288,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * Customer owned IP.
      * 
      */
-    @Export(name="customerOwnedIp", type=String.class, parameters={})
+    @Export(name="customerOwnedIp", refs={String.class}, tree="[0]")
     private Output<String> customerOwnedIp;
 
     /**
@@ -302,7 +302,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
      * 
      */
-    @Export(name="customerOwnedIpv4Pool", type=String.class, parameters={})
+    @Export(name="customerOwnedIpv4Pool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerOwnedIpv4Pool;
 
     /**
@@ -316,7 +316,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
@@ -330,7 +330,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * EC2 instance ID.
      * 
      */
-    @Export(name="instance", type=String.class, parameters={})
+    @Export(name="instance", refs={String.class}, tree="[0]")
     private Output<String> instance;
 
     /**
@@ -344,7 +344,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      * 
      */
-    @Export(name="networkBorderGroup", type=String.class, parameters={})
+    @Export(name="networkBorderGroup", refs={String.class}, tree="[0]")
     private Output<String> networkBorderGroup;
 
     /**
@@ -358,7 +358,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * Network interface ID to associate with.
      * 
      */
-    @Export(name="networkInterface", type=String.class, parameters={})
+    @Export(name="networkInterface", refs={String.class}, tree="[0]")
     private Output<String> networkInterface;
 
     /**
@@ -372,7 +372,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * The Private DNS associated with the Elastic IP address (if in VPC).
      * 
      */
-    @Export(name="privateDns", type=String.class, parameters={})
+    @Export(name="privateDns", refs={String.class}, tree="[0]")
     private Output<String> privateDns;
 
     /**
@@ -386,7 +386,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * Contains the private IP address (if in VPC).
      * 
      */
-    @Export(name="privateIp", type=String.class, parameters={})
+    @Export(name="privateIp", refs={String.class}, tree="[0]")
     private Output<String> privateIp;
 
     /**
@@ -400,7 +400,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * Public DNS associated with the Elastic IP address.
      * 
      */
-    @Export(name="publicDns", type=String.class, parameters={})
+    @Export(name="publicDns", refs={String.class}, tree="[0]")
     private Output<String> publicDns;
 
     /**
@@ -414,7 +414,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * Contains the public IP address.
      * 
      */
-    @Export(name="publicIp", type=String.class, parameters={})
+    @Export(name="publicIp", refs={String.class}, tree="[0]")
     private Output<String> publicIp;
 
     /**
@@ -429,7 +429,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * This option is only available for VPC EIPs.
      * 
      */
-    @Export(name="publicIpv4Pool", type=String.class, parameters={})
+    @Export(name="publicIpv4Pool", refs={String.class}, tree="[0]")
     private Output<String> publicIpv4Pool;
 
     /**
@@ -444,7 +444,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -458,7 +458,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -473,7 +473,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * Defaults to `true` unless the region supports EC2-Classic.
      * 
      */
-    @Export(name="vpc", type=Boolean.class, parameters={})
+    @Export(name="vpc", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> vpc;
 
     /**

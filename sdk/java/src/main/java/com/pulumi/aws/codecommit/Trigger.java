@@ -67,7 +67,7 @@ public class Trigger extends com.pulumi.resources.CustomResource {
      * System-generated unique identifier.
      * 
      */
-    @Export(name="configurationId", type=String.class, parameters={})
+    @Export(name="configurationId", refs={String.class}, tree="[0]")
     private Output<String> configurationId;
 
     /**
@@ -81,7 +81,7 @@ public class Trigger extends com.pulumi.resources.CustomResource {
      * The name for the repository. This needs to be less than 100 characters.
      * 
      */
-    @Export(name="repositoryName", type=String.class, parameters={})
+    @Export(name="repositoryName", refs={String.class}, tree="[0]")
     private Output<String> repositoryName;
 
     /**
@@ -91,7 +91,7 @@ public class Trigger extends com.pulumi.resources.CustomResource {
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
-    @Export(name="triggers", type=List.class, parameters={TriggerTrigger.class})
+    @Export(name="triggers", refs={List.class,TriggerTrigger.class}, tree="[0,1]")
     private Output<List<TriggerTrigger>> triggers;
 
     public Output<List<TriggerTrigger>> triggers() {

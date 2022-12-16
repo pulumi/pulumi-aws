@@ -72,7 +72,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the vocabulary.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -86,7 +86,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
      * 
      */
-    @Export(name="content", type=String.class, parameters={})
+    @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
@@ -100,7 +100,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * The reason why the custom vocabulary was not created.
      * 
      */
-    @Export(name="failureReason", type=String.class, parameters={})
+    @Export(name="failureReason", refs={String.class}, tree="[0]")
     private Output<String> failureReason;
 
     /**
@@ -114,7 +114,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
@@ -128,7 +128,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
      * 
      */
-    @Export(name="languageCode", type=String.class, parameters={})
+    @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
@@ -142,7 +142,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * The timestamp when the custom vocabulary was last modified.
      * 
      */
-    @Export(name="lastModifiedTime", type=String.class, parameters={})
+    @Export(name="lastModifiedTime", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedTime;
 
     /**
@@ -156,7 +156,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * A unique name of the custom vocabulary. Must not be more than 140 characters.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -170,7 +170,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -185,7 +185,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -200,7 +200,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -214,7 +214,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * The identifier of the custom vocabulary.
      * 
      */
-    @Export(name="vocabularyId", type=String.class, parameters={})
+    @Export(name="vocabularyId", refs={String.class}, tree="[0]")
     private Output<String> vocabularyId;
 
     /**

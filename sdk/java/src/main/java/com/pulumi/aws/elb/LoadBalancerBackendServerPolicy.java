@@ -97,7 +97,7 @@ public class LoadBalancerBackendServerPolicy extends com.pulumi.resources.Custom
      * The instance port to apply the policy to.
      * 
      */
-    @Export(name="instancePort", type=Integer.class, parameters={})
+    @Export(name="instancePort", refs={Integer.class}, tree="[0]")
     private Output<Integer> instancePort;
 
     /**
@@ -111,7 +111,7 @@ public class LoadBalancerBackendServerPolicy extends com.pulumi.resources.Custom
      * The load balancer to attach the policy to.
      * 
      */
-    @Export(name="loadBalancerName", type=String.class, parameters={})
+    @Export(name="loadBalancerName", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerName;
 
     /**
@@ -125,7 +125,7 @@ public class LoadBalancerBackendServerPolicy extends com.pulumi.resources.Custom
      * List of Policy Names to apply to the backend server.
      * 
      */
-    @Export(name="policyNames", type=List.class, parameters={String.class})
+    @Export(name="policyNames", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> policyNames;
 
     /**

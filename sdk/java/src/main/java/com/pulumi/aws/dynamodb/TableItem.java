@@ -84,7 +84,7 @@ public class TableItem extends com.pulumi.resources.CustomResource {
      * Hash key to use for lookups and identification of the item
      * 
      */
-    @Export(name="hashKey", type=String.class, parameters={})
+    @Export(name="hashKey", refs={String.class}, tree="[0]")
     private Output<String> hashKey;
 
     /**
@@ -98,7 +98,7 @@ public class TableItem extends com.pulumi.resources.CustomResource {
      * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      * 
      */
-    @Export(name="item", type=String.class, parameters={})
+    @Export(name="item", refs={String.class}, tree="[0]")
     private Output<String> item;
 
     /**
@@ -112,7 +112,7 @@ public class TableItem extends com.pulumi.resources.CustomResource {
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      * 
      */
-    @Export(name="rangeKey", type=String.class, parameters={})
+    @Export(name="rangeKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rangeKey;
 
     /**
@@ -126,7 +126,7 @@ public class TableItem extends com.pulumi.resources.CustomResource {
      * Name of the table to contain the item.
      * 
      */
-    @Export(name="tableName", type=String.class, parameters={})
+    @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     /**

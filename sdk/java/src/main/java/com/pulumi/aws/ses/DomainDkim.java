@@ -89,7 +89,7 @@ public class DomainDkim extends com.pulumi.resources.CustomResource {
      * in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
      * 
      */
-    @Export(name="dkimTokens", type=List.class, parameters={String.class})
+    @Export(name="dkimTokens", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> dkimTokens;
 
     /**
@@ -108,7 +108,7 @@ public class DomainDkim extends com.pulumi.resources.CustomResource {
      * Verified domain name to generate DKIM tokens for.
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**

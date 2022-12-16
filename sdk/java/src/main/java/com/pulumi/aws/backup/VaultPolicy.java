@@ -90,7 +90,7 @@ public class VaultPolicy extends com.pulumi.resources.CustomResource {
      * The ARN of the vault.
      * 
      */
-    @Export(name="backupVaultArn", type=String.class, parameters={})
+    @Export(name="backupVaultArn", refs={String.class}, tree="[0]")
     private Output<String> backupVaultArn;
 
     /**
@@ -104,7 +104,7 @@ public class VaultPolicy extends com.pulumi.resources.CustomResource {
      * Name of the backup vault to add policy for.
      * 
      */
-    @Export(name="backupVaultName", type=String.class, parameters={})
+    @Export(name="backupVaultName", refs={String.class}, tree="[0]")
     private Output<String> backupVaultName;
 
     /**
@@ -118,7 +118,7 @@ public class VaultPolicy extends com.pulumi.resources.CustomResource {
      * The backup vault access policy document in JSON format.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**

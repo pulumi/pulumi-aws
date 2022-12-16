@@ -45,7 +45,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Details about the user&#39;s address. At most 1 address is allowed. Detailed below.
      * 
      */
-    @Export(name="addresses", type=UserAddresses.class, parameters={})
+    @Export(name="addresses", refs={UserAddresses.class}, tree="[0]")
     private Output</* @Nullable */ UserAddresses> addresses;
 
     /**
@@ -59,7 +59,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The name that is typically displayed when the user is referenced.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -73,7 +73,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Details about the user&#39;s email. At most 1 email is allowed. Detailed below.
      * 
      */
-    @Export(name="emails", type=UserEmails.class, parameters={})
+    @Export(name="emails", refs={UserEmails.class}, tree="[0]")
     private Output</* @Nullable */ UserEmails> emails;
 
     /**
@@ -87,7 +87,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A list of identifiers issued to this resource by an external identity provider.
      * 
      */
-    @Export(name="externalIds", type=List.class, parameters={UserExternalId.class})
+    @Export(name="externalIds", refs={List.class,UserExternalId.class}, tree="[0,1]")
     private Output<List<UserExternalId>> externalIds;
 
     /**
@@ -101,7 +101,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The globally unique identifier for the identity store that this user is in.
      * 
      */
-    @Export(name="identityStoreId", type=String.class, parameters={})
+    @Export(name="identityStoreId", refs={String.class}, tree="[0]")
     private Output<String> identityStoreId;
 
     /**
@@ -115,7 +115,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The user&#39;s geographical region or location.
      * 
      */
-    @Export(name="locale", type=String.class, parameters={})
+    @Export(name="locale", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> locale;
 
     /**
@@ -129,7 +129,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Details about the user&#39;s full name. Detailed below.
      * 
      */
-    @Export(name="name", type=UserName.class, parameters={})
+    @Export(name="name", refs={UserName.class}, tree="[0]")
     private Output<UserName> name;
 
     /**
@@ -143,7 +143,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * An alternate name for the user.
      * 
      */
-    @Export(name="nickname", type=String.class, parameters={})
+    @Export(name="nickname", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nickname;
 
     /**
@@ -157,7 +157,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Details about the user&#39;s phone number. At most 1 phone number is allowed. Detailed below.
      * 
      */
-    @Export(name="phoneNumbers", type=UserPhoneNumbers.class, parameters={})
+    @Export(name="phoneNumbers", refs={UserPhoneNumbers.class}, tree="[0]")
     private Output</* @Nullable */ UserPhoneNumbers> phoneNumbers;
 
     /**
@@ -171,7 +171,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The preferred language of the user.
      * 
      */
-    @Export(name="preferredLanguage", type=String.class, parameters={})
+    @Export(name="preferredLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preferredLanguage;
 
     /**
@@ -185,7 +185,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * An URL that may be associated with the user.
      * 
      */
-    @Export(name="profileUrl", type=String.class, parameters={})
+    @Export(name="profileUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> profileUrl;
 
     /**
@@ -199,7 +199,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The user&#39;s time zone.
      * 
      */
-    @Export(name="timezone", type=String.class, parameters={})
+    @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**
@@ -213,7 +213,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The user&#39;s title.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> title;
 
     /**
@@ -227,7 +227,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The identifier for this user in the identity store.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
@@ -241,7 +241,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
      * 
      */
-    @Export(name="userName", type=String.class, parameters={})
+    @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
@@ -255,7 +255,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The user type.
      * 
      */
-    @Export(name="userType", type=String.class, parameters={})
+    @Export(name="userType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userType;
 
     /**

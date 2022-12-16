@@ -83,7 +83,7 @@ public class VpcEndpointConnectionAccepter extends com.pulumi.resources.CustomRe
      * AWS VPC Endpoint ID.
      * 
      */
-    @Export(name="vpcEndpointId", type=String.class, parameters={})
+    @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointId;
 
     /**
@@ -97,7 +97,7 @@ public class VpcEndpointConnectionAccepter extends com.pulumi.resources.CustomRe
      * AWS VPC Endpoint Service ID.
      * 
      */
-    @Export(name="vpcEndpointServiceId", type=String.class, parameters={})
+    @Export(name="vpcEndpointServiceId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointServiceId;
 
     /**
@@ -111,7 +111,7 @@ public class VpcEndpointConnectionAccepter extends com.pulumi.resources.CustomRe
      * State of the VPC Endpoint.
      * 
      */
-    @Export(name="vpcEndpointState", type=String.class, parameters={})
+    @Export(name="vpcEndpointState", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointState;
 
     /**

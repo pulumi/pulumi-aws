@@ -84,7 +84,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * The tag name.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -98,7 +98,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * The ID of the EC2 resource to manage the tag for.
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -112,7 +112,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * The value of the tag.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

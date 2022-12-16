@@ -81,7 +81,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the data source
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -95,7 +95,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
-    @Export(name="awsAccountId", type=String.class, parameters={})
+    @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
     /**
@@ -109,7 +109,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
      * 
      */
-    @Export(name="credentials", type=DataSourceCredentials.class, parameters={})
+    @Export(name="credentials", refs={DataSourceCredentials.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceCredentials> credentials;
 
     /**
@@ -123,7 +123,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * An identifier for the data source.
      * 
      */
-    @Export(name="dataSourceId", type=String.class, parameters={})
+    @Export(name="dataSourceId", refs={String.class}, tree="[0]")
     private Output<String> dataSourceId;
 
     /**
@@ -137,7 +137,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * A name for the data source, maximum of 128 characters.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -151,7 +151,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The parameters used to connect to this data source (exactly one).
      * 
      */
-    @Export(name="parameters", type=DataSourceParameters.class, parameters={})
+    @Export(name="parameters", refs={DataSourceParameters.class}, tree="[0]")
     private Output<DataSourceParameters> parameters;
 
     /**
@@ -165,7 +165,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
      * 
      */
-    @Export(name="permissions", type=List.class, parameters={DataSourcePermission.class})
+    @Export(name="permissions", refs={List.class,DataSourcePermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DataSourcePermission>> permissions;
 
     /**
@@ -179,7 +179,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      * 
      */
-    @Export(name="sslProperties", type=DataSourceSslProperties.class, parameters={})
+    @Export(name="sslProperties", refs={DataSourceSslProperties.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceSslProperties> sslProperties;
 
     /**
@@ -193,7 +193,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -207,7 +207,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -221,7 +221,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -235,7 +235,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
      * 
      */
-    @Export(name="vpcConnectionProperties", type=DataSourceVpcConnectionProperties.class, parameters={})
+    @Export(name="vpcConnectionProperties", refs={DataSourceVpcConnectionProperties.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceVpcConnectionProperties> vpcConnectionProperties;
 
     /**

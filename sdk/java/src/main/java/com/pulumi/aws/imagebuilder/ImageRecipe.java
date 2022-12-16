@@ -91,7 +91,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * (Required) Amazon Resource Name (ARN) of the image recipe.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -105,7 +105,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      * 
      */
-    @Export(name="blockDeviceMappings", type=List.class, parameters={ImageRecipeBlockDeviceMapping.class})
+    @Export(name="blockDeviceMappings", refs={List.class,ImageRecipeBlockDeviceMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ImageRecipeBlockDeviceMapping>> blockDeviceMappings;
 
     /**
@@ -119,7 +119,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * Ordered configuration block(s) with components for the image recipe. Detailed below.
      * 
      */
-    @Export(name="components", type=List.class, parameters={ImageRecipeComponent.class})
+    @Export(name="components", refs={List.class,ImageRecipeComponent.class}, tree="[0,1]")
     private Output<List<ImageRecipeComponent>> components;
 
     /**
@@ -133,7 +133,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * Date the image recipe was created.
      * 
      */
-    @Export(name="dateCreated", type=String.class, parameters={})
+    @Export(name="dateCreated", refs={String.class}, tree="[0]")
     private Output<String> dateCreated;
 
     /**
@@ -147,7 +147,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * Description of the image recipe.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -161,7 +161,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * The name of the component parameter.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -175,7 +175,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * Owner of the image recipe.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -189,7 +189,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      * 
      */
-    @Export(name="parentImage", type=String.class, parameters={})
+    @Export(name="parentImage", refs={String.class}, tree="[0]")
     private Output<String> parentImage;
 
     /**
@@ -203,7 +203,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * Platform of the image recipe.
      * 
      */
-    @Export(name="platform", type=String.class, parameters={})
+    @Export(name="platform", refs={String.class}, tree="[0]")
     private Output<String> platform;
 
     /**
@@ -217,7 +217,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      * 
      */
-    @Export(name="systemsManagerAgent", type=ImageRecipeSystemsManagerAgent.class, parameters={})
+    @Export(name="systemsManagerAgent", refs={ImageRecipeSystemsManagerAgent.class}, tree="[0]")
     private Output<ImageRecipeSystemsManagerAgent> systemsManagerAgent;
 
     /**
@@ -231,7 +231,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -245,7 +245,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -259,7 +259,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
      * 
      */
-    @Export(name="userDataBase64", type=String.class, parameters={})
+    @Export(name="userDataBase64", refs={String.class}, tree="[0]")
     private Output<String> userDataBase64;
 
     /**
@@ -273,7 +273,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
@@ -287,7 +287,7 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
      * The working directory to be used during build and test workflows.
      * 
      */
-    @Export(name="workingDirectory", type=String.class, parameters={})
+    @Export(name="workingDirectory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workingDirectory;
 
     /**

@@ -675,7 +675,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Index.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -689,7 +689,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
-    @Export(name="capacityUnits", type=IndexCapacityUnits.class, parameters={})
+    @Export(name="capacityUnits", refs={IndexCapacityUnits.class}, tree="[0]")
     private Output<IndexCapacityUnits> capacityUnits;
 
     /**
@@ -703,7 +703,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * The Unix datetime that the index was created.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -717,7 +717,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * The description of the Index.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -731,7 +731,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      * 
      */
-    @Export(name="documentMetadataConfigurationUpdates", type=List.class, parameters={IndexDocumentMetadataConfigurationUpdate.class})
+    @Export(name="documentMetadataConfigurationUpdates", refs={List.class,IndexDocumentMetadataConfigurationUpdate.class}, tree="[0,1]")
     private Output<List<IndexDocumentMetadataConfigurationUpdate>> documentMetadataConfigurationUpdates;
 
     /**
@@ -745,7 +745,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`
      * 
      */
-    @Export(name="edition", type=String.class, parameters={})
+    @Export(name="edition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> edition;
 
     /**
@@ -759,7 +759,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * When the Status field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    @Export(name="errorMessage", type=String.class, parameters={})
+    @Export(name="errorMessage", refs={String.class}, tree="[0]")
     private Output<String> errorMessage;
 
     /**
@@ -773,7 +773,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
-    @Export(name="indexStatistics", type=List.class, parameters={IndexIndexStatistic.class})
+    @Export(name="indexStatistics", refs={List.class,IndexIndexStatistic.class}, tree="[0,1]")
     private Output<List<IndexIndexStatistic>> indexStatistics;
 
     /**
@@ -787,7 +787,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Index.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -801,7 +801,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -815,7 +815,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
      * 
      */
-    @Export(name="serverSideEncryptionConfiguration", type=IndexServerSideEncryptionConfiguration.class, parameters={})
+    @Export(name="serverSideEncryptionConfiguration", refs={IndexServerSideEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ IndexServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
 
     /**
@@ -829,7 +829,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -844,7 +844,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -859,7 +859,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -873,7 +873,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * The Unix datetime that the index was last updated.
      * 
      */
-    @Export(name="updatedAt", type=String.class, parameters={})
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
@@ -887,7 +887,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
      * 
      */
-    @Export(name="userContextPolicy", type=String.class, parameters={})
+    @Export(name="userContextPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userContextPolicy;
 
     /**
@@ -901,7 +901,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      * 
      */
-    @Export(name="userGroupResolutionConfiguration", type=IndexUserGroupResolutionConfiguration.class, parameters={})
+    @Export(name="userGroupResolutionConfiguration", refs={IndexUserGroupResolutionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ IndexUserGroupResolutionConfiguration> userGroupResolutionConfiguration;
 
     /**
@@ -915,7 +915,7 @@ public class Index extends com.pulumi.resources.CustomResource {
      * A block that specifies the user token configuration. Detailed below.
      * 
      */
-    @Export(name="userTokenConfigurations", type=IndexUserTokenConfigurations.class, parameters={})
+    @Export(name="userTokenConfigurations", refs={IndexUserTokenConfigurations.class}, tree="[0]")
     private Output</* @Nullable */ IndexUserTokenConfigurations> userTokenConfigurations;
 
     /**

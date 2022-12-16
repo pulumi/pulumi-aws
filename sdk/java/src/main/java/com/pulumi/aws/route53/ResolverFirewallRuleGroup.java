@@ -60,7 +60,7 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      * The ARN (Amazon Resource Name) of the rule group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -74,7 +74,7 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      * A name that lets you identify the rule group, to manage and use it.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -88,7 +88,7 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      * The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -102,7 +102,7 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      * Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
      * 
      */
-    @Export(name="shareStatus", type=String.class, parameters={})
+    @Export(name="shareStatus", refs={String.class}, tree="[0]")
     private Output<String> shareStatus;
 
     /**
@@ -116,7 +116,7 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -130,7 +130,7 @@ public class ResolverFirewallRuleGroup extends com.pulumi.resources.CustomResour
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

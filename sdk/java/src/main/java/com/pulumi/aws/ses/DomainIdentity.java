@@ -101,7 +101,7 @@ public class DomainIdentity extends com.pulumi.resources.CustomResource {
      * The ARN of the domain identity.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -115,7 +115,7 @@ public class DomainIdentity extends com.pulumi.resources.CustomResource {
      * The domain name to assign to SES
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
@@ -136,7 +136,7 @@ public class DomainIdentity extends com.pulumi.resources.CustomResource {
      * docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      * 
      */
-    @Export(name="verificationToken", type=String.class, parameters={})
+    @Export(name="verificationToken", refs={String.class}, tree="[0]")
     private Output<String> verificationToken;
 
     /**

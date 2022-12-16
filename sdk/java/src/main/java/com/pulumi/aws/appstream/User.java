@@ -66,7 +66,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * ARN of the appstream user.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -80,7 +80,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
      * 
      */
-    @Export(name="authenticationType", type=String.class, parameters={})
+    @Export(name="authenticationType", refs={String.class}, tree="[0]")
     private Output<String> authenticationType;
 
     /**
@@ -94,7 +94,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Date and time, in UTC and extended RFC 3339 format, when the user was created.
      * 
      */
-    @Export(name="createdTime", type=String.class, parameters={})
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
@@ -108,7 +108,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Whether the user in the user pool is enabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -122,7 +122,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * First name, or given name, of the user.
      * 
      */
-    @Export(name="firstName", type=String.class, parameters={})
+    @Export(name="firstName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> firstName;
 
     /**
@@ -136,7 +136,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Last name, or surname, of the user.
      * 
      */
-    @Export(name="lastName", type=String.class, parameters={})
+    @Export(name="lastName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lastName;
 
     /**
@@ -150,7 +150,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Send an email notification.
      * 
      */
-    @Export(name="sendEmailNotification", type=Boolean.class, parameters={})
+    @Export(name="sendEmailNotification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendEmailNotification;
 
     /**
@@ -164,7 +164,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Email address of the user.
      * 
      */
-    @Export(name="userName", type=String.class, parameters={})
+    @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**

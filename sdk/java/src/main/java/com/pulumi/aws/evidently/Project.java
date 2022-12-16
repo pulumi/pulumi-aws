@@ -142,7 +142,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The number of ongoing experiments currently in the project.
      * 
      */
-    @Export(name="activeExperimentCount", type=Integer.class, parameters={})
+    @Export(name="activeExperimentCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> activeExperimentCount;
 
     /**
@@ -156,7 +156,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The number of ongoing launches currently in the project.
      * 
      */
-    @Export(name="activeLaunchCount", type=Integer.class, parameters={})
+    @Export(name="activeLaunchCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> activeLaunchCount;
 
     /**
@@ -170,7 +170,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The ARN of the project.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -184,7 +184,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The date and time that the project is created.
      * 
      */
-    @Export(name="createdTime", type=String.class, parameters={})
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
@@ -198,7 +198,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
      * 
      */
-    @Export(name="dataDelivery", type=ProjectDataDelivery.class, parameters={})
+    @Export(name="dataDelivery", refs={ProjectDataDelivery.class}, tree="[0]")
     private Output</* @Nullable */ ProjectDataDelivery> dataDelivery;
 
     /**
@@ -212,7 +212,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Specifies the description of the project.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -226,7 +226,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
      * 
      */
-    @Export(name="experimentCount", type=Integer.class, parameters={})
+    @Export(name="experimentCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> experimentCount;
 
     /**
@@ -240,7 +240,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The number of features currently in the project.
      * 
      */
-    @Export(name="featureCount", type=Integer.class, parameters={})
+    @Export(name="featureCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> featureCount;
 
     /**
@@ -254,7 +254,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The date and time that the project was most recently updated.
      * 
      */
-    @Export(name="lastUpdatedTime", type=String.class, parameters={})
+    @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
     /**
@@ -268,7 +268,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
      * 
      */
-    @Export(name="launchCount", type=Integer.class, parameters={})
+    @Export(name="launchCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> launchCount;
 
     /**
@@ -282,7 +282,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * A name for the project.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -296,7 +296,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -310,7 +310,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -324,7 +324,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

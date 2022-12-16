@@ -107,7 +107,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * Amazon Resource Name of the file system.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -117,7 +117,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
     public Output<String> arn() {
         return this.arn;
     }
-    @Export(name="associationId", type=String.class, parameters={})
+    @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
     public Output<String> associationId() {
@@ -127,7 +127,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
      * 
      */
-    @Export(name="batchImportMetaDataOnCreate", type=Boolean.class, parameters={})
+    @Export(name="batchImportMetaDataOnCreate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> batchImportMetaDataOnCreate;
 
     /**
@@ -141,7 +141,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
      * 
      */
-    @Export(name="dataRepositoryPath", type=String.class, parameters={})
+    @Export(name="dataRepositoryPath", refs={String.class}, tree="[0]")
     private Output<String> dataRepositoryPath;
 
     /**
@@ -155,7 +155,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
      * 
      */
-    @Export(name="deleteDataInFilesystem", type=Boolean.class, parameters={})
+    @Export(name="deleteDataInFilesystem", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteDataInFilesystem;
 
     /**
@@ -169,7 +169,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * The ID of the Amazon FSx file system to on which to create a data repository association.
      * 
      */
-    @Export(name="fileSystemId", type=String.class, parameters={})
+    @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
     /**
@@ -183,7 +183,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `data_repository_path`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
      * 
      */
-    @Export(name="fileSystemPath", type=String.class, parameters={})
+    @Export(name="fileSystemPath", refs={String.class}, tree="[0]")
     private Output<String> fileSystemPath;
 
     /**
@@ -197,7 +197,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
      * 
      */
-    @Export(name="importedFileChunkSize", type=Integer.class, parameters={})
+    @Export(name="importedFileChunkSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> importedFileChunkSize;
 
     /**
@@ -212,7 +212,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
      * 
      */
-    @Export(name="s3", type=DataRepositoryAssociationS3.class, parameters={})
+    @Export(name="s3", refs={DataRepositoryAssociationS3.class}, tree="[0]")
     private Output<DataRepositoryAssociationS3> s3;
 
     /**
@@ -227,7 +227,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * A map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -241,7 +241,7 @@ public class DataRepositoryAssociation extends com.pulumi.resources.CustomResour
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

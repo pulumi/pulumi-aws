@@ -62,7 +62,7 @@ public class GlobalSettings extends com.pulumi.resources.CustomResource {
      * A list of resources along with the opt-in preferences for the account.
      * 
      */
-    @Export(name="globalSettings", type=Map.class, parameters={String.class, String.class})
+    @Export(name="globalSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> globalSettings;
 
     /**

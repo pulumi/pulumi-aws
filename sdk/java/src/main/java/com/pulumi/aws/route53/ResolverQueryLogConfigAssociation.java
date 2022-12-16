@@ -62,7 +62,7 @@ public class ResolverQueryLogConfigAssociation extends com.pulumi.resources.Cust
      * The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
      * 
      */
-    @Export(name="resolverQueryLogConfigId", type=String.class, parameters={})
+    @Export(name="resolverQueryLogConfigId", refs={String.class}, tree="[0]")
     private Output<String> resolverQueryLogConfigId;
 
     /**
@@ -76,7 +76,7 @@ public class ResolverQueryLogConfigAssociation extends com.pulumi.resources.Cust
      * The ID of a VPC that you want this query logging configuration to log queries for.
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**

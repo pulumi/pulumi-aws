@@ -94,7 +94,7 @@ public class RepositoryPolicy extends com.pulumi.resources.CustomResource {
      * The policy document. This is a JSON formatted string.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -108,7 +108,7 @@ public class RepositoryPolicy extends com.pulumi.resources.CustomResource {
      * The registry ID where the repository was created.
      * 
      */
-    @Export(name="registryId", type=String.class, parameters={})
+    @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
     /**
@@ -122,7 +122,7 @@ public class RepositoryPolicy extends com.pulumi.resources.CustomResource {
      * Name of the repository to apply the policy.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**

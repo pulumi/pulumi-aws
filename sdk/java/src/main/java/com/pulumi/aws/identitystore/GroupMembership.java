@@ -31,7 +31,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * The identifier for a group in the Identity Store.
      * 
      */
-    @Export(name="groupId", type=String.class, parameters={})
+    @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
@@ -45,7 +45,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * Identity Store ID associated with the Single Sign-On Instance.
      * 
      */
-    @Export(name="identityStoreId", type=String.class, parameters={})
+    @Export(name="identityStoreId", refs={String.class}, tree="[0]")
     private Output<String> identityStoreId;
 
     /**
@@ -59,7 +59,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * The identifier for a user in the Identity Store.
      * 
      */
-    @Export(name="memberId", type=String.class, parameters={})
+    @Export(name="memberId", refs={String.class}, tree="[0]")
     private Output<String> memberId;
 
     /**
@@ -73,7 +73,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * The identifier of the newly created group membership in the Identity Store.
      * 
      */
-    @Export(name="membershipId", type=String.class, parameters={})
+    @Export(name="membershipId", refs={String.class}, tree="[0]")
     private Output<String> membershipId;
 
     /**

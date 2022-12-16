@@ -71,7 +71,7 @@ public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.Cu
      * The name of the bucket.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -85,7 +85,7 @@ public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.Cu
      * The account ID of the expected bucket owner.
      * 
      */
-    @Export(name="expectedBucketOwner", type=String.class, parameters={})
+    @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
@@ -99,7 +99,7 @@ public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.Cu
      * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      * 
      */
-    @Export(name="payer", type=String.class, parameters={})
+    @Export(name="payer", refs={String.class}, tree="[0]")
     private Output<String> payer;
 
     /**

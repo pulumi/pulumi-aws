@@ -73,13 +73,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ec2/defaultVpc:DefaultVpc")
 public class DefaultVpc extends com.pulumi.resources.CustomResource {
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     public Output<String> arn() {
         return this.arn;
     }
-    @Export(name="assignGeneratedIpv6CidrBlock", type=Boolean.class, parameters={})
+    @Export(name="assignGeneratedIpv6CidrBlock", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> assignGeneratedIpv6CidrBlock;
 
     public Output<Optional<Boolean>> assignGeneratedIpv6CidrBlock() {
@@ -89,7 +89,7 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
      * The primary IPv4 CIDR block for the VPC
      * 
      */
-    @Export(name="cidrBlock", type=String.class, parameters={})
+    @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output<String> cidrBlock;
 
     /**
@@ -99,25 +99,25 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
     public Output<String> cidrBlock() {
         return this.cidrBlock;
     }
-    @Export(name="defaultNetworkAclId", type=String.class, parameters={})
+    @Export(name="defaultNetworkAclId", refs={String.class}, tree="[0]")
     private Output<String> defaultNetworkAclId;
 
     public Output<String> defaultNetworkAclId() {
         return this.defaultNetworkAclId;
     }
-    @Export(name="defaultRouteTableId", type=String.class, parameters={})
+    @Export(name="defaultRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> defaultRouteTableId;
 
     public Output<String> defaultRouteTableId() {
         return this.defaultRouteTableId;
     }
-    @Export(name="defaultSecurityGroupId", type=String.class, parameters={})
+    @Export(name="defaultSecurityGroupId", refs={String.class}, tree="[0]")
     private Output<String> defaultSecurityGroupId;
 
     public Output<String> defaultSecurityGroupId() {
         return this.defaultSecurityGroupId;
     }
-    @Export(name="dhcpOptionsId", type=String.class, parameters={})
+    @Export(name="dhcpOptionsId", refs={String.class}, tree="[0]")
     private Output<String> dhcpOptionsId;
 
     public Output<String> dhcpOptionsId() {
@@ -129,7 +129,7 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version. */
-    @Export(name="enableClassiclink", type=Boolean.class, parameters={})
+    @Export(name="enableClassiclink", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableClassiclink;
 
     public Output<Boolean> enableClassiclink() {
@@ -141,31 +141,31 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version. */
-    @Export(name="enableClassiclinkDnsSupport", type=Boolean.class, parameters={})
+    @Export(name="enableClassiclinkDnsSupport", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableClassiclinkDnsSupport;
 
     public Output<Boolean> enableClassiclinkDnsSupport() {
         return this.enableClassiclinkDnsSupport;
     }
-    @Export(name="enableDnsHostnames", type=Boolean.class, parameters={})
+    @Export(name="enableDnsHostnames", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableDnsHostnames;
 
     public Output<Optional<Boolean>> enableDnsHostnames() {
         return Codegen.optional(this.enableDnsHostnames);
     }
-    @Export(name="enableDnsSupport", type=Boolean.class, parameters={})
+    @Export(name="enableDnsSupport", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableDnsSupport;
 
     public Output<Optional<Boolean>> enableDnsSupport() {
         return Codegen.optional(this.enableDnsSupport);
     }
-    @Export(name="enableNetworkAddressUsageMetrics", type=Boolean.class, parameters={})
+    @Export(name="enableNetworkAddressUsageMetrics", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableNetworkAddressUsageMetrics;
 
     public Output<Optional<Boolean>> enableNetworkAddressUsageMetrics() {
         return Codegen.optional(this.enableNetworkAddressUsageMetrics);
     }
-    @Export(name="existingDefaultVpc", type=Boolean.class, parameters={})
+    @Export(name="existingDefaultVpc", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> existingDefaultVpc;
 
     public Output<Boolean> existingDefaultVpc() {
@@ -175,7 +175,7 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
      * Whether destroying the resource deletes the default VPC. Default: `false`
      * 
      */
-    @Export(name="forceDestroy", type=Boolean.class, parameters={})
+    @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     /**
@@ -189,7 +189,7 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
      * The allowed tenancy of instances launched into the VPC
      * 
      */
-    @Export(name="instanceTenancy", type=String.class, parameters={})
+    @Export(name="instanceTenancy", refs={String.class}, tree="[0]")
     private Output<String> instanceTenancy;
 
     /**
@@ -199,55 +199,55 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
     public Output<String> instanceTenancy() {
         return this.instanceTenancy;
     }
-    @Export(name="ipv6AssociationId", type=String.class, parameters={})
+    @Export(name="ipv6AssociationId", refs={String.class}, tree="[0]")
     private Output<String> ipv6AssociationId;
 
     public Output<String> ipv6AssociationId() {
         return this.ipv6AssociationId;
     }
-    @Export(name="ipv6CidrBlock", type=String.class, parameters={})
+    @Export(name="ipv6CidrBlock", refs={String.class}, tree="[0]")
     private Output<String> ipv6CidrBlock;
 
     public Output<String> ipv6CidrBlock() {
         return this.ipv6CidrBlock;
     }
-    @Export(name="ipv6CidrBlockNetworkBorderGroup", type=String.class, parameters={})
+    @Export(name="ipv6CidrBlockNetworkBorderGroup", refs={String.class}, tree="[0]")
     private Output<String> ipv6CidrBlockNetworkBorderGroup;
 
     public Output<String> ipv6CidrBlockNetworkBorderGroup() {
         return this.ipv6CidrBlockNetworkBorderGroup;
     }
-    @Export(name="ipv6IpamPoolId", type=String.class, parameters={})
+    @Export(name="ipv6IpamPoolId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipv6IpamPoolId;
 
     public Output<Optional<String>> ipv6IpamPoolId() {
         return Codegen.optional(this.ipv6IpamPoolId);
     }
-    @Export(name="ipv6NetmaskLength", type=Integer.class, parameters={})
+    @Export(name="ipv6NetmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ipv6NetmaskLength;
 
     public Output<Optional<Integer>> ipv6NetmaskLength() {
         return Codegen.optional(this.ipv6NetmaskLength);
     }
-    @Export(name="mainRouteTableId", type=String.class, parameters={})
+    @Export(name="mainRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> mainRouteTableId;
 
     public Output<String> mainRouteTableId() {
         return this.mainRouteTableId;
     }
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {

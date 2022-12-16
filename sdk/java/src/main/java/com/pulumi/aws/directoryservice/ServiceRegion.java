@@ -36,7 +36,7 @@ public class ServiceRegion extends com.pulumi.resources.CustomResource {
      * The number of domain controllers desired in the replicated directory. Minimum value of `2`.
      * 
      */
-    @Export(name="desiredNumberOfDomainControllers", type=Integer.class, parameters={})
+    @Export(name="desiredNumberOfDomainControllers", refs={Integer.class}, tree="[0]")
     private Output<Integer> desiredNumberOfDomainControllers;
 
     /**
@@ -50,7 +50,7 @@ public class ServiceRegion extends com.pulumi.resources.CustomResource {
      * The identifier of the directory to which you want to add Region replication.
      * 
      */
-    @Export(name="directoryId", type=String.class, parameters={})
+    @Export(name="directoryId", refs={String.class}, tree="[0]")
     private Output<String> directoryId;
 
     /**
@@ -64,7 +64,7 @@ public class ServiceRegion extends com.pulumi.resources.CustomResource {
      * The name of the Region where you want to add domain controllers for replication.
      * 
      */
-    @Export(name="regionName", type=String.class, parameters={})
+    @Export(name="regionName", refs={String.class}, tree="[0]")
     private Output<String> regionName;
 
     /**
@@ -78,7 +78,7 @@ public class ServiceRegion extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -92,7 +92,7 @@ public class ServiceRegion extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -106,7 +106,7 @@ public class ServiceRegion extends com.pulumi.resources.CustomResource {
      * VPC information in the replicated Region. Detailed below.
      * 
      */
-    @Export(name="vpcSettings", type=ServiceRegionVpcSettings.class, parameters={})
+    @Export(name="vpcSettings", refs={ServiceRegionVpcSettings.class}, tree="[0]")
     private Output<ServiceRegionVpcSettings> vpcSettings;
 
     /**

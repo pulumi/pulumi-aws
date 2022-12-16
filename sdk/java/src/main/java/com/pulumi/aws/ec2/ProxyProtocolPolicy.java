@@ -78,7 +78,7 @@ public class ProxyProtocolPolicy extends com.pulumi.resources.CustomResource {
      * should be applied. This can be specified if the protocol is SSL or TCP.
      * 
      */
-    @Export(name="instancePorts", type=List.class, parameters={String.class})
+    @Export(name="instancePorts", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> instancePorts;
 
     /**
@@ -94,7 +94,7 @@ public class ProxyProtocolPolicy extends com.pulumi.resources.CustomResource {
      * should be attached.
      * 
      */
-    @Export(name="loadBalancer", type=String.class, parameters={})
+    @Export(name="loadBalancer", refs={String.class}, tree="[0]")
     private Output<String> loadBalancer;
 
     /**

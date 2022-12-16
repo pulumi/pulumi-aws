@@ -140,7 +140,7 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * The name of the bucket.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -154,7 +154,7 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * The name of the error document for the website detailed below.
      * 
      */
-    @Export(name="errorDocument", type=BucketWebsiteConfigurationV2ErrorDocument.class, parameters={})
+    @Export(name="errorDocument", refs={BucketWebsiteConfigurationV2ErrorDocument.class}, tree="[0]")
     private Output</* @Nullable */ BucketWebsiteConfigurationV2ErrorDocument> errorDocument;
 
     /**
@@ -168,7 +168,7 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * The account ID of the expected bucket owner.
      * 
      */
-    @Export(name="expectedBucketOwner", type=String.class, parameters={})
+    @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
@@ -182,7 +182,7 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * The name of the index document for the website detailed below.
      * 
      */
-    @Export(name="indexDocument", type=BucketWebsiteConfigurationV2IndexDocument.class, parameters={})
+    @Export(name="indexDocument", refs={BucketWebsiteConfigurationV2IndexDocument.class}, tree="[0]")
     private Output</* @Nullable */ BucketWebsiteConfigurationV2IndexDocument> indexDocument;
 
     /**
@@ -196,7 +196,7 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * The redirect behavior for every request to this bucket&#39;s website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
      * 
      */
-    @Export(name="redirectAllRequestsTo", type=BucketWebsiteConfigurationV2RedirectAllRequestsTo.class, parameters={})
+    @Export(name="redirectAllRequestsTo", refs={BucketWebsiteConfigurationV2RedirectAllRequestsTo.class}, tree="[0]")
     private Output</* @Nullable */ BucketWebsiteConfigurationV2RedirectAllRequestsTo> redirectAllRequestsTo;
 
     /**
@@ -211,7 +211,7 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
      * 
      */
-    @Export(name="routingRuleDetails", type=String.class, parameters={})
+    @Export(name="routingRuleDetails", refs={String.class}, tree="[0]")
     private Output<String> routingRuleDetails;
 
     /**
@@ -226,7 +226,7 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * List of rules that define when a redirect is applied and the redirect behavior detailed below.
      * 
      */
-    @Export(name="routingRules", type=List.class, parameters={BucketWebsiteConfigurationV2RoutingRule.class})
+    @Export(name="routingRules", refs={List.class,BucketWebsiteConfigurationV2RoutingRule.class}, tree="[0,1]")
     private Output<List<BucketWebsiteConfigurationV2RoutingRule>> routingRules;
 
     /**
@@ -240,7 +240,7 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * The domain of the website endpoint. This is used to create Route 53 alias records.
      * 
      */
-    @Export(name="websiteDomain", type=String.class, parameters={})
+    @Export(name="websiteDomain", refs={String.class}, tree="[0]")
     private Output<String> websiteDomain;
 
     /**
@@ -254,7 +254,7 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      * The website endpoint.
      * 
      */
-    @Export(name="websiteEndpoint", type=String.class, parameters={})
+    @Export(name="websiteEndpoint", refs={String.class}, tree="[0]")
     private Output<String> websiteEndpoint;
 
     /**

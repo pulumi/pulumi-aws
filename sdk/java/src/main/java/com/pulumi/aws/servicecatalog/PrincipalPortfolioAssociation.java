@@ -64,7 +64,7 @@ public class PrincipalPortfolioAssociation extends com.pulumi.resources.CustomRe
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    @Export(name="acceptLanguage", type=String.class, parameters={})
+    @Export(name="acceptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acceptLanguage;
 
     /**
@@ -78,7 +78,7 @@ public class PrincipalPortfolioAssociation extends com.pulumi.resources.CustomRe
      * Portfolio identifier.
      * 
      */
-    @Export(name="portfolioId", type=String.class, parameters={})
+    @Export(name="portfolioId", refs={String.class}, tree="[0]")
     private Output<String> portfolioId;
 
     /**
@@ -92,7 +92,7 @@ public class PrincipalPortfolioAssociation extends com.pulumi.resources.CustomRe
      * Principal ARN.
      * 
      */
-    @Export(name="principalArn", type=String.class, parameters={})
+    @Export(name="principalArn", refs={String.class}, tree="[0]")
     private Output<String> principalArn;
 
     /**
@@ -106,7 +106,7 @@ public class PrincipalPortfolioAssociation extends com.pulumi.resources.CustomRe
      * Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid value is `IAM`. Default is `IAM`.
      * 
      */
-    @Export(name="principalType", type=String.class, parameters={})
+    @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> principalType;
 
     /**

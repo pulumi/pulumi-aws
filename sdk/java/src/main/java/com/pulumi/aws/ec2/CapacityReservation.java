@@ -68,7 +68,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * The ARN of the Capacity Reservation.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -82,7 +82,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * The Availability Zone in which to create the Capacity Reservation.
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
@@ -96,7 +96,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * Indicates whether the Capacity Reservation supports EBS-optimized instances.
      * 
      */
-    @Export(name="ebsOptimized", type=Boolean.class, parameters={})
+    @Export(name="ebsOptimized", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ebsOptimized;
 
     /**
@@ -110,7 +110,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    @Export(name="endDate", type=String.class, parameters={})
+    @Export(name="endDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endDate;
 
     /**
@@ -124,7 +124,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
      * 
      */
-    @Export(name="endDateType", type=String.class, parameters={})
+    @Export(name="endDateType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endDateType;
 
     /**
@@ -138,7 +138,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
      * 
      */
-    @Export(name="ephemeralStorage", type=Boolean.class, parameters={})
+    @Export(name="ephemeralStorage", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ephemeralStorage;
 
     /**
@@ -152,7 +152,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * The number of instances for which to reserve capacity.
      * 
      */
-    @Export(name="instanceCount", type=Integer.class, parameters={})
+    @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> instanceCount;
 
     /**
@@ -166,7 +166,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
      * 
      */
-    @Export(name="instanceMatchCriteria", type=String.class, parameters={})
+    @Export(name="instanceMatchCriteria", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceMatchCriteria;
 
     /**
@@ -180,7 +180,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      * 
      */
-    @Export(name="instancePlatform", type=String.class, parameters={})
+    @Export(name="instancePlatform", refs={String.class}, tree="[0]")
     private Output<String> instancePlatform;
 
     /**
@@ -194,7 +194,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * The instance type for which to reserve capacity.
      * 
      */
-    @Export(name="instanceType", type=String.class, parameters={})
+    @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
     /**
@@ -208,7 +208,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      * 
      */
-    @Export(name="outpostArn", type=String.class, parameters={})
+    @Export(name="outpostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outpostArn;
 
     /**
@@ -222,7 +222,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * The ID of the AWS account that owns the Capacity Reservation.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -236,7 +236,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
      * 
      */
-    @Export(name="placementGroupArn", type=String.class, parameters={})
+    @Export(name="placementGroupArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> placementGroupArn;
 
     /**
@@ -250,7 +250,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -264,7 +264,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -278,7 +278,7 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      * 
      */
-    @Export(name="tenancy", type=String.class, parameters={})
+    @Export(name="tenancy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenancy;
 
     /**

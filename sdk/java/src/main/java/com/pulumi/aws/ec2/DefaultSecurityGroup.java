@@ -50,7 +50,7 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
      * ARN of the security group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -64,7 +64,7 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
      * Description of this rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -78,7 +78,7 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="egress", type=List.class, parameters={DefaultSecurityGroupEgress.class})
+    @Export(name="egress", refs={List.class,DefaultSecurityGroupEgress.class}, tree="[0,1]")
     private Output<List<DefaultSecurityGroupEgress>> egress;
 
     /**
@@ -92,7 +92,7 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
      * Configuration block. Detailed below.
      * 
      */
-    @Export(name="ingress", type=List.class, parameters={DefaultSecurityGroupIngress.class})
+    @Export(name="ingress", refs={List.class,DefaultSecurityGroupIngress.class}, tree="[0,1]")
     private Output<List<DefaultSecurityGroupIngress>> ingress;
 
     /**
@@ -106,7 +106,7 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
      * Name of the security group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -116,7 +116,7 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     public Output<String> namePrefix() {
@@ -126,7 +126,7 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
      * Owner ID.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -136,7 +136,7 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    @Export(name="revokeRulesOnDelete", type=Boolean.class, parameters={})
+    @Export(name="revokeRulesOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revokeRulesOnDelete;
 
     public Output<Optional<Boolean>> revokeRulesOnDelete() {
@@ -146,7 +146,7 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -160,7 +160,7 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -174,7 +174,7 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
      * VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

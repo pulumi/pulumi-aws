@@ -172,7 +172,7 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -186,7 +186,7 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * Specifies whether you are acting as an account administrator in the organization&#39;s management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      * 
      */
-    @Export(name="callAs", type=String.class, parameters={})
+    @Export(name="callAs", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> callAs;
 
     /**
@@ -200,7 +200,7 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * The AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
      * 
      */
-    @Export(name="deploymentTargets", type=StackSetInstanceDeploymentTargets.class, parameters={})
+    @Export(name="deploymentTargets", refs={StackSetInstanceDeploymentTargets.class}, tree="[0]")
     private Output</* @Nullable */ StackSetInstanceDeploymentTargets> deploymentTargets;
 
     /**
@@ -214,7 +214,7 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * Preferences for how AWS CloudFormation performs a stack set operation.
      * 
      */
-    @Export(name="operationPreferences", type=StackSetInstanceOperationPreferences.class, parameters={})
+    @Export(name="operationPreferences", refs={StackSetInstanceOperationPreferences.class}, tree="[0]")
     private Output</* @Nullable */ StackSetInstanceOperationPreferences> operationPreferences;
 
     /**
@@ -228,7 +228,7 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
      * 
      */
-    @Export(name="organizationalUnitId", type=String.class, parameters={})
+    @Export(name="organizationalUnitId", refs={String.class}, tree="[0]")
     private Output<String> organizationalUnitId;
 
     /**
@@ -242,7 +242,7 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * Key-value map of input parameters to override from the StackSet for this Instance.
      * 
      */
-    @Export(name="parameterOverrides", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameterOverrides", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameterOverrides;
 
     /**
@@ -256,7 +256,7 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
@@ -270,7 +270,7 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
      * 
      */
-    @Export(name="retainStack", type=Boolean.class, parameters={})
+    @Export(name="retainStack", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> retainStack;
 
     /**
@@ -284,7 +284,7 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * Stack identifier
      * 
      */
-    @Export(name="stackId", type=String.class, parameters={})
+    @Export(name="stackId", refs={String.class}, tree="[0]")
     private Output<String> stackId;
 
     /**
@@ -298,7 +298,7 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
      * Name of the StackSet.
      * 
      */
-    @Export(name="stackSetName", type=String.class, parameters={})
+    @Export(name="stackSetName", refs={String.class}, tree="[0]")
     private Output<String> stackSetName;
 
     /**

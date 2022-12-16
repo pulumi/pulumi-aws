@@ -68,7 +68,7 @@ public class TransitGatewayPeeringAttachmentAccepter extends com.pulumi.resource
      * Identifier of the AWS account that owns the EC2 TGW peering.
      * 
      */
-    @Export(name="peerAccountId", type=String.class, parameters={})
+    @Export(name="peerAccountId", refs={String.class}, tree="[0]")
     private Output<String> peerAccountId;
 
     /**
@@ -78,7 +78,7 @@ public class TransitGatewayPeeringAttachmentAccepter extends com.pulumi.resource
     public Output<String> peerAccountId() {
         return this.peerAccountId;
     }
-    @Export(name="peerRegion", type=String.class, parameters={})
+    @Export(name="peerRegion", refs={String.class}, tree="[0]")
     private Output<String> peerRegion;
 
     public Output<String> peerRegion() {
@@ -88,7 +88,7 @@ public class TransitGatewayPeeringAttachmentAccepter extends com.pulumi.resource
      * Identifier of EC2 Transit Gateway to peer with.
      * 
      */
-    @Export(name="peerTransitGatewayId", type=String.class, parameters={})
+    @Export(name="peerTransitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> peerTransitGatewayId;
 
     /**
@@ -102,7 +102,7 @@ public class TransitGatewayPeeringAttachmentAccepter extends com.pulumi.resource
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -116,7 +116,7 @@ public class TransitGatewayPeeringAttachmentAccepter extends com.pulumi.resource
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -130,7 +130,7 @@ public class TransitGatewayPeeringAttachmentAccepter extends com.pulumi.resource
      * The ID of the EC2 Transit Gateway Peering Attachment to manage.
      * 
      */
-    @Export(name="transitGatewayAttachmentId", type=String.class, parameters={})
+    @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayAttachmentId;
 
     /**
@@ -144,7 +144,7 @@ public class TransitGatewayPeeringAttachmentAccepter extends com.pulumi.resource
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    @Export(name="transitGatewayId", type=String.class, parameters={})
+    @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayId;
 
     /**

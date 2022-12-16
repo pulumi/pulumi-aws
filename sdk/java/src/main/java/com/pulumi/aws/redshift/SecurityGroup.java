@@ -68,7 +68,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * The description of the Redshift security group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -82,7 +82,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * A list of ingress rules.
      * 
      */
-    @Export(name="ingress", type=List.class, parameters={SecurityGroupIngress.class})
+    @Export(name="ingress", refs={List.class,SecurityGroupIngress.class}, tree="[0,1]")
     private Output<List<SecurityGroupIngress>> ingress;
 
     /**
@@ -96,7 +96,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * The name of the Redshift security group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

@@ -78,7 +78,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) that identifies the cluster.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -92,7 +92,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * A friendly description of the regular expression pattern set.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -102,7 +102,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    @Export(name="lockToken", type=String.class, parameters={})
+    @Export(name="lockToken", refs={String.class}, tree="[0]")
     private Output<String> lockToken;
 
     public Output<String> lockToken() {
@@ -112,7 +112,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * A friendly name of the regular expression pattern set.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
      * 
      */
-    @Export(name="regularExpressions", type=List.class, parameters={RegexPatternSetRegularExpression.class})
+    @Export(name="regularExpressions", refs={List.class,RegexPatternSetRegularExpression.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RegexPatternSetRegularExpression>> regularExpressions;
 
     /**
@@ -140,7 +140,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
-    @Export(name="scope", type=String.class, parameters={})
+    @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
     /**
@@ -154,7 +154,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -168,7 +168,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

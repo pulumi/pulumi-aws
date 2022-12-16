@@ -66,7 +66,7 @@ public class VpcDhcpOptionsAssociation extends com.pulumi.resources.CustomResour
      * The ID of the DHCP Options Set to associate to the VPC.
      * 
      */
-    @Export(name="dhcpOptionsId", type=String.class, parameters={})
+    @Export(name="dhcpOptionsId", refs={String.class}, tree="[0]")
     private Output<String> dhcpOptionsId;
 
     /**
@@ -80,7 +80,7 @@ public class VpcDhcpOptionsAssociation extends com.pulumi.resources.CustomResour
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

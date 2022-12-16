@@ -81,7 +81,7 @@ public class AppCookieStickinessPolicy extends com.pulumi.resources.CustomResour
      * Application cookie whose lifetime the ELB&#39;s cookie should follow.
      * 
      */
-    @Export(name="cookieName", type=String.class, parameters={})
+    @Export(name="cookieName", refs={String.class}, tree="[0]")
     private Output<String> cookieName;
 
     /**
@@ -97,7 +97,7 @@ public class AppCookieStickinessPolicy extends com.pulumi.resources.CustomResour
      * balancer.
      * 
      */
-    @Export(name="lbPort", type=Integer.class, parameters={})
+    @Export(name="lbPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> lbPort;
 
     /**
@@ -114,7 +114,7 @@ public class AppCookieStickinessPolicy extends com.pulumi.resources.CustomResour
      * should be attached.
      * 
      */
-    @Export(name="loadBalancer", type=String.class, parameters={})
+    @Export(name="loadBalancer", refs={String.class}, tree="[0]")
     private Output<String> loadBalancer;
 
     /**
@@ -129,7 +129,7 @@ public class AppCookieStickinessPolicy extends com.pulumi.resources.CustomResour
      * Name of the stickiness policy.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

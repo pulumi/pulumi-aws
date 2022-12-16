@@ -33,7 +33,7 @@ public class ManagedPolicyAttachment extends com.pulumi.resources.CustomResource
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      * 
      */
-    @Export(name="instanceArn", type=String.class, parameters={})
+    @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
     /**
@@ -47,7 +47,7 @@ public class ManagedPolicyAttachment extends com.pulumi.resources.CustomResource
      * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
      * 
      */
-    @Export(name="managedPolicyArn", type=String.class, parameters={})
+    @Export(name="managedPolicyArn", refs={String.class}, tree="[0]")
     private Output<String> managedPolicyArn;
 
     /**
@@ -61,7 +61,7 @@ public class ManagedPolicyAttachment extends com.pulumi.resources.CustomResource
      * The name of the IAM Managed Policy.
      * 
      */
-    @Export(name="managedPolicyName", type=String.class, parameters={})
+    @Export(name="managedPolicyName", refs={String.class}, tree="[0]")
     private Output<String> managedPolicyName;
 
     /**
@@ -75,7 +75,7 @@ public class ManagedPolicyAttachment extends com.pulumi.resources.CustomResource
      * The Amazon Resource Name (ARN) of the Permission Set.
      * 
      */
-    @Export(name="permissionSetArn", type=String.class, parameters={})
+    @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
     /**

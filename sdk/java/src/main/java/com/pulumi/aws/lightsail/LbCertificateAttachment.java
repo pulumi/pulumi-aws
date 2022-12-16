@@ -77,7 +77,7 @@ public class LbCertificateAttachment extends com.pulumi.resources.CustomResource
      * The name of your SSL/TLS certificate.
      * 
      */
-    @Export(name="certificateName", type=String.class, parameters={})
+    @Export(name="certificateName", refs={String.class}, tree="[0]")
     private Output<String> certificateName;
 
     /**
@@ -91,7 +91,7 @@ public class LbCertificateAttachment extends com.pulumi.resources.CustomResource
      * The name of the load balancer to which you want to associate the SSL/TLS certificate.
      * 
      */
-    @Export(name="lbName", type=String.class, parameters={})
+    @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
     /**

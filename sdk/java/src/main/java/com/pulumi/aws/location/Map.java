@@ -67,7 +67,7 @@ public class Map extends com.pulumi.resources.CustomResource {
      * Configuration block with the map style selected from an available data provider. Detailed below.
      * 
      */
-    @Export(name="configuration", type=MapConfiguration.class, parameters={})
+    @Export(name="configuration", refs={MapConfiguration.class}, tree="[0]")
     private Output<MapConfiguration> configuration;
 
     /**
@@ -81,7 +81,7 @@ public class Map extends com.pulumi.resources.CustomResource {
      * The timestamp for when the map resource was created in ISO 8601 format.
      * 
      */
-    @Export(name="createTime", type=String.class, parameters={})
+    @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
@@ -95,7 +95,7 @@ public class Map extends com.pulumi.resources.CustomResource {
      * An optional description for the map resource.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -109,7 +109,7 @@ public class Map extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
      * 
      */
-    @Export(name="mapArn", type=String.class, parameters={})
+    @Export(name="mapArn", refs={String.class}, tree="[0]")
     private Output<String> mapArn;
 
     /**
@@ -123,7 +123,7 @@ public class Map extends com.pulumi.resources.CustomResource {
      * The name for the map resource.
      * 
      */
-    @Export(name="mapName", type=String.class, parameters={})
+    @Export(name="mapName", refs={String.class}, tree="[0]")
     private Output<String> mapName;
 
     /**
@@ -137,7 +137,7 @@ public class Map extends com.pulumi.resources.CustomResource {
      * Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=java.util.Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={java.util.Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ java.util.Map<String,String>> tags;
 
     /**
@@ -151,7 +151,7 @@ public class Map extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=java.util.Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={java.util.Map.class,String.class}, tree="[0,1,1]")
     private Output<java.util.Map<String,String>> tagsAll;
 
     /**
@@ -165,7 +165,7 @@ public class Map extends com.pulumi.resources.CustomResource {
      * The timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
-    @Export(name="updateTime", type=String.class, parameters={})
+    @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
     /**

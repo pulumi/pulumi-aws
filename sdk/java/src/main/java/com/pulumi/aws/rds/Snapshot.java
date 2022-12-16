@@ -81,7 +81,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies the allocated storage size in gigabytes (GB).
      * 
      */
-    @Export(name="allocatedStorage", type=Integer.class, parameters={})
+    @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
     private Output<Integer> allocatedStorage;
 
     /**
@@ -95,7 +95,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
@@ -109,7 +109,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The DB Instance Identifier from which to take the snapshot.
      * 
      */
-    @Export(name="dbInstanceIdentifier", type=String.class, parameters={})
+    @Export(name="dbInstanceIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbInstanceIdentifier;
 
     /**
@@ -123,7 +123,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the DB snapshot.
      * 
      */
-    @Export(name="dbSnapshotArn", type=String.class, parameters={})
+    @Export(name="dbSnapshotArn", refs={String.class}, tree="[0]")
     private Output<String> dbSnapshotArn;
 
     /**
@@ -137,7 +137,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The Identifier for the snapshot.
      * 
      */
-    @Export(name="dbSnapshotIdentifier", type=String.class, parameters={})
+    @Export(name="dbSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbSnapshotIdentifier;
 
     /**
@@ -151,7 +151,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies whether the DB snapshot is encrypted.
      * 
      */
-    @Export(name="encrypted", type=Boolean.class, parameters={})
+    @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> encrypted;
 
     /**
@@ -165,7 +165,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies the name of the database engine.
      * 
      */
-    @Export(name="engine", type=String.class, parameters={})
+    @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
@@ -179,7 +179,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies the version of the database engine.
      * 
      */
-    @Export(name="engineVersion", type=String.class, parameters={})
+    @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
@@ -193,7 +193,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      * 
      */
-    @Export(name="iops", type=Integer.class, parameters={})
+    @Export(name="iops", refs={Integer.class}, tree="[0]")
     private Output<Integer> iops;
 
     /**
@@ -207,7 +207,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The ARN for the KMS encryption key.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -221,7 +221,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * License model information for the restored DB instance.
      * 
      */
-    @Export(name="licenseModel", type=String.class, parameters={})
+    @Export(name="licenseModel", refs={String.class}, tree="[0]")
     private Output<String> licenseModel;
 
     /**
@@ -235,7 +235,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Provides the option group name for the DB snapshot.
      * 
      */
-    @Export(name="optionGroupName", type=String.class, parameters={})
+    @Export(name="optionGroupName", refs={String.class}, tree="[0]")
     private Output<String> optionGroupName;
 
     /**
@@ -245,13 +245,13 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
     public Output<String> optionGroupName() {
         return this.optionGroupName;
     }
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     public Output<Integer> port() {
         return this.port;
     }
-    @Export(name="snapshotType", type=String.class, parameters={})
+    @Export(name="snapshotType", refs={String.class}, tree="[0]")
     private Output<String> snapshotType;
 
     public Output<String> snapshotType() {
@@ -261,7 +261,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
      * 
      */
-    @Export(name="sourceDbSnapshotIdentifier", type=String.class, parameters={})
+    @Export(name="sourceDbSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sourceDbSnapshotIdentifier;
 
     /**
@@ -275,7 +275,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The region that the DB snapshot was created in or copied from.
      * 
      */
-    @Export(name="sourceRegion", type=String.class, parameters={})
+    @Export(name="sourceRegion", refs={String.class}, tree="[0]")
     private Output<String> sourceRegion;
 
     /**
@@ -289,7 +289,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies the status of this DB snapshot.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -303,7 +303,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies the storage type associated with DB snapshot.
      * 
      */
-    @Export(name="storageType", type=String.class, parameters={})
+    @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output<String> storageType;
 
     /**
@@ -317,7 +317,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -331,7 +331,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -345,7 +345,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Provides the VPC ID associated with the DB snapshot.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

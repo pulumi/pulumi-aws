@@ -111,7 +111,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The ARN of the Glue Connection.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -125,7 +125,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
-    @Export(name="catalogId", type=String.class, parameters={})
+    @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
@@ -139,7 +139,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * A map of key-value pairs used as parameters for this connection.
      * 
      */
-    @Export(name="connectionProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="connectionProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> connectionProperties;
 
     /**
@@ -153,7 +153,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
      * 
      */
-    @Export(name="connectionType", type=String.class, parameters={})
+    @Export(name="connectionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionType;
 
     /**
@@ -167,7 +167,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * Description of the connection.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -181,7 +181,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * A list of criteria that can be used in selecting this connection.
      * 
      */
-    @Export(name="matchCriterias", type=List.class, parameters={String.class})
+    @Export(name="matchCriterias", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> matchCriterias;
 
     /**
@@ -195,7 +195,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The name of the connection.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -209,7 +209,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
      * 
      */
-    @Export(name="physicalConnectionRequirements", type=ConnectionPhysicalConnectionRequirements.class, parameters={})
+    @Export(name="physicalConnectionRequirements", refs={ConnectionPhysicalConnectionRequirements.class}, tree="[0]")
     private Output</* @Nullable */ ConnectionPhysicalConnectionRequirements> physicalConnectionRequirements;
 
     /**
@@ -223,7 +223,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -237,7 +237,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

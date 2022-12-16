@@ -92,7 +92,7 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
      * ARN of the MedicalVocabulary.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -106,7 +106,7 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
      * Generated download URI.
      * 
      */
-    @Export(name="downloadUri", type=String.class, parameters={})
+    @Export(name="downloadUri", refs={String.class}, tree="[0]")
     private Output<String> downloadUri;
 
     /**
@@ -120,7 +120,7 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
      * The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
      * 
      */
-    @Export(name="languageCode", type=String.class, parameters={})
+    @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
@@ -134,7 +134,7 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -144,7 +144,7 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -154,7 +154,7 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
      * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      * 
      */
-    @Export(name="vocabularyFileUri", type=String.class, parameters={})
+    @Export(name="vocabularyFileUri", refs={String.class}, tree="[0]")
     private Output<String> vocabularyFileUri;
 
     /**
@@ -168,7 +168,7 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
      * The name of the Medical Vocabulary.
      * 
      */
-    @Export(name="vocabularyName", type=String.class, parameters={})
+    @Export(name="vocabularyName", refs={String.class}, tree="[0]")
     private Output<String> vocabularyName;
 
     /**

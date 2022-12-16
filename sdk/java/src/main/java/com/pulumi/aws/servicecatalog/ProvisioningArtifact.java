@@ -72,7 +72,7 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
      * 
      */
-    @Export(name="acceptLanguage", type=String.class, parameters={})
+    @Export(name="acceptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acceptLanguage;
 
     /**
@@ -86,7 +86,7 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
@@ -100,7 +100,7 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * Time when the provisioning artifact was created.
      * 
      */
-    @Export(name="createdTime", type=String.class, parameters={})
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
@@ -114,7 +114,7 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -128,7 +128,7 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
      * 
      */
-    @Export(name="disableTemplateValidation", type=Boolean.class, parameters={})
+    @Export(name="disableTemplateValidation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableTemplateValidation;
 
     /**
@@ -142,7 +142,7 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
      * 
      */
-    @Export(name="guidance", type=String.class, parameters={})
+    @Export(name="guidance", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> guidance;
 
     /**
@@ -156,7 +156,7 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -170,7 +170,7 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * Identifier of the product.
      * 
      */
-    @Export(name="productId", type=String.class, parameters={})
+    @Export(name="productId", refs={String.class}, tree="[0]")
     private Output<String> productId;
 
     /**
@@ -184,7 +184,7 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      * 
      */
-    @Export(name="templatePhysicalId", type=String.class, parameters={})
+    @Export(name="templatePhysicalId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templatePhysicalId;
 
     /**
@@ -198,7 +198,7 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * Template source as URL of the CloudFormation template in Amazon S3.
      * 
      */
-    @Export(name="templateUrl", type=String.class, parameters={})
+    @Export(name="templateUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateUrl;
 
     /**
@@ -212,7 +212,7 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
      * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

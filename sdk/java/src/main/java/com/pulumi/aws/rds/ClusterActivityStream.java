@@ -108,7 +108,7 @@ public class ClusterActivityStream extends com.pulumi.resources.CustomResource {
      * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
      * 
      */
-    @Export(name="engineNativeAuditFieldsIncluded", type=Boolean.class, parameters={})
+    @Export(name="engineNativeAuditFieldsIncluded", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> engineNativeAuditFieldsIncluded;
 
     /**
@@ -122,7 +122,7 @@ public class ClusterActivityStream extends com.pulumi.resources.CustomResource {
      * The name of the Amazon Kinesis data stream to be used for the database activity stream.
      * 
      */
-    @Export(name="kinesisStreamName", type=String.class, parameters={})
+    @Export(name="kinesisStreamName", refs={String.class}, tree="[0]")
     private Output<String> kinesisStreamName;
 
     /**
@@ -136,7 +136,7 @@ public class ClusterActivityStream extends com.pulumi.resources.CustomResource {
      * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -150,7 +150,7 @@ public class ClusterActivityStream extends com.pulumi.resources.CustomResource {
      * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
@@ -164,7 +164,7 @@ public class ClusterActivityStream extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the DB cluster.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**

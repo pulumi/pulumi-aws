@@ -84,7 +84,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * ARN for the certificate.
      * 
      */
-    @Export(name="certificateArn", type=String.class, parameters={})
+    @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output<String> certificateArn;
 
     /**
@@ -98,7 +98,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Name of the endpoint database.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> databaseName;
 
     /**
@@ -112,7 +112,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Configuration block for OpenSearch settings. See below.
      * 
      */
-    @Export(name="elasticsearchSettings", type=EndpointElasticsearchSettings.class, parameters={})
+    @Export(name="elasticsearchSettings", refs={EndpointElasticsearchSettings.class}, tree="[0]")
     private Output</* @Nullable */ EndpointElasticsearchSettings> elasticsearchSettings;
 
     /**
@@ -126,7 +126,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * ARN for the endpoint.
      * 
      */
-    @Export(name="endpointArn", type=String.class, parameters={})
+    @Export(name="endpointArn", refs={String.class}, tree="[0]")
     private Output<String> endpointArn;
 
     /**
@@ -140,7 +140,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      * 
      */
-    @Export(name="endpointId", type=String.class, parameters={})
+    @Export(name="endpointId", refs={String.class}, tree="[0]")
     private Output<String> endpointId;
 
     /**
@@ -154,7 +154,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Type of endpoint. Valid values are `source`, `target`.
      * 
      */
-    @Export(name="endpointType", type=String.class, parameters={})
+    @Export(name="endpointType", refs={String.class}, tree="[0]")
     private Output<String> endpointType;
 
     /**
@@ -168,7 +168,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
      * 
      */
-    @Export(name="engineName", type=String.class, parameters={})
+    @Export(name="engineName", refs={String.class}, tree="[0]")
     private Output<String> engineName;
 
     /**
@@ -182,7 +182,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html).
      * 
      */
-    @Export(name="extraConnectionAttributes", type=String.class, parameters={})
+    @Export(name="extraConnectionAttributes", refs={String.class}, tree="[0]")
     private Output<String> extraConnectionAttributes;
 
     /**
@@ -196,7 +196,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Configuration block for Kafka settings. See below.
      * 
      */
-    @Export(name="kafkaSettings", type=EndpointKafkaSettings.class, parameters={})
+    @Export(name="kafkaSettings", refs={EndpointKafkaSettings.class}, tree="[0]")
     private Output</* @Nullable */ EndpointKafkaSettings> kafkaSettings;
 
     /**
@@ -210,7 +210,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Configuration block for Kinesis settings. See below.
      * 
      */
-    @Export(name="kinesisSettings", type=EndpointKinesisSettings.class, parameters={})
+    @Export(name="kinesisSettings", refs={EndpointKinesisSettings.class}, tree="[0]")
     private Output</* @Nullable */ EndpointKinesisSettings> kinesisSettings;
 
     /**
@@ -224,7 +224,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
-    @Export(name="kmsKeyArn", type=String.class, parameters={})
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
     /**
@@ -238,7 +238,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Configuration block for MongoDB settings. See below.
      * 
      */
-    @Export(name="mongodbSettings", type=EndpointMongodbSettings.class, parameters={})
+    @Export(name="mongodbSettings", refs={EndpointMongodbSettings.class}, tree="[0]")
     private Output</* @Nullable */ EndpointMongodbSettings> mongodbSettings;
 
     /**
@@ -252,7 +252,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Password to be used to login to the endpoint database.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -266,7 +266,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Transmission Control Protocol (TCP) port for the endpoint.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
     /**
@@ -276,7 +276,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> port() {
         return Codegen.optional(this.port);
     }
-    @Export(name="redisSettings", type=EndpointRedisSettings.class, parameters={})
+    @Export(name="redisSettings", refs={EndpointRedisSettings.class}, tree="[0]")
     private Output</* @Nullable */ EndpointRedisSettings> redisSettings;
 
     public Output<Optional<EndpointRedisSettings>> redisSettings() {
@@ -286,7 +286,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Configuration block for Redshift settings. See below.
      * 
      */
-    @Export(name="redshiftSettings", type=EndpointRedshiftSettings.class, parameters={})
+    @Export(name="redshiftSettings", refs={EndpointRedshiftSettings.class}, tree="[0]")
     private Output<EndpointRedshiftSettings> redshiftSettings;
 
     /**
@@ -300,7 +300,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Configuration block for S3 settings. See below.
      * 
      */
-    @Export(name="s3Settings", type=EndpointS3Settings.class, parameters={})
+    @Export(name="s3Settings", refs={EndpointS3Settings.class}, tree="[0]")
     private Output</* @Nullable */ EndpointS3Settings> s3Settings;
 
     /**
@@ -314,7 +314,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
      * 
      */
-    @Export(name="secretsManagerAccessRoleArn", type=String.class, parameters={})
+    @Export(name="secretsManagerAccessRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretsManagerAccessRoleArn;
 
     /**
@@ -328,7 +328,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
      * 
      */
-    @Export(name="secretsManagerArn", type=String.class, parameters={})
+    @Export(name="secretsManagerArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretsManagerArn;
 
     /**
@@ -342,7 +342,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Fully qualified domain name of the endpoint.
      * 
      */
-    @Export(name="serverName", type=String.class, parameters={})
+    @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serverName;
 
     /**
@@ -356,7 +356,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * ARN used by the service access IAM role for dynamodb endpoints.
      * 
      */
-    @Export(name="serviceAccessRole", type=String.class, parameters={})
+    @Export(name="serviceAccessRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceAccessRole;
 
     /**
@@ -370,7 +370,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
      * 
      */
-    @Export(name="sslMode", type=String.class, parameters={})
+    @Export(name="sslMode", refs={String.class}, tree="[0]")
     private Output<String> sslMode;
 
     /**
@@ -384,7 +384,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -398,7 +398,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -412,7 +412,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * User name to be used to login to the endpoint database.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**

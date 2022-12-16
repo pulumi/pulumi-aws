@@ -77,7 +77,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Fleet ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -91,7 +91,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Build ARN.
      * 
      */
-    @Export(name="buildArn", type=String.class, parameters={})
+    @Export(name="buildArn", refs={String.class}, tree="[0]")
     private Output<String> buildArn;
 
     /**
@@ -105,7 +105,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * ID of the GameLift Build to be deployed on the fleet.
      * 
      */
-    @Export(name="buildId", type=String.class, parameters={})
+    @Export(name="buildId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> buildId;
 
     /**
@@ -119,7 +119,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
      * 
      */
-    @Export(name="certificateConfiguration", type=FleetCertificateConfiguration.class, parameters={})
+    @Export(name="certificateConfiguration", refs={FleetCertificateConfiguration.class}, tree="[0]")
     private Output<FleetCertificateConfiguration> certificateConfiguration;
 
     /**
@@ -133,7 +133,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Human-readable description of the fleet.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -147,7 +147,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      * 
      */
-    @Export(name="ec2InboundPermissions", type=List.class, parameters={FleetEc2InboundPermission.class})
+    @Export(name="ec2InboundPermissions", refs={List.class,FleetEc2InboundPermission.class}, tree="[0,1]")
     private Output<List<FleetEc2InboundPermission>> ec2InboundPermissions;
 
     /**
@@ -161,7 +161,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Name of an EC2 instance typeE.g., `t2.micro`
      * 
      */
-    @Export(name="ec2InstanceType", type=String.class, parameters={})
+    @Export(name="ec2InstanceType", refs={String.class}, tree="[0]")
     private Output<String> ec2InstanceType;
 
     /**
@@ -175,7 +175,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
      * 
      */
-    @Export(name="fleetType", type=String.class, parameters={})
+    @Export(name="fleetType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fleetType;
 
     /**
@@ -189,7 +189,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * ARN of an IAM role that instances in the fleet can assume.
      * 
      */
-    @Export(name="instanceRoleArn", type=String.class, parameters={})
+    @Export(name="instanceRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceRoleArn;
 
     /**
@@ -199,7 +199,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> instanceRoleArn() {
         return Codegen.optional(this.instanceRoleArn);
     }
-    @Export(name="logPaths", type=List.class, parameters={String.class})
+    @Export(name="logPaths", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> logPaths;
 
     public Output<List<String>> logPaths() {
@@ -209,7 +209,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      * 
      */
-    @Export(name="metricGroups", type=List.class, parameters={String.class})
+    @Export(name="metricGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> metricGroups;
 
     /**
@@ -223,7 +223,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * The name of the fleet.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -237,7 +237,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
      * 
      */
-    @Export(name="newGameSessionProtectionPolicy", type=String.class, parameters={})
+    @Export(name="newGameSessionProtectionPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> newGameSessionProtectionPolicy;
 
     /**
@@ -251,7 +251,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Operating system of the fleet&#39;s computing resources.
      * 
      */
-    @Export(name="operatingSystem", type=String.class, parameters={})
+    @Export(name="operatingSystem", refs={String.class}, tree="[0]")
     private Output<String> operatingSystem;
 
     /**
@@ -265,7 +265,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      * 
      */
-    @Export(name="resourceCreationLimitPolicy", type=FleetResourceCreationLimitPolicy.class, parameters={})
+    @Export(name="resourceCreationLimitPolicy", refs={FleetResourceCreationLimitPolicy.class}, tree="[0]")
     private Output</* @Nullable */ FleetResourceCreationLimitPolicy> resourceCreationLimitPolicy;
 
     /**
@@ -279,7 +279,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Instructions for launching server processes on each instance in the fleet. See below.
      * 
      */
-    @Export(name="runtimeConfiguration", type=FleetRuntimeConfiguration.class, parameters={})
+    @Export(name="runtimeConfiguration", refs={FleetRuntimeConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FleetRuntimeConfiguration> runtimeConfiguration;
 
     /**
@@ -293,7 +293,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Script ARN.
      * 
      */
-    @Export(name="scriptArn", type=String.class, parameters={})
+    @Export(name="scriptArn", refs={String.class}, tree="[0]")
     private Output<String> scriptArn;
 
     /**
@@ -307,7 +307,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * ID of the GameLift Script to be deployed on the fleet.
      * 
      */
-    @Export(name="scriptId", type=String.class, parameters={})
+    @Export(name="scriptId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scriptId;
 
     /**
@@ -321,7 +321,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -335,7 +335,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

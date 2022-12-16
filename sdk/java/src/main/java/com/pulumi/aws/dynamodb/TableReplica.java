@@ -102,7 +102,7 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
      * ARN of the table replica.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -116,7 +116,7 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
      * ARN of the _main_ or global table which this resource will replicate.
      * 
      */
-    @Export(name="globalTableArn", type=String.class, parameters={})
+    @Export(name="globalTableArn", refs={String.class}, tree="[0]")
     private Output<String> globalTableArn;
 
     /**
@@ -130,7 +130,7 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
      * ARN of the CMK that should be used for the AWS KMS encryption.
      * 
      */
-    @Export(name="kmsKeyArn", type=String.class, parameters={})
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
     /**
@@ -144,7 +144,7 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
      * Whether to enable Point In Time Recovery for the replica. Default is `false`.
      * 
      */
-    @Export(name="pointInTimeRecovery", type=Boolean.class, parameters={})
+    @Export(name="pointInTimeRecovery", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> pointInTimeRecovery;
 
     /**
@@ -158,7 +158,7 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
      * Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
      * 
      */
-    @Export(name="tableClassOverride", type=String.class, parameters={})
+    @Export(name="tableClassOverride", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tableClassOverride;
 
     /**
@@ -172,7 +172,7 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
      * Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -186,7 +186,7 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

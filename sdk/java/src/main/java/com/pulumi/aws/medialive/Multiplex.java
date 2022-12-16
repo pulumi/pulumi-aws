@@ -84,7 +84,7 @@ public class Multiplex extends com.pulumi.resources.CustomResource {
      * ARN of the Multiplex.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -98,7 +98,7 @@ public class Multiplex extends com.pulumi.resources.CustomResource {
      * A list of availability zones. You must specify exactly two.
      * 
      */
-    @Export(name="availabilityZones", type=List.class, parameters={String.class})
+    @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
     /**
@@ -112,7 +112,7 @@ public class Multiplex extends com.pulumi.resources.CustomResource {
      * Multiplex settings. See Multiplex Settings for more details.
      * 
      */
-    @Export(name="multiplexSettings", type=MultiplexMultiplexSettings.class, parameters={})
+    @Export(name="multiplexSettings", refs={MultiplexMultiplexSettings.class}, tree="[0]")
     private Output</* @Nullable */ MultiplexMultiplexSettings> multiplexSettings;
 
     /**
@@ -126,7 +126,7 @@ public class Multiplex extends com.pulumi.resources.CustomResource {
      * name of Multiplex.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -140,7 +140,7 @@ public class Multiplex extends com.pulumi.resources.CustomResource {
      * Whether to start the Multiplex. Defaults to `false`.
      * 
      */
-    @Export(name="startMultiplex", type=Boolean.class, parameters={})
+    @Export(name="startMultiplex", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> startMultiplex;
 
     /**
@@ -154,7 +154,7 @@ public class Multiplex extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -164,7 +164,7 @@ public class Multiplex extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {

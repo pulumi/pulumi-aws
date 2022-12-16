@@ -106,7 +106,7 @@ public class RolePolicyAttachment extends com.pulumi.resources.CustomResource {
      * The ARN of the policy you want to apply
      * 
      */
-    @Export(name="policyArn", type=String.class, parameters={})
+    @Export(name="policyArn", refs={String.class}, tree="[0]")
     private Output<String> policyArn;
 
     /**
@@ -120,7 +120,7 @@ public class RolePolicyAttachment extends com.pulumi.resources.CustomResource {
      * The name of the IAM role to which the policy should be applied
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**

@@ -68,7 +68,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The name of the app.
      * 
      */
-    @Export(name="appName", type=String.class, parameters={})
+    @Export(name="appName", refs={String.class}, tree="[0]")
     private Output<String> appName;
 
     /**
@@ -82,7 +82,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
      * 
      */
-    @Export(name="appType", type=String.class, parameters={})
+    @Export(name="appType", refs={String.class}, tree="[0]")
     private Output<String> appType;
 
     /**
@@ -96,7 +96,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the app.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -110,7 +110,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The domain ID.
      * 
      */
-    @Export(name="domainId", type=String.class, parameters={})
+    @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
     /**
@@ -124,7 +124,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
      * 
      */
-    @Export(name="resourceSpec", type=AppResourceSpec.class, parameters={})
+    @Export(name="resourceSpec", refs={AppResourceSpec.class}, tree="[0]")
     private Output<AppResourceSpec> resourceSpec;
 
     /**
@@ -138,7 +138,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -152,7 +152,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -166,7 +166,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The user profile name.
      * 
      */
-    @Export(name="userProfileName", type=String.class, parameters={})
+    @Export(name="userProfileName", refs={String.class}, tree="[0]")
     private Output<String> userProfileName;
 
     /**

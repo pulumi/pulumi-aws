@@ -66,7 +66,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * The ARN of the Dedicated Host.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -80,7 +80,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
      * 
      */
-    @Export(name="autoPlacement", type=String.class, parameters={})
+    @Export(name="autoPlacement", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoPlacement;
 
     /**
@@ -94,7 +94,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * The Availability Zone in which to allocate the Dedicated Host.
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
@@ -108,7 +108,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
      * 
      */
-    @Export(name="hostRecovery", type=String.class, parameters={})
+    @Export(name="hostRecovery", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hostRecovery;
 
     /**
@@ -122,7 +122,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
      * 
      */
-    @Export(name="instanceFamily", type=String.class, parameters={})
+    @Export(name="instanceFamily", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceFamily;
 
     /**
@@ -136,7 +136,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
      * 
      */
-    @Export(name="instanceType", type=String.class, parameters={})
+    @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceType;
 
     /**
@@ -150,7 +150,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
      * 
      */
-    @Export(name="outpostArn", type=String.class, parameters={})
+    @Export(name="outpostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outpostArn;
 
     /**
@@ -164,7 +164,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * The ID of the AWS account that owns the Dedicated Host.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -178,7 +178,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -192,7 +192,7 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

@@ -129,7 +129,7 @@ public class LoadBalancerPolicy extends com.pulumi.resources.CustomResource {
      * The load balancer on which the policy is defined.
      * 
      */
-    @Export(name="loadBalancerName", type=String.class, parameters={})
+    @Export(name="loadBalancerName", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerName;
 
     /**
@@ -143,7 +143,7 @@ public class LoadBalancerPolicy extends com.pulumi.resources.CustomResource {
      * Policy attribute to apply to the policy.
      * 
      */
-    @Export(name="policyAttributes", type=List.class, parameters={LoadBalancerPolicyPolicyAttribute.class})
+    @Export(name="policyAttributes", refs={List.class,LoadBalancerPolicyPolicyAttribute.class}, tree="[0,1]")
     private Output<List<LoadBalancerPolicyPolicyAttribute>> policyAttributes;
 
     /**
@@ -157,7 +157,7 @@ public class LoadBalancerPolicy extends com.pulumi.resources.CustomResource {
      * The name of the load balancer policy.
      * 
      */
-    @Export(name="policyName", type=String.class, parameters={})
+    @Export(name="policyName", refs={String.class}, tree="[0]")
     private Output<String> policyName;
 
     /**
@@ -171,7 +171,7 @@ public class LoadBalancerPolicy extends com.pulumi.resources.CustomResource {
      * The policy type.
      * 
      */
-    @Export(name="policyTypeName", type=String.class, parameters={})
+    @Export(name="policyTypeName", refs={String.class}, tree="[0]")
     private Output<String> policyTypeName;
 
     /**

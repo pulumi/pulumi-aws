@@ -74,7 +74,7 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * The identifier of the security standard control.
      * 
      */
-    @Export(name="controlId", type=String.class, parameters={})
+    @Export(name="controlId", refs={String.class}, tree="[0]")
     private Output<String> controlId;
 
     /**
@@ -88,7 +88,7 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
      * 
      */
-    @Export(name="controlStatus", type=String.class, parameters={})
+    @Export(name="controlStatus", refs={String.class}, tree="[0]")
     private Output<String> controlStatus;
 
     /**
@@ -102,7 +102,7 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * The date and time that the status of the security standard control was most recently updated.
      * 
      */
-    @Export(name="controlStatusUpdatedAt", type=String.class, parameters={})
+    @Export(name="controlStatusUpdatedAt", refs={String.class}, tree="[0]")
     private Output<String> controlStatusUpdatedAt;
 
     /**
@@ -116,7 +116,7 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * The standard control longer description. Provides information about what the control is checking for.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -130,7 +130,7 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
      * 
      */
-    @Export(name="disabledReason", type=String.class, parameters={})
+    @Export(name="disabledReason", refs={String.class}, tree="[0]")
     private Output<String> disabledReason;
 
     /**
@@ -144,7 +144,7 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * The list of requirements that are related to this control.
      * 
      */
-    @Export(name="relatedRequirements", type=List.class, parameters={String.class})
+    @Export(name="relatedRequirements", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> relatedRequirements;
 
     /**
@@ -158,7 +158,7 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * A link to remediation information for the control in the Security Hub user documentation.
      * 
      */
-    @Export(name="remediationUrl", type=String.class, parameters={})
+    @Export(name="remediationUrl", refs={String.class}, tree="[0]")
     private Output<String> remediationUrl;
 
     /**
@@ -172,7 +172,7 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * The severity of findings generated from this security standard control.
      * 
      */
-    @Export(name="severityRating", type=String.class, parameters={})
+    @Export(name="severityRating", refs={String.class}, tree="[0]")
     private Output<String> severityRating;
 
     /**
@@ -186,7 +186,7 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * The standards control ARN.
      * 
      */
-    @Export(name="standardsControlArn", type=String.class, parameters={})
+    @Export(name="standardsControlArn", refs={String.class}, tree="[0]")
     private Output<String> standardsControlArn;
 
     /**
@@ -200,7 +200,7 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
      * The standard control title.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**

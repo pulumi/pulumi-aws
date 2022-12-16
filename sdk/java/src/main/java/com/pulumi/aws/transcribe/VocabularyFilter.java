@@ -73,7 +73,7 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
      * ARN of the VocabularyFilter.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -87,7 +87,7 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
      * Generated download URI.
      * 
      */
-    @Export(name="downloadUri", type=String.class, parameters={})
+    @Export(name="downloadUri", refs={String.class}, tree="[0]")
     private Output<String> downloadUri;
 
     /**
@@ -101,7 +101,7 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
-    @Export(name="languageCode", type=String.class, parameters={})
+    @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
@@ -115,7 +115,7 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -125,7 +125,7 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -135,7 +135,7 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
      * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
      * 
      */
-    @Export(name="vocabularyFilterFileUri", type=String.class, parameters={})
+    @Export(name="vocabularyFilterFileUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vocabularyFilterFileUri;
 
     /**
@@ -149,7 +149,7 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
      * The name of the VocabularyFilter.
      * 
      */
-    @Export(name="vocabularyFilterName", type=String.class, parameters={})
+    @Export(name="vocabularyFilterName", refs={String.class}, tree="[0]")
     private Output<String> vocabularyFilterName;
 
     /**
@@ -163,7 +163,7 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
      * - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
      * 
      */
-    @Export(name="words", type=List.class, parameters={String.class})
+    @Export(name="words", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> words;
 
     /**

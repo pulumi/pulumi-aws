@@ -75,7 +75,7 @@ public class MulticastDomainAssociation extends com.pulumi.resources.CustomResou
      * The ID of the subnet to associate with the transit gateway multicast domain.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
@@ -89,7 +89,7 @@ public class MulticastDomainAssociation extends com.pulumi.resources.CustomResou
      * The ID of the transit gateway attachment.
      * 
      */
-    @Export(name="transitGatewayAttachmentId", type=String.class, parameters={})
+    @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayAttachmentId;
 
     /**
@@ -103,7 +103,7 @@ public class MulticastDomainAssociation extends com.pulumi.resources.CustomResou
      * The ID of the transit gateway multicast domain.
      * 
      */
-    @Export(name="transitGatewayMulticastDomainId", type=String.class, parameters={})
+    @Export(name="transitGatewayMulticastDomainId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayMulticastDomainId;
 
     /**

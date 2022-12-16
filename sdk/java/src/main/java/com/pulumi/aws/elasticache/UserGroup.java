@@ -76,7 +76,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * The ARN that identifies the user group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -90,7 +90,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * The current supported value is `REDIS`.
      * 
      */
-    @Export(name="engine", type=String.class, parameters={})
+    @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
@@ -104,7 +104,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -118,7 +118,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -132,7 +132,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * The ID of the user group.
      * 
      */
-    @Export(name="userGroupId", type=String.class, parameters={})
+    @Export(name="userGroupId", refs={String.class}, tree="[0]")
     private Output<String> userGroupId;
 
     /**
@@ -146,7 +146,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * The list of user IDs that belong to the user group.
      * 
      */
-    @Export(name="userIds", type=List.class, parameters={String.class})
+    @Export(name="userIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userIds;
 
     /**

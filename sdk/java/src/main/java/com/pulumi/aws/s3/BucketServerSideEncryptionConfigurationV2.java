@@ -88,7 +88,7 @@ public class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resour
      * The name of the bucket.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -102,7 +102,7 @@ public class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resour
      * The account ID of the expected bucket owner.
      * 
      */
-    @Export(name="expectedBucketOwner", type=String.class, parameters={})
+    @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
@@ -116,7 +116,7 @@ public class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resour
      * Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={BucketServerSideEncryptionConfigurationV2Rule.class})
+    @Export(name="rules", refs={List.class,BucketServerSideEncryptionConfigurationV2Rule.class}, tree="[0,1]")
     private Output<List<BucketServerSideEncryptionConfigurationV2Rule>> rules;
 
     /**

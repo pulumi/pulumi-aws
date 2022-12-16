@@ -418,7 +418,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * One or more additional authentication providers for the GraphqlApi. Defined below.
      * 
      */
-    @Export(name="additionalAuthenticationProviders", type=List.class, parameters={GraphQLApiAdditionalAuthenticationProvider.class})
+    @Export(name="additionalAuthenticationProviders", refs={List.class,GraphQLApiAdditionalAuthenticationProvider.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GraphQLApiAdditionalAuthenticationProvider>> additionalAuthenticationProviders;
 
     /**
@@ -432,7 +432,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * ARN
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -446,7 +446,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
-    @Export(name="authenticationType", type=String.class, parameters={})
+    @Export(name="authenticationType", refs={String.class}, tree="[0]")
     private Output<String> authenticationType;
 
     /**
@@ -460,7 +460,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * Nested argument containing Lambda authorizer configuration. Defined below.
      * 
      */
-    @Export(name="lambdaAuthorizerConfig", type=GraphQLApiLambdaAuthorizerConfig.class, parameters={})
+    @Export(name="lambdaAuthorizerConfig", refs={GraphQLApiLambdaAuthorizerConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiLambdaAuthorizerConfig> lambdaAuthorizerConfig;
 
     /**
@@ -474,7 +474,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * Nested argument containing logging configuration. Defined below.
      * 
      */
-    @Export(name="logConfig", type=GraphQLApiLogConfig.class, parameters={})
+    @Export(name="logConfig", refs={GraphQLApiLogConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiLogConfig> logConfig;
 
     /**
@@ -488,7 +488,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * User-supplied name for the GraphqlApi.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -502,7 +502,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * Nested argument containing OpenID Connect configuration. Defined below.
      * 
      */
-    @Export(name="openidConnectConfig", type=GraphQLApiOpenidConnectConfig.class, parameters={})
+    @Export(name="openidConnectConfig", refs={GraphQLApiOpenidConnectConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiOpenidConnectConfig> openidConnectConfig;
 
     /**
@@ -516,7 +516,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schema;
 
     /**
@@ -530,7 +530,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -544,7 +544,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -558,7 +558,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * Map of URIs associated with the APIE.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      * 
      */
-    @Export(name="uris", type=Map.class, parameters={String.class, String.class})
+    @Export(name="uris", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> uris;
 
     /**
@@ -572,7 +572,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * Amazon Cognito User Pool configuration. Defined below.
      * 
      */
-    @Export(name="userPoolConfig", type=GraphQLApiUserPoolConfig.class, parameters={})
+    @Export(name="userPoolConfig", refs={GraphQLApiUserPoolConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiUserPoolConfig> userPoolConfig;
 
     /**
@@ -586,7 +586,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * Whether tracing with X-ray is enabled. Defaults to false.
      * 
      */
-    @Export(name="xrayEnabled", type=Boolean.class, parameters={})
+    @Export(name="xrayEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> xrayEnabled;
 
     /**

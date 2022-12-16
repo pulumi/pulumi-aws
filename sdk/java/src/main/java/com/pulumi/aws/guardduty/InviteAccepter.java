@@ -92,7 +92,7 @@ public class InviteAccepter extends com.pulumi.resources.CustomResource {
      * The detector ID of the member GuardDuty account.
      * 
      */
-    @Export(name="detectorId", type=String.class, parameters={})
+    @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
     /**
@@ -106,7 +106,7 @@ public class InviteAccepter extends com.pulumi.resources.CustomResource {
      * AWS account ID for primary account.
      * 
      */
-    @Export(name="masterAccountId", type=String.class, parameters={})
+    @Export(name="masterAccountId", refs={String.class}, tree="[0]")
     private Output<String> masterAccountId;
 
     /**

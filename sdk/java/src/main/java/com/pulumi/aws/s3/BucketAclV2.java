@@ -90,7 +90,7 @@ public class BucketAclV2 extends com.pulumi.resources.CustomResource {
      * A configuration block that sets the ACL permissions for an object per grantee documented below.
      * 
      */
-    @Export(name="accessControlPolicy", type=BucketAclV2AccessControlPolicy.class, parameters={})
+    @Export(name="accessControlPolicy", refs={BucketAclV2AccessControlPolicy.class}, tree="[0]")
     private Output<BucketAclV2AccessControlPolicy> accessControlPolicy;
 
     /**
@@ -104,7 +104,7 @@ public class BucketAclV2 extends com.pulumi.resources.CustomResource {
      * The canned ACL to apply to the bucket.
      * 
      */
-    @Export(name="acl", type=String.class, parameters={})
+    @Export(name="acl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acl;
 
     /**
@@ -118,7 +118,7 @@ public class BucketAclV2 extends com.pulumi.resources.CustomResource {
      * The name of the bucket.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -132,7 +132,7 @@ public class BucketAclV2 extends com.pulumi.resources.CustomResource {
      * The account ID of the expected bucket owner.
      * 
      */
-    @Export(name="expectedBucketOwner", type=String.class, parameters={})
+    @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**

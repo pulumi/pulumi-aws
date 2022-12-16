@@ -72,7 +72,7 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
      * Base64 encoded ciphertext
      * 
      */
-    @Export(name="ciphertextBlob", type=String.class, parameters={})
+    @Export(name="ciphertextBlob", refs={String.class}, tree="[0]")
     private Output<String> ciphertextBlob;
 
     /**
@@ -86,7 +86,7 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
      * An optional mapping that makes up the encryption context.
      * 
      */
-    @Export(name="context", type=Map.class, parameters={String.class, String.class})
+    @Export(name="context", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> context;
 
     /**
@@ -100,7 +100,7 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
      * Globally unique key ID for the customer master key.
      * 
      */
-    @Export(name="keyId", type=String.class, parameters={})
+    @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
     /**
@@ -114,7 +114,7 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      * 
      */
-    @Export(name="plaintext", type=String.class, parameters={})
+    @Export(name="plaintext", refs={String.class}, tree="[0]")
     private Output<String> plaintext;
 
     /**

@@ -161,7 +161,7 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      * Amazon Resource Name (ARN) of the organization conformance pack.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -175,7 +175,7 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      * Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
      * 
      */
-    @Export(name="deliveryS3Bucket", type=String.class, parameters={})
+    @Export(name="deliveryS3Bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryS3Bucket;
 
     /**
@@ -189,7 +189,7 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      * The prefix for the Amazon S3 bucket. Maximum length of 1024.
      * 
      */
-    @Export(name="deliveryS3KeyPrefix", type=String.class, parameters={})
+    @Export(name="deliveryS3KeyPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryS3KeyPrefix;
 
     /**
@@ -203,7 +203,7 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      * Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
      * 
      */
-    @Export(name="excludedAccounts", type=List.class, parameters={String.class})
+    @Export(name="excludedAccounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> excludedAccounts;
 
     /**
@@ -217,7 +217,7 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
      * 
      */
-    @Export(name="inputParameters", type=List.class, parameters={OrganizationConformancePackInputParameter.class})
+    @Export(name="inputParameters", refs={List.class,OrganizationConformancePackInputParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OrganizationConformancePackInputParameter>> inputParameters;
 
     /**
@@ -231,7 +231,7 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      * The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -245,7 +245,7 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
      * 
      */
-    @Export(name="templateBody", type=String.class, parameters={})
+    @Export(name="templateBody", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateBody;
 
     /**
@@ -259,7 +259,7 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
      * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      * 
      */
-    @Export(name="templateS3Uri", type=String.class, parameters={})
+    @Export(name="templateS3Uri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateS3Uri;
 
     /**

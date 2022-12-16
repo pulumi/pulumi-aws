@@ -114,7 +114,7 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of IPAM
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -128,7 +128,7 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      * 
      */
-    @Export(name="cascade", type=Boolean.class, parameters={})
+    @Export(name="cascade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cascade;
 
     /**
@@ -142,7 +142,7 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * A description for the IPAM.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -156,7 +156,7 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
      * 
      */
-    @Export(name="operatingRegions", type=List.class, parameters={VpcIpamOperatingRegion.class})
+    @Export(name="operatingRegions", refs={List.class,VpcIpamOperatingRegion.class}, tree="[0,1]")
     private Output<List<VpcIpamOperatingRegion>> operatingRegions;
 
     /**
@@ -170,7 +170,7 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * The ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      * 
      */
-    @Export(name="privateDefaultScopeId", type=String.class, parameters={})
+    @Export(name="privateDefaultScopeId", refs={String.class}, tree="[0]")
     private Output<String> privateDefaultScopeId;
 
     /**
@@ -185,7 +185,7 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * IP space. The public scope is intended for all internet-routable IP space.
      * 
      */
-    @Export(name="publicDefaultScopeId", type=String.class, parameters={})
+    @Export(name="publicDefaultScopeId", refs={String.class}, tree="[0]")
     private Output<String> publicDefaultScopeId;
 
     /**
@@ -200,7 +200,7 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * The number of scopes in the IPAM.
      * 
      */
-    @Export(name="scopeCount", type=Integer.class, parameters={})
+    @Export(name="scopeCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> scopeCount;
 
     /**
@@ -214,7 +214,7 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -228,7 +228,7 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

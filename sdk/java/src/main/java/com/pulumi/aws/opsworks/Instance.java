@@ -114,7 +114,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * OpsWorks agent to install. Default is `INHERIT`.
      * 
      */
-    @Export(name="agentVersion", type=String.class, parameters={})
+    @Export(name="agentVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> agentVersion;
 
     /**
@@ -128,7 +128,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
      * 
      */
-    @Export(name="amiId", type=String.class, parameters={})
+    @Export(name="amiId", refs={String.class}, tree="[0]")
     private Output<String> amiId;
 
     /**
@@ -142,7 +142,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.
      * 
      */
-    @Export(name="architecture", type=String.class, parameters={})
+    @Export(name="architecture", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> architecture;
 
     /**
@@ -156,7 +156,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Creates load-based or time-based instances.  Valid values are `load`, `timer`.
      * 
      */
-    @Export(name="autoScalingType", type=String.class, parameters={})
+    @Export(name="autoScalingType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoScalingType;
 
     /**
@@ -170,7 +170,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Name of the availability zone where instances will be created by default.
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
@@ -184,7 +184,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Time that the instance was created.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -198,7 +198,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Whether to delete EBS volume on deletion. Default is `true`.
      * 
      */
-    @Export(name="deleteEbs", type=Boolean.class, parameters={})
+    @Export(name="deleteEbs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteEbs;
 
     /**
@@ -212,7 +212,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Whether to delete the Elastic IP on deletion.
      * 
      */
-    @Export(name="deleteEip", type=Boolean.class, parameters={})
+    @Export(name="deleteEip", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteEip;
 
     /**
@@ -226,7 +226,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
      * 
      */
-    @Export(name="ebsBlockDevices", type=List.class, parameters={InstanceEbsBlockDevice.class})
+    @Export(name="ebsBlockDevices", refs={List.class,InstanceEbsBlockDevice.class}, tree="[0,1]")
     private Output<List<InstanceEbsBlockDevice>> ebsBlockDevices;
 
     /**
@@ -240,7 +240,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Whether the launched EC2 instance will be EBS-optimized.
      * 
      */
-    @Export(name="ebsOptimized", type=Boolean.class, parameters={})
+    @Export(name="ebsOptimized", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ebsOptimized;
 
     /**
@@ -254,7 +254,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * EC2 instance ID.
      * 
      */
-    @Export(name="ec2InstanceId", type=String.class, parameters={})
+    @Export(name="ec2InstanceId", refs={String.class}, tree="[0]")
     private Output<String> ec2InstanceId;
 
     /**
@@ -268,7 +268,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * ECS cluster&#39;s ARN for container instances.
      * 
      */
-    @Export(name="ecsClusterArn", type=String.class, parameters={})
+    @Export(name="ecsClusterArn", refs={String.class}, tree="[0]")
     private Output<String> ecsClusterArn;
 
     /**
@@ -282,7 +282,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Instance Elastic IP address.
      * 
      */
-    @Export(name="elasticIp", type=String.class, parameters={})
+    @Export(name="elasticIp", refs={String.class}, tree="[0]")
     private Output<String> elasticIp;
 
     /**
@@ -296,7 +296,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Configuration block for ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below.
      * 
      */
-    @Export(name="ephemeralBlockDevices", type=List.class, parameters={InstanceEphemeralBlockDevice.class})
+    @Export(name="ephemeralBlockDevices", refs={List.class,InstanceEphemeralBlockDevice.class}, tree="[0,1]")
     private Output<List<InstanceEphemeralBlockDevice>> ephemeralBlockDevices;
 
     /**
@@ -310,7 +310,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Instance&#39;s host name.
      * 
      */
-    @Export(name="hostname", type=String.class, parameters={})
+    @Export(name="hostname", refs={String.class}, tree="[0]")
     private Output<String> hostname;
 
     /**
@@ -324,7 +324,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * For registered instances, infrastructure class: ec2 or on-premises.
      * 
      */
-    @Export(name="infrastructureClass", type=String.class, parameters={})
+    @Export(name="infrastructureClass", refs={String.class}, tree="[0]")
     private Output<String> infrastructureClass;
 
     /**
@@ -338,7 +338,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Controls where to install OS and package updates when the instance boots.  Default is `true`.
      * 
      */
-    @Export(name="installUpdatesOnBoot", type=Boolean.class, parameters={})
+    @Export(name="installUpdatesOnBoot", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> installUpdatesOnBoot;
 
     /**
@@ -352,7 +352,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * ARN of the instance&#39;s IAM profile.
      * 
      */
-    @Export(name="instanceProfileArn", type=String.class, parameters={})
+    @Export(name="instanceProfileArn", refs={String.class}, tree="[0]")
     private Output<String> instanceProfileArn;
 
     /**
@@ -366,7 +366,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Type of instance to start.
      * 
      */
-    @Export(name="instanceType", type=String.class, parameters={})
+    @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceType;
 
     /**
@@ -380,7 +380,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * ID of the last service error.
      * 
      */
-    @Export(name="lastServiceErrorId", type=String.class, parameters={})
+    @Export(name="lastServiceErrorId", refs={String.class}, tree="[0]")
     private Output<String> lastServiceErrorId;
 
     /**
@@ -394,7 +394,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * List of the layers the instance will belong to.
      * 
      */
-    @Export(name="layerIds", type=List.class, parameters={String.class})
+    @Export(name="layerIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> layerIds;
 
     /**
@@ -408,7 +408,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Name of operating system that will be installed.
      * 
      */
-    @Export(name="os", type=String.class, parameters={})
+    @Export(name="os", refs={String.class}, tree="[0]")
     private Output<String> os;
 
     /**
@@ -422,7 +422,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Instance&#39;s platform.
      * 
      */
-    @Export(name="platform", type=String.class, parameters={})
+    @Export(name="platform", refs={String.class}, tree="[0]")
     private Output<String> platform;
 
     /**
@@ -436,7 +436,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    @Export(name="privateDns", type=String.class, parameters={})
+    @Export(name="privateDns", refs={String.class}, tree="[0]")
     private Output<String> privateDns;
 
     /**
@@ -450,7 +450,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Private IP address assigned to the instance.
      * 
      */
-    @Export(name="privateIp", type=String.class, parameters={})
+    @Export(name="privateIp", refs={String.class}, tree="[0]")
     private Output<String> privateIp;
 
     /**
@@ -464,7 +464,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    @Export(name="publicDns", type=String.class, parameters={})
+    @Export(name="publicDns", refs={String.class}, tree="[0]")
     private Output<String> publicDns;
 
     /**
@@ -478,7 +478,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Public IP address assigned to the instance, if applicable.
      * 
      */
-    @Export(name="publicIp", type=String.class, parameters={})
+    @Export(name="publicIp", refs={String.class}, tree="[0]")
     private Output<String> publicIp;
 
     /**
@@ -492,7 +492,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * For registered instances, who performed the registration.
      * 
      */
-    @Export(name="registeredBy", type=String.class, parameters={})
+    @Export(name="registeredBy", refs={String.class}, tree="[0]")
     private Output<String> registeredBy;
 
     /**
@@ -506,7 +506,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Instance&#39;s reported AWS OpsWorks Stacks agent version.
      * 
      */
-    @Export(name="reportedAgentVersion", type=String.class, parameters={})
+    @Export(name="reportedAgentVersion", refs={String.class}, tree="[0]")
     private Output<String> reportedAgentVersion;
 
     /**
@@ -520,7 +520,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * For registered instances, the reported operating system family.
      * 
      */
-    @Export(name="reportedOsFamily", type=String.class, parameters={})
+    @Export(name="reportedOsFamily", refs={String.class}, tree="[0]")
     private Output<String> reportedOsFamily;
 
     /**
@@ -534,7 +534,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * For registered instances, the reported operating system name.
      * 
      */
-    @Export(name="reportedOsName", type=String.class, parameters={})
+    @Export(name="reportedOsName", refs={String.class}, tree="[0]")
     private Output<String> reportedOsName;
 
     /**
@@ -548,7 +548,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * For registered instances, the reported operating system version.
      * 
      */
-    @Export(name="reportedOsVersion", type=String.class, parameters={})
+    @Export(name="reportedOsVersion", refs={String.class}, tree="[0]")
     private Output<String> reportedOsVersion;
 
     /**
@@ -562,7 +562,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Configuration block for the root block device of the instance. See Block Devices below.
      * 
      */
-    @Export(name="rootBlockDevices", type=List.class, parameters={InstanceRootBlockDevice.class})
+    @Export(name="rootBlockDevices", refs={List.class,InstanceRootBlockDevice.class}, tree="[0,1]")
     private Output<List<InstanceRootBlockDevice>> rootBlockDevices;
 
     /**
@@ -576,7 +576,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
      * 
      */
-    @Export(name="rootDeviceType", type=String.class, parameters={})
+    @Export(name="rootDeviceType", refs={String.class}, tree="[0]")
     private Output<String> rootDeviceType;
 
     /**
@@ -590,7 +590,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Root device volume ID.
      * 
      */
-    @Export(name="rootDeviceVolumeId", type=String.class, parameters={})
+    @Export(name="rootDeviceVolumeId", refs={String.class}, tree="[0]")
     private Output<String> rootDeviceVolumeId;
 
     /**
@@ -604,7 +604,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Associated security groups.
      * 
      */
-    @Export(name="securityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
@@ -618,7 +618,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * SSH key&#39;s Deep Security Agent (DSA) fingerprint.
      * 
      */
-    @Export(name="sshHostDsaKeyFingerprint", type=String.class, parameters={})
+    @Export(name="sshHostDsaKeyFingerprint", refs={String.class}, tree="[0]")
     private Output<String> sshHostDsaKeyFingerprint;
 
     /**
@@ -632,7 +632,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * SSH key&#39;s RSA fingerprint.
      * 
      */
-    @Export(name="sshHostRsaKeyFingerprint", type=String.class, parameters={})
+    @Export(name="sshHostRsaKeyFingerprint", refs={String.class}, tree="[0]")
     private Output<String> sshHostRsaKeyFingerprint;
 
     /**
@@ -646,7 +646,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Name of the SSH keypair that instances will have by default.
      * 
      */
-    @Export(name="sshKeyName", type=String.class, parameters={})
+    @Export(name="sshKeyName", refs={String.class}, tree="[0]")
     private Output<String> sshKeyName;
 
     /**
@@ -660,7 +660,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Identifier of the stack the instance will belong to.
      * 
      */
-    @Export(name="stackId", type=String.class, parameters={})
+    @Export(name="stackId", refs={String.class}, tree="[0]")
     private Output<String> stackId;
 
     /**
@@ -674,7 +674,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Desired state of the instance. Valid values are `running` or `stopped`.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
@@ -688,7 +688,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -702,7 +702,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Subnet ID to attach to.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
@@ -716,7 +716,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
      * 
      */
-    @Export(name="tenancy", type=String.class, parameters={})
+    @Export(name="tenancy", refs={String.class}, tree="[0]")
     private Output<String> tenancy;
 
     /**
@@ -730,7 +730,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
      * 
      */
-    @Export(name="virtualizationType", type=String.class, parameters={})
+    @Export(name="virtualizationType", refs={String.class}, tree="[0]")
     private Output<String> virtualizationType;
 
     /**

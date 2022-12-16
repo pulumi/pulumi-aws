@@ -105,7 +105,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * ARN of the secret.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -119,7 +119,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Description of the secret.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -133,7 +133,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
      * 
      */
-    @Export(name="forceOverwriteReplicaSecret", type=Boolean.class, parameters={})
+    @Export(name="forceOverwriteReplicaSecret", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceOverwriteReplicaSecret;
 
     /**
@@ -147,7 +147,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
@@ -161,7 +161,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -175,7 +175,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -189,7 +189,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = &#34;&#34;`) _will not_ delete the policy since it could have been set by `aws.secretsmanager.SecretPolicy`. To delete the `policy`, set it to `&#34;{}&#34;` (an empty JSON document).
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -203,7 +203,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
      * 
      */
-    @Export(name="recoveryWindowInDays", type=Integer.class, parameters={})
+    @Export(name="recoveryWindowInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> recoveryWindowInDays;
 
     /**
@@ -217,7 +217,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Configuration block to support secret replication. See details below.
      * 
      */
-    @Export(name="replicas", type=List.class, parameters={SecretReplica.class})
+    @Export(name="replicas", refs={List.class,SecretReplica.class}, tree="[0,1]")
     private Output<List<SecretReplica>> replicas;
 
     /**
@@ -235,7 +235,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_secretsmanager_secret_rotation resource instead */
-    @Export(name="rotationEnabled", type=Boolean.class, parameters={})
+    @Export(name="rotationEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> rotationEnabled;
 
     /**
@@ -253,7 +253,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_secretsmanager_secret_rotation resource instead */
-    @Export(name="rotationLambdaArn", type=String.class, parameters={})
+    @Export(name="rotationLambdaArn", refs={String.class}, tree="[0]")
     private Output<String> rotationLambdaArn;
 
     /**
@@ -271,7 +271,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_secretsmanager_secret_rotation resource instead */
-    @Export(name="rotationRules", type=SecretRotationRules.class, parameters={})
+    @Export(name="rotationRules", refs={SecretRotationRules.class}, tree="[0]")
     private Output<SecretRotationRules> rotationRules;
 
     /**
@@ -285,7 +285,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -299,7 +299,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

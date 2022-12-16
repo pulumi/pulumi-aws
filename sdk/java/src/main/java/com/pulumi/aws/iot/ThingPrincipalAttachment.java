@@ -64,7 +64,7 @@ public class ThingPrincipalAttachment extends com.pulumi.resources.CustomResourc
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -78,7 +78,7 @@ public class ThingPrincipalAttachment extends com.pulumi.resources.CustomResourc
      * The name of the thing.
      * 
      */
-    @Export(name="thing", type=String.class, parameters={})
+    @Export(name="thing", refs={String.class}, tree="[0]")
     private Output<String> thing;
 
     /**

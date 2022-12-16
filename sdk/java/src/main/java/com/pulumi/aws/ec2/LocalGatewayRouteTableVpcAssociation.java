@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation")
 public class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.CustomResource {
-    @Export(name="localGatewayId", type=String.class, parameters={})
+    @Export(name="localGatewayId", refs={String.class}, tree="[0]")
     private Output<String> localGatewayId;
 
     public Output<String> localGatewayId() {
@@ -82,7 +82,7 @@ public class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.C
      * Identifier of EC2 Local Gateway Route Table.
      * 
      */
-    @Export(name="localGatewayRouteTableId", type=String.class, parameters={})
+    @Export(name="localGatewayRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> localGatewayRouteTableId;
 
     /**
@@ -96,7 +96,7 @@ public class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.C
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -110,7 +110,7 @@ public class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.C
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -124,7 +124,7 @@ public class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.C
      * Identifier of EC2 VPC.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

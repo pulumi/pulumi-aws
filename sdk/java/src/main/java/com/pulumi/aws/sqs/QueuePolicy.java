@@ -85,7 +85,7 @@ public class QueuePolicy extends com.pulumi.resources.CustomResource {
      * The JSON policy for the SQS queue.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -99,7 +99,7 @@ public class QueuePolicy extends com.pulumi.resources.CustomResource {
      * The URL of the SQS Queue to which to attach the policy
      * 
      */
-    @Export(name="queueUrl", type=String.class, parameters={})
+    @Export(name="queueUrl", refs={String.class}, tree="[0]")
     private Output<String> queueUrl;
 
     /**

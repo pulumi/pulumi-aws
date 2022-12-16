@@ -82,7 +82,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Machine architecture for created instances. Defaults to &#34;x86_64&#34;.
      * 
      */
-    @Export(name="architecture", type=String.class, parameters={})
+    @Export(name="architecture", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> architecture;
 
     /**
@@ -96,7 +96,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * ARN of the AMI.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -110,7 +110,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    @Export(name="bootMode", type=String.class, parameters={})
+    @Export(name="bootMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bootMode;
 
     /**
@@ -124,7 +124,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    @Export(name="deprecationTime", type=String.class, parameters={})
+    @Export(name="deprecationTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deprecationTime;
 
     /**
@@ -138,7 +138,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Longer, human-readable description for the AMI.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -153,7 +153,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * attached to created instances. The structure of this block is described below.
      * 
      */
-    @Export(name="ebsBlockDevices", type=List.class, parameters={AmiEbsBlockDevice.class})
+    @Export(name="ebsBlockDevices", refs={List.class,AmiEbsBlockDevice.class}, tree="[0,1]")
     private Output<List<AmiEbsBlockDevice>> ebsBlockDevices;
 
     /**
@@ -168,7 +168,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="enaSupport", type=Boolean.class, parameters={})
+    @Export(name="enaSupport", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enaSupport;
 
     /**
@@ -183,7 +183,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * should be attached to created instances. The structure of this block is described below.
      * 
      */
-    @Export(name="ephemeralBlockDevices", type=List.class, parameters={AmiEphemeralBlockDevice.class})
+    @Export(name="ephemeralBlockDevices", refs={List.class,AmiEphemeralBlockDevice.class}, tree="[0,1]")
     private Output<List<AmiEphemeralBlockDevice>> ephemeralBlockDevices;
 
     /**
@@ -198,7 +198,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Hypervisor type of the image.
      * 
      */
-    @Export(name="hypervisor", type=String.class, parameters={})
+    @Export(name="hypervisor", refs={String.class}, tree="[0]")
     private Output<String> hypervisor;
 
     /**
@@ -213,7 +213,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      * 
      */
-    @Export(name="imageLocation", type=String.class, parameters={})
+    @Export(name="imageLocation", refs={String.class}, tree="[0]")
     private Output<String> imageLocation;
 
     /**
@@ -228,7 +228,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
      * 
      */
-    @Export(name="imageOwnerAlias", type=String.class, parameters={})
+    @Export(name="imageOwnerAlias", refs={String.class}, tree="[0]")
     private Output<String> imageOwnerAlias;
 
     /**
@@ -242,7 +242,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Type of image.
      * 
      */
-    @Export(name="imageType", type=String.class, parameters={})
+    @Export(name="imageType", refs={String.class}, tree="[0]")
     private Output<String> imageType;
 
     /**
@@ -256,7 +256,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      * 
      */
-    @Export(name="imdsSupport", type=String.class, parameters={})
+    @Export(name="imdsSupport", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imdsSupport;
 
     /**
@@ -271,7 +271,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * kernel in created instances.
      * 
      */
-    @Export(name="kernelId", type=String.class, parameters={})
+    @Export(name="kernelId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kernelId;
 
     /**
@@ -282,7 +282,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> kernelId() {
         return Codegen.optional(this.kernelId);
     }
-    @Export(name="manageEbsSnapshots", type=Boolean.class, parameters={})
+    @Export(name="manageEbsSnapshots", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> manageEbsSnapshots;
 
     public Output<Boolean> manageEbsSnapshots() {
@@ -292,7 +292,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Region-unique name for the AMI.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -306,7 +306,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * AWS account ID of the image owner.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -320,7 +320,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * This value is set to windows for Windows AMIs; otherwise, it is blank.
      * 
      */
-    @Export(name="platform", type=String.class, parameters={})
+    @Export(name="platform", refs={String.class}, tree="[0]")
     private Output<String> platform;
 
     /**
@@ -334,7 +334,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Platform details associated with the billing code of the AMI.
      * 
      */
-    @Export(name="platformDetails", type=String.class, parameters={})
+    @Export(name="platformDetails", refs={String.class}, tree="[0]")
     private Output<String> platformDetails;
 
     /**
@@ -348,7 +348,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Whether the image has public launch permissions.
      * 
      */
-    @Export(name="public", type=Boolean.class, parameters={})
+    @Export(name="public", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> public_;
 
     /**
@@ -363,7 +363,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * created instances.
      * 
      */
-    @Export(name="ramdiskId", type=String.class, parameters={})
+    @Export(name="ramdiskId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ramdiskId;
 
     /**
@@ -378,7 +378,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
-    @Export(name="rootDeviceName", type=String.class, parameters={})
+    @Export(name="rootDeviceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rootDeviceName;
 
     /**
@@ -392,7 +392,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Snapshot ID for the root volume (for EBS-backed AMIs)
      * 
      */
-    @Export(name="rootSnapshotId", type=String.class, parameters={})
+    @Export(name="rootSnapshotId", refs={String.class}, tree="[0]")
     private Output<String> rootSnapshotId;
 
     /**
@@ -407,7 +407,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * for created instances. No other value is supported at this time.
      * 
      */
-    @Export(name="sriovNetSupport", type=String.class, parameters={})
+    @Export(name="sriovNetSupport", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sriovNetSupport;
 
     /**
@@ -422,7 +422,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -436,7 +436,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -450,7 +450,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    @Export(name="tpmSupport", type=String.class, parameters={})
+    @Export(name="tpmSupport", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tpmSupport;
 
     /**
@@ -464,7 +464,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
-    @Export(name="usageOperation", type=String.class, parameters={})
+    @Export(name="usageOperation", refs={String.class}, tree="[0]")
     private Output<String> usageOperation;
 
     /**
@@ -480,7 +480,7 @@ public class Ami extends com.pulumi.resources.CustomResource {
      * changes the set of further arguments that are required, as described below.
      * 
      */
-    @Export(name="virtualizationType", type=String.class, parameters={})
+    @Export(name="virtualizationType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualizationType;
 
     /**

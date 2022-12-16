@@ -173,7 +173,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * ARN that identifies the cluster.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -191,7 +191,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-    @Export(name="capacityProviders", type=List.class, parameters={String.class})
+    @Export(name="capacityProviders", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> capacityProviders;
 
     /**
@@ -205,7 +205,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The execute command configuration for the cluster. Detailed below.
      * 
      */
-    @Export(name="configuration", type=ClusterConfiguration.class, parameters={})
+    @Export(name="configuration", refs={ClusterConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ClusterConfiguration> configuration;
 
     /**
@@ -223,7 +223,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-    @Export(name="defaultCapacityProviderStrategies", type=List.class, parameters={ClusterDefaultCapacityProviderStrategy.class})
+    @Export(name="defaultCapacityProviderStrategies", refs={List.class,ClusterDefaultCapacityProviderStrategy.class}, tree="[0,1]")
     private Output<List<ClusterDefaultCapacityProviderStrategy>> defaultCapacityProviderStrategies;
 
     /**
@@ -237,7 +237,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Name of the setting to manage. Valid values: `containerInsights`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -251,7 +251,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Configures a default Service Connect namespace. Detailed below.
      * 
      */
-    @Export(name="serviceConnectDefaults", type=ClusterServiceConnectDefaults.class, parameters={})
+    @Export(name="serviceConnectDefaults", refs={ClusterServiceConnectDefaults.class}, tree="[0]")
     private Output</* @Nullable */ ClusterServiceConnectDefaults> serviceConnectDefaults;
 
     /**
@@ -265,7 +265,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      * 
      */
-    @Export(name="settings", type=List.class, parameters={ClusterSetting.class})
+    @Export(name="settings", refs={List.class,ClusterSetting.class}, tree="[0,1]")
     private Output<List<ClusterSetting>> settings;
 
     /**
@@ -279,7 +279,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -293,7 +293,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

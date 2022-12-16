@@ -63,7 +63,7 @@ public class Graph extends com.pulumi.resources.CustomResource {
      * Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
      * 
      */
-    @Export(name="createdTime", type=String.class, parameters={})
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
@@ -77,7 +77,7 @@ public class Graph extends com.pulumi.resources.CustomResource {
      * ARN of the Detective Graph.
      * 
      */
-    @Export(name="graphArn", type=String.class, parameters={})
+    @Export(name="graphArn", refs={String.class}, tree="[0]")
     private Output<String> graphArn;
 
     /**
@@ -91,7 +91,7 @@ public class Graph extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -101,7 +101,7 @@ public class Graph extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {

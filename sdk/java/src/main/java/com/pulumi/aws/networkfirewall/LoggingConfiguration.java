@@ -148,7 +148,7 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
      * 
      */
-    @Export(name="firewallArn", type=String.class, parameters={})
+    @Export(name="firewallArn", refs={String.class}, tree="[0]")
     private Output<String> firewallArn;
 
     /**
@@ -162,7 +162,7 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      * 
      */
-    @Export(name="loggingConfiguration", type=LoggingConfigurationLoggingConfiguration.class, parameters={})
+    @Export(name="loggingConfiguration", refs={LoggingConfigurationLoggingConfiguration.class}, tree="[0]")
     private Output<LoggingConfigurationLoggingConfiguration> loggingConfiguration;
 
     /**

@@ -100,7 +100,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      * 
      */
-    @Export(name="alias", type=String.class, parameters={})
+    @Export(name="alias", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alias;
 
     /**
@@ -114,7 +114,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the workspace.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -128,7 +128,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Logging configuration for the workspace. See Logging Configuration below for details.
      * 
      */
-    @Export(name="loggingConfiguration", type=WorkspaceLoggingConfiguration.class, parameters={})
+    @Export(name="loggingConfiguration", refs={WorkspaceLoggingConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceLoggingConfiguration> loggingConfiguration;
 
     /**
@@ -142,7 +142,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Prometheus endpoint available for this workspace.
      * 
      */
-    @Export(name="prometheusEndpoint", type=String.class, parameters={})
+    @Export(name="prometheusEndpoint", refs={String.class}, tree="[0]")
     private Output<String> prometheusEndpoint;
 
     /**
@@ -156,7 +156,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -170,7 +170,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

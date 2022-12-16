@@ -80,7 +80,7 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      * (Required) Amazon Resource Name (ARN) of the distribution configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -94,7 +94,7 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      * Date the distribution configuration was created.
      * 
      */
-    @Export(name="dateCreated", type=String.class, parameters={})
+    @Export(name="dateCreated", refs={String.class}, tree="[0]")
     private Output<String> dateCreated;
 
     /**
@@ -108,7 +108,7 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      * Date the distribution configuration was updated.
      * 
      */
-    @Export(name="dateUpdated", type=String.class, parameters={})
+    @Export(name="dateUpdated", refs={String.class}, tree="[0]")
     private Output<String> dateUpdated;
 
     /**
@@ -122,7 +122,7 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      * Description of the container distribution configuration.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -136,7 +136,7 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      * One or more configuration blocks with distribution settings. Detailed below.
      * 
      */
-    @Export(name="distributions", type=List.class, parameters={DistributionConfigurationDistribution.class})
+    @Export(name="distributions", refs={List.class,DistributionConfigurationDistribution.class}, tree="[0,1]")
     private Output<List<DistributionConfigurationDistribution>> distributions;
 
     /**
@@ -150,7 +150,7 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      * Name to apply to the distributed AMI.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -164,7 +164,7 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      * Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -178,7 +178,7 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

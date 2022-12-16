@@ -29,7 +29,7 @@ public class VpcEndpointServiceAllowedPrinciple extends com.pulumi.resources.Cus
      * The ARN of the principal to allow permissions.
      * 
      */
-    @Export(name="principalArn", type=String.class, parameters={})
+    @Export(name="principalArn", refs={String.class}, tree="[0]")
     private Output<String> principalArn;
 
     /**
@@ -43,7 +43,7 @@ public class VpcEndpointServiceAllowedPrinciple extends com.pulumi.resources.Cus
      * The ID of the VPC endpoint service to allow permission.
      * 
      */
-    @Export(name="vpcEndpointServiceId", type=String.class, parameters={})
+    @Export(name="vpcEndpointServiceId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointServiceId;
 
     /**

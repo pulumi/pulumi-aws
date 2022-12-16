@@ -76,7 +76,7 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -90,7 +90,7 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * The time that the FSx for openzfs location was created.
      * 
      */
-    @Export(name="creationTime", type=String.class, parameters={})
+    @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
@@ -104,7 +104,7 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
      * 
      */
-    @Export(name="fsxFilesystemArn", type=String.class, parameters={})
+    @Export(name="fsxFilesystemArn", refs={String.class}, tree="[0]")
     private Output<String> fsxFilesystemArn;
 
     /**
@@ -118,7 +118,7 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * The type of protocol that DataSync uses to access your file system. See below.
      * 
      */
-    @Export(name="protocol", type=FsxOpenZfsFileSystemProtocol.class, parameters={})
+    @Export(name="protocol", refs={FsxOpenZfsFileSystemProtocol.class}, tree="[0]")
     private Output<FsxOpenZfsFileSystemProtocol> protocol;
 
     /**
@@ -132,7 +132,7 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
      * 
      */
-    @Export(name="securityGroupArns", type=List.class, parameters={String.class})
+    @Export(name="securityGroupArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupArns;
 
     /**
@@ -146,7 +146,7 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * Subdirectory to perform actions as source or destination. Must start with `/fsx`.
      * 
      */
-    @Export(name="subdirectory", type=String.class, parameters={})
+    @Export(name="subdirectory", refs={String.class}, tree="[0]")
     private Output<String> subdirectory;
 
     /**
@@ -160,7 +160,7 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -174,7 +174,7 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -188,7 +188,7 @@ public class FsxOpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * The URL of the FSx for openzfs location that was described.
      * 
      */
-    @Export(name="uri", type=String.class, parameters={})
+    @Export(name="uri", refs={String.class}, tree="[0]")
     private Output<String> uri;
 
     /**

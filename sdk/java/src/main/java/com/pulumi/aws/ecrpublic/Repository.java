@@ -86,7 +86,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Full ARN of the repository.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -100,7 +100,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Catalog data configuration for the repository. See below for schema.
      * 
      */
-    @Export(name="catalogData", type=RepositoryCatalogData.class, parameters={})
+    @Export(name="catalogData", refs={RepositoryCatalogData.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryCatalogData> catalogData;
 
     /**
@@ -110,7 +110,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
     public Output<Optional<RepositoryCatalogData>> catalogData() {
         return Codegen.optional(this.catalogData);
     }
-    @Export(name="forceDestroy", type=Boolean.class, parameters={})
+    @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     public Output<Optional<Boolean>> forceDestroy() {
@@ -120,7 +120,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The registry ID where the repository was created.
      * 
      */
-    @Export(name="registryId", type=String.class, parameters={})
+    @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
     /**
@@ -134,7 +134,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Name of the repository.
      * 
      */
-    @Export(name="repositoryName", type=String.class, parameters={})
+    @Export(name="repositoryName", refs={String.class}, tree="[0]")
     private Output<String> repositoryName;
 
     /**
@@ -148,7 +148,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The URI of the repository.
      * 
      */
-    @Export(name="repositoryUri", type=String.class, parameters={})
+    @Export(name="repositoryUri", refs={String.class}, tree="[0]")
     private Output<String> repositoryUri;
 
     /**
@@ -162,7 +162,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -176,7 +176,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

@@ -94,7 +94,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the resource.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -108,7 +108,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
      * 
      */
-    @Export(name="copyTagsToDataRepositoryAssociations", type=Boolean.class, parameters={})
+    @Export(name="copyTagsToDataRepositoryAssociations", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToDataRepositoryAssociations;
 
     /**
@@ -122,7 +122,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * A list of IDs of data repository associations that are associated with this cache.
      * 
      */
-    @Export(name="dataRepositoryAssociationIds", type=List.class, parameters={String.class})
+    @Export(name="dataRepositoryAssociationIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> dataRepositoryAssociationIds;
 
     /**
@@ -137,7 +137,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can&#39;t link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
      * 
      */
-    @Export(name="dataRepositoryAssociations", type=List.class, parameters={FileCacheDataRepositoryAssociation.class})
+    @Export(name="dataRepositoryAssociations", refs={List.class,FileCacheDataRepositoryAssociation.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FileCacheDataRepositoryAssociation>> dataRepositoryAssociations;
 
     /**
@@ -152,7 +152,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * The Domain Name System (DNS) name for the cache.
      * 
      */
-    @Export(name="dnsName", type=String.class, parameters={})
+    @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
@@ -166,7 +166,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * The system-generated, unique ID of the cache.
      * 
      */
-    @Export(name="fileCacheId", type=String.class, parameters={})
+    @Export(name="fileCacheId", refs={String.class}, tree="[0]")
     private Output<String> fileCacheId;
 
     /**
@@ -180,7 +180,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * The type of cache that you&#39;re creating. The only supported value is `LUSTRE`.
      * 
      */
-    @Export(name="fileCacheType", type=String.class, parameters={})
+    @Export(name="fileCacheType", refs={String.class}, tree="[0]")
     private Output<String> fileCacheType;
 
     /**
@@ -194,7 +194,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * The version for the type of cache that you&#39;re creating. The only supported value is `2.12`.
      * 
      */
-    @Export(name="fileCacheTypeVersion", type=String.class, parameters={})
+    @Export(name="fileCacheTypeVersion", refs={String.class}, tree="[0]")
     private Output<String> fileCacheTypeVersion;
 
     /**
@@ -208,7 +208,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn&#39;t specified, the Amazon FSx-managed AWS KMS key for your account is used.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -222,7 +222,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
      * 
      */
-    @Export(name="lustreConfigurations", type=List.class, parameters={FileCacheLustreConfiguration.class})
+    @Export(name="lustreConfigurations", refs={List.class,FileCacheLustreConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FileCacheLustreConfiguration>> lustreConfigurations;
 
     /**
@@ -236,7 +236,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * A list of network interface IDs.
      * 
      */
-    @Export(name="networkInterfaceIds", type=List.class, parameters={String.class})
+    @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> networkInterfaceIds;
 
     /**
@@ -246,7 +246,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
     public Output<List<String>> networkInterfaceIds() {
         return this.networkInterfaceIds;
     }
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     public Output<String> ownerId() {
@@ -256,7 +256,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
      * 
      */
-    @Export(name="securityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
@@ -270,7 +270,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
      * 
      */
-    @Export(name="storageCapacity", type=Integer.class, parameters={})
+    @Export(name="storageCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCapacity;
 
     /**
@@ -284,7 +284,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
@@ -298,7 +298,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -308,7 +308,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -318,7 +318,7 @@ public class FileCache extends com.pulumi.resources.CustomResource {
      * The ID of your virtual private cloud (VPC).
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

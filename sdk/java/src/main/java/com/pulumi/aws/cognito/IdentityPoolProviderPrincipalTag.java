@@ -34,7 +34,7 @@ public class IdentityPoolProviderPrincipalTag extends com.pulumi.resources.Custo
      * An identity pool ID.
      * 
      */
-    @Export(name="identityPoolId", type=String.class, parameters={})
+    @Export(name="identityPoolId", refs={String.class}, tree="[0]")
     private Output<String> identityPoolId;
 
     /**
@@ -50,7 +50,7 @@ public class IdentityPoolProviderPrincipalTag extends com.pulumi.resources.Custo
      * * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
      * 
      */
-    @Export(name="identityProviderName", type=String.class, parameters={})
+    @Export(name="identityProviderName", refs={String.class}, tree="[0]")
     private Output<String> identityProviderName;
 
     /**
@@ -62,13 +62,13 @@ public class IdentityPoolProviderPrincipalTag extends com.pulumi.resources.Custo
     public Output<String> identityProviderName() {
         return this.identityProviderName;
     }
-    @Export(name="principalTags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="principalTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> principalTags;
 
     public Output<Optional<Map<String,String>>> principalTags() {
         return Codegen.optional(this.principalTags);
     }
-    @Export(name="useDefaults", type=Boolean.class, parameters={})
+    @Export(name="useDefaults", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useDefaults;
 
     public Output<Optional<Boolean>> useDefaults() {

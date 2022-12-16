@@ -238,7 +238,7 @@ public class InstanceStorageConfig extends com.pulumi.resources.CustomResource {
      * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
      * 
      */
-    @Export(name="associationId", type=String.class, parameters={})
+    @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
     /**
@@ -252,7 +252,7 @@ public class InstanceStorageConfig extends com.pulumi.resources.CustomResource {
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
@@ -266,7 +266,7 @@ public class InstanceStorageConfig extends com.pulumi.resources.CustomResource {
      * A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
      * 
      */
-    @Export(name="resourceType", type=String.class, parameters={})
+    @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
@@ -280,7 +280,7 @@ public class InstanceStorageConfig extends com.pulumi.resources.CustomResource {
      * Specifies the storage configuration options for the Connect Instance. Documented below.
      * 
      */
-    @Export(name="storageConfig", type=InstanceStorageConfigStorageConfig.class, parameters={})
+    @Export(name="storageConfig", refs={InstanceStorageConfigStorageConfig.class}, tree="[0]")
     private Output<InstanceStorageConfigStorageConfig> storageConfig;
 
     /**

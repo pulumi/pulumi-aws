@@ -116,7 +116,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) that identifies the task set.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -130,7 +130,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
      * 
      */
-    @Export(name="capacityProviderStrategies", type=List.class, parameters={TaskSetCapacityProviderStrategy.class})
+    @Export(name="capacityProviderStrategies", refs={List.class,TaskSetCapacityProviderStrategy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TaskSetCapacityProviderStrategy>> capacityProviderStrategies;
 
     /**
@@ -144,7 +144,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The short name or ARN of the cluster that hosts the service to create the task set in.
      * 
      */
-    @Export(name="cluster", type=String.class, parameters={})
+    @Export(name="cluster", refs={String.class}, tree="[0]")
     private Output<String> cluster;
 
     /**
@@ -158,7 +158,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The external ID associated with the task set.
      * 
      */
-    @Export(name="externalId", type=String.class, parameters={})
+    @Export(name="externalId", refs={String.class}, tree="[0]")
     private Output<String> externalId;
 
     /**
@@ -172,7 +172,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it&#39;s in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
      * 
      */
-    @Export(name="forceDelete", type=Boolean.class, parameters={})
+    @Export(name="forceDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDelete;
 
     /**
@@ -186,7 +186,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      * 
      */
-    @Export(name="launchType", type=String.class, parameters={})
+    @Export(name="launchType", refs={String.class}, tree="[0]")
     private Output<String> launchType;
 
     /**
@@ -200,7 +200,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * Details on load balancers that are used with a task set. Detailed below.
      * 
      */
-    @Export(name="loadBalancers", type=List.class, parameters={TaskSetLoadBalancer.class})
+    @Export(name="loadBalancers", refs={List.class,TaskSetLoadBalancer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TaskSetLoadBalancer>> loadBalancers;
 
     /**
@@ -214,7 +214,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
      * 
      */
-    @Export(name="networkConfiguration", type=TaskSetNetworkConfiguration.class, parameters={})
+    @Export(name="networkConfiguration", refs={TaskSetNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ TaskSetNetworkConfiguration> networkConfiguration;
 
     /**
@@ -228,7 +228,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
-    @Export(name="platformVersion", type=String.class, parameters={})
+    @Export(name="platformVersion", refs={String.class}, tree="[0]")
     private Output<String> platformVersion;
 
     /**
@@ -242,7 +242,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      * 
      */
-    @Export(name="scale", type=TaskSetScale.class, parameters={})
+    @Export(name="scale", refs={TaskSetScale.class}, tree="[0]")
     private Output<TaskSetScale> scale;
 
     /**
@@ -256,7 +256,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The short name or ARN of the ECS service.
      * 
      */
-    @Export(name="service", type=String.class, parameters={})
+    @Export(name="service", refs={String.class}, tree="[0]")
     private Output<String> service;
 
     /**
@@ -270,7 +270,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
      * 
      */
-    @Export(name="serviceRegistries", type=TaskSetServiceRegistries.class, parameters={})
+    @Export(name="serviceRegistries", refs={TaskSetServiceRegistries.class}, tree="[0]")
     private Output</* @Nullable */ TaskSetServiceRegistries> serviceRegistries;
 
     /**
@@ -284,7 +284,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The stability status. This indicates whether the task set has reached a steady state.
      * 
      */
-    @Export(name="stabilityStatus", type=String.class, parameters={})
+    @Export(name="stabilityStatus", refs={String.class}, tree="[0]")
     private Output<String> stabilityStatus;
 
     /**
@@ -298,7 +298,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The status of the task set.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -312,7 +312,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -326,7 +326,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -340,7 +340,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      * 
      */
-    @Export(name="taskDefinition", type=String.class, parameters={})
+    @Export(name="taskDefinition", refs={String.class}, tree="[0]")
     private Output<String> taskDefinition;
 
     /**
@@ -354,7 +354,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * The ID of the task set.
      * 
      */
-    @Export(name="taskSetId", type=String.class, parameters={})
+    @Export(name="taskSetId", refs={String.class}, tree="[0]")
     private Output<String> taskSetId;
 
     /**
@@ -368,7 +368,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * Whether the provider should wait until the task set has reached `STEADY_STATE`.
      * 
      */
-    @Export(name="waitUntilStable", type=Boolean.class, parameters={})
+    @Export(name="waitUntilStable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> waitUntilStable;
 
     /**
@@ -382,7 +382,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
      * Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
      * 
      */
-    @Export(name="waitUntilStableTimeout", type=String.class, parameters={})
+    @Export(name="waitUntilStableTimeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> waitUntilStableTimeout;
 
     /**

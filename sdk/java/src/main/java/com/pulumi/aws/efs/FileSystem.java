@@ -102,7 +102,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name of the file system.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -116,7 +116,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The identifier of the Availability Zone in which the file system&#39;s One Zone storage classes exist.
      * 
      */
-    @Export(name="availabilityZoneId", type=String.class, parameters={})
+    @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneId;
 
     /**
@@ -130,7 +130,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
      * 
      */
-    @Export(name="availabilityZoneName", type=String.class, parameters={})
+    @Export(name="availabilityZoneName", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneName;
 
     /**
@@ -147,7 +147,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * user guide for more information.
      * 
      */
-    @Export(name="creationToken", type=String.class, parameters={})
+    @Export(name="creationToken", refs={String.class}, tree="[0]")
     private Output<String> creationToken;
 
     /**
@@ -164,7 +164,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
-    @Export(name="dnsName", type=String.class, parameters={})
+    @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
@@ -178,7 +178,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * If true, the disk will be encrypted.
      * 
      */
-    @Export(name="encrypted", type=Boolean.class, parameters={})
+    @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> encrypted;
 
     /**
@@ -192,7 +192,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -206,7 +206,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
      * 
      */
-    @Export(name="lifecyclePolicies", type=List.class, parameters={FileSystemLifecyclePolicy.class})
+    @Export(name="lifecyclePolicies", refs={List.class,FileSystemLifecyclePolicy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FileSystemLifecyclePolicy>> lifecyclePolicies;
 
     /**
@@ -220,7 +220,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The current number of mount targets that the file system has.
      * 
      */
-    @Export(name="numberOfMountTargets", type=Integer.class, parameters={})
+    @Export(name="numberOfMountTargets", refs={Integer.class}, tree="[0]")
     private Output<Integer> numberOfMountTargets;
 
     /**
@@ -234,7 +234,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -248,7 +248,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The file system performance mode. Can be either `&#34;generalPurpose&#34;` or `&#34;maxIO&#34;` (Default: `&#34;generalPurpose&#34;`).
      * 
      */
-    @Export(name="performanceMode", type=String.class, parameters={})
+    @Export(name="performanceMode", refs={String.class}, tree="[0]")
     private Output<String> performanceMode;
 
     /**
@@ -262,7 +262,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
      * 
      */
-    @Export(name="provisionedThroughputInMibps", type=Double.class, parameters={})
+    @Export(name="provisionedThroughputInMibps", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> provisionedThroughputInMibps;
 
     /**
@@ -276,7 +276,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
      * 
      */
-    @Export(name="sizeInBytes", type=List.class, parameters={FileSystemSizeInByte.class})
+    @Export(name="sizeInBytes", refs={List.class,FileSystemSizeInByte.class}, tree="[0,1]")
     private Output<List<FileSystemSizeInByte>> sizeInBytes;
 
     /**
@@ -290,7 +290,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -304,7 +304,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -318,7 +318,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
      * 
      */
-    @Export(name="throughputMode", type=String.class, parameters={})
+    @Export(name="throughputMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> throughputMode;
 
     /**

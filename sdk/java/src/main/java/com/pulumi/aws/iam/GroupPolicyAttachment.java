@@ -74,7 +74,7 @@ public class GroupPolicyAttachment extends com.pulumi.resources.CustomResource {
      * The group the policy should be applied to
      * 
      */
-    @Export(name="group", type=String.class, parameters={})
+    @Export(name="group", refs={String.class}, tree="[0]")
     private Output<String> group;
 
     /**
@@ -88,7 +88,7 @@ public class GroupPolicyAttachment extends com.pulumi.resources.CustomResource {
      * The ARN of the policy you want to apply
      * 
      */
-    @Export(name="policyArn", type=String.class, parameters={})
+    @Export(name="policyArn", refs={String.class}, tree="[0]")
     private Output<String> policyArn;
 
     /**

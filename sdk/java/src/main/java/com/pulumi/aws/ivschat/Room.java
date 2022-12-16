@@ -112,7 +112,7 @@ public class Room extends com.pulumi.resources.CustomResource {
      * ARN of the Room.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -127,7 +127,7 @@ public class Room extends com.pulumi.resources.CustomResource {
      * ARNs to attach to the room.
      * 
      */
-    @Export(name="loggingConfigurationIdentifiers", type=List.class, parameters={String.class})
+    @Export(name="loggingConfigurationIdentifiers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> loggingConfigurationIdentifiers;
 
     /**
@@ -144,7 +144,7 @@ public class Room extends com.pulumi.resources.CustomResource {
      * specifically to rune/code-point count, not number of bytes.
      * 
      */
-    @Export(name="maximumMessageLength", type=Integer.class, parameters={})
+    @Export(name="maximumMessageLength", refs={Integer.class}, tree="[0]")
     private Output<Integer> maximumMessageLength;
 
     /**
@@ -161,7 +161,7 @@ public class Room extends com.pulumi.resources.CustomResource {
      * second that can be sent to the room (by all clients).
      * 
      */
-    @Export(name="maximumMessageRatePerSecond", type=Integer.class, parameters={})
+    @Export(name="maximumMessageRatePerSecond", refs={Integer.class}, tree="[0]")
     private Output<Integer> maximumMessageRatePerSecond;
 
     /**
@@ -177,7 +177,7 @@ public class Room extends com.pulumi.resources.CustomResource {
      * review of messages.
      * 
      */
-    @Export(name="messageReviewHandler", type=RoomMessageReviewHandler.class, parameters={})
+    @Export(name="messageReviewHandler", refs={RoomMessageReviewHandler.class}, tree="[0]")
     private Output</* @Nullable */ RoomMessageReviewHandler> messageReviewHandler;
 
     /**
@@ -192,7 +192,7 @@ public class Room extends com.pulumi.resources.CustomResource {
      * Room name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -206,7 +206,7 @@ public class Room extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -220,7 +220,7 @@ public class Room extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

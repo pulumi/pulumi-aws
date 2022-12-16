@@ -93,7 +93,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * ARN of the Vocabulary.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -107,7 +107,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * Generated download URI.
      * 
      */
-    @Export(name="downloadUri", type=String.class, parameters={})
+    @Export(name="downloadUri", refs={String.class}, tree="[0]")
     private Output<String> downloadUri;
 
     /**
@@ -121,7 +121,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * The language code you selected for your vocabulary.
      * 
      */
-    @Export(name="languageCode", type=String.class, parameters={})
+    @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
@@ -135,7 +135,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
      * 
      */
-    @Export(name="phrases", type=List.class, parameters={String.class})
+    @Export(name="phrases", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> phrases;
 
     /**
@@ -149,7 +149,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -159,7 +159,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -169,7 +169,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      * 
      */
-    @Export(name="vocabularyFileUri", type=String.class, parameters={})
+    @Export(name="vocabularyFileUri", refs={String.class}, tree="[0]")
     private Output<String> vocabularyFileUri;
 
     /**
@@ -183,7 +183,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
      * The name of the Vocabulary.
      * 
      */
-    @Export(name="vocabularyName", type=String.class, parameters={})
+    @Export(name="vocabularyName", refs={String.class}, tree="[0]")
     private Output<String> vocabularyName;
 
     /**

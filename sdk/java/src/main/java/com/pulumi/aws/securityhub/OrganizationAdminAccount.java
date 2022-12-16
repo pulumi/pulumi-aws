@@ -80,7 +80,7 @@ public class OrganizationAdminAccount extends com.pulumi.resources.CustomResourc
      * The AWS account identifier of the account to designate as the Security Hub administrator account.
      * 
      */
-    @Export(name="adminAccountId", type=String.class, parameters={})
+    @Export(name="adminAccountId", refs={String.class}, tree="[0]")
     private Output<String> adminAccountId;
 
     /**

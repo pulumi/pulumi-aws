@@ -211,7 +211,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
      * 
      */
-    @Export(name="cidrBlocks", type=List.class, parameters={String.class})
+    @Export(name="cidrBlocks", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cidrBlocks;
 
     /**
@@ -225,7 +225,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * Description of the rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -239,7 +239,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * Start port (or ICMP type number if protocol is &#34;icmp&#34; or &#34;icmpv6&#34;).
      * 
      */
-    @Export(name="fromPort", type=Integer.class, parameters={})
+    @Export(name="fromPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> fromPort;
 
     /**
@@ -253,7 +253,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
      * 
      */
-    @Export(name="ipv6CidrBlocks", type=List.class, parameters={String.class})
+    @Export(name="ipv6CidrBlocks", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ipv6CidrBlocks;
 
     /**
@@ -267,7 +267,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * List of Prefix List IDs.
      * 
      */
-    @Export(name="prefixListIds", type=List.class, parameters={String.class})
+    @Export(name="prefixListIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> prefixListIds;
 
     /**
@@ -281,7 +281,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      * 
      */
-    @Export(name="protocol", type=String.class, parameters={})
+    @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
@@ -295,7 +295,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * Security group to apply this rule to.
      * 
      */
-    @Export(name="securityGroupId", type=String.class, parameters={})
+    @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
     /**
@@ -309,7 +309,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
      * 
      */
-    @Export(name="securityGroupRuleId", type=String.class, parameters={})
+    @Export(name="securityGroupRuleId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupRuleId;
 
     /**
@@ -323,7 +323,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
      * 
      */
-    @Export(name="self", type=Boolean.class, parameters={})
+    @Export(name="self", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> self;
 
     /**
@@ -337,7 +337,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
      * 
      */
-    @Export(name="sourceSecurityGroupId", type=String.class, parameters={})
+    @Export(name="sourceSecurityGroupId", refs={String.class}, tree="[0]")
     private Output<String> sourceSecurityGroupId;
 
     /**
@@ -351,7 +351,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * End port (or ICMP code if protocol is &#34;icmp&#34;).
      * 
      */
-    @Export(name="toPort", type=Integer.class, parameters={})
+    @Export(name="toPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> toPort;
 
     /**
@@ -366,7 +366,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * or `egress` (outbound).
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

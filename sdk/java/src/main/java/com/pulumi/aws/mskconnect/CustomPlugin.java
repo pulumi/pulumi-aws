@@ -85,7 +85,7 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
      * the Amazon Resource Name (ARN) of the custom plugin.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -99,7 +99,7 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
      * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
      * 
      */
-    @Export(name="contentType", type=String.class, parameters={})
+    @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output<String> contentType;
 
     /**
@@ -113,7 +113,7 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
      * A summary description of the custom plugin.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -127,7 +127,7 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
      * an ID of the latest successfully created revision of the custom plugin.
      * 
      */
-    @Export(name="latestRevision", type=Integer.class, parameters={})
+    @Export(name="latestRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> latestRevision;
 
     /**
@@ -141,7 +141,7 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
      * Information about the location of a custom plugin. See below.
      * 
      */
-    @Export(name="location", type=CustomPluginLocation.class, parameters={})
+    @Export(name="location", refs={CustomPluginLocation.class}, tree="[0]")
     private Output<CustomPluginLocation> location;
 
     /**
@@ -155,7 +155,7 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
      * The name of the custom plugin..
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -169,7 +169,7 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
      * the state of the custom plugin.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**

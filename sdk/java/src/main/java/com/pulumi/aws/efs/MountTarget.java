@@ -77,7 +77,7 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
      * 
      */
-    @Export(name="availabilityZoneId", type=String.class, parameters={})
+    @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneId;
 
     /**
@@ -91,7 +91,7 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * The name of the Availability Zone (AZ) that the mount target resides in.
      * 
      */
-    @Export(name="availabilityZoneName", type=String.class, parameters={})
+    @Export(name="availabilityZoneName", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneName;
 
     /**
@@ -105,7 +105,7 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * The DNS name for the EFS file system.
      * 
      */
-    @Export(name="dnsName", type=String.class, parameters={})
+    @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
@@ -119,7 +119,7 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name of the file system.
      * 
      */
-    @Export(name="fileSystemArn", type=String.class, parameters={})
+    @Export(name="fileSystemArn", refs={String.class}, tree="[0]")
     private Output<String> fileSystemArn;
 
     /**
@@ -133,7 +133,7 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * The ID of the file system for which the mount target is intended.
      * 
      */
-    @Export(name="fileSystemId", type=String.class, parameters={})
+    @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
     /**
@@ -148,7 +148,7 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * which the file system may be mounted via the mount target.
      * 
      */
-    @Export(name="ipAddress", type=String.class, parameters={})
+    @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
@@ -163,7 +163,7 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
-    @Export(name="mountTargetDnsName", type=String.class, parameters={})
+    @Export(name="mountTargetDnsName", refs={String.class}, tree="[0]")
     private Output<String> mountTargetDnsName;
 
     /**
@@ -177,7 +177,7 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      * 
      */
-    @Export(name="networkInterfaceId", type=String.class, parameters={})
+    @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
     /**
@@ -191,7 +191,7 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * AWS account ID that owns the resource.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -206,7 +206,7 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * be for the same VPC as subnet specified) in effect for the mount target.
      * 
      */
-    @Export(name="securityGroups", type=List.class, parameters={String.class})
+    @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroups;
 
     /**
@@ -221,7 +221,7 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
      * The ID of the subnet to add the mount target in.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**

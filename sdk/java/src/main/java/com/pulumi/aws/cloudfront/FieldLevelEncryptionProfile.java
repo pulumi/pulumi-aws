@@ -80,7 +80,7 @@ public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomReso
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
      * 
      */
-    @Export(name="callerReference", type=String.class, parameters={})
+    @Export(name="callerReference", refs={String.class}, tree="[0]")
     private Output<String> callerReference;
 
     /**
@@ -94,7 +94,7 @@ public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomReso
      * An optional comment about the Field Level Encryption Profile.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -108,7 +108,7 @@ public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomReso
      * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
      * 
      */
-    @Export(name="encryptionEntities", type=FieldLevelEncryptionProfileEncryptionEntities.class, parameters={})
+    @Export(name="encryptionEntities", refs={FieldLevelEncryptionProfileEncryptionEntities.class}, tree="[0]")
     private Output<FieldLevelEncryptionProfileEncryptionEntities> encryptionEntities;
 
     /**
@@ -122,7 +122,7 @@ public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomReso
      * The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -136,7 +136,7 @@ public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomReso
      * The name of the Field Level Encryption Profile.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

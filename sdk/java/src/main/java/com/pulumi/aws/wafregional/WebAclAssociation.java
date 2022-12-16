@@ -252,7 +252,7 @@ public class WebAclAssociation extends com.pulumi.resources.CustomResource {
      * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
@@ -266,7 +266,7 @@ public class WebAclAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the WAF Regional WebACL to create an association.
      * 
      */
-    @Export(name="webAclId", type=String.class, parameters={})
+    @Export(name="webAclId", refs={String.class}, tree="[0]")
     private Output<String> webAclId;
 
     /**

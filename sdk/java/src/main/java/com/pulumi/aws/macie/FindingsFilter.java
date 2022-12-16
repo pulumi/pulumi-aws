@@ -80,7 +80,7 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
      * The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don&#39;t perform any action on the findings.
      * 
      */
-    @Export(name="action", type=String.class, parameters={})
+    @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
@@ -94,7 +94,7 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Findings Filter.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -108,7 +108,7 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
      * A custom description of the filter. The description can contain as many as 512 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -122,7 +122,7 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
      * The criteria to use to filter findings.
      * 
      */
-    @Export(name="findingCriteria", type=FindingsFilterFindingCriteria.class, parameters={})
+    @Export(name="findingCriteria", refs={FindingsFilterFindingCriteria.class}, tree="[0]")
     private Output<FindingsFilterFindingCriteria> findingCriteria;
 
     /**
@@ -136,7 +136,7 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
      * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -150,7 +150,7 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -164,7 +164,7 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
      * The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      * 
      */
-    @Export(name="position", type=Integer.class, parameters={})
+    @Export(name="position", refs={Integer.class}, tree="[0]")
     private Output<Integer> position;
 
     /**
@@ -178,7 +178,7 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
      * A map of key-value pairs that specifies the tags to associate with the filter.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -188,7 +188,7 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {

@@ -68,7 +68,7 @@ public class OriginAccessControl extends com.pulumi.resources.CustomResource {
      * The description of the Origin Access Control. It may be empty.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -82,7 +82,7 @@ public class OriginAccessControl extends com.pulumi.resources.CustomResource {
      * The current version of this Origin Access Control.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -96,7 +96,7 @@ public class OriginAccessControl extends com.pulumi.resources.CustomResource {
      * A name that identifies the Origin Access Control.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -110,7 +110,7 @@ public class OriginAccessControl extends com.pulumi.resources.CustomResource {
      * The type of origin that this Origin Access Control is for. The only valid value is `s3`.
      * 
      */
-    @Export(name="originAccessControlOriginType", type=String.class, parameters={})
+    @Export(name="originAccessControlOriginType", refs={String.class}, tree="[0]")
     private Output<String> originAccessControlOriginType;
 
     /**
@@ -124,7 +124,7 @@ public class OriginAccessControl extends com.pulumi.resources.CustomResource {
      * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
      * 
      */
-    @Export(name="signingBehavior", type=String.class, parameters={})
+    @Export(name="signingBehavior", refs={String.class}, tree="[0]")
     private Output<String> signingBehavior;
 
     /**
@@ -138,7 +138,7 @@ public class OriginAccessControl extends com.pulumi.resources.CustomResource {
      * Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
      * 
      */
-    @Export(name="signingProtocol", type=String.class, parameters={})
+    @Export(name="signingProtocol", refs={String.class}, tree="[0]")
     private Output<String> signingProtocol;
 
     /**

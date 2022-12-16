@@ -178,7 +178,7 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * The unique identifier for the AWS account in which the anomaly subscription ought to be created.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -192,7 +192,7 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * ARN of the anomaly subscription.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -206,7 +206,7 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
      * 
      */
-    @Export(name="frequency", type=String.class, parameters={})
+    @Export(name="frequency", refs={String.class}, tree="[0]")
     private Output<String> frequency;
 
     /**
@@ -220,7 +220,7 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * A list of cost anomaly monitors.
      * 
      */
-    @Export(name="monitorArnLists", type=List.class, parameters={String.class})
+    @Export(name="monitorArnLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> monitorArnLists;
 
     /**
@@ -234,7 +234,7 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * The name for the subscription.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -248,7 +248,7 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * A subscriber configuration. Multiple subscribers can be defined.
      * 
      */
-    @Export(name="subscribers", type=List.class, parameters={AnomalySubscriptionSubscriber.class})
+    @Export(name="subscribers", refs={List.class,AnomalySubscriptionSubscriber.class}, tree="[0,1]")
     private Output<List<AnomalySubscriptionSubscriber>> subscribers;
 
     /**
@@ -262,7 +262,7 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -276,7 +276,7 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -290,7 +290,7 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      * The dollar value that triggers a notification if the threshold is exceeded.
      * 
      */
-    @Export(name="threshold", type=Double.class, parameters={})
+    @Export(name="threshold", refs={Double.class}, tree="[0]")
     private Output<Double> threshold;
 
     /**

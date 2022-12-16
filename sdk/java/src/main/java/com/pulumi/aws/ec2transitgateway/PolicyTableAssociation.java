@@ -62,7 +62,7 @@ public class PolicyTableAssociation extends com.pulumi.resources.CustomResource 
      * Identifier of the resource
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -76,7 +76,7 @@ public class PolicyTableAssociation extends com.pulumi.resources.CustomResource 
      * Type of the resource
      * 
      */
-    @Export(name="resourceType", type=String.class, parameters={})
+    @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
@@ -90,7 +90,7 @@ public class PolicyTableAssociation extends com.pulumi.resources.CustomResource 
      * Identifier of EC2 Transit Gateway Attachment.
      * 
      */
-    @Export(name="transitGatewayAttachmentId", type=String.class, parameters={})
+    @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayAttachmentId;
 
     /**
@@ -104,7 +104,7 @@ public class PolicyTableAssociation extends com.pulumi.resources.CustomResource 
      * Identifier of EC2 Transit Gateway Policy Table.
      * 
      */
-    @Export(name="transitGatewayPolicyTableId", type=String.class, parameters={})
+    @Export(name="transitGatewayPolicyTableId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayPolicyTableId;
 
     /**

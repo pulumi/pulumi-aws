@@ -75,7 +75,7 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of snapshot copy grant
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -89,7 +89,7 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -103,7 +103,7 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
      * A friendly name for identifying the grant.
      * 
      */
-    @Export(name="snapshotCopyGrantName", type=String.class, parameters={})
+    @Export(name="snapshotCopyGrantName", refs={String.class}, tree="[0]")
     private Output<String> snapshotCopyGrantName;
 
     /**
@@ -117,7 +117,7 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -131,7 +131,7 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

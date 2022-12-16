@@ -137,7 +137,7 @@ public class WebAclLoggingConfiguration extends com.pulumi.resources.CustomResou
      * The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
      * 
      */
-    @Export(name="logDestinationConfigs", type=List.class, parameters={String.class})
+    @Export(name="logDestinationConfigs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> logDestinationConfigs;
 
     /**
@@ -151,7 +151,7 @@ public class WebAclLoggingConfiguration extends com.pulumi.resources.CustomResou
      * A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
      * 
      */
-    @Export(name="loggingFilter", type=WebAclLoggingConfigurationLoggingFilter.class, parameters={})
+    @Export(name="loggingFilter", refs={WebAclLoggingConfigurationLoggingFilter.class}, tree="[0]")
     private Output</* @Nullable */ WebAclLoggingConfigurationLoggingFilter> loggingFilter;
 
     /**
@@ -165,7 +165,7 @@ public class WebAclLoggingConfiguration extends com.pulumi.resources.CustomResou
      * The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
      * 
      */
-    @Export(name="redactedFields", type=List.class, parameters={WebAclLoggingConfigurationRedactedField.class})
+    @Export(name="redactedFields", refs={List.class,WebAclLoggingConfigurationRedactedField.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WebAclLoggingConfigurationRedactedField>> redactedFields;
 
     /**
@@ -179,7 +179,7 @@ public class WebAclLoggingConfiguration extends com.pulumi.resources.CustomResou
      * The Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**

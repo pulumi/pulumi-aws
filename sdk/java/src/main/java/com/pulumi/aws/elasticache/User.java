@@ -69,7 +69,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
      * 
      */
-    @Export(name="accessString", type=String.class, parameters={})
+    @Export(name="accessString", refs={String.class}, tree="[0]")
     private Output<String> accessString;
 
     /**
@@ -83,7 +83,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The ARN of the created ElastiCache User.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -97,7 +97,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The current supported value is `REDIS`.
      * 
      */
-    @Export(name="engine", type=String.class, parameters={})
+    @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
@@ -111,7 +111,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Indicates a password is not required for this user.
      * 
      */
-    @Export(name="noPasswordRequired", type=Boolean.class, parameters={})
+    @Export(name="noPasswordRequired", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> noPasswordRequired;
 
     /**
@@ -125,7 +125,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Passwords used for this user. You can create up to two passwords for each user.
      * 
      */
-    @Export(name="passwords", type=List.class, parameters={String.class})
+    @Export(name="passwords", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> passwords;
 
     /**
@@ -139,7 +139,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A list of tags to be added to this resource. A tag is a key-value pair.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -149,7 +149,7 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -159,7 +159,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The ID of the user.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
@@ -173,7 +173,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The username of the user.
      * 
      */
-    @Export(name="userName", type=String.class, parameters={})
+    @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**

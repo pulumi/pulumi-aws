@@ -81,7 +81,7 @@ public class DocumentationVersion extends com.pulumi.resources.CustomResource {
      * Description of the API documentation version.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -95,7 +95,7 @@ public class DocumentationVersion extends com.pulumi.resources.CustomResource {
      * ID of the associated Rest API
      * 
      */
-    @Export(name="restApiId", type=String.class, parameters={})
+    @Export(name="restApiId", refs={String.class}, tree="[0]")
     private Output<String> restApiId;
 
     /**
@@ -109,7 +109,7 @@ public class DocumentationVersion extends com.pulumi.resources.CustomResource {
      * Version identifier of the API documentation snapshot.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**

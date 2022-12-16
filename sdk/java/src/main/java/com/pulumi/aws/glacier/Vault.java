@@ -94,7 +94,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      * 
      */
-    @Export(name="accessPolicy", type=String.class, parameters={})
+    @Export(name="accessPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessPolicy;
 
     /**
@@ -109,7 +109,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * The ARN of the vault.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -123,7 +123,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * The URI of the vault that was created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -137,7 +137,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -151,7 +151,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * The notifications for the Vault. Fields documented below.
      * 
      */
-    @Export(name="notification", type=VaultNotification.class, parameters={})
+    @Export(name="notification", refs={VaultNotification.class}, tree="[0]")
     private Output</* @Nullable */ VaultNotification> notification;
 
     /**
@@ -165,7 +165,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -179,7 +179,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

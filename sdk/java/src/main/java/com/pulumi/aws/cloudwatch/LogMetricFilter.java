@@ -72,7 +72,7 @@ public class LogMetricFilter extends com.pulumi.resources.CustomResource {
      * The name of the log group to associate the metric filter with.
      * 
      */
-    @Export(name="logGroupName", type=String.class, parameters={})
+    @Export(name="logGroupName", refs={String.class}, tree="[0]")
     private Output<String> logGroupName;
 
     /**
@@ -86,7 +86,7 @@ public class LogMetricFilter extends com.pulumi.resources.CustomResource {
      * A block defining collection of information needed to define how metric data gets emitted. See below.
      * 
      */
-    @Export(name="metricTransformation", type=LogMetricFilterMetricTransformation.class, parameters={})
+    @Export(name="metricTransformation", refs={LogMetricFilterMetricTransformation.class}, tree="[0]")
     private Output<LogMetricFilterMetricTransformation> metricTransformation;
 
     /**
@@ -100,7 +100,7 @@ public class LogMetricFilter extends com.pulumi.resources.CustomResource {
      * A name for the metric filter.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class LogMetricFilter extends com.pulumi.resources.CustomResource {
      * for extracting metric data out of ingested log events.
      * 
      */
-    @Export(name="pattern", type=String.class, parameters={})
+    @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output<String> pattern;
 
     /**

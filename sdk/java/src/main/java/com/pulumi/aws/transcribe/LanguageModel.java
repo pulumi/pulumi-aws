@@ -127,7 +127,7 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
      * ARN of the LanguageModel.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -141,7 +141,7 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
      * Name of reference base model.
      * 
      */
-    @Export(name="baseModelName", type=String.class, parameters={})
+    @Export(name="baseModelName", refs={String.class}, tree="[0]")
     private Output<String> baseModelName;
 
     /**
@@ -155,7 +155,7 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
      * The input data config for the LanguageModel. See Input Data Config for more details.
      * 
      */
-    @Export(name="inputDataConfig", type=LanguageModelInputDataConfig.class, parameters={})
+    @Export(name="inputDataConfig", refs={LanguageModelInputDataConfig.class}, tree="[0]")
     private Output<LanguageModelInputDataConfig> inputDataConfig;
 
     /**
@@ -169,7 +169,7 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
      * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
-    @Export(name="languageCode", type=String.class, parameters={})
+    @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
@@ -183,7 +183,7 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
      * The model name.
      * 
      */
-    @Export(name="modelName", type=String.class, parameters={})
+    @Export(name="modelName", refs={String.class}, tree="[0]")
     private Output<String> modelName;
 
     /**
@@ -197,7 +197,7 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -207,7 +207,7 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {

@@ -83,7 +83,7 @@ public class ObjectLambdaAccessPoint extends com.pulumi.resources.CustomResource
      * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -97,7 +97,7 @@ public class ObjectLambdaAccessPoint extends com.pulumi.resources.CustomResource
      * Amazon Resource Name (ARN) of the Object Lambda Access Point.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -111,7 +111,7 @@ public class ObjectLambdaAccessPoint extends com.pulumi.resources.CustomResource
      * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
      * 
      */
-    @Export(name="configuration", type=ObjectLambdaAccessPointConfiguration.class, parameters={})
+    @Export(name="configuration", refs={ObjectLambdaAccessPointConfiguration.class}, tree="[0]")
     private Output<ObjectLambdaAccessPointConfiguration> configuration;
 
     /**
@@ -125,7 +125,7 @@ public class ObjectLambdaAccessPoint extends com.pulumi.resources.CustomResource
      * The name for this Object Lambda Access Point.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

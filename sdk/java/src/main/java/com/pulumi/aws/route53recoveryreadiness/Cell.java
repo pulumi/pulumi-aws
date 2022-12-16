@@ -64,7 +64,7 @@ public class Cell extends com.pulumi.resources.CustomResource {
      * ARN of the cell
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -78,7 +78,7 @@ public class Cell extends com.pulumi.resources.CustomResource {
      * Unique name describing the cell.
      * 
      */
-    @Export(name="cellName", type=String.class, parameters={})
+    @Export(name="cellName", refs={String.class}, tree="[0]")
     private Output<String> cellName;
 
     /**
@@ -92,7 +92,7 @@ public class Cell extends com.pulumi.resources.CustomResource {
      * List of cell arns to add as nested fault domains within this cell.
      * 
      */
-    @Export(name="cells", type=List.class, parameters={String.class})
+    @Export(name="cells", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cells;
 
     /**
@@ -106,7 +106,7 @@ public class Cell extends com.pulumi.resources.CustomResource {
      * List of readiness scopes (recovery groups or cells) that contain this cell.
      * 
      */
-    @Export(name="parentReadinessScopes", type=List.class, parameters={String.class})
+    @Export(name="parentReadinessScopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> parentReadinessScopes;
 
     /**
@@ -120,7 +120,7 @@ public class Cell extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -134,7 +134,7 @@ public class Cell extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

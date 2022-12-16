@@ -66,7 +66,7 @@ public class IdentityNotificationTopic extends com.pulumi.resources.CustomResour
      * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
      * 
      */
-    @Export(name="identity", type=String.class, parameters={})
+    @Export(name="identity", refs={String.class}, tree="[0]")
     private Output<String> identity;
 
     /**
@@ -80,7 +80,7 @@ public class IdentityNotificationTopic extends com.pulumi.resources.CustomResour
      * Whether SES should include original email headers in SNS notifications of this type. `false` by default.
      * 
      */
-    @Export(name="includeOriginalHeaders", type=Boolean.class, parameters={})
+    @Export(name="includeOriginalHeaders", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> includeOriginalHeaders;
 
     /**
@@ -94,7 +94,7 @@ public class IdentityNotificationTopic extends com.pulumi.resources.CustomResour
      * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
      * 
      */
-    @Export(name="notificationType", type=String.class, parameters={})
+    @Export(name="notificationType", refs={String.class}, tree="[0]")
     private Output<String> notificationType;
 
     /**
@@ -108,7 +108,7 @@ public class IdentityNotificationTopic extends com.pulumi.resources.CustomResour
      * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
      * 
      */
-    @Export(name="topicArn", type=String.class, parameters={})
+    @Export(name="topicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> topicArn;
 
     /**

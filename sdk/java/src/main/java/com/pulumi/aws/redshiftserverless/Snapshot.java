@@ -65,7 +65,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
      * 
      */
-    @Export(name="accountsWithProvisionedRestoreAccesses", type=List.class, parameters={String.class})
+    @Export(name="accountsWithProvisionedRestoreAccesses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> accountsWithProvisionedRestoreAccesses;
 
     /**
@@ -79,7 +79,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
      * 
      */
-    @Export(name="accountsWithRestoreAccesses", type=List.class, parameters={String.class})
+    @Export(name="accountsWithRestoreAccesses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> accountsWithRestoreAccesses;
 
     /**
@@ -93,7 +93,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The username of the database within a snapshot.
      * 
      */
-    @Export(name="adminUsername", type=String.class, parameters={})
+    @Export(name="adminUsername", refs={String.class}, tree="[0]")
     private Output<String> adminUsername;
 
     /**
@@ -107,7 +107,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the snapshot.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -121,7 +121,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The unique identifier of the KMS key used to encrypt the snapshot.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -135,7 +135,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
      * 
      */
-    @Export(name="namespaceArn", type=String.class, parameters={})
+    @Export(name="namespaceArn", refs={String.class}, tree="[0]")
     private Output<String> namespaceArn;
 
     /**
@@ -149,7 +149,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The namespace to create a snapshot for.
      * 
      */
-    @Export(name="namespaceName", type=String.class, parameters={})
+    @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
     /**
@@ -163,7 +163,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The owner Amazon Web Services; account of the snapshot.
      * 
      */
-    @Export(name="ownerAccount", type=String.class, parameters={})
+    @Export(name="ownerAccount", refs={String.class}, tree="[0]")
     private Output<String> ownerAccount;
 
     /**
@@ -177,7 +177,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * How long to retain the created snapshot. Default value is `-1`.
      * 
      */
-    @Export(name="retentionPeriod", type=Integer.class, parameters={})
+    @Export(name="retentionPeriod", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retentionPeriod;
 
     /**
@@ -191,7 +191,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The name of the snapshot.
      * 
      */
-    @Export(name="snapshotName", type=String.class, parameters={})
+    @Export(name="snapshotName", refs={String.class}, tree="[0]")
     private Output<String> snapshotName;
 
     /**

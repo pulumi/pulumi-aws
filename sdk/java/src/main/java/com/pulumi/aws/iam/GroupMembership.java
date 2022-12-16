@@ -72,7 +72,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * The IAM Group name to attach the list of `users` to
      * 
      */
-    @Export(name="group", type=String.class, parameters={})
+    @Export(name="group", refs={String.class}, tree="[0]")
     private Output<String> group;
 
     /**
@@ -86,7 +86,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * The name to identify the Group Membership
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -100,7 +100,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * A list of IAM User names to associate with the Group
      * 
      */
-    @Export(name="users", type=List.class, parameters={String.class})
+    @Export(name="users", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> users;
 
     /**

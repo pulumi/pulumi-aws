@@ -111,7 +111,7 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * When the replication configuration was created.
      * 
      */
-    @Export(name="creationTime", type=String.class, parameters={})
+    @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
@@ -125,7 +125,7 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * A destination configuration block (documented below).
      * 
      */
-    @Export(name="destination", type=ReplicationConfigurationDestination.class, parameters={})
+    @Export(name="destination", refs={ReplicationConfigurationDestination.class}, tree="[0]")
     private Output<ReplicationConfigurationDestination> destination;
 
     /**
@@ -139,7 +139,7 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
      * 
      */
-    @Export(name="originalSourceFileSystemArn", type=String.class, parameters={})
+    @Export(name="originalSourceFileSystemArn", refs={String.class}, tree="[0]")
     private Output<String> originalSourceFileSystemArn;
 
     /**
@@ -153,7 +153,7 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
      * 
      */
-    @Export(name="sourceFileSystemArn", type=String.class, parameters={})
+    @Export(name="sourceFileSystemArn", refs={String.class}, tree="[0]")
     private Output<String> sourceFileSystemArn;
 
     /**
@@ -167,7 +167,7 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * The ID of the file system that is to be replicated.
      * 
      */
-    @Export(name="sourceFileSystemId", type=String.class, parameters={})
+    @Export(name="sourceFileSystemId", refs={String.class}, tree="[0]")
     private Output<String> sourceFileSystemId;
 
     /**
@@ -183,7 +183,7 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * * `destination[0].status` - The status of the replication.
      * 
      */
-    @Export(name="sourceFileSystemRegion", type=String.class, parameters={})
+    @Export(name="sourceFileSystemRegion", refs={String.class}, tree="[0]")
     private Output<String> sourceFileSystemRegion;
 
     /**

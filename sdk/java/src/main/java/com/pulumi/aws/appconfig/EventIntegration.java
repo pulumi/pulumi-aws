@@ -70,7 +70,7 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
      * ARN of the Event Integration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -84,7 +84,7 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
      * Description of the Event Integration.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -98,7 +98,7 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
      * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      * 
      */
-    @Export(name="eventFilter", type=EventIntegrationEventFilter.class, parameters={})
+    @Export(name="eventFilter", refs={EventIntegrationEventFilter.class}, tree="[0]")
     private Output<EventIntegrationEventFilter> eventFilter;
 
     /**
@@ -112,7 +112,7 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
      * EventBridge bus.
      * 
      */
-    @Export(name="eventbridgeBus", type=String.class, parameters={})
+    @Export(name="eventbridgeBus", refs={String.class}, tree="[0]")
     private Output<String> eventbridgeBus;
 
     /**
@@ -126,7 +126,7 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
      * Name of the Event Integration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -140,7 +140,7 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
      * Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -154,7 +154,7 @@ public class EventIntegration extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

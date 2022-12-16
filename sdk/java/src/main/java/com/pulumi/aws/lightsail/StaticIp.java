@@ -52,7 +52,7 @@ public class StaticIp extends com.pulumi.resources.CustomResource {
      * The ARN of the Lightsail static IP
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -66,7 +66,7 @@ public class StaticIp extends com.pulumi.resources.CustomResource {
      * The allocated static IP address
      * 
      */
-    @Export(name="ipAddress", type=String.class, parameters={})
+    @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
@@ -80,7 +80,7 @@ public class StaticIp extends com.pulumi.resources.CustomResource {
      * The name for the allocated static IP
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -94,7 +94,7 @@ public class StaticIp extends com.pulumi.resources.CustomResource {
      * The support code.
      * 
      */
-    @Export(name="supportCode", type=String.class, parameters={})
+    @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
     /**

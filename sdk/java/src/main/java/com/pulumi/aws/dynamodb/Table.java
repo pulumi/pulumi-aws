@@ -175,7 +175,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * ARN of the table
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -189,7 +189,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
      * 
      */
-    @Export(name="attributes", type=List.class, parameters={TableAttribute.class})
+    @Export(name="attributes", refs={List.class,TableAttribute.class}, tree="[0,1]")
     private Output<List<TableAttribute>> attributes;
 
     /**
@@ -203,7 +203,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
      * 
      */
-    @Export(name="billingMode", type=String.class, parameters={})
+    @Export(name="billingMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> billingMode;
 
     /**
@@ -217,7 +217,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      * 
      */
-    @Export(name="globalSecondaryIndexes", type=List.class, parameters={TableGlobalSecondaryIndex.class})
+    @Export(name="globalSecondaryIndexes", refs={List.class,TableGlobalSecondaryIndex.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TableGlobalSecondaryIndex>> globalSecondaryIndexes;
 
     /**
@@ -231,7 +231,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Name of the hash key in the index; must be defined as an attribute in the resource.
      * 
      */
-    @Export(name="hashKey", type=String.class, parameters={})
+    @Export(name="hashKey", refs={String.class}, tree="[0]")
     private Output<String> hashKey;
 
     /**
@@ -245,7 +245,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
      * 
      */
-    @Export(name="localSecondaryIndexes", type=List.class, parameters={TableLocalSecondaryIndex.class})
+    @Export(name="localSecondaryIndexes", refs={List.class,TableLocalSecondaryIndex.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TableLocalSecondaryIndex>> localSecondaryIndexes;
 
     /**
@@ -259,7 +259,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Name of the index
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -273,7 +273,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Whether to enable Point In Time Recovery for the replica. Default is `false`.
      * 
      */
-    @Export(name="pointInTimeRecovery", type=TablePointInTimeRecovery.class, parameters={})
+    @Export(name="pointInTimeRecovery", refs={TablePointInTimeRecovery.class}, tree="[0]")
     private Output<TablePointInTimeRecovery> pointInTimeRecovery;
 
     /**
@@ -287,7 +287,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Name of the range key.
      * 
      */
-    @Export(name="rangeKey", type=String.class, parameters={})
+    @Export(name="rangeKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rangeKey;
 
     /**
@@ -301,7 +301,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
-    @Export(name="readCapacity", type=Integer.class, parameters={})
+    @Export(name="readCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> readCapacity;
 
     /**
@@ -315,7 +315,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      * 
      */
-    @Export(name="replicas", type=List.class, parameters={TableReplica.class})
+    @Export(name="replicas", refs={List.class,TableReplica.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TableReplica>> replicas;
 
     /**
@@ -329,7 +329,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Time of the point-in-time recovery point to restore.
      * 
      */
-    @Export(name="restoreDateTime", type=String.class, parameters={})
+    @Export(name="restoreDateTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restoreDateTime;
 
     /**
@@ -343,7 +343,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Name of the table to restore. Must match the name of an existing table.
      * 
      */
-    @Export(name="restoreSourceName", type=String.class, parameters={})
+    @Export(name="restoreSourceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restoreSourceName;
 
     /**
@@ -357,7 +357,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * If set, restores table to the most recent point-in-time recovery point.
      * 
      */
-    @Export(name="restoreToLatestTime", type=Boolean.class, parameters={})
+    @Export(name="restoreToLatestTime", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> restoreToLatestTime;
 
     /**
@@ -371,7 +371,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
      * 
      */
-    @Export(name="serverSideEncryption", type=TableServerSideEncryption.class, parameters={})
+    @Export(name="serverSideEncryption", refs={TableServerSideEncryption.class}, tree="[0]")
     private Output<TableServerSideEncryption> serverSideEncryption;
 
     /**
@@ -385,7 +385,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * ARN of the Table Stream. Only available when `stream_enabled = true`
      * 
      */
-    @Export(name="streamArn", type=String.class, parameters={})
+    @Export(name="streamArn", refs={String.class}, tree="[0]")
     private Output<String> streamArn;
 
     /**
@@ -399,7 +399,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Whether Streams are enabled.
      * 
      */
-    @Export(name="streamEnabled", type=Boolean.class, parameters={})
+    @Export(name="streamEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> streamEnabled;
 
     /**
@@ -413,7 +413,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
      * 
      */
-    @Export(name="streamLabel", type=String.class, parameters={})
+    @Export(name="streamLabel", refs={String.class}, tree="[0]")
     private Output<String> streamLabel;
 
     /**
@@ -427,7 +427,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
      * 
      */
-    @Export(name="streamViewType", type=String.class, parameters={})
+    @Export(name="streamViewType", refs={String.class}, tree="[0]")
     private Output<String> streamViewType;
 
     /**
@@ -441,7 +441,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
      * 
      */
-    @Export(name="tableClass", type=String.class, parameters={})
+    @Export(name="tableClass", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tableClass;
 
     /**
@@ -455,7 +455,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -469,7 +469,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -483,7 +483,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Configuration block for TTL. See below.
      * 
      */
-    @Export(name="ttl", type=TableTtl.class, parameters={})
+    @Export(name="ttl", refs={TableTtl.class}, tree="[0]")
     private Output<TableTtl> ttl;
 
     /**
@@ -497,7 +497,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
-    @Export(name="writeCapacity", type=Integer.class, parameters={})
+    @Export(name="writeCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> writeCapacity;
 
     /**

@@ -88,7 +88,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name of the file system.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -102,7 +102,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      * 
      */
-    @Export(name="automaticBackupRetentionDays", type=Integer.class, parameters={})
+    @Export(name="automaticBackupRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> automaticBackupRetentionDays;
 
     /**
@@ -116,7 +116,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
      * 
      */
-    @Export(name="dailyAutomaticBackupStartTime", type=String.class, parameters={})
+    @Export(name="dailyAutomaticBackupStartTime", refs={String.class}, tree="[0]")
     private Output<String> dailyAutomaticBackupStartTime;
 
     /**
@@ -130,7 +130,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
      * 
      */
-    @Export(name="deploymentType", type=String.class, parameters={})
+    @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output<String> deploymentType;
 
     /**
@@ -144,7 +144,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
      * 
      */
-    @Export(name="diskIopsConfiguration", type=OntapFileSystemDiskIopsConfiguration.class, parameters={})
+    @Export(name="diskIopsConfiguration", refs={OntapFileSystemDiskIopsConfiguration.class}, tree="[0]")
     private Output<OntapFileSystemDiskIopsConfiguration> diskIopsConfiguration;
 
     /**
@@ -158,7 +158,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      * 
      */
-    @Export(name="dnsName", type=String.class, parameters={})
+    @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
@@ -172,7 +172,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
      * 
      */
-    @Export(name="endpointIpAddressRange", type=String.class, parameters={})
+    @Export(name="endpointIpAddressRange", refs={String.class}, tree="[0]")
     private Output<String> endpointIpAddressRange;
 
     /**
@@ -186,7 +186,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
-    @Export(name="endpoints", type=List.class, parameters={OntapFileSystemEndpoint.class})
+    @Export(name="endpoints", refs={List.class,OntapFileSystemEndpoint.class}, tree="[0,1]")
     private Output<List<OntapFileSystemEndpoint>> endpoints;
 
     /**
@@ -200,7 +200,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
      * 
      */
-    @Export(name="fsxAdminPassword", type=String.class, parameters={})
+    @Export(name="fsxAdminPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fsxAdminPassword;
 
     /**
@@ -214,7 +214,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -228,7 +228,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
      * 
      */
-    @Export(name="networkInterfaceIds", type=List.class, parameters={String.class})
+    @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> networkInterfaceIds;
 
     /**
@@ -242,7 +242,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * AWS account identifier that created the file system.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -256,7 +256,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
      * 
      */
-    @Export(name="preferredSubnetId", type=String.class, parameters={})
+    @Export(name="preferredSubnetId", refs={String.class}, tree="[0]")
     private Output<String> preferredSubnetId;
 
     /**
@@ -270,7 +270,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * Specifies the VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
      * 
      */
-    @Export(name="routeTableIds", type=List.class, parameters={String.class})
+    @Export(name="routeTableIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> routeTableIds;
 
     /**
@@ -284,7 +284,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
-    @Export(name="securityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
@@ -298,7 +298,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
      * 
      */
-    @Export(name="storageCapacity", type=Integer.class, parameters={})
+    @Export(name="storageCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> storageCapacity;
 
     /**
@@ -312,7 +312,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * - The filesystem storage type. defaults to `SSD`.
      * 
      */
-    @Export(name="storageType", type=String.class, parameters={})
+    @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageType;
 
     /**
@@ -326,7 +326,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
@@ -340,7 +340,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -354,7 +354,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -368,7 +368,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
      * 
      */
-    @Export(name="throughputCapacity", type=Integer.class, parameters={})
+    @Export(name="throughputCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughputCapacity;
 
     /**
@@ -382,7 +382,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * Identifier of the Virtual Private Cloud for the file system.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
@@ -396,7 +396,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    @Export(name="weeklyMaintenanceStartTime", type=String.class, parameters={})
+    @Export(name="weeklyMaintenanceStartTime", refs={String.class}, tree="[0]")
     private Output<String> weeklyMaintenanceStartTime;
 
     /**

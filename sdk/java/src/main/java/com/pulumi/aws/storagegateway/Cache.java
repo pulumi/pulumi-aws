@@ -64,7 +64,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      * 
      */
-    @Export(name="diskId", type=String.class, parameters={})
+    @Export(name="diskId", refs={String.class}, tree="[0]")
     private Output<String> diskId;
 
     /**
@@ -78,7 +78,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    @Export(name="gatewayArn", type=String.class, parameters={})
+    @Export(name="gatewayArn", refs={String.class}, tree="[0]")
     private Output<String> gatewayArn;
 
     /**

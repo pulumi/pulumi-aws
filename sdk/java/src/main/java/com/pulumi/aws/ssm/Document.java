@@ -164,7 +164,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ssm/document:Document")
 public class Document extends com.pulumi.resources.CustomResource {
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     public Output<String> arn() {
@@ -174,7 +174,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
      * 
      */
-    @Export(name="attachmentsSources", type=List.class, parameters={DocumentAttachmentsSource.class})
+    @Export(name="attachmentsSources", refs={List.class,DocumentAttachmentsSource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DocumentAttachmentsSource>> attachmentsSources;
 
     /**
@@ -188,7 +188,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The JSON or YAML content of the document.
      * 
      */
-    @Export(name="content", type=String.class, parameters={})
+    @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
@@ -202,7 +202,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The date the document was created.
      * 
      */
-    @Export(name="createdDate", type=String.class, parameters={})
+    @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
     /**
@@ -216,7 +216,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The default version of the document.
      * 
      */
-    @Export(name="defaultVersion", type=String.class, parameters={})
+    @Export(name="defaultVersion", refs={String.class}, tree="[0]")
     private Output<String> defaultVersion;
 
     /**
@@ -230,7 +230,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The description of the document.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -244,7 +244,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The format of the document. Valid document types include: `JSON` and `YAML`
      * 
      */
-    @Export(name="documentFormat", type=String.class, parameters={})
+    @Export(name="documentFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> documentFormat;
 
     /**
@@ -258,7 +258,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
      * 
      */
-    @Export(name="documentType", type=String.class, parameters={})
+    @Export(name="documentType", refs={String.class}, tree="[0]")
     private Output<String> documentType;
 
     /**
@@ -272,7 +272,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The document version.
      * 
      */
-    @Export(name="documentVersion", type=String.class, parameters={})
+    @Export(name="documentVersion", refs={String.class}, tree="[0]")
     private Output<String> documentVersion;
 
     /**
@@ -286,7 +286,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The sha1 or sha256 of the document content
      * 
      */
-    @Export(name="hash", type=String.class, parameters={})
+    @Export(name="hash", refs={String.class}, tree="[0]")
     private Output<String> hash;
 
     /**
@@ -300,7 +300,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * &#34;Sha1&#34; &#34;Sha256&#34;. The hashing algorithm used when hashing the content.
      * 
      */
-    @Export(name="hashType", type=String.class, parameters={})
+    @Export(name="hashType", refs={String.class}, tree="[0]")
     private Output<String> hashType;
 
     /**
@@ -314,7 +314,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The latest version of the document.
      * 
      */
-    @Export(name="latestVersion", type=String.class, parameters={})
+    @Export(name="latestVersion", refs={String.class}, tree="[0]")
     private Output<String> latestVersion;
 
     /**
@@ -328,7 +328,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The name of the document.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -342,7 +342,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The AWS user account of the person who created the document.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -356,7 +356,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The parameters that are available to this document.
      * 
      */
-    @Export(name="parameters", type=List.class, parameters={DocumentParameter.class})
+    @Export(name="parameters", refs={List.class,DocumentParameter.class}, tree="[0,1]")
     private Output<List<DocumentParameter>> parameters;
 
     /**
@@ -370,7 +370,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * Additional Permissions to attach to the document. See Permissions below for details.
      * 
      */
-    @Export(name="permissions", type=Map.class, parameters={String.class, String.class})
+    @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> permissions;
 
     /**
@@ -384,7 +384,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * A list of OS platforms compatible with this SSM document, either &#34;Windows&#34; or &#34;Linux&#34;.
      * 
      */
-    @Export(name="platformTypes", type=List.class, parameters={String.class})
+    @Export(name="platformTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> platformTypes;
 
     /**
@@ -398,7 +398,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The schema version of the document.
      * 
      */
-    @Export(name="schemaVersion", type=String.class, parameters={})
+    @Export(name="schemaVersion", refs={String.class}, tree="[0]")
     private Output<String> schemaVersion;
 
     /**
@@ -412,7 +412,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * &#34;Creating&#34;, &#34;Active&#34; or &#34;Deleting&#34;. The current status of the document.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -426,7 +426,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -440,7 +440,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -454,7 +454,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
      * 
      */
-    @Export(name="targetType", type=String.class, parameters={})
+    @Export(name="targetType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetType;
 
     /**
@@ -468,7 +468,7 @@ public class Document extends com.pulumi.resources.CustomResource {
      * A field specifying the version of the artifact you are creating with the document. For example, &#34;Release 12, Update 6&#34;. This value is unique across all versions of a document and cannot be changed for an existing document version.
      * 
      */
-    @Export(name="versionName", type=String.class, parameters={})
+    @Export(name="versionName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> versionName;
 
     /**

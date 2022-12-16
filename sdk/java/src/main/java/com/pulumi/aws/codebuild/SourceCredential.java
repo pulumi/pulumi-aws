@@ -100,7 +100,7 @@ public class SourceCredential extends com.pulumi.resources.CustomResource {
      * The ARN of Source Credential.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -114,7 +114,7 @@ public class SourceCredential extends com.pulumi.resources.CustomResource {
      * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
      * 
      */
-    @Export(name="authType", type=String.class, parameters={})
+    @Export(name="authType", refs={String.class}, tree="[0]")
     private Output<String> authType;
 
     /**
@@ -128,7 +128,7 @@ public class SourceCredential extends com.pulumi.resources.CustomResource {
      * The source provider used for this project.
      * 
      */
-    @Export(name="serverType", type=String.class, parameters={})
+    @Export(name="serverType", refs={String.class}, tree="[0]")
     private Output<String> serverType;
 
     /**
@@ -142,7 +142,7 @@ public class SourceCredential extends com.pulumi.resources.CustomResource {
      * For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
      * 
      */
-    @Export(name="token", type=String.class, parameters={})
+    @Export(name="token", refs={String.class}, tree="[0]")
     private Output<String> token;
 
     /**
@@ -156,7 +156,7 @@ public class SourceCredential extends com.pulumi.resources.CustomResource {
      * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
      * 
      */
-    @Export(name="userName", type=String.class, parameters={})
+    @Export(name="userName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userName;
 
     /**

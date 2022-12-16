@@ -87,7 +87,7 @@ public class RoleAssociation extends com.pulumi.resources.CustomResource {
      * The AWS SSO group ids to be assigned the role given in `role`.
      * 
      */
-    @Export(name="groupIds", type=List.class, parameters={String.class})
+    @Export(name="groupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupIds;
 
     /**
@@ -101,7 +101,7 @@ public class RoleAssociation extends com.pulumi.resources.CustomResource {
      * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
@@ -115,7 +115,7 @@ public class RoleAssociation extends com.pulumi.resources.CustomResource {
      * The AWS SSO user ids to be assigned the role given in `role`.
      * 
      */
-    @Export(name="userIds", type=List.class, parameters={String.class})
+    @Export(name="userIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userIds;
 
     /**
@@ -129,7 +129,7 @@ public class RoleAssociation extends com.pulumi.resources.CustomResource {
      * The workspace id.
      * 
      */
-    @Export(name="workspaceId", type=String.class, parameters={})
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**

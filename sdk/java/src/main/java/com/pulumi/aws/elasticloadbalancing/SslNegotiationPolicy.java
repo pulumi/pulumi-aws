@@ -106,7 +106,7 @@ public class SslNegotiationPolicy extends com.pulumi.resources.CustomResource {
      * An SSL Negotiation policy attribute. Each has two properties:
      * 
      */
-    @Export(name="attributes", type=List.class, parameters={SslNegotiationPolicyAttribute.class})
+    @Export(name="attributes", refs={List.class,SslNegotiationPolicyAttribute.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SslNegotiationPolicyAttribute>> attributes;
 
     /**
@@ -122,7 +122,7 @@ public class SslNegotiationPolicy extends com.pulumi.resources.CustomResource {
      * balancer.
      * 
      */
-    @Export(name="lbPort", type=Integer.class, parameters={})
+    @Export(name="lbPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> lbPort;
 
     /**
@@ -139,7 +139,7 @@ public class SslNegotiationPolicy extends com.pulumi.resources.CustomResource {
      * should be attached.
      * 
      */
-    @Export(name="loadBalancer", type=String.class, parameters={})
+    @Export(name="loadBalancer", refs={String.class}, tree="[0]")
     private Output<String> loadBalancer;
 
     /**
@@ -154,7 +154,7 @@ public class SslNegotiationPolicy extends com.pulumi.resources.CustomResource {
      * The name of the attribute
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

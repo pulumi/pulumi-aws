@@ -66,7 +66,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * The ARN of the QLDB Stream.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -80,7 +80,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * The exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
      * 
      */
-    @Export(name="exclusiveEndTime", type=String.class, parameters={})
+    @Export(name="exclusiveEndTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> exclusiveEndTime;
 
     /**
@@ -94,7 +94,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
      * 
      */
-    @Export(name="inclusiveStartTime", type=String.class, parameters={})
+    @Export(name="inclusiveStartTime", refs={String.class}, tree="[0]")
     private Output<String> inclusiveStartTime;
 
     /**
@@ -108,7 +108,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      * 
      */
-    @Export(name="kinesisConfiguration", type=StreamKinesisConfiguration.class, parameters={})
+    @Export(name="kinesisConfiguration", refs={StreamKinesisConfiguration.class}, tree="[0]")
     private Output<StreamKinesisConfiguration> kinesisConfiguration;
 
     /**
@@ -122,7 +122,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * The name of the QLDB ledger.
      * 
      */
-    @Export(name="ledgerName", type=String.class, parameters={})
+    @Export(name="ledgerName", refs={String.class}, tree="[0]")
     private Output<String> ledgerName;
 
     /**
@@ -136,7 +136,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -150,7 +150,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
      * 
      */
-    @Export(name="streamName", type=String.class, parameters={})
+    @Export(name="streamName", refs={String.class}, tree="[0]")
     private Output<String> streamName;
 
     /**
@@ -164,7 +164,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -178,7 +178,7 @@ public class Stream extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

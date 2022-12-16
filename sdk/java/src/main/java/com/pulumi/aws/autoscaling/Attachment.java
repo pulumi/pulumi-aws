@@ -129,7 +129,7 @@ public class Attachment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use lb_target_group_arn instead */
-    @Export(name="albTargetGroupArn", type=String.class, parameters={})
+    @Export(name="albTargetGroupArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> albTargetGroupArn;
 
     /**
@@ -143,7 +143,7 @@ public class Attachment extends com.pulumi.resources.CustomResource {
      * Name of ASG to associate with the ELB.
      * 
      */
-    @Export(name="autoscalingGroupName", type=String.class, parameters={})
+    @Export(name="autoscalingGroupName", refs={String.class}, tree="[0]")
     private Output<String> autoscalingGroupName;
 
     /**
@@ -157,7 +157,7 @@ public class Attachment extends com.pulumi.resources.CustomResource {
      * Name of the ELB.
      * 
      */
-    @Export(name="elb", type=String.class, parameters={})
+    @Export(name="elb", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> elb;
 
     /**
@@ -171,7 +171,7 @@ public class Attachment extends com.pulumi.resources.CustomResource {
      * ARN of a load balancer target group.
      * 
      */
-    @Export(name="lbTargetGroupArn", type=String.class, parameters={})
+    @Export(name="lbTargetGroupArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lbTargetGroupArn;
 
     /**

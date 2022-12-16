@@ -116,7 +116,7 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      * The application ID.
      * 
      */
-    @Export(name="applicationId", type=String.class, parameters={})
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
@@ -130,7 +130,7 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
      * 
      */
-    @Export(name="configurationSet", type=String.class, parameters={})
+    @Export(name="configurationSet", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurationSet;
 
     /**
@@ -144,7 +144,7 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -158,7 +158,7 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      * 
      */
-    @Export(name="fromAddress", type=String.class, parameters={})
+    @Export(name="fromAddress", refs={String.class}, tree="[0]")
     private Output<String> fromAddress;
 
     /**
@@ -172,7 +172,7 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      * The ARN of an identity verified with SES.
      * 
      */
-    @Export(name="identity", type=String.class, parameters={})
+    @Export(name="identity", refs={String.class}, tree="[0]")
     private Output<String> identity;
 
     /**
@@ -186,7 +186,7 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      * Messages per second that can be sent.
      * 
      */
-    @Export(name="messagesPerSecond", type=Integer.class, parameters={})
+    @Export(name="messagesPerSecond", refs={Integer.class}, tree="[0]")
     private Output<Integer> messagesPerSecond;
 
     /**
@@ -200,7 +200,7 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
      * The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**

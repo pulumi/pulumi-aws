@@ -85,7 +85,7 @@ public class LbHttpsRedirectionPolicy extends com.pulumi.resources.CustomResourc
      * - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -99,7 +99,7 @@ public class LbHttpsRedirectionPolicy extends com.pulumi.resources.CustomResourc
      * The name of the load balancer to which you want to enable http to https redirection.
      * 
      */
-    @Export(name="lbName", type=String.class, parameters={})
+    @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
     /**

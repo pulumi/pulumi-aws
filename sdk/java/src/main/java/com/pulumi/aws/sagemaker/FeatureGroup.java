@@ -81,7 +81,7 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -95,7 +95,7 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
      * A free-form description of a Feature Group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -109,7 +109,7 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
      * The name of the feature that stores the EventTime of a Record in a Feature Group.
      * 
      */
-    @Export(name="eventTimeFeatureName", type=String.class, parameters={})
+    @Export(name="eventTimeFeatureName", refs={String.class}, tree="[0]")
     private Output<String> eventTimeFeatureName;
 
     /**
@@ -123,7 +123,7 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
      * A list of Feature names and types. See Feature Definition Below.
      * 
      */
-    @Export(name="featureDefinitions", type=List.class, parameters={FeatureGroupFeatureDefinition.class})
+    @Export(name="featureDefinitions", refs={List.class,FeatureGroupFeatureDefinition.class}, tree="[0,1]")
     private Output<List<FeatureGroupFeatureDefinition>> featureDefinitions;
 
     /**
@@ -137,7 +137,7 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
      * The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
      * 
      */
-    @Export(name="featureGroupName", type=String.class, parameters={})
+    @Export(name="featureGroupName", refs={String.class}, tree="[0]")
     private Output<String> featureGroupName;
 
     /**
@@ -151,7 +151,7 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
      * The Offline Feature Store Configuration. See Offline Store Config Below.
      * 
      */
-    @Export(name="offlineStoreConfig", type=FeatureGroupOfflineStoreConfig.class, parameters={})
+    @Export(name="offlineStoreConfig", refs={FeatureGroupOfflineStoreConfig.class}, tree="[0]")
     private Output</* @Nullable */ FeatureGroupOfflineStoreConfig> offlineStoreConfig;
 
     /**
@@ -165,7 +165,7 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
      * The Online Feature Store Configuration. See Online Store Config Below.
      * 
      */
-    @Export(name="onlineStoreConfig", type=FeatureGroupOnlineStoreConfig.class, parameters={})
+    @Export(name="onlineStoreConfig", refs={FeatureGroupOnlineStoreConfig.class}, tree="[0]")
     private Output</* @Nullable */ FeatureGroupOnlineStoreConfig> onlineStoreConfig;
 
     /**
@@ -179,7 +179,7 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
      * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
      * 
      */
-    @Export(name="recordIdentifierFeatureName", type=String.class, parameters={})
+    @Export(name="recordIdentifierFeatureName", refs={String.class}, tree="[0]")
     private Output<String> recordIdentifierFeatureName;
 
     /**
@@ -193,7 +193,7 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -207,7 +207,7 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
      * Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -221,7 +221,7 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

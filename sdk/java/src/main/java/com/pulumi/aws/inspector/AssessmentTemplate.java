@@ -77,7 +77,7 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      * The template assessment ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -91,7 +91,7 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      * The duration of the inspector run.
      * 
      */
-    @Export(name="duration", type=Integer.class, parameters={})
+    @Export(name="duration", refs={Integer.class}, tree="[0]")
     private Output<Integer> duration;
 
     /**
@@ -105,7 +105,7 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
      * 
      */
-    @Export(name="eventSubscriptions", type=List.class, parameters={AssessmentTemplateEventSubscription.class})
+    @Export(name="eventSubscriptions", refs={List.class,AssessmentTemplateEventSubscription.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AssessmentTemplateEventSubscription>> eventSubscriptions;
 
     /**
@@ -119,7 +119,7 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      * The name of the assessment template.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      * The rules to be used during the run.
      * 
      */
-    @Export(name="rulesPackageArns", type=List.class, parameters={String.class})
+    @Export(name="rulesPackageArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> rulesPackageArns;
 
     /**
@@ -147,7 +147,7 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      * Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -161,7 +161,7 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -175,7 +175,7 @@ public class AssessmentTemplate extends com.pulumi.resources.CustomResource {
      * The assessment target ARN to attach the template to.
      * 
      */
-    @Export(name="targetArn", type=String.class, parameters={})
+    @Export(name="targetArn", refs={String.class}, tree="[0]")
     private Output<String> targetArn;
 
     /**

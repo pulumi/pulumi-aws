@@ -75,7 +75,7 @@ public class DomainPolicy extends com.pulumi.resources.CustomResource {
      * IAM policy document specifying the access policies for the domain
      * 
      */
-    @Export(name="accessPolicies", type=String.class, parameters={})
+    @Export(name="accessPolicies", refs={String.class}, tree="[0]")
     private Output<String> accessPolicies;
 
     /**
@@ -89,7 +89,7 @@ public class DomainPolicy extends com.pulumi.resources.CustomResource {
      * Name of the domain.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**

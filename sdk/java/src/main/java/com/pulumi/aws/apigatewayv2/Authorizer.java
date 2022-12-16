@@ -107,7 +107,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * API identifier.
      * 
      */
-    @Export(name="apiId", type=String.class, parameters={})
+    @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
     /**
@@ -122,7 +122,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * Supported only for `REQUEST` authorizers.
      * 
      */
-    @Export(name="authorizerCredentialsArn", type=String.class, parameters={})
+    @Export(name="authorizerCredentialsArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizerCredentialsArn;
 
     /**
@@ -138,7 +138,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * Valid values: `1.0`, `2.0`.
      * 
      */
-    @Export(name="authorizerPayloadFormatVersion", type=String.class, parameters={})
+    @Export(name="authorizerPayloadFormatVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizerPayloadFormatVersion;
 
     /**
@@ -155,7 +155,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * Supported only for HTTP API Lambda authorizers.
      * 
      */
-    @Export(name="authorizerResultTtlInSeconds", type=Integer.class, parameters={})
+    @Export(name="authorizerResultTtlInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> authorizerResultTtlInSeconds;
 
     /**
@@ -173,7 +173,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
      * 
      */
-    @Export(name="authorizerType", type=String.class, parameters={})
+    @Export(name="authorizerType", refs={String.class}, tree="[0]")
     private Output<String> authorizerType;
 
     /**
@@ -191,7 +191,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      * 
      */
-    @Export(name="authorizerUri", type=String.class, parameters={})
+    @Export(name="authorizerUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizerUri;
 
     /**
@@ -208,7 +208,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * Supported only for HTTP APIs.
      * 
      */
-    @Export(name="enableSimpleResponses", type=Boolean.class, parameters={})
+    @Export(name="enableSimpleResponses", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableSimpleResponses;
 
     /**
@@ -225,7 +225,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
      * 
      */
-    @Export(name="identitySources", type=List.class, parameters={String.class})
+    @Export(name="identitySources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> identitySources;
 
     /**
@@ -242,7 +242,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * Supported only for HTTP APIs.
      * 
      */
-    @Export(name="jwtConfiguration", type=AuthorizerJwtConfiguration.class, parameters={})
+    @Export(name="jwtConfiguration", refs={AuthorizerJwtConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AuthorizerJwtConfiguration> jwtConfiguration;
 
     /**
@@ -257,7 +257,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * Name of the authorizer. Must be between 1 and 128 characters in length.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

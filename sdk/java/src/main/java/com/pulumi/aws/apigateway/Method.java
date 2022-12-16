@@ -143,7 +143,7 @@ public class Method extends com.pulumi.resources.CustomResource {
      * Specify if the method requires an API key
      * 
      */
-    @Export(name="apiKeyRequired", type=Boolean.class, parameters={})
+    @Export(name="apiKeyRequired", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> apiKeyRequired;
 
     /**
@@ -157,7 +157,7 @@ public class Method extends com.pulumi.resources.CustomResource {
      * Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      * 
      */
-    @Export(name="authorization", type=String.class, parameters={})
+    @Export(name="authorization", refs={String.class}, tree="[0]")
     private Output<String> authorization;
 
     /**
@@ -171,7 +171,7 @@ public class Method extends com.pulumi.resources.CustomResource {
      * Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      * 
      */
-    @Export(name="authorizationScopes", type=List.class, parameters={String.class})
+    @Export(name="authorizationScopes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> authorizationScopes;
 
     /**
@@ -185,7 +185,7 @@ public class Method extends com.pulumi.resources.CustomResource {
      * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      * 
      */
-    @Export(name="authorizerId", type=String.class, parameters={})
+    @Export(name="authorizerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizerId;
 
     /**
@@ -199,7 +199,7 @@ public class Method extends com.pulumi.resources.CustomResource {
      * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      * 
      */
-    @Export(name="httpMethod", type=String.class, parameters={})
+    @Export(name="httpMethod", refs={String.class}, tree="[0]")
     private Output<String> httpMethod;
 
     /**
@@ -213,7 +213,7 @@ public class Method extends com.pulumi.resources.CustomResource {
      * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      * 
      */
-    @Export(name="operationName", type=String.class, parameters={})
+    @Export(name="operationName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> operationName;
 
     /**
@@ -229,7 +229,7 @@ public class Method extends com.pulumi.resources.CustomResource {
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
      * 
      */
-    @Export(name="requestModels", type=Map.class, parameters={String.class, String.class})
+    @Export(name="requestModels", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> requestModels;
 
     /**
@@ -246,7 +246,7 @@ public class Method extends com.pulumi.resources.CustomResource {
      * For example: `request_parameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      * 
      */
-    @Export(name="requestParameters", type=Map.class, parameters={String.class, Boolean.class})
+    @Export(name="requestParameters", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Boolean>> requestParameters;
 
     /**
@@ -261,7 +261,7 @@ public class Method extends com.pulumi.resources.CustomResource {
      * ID of a `aws.apigateway.RequestValidator`
      * 
      */
-    @Export(name="requestValidatorId", type=String.class, parameters={})
+    @Export(name="requestValidatorId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestValidatorId;
 
     /**
@@ -275,7 +275,7 @@ public class Method extends com.pulumi.resources.CustomResource {
      * API resource ID
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -289,7 +289,7 @@ public class Method extends com.pulumi.resources.CustomResource {
      * ID of the associated REST API
      * 
      */
-    @Export(name="restApi", type=String.class, parameters={})
+    @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
     /**

@@ -97,7 +97,7 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
      * Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
      * 
      */
-    @Export(name="blackhole", type=Boolean.class, parameters={})
+    @Export(name="blackhole", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blackhole;
 
     /**
@@ -111,7 +111,7 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
      * Identifier of EC2 Prefix List.
      * 
      */
-    @Export(name="prefixListId", type=String.class, parameters={})
+    @Export(name="prefixListId", refs={String.class}, tree="[0]")
     private Output<String> prefixListId;
 
     /**
@@ -121,7 +121,7 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
     public Output<String> prefixListId() {
         return this.prefixListId;
     }
-    @Export(name="prefixListOwnerId", type=String.class, parameters={})
+    @Export(name="prefixListOwnerId", refs={String.class}, tree="[0]")
     private Output<String> prefixListOwnerId;
 
     public Output<String> prefixListOwnerId() {
@@ -131,7 +131,7 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
      * Identifier of EC2 Transit Gateway Attachment.
      * 
      */
-    @Export(name="transitGatewayAttachmentId", type=String.class, parameters={})
+    @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transitGatewayAttachmentId;
 
     /**
@@ -145,7 +145,7 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
      * Identifier of EC2 Transit Gateway Route Table.
      * 
      */
-    @Export(name="transitGatewayRouteTableId", type=String.class, parameters={})
+    @Export(name="transitGatewayRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayRouteTableId;
 
     /**

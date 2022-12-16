@@ -42,7 +42,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * CloudFormation stack or set of tags. You can create one scaling plan per application source.
      * 
      */
-    @Export(name="applicationSource", type=ScalingPlanApplicationSource.class, parameters={})
+    @Export(name="applicationSource", refs={ScalingPlanApplicationSource.class}, tree="[0]")
     private Output<ScalingPlanApplicationSource> applicationSource;
 
     /**
@@ -56,7 +56,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -70,7 +70,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      * 
      */
-    @Export(name="scalingInstructions", type=List.class, parameters={ScalingPlanScalingInstruction.class})
+    @Export(name="scalingInstructions", refs={List.class,ScalingPlanScalingInstruction.class}, tree="[0,1]")
     private Output<List<ScalingPlanScalingInstruction>> scalingInstructions;
 
     /**
@@ -84,7 +84,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * The version number of the scaling plan. This value is always 1.
      * 
      */
-    @Export(name="scalingPlanVersion", type=Integer.class, parameters={})
+    @Export(name="scalingPlanVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> scalingPlanVersion;
 
     /**

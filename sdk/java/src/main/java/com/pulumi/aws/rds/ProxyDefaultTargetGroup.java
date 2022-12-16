@@ -95,7 +95,7 @@ public class ProxyDefaultTargetGroup extends com.pulumi.resources.CustomResource
      * The Amazon Resource Name (ARN) representing the target group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -109,7 +109,7 @@ public class ProxyDefaultTargetGroup extends com.pulumi.resources.CustomResource
      * The settings that determine the size and behavior of the connection pool for the target group.
      * 
      */
-    @Export(name="connectionPoolConfig", type=ProxyDefaultTargetGroupConnectionPoolConfig.class, parameters={})
+    @Export(name="connectionPoolConfig", refs={ProxyDefaultTargetGroupConnectionPoolConfig.class}, tree="[0]")
     private Output<ProxyDefaultTargetGroupConnectionPoolConfig> connectionPoolConfig;
 
     /**
@@ -123,7 +123,7 @@ public class ProxyDefaultTargetGroup extends com.pulumi.resources.CustomResource
      * Name of the RDS DB Proxy.
      * 
      */
-    @Export(name="dbProxyName", type=String.class, parameters={})
+    @Export(name="dbProxyName", refs={String.class}, tree="[0]")
     private Output<String> dbProxyName;
 
     /**
@@ -137,7 +137,7 @@ public class ProxyDefaultTargetGroup extends com.pulumi.resources.CustomResource
      * The name of the default target group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

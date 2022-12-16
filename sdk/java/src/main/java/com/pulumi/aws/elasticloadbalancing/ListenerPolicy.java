@@ -159,7 +159,7 @@ public class ListenerPolicy extends com.pulumi.resources.CustomResource {
      * The load balancer to attach the policy to.
      * 
      */
-    @Export(name="loadBalancerName", type=String.class, parameters={})
+    @Export(name="loadBalancerName", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerName;
 
     /**
@@ -173,7 +173,7 @@ public class ListenerPolicy extends com.pulumi.resources.CustomResource {
      * The load balancer listener port to apply the policy to.
      * 
      */
-    @Export(name="loadBalancerPort", type=Integer.class, parameters={})
+    @Export(name="loadBalancerPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> loadBalancerPort;
 
     /**
@@ -187,7 +187,7 @@ public class ListenerPolicy extends com.pulumi.resources.CustomResource {
      * List of Policy Names to apply to the backend server.
      * 
      */
-    @Export(name="policyNames", type=List.class, parameters={String.class})
+    @Export(name="policyNames", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> policyNames;
 
     /**

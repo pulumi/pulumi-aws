@@ -121,7 +121,7 @@ public class GlobalTable extends com.pulumi.resources.CustomResource {
      * The ARN of the DynamoDB Global Table
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -135,7 +135,7 @@ public class GlobalTable extends com.pulumi.resources.CustomResource {
      * The name of the global table. Must match underlying DynamoDB Table names in all regions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -149,7 +149,7 @@ public class GlobalTable extends com.pulumi.resources.CustomResource {
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      * 
      */
-    @Export(name="replicas", type=List.class, parameters={GlobalTableReplica.class})
+    @Export(name="replicas", refs={List.class,GlobalTableReplica.class}, tree="[0,1]")
     private Output<List<GlobalTableReplica>> replicas;
 
     /**

@@ -196,7 +196,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * ARN of the certificate
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -210,7 +210,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * ARN of an ACM PCA
      * 
      */
-    @Export(name="certificateAuthorityArn", type=String.class, parameters={})
+    @Export(name="certificateAuthorityArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateAuthorityArn;
 
     /**
@@ -224,7 +224,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Certificate&#39;s PEM-formatted public key
      * 
      */
-    @Export(name="certificateBody", type=String.class, parameters={})
+    @Export(name="certificateBody", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateBody;
 
     /**
@@ -239,7 +239,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * * Creating a private CA issued certificate
      * 
      */
-    @Export(name="certificateChain", type=String.class, parameters={})
+    @Export(name="certificateChain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateChain;
 
     /**
@@ -254,7 +254,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Fully qualified domain name (FQDN) in the certificate.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -270,7 +270,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Only set if `DNS`-validation was used.
      * 
      */
-    @Export(name="domainValidationOptions", type=List.class, parameters={CertificateDomainValidationOption.class})
+    @Export(name="domainValidationOptions", refs={List.class,CertificateDomainValidationOption.class}, tree="[0,1]")
     private Output<List<CertificateDomainValidationOption>> domainValidationOptions;
 
     /**
@@ -290,7 +290,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * or a string such as `2160h`.
      * 
      */
-    @Export(name="earlyRenewalDuration", type=String.class, parameters={})
+    @Export(name="earlyRenewalDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> earlyRenewalDuration;
 
     /**
@@ -308,7 +308,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
      * 
      */
-    @Export(name="keyAlgorithm", type=String.class, parameters={})
+    @Export(name="keyAlgorithm", refs={String.class}, tree="[0]")
     private Output<String> keyAlgorithm;
 
     /**
@@ -322,7 +322,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Expiration date and time of the certificate.
      * 
      */
-    @Export(name="notAfter", type=String.class, parameters={})
+    @Export(name="notAfter", refs={String.class}, tree="[0]")
     private Output<String> notAfter;
 
     /**
@@ -336,7 +336,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Start of the validity period of the certificate.
      * 
      */
-    @Export(name="notBefore", type=String.class, parameters={})
+    @Export(name="notBefore", refs={String.class}, tree="[0]")
     private Output<String> notBefore;
 
     /**
@@ -350,7 +350,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Configuration block used to set certificate options. Detailed below.
      * 
      */
-    @Export(name="options", type=CertificateOptions.class, parameters={})
+    @Export(name="options", refs={CertificateOptions.class}, tree="[0]")
     private Output</* @Nullable */ CertificateOptions> options;
 
     /**
@@ -364,7 +364,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
      * 
      */
-    @Export(name="pendingRenewal", type=Boolean.class, parameters={})
+    @Export(name="pendingRenewal", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> pendingRenewal;
 
     /**
@@ -378,7 +378,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Certificate&#39;s PEM-formatted private key
      * 
      */
-    @Export(name="privateKey", type=String.class, parameters={})
+    @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
     /**
@@ -392,7 +392,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Whether the certificate is eligible for managed renewal.
      * 
      */
-    @Export(name="renewalEligibility", type=String.class, parameters={})
+    @Export(name="renewalEligibility", refs={String.class}, tree="[0]")
     private Output<String> renewalEligibility;
 
     /**
@@ -406,7 +406,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Contains information about the status of ACM&#39;s [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
      * 
      */
-    @Export(name="renewalSummaries", type=List.class, parameters={CertificateRenewalSummary.class})
+    @Export(name="renewalSummaries", refs={List.class,CertificateRenewalSummary.class}, tree="[0,1]")
     private Output<List<CertificateRenewalSummary>> renewalSummaries;
 
     /**
@@ -420,7 +420,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Status of the certificate.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -435,7 +435,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
      * 
      */
-    @Export(name="subjectAlternativeNames", type=List.class, parameters={String.class})
+    @Export(name="subjectAlternativeNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subjectAlternativeNames;
 
     /**
@@ -450,7 +450,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -464,7 +464,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -478,7 +478,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Source of the certificate.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -492,7 +492,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      * 
      */
-    @Export(name="validationEmails", type=List.class, parameters={String.class})
+    @Export(name="validationEmails", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> validationEmails;
 
     /**
@@ -506,7 +506,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
      * 
      */
-    @Export(name="validationMethod", type=String.class, parameters={})
+    @Export(name="validationMethod", refs={String.class}, tree="[0]")
     private Output<String> validationMethod;
 
     /**
@@ -521,7 +521,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * * Importing an existing certificate
      * 
      */
-    @Export(name="validationOptions", type=List.class, parameters={CertificateValidationOption.class})
+    @Export(name="validationOptions", refs={List.class,CertificateValidationOption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CertificateValidationOption>> validationOptions;
 
     /**

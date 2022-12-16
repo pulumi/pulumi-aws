@@ -94,7 +94,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * SCM configuration of the app as described below.
      * 
      */
-    @Export(name="appSources", type=List.class, parameters={ApplicationAppSource.class})
+    @Export(name="appSources", refs={List.class,ApplicationAppSource.class}, tree="[0,1]")
     private Output<List<ApplicationAppSource>> appSources;
 
     /**
@@ -108,7 +108,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Run bundle install when deploying for application of type `rails`.
      * 
      */
-    @Export(name="autoBundleOnDeploy", type=String.class, parameters={})
+    @Export(name="autoBundleOnDeploy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoBundleOnDeploy;
 
     /**
@@ -122,7 +122,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Specify activity and workflow workers for your app using the aws-flow gem.
      * 
      */
-    @Export(name="awsFlowRubySettings", type=String.class, parameters={})
+    @Export(name="awsFlowRubySettings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsFlowRubySettings;
 
     /**
@@ -136,7 +136,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The data source&#39;s ARN.
      * 
      */
-    @Export(name="dataSourceArn", type=String.class, parameters={})
+    @Export(name="dataSourceArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dataSourceArn;
 
     /**
@@ -150,7 +150,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The database name.
      * 
      */
-    @Export(name="dataSourceDatabaseName", type=String.class, parameters={})
+    @Export(name="dataSourceDatabaseName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dataSourceDatabaseName;
 
     /**
@@ -164,7 +164,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The data source&#39;s type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
      * 
      */
-    @Export(name="dataSourceType", type=String.class, parameters={})
+    @Export(name="dataSourceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dataSourceType;
 
     /**
@@ -178,7 +178,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A description of the app.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -192,7 +192,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Subfolder for the document root for application of type `rails`.
      * 
      */
-    @Export(name="documentRoot", type=String.class, parameters={})
+    @Export(name="documentRoot", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> documentRoot;
 
     /**
@@ -206,7 +206,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A list of virtual host alias.
      * 
      */
-    @Export(name="domains", type=List.class, parameters={String.class})
+    @Export(name="domains", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> domains;
 
     /**
@@ -220,7 +220,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
      * 
      */
-    @Export(name="enableSsl", type=Boolean.class, parameters={})
+    @Export(name="enableSsl", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableSsl;
 
     /**
@@ -234,7 +234,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Object to define environment variables.  Object is described below.
      * 
      */
-    @Export(name="environments", type=List.class, parameters={ApplicationEnvironment.class})
+    @Export(name="environments", refs={List.class,ApplicationEnvironment.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationEnvironment>> environments;
 
     /**
@@ -248,7 +248,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A human-readable name for the application.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -262,7 +262,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name of the Rails environment for application of type `rails`.
      * 
      */
-    @Export(name="railsEnv", type=String.class, parameters={})
+    @Export(name="railsEnv", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> railsEnv;
 
     /**
@@ -276,7 +276,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
      * 
      */
-    @Export(name="shortName", type=String.class, parameters={})
+    @Export(name="shortName", refs={String.class}, tree="[0]")
     private Output<String> shortName;
 
     /**
@@ -290,7 +290,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The SSL configuration of the app. Object is described below.
      * 
      */
-    @Export(name="sslConfigurations", type=List.class, parameters={ApplicationSslConfiguration.class})
+    @Export(name="sslConfigurations", refs={List.class,ApplicationSslConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationSslConfiguration>> sslConfigurations;
 
     /**
@@ -304,7 +304,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * ID of the stack the application will belong to.
      * 
      */
-    @Export(name="stackId", type=String.class, parameters={})
+    @Export(name="stackId", refs={String.class}, tree="[0]")
     private Output<String> stackId;
 
     /**
@@ -318,7 +318,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

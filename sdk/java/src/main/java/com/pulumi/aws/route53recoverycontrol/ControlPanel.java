@@ -63,7 +63,7 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      * ARN of the control panel.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -77,7 +77,7 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      * ARN of the cluster in which this control panel will reside.
      * 
      */
-    @Export(name="clusterArn", type=String.class, parameters={})
+    @Export(name="clusterArn", refs={String.class}, tree="[0]")
     private Output<String> clusterArn;
 
     /**
@@ -91,7 +91,7 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      * Whether a control panel is default.
      * 
      */
-    @Export(name="defaultControlPanel", type=Boolean.class, parameters={})
+    @Export(name="defaultControlPanel", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> defaultControlPanel;
 
     /**
@@ -105,7 +105,7 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      * Name describing the control panel.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -119,7 +119,7 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      * Number routing controls in a control panel.
      * 
      */
-    @Export(name="routingControlCount", type=Integer.class, parameters={})
+    @Export(name="routingControlCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> routingControlCount;
 
     /**
@@ -133,7 +133,7 @@ public class ControlPanel extends com.pulumi.resources.CustomResource {
      * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

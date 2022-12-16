@@ -76,7 +76,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
      * 
      */
-    @Export(name="allowVersionUpgrade", type=Boolean.class, parameters={})
+    @Export(name="allowVersionUpgrade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowVersionUpgrade;
 
     /**
@@ -90,7 +90,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
-    @Export(name="applyImmediately", type=Boolean.class, parameters={})
+    @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
@@ -104,7 +104,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
      * 
      */
-    @Export(name="aquaConfigurationStatus", type=String.class, parameters={})
+    @Export(name="aquaConfigurationStatus", refs={String.class}, tree="[0]")
     private Output<String> aquaConfigurationStatus;
 
     /**
@@ -118,7 +118,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of cluster
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -132,7 +132,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
      * 
      */
-    @Export(name="automatedSnapshotRetentionPeriod", type=Integer.class, parameters={})
+    @Export(name="automatedSnapshotRetentionPeriod", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> automatedSnapshotRetentionPeriod;
 
     /**
@@ -146,7 +146,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
@@ -160,7 +160,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
      * 
      */
-    @Export(name="availabilityZoneRelocationEnabled", type=Boolean.class, parameters={})
+    @Export(name="availabilityZoneRelocationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> availabilityZoneRelocationEnabled;
 
     /**
@@ -174,7 +174,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The Cluster Identifier. Must be a lower case string.
      * 
      */
-    @Export(name="clusterIdentifier", type=String.class, parameters={})
+    @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
@@ -188,7 +188,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The nodes in the cluster. Cluster node blocks are documented below
      * 
      */
-    @Export(name="clusterNodes", type=List.class, parameters={ClusterClusterNode.class})
+    @Export(name="clusterNodes", refs={List.class,ClusterClusterNode.class}, tree="[0,1]")
     private Output<List<ClusterClusterNode>> clusterNodes;
 
     /**
@@ -202,7 +202,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of the parameter group to be associated with this cluster.
      * 
      */
-    @Export(name="clusterParameterGroupName", type=String.class, parameters={})
+    @Export(name="clusterParameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> clusterParameterGroupName;
 
     /**
@@ -216,7 +216,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The public key for the cluster
      * 
      */
-    @Export(name="clusterPublicKey", type=String.class, parameters={})
+    @Export(name="clusterPublicKey", refs={String.class}, tree="[0]")
     private Output<String> clusterPublicKey;
 
     /**
@@ -230,7 +230,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The specific revision number of the database in the cluster
      * 
      */
-    @Export(name="clusterRevisionNumber", type=String.class, parameters={})
+    @Export(name="clusterRevisionNumber", refs={String.class}, tree="[0]")
     private Output<String> clusterRevisionNumber;
 
     /**
@@ -248,7 +248,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
-    @Export(name="clusterSecurityGroups", type=List.class, parameters={String.class})
+    @Export(name="clusterSecurityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> clusterSecurityGroups;
 
     /**
@@ -262,7 +262,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      * 
      */
-    @Export(name="clusterSubnetGroupName", type=String.class, parameters={})
+    @Export(name="clusterSubnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> clusterSubnetGroupName;
 
     /**
@@ -276,7 +276,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The cluster type to use. Either `single-node` or `multi-node`.
      * 
      */
-    @Export(name="clusterType", type=String.class, parameters={})
+    @Export(name="clusterType", refs={String.class}, tree="[0]")
     private Output<String> clusterType;
 
     /**
@@ -291,7 +291,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The version selected runs on all the nodes in the cluster.
      * 
      */
-    @Export(name="clusterVersion", type=String.class, parameters={})
+    @Export(name="clusterVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clusterVersion;
 
     /**
@@ -307,7 +307,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * If you do not provide a name, Amazon Redshift will create a default database called `dev`.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -322,7 +322,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
-    @Export(name="defaultIamRoleArn", type=String.class, parameters={})
+    @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> defaultIamRoleArn;
 
     /**
@@ -336,7 +336,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The DNS name of the cluster
      * 
      */
-    @Export(name="dnsName", type=String.class, parameters={})
+    @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
@@ -350,7 +350,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The Elastic IP (EIP) address for the cluster.
      * 
      */
-    @Export(name="elasticIp", type=String.class, parameters={})
+    @Export(name="elasticIp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> elasticIp;
 
     /**
@@ -364,7 +364,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * If true , the data in the cluster is encrypted at rest.
      * 
      */
-    @Export(name="encrypted", type=Boolean.class, parameters={})
+    @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> encrypted;
 
     /**
@@ -378,7 +378,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The connection endpoint
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
@@ -392,7 +392,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * If true , enhanced VPC routing is enabled.
      * 
      */
-    @Export(name="enhancedVpcRouting", type=Boolean.class, parameters={})
+    @Export(name="enhancedVpcRouting", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enhancedVpcRouting;
 
     /**
@@ -406,7 +406,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
      * 
      */
-    @Export(name="finalSnapshotIdentifier", type=String.class, parameters={})
+    @Export(name="finalSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> finalSnapshotIdentifier;
 
     /**
@@ -420,7 +420,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      * 
      */
-    @Export(name="iamRoles", type=List.class, parameters={String.class})
+    @Export(name="iamRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> iamRoles;
 
     /**
@@ -434,7 +434,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -448,7 +448,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Logging, documented below.
      * 
      */
-    @Export(name="logging", type=ClusterLogging.class, parameters={})
+    @Export(name="logging", refs={ClusterLogging.class}, tree="[0]")
     private Output</* @Nullable */ ClusterLogging> logging;
 
     /**
@@ -462,7 +462,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
      * 
      */
-    @Export(name="maintenanceTrackName", type=String.class, parameters={})
+    @Export(name="maintenanceTrackName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maintenanceTrackName;
 
     /**
@@ -476,7 +476,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn&#39;t change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
      * 
      */
-    @Export(name="manualSnapshotRetentionPeriod", type=Integer.class, parameters={})
+    @Export(name="manualSnapshotRetentionPeriod", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> manualSnapshotRetentionPeriod;
 
     /**
@@ -492,7 +492,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
-    @Export(name="masterPassword", type=String.class, parameters={})
+    @Export(name="masterPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> masterPassword;
 
     /**
@@ -508,7 +508,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Username for the master DB user.
      * 
      */
-    @Export(name="masterUsername", type=String.class, parameters={})
+    @Export(name="masterUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> masterUsername;
 
     /**
@@ -522,7 +522,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The node type to be provisioned for the cluster.
      * 
      */
-    @Export(name="nodeType", type=String.class, parameters={})
+    @Export(name="nodeType", refs={String.class}, tree="[0]")
     private Output<String> nodeType;
 
     /**
@@ -536,7 +536,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
      * 
      */
-    @Export(name="numberOfNodes", type=Integer.class, parameters={})
+    @Export(name="numberOfNodes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numberOfNodes;
 
     /**
@@ -550,7 +550,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
      * 
      */
-    @Export(name="ownerAccount", type=String.class, parameters={})
+    @Export(name="ownerAccount", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ownerAccount;
 
     /**
@@ -567,7 +567,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Default port is `5439`.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
     /**
@@ -585,7 +585,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Format: ddd:hh24:mi-ddd:hh24:mi
      * 
      */
-    @Export(name="preferredMaintenanceWindow", type=String.class, parameters={})
+    @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredMaintenanceWindow;
 
     /**
@@ -600,7 +600,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * If true, the cluster can be accessed from a public network. Default is `true`.
      * 
      */
-    @Export(name="publiclyAccessible", type=Boolean.class, parameters={})
+    @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publiclyAccessible;
 
     /**
@@ -614,7 +614,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
      * 
      */
-    @Export(name="skipFinalSnapshot", type=Boolean.class, parameters={})
+    @Export(name="skipFinalSnapshot", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipFinalSnapshot;
 
     /**
@@ -628,7 +628,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of the cluster the source snapshot was created from.
      * 
      */
-    @Export(name="snapshotClusterIdentifier", type=String.class, parameters={})
+    @Export(name="snapshotClusterIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotClusterIdentifier;
 
     /**
@@ -642,7 +642,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
      * 
      */
-    @Export(name="snapshotCopy", type=ClusterSnapshotCopy.class, parameters={})
+    @Export(name="snapshotCopy", refs={ClusterSnapshotCopy.class}, tree="[0]")
     private Output</* @Nullable */ ClusterSnapshotCopy> snapshotCopy;
 
     /**
@@ -656,7 +656,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of the snapshot from which to create the new cluster.
      * 
      */
-    @Export(name="snapshotIdentifier", type=String.class, parameters={})
+    @Export(name="snapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotIdentifier;
 
     /**
@@ -670,7 +670,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -684,7 +684,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -698,7 +698,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      * 
      */
-    @Export(name="vpcSecurityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
     /**

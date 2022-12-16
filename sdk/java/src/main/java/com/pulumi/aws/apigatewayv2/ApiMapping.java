@@ -66,7 +66,7 @@ public class ApiMapping extends com.pulumi.resources.CustomResource {
      * API identifier.
      * 
      */
-    @Export(name="apiId", type=String.class, parameters={})
+    @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
     /**
@@ -80,7 +80,7 @@ public class ApiMapping extends com.pulumi.resources.CustomResource {
      * The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
      * 
      */
-    @Export(name="apiMappingKey", type=String.class, parameters={})
+    @Export(name="apiMappingKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiMappingKey;
 
     /**
@@ -94,7 +94,7 @@ public class ApiMapping extends com.pulumi.resources.CustomResource {
      * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -108,7 +108,7 @@ public class ApiMapping extends com.pulumi.resources.CustomResource {
      * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      * 
      */
-    @Export(name="stage", type=String.class, parameters={})
+    @Export(name="stage", refs={String.class}, tree="[0]")
     private Output<String> stage;
 
     /**

@@ -69,7 +69,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * GameLift Script ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * Name of the script
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -97,7 +97,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * Information indicating where your game script files are stored. See below.
      * 
      */
-    @Export(name="storageLocation", type=ScriptStorageLocation.class, parameters={})
+    @Export(name="storageLocation", refs={ScriptStorageLocation.class}, tree="[0]")
     private Output<ScriptStorageLocation> storageLocation;
 
     /**
@@ -111,7 +111,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -125,7 +125,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -139,7 +139,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * Version that is associated with this script.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> version;
 
     /**
@@ -153,7 +153,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
      * 
      */
-    @Export(name="zipFile", type=String.class, parameters={})
+    @Export(name="zipFile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zipFile;
 
     /**

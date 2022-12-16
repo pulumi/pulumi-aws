@@ -81,7 +81,7 @@ public class RegexMatchSet extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN)
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -95,7 +95,7 @@ public class RegexMatchSet extends com.pulumi.resources.CustomResource {
      * The name or description of the Regex Match Set.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -109,7 +109,7 @@ public class RegexMatchSet extends com.pulumi.resources.CustomResource {
      * The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
      * 
      */
-    @Export(name="regexMatchTuples", type=List.class, parameters={RegexMatchSetRegexMatchTuple.class})
+    @Export(name="regexMatchTuples", refs={List.class,RegexMatchSetRegexMatchTuple.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RegexMatchSetRegexMatchTuple>> regexMatchTuples;
 
     /**

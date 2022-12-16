@@ -126,7 +126,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * ARN of the SQS queue specified as the destination for the dead-letter queue.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -140,7 +140,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Brief description of the schedule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -154,7 +154,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The date, in UTC, before which the schedule can invoke its target. Depending on the schedule&#39;s recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
      * 
      */
-    @Export(name="endDate", type=String.class, parameters={})
+    @Export(name="endDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endDate;
 
     /**
@@ -168,7 +168,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
      * 
      */
-    @Export(name="flexibleTimeWindow", type=ScheduleFlexibleTimeWindow.class, parameters={})
+    @Export(name="flexibleTimeWindow", refs={ScheduleFlexibleTimeWindow.class}, tree="[0]")
     private Output<ScheduleFlexibleTimeWindow> flexibleTimeWindow;
 
     /**
@@ -182,7 +182,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
      * 
      */
-    @Export(name="groupName", type=String.class, parameters={})
+    @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
     /**
@@ -196,7 +196,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
      * 
      */
-    @Export(name="kmsKeyArn", type=String.class, parameters={})
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
@@ -210,7 +210,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Name of parameter to start execution of a SageMaker Model Building Pipeline.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -224,7 +224,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -238,7 +238,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
      * 
      */
-    @Export(name="scheduleExpression", type=String.class, parameters={})
+    @Export(name="scheduleExpression", refs={String.class}, tree="[0]")
     private Output<String> scheduleExpression;
 
     /**
@@ -252,7 +252,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
      * 
      */
-    @Export(name="scheduleExpressionTimezone", type=String.class, parameters={})
+    @Export(name="scheduleExpressionTimezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scheduleExpressionTimezone;
 
     /**
@@ -266,7 +266,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule&#39;s recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
      * 
      */
-    @Export(name="startDate", type=String.class, parameters={})
+    @Export(name="startDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startDate;
 
     /**
@@ -280,7 +280,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
@@ -294,7 +294,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Configures the target of the schedule. Detailed below.
      * 
      */
-    @Export(name="target", type=ScheduleTarget.class, parameters={})
+    @Export(name="target", refs={ScheduleTarget.class}, tree="[0]")
     private Output<ScheduleTarget> target;
 
     /**

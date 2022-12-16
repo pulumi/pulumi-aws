@@ -62,7 +62,7 @@ public class LogDestination extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) specifying the log destination.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -76,7 +76,7 @@ public class LogDestination extends com.pulumi.resources.CustomResource {
      * A name for the log destination
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -90,7 +90,7 @@ public class LogDestination extends com.pulumi.resources.CustomResource {
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -104,7 +104,7 @@ public class LogDestination extends com.pulumi.resources.CustomResource {
      * The ARN of the target Amazon Kinesis stream resource for the destination
      * 
      */
-    @Export(name="targetArn", type=String.class, parameters={})
+    @Export(name="targetArn", refs={String.class}, tree="[0]")
     private Output<String> targetArn;
 
     /**

@@ -84,7 +84,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * ARN for the reserved DB instance.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -98,7 +98,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Currency code for the reserved DB instance.
      * 
      */
-    @Export(name="currencyCode", type=String.class, parameters={})
+    @Export(name="currencyCode", refs={String.class}, tree="[0]")
     private Output<String> currencyCode;
 
     /**
@@ -108,7 +108,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
     public Output<String> currencyCode() {
         return this.currencyCode;
     }
-    @Export(name="dbInstanceClass", type=String.class, parameters={})
+    @Export(name="dbInstanceClass", refs={String.class}, tree="[0]")
     private Output<String> dbInstanceClass;
 
     public Output<String> dbInstanceClass() {
@@ -118,7 +118,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Duration of the reservation in seconds.
      * 
      */
-    @Export(name="duration", type=Integer.class, parameters={})
+    @Export(name="duration", refs={Integer.class}, tree="[0]")
     private Output<Integer> duration;
 
     /**
@@ -132,7 +132,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Fixed price charged for this reserved DB instance.
      * 
      */
-    @Export(name="fixedPrice", type=Double.class, parameters={})
+    @Export(name="fixedPrice", refs={Double.class}, tree="[0]")
     private Output<Double> fixedPrice;
 
     /**
@@ -146,7 +146,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Number of instances to reserve. Default value is `1`.
      * 
      */
-    @Export(name="instanceCount", type=Integer.class, parameters={})
+    @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> instanceCount;
 
     /**
@@ -160,7 +160,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
      * 
      */
-    @Export(name="leaseId", type=String.class, parameters={})
+    @Export(name="leaseId", refs={String.class}, tree="[0]")
     private Output<String> leaseId;
 
     /**
@@ -174,7 +174,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Whether the reservation applies to Multi-AZ deployments.
      * 
      */
-    @Export(name="multiAz", type=Boolean.class, parameters={})
+    @Export(name="multiAz", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> multiAz;
 
     /**
@@ -188,7 +188,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
      * 
      */
-    @Export(name="offeringId", type=String.class, parameters={})
+    @Export(name="offeringId", refs={String.class}, tree="[0]")
     private Output<String> offeringId;
 
     /**
@@ -202,7 +202,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Offering type of this reserved DB instance.
      * 
      */
-    @Export(name="offeringType", type=String.class, parameters={})
+    @Export(name="offeringType", refs={String.class}, tree="[0]")
     private Output<String> offeringType;
 
     /**
@@ -216,7 +216,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Description of the reserved DB instance.
      * 
      */
-    @Export(name="productDescription", type=String.class, parameters={})
+    @Export(name="productDescription", refs={String.class}, tree="[0]")
     private Output<String> productDescription;
 
     /**
@@ -230,7 +230,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Recurring price charged to run this reserved DB instance.
      * 
      */
-    @Export(name="recurringCharges", type=List.class, parameters={ReservedInstanceRecurringCharge.class})
+    @Export(name="recurringCharges", refs={List.class,ReservedInstanceRecurringCharge.class}, tree="[0,1]")
     private Output<List<ReservedInstanceRecurringCharge>> recurringCharges;
 
     /**
@@ -240,7 +240,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
     public Output<List<ReservedInstanceRecurringCharge>> recurringCharges() {
         return this.recurringCharges;
     }
-    @Export(name="reservationId", type=String.class, parameters={})
+    @Export(name="reservationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> reservationId;
 
     public Output<Optional<String>> reservationId() {
@@ -250,7 +250,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Time the reservation started.
      * 
      */
-    @Export(name="startTime", type=String.class, parameters={})
+    @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output<String> startTime;
 
     /**
@@ -264,7 +264,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * State of the reserved DB instance.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -278,7 +278,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -292,7 +292,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -306,7 +306,7 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
      * Hourly price charged for this reserved DB instance.
      * 
      */
-    @Export(name="usagePrice", type=Double.class, parameters={})
+    @Export(name="usagePrice", refs={Double.class}, tree="[0]")
     private Output<Double> usagePrice;
 
     /**

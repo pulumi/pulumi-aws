@@ -287,7 +287,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -301,7 +301,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * The ARN of the budget.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -315,7 +315,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
      * 
      */
-    @Export(name="autoAdjustData", type=BudgetAutoAdjustData.class, parameters={})
+    @Export(name="autoAdjustData", refs={BudgetAutoAdjustData.class}, tree="[0]")
     private Output</* @Nullable */ BudgetAutoAdjustData> autoAdjustData;
 
     /**
@@ -329,7 +329,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * Whether this budget tracks monetary cost or usage.
      * 
      */
-    @Export(name="budgetType", type=String.class, parameters={})
+    @Export(name="budgetType", refs={String.class}, tree="[0]")
     private Output<String> budgetType;
 
     /**
@@ -347,7 +347,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the attribute ""cost_filter"" instead. */
-    @Export(name="costFilterLegacy", type=Map.class, parameters={String.class, String.class})
+    @Export(name="costFilterLegacy", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> costFilterLegacy;
 
     /**
@@ -361,7 +361,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * A list of CostFilter name/values pair to apply to budget.
      * 
      */
-    @Export(name="costFilters", type=List.class, parameters={BudgetCostFilter.class})
+    @Export(name="costFilters", refs={List.class,BudgetCostFilter.class}, tree="[0,1]")
     private Output<List<BudgetCostFilter>> costFilters;
 
     /**
@@ -375,7 +375,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      * 
      */
-    @Export(name="costTypes", type=BudgetCostTypes.class, parameters={})
+    @Export(name="costTypes", refs={BudgetCostTypes.class}, tree="[0]")
     private Output<BudgetCostTypes> costTypes;
 
     /**
@@ -389,7 +389,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * The amount of cost or usage being measured for a budget.
      * 
      */
-    @Export(name="limitAmount", type=String.class, parameters={})
+    @Export(name="limitAmount", refs={String.class}, tree="[0]")
     private Output<String> limitAmount;
 
     /**
@@ -403,7 +403,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      * 
      */
-    @Export(name="limitUnit", type=String.class, parameters={})
+    @Export(name="limitUnit", refs={String.class}, tree="[0]")
     private Output<String> limitUnit;
 
     /**
@@ -417,7 +417,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * The name of a budget. Unique within accounts.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -431,7 +431,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * The prefix of the name of a budget. Unique within accounts.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -445,7 +445,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      * 
      */
-    @Export(name="notifications", type=List.class, parameters={BudgetNotification.class})
+    @Export(name="notifications", refs={List.class,BudgetNotification.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BudgetNotification>> notifications;
 
     /**
@@ -459,7 +459,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      * 
      */
-    @Export(name="plannedLimits", type=List.class, parameters={BudgetPlannedLimit.class})
+    @Export(name="plannedLimits", refs={List.class,BudgetPlannedLimit.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BudgetPlannedLimit>> plannedLimits;
 
     /**
@@ -473,7 +473,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      * 
      */
-    @Export(name="timePeriodEnd", type=String.class, parameters={})
+    @Export(name="timePeriodEnd", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timePeriodEnd;
 
     /**
@@ -487,7 +487,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
      */
-    @Export(name="timePeriodStart", type=String.class, parameters={})
+    @Export(name="timePeriodStart", refs={String.class}, tree="[0]")
     private Output<String> timePeriodStart;
 
     /**
@@ -501,7 +501,7 @@ public class Budget extends com.pulumi.resources.CustomResource {
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      * 
      */
-    @Export(name="timeUnit", type=String.class, parameters={})
+    @Export(name="timeUnit", refs={String.class}, tree="[0]")
     private Output<String> timeUnit;
 
     /**

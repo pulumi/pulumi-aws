@@ -68,7 +68,7 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      * 
      */
-    @Export(name="catalogId", type=String.class, parameters={})
+    @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
@@ -82,7 +82,7 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * The time at which the partition was created.
      * 
      */
-    @Export(name="creationTime", type=String.class, parameters={})
+    @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
@@ -96,7 +96,7 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -110,7 +110,7 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * The last time at which the partition was accessed.
      * 
      */
-    @Export(name="lastAccessedTime", type=String.class, parameters={})
+    @Export(name="lastAccessedTime", refs={String.class}, tree="[0]")
     private Output<String> lastAccessedTime;
 
     /**
@@ -124,7 +124,7 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * The last time at which column statistics were computed for this partition.
      * 
      */
-    @Export(name="lastAnalyzedTime", type=String.class, parameters={})
+    @Export(name="lastAnalyzedTime", refs={String.class}, tree="[0]")
     private Output<String> lastAnalyzedTime;
 
     /**
@@ -138,7 +138,7 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * A map of initialization parameters for the SerDe, in key-value form.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -152,7 +152,7 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * The values that define the partition.
      * 
      */
-    @Export(name="partitionValues", type=List.class, parameters={String.class})
+    @Export(name="partitionValues", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> partitionValues;
 
     /**
@@ -166,7 +166,7 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      * 
      */
-    @Export(name="storageDescriptor", type=PartitionStorageDescriptor.class, parameters={})
+    @Export(name="storageDescriptor", refs={PartitionStorageDescriptor.class}, tree="[0]")
     private Output</* @Nullable */ PartitionStorageDescriptor> storageDescriptor;
 
     /**
@@ -176,7 +176,7 @@ public class Partition extends com.pulumi.resources.CustomResource {
     public Output<Optional<PartitionStorageDescriptor>> storageDescriptor() {
         return Codegen.optional(this.storageDescriptor);
     }
-    @Export(name="tableName", type=String.class, parameters={})
+    @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     public Output<String> tableName() {

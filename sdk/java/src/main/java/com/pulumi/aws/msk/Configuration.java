@@ -69,7 +69,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Description of the configuration.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -97,7 +97,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * List of Apache Kafka versions which can use this configuration.
      * 
      */
-    @Export(name="kafkaVersions", type=List.class, parameters={String.class})
+    @Export(name="kafkaVersions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> kafkaVersions;
 
     /**
@@ -111,7 +111,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Latest revision of the configuration.
      * 
      */
-    @Export(name="latestRevision", type=Integer.class, parameters={})
+    @Export(name="latestRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> latestRevision;
 
     /**
@@ -125,7 +125,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Name of the configuration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -139,7 +139,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
      * 
      */
-    @Export(name="serverProperties", type=String.class, parameters={})
+    @Export(name="serverProperties", refs={String.class}, tree="[0]")
     private Output<String> serverProperties;
 
     /**

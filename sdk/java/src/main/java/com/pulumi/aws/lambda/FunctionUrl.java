@@ -85,7 +85,7 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
      * The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
      * 
      */
-    @Export(name="authorizationType", type=String.class, parameters={})
+    @Export(name="authorizationType", refs={String.class}, tree="[0]")
     private Output<String> authorizationType;
 
     /**
@@ -99,7 +99,7 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
      * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
      * 
      */
-    @Export(name="cors", type=FunctionUrlCors.class, parameters={})
+    @Export(name="cors", refs={FunctionUrlCors.class}, tree="[0]")
     private Output</* @Nullable */ FunctionUrlCors> cors;
 
     /**
@@ -113,7 +113,7 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the function.
      * 
      */
-    @Export(name="functionArn", type=String.class, parameters={})
+    @Export(name="functionArn", refs={String.class}, tree="[0]")
     private Output<String> functionArn;
 
     /**
@@ -127,7 +127,7 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
      * The name (or ARN) of the Lambda function.
      * 
      */
-    @Export(name="functionName", type=String.class, parameters={})
+    @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
     /**
@@ -141,7 +141,7 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
      * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
      * 
      */
-    @Export(name="functionUrl", type=String.class, parameters={})
+    @Export(name="functionUrl", refs={String.class}, tree="[0]")
     private Output<String> functionUrl;
 
     /**
@@ -155,7 +155,7 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
      * The alias name or `&#34;$LATEST&#34;`.
      * 
      */
-    @Export(name="qualifier", type=String.class, parameters={})
+    @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> qualifier;
 
     /**
@@ -169,7 +169,7 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
      * A generated ID for the endpoint.
      * 
      */
-    @Export(name="urlId", type=String.class, parameters={})
+    @Export(name="urlId", refs={String.class}, tree="[0]")
     private Output<String> urlId;
 
     /**

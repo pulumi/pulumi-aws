@@ -126,7 +126,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The ARN of the Lightsail instance (matches `id`).
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -141,7 +141,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * instance (see list below)
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
@@ -156,7 +156,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
      * 
      */
-    @Export(name="blueprintId", type=String.class, parameters={})
+    @Export(name="blueprintId", refs={String.class}, tree="[0]")
     private Output<String> blueprintId;
 
     /**
@@ -170,7 +170,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The bundle of specification information (see list below)
      * 
      */
-    @Export(name="bundleId", type=String.class, parameters={})
+    @Export(name="bundleId", refs={String.class}, tree="[0]")
     private Output<String> bundleId;
 
     /**
@@ -184,7 +184,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The number of vCPUs the instance has.
      * 
      */
-    @Export(name="cpuCount", type=Integer.class, parameters={})
+    @Export(name="cpuCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuCount;
 
     /**
@@ -198,7 +198,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The timestamp when the instance was created.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -212,7 +212,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
      * 
      */
-    @Export(name="ipAddressType", type=String.class, parameters={})
+    @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddressType;
 
     /**
@@ -230,7 +230,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* use `ipv6_addresses` attribute instead */
-    @Export(name="ipv6Address", type=String.class, parameters={})
+    @Export(name="ipv6Address", refs={String.class}, tree="[0]")
     private Output<String> ipv6Address;
 
     /**
@@ -244,7 +244,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * List of IPv6 addresses for the Lightsail instance.
      * 
      */
-    @Export(name="ipv6Addresses", type=List.class, parameters={String.class})
+    @Export(name="ipv6Addresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> ipv6Addresses;
 
     /**
@@ -258,7 +258,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * A Boolean value indicating whether this instance has a static IP assigned to it.
      * 
      */
-    @Export(name="isStaticIp", type=Boolean.class, parameters={})
+    @Export(name="isStaticIp", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isStaticIp;
 
     /**
@@ -273,7 +273,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
      * 
      */
-    @Export(name="keyPairName", type=String.class, parameters={})
+    @Export(name="keyPairName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyPairName;
 
     /**
@@ -288,7 +288,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -302,7 +302,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The private IP address of the instance.
      * 
      */
-    @Export(name="privateIpAddress", type=String.class, parameters={})
+    @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
     private Output<String> privateIpAddress;
 
     /**
@@ -316,7 +316,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The public IP address of the instance.
      * 
      */
-    @Export(name="publicIpAddress", type=String.class, parameters={})
+    @Export(name="publicIpAddress", refs={String.class}, tree="[0]")
     private Output<String> publicIpAddress;
 
     /**
@@ -330,7 +330,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The amount of RAM in GB on the instance (e.g., 1.0).
      * 
      */
-    @Export(name="ramSize", type=Double.class, parameters={})
+    @Export(name="ramSize", refs={Double.class}, tree="[0]")
     private Output<Double> ramSize;
 
     /**
@@ -344,7 +344,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -358,7 +358,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -372,7 +372,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * launch script to configure server with additional user data
      * 
      */
-    @Export(name="userData", type=String.class, parameters={})
+    @Export(name="userData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userData;
 
     /**
@@ -386,7 +386,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The user name for connecting to the instance (e.g., ec2-user).
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

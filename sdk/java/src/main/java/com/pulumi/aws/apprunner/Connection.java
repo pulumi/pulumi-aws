@@ -67,7 +67,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * ARN of the connection.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -81,7 +81,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * Name of the connection.
      * 
      */
-    @Export(name="connectionName", type=String.class, parameters={})
+    @Export(name="connectionName", refs={String.class}, tree="[0]")
     private Output<String> connectionName;
 
     /**
@@ -95,7 +95,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * Source repository provider. Valid values: `GITHUB`.
      * 
      */
-    @Export(name="providerType", type=String.class, parameters={})
+    @Export(name="providerType", refs={String.class}, tree="[0]")
     private Output<String> providerType;
 
     /**
@@ -109,7 +109,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `aws.apprunner.Service` resource.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -123,7 +123,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -137,7 +137,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

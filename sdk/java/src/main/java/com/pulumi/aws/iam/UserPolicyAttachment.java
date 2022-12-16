@@ -74,7 +74,7 @@ public class UserPolicyAttachment extends com.pulumi.resources.CustomResource {
      * The ARN of the policy you want to apply
      * 
      */
-    @Export(name="policyArn", type=String.class, parameters={})
+    @Export(name="policyArn", refs={String.class}, tree="[0]")
     private Output<String> policyArn;
 
     /**
@@ -88,7 +88,7 @@ public class UserPolicyAttachment extends com.pulumi.resources.CustomResource {
      * The user the policy should be applied to
      * 
      */
-    @Export(name="user", type=String.class, parameters={})
+    @Export(name="user", refs={String.class}, tree="[0]")
     private Output<String> user;
 
     /**

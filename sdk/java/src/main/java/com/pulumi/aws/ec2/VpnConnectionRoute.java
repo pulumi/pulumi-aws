@@ -83,7 +83,7 @@ public class VpnConnectionRoute extends com.pulumi.resources.CustomResource {
      * The CIDR block associated with the local subnet of the customer network.
      * 
      */
-    @Export(name="destinationCidrBlock", type=String.class, parameters={})
+    @Export(name="destinationCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> destinationCidrBlock;
 
     /**
@@ -97,7 +97,7 @@ public class VpnConnectionRoute extends com.pulumi.resources.CustomResource {
      * The ID of the VPN connection.
      * 
      */
-    @Export(name="vpnConnectionId", type=String.class, parameters={})
+    @Export(name="vpnConnectionId", refs={String.class}, tree="[0]")
     private Output<String> vpnConnectionId;
 
     /**

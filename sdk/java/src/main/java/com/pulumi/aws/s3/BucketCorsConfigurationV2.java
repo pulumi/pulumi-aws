@@ -90,7 +90,7 @@ public class BucketCorsConfigurationV2 extends com.pulumi.resources.CustomResour
      * The name of the bucket.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -104,7 +104,7 @@ public class BucketCorsConfigurationV2 extends com.pulumi.resources.CustomResour
      * Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
      * 
      */
-    @Export(name="corsRules", type=List.class, parameters={BucketCorsConfigurationV2CorsRule.class})
+    @Export(name="corsRules", refs={List.class,BucketCorsConfigurationV2CorsRule.class}, tree="[0,1]")
     private Output<List<BucketCorsConfigurationV2CorsRule>> corsRules;
 
     /**
@@ -118,7 +118,7 @@ public class BucketCorsConfigurationV2 extends com.pulumi.resources.CustomResour
      * The account ID of the expected bucket owner.
      * 
      */
-    @Export(name="expectedBucketOwner", type=String.class, parameters={})
+    @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**

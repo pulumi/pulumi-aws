@@ -64,7 +64,7 @@ public class ScheduleGroup extends com.pulumi.resources.CustomResource {
      * ARN of the schedule group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -78,7 +78,7 @@ public class ScheduleGroup extends com.pulumi.resources.CustomResource {
      * Time at which the schedule group was created.
      * 
      */
-    @Export(name="creationDate", type=String.class, parameters={})
+    @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
     /**
@@ -92,7 +92,7 @@ public class ScheduleGroup extends com.pulumi.resources.CustomResource {
      * Time at which the schedule group was last modified.
      * 
      */
-    @Export(name="lastModificationDate", type=String.class, parameters={})
+    @Export(name="lastModificationDate", refs={String.class}, tree="[0]")
     private Output<String> lastModificationDate;
 
     /**
@@ -106,7 +106,7 @@ public class ScheduleGroup extends com.pulumi.resources.CustomResource {
      * Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -120,7 +120,7 @@ public class ScheduleGroup extends com.pulumi.resources.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -134,7 +134,7 @@ public class ScheduleGroup extends com.pulumi.resources.CustomResource {
      * State of the schedule group. Can be `ACTIVE` or `DELETING`.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -148,7 +148,7 @@ public class ScheduleGroup extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -162,7 +162,7 @@ public class ScheduleGroup extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

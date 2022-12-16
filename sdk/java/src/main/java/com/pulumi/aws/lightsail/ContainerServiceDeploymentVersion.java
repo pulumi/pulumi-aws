@@ -93,7 +93,7 @@ public class ContainerServiceDeploymentVersion extends com.pulumi.resources.Cust
      * A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
      * 
      */
-    @Export(name="containers", type=List.class, parameters={ContainerServiceDeploymentVersionContainer.class})
+    @Export(name="containers", refs={List.class,ContainerServiceDeploymentVersionContainer.class}, tree="[0,1]")
     private Output<List<ContainerServiceDeploymentVersionContainer>> containers;
 
     /**
@@ -107,7 +107,7 @@ public class ContainerServiceDeploymentVersion extends com.pulumi.resources.Cust
      * The timestamp when the deployment was created.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -121,7 +121,7 @@ public class ContainerServiceDeploymentVersion extends com.pulumi.resources.Cust
      * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
      * 
      */
-    @Export(name="publicEndpoint", type=ContainerServiceDeploymentVersionPublicEndpoint.class, parameters={})
+    @Export(name="publicEndpoint", refs={ContainerServiceDeploymentVersionPublicEndpoint.class}, tree="[0]")
     private Output</* @Nullable */ ContainerServiceDeploymentVersionPublicEndpoint> publicEndpoint;
 
     /**
@@ -135,7 +135,7 @@ public class ContainerServiceDeploymentVersion extends com.pulumi.resources.Cust
      * The name for the container service.
      * 
      */
-    @Export(name="serviceName", type=String.class, parameters={})
+    @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
     /**
@@ -149,7 +149,7 @@ public class ContainerServiceDeploymentVersion extends com.pulumi.resources.Cust
      * The current state of the container service.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -163,7 +163,7 @@ public class ContainerServiceDeploymentVersion extends com.pulumi.resources.Cust
      * The version number of the deployment.
      * 
      */
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**

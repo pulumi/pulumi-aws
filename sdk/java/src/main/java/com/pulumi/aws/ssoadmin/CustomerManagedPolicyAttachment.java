@@ -34,7 +34,7 @@ public class CustomerManagedPolicyAttachment extends com.pulumi.resources.Custom
      * Specifies the name and path of a customer managed policy. See below.
      * 
      */
-    @Export(name="customerManagedPolicyReference", type=CustomerManagedPolicyAttachmentCustomerManagedPolicyReference.class, parameters={})
+    @Export(name="customerManagedPolicyReference", refs={CustomerManagedPolicyAttachmentCustomerManagedPolicyReference.class}, tree="[0]")
     private Output<CustomerManagedPolicyAttachmentCustomerManagedPolicyReference> customerManagedPolicyReference;
 
     /**
@@ -48,7 +48,7 @@ public class CustomerManagedPolicyAttachment extends com.pulumi.resources.Custom
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      * 
      */
-    @Export(name="instanceArn", type=String.class, parameters={})
+    @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
     /**
@@ -62,7 +62,7 @@ public class CustomerManagedPolicyAttachment extends com.pulumi.resources.Custom
      * The Amazon Resource Name (ARN) of the Permission Set.
      * 
      */
-    @Export(name="permissionSetArn", type=String.class, parameters={})
+    @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
     /**

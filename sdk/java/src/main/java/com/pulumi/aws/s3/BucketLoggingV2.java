@@ -93,7 +93,7 @@ public class BucketLoggingV2 extends com.pulumi.resources.CustomResource {
      * The name of the bucket.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -107,7 +107,7 @@ public class BucketLoggingV2 extends com.pulumi.resources.CustomResource {
      * The account ID of the expected bucket owner.
      * 
      */
-    @Export(name="expectedBucketOwner", type=String.class, parameters={})
+    @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
@@ -121,7 +121,7 @@ public class BucketLoggingV2 extends com.pulumi.resources.CustomResource {
      * The name of the bucket where you want Amazon S3 to store server access logs.
      * 
      */
-    @Export(name="targetBucket", type=String.class, parameters={})
+    @Export(name="targetBucket", refs={String.class}, tree="[0]")
     private Output<String> targetBucket;
 
     /**
@@ -135,7 +135,7 @@ public class BucketLoggingV2 extends com.pulumi.resources.CustomResource {
      * Set of configuration blocks with information for granting permissions documented below.
      * 
      */
-    @Export(name="targetGrants", type=List.class, parameters={BucketLoggingV2TargetGrant.class})
+    @Export(name="targetGrants", refs={List.class,BucketLoggingV2TargetGrant.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BucketLoggingV2TargetGrant>> targetGrants;
 
     /**
@@ -149,7 +149,7 @@ public class BucketLoggingV2 extends com.pulumi.resources.CustomResource {
      * A prefix for all log object keys.
      * 
      */
-    @Export(name="targetPrefix", type=String.class, parameters={})
+    @Export(name="targetPrefix", refs={String.class}, tree="[0]")
     private Output<String> targetPrefix;
 
     /**

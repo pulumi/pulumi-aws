@@ -70,7 +70,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
      * 
      */
-    @Export(name="accessGroupId", type=String.class, parameters={})
+    @Export(name="accessGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessGroupId;
 
     /**
@@ -84,7 +84,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
      * 
      */
-    @Export(name="authorizeAllGroups", type=Boolean.class, parameters={})
+    @Export(name="authorizeAllGroups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> authorizeAllGroups;
 
     /**
@@ -98,7 +98,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The ID of the Client VPN endpoint.
      * 
      */
-    @Export(name="clientVpnEndpointId", type=String.class, parameters={})
+    @Export(name="clientVpnEndpointId", refs={String.class}, tree="[0]")
     private Output<String> clientVpnEndpointId;
 
     /**
@@ -112,7 +112,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * A brief description of the authorization rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -126,7 +126,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
      * 
      */
-    @Export(name="targetNetworkCidr", type=String.class, parameters={})
+    @Export(name="targetNetworkCidr", refs={String.class}, tree="[0]")
     private Output<String> targetNetworkCidr;
 
     /**

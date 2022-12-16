@@ -35,7 +35,7 @@ public class ReportGroup extends com.pulumi.resources.CustomResource {
      * The ARN of Report Group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -49,7 +49,7 @@ public class ReportGroup extends com.pulumi.resources.CustomResource {
      * The date and time this Report Group was created.
      * 
      */
-    @Export(name="created", type=String.class, parameters={})
+    @Export(name="created", refs={String.class}, tree="[0]")
     private Output<String> created;
 
     /**
@@ -63,7 +63,7 @@ public class ReportGroup extends com.pulumi.resources.CustomResource {
      * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
      * 
      */
-    @Export(name="deleteReports", type=Boolean.class, parameters={})
+    @Export(name="deleteReports", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteReports;
 
     /**
@@ -77,7 +77,7 @@ public class ReportGroup extends com.pulumi.resources.CustomResource {
      * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
      * 
      */
-    @Export(name="exportConfig", type=ReportGroupExportConfig.class, parameters={})
+    @Export(name="exportConfig", refs={ReportGroupExportConfig.class}, tree="[0]")
     private Output<ReportGroupExportConfig> exportConfig;
 
     /**
@@ -91,7 +91,7 @@ public class ReportGroup extends com.pulumi.resources.CustomResource {
      * The name of a Report Group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -105,7 +105,7 @@ public class ReportGroup extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -119,7 +119,7 @@ public class ReportGroup extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -133,7 +133,7 @@ public class ReportGroup extends com.pulumi.resources.CustomResource {
      * The export configuration type. Valid values are `S3` and `NO_EXPORT`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

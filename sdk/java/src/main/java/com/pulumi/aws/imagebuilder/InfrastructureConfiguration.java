@@ -85,7 +85,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Amazon Resource Name (ARN) of the configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -99,7 +99,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Date when the configuration was created.
      * 
      */
-    @Export(name="dateCreated", type=String.class, parameters={})
+    @Export(name="dateCreated", refs={String.class}, tree="[0]")
     private Output<String> dateCreated;
 
     /**
@@ -113,7 +113,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Date when the configuration was updated.
      * 
      */
-    @Export(name="dateUpdated", type=String.class, parameters={})
+    @Export(name="dateUpdated", refs={String.class}, tree="[0]")
     private Output<String> dateUpdated;
 
     /**
@@ -127,7 +127,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Description for the configuration.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -141,7 +141,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
      * 
      */
-    @Export(name="instanceMetadataOptions", type=InfrastructureConfigurationInstanceMetadataOptions.class, parameters={})
+    @Export(name="instanceMetadataOptions", refs={InfrastructureConfigurationInstanceMetadataOptions.class}, tree="[0]")
     private Output</* @Nullable */ InfrastructureConfigurationInstanceMetadataOptions> instanceMetadataOptions;
 
     /**
@@ -155,7 +155,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Name of IAM Instance Profile.
      * 
      */
-    @Export(name="instanceProfileName", type=String.class, parameters={})
+    @Export(name="instanceProfileName", refs={String.class}, tree="[0]")
     private Output<String> instanceProfileName;
 
     /**
@@ -169,7 +169,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Set of EC2 Instance Types.
      * 
      */
-    @Export(name="instanceTypes", type=List.class, parameters={String.class})
+    @Export(name="instanceTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> instanceTypes;
 
     /**
@@ -183,7 +183,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Name of EC2 Key Pair.
      * 
      */
-    @Export(name="keyPair", type=String.class, parameters={})
+    @Export(name="keyPair", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyPair;
 
     /**
@@ -197,7 +197,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Configuration block with logging settings. Detailed below.
      * 
      */
-    @Export(name="logging", type=InfrastructureConfigurationLogging.class, parameters={})
+    @Export(name="logging", refs={InfrastructureConfigurationLogging.class}, tree="[0]")
     private Output</* @Nullable */ InfrastructureConfigurationLogging> logging;
 
     /**
@@ -211,7 +211,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Name for the configuration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -225,7 +225,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      * 
      */
-    @Export(name="resourceTags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="resourceTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> resourceTags;
 
     /**
@@ -239,7 +239,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Set of EC2 Security Group identifiers.
      * 
      */
-    @Export(name="securityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
@@ -253,7 +253,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Amazon Resource Name (ARN) of SNS Topic.
      * 
      */
-    @Export(name="snsTopicArn", type=String.class, parameters={})
+    @Export(name="snsTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snsTopicArn;
 
     /**
@@ -267,7 +267,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * EC2 Subnet identifier. Also requires `security_group_ids` argument.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
     /**
@@ -281,7 +281,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -295,7 +295,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -309,7 +309,7 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
      * Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
      * 
      */
-    @Export(name="terminateInstanceOnFailure", type=Boolean.class, parameters={})
+    @Export(name="terminateInstanceOnFailure", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> terminateInstanceOnFailure;
 
     /**

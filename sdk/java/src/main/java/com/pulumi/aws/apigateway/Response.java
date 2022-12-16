@@ -70,7 +70,7 @@ public class Response extends com.pulumi.resources.CustomResource {
      * Map of parameters (paths, query strings and headers) of the Gateway Response.
      * 
      */
-    @Export(name="responseParameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="responseParameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseParameters;
 
     /**
@@ -84,7 +84,7 @@ public class Response extends com.pulumi.resources.CustomResource {
      * Map of templates used to transform the response body.
      * 
      */
-    @Export(name="responseTemplates", type=Map.class, parameters={String.class, String.class})
+    @Export(name="responseTemplates", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseTemplates;
 
     /**
@@ -98,7 +98,7 @@ public class Response extends com.pulumi.resources.CustomResource {
      * Response type of the associated GatewayResponse.
      * 
      */
-    @Export(name="responseType", type=String.class, parameters={})
+    @Export(name="responseType", refs={String.class}, tree="[0]")
     private Output<String> responseType;
 
     /**
@@ -112,7 +112,7 @@ public class Response extends com.pulumi.resources.CustomResource {
      * String identifier of the associated REST API.
      * 
      */
-    @Export(name="restApiId", type=String.class, parameters={})
+    @Export(name="restApiId", refs={String.class}, tree="[0]")
     private Output<String> restApiId;
 
     /**
@@ -126,7 +126,7 @@ public class Response extends com.pulumi.resources.CustomResource {
      * HTTP status code of the Gateway Response.
      * 
      */
-    @Export(name="statusCode", type=String.class, parameters={})
+    @Export(name="statusCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> statusCode;
 
     /**

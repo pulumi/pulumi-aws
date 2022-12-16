@@ -73,7 +73,7 @@ public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN)
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -87,7 +87,7 @@ public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
      * The name or description of the Size Constraint Set.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -101,7 +101,7 @@ public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
      * Specifies the parts of web requests that you want to inspect the size of.
      * 
      */
-    @Export(name="sizeConstraints", type=List.class, parameters={SizeConstraintSetSizeConstraint.class})
+    @Export(name="sizeConstraints", refs={List.class,SizeConstraintSetSizeConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SizeConstraintSetSizeConstraint>> sizeConstraints;
 
     /**

@@ -77,7 +77,7 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * The ARN of the backup report plan.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -91,7 +91,7 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    @Export(name="creationTime", type=String.class, parameters={})
+    @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
@@ -105,7 +105,7 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
-    @Export(name="deploymentStatus", type=String.class, parameters={})
+    @Export(name="deploymentStatus", refs={String.class}, tree="[0]")
     private Output<String> deploymentStatus;
 
     /**
@@ -119,7 +119,7 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * The description of the report plan with a maximum of 1,024 characters
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -133,7 +133,7 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -147,7 +147,7 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
      */
-    @Export(name="reportDeliveryChannel", type=ReportPlanReportDeliveryChannel.class, parameters={})
+    @Export(name="reportDeliveryChannel", refs={ReportPlanReportDeliveryChannel.class}, tree="[0]")
     private Output<ReportPlanReportDeliveryChannel> reportDeliveryChannel;
 
     /**
@@ -161,7 +161,7 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
-    @Export(name="reportSetting", type=ReportPlanReportSetting.class, parameters={})
+    @Export(name="reportSetting", refs={ReportPlanReportSetting.class}, tree="[0]")
     private Output<ReportPlanReportSetting> reportSetting;
 
     /**
@@ -175,7 +175,7 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -189,7 +189,7 @@ public class ReportPlan extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

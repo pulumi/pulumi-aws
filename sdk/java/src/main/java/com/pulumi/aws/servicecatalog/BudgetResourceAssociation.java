@@ -65,7 +65,7 @@ public class BudgetResourceAssociation extends com.pulumi.resources.CustomResour
      * Budget name.
      * 
      */
-    @Export(name="budgetName", type=String.class, parameters={})
+    @Export(name="budgetName", refs={String.class}, tree="[0]")
     private Output<String> budgetName;
 
     /**
@@ -79,7 +79,7 @@ public class BudgetResourceAssociation extends com.pulumi.resources.CustomResour
      * Resource identifier.
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**

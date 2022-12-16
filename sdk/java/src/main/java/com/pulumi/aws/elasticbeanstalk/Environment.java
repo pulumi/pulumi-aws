@@ -140,7 +140,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * the configuration.
      * 
      */
-    @Export(name="allSettings", type=List.class, parameters={EnvironmentAllSetting.class})
+    @Export(name="allSettings", refs={List.class,EnvironmentAllSetting.class}, tree="[0,1]")
     private Output<List<EnvironmentAllSetting>> allSettings;
 
     /**
@@ -157,7 +157,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * to be deployed
      * 
      */
-    @Export(name="application", type=String.class, parameters={})
+    @Export(name="application", refs={String.class}, tree="[0]")
     private Output<String> application;
 
     /**
@@ -168,7 +168,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<String> application() {
         return this.application;
     }
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     public Output<String> arn() {
@@ -178,7 +178,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The autoscaling groups used by this Environment.
      * 
      */
-    @Export(name="autoscalingGroups", type=List.class, parameters={String.class})
+    @Export(name="autoscalingGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> autoscalingGroups;
 
     /**
@@ -192,7 +192,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Fully qualified DNS name for this Environment.
      * 
      */
-    @Export(name="cname", type=String.class, parameters={})
+    @Export(name="cname", refs={String.class}, tree="[0]")
     private Output<String> cname;
 
     /**
@@ -207,7 +207,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * the Environment.
      * 
      */
-    @Export(name="cnamePrefix", type=String.class, parameters={})
+    @Export(name="cnamePrefix", refs={String.class}, tree="[0]")
     private Output<String> cnamePrefix;
 
     /**
@@ -222,7 +222,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Short description of the Environment
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -236,7 +236,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The URL to the Load Balancer for this Environment
      * 
      */
-    @Export(name="endpointUrl", type=String.class, parameters={})
+    @Export(name="endpointUrl", refs={String.class}, tree="[0]")
     private Output<String> endpointUrl;
 
     /**
@@ -250,7 +250,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Instances used by this Environment.
      * 
      */
-    @Export(name="instances", type=List.class, parameters={String.class})
+    @Export(name="instances", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> instances;
 
     /**
@@ -264,7 +264,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Launch configurations in use by this Environment.
      * 
      */
-    @Export(name="launchConfigurations", type=List.class, parameters={String.class})
+    @Export(name="launchConfigurations", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> launchConfigurations;
 
     /**
@@ -278,7 +278,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Elastic load balancers in use by this Environment.
      * 
      */
-    @Export(name="loadBalancers", type=List.class, parameters={String.class})
+    @Export(name="loadBalancers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> loadBalancers;
 
     /**
@@ -293,7 +293,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * in the application URL
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -309,7 +309,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * to use in deployment
      * 
      */
-    @Export(name="platformArn", type=String.class, parameters={})
+    @Export(name="platformArn", refs={String.class}, tree="[0]")
     private Output<String> platformArn;
 
     /**
@@ -327,7 +327,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * use the default behavior, which is an exponential backoff
      * 
      */
-    @Export(name="pollInterval", type=String.class, parameters={})
+    @Export(name="pollInterval", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pollInterval;
 
     /**
@@ -344,7 +344,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * SQS queues in use by this Environment.
      * 
      */
-    @Export(name="queues", type=List.class, parameters={String.class})
+    @Export(name="queues", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> queues;
 
     /**
@@ -360,7 +360,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * below in Option Settings
      * 
      */
-    @Export(name="settings", type=List.class, parameters={EnvironmentSetting.class})
+    @Export(name="settings", refs={List.class,EnvironmentSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EnvironmentSetting>> settings;
 
     /**
@@ -377,7 +377,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      * 
      */
-    @Export(name="solutionStackName", type=String.class, parameters={})
+    @Export(name="solutionStackName", refs={String.class}, tree="[0]")
     private Output<String> solutionStackName;
 
     /**
@@ -392,7 +392,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -406,7 +406,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -421,7 +421,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * template to use in deployment
      * 
      */
-    @Export(name="templateName", type=String.class, parameters={})
+    @Export(name="templateName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateName;
 
     /**
@@ -437,7 +437,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * or `WebServer`. If tier is left blank `WebServer` will be used.
      * 
      */
-    @Export(name="tier", type=String.class, parameters={})
+    @Export(name="tier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tier;
 
     /**
@@ -452,7 +452,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Autoscaling triggers in use by this Environment.
      * 
      */
-    @Export(name="triggers", type=List.class, parameters={String.class})
+    @Export(name="triggers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> triggers;
 
     /**
@@ -467,7 +467,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * to use in deployment.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
@@ -485,7 +485,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * out.
      * 
      */
-    @Export(name="waitForReadyTimeout", type=String.class, parameters={})
+    @Export(name="waitForReadyTimeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> waitForReadyTimeout;
 
     /**

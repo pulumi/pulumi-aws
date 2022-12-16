@@ -80,7 +80,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * AWS account ID for member account.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -94,7 +94,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The detector ID of the GuardDuty account where you want to create member accounts.
      * 
      */
-    @Export(name="detectorId", type=String.class, parameters={})
+    @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
     /**
@@ -108,7 +108,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Boolean whether an email notification is sent to the accounts. Defaults to `false`.
      * 
      */
-    @Export(name="disableEmailNotification", type=Boolean.class, parameters={})
+    @Export(name="disableEmailNotification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableEmailNotification;
 
     /**
@@ -122,7 +122,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Email address for member account.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -136,7 +136,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Message for invitation.
      * 
      */
-    @Export(name="invitationMessage", type=String.class, parameters={})
+    @Export(name="invitationMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> invitationMessage;
 
     /**
@@ -150,7 +150,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
      * 
      */
-    @Export(name="invite", type=Boolean.class, parameters={})
+    @Export(name="invite", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> invite;
 
     /**
@@ -164,7 +164,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      * 
      */
-    @Export(name="relationshipStatus", type=String.class, parameters={})
+    @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
     private Output<String> relationshipStatus;
 
     /**

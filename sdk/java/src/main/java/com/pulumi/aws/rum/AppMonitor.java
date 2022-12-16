@@ -65,7 +65,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * configuration data for the app monitor. See app_monitor_configuration below.
      * 
      */
-    @Export(name="appMonitorConfiguration", type=AppMonitorAppMonitorConfiguration.class, parameters={})
+    @Export(name="appMonitorConfiguration", refs={AppMonitorAppMonitorConfiguration.class}, tree="[0]")
     private Output<AppMonitorAppMonitorConfiguration> appMonitorConfiguration;
 
     /**
@@ -79,7 +79,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * The unique ID of the app monitor. Useful for JS templates.
      * 
      */
-    @Export(name="appMonitorId", type=String.class, parameters={})
+    @Export(name="appMonitorId", refs={String.class}, tree="[0]")
     private Output<String> appMonitorId;
 
     /**
@@ -93,7 +93,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) specifying the app monitor.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -107,7 +107,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      * 
      */
-    @Export(name="cwLogEnabled", type=Boolean.class, parameters={})
+    @Export(name="cwLogEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cwLogEnabled;
 
     /**
@@ -121,7 +121,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * The name of the log group where the copies are stored.
      * 
      */
-    @Export(name="cwLogGroup", type=String.class, parameters={})
+    @Export(name="cwLogGroup", refs={String.class}, tree="[0]")
     private Output<String> cwLogGroup;
 
     /**
@@ -135,7 +135,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * The top-level internet domain name for which your application has administrative authority.
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
@@ -149,7 +149,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * The name of the log stream.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -163,7 +163,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -177,7 +177,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

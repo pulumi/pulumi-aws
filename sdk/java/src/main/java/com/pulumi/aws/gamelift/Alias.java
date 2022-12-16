@@ -69,7 +69,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * Alias ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * Description of the alias.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -97,7 +97,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * Name of the alias.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -111,7 +111,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * Specifies the fleet and/or routing type to use for the alias.
      * 
      */
-    @Export(name="routingStrategy", type=AliasRoutingStrategy.class, parameters={})
+    @Export(name="routingStrategy", refs={AliasRoutingStrategy.class}, tree="[0]")
     private Output<AliasRoutingStrategy> routingStrategy;
 
     /**
@@ -125,7 +125,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -139,7 +139,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

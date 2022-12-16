@@ -273,7 +273,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -287,7 +287,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
      * 
      */
-    @Export(name="bootstrapBrokers", type=String.class, parameters={})
+    @Export(name="bootstrapBrokers", refs={String.class}, tree="[0]")
     private Output<String> bootstrapBrokers;
 
     /**
@@ -301,7 +301,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    @Export(name="bootstrapBrokersPublicSaslIam", type=String.class, parameters={})
+    @Export(name="bootstrapBrokersPublicSaslIam", refs={String.class}, tree="[0]")
     private Output<String> bootstrapBrokersPublicSaslIam;
 
     /**
@@ -315,7 +315,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    @Export(name="bootstrapBrokersPublicSaslScram", type=String.class, parameters={})
+    @Export(name="bootstrapBrokersPublicSaslScram", refs={String.class}, tree="[0]")
     private Output<String> bootstrapBrokersPublicSaslScram;
 
     /**
@@ -329,7 +329,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    @Export(name="bootstrapBrokersPublicTls", type=String.class, parameters={})
+    @Export(name="bootstrapBrokersPublicTls", refs={String.class}, tree="[0]")
     private Output<String> bootstrapBrokersPublicTls;
 
     /**
@@ -343,7 +343,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    @Export(name="bootstrapBrokersSaslIam", type=String.class, parameters={})
+    @Export(name="bootstrapBrokersSaslIam", refs={String.class}, tree="[0]")
     private Output<String> bootstrapBrokersSaslIam;
 
     /**
@@ -357,7 +357,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    @Export(name="bootstrapBrokersSaslScram", type=String.class, parameters={})
+    @Export(name="bootstrapBrokersSaslScram", refs={String.class}, tree="[0]")
     private Output<String> bootstrapBrokersSaslScram;
 
     /**
@@ -371,7 +371,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
-    @Export(name="bootstrapBrokersTls", type=String.class, parameters={})
+    @Export(name="bootstrapBrokersTls", refs={String.class}, tree="[0]")
     private Output<String> bootstrapBrokersTls;
 
     /**
@@ -385,7 +385,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Configuration block for the broker nodes of the Kafka cluster.
      * 
      */
-    @Export(name="brokerNodeGroupInfo", type=ClusterBrokerNodeGroupInfo.class, parameters={})
+    @Export(name="brokerNodeGroupInfo", refs={ClusterBrokerNodeGroupInfo.class}, tree="[0]")
     private Output<ClusterBrokerNodeGroupInfo> brokerNodeGroupInfo;
 
     /**
@@ -399,7 +399,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Configuration block for specifying a client authentication. See below.
      * 
      */
-    @Export(name="clientAuthentication", type=ClusterClientAuthentication.class, parameters={})
+    @Export(name="clientAuthentication", refs={ClusterClientAuthentication.class}, tree="[0]")
     private Output</* @Nullable */ ClusterClientAuthentication> clientAuthentication;
 
     /**
@@ -413,7 +413,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Name of the MSK cluster.
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
@@ -427,7 +427,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      * 
      */
-    @Export(name="configurationInfo", type=ClusterConfigurationInfo.class, parameters={})
+    @Export(name="configurationInfo", refs={ClusterConfigurationInfo.class}, tree="[0]")
     private Output</* @Nullable */ ClusterConfigurationInfo> configurationInfo;
 
     /**
@@ -442,7 +442,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
      * 
      */
-    @Export(name="currentVersion", type=String.class, parameters={})
+    @Export(name="currentVersion", refs={String.class}, tree="[0]")
     private Output<String> currentVersion;
 
     /**
@@ -457,7 +457,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Configuration block for specifying encryption. See below.
      * 
      */
-    @Export(name="encryptionInfo", type=ClusterEncryptionInfo.class, parameters={})
+    @Export(name="encryptionInfo", refs={ClusterEncryptionInfo.class}, tree="[0]")
     private Output</* @Nullable */ ClusterEncryptionInfo> encryptionInfo;
 
     /**
@@ -471,7 +471,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      * 
      */
-    @Export(name="enhancedMonitoring", type=String.class, parameters={})
+    @Export(name="enhancedMonitoring", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enhancedMonitoring;
 
     /**
@@ -485,7 +485,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specify the desired Kafka software version.
      * 
      */
-    @Export(name="kafkaVersion", type=String.class, parameters={})
+    @Export(name="kafkaVersion", refs={String.class}, tree="[0]")
     private Output<String> kafkaVersion;
 
     /**
@@ -499,7 +499,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
      * 
      */
-    @Export(name="loggingInfo", type=ClusterLoggingInfo.class, parameters={})
+    @Export(name="loggingInfo", refs={ClusterLoggingInfo.class}, tree="[0]")
     private Output</* @Nullable */ ClusterLoggingInfo> loggingInfo;
 
     /**
@@ -513,7 +513,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      * 
      */
-    @Export(name="numberOfBrokerNodes", type=Integer.class, parameters={})
+    @Export(name="numberOfBrokerNodes", refs={Integer.class}, tree="[0]")
     private Output<Integer> numberOfBrokerNodes;
 
     /**
@@ -527,7 +527,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
      * 
      */
-    @Export(name="openMonitoring", type=ClusterOpenMonitoring.class, parameters={})
+    @Export(name="openMonitoring", refs={ClusterOpenMonitoring.class}, tree="[0]")
     private Output</* @Nullable */ ClusterOpenMonitoring> openMonitoring;
 
     /**
@@ -541,7 +541,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      * 
      */
-    @Export(name="storageMode", type=String.class, parameters={})
+    @Export(name="storageMode", refs={String.class}, tree="[0]")
     private Output<String> storageMode;
 
     /**
@@ -555,7 +555,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -569,7 +569,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -583,7 +583,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
-    @Export(name="zookeeperConnectString", type=String.class, parameters={})
+    @Export(name="zookeeperConnectString", refs={String.class}, tree="[0]")
     private Output<String> zookeeperConnectString;
 
     /**
@@ -597,7 +597,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
-    @Export(name="zookeeperConnectStringTls", type=String.class, parameters={})
+    @Export(name="zookeeperConnectStringTls", refs={String.class}, tree="[0]")
     private Output<String> zookeeperConnectStringTls;
 
     /**

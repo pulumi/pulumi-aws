@@ -73,7 +73,7 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
      * A description of the parameter group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -87,7 +87,7 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
      * The name of the parameter group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -101,7 +101,7 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
      * The parameters of the parameter group.
      * 
      */
-    @Export(name="parameters", type=List.class, parameters={ParameterGroupParameter.class})
+    @Export(name="parameters", refs={List.class,ParameterGroupParameter.class}, tree="[0,1]")
     private Output<List<ParameterGroupParameter>> parameters;
 
     /**

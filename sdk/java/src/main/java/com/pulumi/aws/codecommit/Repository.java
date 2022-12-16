@@ -64,7 +64,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The ARN of the repository
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -78,7 +78,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The URL to use for cloning the repository over HTTPS.
      * 
      */
-    @Export(name="cloneUrlHttp", type=String.class, parameters={})
+    @Export(name="cloneUrlHttp", refs={String.class}, tree="[0]")
     private Output<String> cloneUrlHttp;
 
     /**
@@ -92,7 +92,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The URL to use for cloning the repository over SSH.
      * 
      */
-    @Export(name="cloneUrlSsh", type=String.class, parameters={})
+    @Export(name="cloneUrlSsh", refs={String.class}, tree="[0]")
     private Output<String> cloneUrlSsh;
 
     /**
@@ -106,7 +106,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The default branch of the repository. The branch specified here needs to exist.
      * 
      */
-    @Export(name="defaultBranch", type=String.class, parameters={})
+    @Export(name="defaultBranch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultBranch;
 
     /**
@@ -120,7 +120,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The description of the repository. This needs to be less than 1000 characters
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -134,7 +134,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The ID of the repository
      * 
      */
-    @Export(name="repositoryId", type=String.class, parameters={})
+    @Export(name="repositoryId", refs={String.class}, tree="[0]")
     private Output<String> repositoryId;
 
     /**
@@ -148,7 +148,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The name for the repository. This needs to be less than 100 characters.
      * 
      */
-    @Export(name="repositoryName", type=String.class, parameters={})
+    @Export(name="repositoryName", refs={String.class}, tree="[0]")
     private Output<String> repositoryName;
 
     /**
@@ -162,7 +162,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -176,7 +176,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

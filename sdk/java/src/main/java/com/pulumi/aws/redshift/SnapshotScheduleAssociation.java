@@ -78,7 +78,7 @@ public class SnapshotScheduleAssociation extends com.pulumi.resources.CustomReso
      * The cluster identifier.
      * 
      */
-    @Export(name="clusterIdentifier", type=String.class, parameters={})
+    @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
@@ -92,7 +92,7 @@ public class SnapshotScheduleAssociation extends com.pulumi.resources.CustomReso
      * The snapshot schedule identifier.
      * 
      */
-    @Export(name="scheduleIdentifier", type=String.class, parameters={})
+    @Export(name="scheduleIdentifier", refs={String.class}, tree="[0]")
     private Output<String> scheduleIdentifier;
 
     /**

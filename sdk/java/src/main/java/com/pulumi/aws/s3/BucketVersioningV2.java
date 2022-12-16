@@ -184,7 +184,7 @@ public class BucketVersioningV2 extends com.pulumi.resources.CustomResource {
      * The name of the S3 bucket.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -198,7 +198,7 @@ public class BucketVersioningV2 extends com.pulumi.resources.CustomResource {
      * The account ID of the expected bucket owner.
      * 
      */
-    @Export(name="expectedBucketOwner", type=String.class, parameters={})
+    @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
@@ -212,7 +212,7 @@ public class BucketVersioningV2 extends com.pulumi.resources.CustomResource {
      * The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
      * 
      */
-    @Export(name="mfa", type=String.class, parameters={})
+    @Export(name="mfa", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mfa;
 
     /**
@@ -226,7 +226,7 @@ public class BucketVersioningV2 extends com.pulumi.resources.CustomResource {
      * Configuration block for the versioning parameters detailed below.
      * 
      */
-    @Export(name="versioningConfiguration", type=BucketVersioningV2VersioningConfiguration.class, parameters={})
+    @Export(name="versioningConfiguration", refs={BucketVersioningV2VersioningConfiguration.class}, tree="[0]")
     private Output<BucketVersioningV2VersioningConfiguration> versioningConfiguration;
 
     /**

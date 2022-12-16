@@ -79,7 +79,7 @@ public class RegionSettings extends com.pulumi.resources.CustomResource {
      * A map of services along with the management preferences for the Region.
      * 
      */
-    @Export(name="resourceTypeManagementPreference", type=Map.class, parameters={String.class, Boolean.class})
+    @Export(name="resourceTypeManagementPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> resourceTypeManagementPreference;
 
     /**
@@ -93,7 +93,7 @@ public class RegionSettings extends com.pulumi.resources.CustomResource {
      * A map of services along with the opt-in preferences for the Region.
      * 
      */
-    @Export(name="resourceTypeOptInPreference", type=Map.class, parameters={String.class, Boolean.class})
+    @Export(name="resourceTypeOptInPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> resourceTypeOptInPreference;
 
     /**

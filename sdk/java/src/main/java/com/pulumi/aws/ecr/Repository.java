@@ -71,7 +71,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Full ARN of the repository.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -85,7 +85,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Encryption configuration for the repository. See below for schema.
      * 
      */
-    @Export(name="encryptionConfigurations", type=List.class, parameters={RepositoryEncryptionConfiguration.class})
+    @Export(name="encryptionConfigurations", refs={List.class,RepositoryEncryptionConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RepositoryEncryptionConfiguration>> encryptionConfigurations;
 
     /**
@@ -100,7 +100,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Defaults to `false`.
      * 
      */
-    @Export(name="forceDelete", type=Boolean.class, parameters={})
+    @Export(name="forceDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDelete;
 
     /**
@@ -115,7 +115,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
      * 
      */
-    @Export(name="imageScanningConfiguration", type=RepositoryImageScanningConfiguration.class, parameters={})
+    @Export(name="imageScanningConfiguration", refs={RepositoryImageScanningConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryImageScanningConfiguration> imageScanningConfiguration;
 
     /**
@@ -129,7 +129,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
      * 
      */
-    @Export(name="imageTagMutability", type=String.class, parameters={})
+    @Export(name="imageTagMutability", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageTagMutability;
 
     /**
@@ -143,7 +143,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Name of the repository.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -157,7 +157,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The registry ID where the repository was created.
      * 
      */
-    @Export(name="registryId", type=String.class, parameters={})
+    @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
     /**
@@ -171,7 +171,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      * 
      */
-    @Export(name="repositoryUrl", type=String.class, parameters={})
+    @Export(name="repositoryUrl", refs={String.class}, tree="[0]")
     private Output<String> repositoryUrl;
 
     /**
@@ -185,7 +185,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -199,7 +199,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

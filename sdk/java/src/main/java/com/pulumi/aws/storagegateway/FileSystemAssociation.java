@@ -155,7 +155,7 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the newly created file system association.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -169,7 +169,7 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the storage used for the audit logs.
      * 
      */
-    @Export(name="auditDestinationArn", type=String.class, parameters={})
+    @Export(name="auditDestinationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> auditDestinationArn;
 
     /**
@@ -183,7 +183,7 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      * Refresh cache information. see Cache Attributes for more details.
      * 
      */
-    @Export(name="cacheAttributes", type=FileSystemAssociationCacheAttributes.class, parameters={})
+    @Export(name="cacheAttributes", refs={FileSystemAssociationCacheAttributes.class}, tree="[0]")
     private Output</* @Nullable */ FileSystemAssociationCacheAttributes> cacheAttributes;
 
     /**
@@ -197,7 +197,7 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    @Export(name="gatewayArn", type=String.class, parameters={})
+    @Export(name="gatewayArn", refs={String.class}, tree="[0]")
     private Output<String> gatewayArn;
 
     /**
@@ -211,7 +211,7 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
      * 
      */
-    @Export(name="locationArn", type=String.class, parameters={})
+    @Export(name="locationArn", refs={String.class}, tree="[0]")
     private Output<String> locationArn;
 
     /**
@@ -225,7 +225,7 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      * The password of the user credential.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
@@ -239,7 +239,7 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -253,7 +253,7 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -267,7 +267,7 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
      * The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

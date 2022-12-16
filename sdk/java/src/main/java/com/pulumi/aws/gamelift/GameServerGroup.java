@@ -151,7 +151,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * The ARN of the GameLift Game Server Group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -165,7 +165,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * The ARN of the created EC2 Auto Scaling group.
      * 
      */
-    @Export(name="autoScalingGroupArn", type=String.class, parameters={})
+    @Export(name="autoScalingGroupArn", refs={String.class}, tree="[0]")
     private Output<String> autoScalingGroupArn;
 
     /**
@@ -175,7 +175,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
     public Output<String> autoScalingGroupArn() {
         return this.autoScalingGroupArn;
     }
-    @Export(name="autoScalingPolicy", type=GameServerGroupAutoScalingPolicy.class, parameters={})
+    @Export(name="autoScalingPolicy", refs={GameServerGroupAutoScalingPolicy.class}, tree="[0]")
     private Output</* @Nullable */ GameServerGroupAutoScalingPolicy> autoScalingPolicy;
 
     public Output<Optional<GameServerGroupAutoScalingPolicy>> autoScalingPolicy() {
@@ -186,7 +186,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      * 
      */
-    @Export(name="balancingStrategy", type=String.class, parameters={})
+    @Export(name="balancingStrategy", refs={String.class}, tree="[0]")
     private Output<String> balancingStrategy;
 
     /**
@@ -202,7 +202,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
      * 
      */
-    @Export(name="gameServerGroupName", type=String.class, parameters={})
+    @Export(name="gameServerGroupName", refs={String.class}, tree="[0]")
     private Output<String> gameServerGroupName;
 
     /**
@@ -222,7 +222,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      * 
      */
-    @Export(name="gameServerProtectionPolicy", type=String.class, parameters={})
+    @Export(name="gameServerProtectionPolicy", refs={String.class}, tree="[0]")
     private Output<String> gameServerProtectionPolicy;
 
     /**
@@ -237,13 +237,13 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
     public Output<String> gameServerProtectionPolicy() {
         return this.gameServerProtectionPolicy;
     }
-    @Export(name="instanceDefinitions", type=List.class, parameters={GameServerGroupInstanceDefinition.class})
+    @Export(name="instanceDefinitions", refs={List.class,GameServerGroupInstanceDefinition.class}, tree="[0,1]")
     private Output<List<GameServerGroupInstanceDefinition>> instanceDefinitions;
 
     public Output<List<GameServerGroupInstanceDefinition>> instanceDefinitions() {
         return this.instanceDefinitions;
     }
-    @Export(name="launchTemplate", type=GameServerGroupLaunchTemplate.class, parameters={})
+    @Export(name="launchTemplate", refs={GameServerGroupLaunchTemplate.class}, tree="[0]")
     private Output<GameServerGroupLaunchTemplate> launchTemplate;
 
     public Output<GameServerGroupLaunchTemplate> launchTemplate() {
@@ -254,7 +254,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
      * 
      */
-    @Export(name="maxSize", type=Integer.class, parameters={})
+    @Export(name="maxSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxSize;
 
     /**
@@ -270,7 +270,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
      * 
      */
-    @Export(name="minSize", type=Integer.class, parameters={})
+    @Export(name="minSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> minSize;
 
     /**
@@ -285,7 +285,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -299,7 +299,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -309,7 +309,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -320,7 +320,7 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
      * By default, all GameLift FleetIQ-supported Availability Zones are used.
      * 
      */
-    @Export(name="vpcSubnets", type=List.class, parameters={String.class})
+    @Export(name="vpcSubnets", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> vpcSubnets;
 
     /**

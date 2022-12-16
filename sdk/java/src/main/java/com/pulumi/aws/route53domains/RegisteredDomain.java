@@ -74,7 +74,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
      * 
      */
-    @Export(name="abuseContactEmail", type=String.class, parameters={})
+    @Export(name="abuseContactEmail", refs={String.class}, tree="[0]")
     private Output<String> abuseContactEmail;
 
     /**
@@ -88,7 +88,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Phone number for reporting abuse.
      * 
      */
-    @Export(name="abuseContactPhone", type=String.class, parameters={})
+    @Export(name="abuseContactPhone", refs={String.class}, tree="[0]")
     private Output<String> abuseContactPhone;
 
     /**
@@ -102,7 +102,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Details about the domain administrative contact.
      * 
      */
-    @Export(name="adminContact", type=RegisteredDomainAdminContact.class, parameters={})
+    @Export(name="adminContact", refs={RegisteredDomainAdminContact.class}, tree="[0]")
     private Output<RegisteredDomainAdminContact> adminContact;
 
     /**
@@ -116,7 +116,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    @Export(name="adminPrivacy", type=Boolean.class, parameters={})
+    @Export(name="adminPrivacy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> adminPrivacy;
 
     /**
@@ -130,7 +130,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Whether the domain registration is set to renew automatically. Default: `true`.
      * 
      */
-    @Export(name="autoRenew", type=Boolean.class, parameters={})
+    @Export(name="autoRenew", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoRenew;
 
     /**
@@ -144,7 +144,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * The date when the domain was created as found in the response to a WHOIS query.
      * 
      */
-    @Export(name="creationDate", type=String.class, parameters={})
+    @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
     /**
@@ -158,7 +158,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * The name of the registered domain.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -172,7 +172,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * The date when the registration for the domain is set to expire.
      * 
      */
-    @Export(name="expirationDate", type=String.class, parameters={})
+    @Export(name="expirationDate", refs={String.class}, tree="[0]")
     private Output<String> expirationDate;
 
     /**
@@ -186,7 +186,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * The list of nameservers for the domain.
      * 
      */
-    @Export(name="nameServers", type=List.class, parameters={RegisteredDomainNameServer.class})
+    @Export(name="nameServers", refs={List.class,RegisteredDomainNameServer.class}, tree="[0,1]")
     private Output<List<RegisteredDomainNameServer>> nameServers;
 
     /**
@@ -200,7 +200,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Details about the domain registrant.
      * 
      */
-    @Export(name="registrantContact", type=RegisteredDomainRegistrantContact.class, parameters={})
+    @Export(name="registrantContact", refs={RegisteredDomainRegistrantContact.class}, tree="[0]")
     private Output<RegisteredDomainRegistrantContact> registrantContact;
 
     /**
@@ -214,7 +214,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    @Export(name="registrantPrivacy", type=Boolean.class, parameters={})
+    @Export(name="registrantPrivacy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> registrantPrivacy;
 
     /**
@@ -228,7 +228,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Name of the registrar of the domain as identified in the registry.
      * 
      */
-    @Export(name="registrarName", type=String.class, parameters={})
+    @Export(name="registrarName", refs={String.class}, tree="[0]")
     private Output<String> registrarName;
 
     /**
@@ -242,7 +242,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Web address of the registrar.
      * 
      */
-    @Export(name="registrarUrl", type=String.class, parameters={})
+    @Export(name="registrarUrl", refs={String.class}, tree="[0]")
     private Output<String> registrarUrl;
 
     /**
@@ -256,7 +256,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Reseller of the domain.
      * 
      */
-    @Export(name="reseller", type=String.class, parameters={})
+    @Export(name="reseller", refs={String.class}, tree="[0]")
     private Output<String> reseller;
 
     /**
@@ -270,7 +270,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
      * 
      */
-    @Export(name="statusLists", type=List.class, parameters={String.class})
+    @Export(name="statusLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> statusLists;
 
     /**
@@ -284,7 +284,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -298,7 +298,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -312,7 +312,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Details about the domain technical contact.
      * 
      */
-    @Export(name="techContact", type=RegisteredDomainTechContact.class, parameters={})
+    @Export(name="techContact", refs={RegisteredDomainTechContact.class}, tree="[0]")
     private Output<RegisteredDomainTechContact> techContact;
 
     /**
@@ -326,7 +326,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    @Export(name="techPrivacy", type=Boolean.class, parameters={})
+    @Export(name="techPrivacy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> techPrivacy;
 
     /**
@@ -340,7 +340,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * Whether the domain is locked for transfer. Default: `true`.
      * 
      */
-    @Export(name="transferLock", type=Boolean.class, parameters={})
+    @Export(name="transferLock", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> transferLock;
 
     /**
@@ -354,7 +354,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * The last updated date of the domain as found in the response to a WHOIS query.
      * 
      */
-    @Export(name="updatedDate", type=String.class, parameters={})
+    @Export(name="updatedDate", refs={String.class}, tree="[0]")
     private Output<String> updatedDate;
 
     /**
@@ -368,7 +368,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      * The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
      * 
      */
-    @Export(name="whoisServer", type=String.class, parameters={})
+    @Export(name="whoisServer", refs={String.class}, tree="[0]")
     private Output<String> whoisServer;
 
     /**

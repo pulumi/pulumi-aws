@@ -149,7 +149,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
      * 
      */
-    @Export(name="architecture", type=String.class, parameters={})
+    @Export(name="architecture", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> architecture;
 
     /**
@@ -163,7 +163,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * ARN of the cluster.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -177,7 +177,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The configuration for an application to automatically start on job submission.
      * 
      */
-    @Export(name="autoStartConfiguration", type=ApplicationAutoStartConfiguration.class, parameters={})
+    @Export(name="autoStartConfiguration", refs={ApplicationAutoStartConfiguration.class}, tree="[0]")
     private Output<ApplicationAutoStartConfiguration> autoStartConfiguration;
 
     /**
@@ -191,7 +191,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      * 
      */
-    @Export(name="autoStopConfiguration", type=ApplicationAutoStopConfiguration.class, parameters={})
+    @Export(name="autoStopConfiguration", refs={ApplicationAutoStopConfiguration.class}, tree="[0]")
     private Output<ApplicationAutoStopConfiguration> autoStopConfiguration;
 
     /**
@@ -205,7 +205,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The capacity to initialize when the application is created.
      * 
      */
-    @Export(name="initialCapacities", type=List.class, parameters={ApplicationInitialCapacity.class})
+    @Export(name="initialCapacities", refs={List.class,ApplicationInitialCapacity.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationInitialCapacity>> initialCapacities;
 
     /**
@@ -219,7 +219,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      * 
      */
-    @Export(name="maximumCapacity", type=ApplicationMaximumCapacity.class, parameters={})
+    @Export(name="maximumCapacity", refs={ApplicationMaximumCapacity.class}, tree="[0]")
     private Output<ApplicationMaximumCapacity> maximumCapacity;
 
     /**
@@ -233,7 +233,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name of the application.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -247,7 +247,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The network configuration for customer VPC connectivity.
      * 
      */
-    @Export(name="networkConfiguration", type=ApplicationNetworkConfiguration.class, parameters={})
+    @Export(name="networkConfiguration", refs={ApplicationNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationNetworkConfiguration> networkConfiguration;
 
     /**
@@ -261,7 +261,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The EMR release version associated with the application.
      * 
      */
-    @Export(name="releaseLabel", type=String.class, parameters={})
+    @Export(name="releaseLabel", refs={String.class}, tree="[0]")
     private Output<String> releaseLabel;
 
     /**
@@ -275,7 +275,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -289,7 +289,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -303,7 +303,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The type of application you want to start, such as `spark` or `hive`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

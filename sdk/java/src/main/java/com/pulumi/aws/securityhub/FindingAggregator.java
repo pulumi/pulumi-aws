@@ -152,7 +152,7 @@ public class FindingAggregator extends com.pulumi.resources.CustomResource {
      * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
      * 
      */
-    @Export(name="linkingMode", type=String.class, parameters={})
+    @Export(name="linkingMode", refs={String.class}, tree="[0]")
     private Output<String> linkingMode;
 
     /**
@@ -166,7 +166,7 @@ public class FindingAggregator extends com.pulumi.resources.CustomResource {
      * List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      * 
      */
-    @Export(name="specifiedRegions", type=List.class, parameters={String.class})
+    @Export(name="specifiedRegions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> specifiedRegions;
 
     /**

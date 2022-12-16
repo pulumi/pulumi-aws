@@ -70,7 +70,7 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
      * ARN of the InputSecurityGroup.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -84,7 +84,7 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
      * The list of inputs currently using this InputSecurityGroup.
      * 
      */
-    @Export(name="inputs", type=List.class, parameters={String.class})
+    @Export(name="inputs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> inputs;
 
     /**
@@ -98,7 +98,7 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -108,7 +108,7 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -118,7 +118,7 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
      * Whitelist rules. See Whitelist Rules for more details.
      * 
      */
-    @Export(name="whitelistRules", type=List.class, parameters={InputSecurityGroupWhitelistRule.class})
+    @Export(name="whitelistRules", refs={List.class,InputSecurityGroupWhitelistRule.class}, tree="[0,1]")
     private Output<List<InputSecurityGroupWhitelistRule>> whitelistRules;
 
     /**

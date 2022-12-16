@@ -72,7 +72,7 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
      * ARN of the block list.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -86,7 +86,7 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
      * The description for a block list.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -100,7 +100,7 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
      * The identifier of the index for a block list.
      * 
      */
-    @Export(name="indexId", type=String.class, parameters={})
+    @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
     /**
@@ -114,7 +114,7 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
      * The name for the block list.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
      * The unique indentifier of the block list.
      * 
      */
-    @Export(name="querySuggestionsBlockListId", type=String.class, parameters={})
+    @Export(name="querySuggestionsBlockListId", refs={String.class}, tree="[0]")
     private Output<String> querySuggestionsBlockListId;
 
     /**
@@ -142,7 +142,7 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
      * The IAM (Identity and Access Management) role used to access the block list text file in S3.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -156,7 +156,7 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
      * The S3 path where your block list text file sits in S3. Detailed below.
      * 
      */
-    @Export(name="sourceS3Path", type=QuerySuggestionsBlockListSourceS3Path.class, parameters={})
+    @Export(name="sourceS3Path", refs={QuerySuggestionsBlockListSourceS3Path.class}, tree="[0]")
     private Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path;
 
     /**
@@ -166,7 +166,7 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     public Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path() {
         return this.sourceS3Path;
     }
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     public Output<String> status() {
@@ -176,7 +176,7 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -190,7 +190,7 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

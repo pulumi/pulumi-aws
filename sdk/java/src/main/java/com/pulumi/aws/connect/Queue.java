@@ -144,7 +144,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Queue.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -158,7 +158,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Specifies the description of the Queue.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -172,7 +172,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Specifies the identifier of the Hours of Operation.
      * 
      */
-    @Export(name="hoursOfOperationId", type=String.class, parameters={})
+    @Export(name="hoursOfOperationId", refs={String.class}, tree="[0]")
     private Output<String> hoursOfOperationId;
 
     /**
@@ -186,7 +186,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
@@ -200,7 +200,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
      * 
      */
-    @Export(name="maxContacts", type=Integer.class, parameters={})
+    @Export(name="maxContacts", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxContacts;
 
     /**
@@ -214,7 +214,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Queue.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -228,7 +228,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
      * 
      */
-    @Export(name="outboundCallerConfig", type=QueueOutboundCallerConfig.class, parameters={})
+    @Export(name="outboundCallerConfig", refs={QueueOutboundCallerConfig.class}, tree="[0]")
     private Output</* @Nullable */ QueueOutboundCallerConfig> outboundCallerConfig;
 
     /**
@@ -242,7 +242,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The identifier for the Queue.
      * 
      */
-    @Export(name="queueId", type=String.class, parameters={})
+    @Export(name="queueId", refs={String.class}, tree="[0]")
     private Output<String> queueId;
 
     /**
@@ -256,7 +256,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      * 
      */
-    @Export(name="quickConnectIds", type=List.class, parameters={String.class})
+    @Export(name="quickConnectIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> quickConnectIds;
 
     /**
@@ -266,7 +266,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> quickConnectIds() {
         return Codegen.optional(this.quickConnectIds);
     }
-    @Export(name="quickConnectIdsAssociateds", type=List.class, parameters={String.class})
+    @Export(name="quickConnectIdsAssociateds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> quickConnectIdsAssociateds;
 
     public Output<List<String>> quickConnectIdsAssociateds() {
@@ -276,7 +276,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -290,7 +290,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -304,7 +304,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

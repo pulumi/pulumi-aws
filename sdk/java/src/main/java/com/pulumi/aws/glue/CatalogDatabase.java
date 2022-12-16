@@ -103,7 +103,7 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      * ARN of the Glue Catalog Database.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -117,7 +117,7 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      * ID of the Data Catalog in which the database resides.
      * 
      */
-    @Export(name="catalogId", type=String.class, parameters={})
+    @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
@@ -131,7 +131,7 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      * Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
      * 
      */
-    @Export(name="createTableDefaultPermissions", type=List.class, parameters={CatalogDatabaseCreateTableDefaultPermission.class})
+    @Export(name="createTableDefaultPermissions", refs={List.class,CatalogDatabaseCreateTableDefaultPermission.class}, tree="[0,1]")
     private Output<List<CatalogDatabaseCreateTableDefaultPermission>> createTableDefaultPermissions;
 
     /**
@@ -145,7 +145,7 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      * Description of the database.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -159,7 +159,7 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      * Location of the database (for example, an HDFS path).
      * 
      */
-    @Export(name="locationUri", type=String.class, parameters={})
+    @Export(name="locationUri", refs={String.class}, tree="[0]")
     private Output<String> locationUri;
 
     /**
@@ -173,7 +173,7 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -187,7 +187,7 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      * List of key-value pairs that define parameters and properties of the database.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -201,7 +201,7 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      * Configuration block for a target database for resource linking. See `target_database` below.
      * 
      */
-    @Export(name="targetDatabase", type=CatalogDatabaseTargetDatabase.class, parameters={})
+    @Export(name="targetDatabase", refs={CatalogDatabaseTargetDatabase.class}, tree="[0]")
     private Output</* @Nullable */ CatalogDatabaseTargetDatabase> targetDatabase;
 
     /**

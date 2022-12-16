@@ -71,7 +71,7 @@ public class InternetGatewayAttachment extends com.pulumi.resources.CustomResour
      * The ID of the internet gateway.
      * 
      */
-    @Export(name="internetGatewayId", type=String.class, parameters={})
+    @Export(name="internetGatewayId", refs={String.class}, tree="[0]")
     private Output<String> internetGatewayId;
 
     /**
@@ -85,7 +85,7 @@ public class InternetGatewayAttachment extends com.pulumi.resources.CustomResour
      * The ID of the VPC.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

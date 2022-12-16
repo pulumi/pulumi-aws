@@ -66,7 +66,7 @@ public class Host extends com.pulumi.resources.CustomResource {
      * The CodeStar Host ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -80,7 +80,7 @@ public class Host extends com.pulumi.resources.CustomResource {
      * The name of the host to be created. The name must be unique in the calling AWS account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -94,7 +94,7 @@ public class Host extends com.pulumi.resources.CustomResource {
      * The endpoint of the infrastructure to be represented by the host after it is created.
      * 
      */
-    @Export(name="providerEndpoint", type=String.class, parameters={})
+    @Export(name="providerEndpoint", refs={String.class}, tree="[0]")
     private Output<String> providerEndpoint;
 
     /**
@@ -108,7 +108,7 @@ public class Host extends com.pulumi.resources.CustomResource {
      * The name of the external provider where your third-party code repository is configured.
      * 
      */
-    @Export(name="providerType", type=String.class, parameters={})
+    @Export(name="providerType", refs={String.class}, tree="[0]")
     private Output<String> providerType;
 
     /**
@@ -122,7 +122,7 @@ public class Host extends com.pulumi.resources.CustomResource {
      * The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -136,7 +136,7 @@ public class Host extends com.pulumi.resources.CustomResource {
      * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
      * 
      */
-    @Export(name="vpcConfiguration", type=HostVpcConfiguration.class, parameters={})
+    @Export(name="vpcConfiguration", refs={HostVpcConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ HostVpcConfiguration> vpcConfiguration;
 
     /**

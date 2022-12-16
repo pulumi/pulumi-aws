@@ -70,7 +70,7 @@ public class SecurityProfile extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Security Profile.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -84,7 +84,7 @@ public class SecurityProfile extends com.pulumi.resources.CustomResource {
      * Specifies the description of the Security Profile.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -98,7 +98,7 @@ public class SecurityProfile extends com.pulumi.resources.CustomResource {
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
@@ -112,7 +112,7 @@ public class SecurityProfile extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Security Profile.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class SecurityProfile extends com.pulumi.resources.CustomResource {
      * The organization resource identifier for the security profile.
      * 
      */
-    @Export(name="organizationResourceId", type=String.class, parameters={})
+    @Export(name="organizationResourceId", refs={String.class}, tree="[0]")
     private Output<String> organizationResourceId;
 
     /**
@@ -140,7 +140,7 @@ public class SecurityProfile extends com.pulumi.resources.CustomResource {
      * Specifies a list of permissions assigned to the security profile.
      * 
      */
-    @Export(name="permissions", type=List.class, parameters={String.class})
+    @Export(name="permissions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> permissions;
 
     /**
@@ -154,7 +154,7 @@ public class SecurityProfile extends com.pulumi.resources.CustomResource {
      * The identifier for the Security Profile.
      * 
      */
-    @Export(name="securityProfileId", type=String.class, parameters={})
+    @Export(name="securityProfileId", refs={String.class}, tree="[0]")
     private Output<String> securityProfileId;
 
     /**
@@ -169,7 +169,7 @@ public class SecurityProfile extends com.pulumi.resources.CustomResource {
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -184,7 +184,7 @@ public class SecurityProfile extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

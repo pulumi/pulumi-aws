@@ -89,7 +89,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The ID of the Client VPN endpoint.
      * 
      */
-    @Export(name="clientVpnEndpointId", type=String.class, parameters={})
+    @Export(name="clientVpnEndpointId", refs={String.class}, tree="[0]")
     private Output<String> clientVpnEndpointId;
 
     /**
@@ -103,7 +103,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * A brief description of the route.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -117,7 +117,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The IPv4 address range, in CIDR notation, of the route destination.
      * 
      */
-    @Export(name="destinationCidrBlock", type=String.class, parameters={})
+    @Export(name="destinationCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> destinationCidrBlock;
 
     /**
@@ -131,7 +131,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
      * 
      */
-    @Export(name="origin", type=String.class, parameters={})
+    @Export(name="origin", refs={String.class}, tree="[0]")
     private Output<String> origin;
 
     /**
@@ -145,7 +145,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
      * 
      */
-    @Export(name="targetVpcSubnetId", type=String.class, parameters={})
+    @Export(name="targetVpcSubnetId", refs={String.class}, tree="[0]")
     private Output<String> targetVpcSubnetId;
 
     /**
@@ -159,7 +159,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The type of the route.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

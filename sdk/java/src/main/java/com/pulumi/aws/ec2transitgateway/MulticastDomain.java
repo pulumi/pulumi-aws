@@ -201,7 +201,7 @@ public class MulticastDomain extends com.pulumi.resources.CustomResource {
      * EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -215,7 +215,7 @@ public class MulticastDomain extends com.pulumi.resources.CustomResource {
      * Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    @Export(name="autoAcceptSharedAssociations", type=String.class, parameters={})
+    @Export(name="autoAcceptSharedAssociations", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoAcceptSharedAssociations;
 
     /**
@@ -229,7 +229,7 @@ public class MulticastDomain extends com.pulumi.resources.CustomResource {
      * Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    @Export(name="igmpv2Support", type=String.class, parameters={})
+    @Export(name="igmpv2Support", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> igmpv2Support;
 
     /**
@@ -243,7 +243,7 @@ public class MulticastDomain extends com.pulumi.resources.CustomResource {
      * Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -257,7 +257,7 @@ public class MulticastDomain extends com.pulumi.resources.CustomResource {
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    @Export(name="staticSourcesSupport", type=String.class, parameters={})
+    @Export(name="staticSourcesSupport", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> staticSourcesSupport;
 
     /**
@@ -271,7 +271,7 @@ public class MulticastDomain extends com.pulumi.resources.CustomResource {
      * Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -285,7 +285,7 @@ public class MulticastDomain extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -299,7 +299,7 @@ public class MulticastDomain extends com.pulumi.resources.CustomResource {
      * EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
      * 
      */
-    @Export(name="transitGatewayId", type=String.class, parameters={})
+    @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayId;
 
     /**

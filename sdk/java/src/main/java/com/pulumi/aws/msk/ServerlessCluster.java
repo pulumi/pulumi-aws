@@ -38,7 +38,7 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      * The ARN of the serverless cluster.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -52,7 +52,7 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      * Specifies client authentication information for the serverless cluster. See below.
      * 
      */
-    @Export(name="clientAuthentication", type=ServerlessClusterClientAuthentication.class, parameters={})
+    @Export(name="clientAuthentication", refs={ServerlessClusterClientAuthentication.class}, tree="[0]")
     private Output<ServerlessClusterClientAuthentication> clientAuthentication;
 
     /**
@@ -66,7 +66,7 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      * The name of the serverless cluster.
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
@@ -80,7 +80,7 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -94,7 +94,7 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -108,7 +108,7 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      * VPC configuration information. See below.
      * 
      */
-    @Export(name="vpcConfigs", type=List.class, parameters={ServerlessClusterVpcConfig.class})
+    @Export(name="vpcConfigs", refs={List.class,ServerlessClusterVpcConfig.class}, tree="[0,1]")
     private Output<List<ServerlessClusterVpcConfig>> vpcConfigs;
 
     /**

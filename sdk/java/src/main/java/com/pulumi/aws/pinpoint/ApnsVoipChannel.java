@@ -69,7 +69,7 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
      * The application ID.
      * 
      */
-    @Export(name="applicationId", type=String.class, parameters={})
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
@@ -83,7 +83,7 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
      * The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
      * 
      */
-    @Export(name="bundleId", type=String.class, parameters={})
+    @Export(name="bundleId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bundleId;
 
     /**
@@ -97,7 +97,7 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
      * The pem encoded TLS Certificate from Apple.
      * 
      */
-    @Export(name="certificate", type=String.class, parameters={})
+    @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificate;
 
     /**
@@ -114,7 +114,7 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
      * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
      * 
      */
-    @Export(name="defaultAuthenticationMethod", type=String.class, parameters={})
+    @Export(name="defaultAuthenticationMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultAuthenticationMethod;
 
     /**
@@ -131,7 +131,7 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -145,7 +145,7 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
      * The Certificate Private Key file (ie. `.key` file).
      * 
      */
-    @Export(name="privateKey", type=String.class, parameters={})
+    @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
     /**
@@ -159,7 +159,7 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
      * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> teamId;
 
     /**
@@ -173,7 +173,7 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
      * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      * 
      */
-    @Export(name="tokenKey", type=String.class, parameters={})
+    @Export(name="tokenKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenKey;
 
     /**
@@ -187,7 +187,7 @@ public class ApnsVoipChannel extends com.pulumi.resources.CustomResource {
      * The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
      * 
      */
-    @Export(name="tokenKeyId", type=String.class, parameters={})
+    @Export(name="tokenKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenKeyId;
 
     /**

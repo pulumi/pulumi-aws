@@ -106,7 +106,7 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      * 
      */
-    @Export(name="admins", type=List.class, parameters={String.class})
+    @Export(name="admins", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> admins;
 
     /**
@@ -120,7 +120,7 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * Identifier for the Data Catalog. By default, the account ID.
      * 
      */
-    @Export(name="catalogId", type=String.class, parameters={})
+    @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> catalogId;
 
     /**
@@ -134,7 +134,7 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      * 
      */
-    @Export(name="createDatabaseDefaultPermissions", type=List.class, parameters={DataLakeSettingsCreateDatabaseDefaultPermission.class})
+    @Export(name="createDatabaseDefaultPermissions", refs={List.class,DataLakeSettingsCreateDatabaseDefaultPermission.class}, tree="[0,1]")
     private Output<List<DataLakeSettingsCreateDatabaseDefaultPermission>> createDatabaseDefaultPermissions;
 
     /**
@@ -148,7 +148,7 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      * 
      */
-    @Export(name="createTableDefaultPermissions", type=List.class, parameters={DataLakeSettingsCreateTableDefaultPermission.class})
+    @Export(name="createTableDefaultPermissions", refs={List.class,DataLakeSettingsCreateTableDefaultPermission.class}, tree="[0,1]")
     private Output<List<DataLakeSettingsCreateTableDefaultPermission>> createTableDefaultPermissions;
 
     /**
@@ -162,7 +162,7 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
      */
-    @Export(name="trustedResourceOwners", type=List.class, parameters={String.class})
+    @Export(name="trustedResourceOwners", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> trustedResourceOwners;
 
     /**

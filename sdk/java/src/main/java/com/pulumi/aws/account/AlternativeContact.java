@@ -71,7 +71,7 @@ public class AlternativeContact extends com.pulumi.resources.CustomResource {
      * ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountId;
 
     /**
@@ -85,7 +85,7 @@ public class AlternativeContact extends com.pulumi.resources.CustomResource {
      * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      * 
      */
-    @Export(name="alternateContactType", type=String.class, parameters={})
+    @Export(name="alternateContactType", refs={String.class}, tree="[0]")
     private Output<String> alternateContactType;
 
     /**
@@ -99,7 +99,7 @@ public class AlternativeContact extends com.pulumi.resources.CustomResource {
      * An email address for the alternate contact.
      * 
      */
-    @Export(name="emailAddress", type=String.class, parameters={})
+    @Export(name="emailAddress", refs={String.class}, tree="[0]")
     private Output<String> emailAddress;
 
     /**
@@ -113,7 +113,7 @@ public class AlternativeContact extends com.pulumi.resources.CustomResource {
      * Name of the alternate contact.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -127,7 +127,7 @@ public class AlternativeContact extends com.pulumi.resources.CustomResource {
      * Phone number for the alternate contact.
      * 
      */
-    @Export(name="phoneNumber", type=String.class, parameters={})
+    @Export(name="phoneNumber", refs={String.class}, tree="[0]")
     private Output<String> phoneNumber;
 
     /**
@@ -141,7 +141,7 @@ public class AlternativeContact extends com.pulumi.resources.CustomResource {
      * Title for the alternate contact.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**

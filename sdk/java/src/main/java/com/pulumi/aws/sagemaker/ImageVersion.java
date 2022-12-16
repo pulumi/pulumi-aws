@@ -65,7 +65,7 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
      * * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -80,7 +80,7 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
      * The registry path of the container image on which this image version is based.
      * 
      */
-    @Export(name="baseImage", type=String.class, parameters={})
+    @Export(name="baseImage", refs={String.class}, tree="[0]")
     private Output<String> baseImage;
 
     /**
@@ -94,7 +94,7 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
      * The registry path of the container image that contains this image version.
      * 
      */
-    @Export(name="containerImage", type=String.class, parameters={})
+    @Export(name="containerImage", refs={String.class}, tree="[0]")
     private Output<String> containerImage;
 
     /**
@@ -104,7 +104,7 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
     public Output<String> containerImage() {
         return this.containerImage;
     }
-    @Export(name="imageArn", type=String.class, parameters={})
+    @Export(name="imageArn", refs={String.class}, tree="[0]")
     private Output<String> imageArn;
 
     public Output<String> imageArn() {
@@ -114,7 +114,7 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
      * The name of the image. Must be unique to your account.
      * 
      */
-    @Export(name="imageName", type=String.class, parameters={})
+    @Export(name="imageName", refs={String.class}, tree="[0]")
     private Output<String> imageName;
 
     /**
@@ -124,7 +124,7 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
     public Output<String> imageName() {
         return this.imageName;
     }
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     public Output<Integer> version() {

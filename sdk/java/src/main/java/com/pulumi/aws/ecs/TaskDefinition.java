@@ -411,7 +411,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Full ARN of the Task Definition (including both `family` and `revision`).
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -425,7 +425,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      * 
      */
-    @Export(name="containerDefinitions", type=String.class, parameters={})
+    @Export(name="containerDefinitions", refs={String.class}, tree="[0]")
     private Output<String> containerDefinitions;
 
     /**
@@ -439,7 +439,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
      * 
      */
-    @Export(name="cpu", type=String.class, parameters={})
+    @Export(name="cpu", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cpu;
 
     /**
@@ -453,7 +453,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      * 
      */
-    @Export(name="ephemeralStorage", type=TaskDefinitionEphemeralStorage.class, parameters={})
+    @Export(name="ephemeralStorage", refs={TaskDefinitionEphemeralStorage.class}, tree="[0]")
     private Output</* @Nullable */ TaskDefinitionEphemeralStorage> ephemeralStorage;
 
     /**
@@ -467,7 +467,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      * 
      */
-    @Export(name="executionRoleArn", type=String.class, parameters={})
+    @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> executionRoleArn;
 
     /**
@@ -481,7 +481,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * A unique name for your task definition.
      * 
      */
-    @Export(name="family", type=String.class, parameters={})
+    @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
     /**
@@ -495,7 +495,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Configuration block(s) with Inference Accelerators settings. Detailed below.
      * 
      */
-    @Export(name="inferenceAccelerators", type=List.class, parameters={TaskDefinitionInferenceAccelerator.class})
+    @Export(name="inferenceAccelerators", refs={List.class,TaskDefinitionInferenceAccelerator.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TaskDefinitionInferenceAccelerator>> inferenceAccelerators;
 
     /**
@@ -509,7 +509,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      * 
      */
-    @Export(name="ipcMode", type=String.class, parameters={})
+    @Export(name="ipcMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipcMode;
 
     /**
@@ -523,7 +523,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
      * 
      */
-    @Export(name="memory", type=String.class, parameters={})
+    @Export(name="memory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> memory;
 
     /**
@@ -537,7 +537,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
      * 
      */
-    @Export(name="networkMode", type=String.class, parameters={})
+    @Export(name="networkMode", refs={String.class}, tree="[0]")
     private Output<String> networkMode;
 
     /**
@@ -551,7 +551,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
      * 
      */
-    @Export(name="pidMode", type=String.class, parameters={})
+    @Export(name="pidMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pidMode;
 
     /**
@@ -565,7 +565,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
      * 
      */
-    @Export(name="placementConstraints", type=List.class, parameters={TaskDefinitionPlacementConstraint.class})
+    @Export(name="placementConstraints", refs={List.class,TaskDefinitionPlacementConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TaskDefinitionPlacementConstraint>> placementConstraints;
 
     /**
@@ -579,7 +579,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Configuration block for the App Mesh proxy. Detailed below.
      * 
      */
-    @Export(name="proxyConfiguration", type=TaskDefinitionProxyConfiguration.class, parameters={})
+    @Export(name="proxyConfiguration", refs={TaskDefinitionProxyConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ TaskDefinitionProxyConfiguration> proxyConfiguration;
 
     /**
@@ -593,7 +593,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      * 
      */
-    @Export(name="requiresCompatibilities", type=List.class, parameters={String.class})
+    @Export(name="requiresCompatibilities", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> requiresCompatibilities;
 
     /**
@@ -607,7 +607,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Revision of the task in a particular family.
      * 
      */
-    @Export(name="revision", type=Integer.class, parameters={})
+    @Export(name="revision", refs={Integer.class}, tree="[0]")
     private Output<Integer> revision;
 
     /**
@@ -621,7 +621,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Configuration block for runtime_platform that containers in your task may use.
      * 
      */
-    @Export(name="runtimePlatform", type=TaskDefinitionRuntimePlatform.class, parameters={})
+    @Export(name="runtimePlatform", refs={TaskDefinitionRuntimePlatform.class}, tree="[0]")
     private Output</* @Nullable */ TaskDefinitionRuntimePlatform> runtimePlatform;
 
     /**
@@ -635,7 +635,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
      * 
      */
-    @Export(name="skipDestroy", type=Boolean.class, parameters={})
+    @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipDestroy;
 
     /**
@@ -649,7 +649,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -663,7 +663,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -677,7 +677,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      * 
      */
-    @Export(name="taskRoleArn", type=String.class, parameters={})
+    @Export(name="taskRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> taskRoleArn;
 
     /**
@@ -691,7 +691,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * Configuration block for volumes that containers in your task may use. Detailed below.
      * 
      */
-    @Export(name="volumes", type=List.class, parameters={TaskDefinitionVolume.class})
+    @Export(name="volumes", refs={List.class,TaskDefinitionVolume.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TaskDefinitionVolume>> volumes;
 
     /**

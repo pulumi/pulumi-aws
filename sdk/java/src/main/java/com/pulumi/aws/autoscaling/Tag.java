@@ -36,7 +36,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * Name of the Autoscaling Group to apply the tag to.
      * 
      */
-    @Export(name="autoscalingGroupName", type=String.class, parameters={})
+    @Export(name="autoscalingGroupName", refs={String.class}, tree="[0]")
     private Output<String> autoscalingGroupName;
 
     /**
@@ -50,7 +50,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * Tag to create. The `tag` block is documented below.
      * 
      */
-    @Export(name="tag", type=TagTag.class, parameters={})
+    @Export(name="tag", refs={TagTag.class}, tree="[0]")
     private Output<TagTag> tag;
 
     /**

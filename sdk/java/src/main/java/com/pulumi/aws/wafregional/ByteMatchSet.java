@@ -74,7 +74,7 @@ public class ByteMatchSet extends com.pulumi.resources.CustomResource {
      * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
      * 
      */
-    @Export(name="byteMatchTuples", type=List.class, parameters={ByteMatchSetByteMatchTuple.class})
+    @Export(name="byteMatchTuples", refs={List.class,ByteMatchSetByteMatchTuple.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ByteMatchSetByteMatchTuple>> byteMatchTuples;
 
     /**
@@ -88,7 +88,7 @@ public class ByteMatchSet extends com.pulumi.resources.CustomResource {
      * The name or description of the ByteMatchSet.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

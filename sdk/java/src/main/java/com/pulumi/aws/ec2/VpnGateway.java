@@ -64,7 +64,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
      * 
      */
-    @Export(name="amazonSideAsn", type=String.class, parameters={})
+    @Export(name="amazonSideAsn", refs={String.class}, tree="[0]")
     private Output<String> amazonSideAsn;
 
     /**
@@ -78,7 +78,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the VPN Gateway.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -92,7 +92,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * The Availability Zone for the virtual private gateway.
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> availabilityZone;
 
     /**
@@ -106,7 +106,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -120,7 +120,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -134,7 +134,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * The VPC ID to create in.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

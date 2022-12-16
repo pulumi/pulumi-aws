@@ -96,7 +96,7 @@ public class ProvisionedConcurrencyConfig extends com.pulumi.resources.CustomRes
      * Name or Amazon Resource Name (ARN) of the Lambda Function.
      * 
      */
-    @Export(name="functionName", type=String.class, parameters={})
+    @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
     /**
@@ -110,7 +110,7 @@ public class ProvisionedConcurrencyConfig extends com.pulumi.resources.CustomRes
      * Amount of capacity to allocate. Must be greater than or equal to `1`.
      * 
      */
-    @Export(name="provisionedConcurrentExecutions", type=Integer.class, parameters={})
+    @Export(name="provisionedConcurrentExecutions", refs={Integer.class}, tree="[0]")
     private Output<Integer> provisionedConcurrentExecutions;
 
     /**
@@ -124,7 +124,7 @@ public class ProvisionedConcurrencyConfig extends com.pulumi.resources.CustomRes
      * Lambda Function version or Lambda Alias name.
      * 
      */
-    @Export(name="qualifier", type=String.class, parameters={})
+    @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output<String> qualifier;
 
     /**

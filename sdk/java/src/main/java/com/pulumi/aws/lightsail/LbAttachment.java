@@ -88,7 +88,7 @@ public class LbAttachment extends com.pulumi.resources.CustomResource {
      * The name of the instance to attach to the load balancer.
      * 
      */
-    @Export(name="instanceName", type=String.class, parameters={})
+    @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
     /**
@@ -102,7 +102,7 @@ public class LbAttachment extends com.pulumi.resources.CustomResource {
      * The name of the Lightsail load balancer.
      * 
      */
-    @Export(name="lbName", type=String.class, parameters={})
+    @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
     /**

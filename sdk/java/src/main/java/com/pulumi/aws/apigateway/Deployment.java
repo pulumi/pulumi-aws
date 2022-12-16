@@ -187,7 +187,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Creation date of the deployment
      * 
      */
-    @Export(name="createdDate", type=String.class, parameters={})
+    @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
     /**
@@ -201,7 +201,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Description of the deployment
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -217,7 +217,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
      */
-    @Export(name="executionArn", type=String.class, parameters={})
+    @Export(name="executionArn", refs={String.class}, tree="[0]")
     private Output<String> executionArn;
 
     /**
@@ -234,7 +234,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
-    @Export(name="invokeUrl", type=String.class, parameters={})
+    @Export(name="invokeUrl", refs={String.class}, tree="[0]")
     private Output<String> invokeUrl;
 
     /**
@@ -249,7 +249,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * REST API identifier.
      * 
      */
-    @Export(name="restApi", type=String.class, parameters={})
+    @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
     /**
@@ -263,7 +263,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Description to set on the stage managed by the `stage_name` argument.
      * 
      */
-    @Export(name="stageDescription", type=String.class, parameters={})
+    @Export(name="stageDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stageDescription;
 
     /**
@@ -277,7 +277,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      * 
      */
-    @Export(name="stageName", type=String.class, parameters={})
+    @Export(name="stageName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stageName;
 
     /**
@@ -291,7 +291,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
-    @Export(name="triggers", type=Map.class, parameters={String.class, String.class})
+    @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> triggers;
 
     /**
@@ -305,7 +305,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Map to set on the stage managed by the `stage_name` argument.
      * 
      */
-    @Export(name="variables", type=Map.class, parameters={String.class, String.class})
+    @Export(name="variables", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> variables;
 
     /**

@@ -70,7 +70,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * AWS account ID for the account.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -84,7 +84,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * AWS account ID for the administrator account.
      * 
      */
-    @Export(name="administratorId", type=String.class, parameters={})
+    @Export(name="administratorId", refs={String.class}, tree="[0]")
     private Output<String> administratorId;
 
     /**
@@ -98,7 +98,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
      * 
      */
-    @Export(name="disableEmailNotification", type=Boolean.class, parameters={})
+    @Export(name="disableEmailNotification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableEmailNotification;
 
     /**
@@ -108,7 +108,7 @@ public class Member extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> disableEmailNotification() {
         return Codegen.optional(this.disableEmailNotification);
     }
-    @Export(name="disabledReason", type=String.class, parameters={})
+    @Export(name="disabledReason", refs={String.class}, tree="[0]")
     private Output<String> disabledReason;
 
     public Output<String> disabledReason() {
@@ -118,7 +118,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Email address for the account.
      * 
      */
-    @Export(name="emailAddress", type=String.class, parameters={})
+    @Export(name="emailAddress", refs={String.class}, tree="[0]")
     private Output<String> emailAddress;
 
     /**
@@ -132,7 +132,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * ARN of the behavior graph to invite the member accounts to contribute their data to.
      * 
      */
-    @Export(name="graphArn", type=String.class, parameters={})
+    @Export(name="graphArn", refs={String.class}, tree="[0]")
     private Output<String> graphArn;
 
     /**
@@ -146,7 +146,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
      * 
      */
-    @Export(name="invitedTime", type=String.class, parameters={})
+    @Export(name="invitedTime", refs={String.class}, tree="[0]")
     private Output<String> invitedTime;
 
     /**
@@ -160,7 +160,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
      * 
      */
-    @Export(name="message", type=String.class, parameters={})
+    @Export(name="message", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> message;
 
     /**
@@ -174,7 +174,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Current membership status of the member account.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -188,7 +188,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account&#39;s status.
      * 
      */
-    @Export(name="updatedTime", type=String.class, parameters={})
+    @Export(name="updatedTime", refs={String.class}, tree="[0]")
     private Output<String> updatedTime;
 
     /**
@@ -202,7 +202,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Data volume in bytes per day for the member account.
      * 
      */
-    @Export(name="volumeUsageInBytes", type=String.class, parameters={})
+    @Export(name="volumeUsageInBytes", refs={String.class}, tree="[0]")
     private Output<String> volumeUsageInBytes;
 
     /**

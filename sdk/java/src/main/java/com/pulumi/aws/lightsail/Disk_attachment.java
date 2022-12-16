@@ -88,7 +88,7 @@ public class Disk_attachment extends com.pulumi.resources.CustomResource {
      * The name of the Lightsail Disk.
      * 
      */
-    @Export(name="diskName", type=String.class, parameters={})
+    @Export(name="diskName", refs={String.class}, tree="[0]")
     private Output<String> diskName;
 
     /**
@@ -102,7 +102,7 @@ public class Disk_attachment extends com.pulumi.resources.CustomResource {
      * The disk path to expose to the instance.
      * 
      */
-    @Export(name="diskPath", type=String.class, parameters={})
+    @Export(name="diskPath", refs={String.class}, tree="[0]")
     private Output<String> diskPath;
 
     /**
@@ -116,7 +116,7 @@ public class Disk_attachment extends com.pulumi.resources.CustomResource {
      * The name of the Lightsail Instance to attach to.
      * 
      */
-    @Export(name="instanceName", type=String.class, parameters={})
+    @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
     /**

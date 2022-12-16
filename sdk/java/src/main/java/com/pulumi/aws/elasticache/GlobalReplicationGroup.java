@@ -151,7 +151,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * The ARN of the ElastiCache Global Replication Group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -165,7 +165,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * A flag that indicate whether the encryption at rest is enabled.
      * 
      */
-    @Export(name="atRestEncryptionEnabled", type=Boolean.class, parameters={})
+    @Export(name="atRestEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> atRestEncryptionEnabled;
 
     /**
@@ -179,7 +179,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * A flag that indicate whether AuthToken (password) is enabled.
      * 
      */
-    @Export(name="authTokenEnabled", type=Boolean.class, parameters={})
+    @Export(name="authTokenEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> authTokenEnabled;
 
     /**
@@ -194,7 +194,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
      * 
      */
-    @Export(name="automaticFailoverEnabled", type=Boolean.class, parameters={})
+    @Export(name="automaticFailoverEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> automaticFailoverEnabled;
 
     /**
@@ -212,7 +212,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
      * 
      */
-    @Export(name="cacheNodeType", type=String.class, parameters={})
+    @Export(name="cacheNodeType", refs={String.class}, tree="[0]")
     private Output<String> cacheNodeType;
 
     /**
@@ -229,7 +229,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * Indicates whether the Global Datastore is cluster enabled.
      * 
      */
-    @Export(name="clusterEnabled", type=Boolean.class, parameters={})
+    @Export(name="clusterEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> clusterEnabled;
 
     /**
@@ -243,7 +243,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * The name of the cache engine to be used for the clusters in this global replication group.
      * 
      */
-    @Export(name="engine", type=String.class, parameters={})
+    @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
@@ -263,7 +263,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
      * 
      */
-    @Export(name="engineVersion", type=String.class, parameters={})
+    @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
@@ -283,7 +283,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * The full version number of the cache engine running on the members of this global replication group.
      * 
      */
-    @Export(name="engineVersionActual", type=String.class, parameters={})
+    @Export(name="engineVersionActual", refs={String.class}, tree="[0]")
     private Output<String> engineVersionActual;
 
     /**
@@ -298,7 +298,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * Has the values:
      * 
      */
-    @Export(name="globalNodeGroups", type=List.class, parameters={GlobalReplicationGroupGlobalNodeGroup.class})
+    @Export(name="globalNodeGroups", refs={List.class,GlobalReplicationGroupGlobalNodeGroup.class}, tree="[0,1]")
     private Output<List<GlobalReplicationGroupGlobalNodeGroup>> globalNodeGroups;
 
     /**
@@ -313,7 +313,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * A user-created description for the global replication group.
      * 
      */
-    @Export(name="globalReplicationGroupDescription", type=String.class, parameters={})
+    @Export(name="globalReplicationGroupDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> globalReplicationGroupDescription;
 
     /**
@@ -327,7 +327,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * The full ID of the global replication group.
      * 
      */
-    @Export(name="globalReplicationGroupId", type=String.class, parameters={})
+    @Export(name="globalReplicationGroupId", refs={String.class}, tree="[0]")
     private Output<String> globalReplicationGroupId;
 
     /**
@@ -341,7 +341,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
      * 
      */
-    @Export(name="globalReplicationGroupIdSuffix", type=String.class, parameters={})
+    @Export(name="globalReplicationGroupIdSuffix", refs={String.class}, tree="[0]")
     private Output<String> globalReplicationGroupIdSuffix;
 
     /**
@@ -355,7 +355,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * The number of node groups (shards) on the global replication group.
      * 
      */
-    @Export(name="numNodeGroups", type=Integer.class, parameters={})
+    @Export(name="numNodeGroups", refs={Integer.class}, tree="[0]")
     private Output<Integer> numNodeGroups;
 
     /**
@@ -372,7 +372,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * Note that ElastiCache creates a copy of this parameter group for each member replication group.
      * 
      */
-    @Export(name="parameterGroupName", type=String.class, parameters={})
+    @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parameterGroupName;
 
     /**
@@ -389,7 +389,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
      * 
      */
-    @Export(name="primaryReplicationGroupId", type=String.class, parameters={})
+    @Export(name="primaryReplicationGroupId", refs={String.class}, tree="[0]")
     private Output<String> primaryReplicationGroupId;
 
     /**
@@ -403,7 +403,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * A flag that indicates whether the encryption in transit is enabled.
      * 
      */
-    @Export(name="transitEncryptionEnabled", type=Boolean.class, parameters={})
+    @Export(name="transitEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> transitEncryptionEnabled;
 
     /**

@@ -87,7 +87,7 @@ public class RestApiPolicy extends com.pulumi.resources.CustomResource {
      * JSON formatted policy document that controls access to the API Gateway.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -101,7 +101,7 @@ public class RestApiPolicy extends com.pulumi.resources.CustomResource {
      * ID of the REST API.
      * 
      */
-    @Export(name="restApiId", type=String.class, parameters={})
+    @Export(name="restApiId", refs={String.class}, tree="[0]")
     private Output<String> restApiId;
 
     /**

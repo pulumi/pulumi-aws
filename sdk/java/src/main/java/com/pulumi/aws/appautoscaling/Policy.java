@@ -220,7 +220,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * List of CloudWatch alarm ARNs associated with the scaling policy.
      * 
      */
-    @Export(name="alarmArns", type=List.class, parameters={String.class})
+    @Export(name="alarmArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> alarmArns;
 
     /**
@@ -234,7 +234,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * ARN assigned by AWS to the scaling policy.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -248,7 +248,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Name of the policy. Must be between 1 and 255 characters in length.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -262,7 +262,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
      * 
      */
-    @Export(name="policyType", type=String.class, parameters={})
+    @Export(name="policyType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyType;
 
     /**
@@ -276,7 +276,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -290,7 +290,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
-    @Export(name="scalableDimension", type=String.class, parameters={})
+    @Export(name="scalableDimension", refs={String.class}, tree="[0]")
     private Output<String> scalableDimension;
 
     /**
@@ -304,7 +304,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
-    @Export(name="serviceNamespace", type=String.class, parameters={})
+    @Export(name="serviceNamespace", refs={String.class}, tree="[0]")
     private Output<String> serviceNamespace;
 
     /**
@@ -318,7 +318,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Step scaling policy configuration, requires `policy_type = &#34;StepScaling&#34;` (default). See supported fields below.
      * 
      */
-    @Export(name="stepScalingPolicyConfiguration", type=PolicyStepScalingPolicyConfiguration.class, parameters={})
+    @Export(name="stepScalingPolicyConfiguration", refs={PolicyStepScalingPolicyConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PolicyStepScalingPolicyConfiguration> stepScalingPolicyConfiguration;
 
     /**
@@ -332,7 +332,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
      * 
      */
-    @Export(name="targetTrackingScalingPolicyConfiguration", type=PolicyTargetTrackingScalingPolicyConfiguration.class, parameters={})
+    @Export(name="targetTrackingScalingPolicyConfiguration", refs={PolicyTargetTrackingScalingPolicyConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PolicyTargetTrackingScalingPolicyConfiguration> targetTrackingScalingPolicyConfiguration;
 
     /**

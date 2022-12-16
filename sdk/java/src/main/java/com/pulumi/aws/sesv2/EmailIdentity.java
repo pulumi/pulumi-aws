@@ -133,7 +133,7 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * ARN of the Email Identity.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -147,7 +147,7 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
      * 
      */
-    @Export(name="configurationSetName", type=String.class, parameters={})
+    @Export(name="configurationSetName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurationSetName;
 
     /**
@@ -161,7 +161,7 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * The configuration of the DKIM authentication settings for an email domain identity.
      * 
      */
-    @Export(name="dkimSigningAttributes", type=EmailIdentityDkimSigningAttributes.class, parameters={})
+    @Export(name="dkimSigningAttributes", refs={EmailIdentityDkimSigningAttributes.class}, tree="[0]")
     private Output<EmailIdentityDkimSigningAttributes> dkimSigningAttributes;
 
     /**
@@ -175,7 +175,7 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * The email address or domain to verify.
      * 
      */
-    @Export(name="emailIdentity", type=String.class, parameters={})
+    @Export(name="emailIdentity", refs={String.class}, tree="[0]")
     private Output<String> emailIdentity;
 
     /**
@@ -189,7 +189,7 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      * 
      */
-    @Export(name="identityType", type=String.class, parameters={})
+    @Export(name="identityType", refs={String.class}, tree="[0]")
     private Output<String> identityType;
 
     /**
@@ -203,7 +203,7 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -213,7 +213,7 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -223,7 +223,7 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * Specifies whether or not the identity is verified.
      * 
      */
-    @Export(name="verifiedForSendingStatus", type=Boolean.class, parameters={})
+    @Export(name="verifiedForSendingStatus", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> verifiedForSendingStatus;
 
     /**

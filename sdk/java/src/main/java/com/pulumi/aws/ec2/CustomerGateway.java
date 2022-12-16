@@ -66,7 +66,7 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      * The ARN of the customer gateway.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -80,7 +80,7 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      * 
      */
-    @Export(name="bgpAsn", type=String.class, parameters={})
+    @Export(name="bgpAsn", refs={String.class}, tree="[0]")
     private Output<String> bgpAsn;
 
     /**
@@ -94,7 +94,7 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the customer gateway certificate.
      * 
      */
-    @Export(name="certificateArn", type=String.class, parameters={})
+    @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateArn;
 
     /**
@@ -108,7 +108,7 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      * A name for the customer gateway device.
      * 
      */
-    @Export(name="deviceName", type=String.class, parameters={})
+    @Export(name="deviceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceName;
 
     /**
@@ -122,7 +122,7 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      * The IPv4 address for the customer gateway device&#39;s outside interface.
      * 
      */
-    @Export(name="ipAddress", type=String.class, parameters={})
+    @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddress;
 
     /**
@@ -136,7 +136,7 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      * Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -150,7 +150,7 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -165,7 +165,7 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
      * supports at this time is &#34;ipsec.1&#34;.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

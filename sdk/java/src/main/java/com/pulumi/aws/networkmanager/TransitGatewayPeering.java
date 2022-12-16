@@ -64,7 +64,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * Peering Amazon Resource Name (ARN).
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -78,7 +78,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * The ARN of the core network.
      * 
      */
-    @Export(name="coreNetworkArn", type=String.class, parameters={})
+    @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
     /**
@@ -92,7 +92,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * The ID of a core network.
      * 
      */
-    @Export(name="coreNetworkId", type=String.class, parameters={})
+    @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
     /**
@@ -106,7 +106,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * The edge location for the peer.
      * 
      */
-    @Export(name="edgeLocation", type=String.class, parameters={})
+    @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
     /**
@@ -120,7 +120,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * The ID of the account owner.
      * 
      */
-    @Export(name="ownerAccountId", type=String.class, parameters={})
+    @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
@@ -134,7 +134,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * The type of peering. This will be `TRANSIT_GATEWAY`.
      * 
      */
-    @Export(name="peeringType", type=String.class, parameters={})
+    @Export(name="peeringType", refs={String.class}, tree="[0]")
     private Output<String> peeringType;
 
     /**
@@ -148,7 +148,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * The resource ARN of the peer.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
@@ -162,7 +162,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -176,7 +176,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -190,7 +190,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * The ARN of the transit gateway for the peering request.
      * 
      */
-    @Export(name="transitGatewayArn", type=String.class, parameters={})
+    @Export(name="transitGatewayArn", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayArn;
 
     /**
@@ -204,7 +204,7 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
      * The ID of the transit gateway peering attachment.
      * 
      */
-    @Export(name="transitGatewayPeeringAttachmentId", type=String.class, parameters={})
+    @Export(name="transitGatewayPeeringAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayPeeringAttachmentId;
 
     /**

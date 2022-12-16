@@ -60,7 +60,7 @@ public class PatchGroup extends com.pulumi.resources.CustomResource {
      * The ID of the patch baseline to register the patch group with.
      * 
      */
-    @Export(name="baselineId", type=String.class, parameters={})
+    @Export(name="baselineId", refs={String.class}, tree="[0]")
     private Output<String> baselineId;
 
     /**
@@ -74,7 +74,7 @@ public class PatchGroup extends com.pulumi.resources.CustomResource {
      * The name of the patch group that should be registered with the patch baseline.
      * 
      */
-    @Export(name="patchGroup", type=String.class, parameters={})
+    @Export(name="patchGroup", refs={String.class}, tree="[0]")
     private Output<String> patchGroup;
 
     /**

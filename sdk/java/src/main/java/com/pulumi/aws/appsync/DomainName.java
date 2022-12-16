@@ -63,7 +63,7 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * Domain name that AppSync provides.
      * 
      */
-    @Export(name="appsyncDomainName", type=String.class, parameters={})
+    @Export(name="appsyncDomainName", refs={String.class}, tree="[0]")
     private Output<String> appsyncDomainName;
 
     /**
@@ -77,7 +77,7 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      * 
      */
-    @Export(name="certificateArn", type=String.class, parameters={})
+    @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output<String> certificateArn;
 
     /**
@@ -91,7 +91,7 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * A description of the Domain Name.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -105,7 +105,7 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * Domain name.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -119,7 +119,7 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      * ID of your Amazon Route 53 hosted zone.
      * 
      */
-    @Export(name="hostedZoneId", type=String.class, parameters={})
+    @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
     /**

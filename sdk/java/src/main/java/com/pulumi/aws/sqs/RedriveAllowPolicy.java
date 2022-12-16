@@ -79,7 +79,7 @@ public class RedriveAllowPolicy extends com.pulumi.resources.CustomResource {
      * The URL of the SQS Queue to which to attach the policy
      * 
      */
-    @Export(name="queueUrl", type=String.class, parameters={})
+    @Export(name="queueUrl", refs={String.class}, tree="[0]")
     private Output<String> queueUrl;
 
     /**
@@ -93,7 +93,7 @@ public class RedriveAllowPolicy extends com.pulumi.resources.CustomResource {
      * The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
      * 
      */
-    @Export(name="redriveAllowPolicy", type=String.class, parameters={})
+    @Export(name="redriveAllowPolicy", refs={String.class}, tree="[0]")
     private Output<String> redriveAllowPolicy;
 
     /**

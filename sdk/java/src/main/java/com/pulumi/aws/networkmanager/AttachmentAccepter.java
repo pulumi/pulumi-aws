@@ -86,7 +86,7 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
      * The ID of the attachment.
      * 
      */
-    @Export(name="attachmentId", type=String.class, parameters={})
+    @Export(name="attachmentId", refs={String.class}, tree="[0]")
     private Output<String> attachmentId;
 
     /**
@@ -100,7 +100,7 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
      * The policy rule number associated with the attachment.
      * 
      */
-    @Export(name="attachmentPolicyRuleNumber", type=Integer.class, parameters={})
+    @Export(name="attachmentPolicyRuleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> attachmentPolicyRuleNumber;
 
     /**
@@ -114,7 +114,7 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
      * The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
      * 
      */
-    @Export(name="attachmentType", type=String.class, parameters={})
+    @Export(name="attachmentType", refs={String.class}, tree="[0]")
     private Output<String> attachmentType;
 
     /**
@@ -128,7 +128,7 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
      * The ARN of a core network.
      * 
      */
-    @Export(name="coreNetworkArn", type=String.class, parameters={})
+    @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
     /**
@@ -142,7 +142,7 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
      * The id of a core network.
      * 
      */
-    @Export(name="coreNetworkId", type=String.class, parameters={})
+    @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
     /**
@@ -156,7 +156,7 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
      * The Region where the edge is located.
      * 
      */
-    @Export(name="edgeLocation", type=String.class, parameters={})
+    @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
     /**
@@ -170,7 +170,7 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
      * The ID of the attachment account owner.
      * 
      */
-    @Export(name="ownerAccountId", type=String.class, parameters={})
+    @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
@@ -184,7 +184,7 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
      * The attachment resource ARN.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
@@ -198,7 +198,7 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
      * The name of the segment attachment.
      * 
      */
-    @Export(name="segmentName", type=String.class, parameters={})
+    @Export(name="segmentName", refs={String.class}, tree="[0]")
     private Output<String> segmentName;
 
     /**
@@ -212,7 +212,7 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
      * The state of the attachment.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
