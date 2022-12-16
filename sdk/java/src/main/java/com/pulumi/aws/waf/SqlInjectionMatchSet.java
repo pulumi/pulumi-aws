@@ -71,7 +71,7 @@ public class SqlInjectionMatchSet extends com.pulumi.resources.CustomResource {
      * The name or description of the SQL Injection Match Set.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -85,7 +85,7 @@ public class SqlInjectionMatchSet extends com.pulumi.resources.CustomResource {
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      * 
      */
-    @Export(name="sqlInjectionMatchTuples", type=List.class, parameters={SqlInjectionMatchSetSqlInjectionMatchTuple.class})
+    @Export(name="sqlInjectionMatchTuples", refs={List.class,SqlInjectionMatchSetSqlInjectionMatchTuple.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SqlInjectionMatchSetSqlInjectionMatchTuple>> sqlInjectionMatchTuples;
 
     /**

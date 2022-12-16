@@ -271,7 +271,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * The ARN of the Flow Log.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -285,7 +285,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * Describes the destination options for a flow log. More details below.
      * 
      */
-    @Export(name="destinationOptions", type=FlowLogDestinationOptions.class, parameters={})
+    @Export(name="destinationOptions", refs={FlowLogDestinationOptions.class}, tree="[0]")
     private Output</* @Nullable */ FlowLogDestinationOptions> destinationOptions;
 
     /**
@@ -299,7 +299,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * Elastic Network Interface ID to attach to
      * 
      */
-    @Export(name="eniId", type=String.class, parameters={})
+    @Export(name="eniId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eniId;
 
     /**
@@ -313,7 +313,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * The ARN for the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group
      * 
      */
-    @Export(name="iamRoleArn", type=String.class, parameters={})
+    @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iamRoleArn;
 
     /**
@@ -327,7 +327,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
      * 
      */
-    @Export(name="logDestination", type=String.class, parameters={})
+    @Export(name="logDestination", refs={String.class}, tree="[0]")
     private Output<String> logDestination;
 
     /**
@@ -341,7 +341,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      * 
      */
-    @Export(name="logDestinationType", type=String.class, parameters={})
+    @Export(name="logDestinationType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logDestinationType;
 
     /**
@@ -355,7 +355,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * The fields to include in the flow log record, in the order in which they should appear.
      * 
      */
-    @Export(name="logFormat", type=String.class, parameters={})
+    @Export(name="logFormat", refs={String.class}, tree="[0]")
     private Output<String> logFormat;
 
     /**
@@ -373,7 +373,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* use 'log_destination' argument instead */
-    @Export(name="logGroupName", type=String.class, parameters={})
+    @Export(name="logGroupName", refs={String.class}, tree="[0]")
     private Output<String> logGroupName;
 
     /**
@@ -390,7 +390,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
      * 
      */
-    @Export(name="maxAggregationInterval", type=Integer.class, parameters={})
+    @Export(name="maxAggregationInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxAggregationInterval;
 
     /**
@@ -407,7 +407,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * Subnet ID to attach to
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
     /**
@@ -421,7 +421,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -435,7 +435,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -449,7 +449,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      * 
      */
-    @Export(name="trafficType", type=String.class, parameters={})
+    @Export(name="trafficType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trafficType;
 
     /**
@@ -463,7 +463,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * Transit Gateway Attachment ID to attach to
      * 
      */
-    @Export(name="transitGatewayAttachmentId", type=String.class, parameters={})
+    @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transitGatewayAttachmentId;
 
     /**
@@ -477,7 +477,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * Transit Gateway ID to attach to
      * 
      */
-    @Export(name="transitGatewayId", type=String.class, parameters={})
+    @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transitGatewayId;
 
     /**
@@ -491,7 +491,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * VPC ID to attach to
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcId;
 
     /**

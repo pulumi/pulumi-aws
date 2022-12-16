@@ -74,7 +74,7 @@ public class TrackerAssociation extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
-    @Export(name="consumerArn", type=String.class, parameters={})
+    @Export(name="consumerArn", refs={String.class}, tree="[0]")
     private Output<String> consumerArn;
 
     /**
@@ -88,7 +88,7 @@ public class TrackerAssociation extends com.pulumi.resources.CustomResource {
      * The name of the tracker resource to be associated with a geofence collection.
      * 
      */
-    @Export(name="trackerName", type=String.class, parameters={})
+    @Export(name="trackerName", refs={String.class}, tree="[0]")
     private Output<String> trackerName;
 
     /**

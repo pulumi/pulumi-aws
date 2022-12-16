@@ -159,7 +159,7 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      * 
      */
-    @Export(name="computePlatform", type=String.class, parameters={})
+    @Export(name="computePlatform", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> computePlatform;
 
     /**
@@ -173,7 +173,7 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
      * The AWS Assigned deployment config id
      * 
      */
-    @Export(name="deploymentConfigId", type=String.class, parameters={})
+    @Export(name="deploymentConfigId", refs={String.class}, tree="[0]")
     private Output<String> deploymentConfigId;
 
     /**
@@ -187,7 +187,7 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
      * The name of the deployment config.
      * 
      */
-    @Export(name="deploymentConfigName", type=String.class, parameters={})
+    @Export(name="deploymentConfigName", refs={String.class}, tree="[0]")
     private Output<String> deploymentConfigName;
 
     /**
@@ -201,7 +201,7 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
      * A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      * 
      */
-    @Export(name="minimumHealthyHosts", type=DeploymentConfigMinimumHealthyHosts.class, parameters={})
+    @Export(name="minimumHealthyHosts", refs={DeploymentConfigMinimumHealthyHosts.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentConfigMinimumHealthyHosts> minimumHealthyHosts;
 
     /**
@@ -215,7 +215,7 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
      * A traffic_routing_config block. Traffic Routing Config is documented below.
      * 
      */
-    @Export(name="trafficRoutingConfig", type=DeploymentConfigTrafficRoutingConfig.class, parameters={})
+    @Export(name="trafficRoutingConfig", refs={DeploymentConfigTrafficRoutingConfig.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentConfigTrafficRoutingConfig> trafficRoutingConfig;
 
     /**

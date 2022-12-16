@@ -71,7 +71,7 @@ public class AlertManagerDefinition extends com.pulumi.resources.CustomResource 
      * the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
      * 
      */
-    @Export(name="definition", type=String.class, parameters={})
+    @Export(name="definition", refs={String.class}, tree="[0]")
     private Output<String> definition;
 
     /**
@@ -85,7 +85,7 @@ public class AlertManagerDefinition extends com.pulumi.resources.CustomResource 
      * ID of the prometheus workspace the alert manager definition should be linked to
      * 
      */
-    @Export(name="workspaceId", type=String.class, parameters={})
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**

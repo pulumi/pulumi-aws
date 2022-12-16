@@ -153,7 +153,7 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
      * The SES event destination ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -167,7 +167,7 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
      * CloudWatch destination for the events
      * 
      */
-    @Export(name="cloudwatchDestinations", type=List.class, parameters={EventDestinationCloudwatchDestination.class})
+    @Export(name="cloudwatchDestinations", refs={List.class,EventDestinationCloudwatchDestination.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EventDestinationCloudwatchDestination>> cloudwatchDestinations;
 
     /**
@@ -181,7 +181,7 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
      * The name of the configuration set
      * 
      */
-    @Export(name="configurationSetName", type=String.class, parameters={})
+    @Export(name="configurationSetName", refs={String.class}, tree="[0]")
     private Output<String> configurationSetName;
 
     /**
@@ -195,7 +195,7 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
      * If true, the event destination will be enabled
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -209,7 +209,7 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
      * Send the events to a kinesis firehose destination
      * 
      */
-    @Export(name="kinesisDestination", type=EventDestinationKinesisDestination.class, parameters={})
+    @Export(name="kinesisDestination", refs={EventDestinationKinesisDestination.class}, tree="[0]")
     private Output</* @Nullable */ EventDestinationKinesisDestination> kinesisDestination;
 
     /**
@@ -223,7 +223,7 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
      * A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
      * 
      */
-    @Export(name="matchingTypes", type=List.class, parameters={String.class})
+    @Export(name="matchingTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> matchingTypes;
 
     /**
@@ -237,7 +237,7 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
      * The name of the event destination
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -251,7 +251,7 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
      * Send the events to an SNS Topic destination
      * 
      */
-    @Export(name="snsDestination", type=EventDestinationSnsDestination.class, parameters={})
+    @Export(name="snsDestination", refs={EventDestinationSnsDestination.class}, tree="[0]")
     private Output</* @Nullable */ EventDestinationSnsDestination> snsDestination;
 
     /**

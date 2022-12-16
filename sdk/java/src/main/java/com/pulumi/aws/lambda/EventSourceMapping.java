@@ -350,7 +350,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
      * 
      */
-    @Export(name="amazonManagedKafkaEventSourceConfig", type=EventSourceMappingAmazonManagedKafkaEventSourceConfig.class, parameters={})
+    @Export(name="amazonManagedKafkaEventSourceConfig", refs={EventSourceMappingAmazonManagedKafkaEventSourceConfig.class}, tree="[0]")
     private Output<EventSourceMappingAmazonManagedKafkaEventSourceConfig> amazonManagedKafkaEventSourceConfig;
 
     /**
@@ -366,7 +366,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
      * 
      */
-    @Export(name="batchSize", type=Integer.class, parameters={})
+    @Export(name="batchSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> batchSize;
 
     /**
@@ -378,13 +378,13 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> batchSize() {
         return Codegen.optional(this.batchSize);
     }
-    @Export(name="bisectBatchOnFunctionError", type=Boolean.class, parameters={})
+    @Export(name="bisectBatchOnFunctionError", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bisectBatchOnFunctionError;
 
     public Output<Optional<Boolean>> bisectBatchOnFunctionError() {
         return Codegen.optional(this.bisectBatchOnFunctionError);
     }
-    @Export(name="destinationConfig", type=EventSourceMappingDestinationConfig.class, parameters={})
+    @Export(name="destinationConfig", refs={EventSourceMappingDestinationConfig.class}, tree="[0]")
     private Output</* @Nullable */ EventSourceMappingDestinationConfig> destinationConfig;
 
     public Output<Optional<EventSourceMappingDestinationConfig>> destinationConfig() {
@@ -394,7 +394,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * Determines if the mapping will be enabled on creation. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -408,7 +408,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
      * 
      */
-    @Export(name="eventSourceArn", type=String.class, parameters={})
+    @Export(name="eventSourceArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventSourceArn;
 
     /**
@@ -422,7 +422,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
      * 
      */
-    @Export(name="filterCriteria", type=EventSourceMappingFilterCriteria.class, parameters={})
+    @Export(name="filterCriteria", refs={EventSourceMappingFilterCriteria.class}, tree="[0]")
     private Output</* @Nullable */ EventSourceMappingFilterCriteria> filterCriteria;
 
     /**
@@ -436,7 +436,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
      * 
      */
-    @Export(name="functionArn", type=String.class, parameters={})
+    @Export(name="functionArn", refs={String.class}, tree="[0]")
     private Output<String> functionArn;
 
     /**
@@ -450,7 +450,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * The name or the ARN of the Lambda function that will be subscribing to events.
      * 
      */
-    @Export(name="functionName", type=String.class, parameters={})
+    @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
     /**
@@ -464,7 +464,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
      * 
      */
-    @Export(name="functionResponseTypes", type=List.class, parameters={String.class})
+    @Export(name="functionResponseTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> functionResponseTypes;
 
     /**
@@ -478,7 +478,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * The date this resource was last modified.
      * 
      */
-    @Export(name="lastModified", type=String.class, parameters={})
+    @Export(name="lastModified", refs={String.class}, tree="[0]")
     private Output<String> lastModified;
 
     /**
@@ -492,7 +492,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * The result of the last AWS Lambda invocation of your Lambda function.
      * 
      */
-    @Export(name="lastProcessingResult", type=String.class, parameters={})
+    @Export(name="lastProcessingResult", refs={String.class}, tree="[0]")
     private Output<String> lastProcessingResult;
 
     /**
@@ -509,7 +509,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      * 
      */
-    @Export(name="maximumBatchingWindowInSeconds", type=Integer.class, parameters={})
+    @Export(name="maximumBatchingWindowInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maximumBatchingWindowInSeconds;
 
     /**
@@ -522,19 +522,19 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> maximumBatchingWindowInSeconds() {
         return Codegen.optional(this.maximumBatchingWindowInSeconds);
     }
-    @Export(name="maximumRecordAgeInSeconds", type=Integer.class, parameters={})
+    @Export(name="maximumRecordAgeInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> maximumRecordAgeInSeconds;
 
     public Output<Integer> maximumRecordAgeInSeconds() {
         return this.maximumRecordAgeInSeconds;
     }
-    @Export(name="maximumRetryAttempts", type=Integer.class, parameters={})
+    @Export(name="maximumRetryAttempts", refs={Integer.class}, tree="[0]")
     private Output<Integer> maximumRetryAttempts;
 
     public Output<Integer> maximumRetryAttempts() {
         return this.maximumRetryAttempts;
     }
-    @Export(name="parallelizationFactor", type=Integer.class, parameters={})
+    @Export(name="parallelizationFactor", refs={Integer.class}, tree="[0]")
     private Output<Integer> parallelizationFactor;
 
     public Output<Integer> parallelizationFactor() {
@@ -545,7 +545,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
      * 
      */
-    @Export(name="queues", type=List.class, parameters={String.class})
+    @Export(name="queues", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> queues;
 
     /**
@@ -556,7 +556,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> queues() {
         return Codegen.optional(this.queues);
     }
-    @Export(name="selfManagedEventSource", type=EventSourceMappingSelfManagedEventSource.class, parameters={})
+    @Export(name="selfManagedEventSource", refs={EventSourceMappingSelfManagedEventSource.class}, tree="[0]")
     private Output</* @Nullable */ EventSourceMappingSelfManagedEventSource> selfManagedEventSource;
 
     public Output<Optional<EventSourceMappingSelfManagedEventSource>> selfManagedEventSource() {
@@ -567,7 +567,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
      * 
      */
-    @Export(name="selfManagedKafkaEventSourceConfig", type=EventSourceMappingSelfManagedKafkaEventSourceConfig.class, parameters={})
+    @Export(name="selfManagedKafkaEventSourceConfig", refs={EventSourceMappingSelfManagedKafkaEventSourceConfig.class}, tree="[0]")
     private Output<EventSourceMappingSelfManagedKafkaEventSourceConfig> selfManagedKafkaEventSourceConfig;
 
     /**
@@ -578,7 +578,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
     public Output<EventSourceMappingSelfManagedKafkaEventSourceConfig> selfManagedKafkaEventSourceConfig() {
         return this.selfManagedKafkaEventSourceConfig;
     }
-    @Export(name="sourceAccessConfigurations", type=List.class, parameters={EventSourceMappingSourceAccessConfiguration.class})
+    @Export(name="sourceAccessConfigurations", refs={List.class,EventSourceMappingSourceAccessConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EventSourceMappingSourceAccessConfiguration>> sourceAccessConfigurations;
 
     public Output<Optional<List<EventSourceMappingSourceAccessConfiguration>>> sourceAccessConfigurations() {
@@ -588,7 +588,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      * 
      */
-    @Export(name="startingPosition", type=String.class, parameters={})
+    @Export(name="startingPosition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startingPosition;
 
     /**
@@ -602,7 +602,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
      * 
      */
-    @Export(name="startingPositionTimestamp", type=String.class, parameters={})
+    @Export(name="startingPositionTimestamp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startingPositionTimestamp;
 
     /**
@@ -616,7 +616,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * The state of the event source mapping.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -630,7 +630,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * The reason the event source mapping is in its current state.
      * 
      */
-    @Export(name="stateTransitionReason", type=String.class, parameters={})
+    @Export(name="stateTransitionReason", refs={String.class}, tree="[0]")
     private Output<String> stateTransitionReason;
 
     /**
@@ -644,7 +644,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
      * 
      */
-    @Export(name="topics", type=List.class, parameters={String.class})
+    @Export(name="topics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> topics;
 
     /**
@@ -658,7 +658,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
      * 
      */
-    @Export(name="tumblingWindowInSeconds", type=Integer.class, parameters={})
+    @Export(name="tumblingWindowInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tumblingWindowInSeconds;
 
     /**
@@ -672,7 +672,7 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      * The UUID of the created event source mapping.
      * 
      */
-    @Export(name="uuid", type=String.class, parameters={})
+    @Export(name="uuid", refs={String.class}, tree="[0]")
     private Output<String> uuid;
 
     /**

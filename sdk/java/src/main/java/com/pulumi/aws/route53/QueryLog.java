@@ -112,7 +112,7 @@ public class QueryLog extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Query Logging Config.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -126,7 +126,7 @@ public class QueryLog extends com.pulumi.resources.CustomResource {
      * CloudWatch log group ARN to send query logs.
      * 
      */
-    @Export(name="cloudwatchLogGroupArn", type=String.class, parameters={})
+    @Export(name="cloudwatchLogGroupArn", refs={String.class}, tree="[0]")
     private Output<String> cloudwatchLogGroupArn;
 
     /**
@@ -140,7 +140,7 @@ public class QueryLog extends com.pulumi.resources.CustomResource {
      * Route53 hosted zone ID to enable query logs.
      * 
      */
-    @Export(name="zoneId", type=String.class, parameters={})
+    @Export(name="zoneId", refs={String.class}, tree="[0]")
     private Output<String> zoneId;
 
     /**

@@ -88,7 +88,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * ARN of the license configuration.
      * 
      */
-    @Export(name="licenseConfigurationArn", type=String.class, parameters={})
+    @Export(name="licenseConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> licenseConfigurationArn;
 
     /**
@@ -102,7 +102,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * ARN of the resource associated with the license configuration.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**

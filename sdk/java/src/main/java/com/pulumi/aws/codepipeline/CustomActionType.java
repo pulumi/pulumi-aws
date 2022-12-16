@@ -80,7 +80,7 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
      * The action ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -94,7 +94,7 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
      * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
      * 
      */
-    @Export(name="category", type=String.class, parameters={})
+    @Export(name="category", refs={String.class}, tree="[0]")
     private Output<String> category;
 
     /**
@@ -108,7 +108,7 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
      * The configuration properties for the custom action. Max 10 items.
      * 
      */
-    @Export(name="configurationProperties", type=List.class, parameters={CustomActionTypeConfigurationProperty.class})
+    @Export(name="configurationProperties", refs={List.class,CustomActionTypeConfigurationProperty.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CustomActionTypeConfigurationProperty>> configurationProperties;
 
     /**
@@ -122,7 +122,7 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
      * The details of the input artifact for the action.
      * 
      */
-    @Export(name="inputArtifactDetails", type=CustomActionTypeInputArtifactDetails.class, parameters={})
+    @Export(name="inputArtifactDetails", refs={CustomActionTypeInputArtifactDetails.class}, tree="[0]")
     private Output<CustomActionTypeInputArtifactDetails> inputArtifactDetails;
 
     /**
@@ -136,7 +136,7 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
      * The details of the output artifact of the action.
      * 
      */
-    @Export(name="outputArtifactDetails", type=CustomActionTypeOutputArtifactDetails.class, parameters={})
+    @Export(name="outputArtifactDetails", refs={CustomActionTypeOutputArtifactDetails.class}, tree="[0]")
     private Output<CustomActionTypeOutputArtifactDetails> outputArtifactDetails;
 
     /**
@@ -150,7 +150,7 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
      * The creator of the action being called.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -164,7 +164,7 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
      * The provider of the service used in the custom action
      * 
      */
-    @Export(name="providerName", type=String.class, parameters={})
+    @Export(name="providerName", refs={String.class}, tree="[0]")
     private Output<String> providerName;
 
     /**
@@ -178,7 +178,7 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
      * The settings for an action type.
      * 
      */
-    @Export(name="settings", type=CustomActionTypeSettings.class, parameters={})
+    @Export(name="settings", refs={CustomActionTypeSettings.class}, tree="[0]")
     private Output</* @Nullable */ CustomActionTypeSettings> settings;
 
     /**
@@ -192,7 +192,7 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -206,7 +206,7 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -220,7 +220,7 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
      * The version identifier of the custom action.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**

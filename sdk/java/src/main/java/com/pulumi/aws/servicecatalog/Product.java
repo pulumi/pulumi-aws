@@ -76,7 +76,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    @Export(name="acceptLanguage", type=String.class, parameters={})
+    @Export(name="acceptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acceptLanguage;
 
     /**
@@ -90,7 +90,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * ARN of the product.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -104,7 +104,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Time when the product was created.
      * 
      */
-    @Export(name="createdTime", type=String.class, parameters={})
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
@@ -118,7 +118,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -132,7 +132,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Distributor (i.e., vendor) of the product.
      * 
      */
-    @Export(name="distributor", type=String.class, parameters={})
+    @Export(name="distributor", refs={String.class}, tree="[0]")
     private Output<String> distributor;
 
     /**
@@ -146,7 +146,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
      * 
      */
-    @Export(name="hasDefaultPath", type=Boolean.class, parameters={})
+    @Export(name="hasDefaultPath", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hasDefaultPath;
 
     /**
@@ -160,7 +160,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -174,7 +174,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Owner of the product.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -188,7 +188,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
      * 
      */
-    @Export(name="provisioningArtifactParameters", type=ProductProvisioningArtifactParameters.class, parameters={})
+    @Export(name="provisioningArtifactParameters", refs={ProductProvisioningArtifactParameters.class}, tree="[0]")
     private Output<ProductProvisioningArtifactParameters> provisioningArtifactParameters;
 
     /**
@@ -202,7 +202,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Status of the product.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -216,7 +216,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Support information about the product.
      * 
      */
-    @Export(name="supportDescription", type=String.class, parameters={})
+    @Export(name="supportDescription", refs={String.class}, tree="[0]")
     private Output<String> supportDescription;
 
     /**
@@ -230,7 +230,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Contact email for product support.
      * 
      */
-    @Export(name="supportEmail", type=String.class, parameters={})
+    @Export(name="supportEmail", refs={String.class}, tree="[0]")
     private Output<String> supportEmail;
 
     /**
@@ -244,7 +244,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Contact URL for product support.
      * 
      */
-    @Export(name="supportUrl", type=String.class, parameters={})
+    @Export(name="supportUrl", refs={String.class}, tree="[0]")
     private Output<String> supportUrl;
 
     /**
@@ -258,7 +258,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -272,7 +272,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -286,7 +286,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

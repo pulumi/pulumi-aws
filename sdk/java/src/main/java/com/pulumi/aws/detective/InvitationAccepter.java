@@ -77,7 +77,7 @@ public class InvitationAccepter extends com.pulumi.resources.CustomResource {
      * ARN of the behavior graph that the member account is accepting the invitation for.
      * 
      */
-    @Export(name="graphArn", type=String.class, parameters={})
+    @Export(name="graphArn", refs={String.class}, tree="[0]")
     private Output<String> graphArn;
 
     /**

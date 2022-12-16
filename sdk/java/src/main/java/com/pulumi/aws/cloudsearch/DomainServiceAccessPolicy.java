@@ -81,7 +81,7 @@ public class DomainServiceAccessPolicy extends com.pulumi.resources.CustomResour
      * The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
      * 
      */
-    @Export(name="accessPolicy", type=String.class, parameters={})
+    @Export(name="accessPolicy", refs={String.class}, tree="[0]")
     private Output<String> accessPolicy;
 
     /**
@@ -95,7 +95,7 @@ public class DomainServiceAccessPolicy extends com.pulumi.resources.CustomResour
      * The CloudSearch domain name the policy applies to.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**

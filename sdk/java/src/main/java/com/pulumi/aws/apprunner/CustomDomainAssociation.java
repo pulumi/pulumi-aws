@@ -70,7 +70,7 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      * A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
      * 
      */
-    @Export(name="certificateValidationRecords", type=List.class, parameters={CustomDomainAssociationCertificateValidationRecord.class})
+    @Export(name="certificateValidationRecords", refs={List.class,CustomDomainAssociationCertificateValidationRecord.class}, tree="[0,1]")
     private Output<List<CustomDomainAssociationCertificateValidationRecord>> certificateValidationRecords;
 
     /**
@@ -84,7 +84,7 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      * 
      */
-    @Export(name="dnsTarget", type=String.class, parameters={})
+    @Export(name="dnsTarget", refs={String.class}, tree="[0]")
     private Output<String> dnsTarget;
 
     /**
@@ -98,7 +98,7 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -112,7 +112,7 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
      * 
      */
-    @Export(name="enableWwwSubdomain", type=Boolean.class, parameters={})
+    @Export(name="enableWwwSubdomain", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableWwwSubdomain;
 
     /**
@@ -126,7 +126,7 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      * ARN of the App Runner service.
      * 
      */
-    @Export(name="serviceArn", type=String.class, parameters={})
+    @Export(name="serviceArn", refs={String.class}, tree="[0]")
     private Output<String> serviceArn;
 
     /**
@@ -140,7 +140,7 @@ public class CustomDomainAssociation extends com.pulumi.resources.CustomResource
      * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

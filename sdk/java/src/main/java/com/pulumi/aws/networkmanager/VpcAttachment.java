@@ -69,7 +69,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * The ARN of the attachment.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * The policy rule number associated with the attachment.
      * 
      */
-    @Export(name="attachmentPolicyRuleNumber", type=Integer.class, parameters={})
+    @Export(name="attachmentPolicyRuleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> attachmentPolicyRuleNumber;
 
     /**
@@ -97,7 +97,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * The type of attachment.
      * 
      */
-    @Export(name="attachmentType", type=String.class, parameters={})
+    @Export(name="attachmentType", refs={String.class}, tree="[0]")
     private Output<String> attachmentType;
 
     /**
@@ -111,7 +111,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * The ARN of a core network.
      * 
      */
-    @Export(name="coreNetworkArn", type=String.class, parameters={})
+    @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
     /**
@@ -125,7 +125,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * The ID of a core network for the VPC attachment.
      * 
      */
-    @Export(name="coreNetworkId", type=String.class, parameters={})
+    @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
     /**
@@ -139,7 +139,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * The Region where the edge is located.
      * 
      */
-    @Export(name="edgeLocation", type=String.class, parameters={})
+    @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
     /**
@@ -153,7 +153,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * Options for the VPC attachment.
      * 
      */
-    @Export(name="options", type=VpcAttachmentOptions.class, parameters={})
+    @Export(name="options", refs={VpcAttachmentOptions.class}, tree="[0]")
     private Output</* @Nullable */ VpcAttachmentOptions> options;
 
     /**
@@ -167,7 +167,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * The ID of the attachment account owner.
      * 
      */
-    @Export(name="ownerAccountId", type=String.class, parameters={})
+    @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
@@ -181,7 +181,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * The attachment resource ARN.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
@@ -195,7 +195,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * The name of the segment attachment.
      * 
      */
-    @Export(name="segmentName", type=String.class, parameters={})
+    @Export(name="segmentName", refs={String.class}, tree="[0]")
     private Output<String> segmentName;
 
     /**
@@ -209,7 +209,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * The state of the attachment.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -223,7 +223,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * The subnet ARN of the VPC attachment.
      * 
      */
-    @Export(name="subnetArns", type=List.class, parameters={String.class})
+    @Export(name="subnetArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetArns;
 
     /**
@@ -237,7 +237,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -251,7 +251,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -265,7 +265,7 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
      * The ARN of the VPC.
      * 
      */
-    @Export(name="vpcArn", type=String.class, parameters={})
+    @Export(name="vpcArn", refs={String.class}, tree="[0]")
     private Output<String> vpcArn;
 
     /**

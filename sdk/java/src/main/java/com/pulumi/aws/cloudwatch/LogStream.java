@@ -64,7 +64,7 @@ public class LogStream extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) specifying the log stream.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -78,7 +78,7 @@ public class LogStream extends com.pulumi.resources.CustomResource {
      * The name of the log group under which the log stream is to be created.
      * 
      */
-    @Export(name="logGroupName", type=String.class, parameters={})
+    @Export(name="logGroupName", refs={String.class}, tree="[0]")
     private Output<String> logGroupName;
 
     /**
@@ -92,7 +92,7 @@ public class LogStream extends com.pulumi.resources.CustomResource {
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

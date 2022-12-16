@@ -35,7 +35,7 @@ public class OutboundConnection extends com.pulumi.resources.CustomResource {
      * Specifies the connection alias that will be used by the customer for this connection.
      * 
      */
-    @Export(name="connectionAlias", type=String.class, parameters={})
+    @Export(name="connectionAlias", refs={String.class}, tree="[0]")
     private Output<String> connectionAlias;
 
     /**
@@ -49,7 +49,7 @@ public class OutboundConnection extends com.pulumi.resources.CustomResource {
      * Status of the connection request.
      * 
      */
-    @Export(name="connectionStatus", type=String.class, parameters={})
+    @Export(name="connectionStatus", refs={String.class}, tree="[0]")
     private Output<String> connectionStatus;
 
     /**
@@ -63,7 +63,7 @@ public class OutboundConnection extends com.pulumi.resources.CustomResource {
      * Configuration block for the local Opensearch domain.
      * 
      */
-    @Export(name="localDomainInfo", type=OutboundConnectionLocalDomainInfo.class, parameters={})
+    @Export(name="localDomainInfo", refs={OutboundConnectionLocalDomainInfo.class}, tree="[0]")
     private Output<OutboundConnectionLocalDomainInfo> localDomainInfo;
 
     /**
@@ -77,7 +77,7 @@ public class OutboundConnection extends com.pulumi.resources.CustomResource {
      * Configuration block for the remote Opensearch domain.
      * 
      */
-    @Export(name="remoteDomainInfo", type=OutboundConnectionRemoteDomainInfo.class, parameters={})
+    @Export(name="remoteDomainInfo", refs={OutboundConnectionRemoteDomainInfo.class}, tree="[0]")
     private Output<OutboundConnectionRemoteDomainInfo> remoteDomainInfo;
 
     /**

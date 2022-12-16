@@ -100,7 +100,7 @@ public class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.CustomRe
      * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -114,7 +114,7 @@ public class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.CustomRe
      * Indicates whether this access point currently has a policy that allows public access.
      * 
      */
-    @Export(name="hasPublicAccessPolicy", type=Boolean.class, parameters={})
+    @Export(name="hasPublicAccessPolicy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hasPublicAccessPolicy;
 
     /**
@@ -128,7 +128,7 @@ public class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.CustomRe
      * The name of the Object Lambda Access Point.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -142,7 +142,7 @@ public class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.CustomRe
      * The Object Lambda Access Point resource policy document.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**

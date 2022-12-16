@@ -58,7 +58,7 @@ public class NetworkAclAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the network ACL.
      * 
      */
-    @Export(name="networkAclId", type=String.class, parameters={})
+    @Export(name="networkAclId", refs={String.class}, tree="[0]")
     private Output<String> networkAclId;
 
     /**
@@ -72,7 +72,7 @@ public class NetworkAclAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the associated Subnet.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**

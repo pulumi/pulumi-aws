@@ -58,7 +58,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The Direct Connect endpoint on which the physical connection terminates.
      * 
      */
-    @Export(name="awsDevice", type=String.class, parameters={})
+    @Export(name="awsDevice", refs={String.class}, tree="[0]")
     private Output<String> awsDevice;
 
     /**
@@ -72,7 +72,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
      * 
      */
-    @Export(name="bandwidth", type=String.class, parameters={})
+    @Export(name="bandwidth", refs={String.class}, tree="[0]")
     private Output<String> bandwidth;
 
     /**
@@ -86,7 +86,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The ID of the interconnect or LAG.
      * 
      */
-    @Export(name="connectionId", type=String.class, parameters={})
+    @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
     /**
@@ -100,7 +100,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
-    @Export(name="hasLogicalRedundancy", type=String.class, parameters={})
+    @Export(name="hasLogicalRedundancy", refs={String.class}, tree="[0]")
     private Output<String> hasLogicalRedundancy;
 
     /**
@@ -114,7 +114,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * Boolean value representing if jumbo frames have been enabled for this connection.
      * 
      */
-    @Export(name="jumboFrameCapable", type=Boolean.class, parameters={})
+    @Export(name="jumboFrameCapable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> jumboFrameCapable;
 
     /**
@@ -128,7 +128,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The ID of the LAG.
      * 
      */
-    @Export(name="lagId", type=String.class, parameters={})
+    @Export(name="lagId", refs={String.class}, tree="[0]")
     private Output<String> lagId;
 
     /**
@@ -142,7 +142,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
      * 
      */
-    @Export(name="loaIssueTime", type=String.class, parameters={})
+    @Export(name="loaIssueTime", refs={String.class}, tree="[0]")
     private Output<String> loaIssueTime;
 
     /**
@@ -156,7 +156,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The location of the connection.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -170,7 +170,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The name of the connection.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -184,7 +184,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The ID of the AWS account of the customer for the connection.
      * 
      */
-    @Export(name="ownerAccountId", type=String.class, parameters={})
+    @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
@@ -198,7 +198,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The name of the AWS Direct Connect service provider associated with the connection.
      * 
      */
-    @Export(name="partnerName", type=String.class, parameters={})
+    @Export(name="partnerName", refs={String.class}, tree="[0]")
     private Output<String> partnerName;
 
     /**
@@ -212,7 +212,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The name of the service provider associated with the connection.
      * 
      */
-    @Export(name="providerName", type=String.class, parameters={})
+    @Export(name="providerName", refs={String.class}, tree="[0]")
     private Output<String> providerName;
 
     /**
@@ -226,7 +226,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The AWS Region where the connection is located.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
@@ -240,7 +240,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -254,7 +254,7 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
      * The dedicated VLAN provisioned to the hosted connection.
      * 
      */
-    @Export(name="vlan", type=Integer.class, parameters={})
+    @Export(name="vlan", refs={Integer.class}, tree="[0]")
     private Output<Integer> vlan;
 
     /**

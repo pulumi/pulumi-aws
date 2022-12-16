@@ -96,7 +96,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The ARN that uniquely identifies this database.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -110,7 +110,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the Timestream database. Minimum length of 3. Maximum length of 64.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -124,7 +124,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -138,7 +138,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The total number of tables found within the Timestream database.
      * 
      */
-    @Export(name="tableCount", type=Integer.class, parameters={})
+    @Export(name="tableCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> tableCount;
 
     /**
@@ -152,7 +152,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -166,7 +166,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

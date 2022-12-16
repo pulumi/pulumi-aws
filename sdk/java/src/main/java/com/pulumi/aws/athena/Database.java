@@ -86,7 +86,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
-    @Export(name="aclConfiguration", type=DatabaseAclConfiguration.class, parameters={})
+    @Export(name="aclConfiguration", refs={DatabaseAclConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DatabaseAclConfiguration> aclConfiguration;
 
     /**
@@ -100,7 +100,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Name of S3 bucket to save the results of the query execution.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bucket;
 
     /**
@@ -114,7 +114,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Description of the database.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -128,7 +128,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      * 
      */
-    @Export(name="encryptionConfiguration", type=DatabaseEncryptionConfiguration.class, parameters={})
+    @Export(name="encryptionConfiguration", refs={DatabaseEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DatabaseEncryptionConfiguration> encryptionConfiguration;
 
     /**
@@ -142,7 +142,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
-    @Export(name="expectedBucketOwner", type=String.class, parameters={})
+    @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
@@ -156,7 +156,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      * 
      */
-    @Export(name="forceDestroy", type=Boolean.class, parameters={})
+    @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     /**
@@ -170,7 +170,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Name of the database to create.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -184,7 +184,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Key-value map of custom metadata properties for the database definition.
      * 
      */
-    @Export(name="properties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="properties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> properties;
 
     /**

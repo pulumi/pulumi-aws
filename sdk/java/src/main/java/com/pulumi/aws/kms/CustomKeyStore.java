@@ -65,7 +65,7 @@ public class CustomKeyStore extends com.pulumi.resources.CustomResource {
      * Cluster ID of CloudHSM.
      * 
      */
-    @Export(name="cloudHsmClusterId", type=String.class, parameters={})
+    @Export(name="cloudHsmClusterId", refs={String.class}, tree="[0]")
     private Output<String> cloudHsmClusterId;
 
     /**
@@ -79,7 +79,7 @@ public class CustomKeyStore extends com.pulumi.resources.CustomResource {
      * Unique name for Custom Key Store.
      * 
      */
-    @Export(name="customKeyStoreName", type=String.class, parameters={})
+    @Export(name="customKeyStoreName", refs={String.class}, tree="[0]")
     private Output<String> customKeyStoreName;
 
     /**
@@ -93,7 +93,7 @@ public class CustomKeyStore extends com.pulumi.resources.CustomResource {
      * Password for `kmsuser` on CloudHSM.
      * 
      */
-    @Export(name="keyStorePassword", type=String.class, parameters={})
+    @Export(name="keyStorePassword", refs={String.class}, tree="[0]")
     private Output<String> keyStorePassword;
 
     /**
@@ -107,7 +107,7 @@ public class CustomKeyStore extends com.pulumi.resources.CustomResource {
      * Customer certificate used for signing on CloudHSM.
      * 
      */
-    @Export(name="trustAnchorCertificate", type=String.class, parameters={})
+    @Export(name="trustAnchorCertificate", refs={String.class}, tree="[0]")
     private Output<String> trustAnchorCertificate;
 
     /**

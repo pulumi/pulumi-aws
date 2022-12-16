@@ -69,7 +69,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Hsm Client Certificate.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * A text description of the HSM configuration to be created.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -97,7 +97,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * The identifier to be assigned to the new Amazon Redshift HSM configuration.
      * 
      */
-    @Export(name="hsmConfigurationIdentifier", type=String.class, parameters={})
+    @Export(name="hsmConfigurationIdentifier", refs={String.class}, tree="[0]")
     private Output<String> hsmConfigurationIdentifier;
 
     /**
@@ -111,7 +111,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * The IP address that the Amazon Redshift cluster must use to access the HSM.
      * 
      */
-    @Export(name="hsmIpAddress", type=String.class, parameters={})
+    @Export(name="hsmIpAddress", refs={String.class}, tree="[0]")
     private Output<String> hsmIpAddress;
 
     /**
@@ -125,7 +125,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
      * 
      */
-    @Export(name="hsmPartitionName", type=String.class, parameters={})
+    @Export(name="hsmPartitionName", refs={String.class}, tree="[0]")
     private Output<String> hsmPartitionName;
 
     /**
@@ -139,7 +139,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * The password required to access the HSM partition.
      * 
      */
-    @Export(name="hsmPartitionPassword", type=String.class, parameters={})
+    @Export(name="hsmPartitionPassword", refs={String.class}, tree="[0]")
     private Output<String> hsmPartitionPassword;
 
     /**
@@ -153,7 +153,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
      * 
      */
-    @Export(name="hsmServerPublicCertificate", type=String.class, parameters={})
+    @Export(name="hsmServerPublicCertificate", refs={String.class}, tree="[0]")
     private Output<String> hsmServerPublicCertificate;
 
     /**
@@ -167,7 +167,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -181,7 +181,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

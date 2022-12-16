@@ -69,7 +69,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name(ARN) of the layer.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * Whether to automatically assign an elastic IP address to the layer&#39;s instances.
      * 
      */
-    @Export(name="autoAssignElasticIps", type=Boolean.class, parameters={})
+    @Export(name="autoAssignElasticIps", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoAssignElasticIps;
 
     /**
@@ -97,7 +97,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer&#39;s instances.
      * 
      */
-    @Export(name="autoAssignPublicIps", type=Boolean.class, parameters={})
+    @Export(name="autoAssignPublicIps", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoAssignPublicIps;
 
     /**
@@ -111,7 +111,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * Whether to enable auto-healing for the layer.
      * 
      */
-    @Export(name="autoHealing", type=Boolean.class, parameters={})
+    @Export(name="autoHealing", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoHealing;
 
     /**
@@ -121,19 +121,19 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> autoHealing() {
         return Codegen.optional(this.autoHealing);
     }
-    @Export(name="cloudwatchConfiguration", type=StaticWebLayerCloudwatchConfiguration.class, parameters={})
+    @Export(name="cloudwatchConfiguration", refs={StaticWebLayerCloudwatchConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ StaticWebLayerCloudwatchConfiguration> cloudwatchConfiguration;
 
     public Output<Optional<StaticWebLayerCloudwatchConfiguration>> cloudwatchConfiguration() {
         return Codegen.optional(this.cloudwatchConfiguration);
     }
-    @Export(name="customConfigureRecipes", type=List.class, parameters={String.class})
+    @Export(name="customConfigureRecipes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> customConfigureRecipes;
 
     public Output<Optional<List<String>>> customConfigureRecipes() {
         return Codegen.optional(this.customConfigureRecipes);
     }
-    @Export(name="customDeployRecipes", type=List.class, parameters={String.class})
+    @Export(name="customDeployRecipes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> customDeployRecipes;
 
     public Output<Optional<List<String>>> customDeployRecipes() {
@@ -143,7 +143,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * The ARN of an IAM profile that will be used for the layer&#39;s instances.
      * 
      */
-    @Export(name="customInstanceProfileArn", type=String.class, parameters={})
+    @Export(name="customInstanceProfileArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customInstanceProfileArn;
 
     /**
@@ -153,7 +153,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> customInstanceProfileArn() {
         return Codegen.optional(this.customInstanceProfileArn);
     }
-    @Export(name="customJson", type=String.class, parameters={})
+    @Export(name="customJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customJson;
 
     public Output<Optional<String>> customJson() {
@@ -163,7 +163,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * Ids for a set of security groups to apply to the layer&#39;s instances.
      * 
      */
-    @Export(name="customSecurityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="customSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> customSecurityGroupIds;
 
     /**
@@ -173,19 +173,19 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> customSecurityGroupIds() {
         return Codegen.optional(this.customSecurityGroupIds);
     }
-    @Export(name="customSetupRecipes", type=List.class, parameters={String.class})
+    @Export(name="customSetupRecipes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> customSetupRecipes;
 
     public Output<Optional<List<String>>> customSetupRecipes() {
         return Codegen.optional(this.customSetupRecipes);
     }
-    @Export(name="customShutdownRecipes", type=List.class, parameters={String.class})
+    @Export(name="customShutdownRecipes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> customShutdownRecipes;
 
     public Output<Optional<List<String>>> customShutdownRecipes() {
         return Codegen.optional(this.customShutdownRecipes);
     }
-    @Export(name="customUndeployRecipes", type=List.class, parameters={String.class})
+    @Export(name="customUndeployRecipes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> customUndeployRecipes;
 
     public Output<Optional<List<String>>> customUndeployRecipes() {
@@ -195,7 +195,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * Whether to enable Elastic Load Balancing connection draining.
      * 
      */
-    @Export(name="drainElbOnShutdown", type=Boolean.class, parameters={})
+    @Export(name="drainElbOnShutdown", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> drainElbOnShutdown;
 
     /**
@@ -209,7 +209,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    @Export(name="ebsVolumes", type=List.class, parameters={StaticWebLayerEbsVolume.class})
+    @Export(name="ebsVolumes", refs={List.class,StaticWebLayerEbsVolume.class}, tree="[0,1]")
     private Output<List<StaticWebLayerEbsVolume>> ebsVolumes;
 
     /**
@@ -223,7 +223,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * Name of an Elastic Load Balancer to attach to this layer
      * 
      */
-    @Export(name="elasticLoadBalancer", type=String.class, parameters={})
+    @Export(name="elasticLoadBalancer", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> elasticLoadBalancer;
 
     /**
@@ -237,7 +237,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * Whether to install OS and package updates on each instance when it boots.
      * 
      */
-    @Export(name="installUpdatesOnBoot", type=Boolean.class, parameters={})
+    @Export(name="installUpdatesOnBoot", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> installUpdatesOnBoot;
 
     /**
@@ -251,7 +251,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      * 
      */
-    @Export(name="instanceShutdownTimeout", type=Integer.class, parameters={})
+    @Export(name="instanceShutdownTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> instanceShutdownTimeout;
 
     /**
@@ -261,7 +261,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> instanceShutdownTimeout() {
         return Codegen.optional(this.instanceShutdownTimeout);
     }
-    @Export(name="loadBasedAutoScaling", type=StaticWebLayerLoadBasedAutoScaling.class, parameters={})
+    @Export(name="loadBasedAutoScaling", refs={StaticWebLayerLoadBasedAutoScaling.class}, tree="[0]")
     private Output<StaticWebLayerLoadBasedAutoScaling> loadBasedAutoScaling;
 
     public Output<StaticWebLayerLoadBasedAutoScaling> loadBasedAutoScaling() {
@@ -271,7 +271,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * A human-readable name for the layer.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -285,7 +285,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * ID of the stack the layer will belong to.
      * 
      */
-    @Export(name="stackId", type=String.class, parameters={})
+    @Export(name="stackId", refs={String.class}, tree="[0]")
     private Output<String> stackId;
 
     /**
@@ -299,7 +299,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * Names of a set of system packages to install on the layer&#39;s instances.
      * 
      */
-    @Export(name="systemPackages", type=List.class, parameters={String.class})
+    @Export(name="systemPackages", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> systemPackages;
 
     /**
@@ -313,7 +313,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -327,7 +327,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -341,7 +341,7 @@ public class StaticWebLayer extends com.pulumi.resources.CustomResource {
      * Whether to use EBS-optimized instances.
      * 
      */
-    @Export(name="useEbsOptimizedInstances", type=Boolean.class, parameters={})
+    @Export(name="useEbsOptimizedInstances", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useEbsOptimizedInstances;
 
     /**

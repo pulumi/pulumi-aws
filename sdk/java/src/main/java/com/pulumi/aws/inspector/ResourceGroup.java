@@ -57,7 +57,7 @@ public class ResourceGroup extends com.pulumi.resources.CustomResource {
      * The resource group ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -71,7 +71,7 @@ public class ResourceGroup extends com.pulumi.resources.CustomResource {
      * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tags;
 
     /**

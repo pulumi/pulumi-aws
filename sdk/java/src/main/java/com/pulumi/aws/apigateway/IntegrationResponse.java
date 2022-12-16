@@ -117,7 +117,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
      * 
      */
-    @Export(name="contentHandling", type=String.class, parameters={})
+    @Export(name="contentHandling", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentHandling;
 
     /**
@@ -131,7 +131,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
-    @Export(name="httpMethod", type=String.class, parameters={})
+    @Export(name="httpMethod", refs={String.class}, tree="[0]")
     private Output<String> httpMethod;
 
     /**
@@ -145,7 +145,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * API resource ID.
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -159,7 +159,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
      * 
      */
-    @Export(name="responseParameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="responseParameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseParameters;
 
     /**
@@ -173,7 +173,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * Map of templates used to transform the integration response body.
      * 
      */
-    @Export(name="responseTemplates", type=Map.class, parameters={String.class, String.class})
+    @Export(name="responseTemplates", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseTemplates;
 
     /**
@@ -187,7 +187,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * ID of the associated REST API.
      * 
      */
-    @Export(name="restApi", type=String.class, parameters={})
+    @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
     /**
@@ -201,7 +201,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      * 
      */
-    @Export(name="selectionPattern", type=String.class, parameters={})
+    @Export(name="selectionPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> selectionPattern;
 
     /**
@@ -215,7 +215,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * HTTP status code.
      * 
      */
-    @Export(name="statusCode", type=String.class, parameters={})
+    @Export(name="statusCode", refs={String.class}, tree="[0]")
     private Output<String> statusCode;
 
     /**

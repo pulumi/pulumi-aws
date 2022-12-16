@@ -36,7 +36,7 @@ public class ProtectionHealthCheckAssociation extends com.pulumi.resources.Custo
      * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
      * 
      */
-    @Export(name="healthCheckArn", type=String.class, parameters={})
+    @Export(name="healthCheckArn", refs={String.class}, tree="[0]")
     private Output<String> healthCheckArn;
 
     /**
@@ -50,7 +50,7 @@ public class ProtectionHealthCheckAssociation extends com.pulumi.resources.Custo
      * The ID of the protected resource.
      * 
      */
-    @Export(name="shieldProtectionId", type=String.class, parameters={})
+    @Export(name="shieldProtectionId", refs={String.class}, tree="[0]")
     private Output<String> shieldProtectionId;
 
     /**

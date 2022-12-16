@@ -126,7 +126,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the worker configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -140,7 +140,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * Information about the capacity allocated to the connector. See below.
      * 
      */
-    @Export(name="capacity", type=ConnectorCapacity.class, parameters={})
+    @Export(name="capacity", refs={ConnectorCapacity.class}, tree="[0]")
     private Output<ConnectorCapacity> capacity;
 
     /**
@@ -154,7 +154,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * A map of keys to values that represent the configuration for the connector.
      * 
      */
-    @Export(name="connectorConfiguration", type=Map.class, parameters={String.class, String.class})
+    @Export(name="connectorConfiguration", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> connectorConfiguration;
 
     /**
@@ -168,7 +168,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * A summary description of the connector.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -182,7 +182,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * Specifies which Apache Kafka cluster to connect to. See below.
      * 
      */
-    @Export(name="kafkaCluster", type=ConnectorKafkaCluster.class, parameters={})
+    @Export(name="kafkaCluster", refs={ConnectorKafkaCluster.class}, tree="[0]")
     private Output<ConnectorKafkaCluster> kafkaCluster;
 
     /**
@@ -196,7 +196,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * Details of the client authentication used by the Apache Kafka cluster. See below.
      * 
      */
-    @Export(name="kafkaClusterClientAuthentication", type=ConnectorKafkaClusterClientAuthentication.class, parameters={})
+    @Export(name="kafkaClusterClientAuthentication", refs={ConnectorKafkaClusterClientAuthentication.class}, tree="[0]")
     private Output<ConnectorKafkaClusterClientAuthentication> kafkaClusterClientAuthentication;
 
     /**
@@ -210,7 +210,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * Details of encryption in transit to the Apache Kafka cluster. See below.
      * 
      */
-    @Export(name="kafkaClusterEncryptionInTransit", type=ConnectorKafkaClusterEncryptionInTransit.class, parameters={})
+    @Export(name="kafkaClusterEncryptionInTransit", refs={ConnectorKafkaClusterEncryptionInTransit.class}, tree="[0]")
     private Output<ConnectorKafkaClusterEncryptionInTransit> kafkaClusterEncryptionInTransit;
 
     /**
@@ -224,7 +224,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
      * 
      */
-    @Export(name="kafkaconnectVersion", type=String.class, parameters={})
+    @Export(name="kafkaconnectVersion", refs={String.class}, tree="[0]")
     private Output<String> kafkaconnectVersion;
 
     /**
@@ -238,7 +238,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * Details about log delivery. See below.
      * 
      */
-    @Export(name="logDelivery", type=ConnectorLogDelivery.class, parameters={})
+    @Export(name="logDelivery", refs={ConnectorLogDelivery.class}, tree="[0]")
     private Output</* @Nullable */ ConnectorLogDelivery> logDelivery;
 
     /**
@@ -252,7 +252,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * The name of the connector.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -266,7 +266,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * Specifies which plugins to use for the connector. See below.
      * 
      */
-    @Export(name="plugins", type=List.class, parameters={ConnectorPlugin.class})
+    @Export(name="plugins", refs={List.class,ConnectorPlugin.class}, tree="[0,1]")
     private Output<List<ConnectorPlugin>> plugins;
 
     /**
@@ -280,7 +280,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      * 
      */
-    @Export(name="serviceExecutionRoleArn", type=String.class, parameters={})
+    @Export(name="serviceExecutionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceExecutionRoleArn;
 
     /**
@@ -294,7 +294,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * The current version of the connector.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
@@ -308,7 +308,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * Specifies which worker configuration to use with the connector. See below.
      * 
      */
-    @Export(name="workerConfiguration", type=ConnectorWorkerConfiguration.class, parameters={})
+    @Export(name="workerConfiguration", refs={ConnectorWorkerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ConnectorWorkerConfiguration> workerConfiguration;
 
     /**

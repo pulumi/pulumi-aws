@@ -78,7 +78,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * ARN of the workgroup
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -92,7 +92,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * Configuration block with various settings for the workgroup. Documented below.
      * 
      */
-    @Export(name="configuration", type=WorkgroupConfiguration.class, parameters={})
+    @Export(name="configuration", refs={WorkgroupConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WorkgroupConfiguration> configuration;
 
     /**
@@ -106,7 +106,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * Description of the workgroup.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -120,7 +120,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * Option to delete the workgroup and its contents even if the workgroup contains any named queries.
      * 
      */
-    @Export(name="forceDestroy", type=Boolean.class, parameters={})
+    @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     /**
@@ -134,7 +134,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * Name of the workgroup.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -148,7 +148,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
@@ -162,7 +162,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -176,7 +176,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

@@ -70,7 +70,7 @@ public class ResolverConfig extends com.pulumi.resources.CustomResource {
      * Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
      * 
      */
-    @Export(name="autodefinedReverseFlag", type=String.class, parameters={})
+    @Export(name="autodefinedReverseFlag", refs={String.class}, tree="[0]")
     private Output<String> autodefinedReverseFlag;
 
     /**
@@ -84,7 +84,7 @@ public class ResolverConfig extends com.pulumi.resources.CustomResource {
      * The AWS account ID of the owner of the VPC that this resolver configuration applies to.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -98,7 +98,7 @@ public class ResolverConfig extends com.pulumi.resources.CustomResource {
      * The ID of the VPC that the configuration is for.
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**

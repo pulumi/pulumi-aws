@@ -119,7 +119,7 @@ public class OpenZfsSnapshot extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name of the snapshot.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -129,7 +129,7 @@ public class OpenZfsSnapshot extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    @Export(name="creationTime", type=String.class, parameters={})
+    @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     public Output<String> creationTime() {
@@ -139,7 +139,7 @@ public class OpenZfsSnapshot extends com.pulumi.resources.CustomResource {
      * The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -153,7 +153,7 @@ public class OpenZfsSnapshot extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tags;
 
     /**
@@ -167,7 +167,7 @@ public class OpenZfsSnapshot extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -181,7 +181,7 @@ public class OpenZfsSnapshot extends com.pulumi.resources.CustomResource {
      * The ID of the volume to snapshot. This can be the root volume or a child volume.
      * 
      */
-    @Export(name="volumeId", type=String.class, parameters={})
+    @Export(name="volumeId", refs={String.class}, tree="[0]")
     private Output<String> volumeId;
 
     /**

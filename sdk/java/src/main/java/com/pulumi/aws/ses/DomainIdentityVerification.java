@@ -78,7 +78,7 @@ public class DomainIdentityVerification extends com.pulumi.resources.CustomResou
      * The ARN of the domain identity.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -92,7 +92,7 @@ public class DomainIdentityVerification extends com.pulumi.resources.CustomResou
      * The domain name of the SES domain identity to verify.
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**

@@ -70,7 +70,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * (Required) Amazon Resource Name (ARN) of the component.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -84,7 +84,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Change description of the component.
      * 
      */
-    @Export(name="changeDescription", type=String.class, parameters={})
+    @Export(name="changeDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> changeDescription;
 
     /**
@@ -98,7 +98,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    @Export(name="data", type=String.class, parameters={})
+    @Export(name="data", refs={String.class}, tree="[0]")
     private Output<String> data;
 
     /**
@@ -112,7 +112,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Date the component was created.
      * 
      */
-    @Export(name="dateCreated", type=String.class, parameters={})
+    @Export(name="dateCreated", refs={String.class}, tree="[0]")
     private Output<String> dateCreated;
 
     /**
@@ -126,7 +126,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Description of the component.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -140,7 +140,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Encryption status of the component.
      * 
      */
-    @Export(name="encrypted", type=Boolean.class, parameters={})
+    @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> encrypted;
 
     /**
@@ -154,7 +154,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
@@ -168,7 +168,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Name of the component.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -182,7 +182,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Owner of the component.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -196,7 +196,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Platform of the component.
      * 
      */
-    @Export(name="platform", type=String.class, parameters={})
+    @Export(name="platform", refs={String.class}, tree="[0]")
     private Output<String> platform;
 
     /**
@@ -210,7 +210,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Set of Operating Systems (OS) supported by the component.
      * 
      */
-    @Export(name="supportedOsVersions", type=List.class, parameters={String.class})
+    @Export(name="supportedOsVersions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> supportedOsVersions;
 
     /**
@@ -224,7 +224,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -238,7 +238,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -252,7 +252,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Type of the component.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -266,7 +266,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
      * 
      */
-    @Export(name="uri", type=String.class, parameters={})
+    @Export(name="uri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> uri;
 
     /**
@@ -280,7 +280,7 @@ public class Component extends com.pulumi.resources.CustomResource {
      * Version of the component.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**

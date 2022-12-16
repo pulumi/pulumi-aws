@@ -65,7 +65,7 @@ public class DedicatedIpAssignment extends com.pulumi.resources.CustomResource {
      * Dedicated IP address.
      * 
      */
-    @Export(name="destinationPoolName", type=String.class, parameters={})
+    @Export(name="destinationPoolName", refs={String.class}, tree="[0]")
     private Output<String> destinationPoolName;
 
     /**
@@ -79,7 +79,7 @@ public class DedicatedIpAssignment extends com.pulumi.resources.CustomResource {
      * Dedicated IP address.
      * 
      */
-    @Export(name="ip", type=String.class, parameters={})
+    @Export(name="ip", refs={String.class}, tree="[0]")
     private Output<String> ip;
 
     /**

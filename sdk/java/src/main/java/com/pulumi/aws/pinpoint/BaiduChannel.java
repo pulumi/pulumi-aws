@@ -69,7 +69,7 @@ public class BaiduChannel extends com.pulumi.resources.CustomResource {
      * Platform credential API key from Baidu.
      * 
      */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output<String> apiKey;
 
     /**
@@ -83,7 +83,7 @@ public class BaiduChannel extends com.pulumi.resources.CustomResource {
      * The application ID.
      * 
      */
-    @Export(name="applicationId", type=String.class, parameters={})
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
@@ -97,7 +97,7 @@ public class BaiduChannel extends com.pulumi.resources.CustomResource {
      * Specifies whether to enable the channel. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -111,7 +111,7 @@ public class BaiduChannel extends com.pulumi.resources.CustomResource {
      * Platform credential Secret key from Baidu.
      * 
      */
-    @Export(name="secretKey", type=String.class, parameters={})
+    @Export(name="secretKey", refs={String.class}, tree="[0]")
     private Output<String> secretKey;
 
     /**

@@ -69,7 +69,7 @@ public class SshKey extends com.pulumi.resources.CustomResource {
      * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
      * 
      */
-    @Export(name="encoding", type=String.class, parameters={})
+    @Export(name="encoding", refs={String.class}, tree="[0]")
     private Output<String> encoding;
 
     /**
@@ -83,7 +83,7 @@ public class SshKey extends com.pulumi.resources.CustomResource {
      * The MD5 message digest of the SSH public key.
      * 
      */
-    @Export(name="fingerprint", type=String.class, parameters={})
+    @Export(name="fingerprint", refs={String.class}, tree="[0]")
     private Output<String> fingerprint;
 
     /**
@@ -97,7 +97,7 @@ public class SshKey extends com.pulumi.resources.CustomResource {
      * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      * 
      */
-    @Export(name="publicKey", type=String.class, parameters={})
+    @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output<String> publicKey;
 
     /**
@@ -111,7 +111,7 @@ public class SshKey extends com.pulumi.resources.CustomResource {
      * The unique identifier for the SSH public key.
      * 
      */
-    @Export(name="sshPublicKeyId", type=String.class, parameters={})
+    @Export(name="sshPublicKeyId", refs={String.class}, tree="[0]")
     private Output<String> sshPublicKeyId;
 
     /**
@@ -125,7 +125,7 @@ public class SshKey extends com.pulumi.resources.CustomResource {
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -139,7 +139,7 @@ public class SshKey extends com.pulumi.resources.CustomResource {
      * The name of the IAM user to associate the SSH public key with.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

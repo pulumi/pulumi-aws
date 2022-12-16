@@ -208,7 +208,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
      * 
      */
-    @Export(name="accessToken", type=String.class, parameters={})
+    @Export(name="accessToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessToken;
 
     /**
@@ -222,7 +222,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * ARN of the Amplify app.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -236,7 +236,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
      * 
      */
-    @Export(name="autoBranchCreationConfig", type=AppAutoBranchCreationConfig.class, parameters={})
+    @Export(name="autoBranchCreationConfig", refs={AppAutoBranchCreationConfig.class}, tree="[0]")
     private Output<AppAutoBranchCreationConfig> autoBranchCreationConfig;
 
     /**
@@ -250,7 +250,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Automated branch creation glob patterns for an Amplify app.
      * 
      */
-    @Export(name="autoBranchCreationPatterns", type=List.class, parameters={String.class})
+    @Export(name="autoBranchCreationPatterns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> autoBranchCreationPatterns;
 
     /**
@@ -264,7 +264,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Credentials for basic authorization for an Amplify app.
      * 
      */
-    @Export(name="basicAuthCredentials", type=String.class, parameters={})
+    @Export(name="basicAuthCredentials", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> basicAuthCredentials;
 
     /**
@@ -278,7 +278,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
      * 
      */
-    @Export(name="buildSpec", type=String.class, parameters={})
+    @Export(name="buildSpec", refs={String.class}, tree="[0]")
     private Output<String> buildSpec;
 
     /**
@@ -292,7 +292,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
      * 
      */
-    @Export(name="customRules", type=List.class, parameters={AppCustomRule.class})
+    @Export(name="customRules", refs={List.class,AppCustomRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AppCustomRule>> customRules;
 
     /**
@@ -306,7 +306,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Default domain for the Amplify app.
      * 
      */
-    @Export(name="defaultDomain", type=String.class, parameters={})
+    @Export(name="defaultDomain", refs={String.class}, tree="[0]")
     private Output<String> defaultDomain;
 
     /**
@@ -320,7 +320,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Description for an Amplify app.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -334,7 +334,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Enables automated branch creation for an Amplify app.
      * 
      */
-    @Export(name="enableAutoBranchCreation", type=Boolean.class, parameters={})
+    @Export(name="enableAutoBranchCreation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableAutoBranchCreation;
 
     /**
@@ -348,7 +348,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
      * 
      */
-    @Export(name="enableBasicAuth", type=Boolean.class, parameters={})
+    @Export(name="enableBasicAuth", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableBasicAuth;
 
     /**
@@ -362,7 +362,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Enables auto-building of branches for the Amplify App.
      * 
      */
-    @Export(name="enableBranchAutoBuild", type=Boolean.class, parameters={})
+    @Export(name="enableBranchAutoBuild", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableBranchAutoBuild;
 
     /**
@@ -376,7 +376,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
      * 
      */
-    @Export(name="enableBranchAutoDeletion", type=Boolean.class, parameters={})
+    @Export(name="enableBranchAutoDeletion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableBranchAutoDeletion;
 
     /**
@@ -390,7 +390,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Environment variables map for an Amplify app.
      * 
      */
-    @Export(name="environmentVariables", type=Map.class, parameters={String.class, String.class})
+    @Export(name="environmentVariables", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> environmentVariables;
 
     /**
@@ -404,7 +404,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * AWS Identity and Access Management (IAM) service role for an Amplify app.
      * 
      */
-    @Export(name="iamServiceRoleArn", type=String.class, parameters={})
+    @Export(name="iamServiceRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iamServiceRoleArn;
 
     /**
@@ -418,7 +418,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Name for an Amplify app.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -432,7 +432,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
      * 
      */
-    @Export(name="oauthToken", type=String.class, parameters={})
+    @Export(name="oauthToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthToken;
 
     /**
@@ -446,7 +446,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      * 
      */
-    @Export(name="platform", type=String.class, parameters={})
+    @Export(name="platform", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> platform;
 
     /**
@@ -460,7 +460,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
      * 
      */
-    @Export(name="productionBranches", type=List.class, parameters={AppProductionBranch.class})
+    @Export(name="productionBranches", refs={List.class,AppProductionBranch.class}, tree="[0,1]")
     private Output<List<AppProductionBranch>> productionBranches;
 
     /**
@@ -474,7 +474,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Repository for an Amplify app.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> repository;
 
     /**
@@ -488,7 +488,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -502,7 +502,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

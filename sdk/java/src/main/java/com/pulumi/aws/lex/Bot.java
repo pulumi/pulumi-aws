@@ -97,7 +97,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
      * 
      */
-    @Export(name="abortStatement", type=BotAbortStatement.class, parameters={})
+    @Export(name="abortStatement", refs={BotAbortStatement.class}, tree="[0]")
     private Output<BotAbortStatement> abortStatement;
 
     /**
@@ -107,7 +107,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
     public Output<BotAbortStatement> abortStatement() {
         return this.abortStatement;
     }
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     public Output<String> arn() {
@@ -118,7 +118,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * included as an argument because the resource will add it automatically when updating the bot.
      * 
      */
-    @Export(name="checksum", type=String.class, parameters={})
+    @Export(name="checksum", refs={String.class}, tree="[0]")
     private Output<String> checksum;
 
     /**
@@ -133,7 +133,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
      * 
      */
-    @Export(name="childDirected", type=Boolean.class, parameters={})
+    @Export(name="childDirected", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> childDirected;
 
     /**
@@ -147,7 +147,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * The message that Amazon Lex uses when it doesn&#39;t understand the user&#39;s request. Attributes are documented under prompt.
      * 
      */
-    @Export(name="clarificationPrompt", type=BotClarificationPrompt.class, parameters={})
+    @Export(name="clarificationPrompt", refs={BotClarificationPrompt.class}, tree="[0]")
     private Output</* @Nullable */ BotClarificationPrompt> clarificationPrompt;
 
     /**
@@ -161,7 +161,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
      * 
      */
-    @Export(name="createVersion", type=Boolean.class, parameters={})
+    @Export(name="createVersion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> createVersion;
 
     /**
@@ -175,7 +175,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * The date when the bot version was created.
      * 
      */
-    @Export(name="createdDate", type=String.class, parameters={})
+    @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
     /**
@@ -189,7 +189,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * A description of the bot. Must be less than or equal to 200 characters in length.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -203,7 +203,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don&#39;t specify detectSentiment, the default is `false`.
      * 
      */
-    @Export(name="detectSentiment", type=Boolean.class, parameters={})
+    @Export(name="detectSentiment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> detectSentiment;
 
     /**
@@ -217,7 +217,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
      * 
      */
-    @Export(name="enableModelImprovements", type=Boolean.class, parameters={})
+    @Export(name="enableModelImprovements", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableModelImprovements;
 
     /**
@@ -231,7 +231,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
      * 
      */
-    @Export(name="failureReason", type=String.class, parameters={})
+    @Export(name="failureReason", refs={String.class}, tree="[0]")
     private Output<String> failureReason;
 
     /**
@@ -245,7 +245,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
      * 
      */
-    @Export(name="idleSessionTtlInSeconds", type=Integer.class, parameters={})
+    @Export(name="idleSessionTtlInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> idleSessionTtlInSeconds;
 
     /**
@@ -259,7 +259,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
      * 
      */
-    @Export(name="intents", type=List.class, parameters={BotIntent.class})
+    @Export(name="intents", refs={List.class,BotIntent.class}, tree="[0,1]")
     private Output<List<BotIntent>> intents;
 
     /**
@@ -273,7 +273,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * The date when the $LATEST version of this bot was updated.
      * 
      */
-    @Export(name="lastUpdatedDate", type=String.class, parameters={})
+    @Export(name="lastUpdatedDate", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedDate;
 
     /**
@@ -287,7 +287,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
      * 
      */
-    @Export(name="locale", type=String.class, parameters={})
+    @Export(name="locale", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> locale;
 
     /**
@@ -301,7 +301,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -315,7 +315,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
      * 
      */
-    @Export(name="nluIntentConfidenceThreshold", type=Double.class, parameters={})
+    @Export(name="nluIntentConfidenceThreshold", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> nluIntentConfidenceThreshold;
 
     /**
@@ -329,7 +329,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn&#39;t build it. Default is `SAVE`.
      * 
      */
-    @Export(name="processBehavior", type=String.class, parameters={})
+    @Export(name="processBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> processBehavior;
 
     /**
@@ -346,7 +346,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * failure_reason response element.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -363,7 +363,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * The version of the bot.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
@@ -377,7 +377,7 @@ public class Bot extends com.pulumi.resources.CustomResource {
      * The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
      * 
      */
-    @Export(name="voiceId", type=String.class, parameters={})
+    @Export(name="voiceId", refs={String.class}, tree="[0]")
     private Output<String> voiceId;
 
     /**

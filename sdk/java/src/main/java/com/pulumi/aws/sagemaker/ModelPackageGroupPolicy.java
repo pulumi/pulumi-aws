@@ -33,7 +33,7 @@ public class ModelPackageGroupPolicy extends com.pulumi.resources.CustomResource
      * The name of the model package group.
      * 
      */
-    @Export(name="modelPackageGroupName", type=String.class, parameters={})
+    @Export(name="modelPackageGroupName", refs={String.class}, tree="[0]")
     private Output<String> modelPackageGroupName;
 
     /**
@@ -43,7 +43,7 @@ public class ModelPackageGroupPolicy extends com.pulumi.resources.CustomResource
     public Output<String> modelPackageGroupName() {
         return this.modelPackageGroupName;
     }
-    @Export(name="resourcePolicy", type=String.class, parameters={})
+    @Export(name="resourcePolicy", refs={String.class}, tree="[0]")
     private Output<String> resourcePolicy;
 
     public Output<String> resourcePolicy() {

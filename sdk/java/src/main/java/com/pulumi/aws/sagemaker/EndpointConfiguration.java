@@ -76,7 +76,7 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -90,7 +90,7 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      * Specifies configuration for how an endpoint performs asynchronous inference.
      * 
      */
-    @Export(name="asyncInferenceConfig", type=EndpointConfigurationAsyncInferenceConfig.class, parameters={})
+    @Export(name="asyncInferenceConfig", refs={EndpointConfigurationAsyncInferenceConfig.class}, tree="[0]")
     private Output</* @Nullable */ EndpointConfigurationAsyncInferenceConfig> asyncInferenceConfig;
 
     /**
@@ -104,7 +104,7 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
      * 
      */
-    @Export(name="dataCaptureConfig", type=EndpointConfigurationDataCaptureConfig.class, parameters={})
+    @Export(name="dataCaptureConfig", refs={EndpointConfigurationDataCaptureConfig.class}, tree="[0]")
     private Output</* @Nullable */ EndpointConfigurationDataCaptureConfig> dataCaptureConfig;
 
     /**
@@ -118,7 +118,7 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      * 
      */
-    @Export(name="kmsKeyArn", type=String.class, parameters={})
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
@@ -132,7 +132,7 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -146,7 +146,7 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      * Fields are documented below.
      * 
      */
-    @Export(name="productionVariants", type=List.class, parameters={EndpointConfigurationProductionVariant.class})
+    @Export(name="productionVariants", refs={List.class,EndpointConfigurationProductionVariant.class}, tree="[0,1]")
     private Output<List<EndpointConfigurationProductionVariant>> productionVariants;
 
     /**
@@ -160,7 +160,7 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -174,7 +174,7 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

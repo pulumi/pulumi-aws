@@ -89,7 +89,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The hostname of the instance. See also `endpoint` and `port`.
      * 
      */
-    @Export(name="address", type=String.class, parameters={})
+    @Export(name="address", refs={String.class}, tree="[0]")
     private Output<String> address;
 
     /**
@@ -104,7 +104,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
-    @Export(name="applyImmediately", type=Boolean.class, parameters={})
+    @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> applyImmediately;
 
     /**
@@ -119,7 +119,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of neptune instance
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -133,7 +133,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
      * 
      */
-    @Export(name="autoMinorVersionUpgrade", type=Boolean.class, parameters={})
+    @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoMinorVersionUpgrade;
 
     /**
@@ -147,7 +147,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The EC2 Availability Zone that the neptune instance is created in.
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
@@ -161,7 +161,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The identifier of the `aws.neptune.Cluster` in which to launch this instance.
      * 
      */
-    @Export(name="clusterIdentifier", type=String.class, parameters={})
+    @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
@@ -175,7 +175,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The region-unique, immutable identifier for the neptune instance.
      * 
      */
-    @Export(name="dbiResourceId", type=String.class, parameters={})
+    @Export(name="dbiResourceId", refs={String.class}, tree="[0]")
     private Output<String> dbiResourceId;
 
     /**
@@ -189,7 +189,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The connection endpoint in `address:port` format.
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
@@ -203,7 +203,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
      * 
      */
-    @Export(name="engine", type=String.class, parameters={})
+    @Export(name="engine", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engine;
 
     /**
@@ -217,7 +217,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The neptune engine version.
      * 
      */
-    @Export(name="engineVersion", type=String.class, parameters={})
+    @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
@@ -231,7 +231,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
      * 
      */
-    @Export(name="identifier", type=String.class, parameters={})
+    @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
     /**
@@ -245,7 +245,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    @Export(name="identifierPrefix", type=String.class, parameters={})
+    @Export(name="identifierPrefix", refs={String.class}, tree="[0]")
     private Output<String> identifierPrefix;
 
     /**
@@ -259,7 +259,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The instance class to use.
      * 
      */
-    @Export(name="instanceClass", type=String.class, parameters={})
+    @Export(name="instanceClass", refs={String.class}, tree="[0]")
     private Output<String> instanceClass;
 
     /**
@@ -273,7 +273,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The ARN for the KMS encryption key if one is set to the neptune cluster.
      * 
      */
-    @Export(name="kmsKeyArn", type=String.class, parameters={})
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
     /**
@@ -287,7 +287,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The name of the neptune parameter group to associate with this instance.
      * 
      */
-    @Export(name="neptuneParameterGroupName", type=String.class, parameters={})
+    @Export(name="neptuneParameterGroupName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> neptuneParameterGroupName;
 
     /**
@@ -301,7 +301,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
      * 
      */
-    @Export(name="neptuneSubnetGroupName", type=String.class, parameters={})
+    @Export(name="neptuneSubnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> neptuneSubnetGroupName;
 
     /**
@@ -315,7 +315,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The port on which the DB accepts connections. Defaults to `8182`.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
     /**
@@ -329,7 +329,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;
      * 
      */
-    @Export(name="preferredBackupWindow", type=String.class, parameters={})
+    @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredBackupWindow;
 
     /**
@@ -344,7 +344,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
-    @Export(name="preferredMaintenanceWindow", type=String.class, parameters={})
+    @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredMaintenanceWindow;
 
     /**
@@ -359,7 +359,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      * 
      */
-    @Export(name="promotionTier", type=Integer.class, parameters={})
+    @Export(name="promotionTier", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> promotionTier;
 
     /**
@@ -373,7 +373,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * Bool to control if instance is publicly accessible. Default is `false`.
      * 
      */
-    @Export(name="publiclyAccessible", type=Boolean.class, parameters={})
+    @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publiclyAccessible;
 
     /**
@@ -387,7 +387,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * Specifies whether the neptune cluster is encrypted.
      * 
      */
-    @Export(name="storageEncrypted", type=Boolean.class, parameters={})
+    @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
     /**
@@ -401,7 +401,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -415,7 +415,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -429,7 +429,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      * 
      */
-    @Export(name="writer", type=Boolean.class, parameters={})
+    @Export(name="writer", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> writer;
 
     /**

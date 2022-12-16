@@ -207,7 +207,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * ARN of the App Runner service.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -221,7 +221,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
      * 
      */
-    @Export(name="autoScalingConfigurationArn", type=String.class, parameters={})
+    @Export(name="autoScalingConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> autoScalingConfigurationArn;
 
     /**
@@ -235,7 +235,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
      * 
      */
-    @Export(name="encryptionConfiguration", type=ServiceEncryptionConfiguration.class, parameters={})
+    @Export(name="encryptionConfiguration", refs={ServiceEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEncryptionConfiguration> encryptionConfiguration;
 
     /**
@@ -249,7 +249,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
      * 
      */
-    @Export(name="healthCheckConfiguration", type=ServiceHealthCheckConfiguration.class, parameters={})
+    @Export(name="healthCheckConfiguration", refs={ServiceHealthCheckConfiguration.class}, tree="[0]")
     private Output<ServiceHealthCheckConfiguration> healthCheckConfiguration;
 
     /**
@@ -263,7 +263,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
      * 
      */
-    @Export(name="instanceConfiguration", type=ServiceInstanceConfiguration.class, parameters={})
+    @Export(name="instanceConfiguration", refs={ServiceInstanceConfiguration.class}, tree="[0]")
     private Output<ServiceInstanceConfiguration> instanceConfiguration;
 
     /**
@@ -277,7 +277,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
      * 
      */
-    @Export(name="networkConfiguration", type=ServiceNetworkConfiguration.class, parameters={})
+    @Export(name="networkConfiguration", refs={ServiceNetworkConfiguration.class}, tree="[0]")
     private Output<ServiceNetworkConfiguration> networkConfiguration;
 
     /**
@@ -291,7 +291,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The observability configuration of your service. See Observability Configuration below for more details.
      * 
      */
-    @Export(name="observabilityConfiguration", type=ServiceObservabilityConfiguration.class, parameters={})
+    @Export(name="observabilityConfiguration", refs={ServiceObservabilityConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceObservabilityConfiguration> observabilityConfiguration;
 
     /**
@@ -305,7 +305,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      * 
      */
-    @Export(name="serviceId", type=String.class, parameters={})
+    @Export(name="serviceId", refs={String.class}, tree="[0]")
     private Output<String> serviceId;
 
     /**
@@ -319,7 +319,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Name of the service.
      * 
      */
-    @Export(name="serviceName", type=String.class, parameters={})
+    @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
     /**
@@ -333,7 +333,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
      * 
      */
-    @Export(name="serviceUrl", type=String.class, parameters={})
+    @Export(name="serviceUrl", refs={String.class}, tree="[0]")
     private Output<String> serviceUrl;
 
     /**
@@ -347,7 +347,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
      * 
      */
-    @Export(name="sourceConfiguration", type=ServiceSourceConfiguration.class, parameters={})
+    @Export(name="sourceConfiguration", refs={ServiceSourceConfiguration.class}, tree="[0]")
     private Output<ServiceSourceConfiguration> sourceConfiguration;
 
     /**
@@ -361,7 +361,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Current state of the App Runner service.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -375,7 +375,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -389,7 +389,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

@@ -131,7 +131,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * The ARN of the created WorkLink Fleet.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -145,7 +145,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `&#34;AmazonWorkLink-&#34;`.
      * 
      */
-    @Export(name="auditStreamArn", type=String.class, parameters={})
+    @Export(name="auditStreamArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> auditStreamArn;
 
     /**
@@ -159,7 +159,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * The identifier used by users to sign in to the Amazon WorkLink app.
      * 
      */
-    @Export(name="companyCode", type=String.class, parameters={})
+    @Export(name="companyCode", refs={String.class}, tree="[0]")
     private Output<String> companyCode;
 
     /**
@@ -173,7 +173,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * The time that the fleet was created.
      * 
      */
-    @Export(name="createdTime", type=String.class, parameters={})
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
@@ -187,7 +187,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
      * 
      */
-    @Export(name="deviceCaCertificate", type=String.class, parameters={})
+    @Export(name="deviceCaCertificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceCaCertificate;
 
     /**
@@ -201,7 +201,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * The name of the fleet.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -215,7 +215,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
      * 
      */
-    @Export(name="identityProvider", type=FleetIdentityProvider.class, parameters={})
+    @Export(name="identityProvider", refs={FleetIdentityProvider.class}, tree="[0]")
     private Output</* @Nullable */ FleetIdentityProvider> identityProvider;
 
     /**
@@ -229,7 +229,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * The time that the fleet was last updated.
      * 
      */
-    @Export(name="lastUpdatedTime", type=String.class, parameters={})
+    @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
     /**
@@ -243,7 +243,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * A region-unique name for the AMI.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -257,7 +257,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
      * 
      */
-    @Export(name="network", type=FleetNetwork.class, parameters={})
+    @Export(name="network", refs={FleetNetwork.class}, tree="[0]")
     private Output</* @Nullable */ FleetNetwork> network;
 
     /**
@@ -271,7 +271,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
      * 
      */
-    @Export(name="optimizeForEndUserLocation", type=Boolean.class, parameters={})
+    @Export(name="optimizeForEndUserLocation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> optimizeForEndUserLocation;
 
     /**

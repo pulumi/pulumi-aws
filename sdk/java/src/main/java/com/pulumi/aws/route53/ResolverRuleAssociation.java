@@ -62,7 +62,7 @@ public class ResolverRuleAssociation extends com.pulumi.resources.CustomResource
      * A name for the association that you&#39;re creating between a resolver rule and a VPC.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -76,7 +76,7 @@ public class ResolverRuleAssociation extends com.pulumi.resources.CustomResource
      * The ID of the resolver rule that you want to associate with the VPC.
      * 
      */
-    @Export(name="resolverRuleId", type=String.class, parameters={})
+    @Export(name="resolverRuleId", refs={String.class}, tree="[0]")
     private Output<String> resolverRuleId;
 
     /**
@@ -90,7 +90,7 @@ public class ResolverRuleAssociation extends com.pulumi.resources.CustomResource
      * The ID of the VPC that you want to associate the resolver rule with.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

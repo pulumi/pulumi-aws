@@ -75,7 +75,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * Tag name.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -89,7 +89,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the ECS resource to tag.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
@@ -103,7 +103,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * Tag value.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

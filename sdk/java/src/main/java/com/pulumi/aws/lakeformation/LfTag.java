@@ -66,7 +66,7 @@ public class LfTag extends com.pulumi.resources.CustomResource {
      * ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
      * 
      */
-    @Export(name="catalogId", type=String.class, parameters={})
+    @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
@@ -80,7 +80,7 @@ public class LfTag extends com.pulumi.resources.CustomResource {
      * Key-name for the tag.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -94,7 +94,7 @@ public class LfTag extends com.pulumi.resources.CustomResource {
      * List of possible values an attribute can take.
      * 
      */
-    @Export(name="values", type=List.class, parameters={String.class})
+    @Export(name="values", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> values;
 
     /**

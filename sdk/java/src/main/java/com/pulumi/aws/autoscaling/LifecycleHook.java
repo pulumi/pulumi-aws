@@ -99,7 +99,7 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      * Name of the Auto Scaling group to which you want to assign the lifecycle hook
      * 
      */
-    @Export(name="autoscalingGroupName", type=String.class, parameters={})
+    @Export(name="autoscalingGroupName", refs={String.class}, tree="[0]")
     private Output<String> autoscalingGroupName;
 
     /**
@@ -113,7 +113,7 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      * Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
      * 
      */
-    @Export(name="defaultResult", type=String.class, parameters={})
+    @Export(name="defaultResult", refs={String.class}, tree="[0]")
     private Output<String> defaultResult;
 
     /**
@@ -127,7 +127,7 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      * Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
      * 
      */
-    @Export(name="heartbeatTimeout", type=Integer.class, parameters={})
+    @Export(name="heartbeatTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> heartbeatTimeout;
 
     /**
@@ -141,7 +141,7 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      * Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
      * 
      */
-    @Export(name="lifecycleTransition", type=String.class, parameters={})
+    @Export(name="lifecycleTransition", refs={String.class}, tree="[0]")
     private Output<String> lifecycleTransition;
 
     /**
@@ -155,7 +155,7 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      * Name of the lifecycle hook.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -169,7 +169,7 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      * Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
      * 
      */
-    @Export(name="notificationMetadata", type=String.class, parameters={})
+    @Export(name="notificationMetadata", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationMetadata;
 
     /**
@@ -183,7 +183,7 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
      * 
      */
-    @Export(name="notificationTargetArn", type=String.class, parameters={})
+    @Export(name="notificationTargetArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationTargetArn;
 
     /**
@@ -197,7 +197,7 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**

@@ -77,7 +77,7 @@ public class OrganizationManagedRule extends com.pulumi.resources.CustomResource
      * Amazon Resource Name (ARN) of the rule
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -91,7 +91,7 @@ public class OrganizationManagedRule extends com.pulumi.resources.CustomResource
      * Description of the rule
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -105,7 +105,7 @@ public class OrganizationManagedRule extends com.pulumi.resources.CustomResource
      * List of AWS account identifiers to exclude from the rule
      * 
      */
-    @Export(name="excludedAccounts", type=List.class, parameters={String.class})
+    @Export(name="excludedAccounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> excludedAccounts;
 
     /**
@@ -119,7 +119,7 @@ public class OrganizationManagedRule extends com.pulumi.resources.CustomResource
      * A string in JSON format that is passed to the AWS Config Rule Lambda Function
      * 
      */
-    @Export(name="inputParameters", type=String.class, parameters={})
+    @Export(name="inputParameters", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inputParameters;
 
     /**
@@ -133,7 +133,7 @@ public class OrganizationManagedRule extends com.pulumi.resources.CustomResource
      * The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
      * 
      */
-    @Export(name="maximumExecutionFrequency", type=String.class, parameters={})
+    @Export(name="maximumExecutionFrequency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maximumExecutionFrequency;
 
     /**
@@ -147,7 +147,7 @@ public class OrganizationManagedRule extends com.pulumi.resources.CustomResource
      * The name of the rule
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -161,7 +161,7 @@ public class OrganizationManagedRule extends com.pulumi.resources.CustomResource
      * Identifier of the AWS resource to evaluate
      * 
      */
-    @Export(name="resourceIdScope", type=String.class, parameters={})
+    @Export(name="resourceIdScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceIdScope;
 
     /**
@@ -175,7 +175,7 @@ public class OrganizationManagedRule extends com.pulumi.resources.CustomResource
      * List of types of AWS resources to evaluate
      * 
      */
-    @Export(name="resourceTypesScopes", type=List.class, parameters={String.class})
+    @Export(name="resourceTypesScopes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resourceTypesScopes;
 
     /**
@@ -189,7 +189,7 @@ public class OrganizationManagedRule extends com.pulumi.resources.CustomResource
      * Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
      * 
      */
-    @Export(name="ruleIdentifier", type=String.class, parameters={})
+    @Export(name="ruleIdentifier", refs={String.class}, tree="[0]")
     private Output<String> ruleIdentifier;
 
     /**
@@ -203,7 +203,7 @@ public class OrganizationManagedRule extends com.pulumi.resources.CustomResource
      * Tag key of AWS resources to evaluate
      * 
      */
-    @Export(name="tagKeyScope", type=String.class, parameters={})
+    @Export(name="tagKeyScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tagKeyScope;
 
     /**
@@ -217,7 +217,7 @@ public class OrganizationManagedRule extends com.pulumi.resources.CustomResource
      * Tag value of AWS resources to evaluate
      * 
      */
-    @Export(name="tagValueScope", type=String.class, parameters={})
+    @Export(name="tagValueScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tagValueScope;
 
     /**

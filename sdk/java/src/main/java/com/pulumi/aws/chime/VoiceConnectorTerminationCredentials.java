@@ -91,7 +91,7 @@ public class VoiceConnectorTerminationCredentials extends com.pulumi.resources.C
      * List of termination SIP credentials.
      * 
      */
-    @Export(name="credentials", type=List.class, parameters={VoiceConnectorTerminationCredentialsCredential.class})
+    @Export(name="credentials", refs={List.class,VoiceConnectorTerminationCredentialsCredential.class}, tree="[0,1]")
     private Output<List<VoiceConnectorTerminationCredentialsCredential>> credentials;
 
     /**
@@ -105,7 +105,7 @@ public class VoiceConnectorTerminationCredentials extends com.pulumi.resources.C
      * Amazon Chime Voice Connector ID.
      * 
      */
-    @Export(name="voiceConnectorId", type=String.class, parameters={})
+    @Export(name="voiceConnectorId", refs={String.class}, tree="[0]")
     private Output<String> voiceConnectorId;
 
     /**

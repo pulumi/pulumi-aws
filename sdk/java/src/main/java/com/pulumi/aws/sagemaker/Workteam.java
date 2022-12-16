@@ -116,7 +116,7 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -130,7 +130,7 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * A description of the work team.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -144,7 +144,7 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
      * 
      */
-    @Export(name="memberDefinitions", type=List.class, parameters={WorkteamMemberDefinition.class})
+    @Export(name="memberDefinitions", refs={List.class,WorkteamMemberDefinition.class}, tree="[0,1]")
     private Output<List<WorkteamMemberDefinition>> memberDefinitions;
 
     /**
@@ -158,7 +158,7 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
      * 
      */
-    @Export(name="notificationConfiguration", type=WorkteamNotificationConfiguration.class, parameters={})
+    @Export(name="notificationConfiguration", refs={WorkteamNotificationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WorkteamNotificationConfiguration> notificationConfiguration;
 
     /**
@@ -172,7 +172,7 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * The subdomain for your OIDC Identity Provider.
      * 
      */
-    @Export(name="subdomain", type=String.class, parameters={})
+    @Export(name="subdomain", refs={String.class}, tree="[0]")
     private Output<String> subdomain;
 
     /**
@@ -186,7 +186,7 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -200,7 +200,7 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -214,7 +214,7 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * The name of the Workteam (must be unique).
      * 
      */
-    @Export(name="workforceName", type=String.class, parameters={})
+    @Export(name="workforceName", refs={String.class}, tree="[0]")
     private Output<String> workforceName;
 
     /**
@@ -228,7 +228,7 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * The name of the workforce.
      * 
      */
-    @Export(name="workteamName", type=String.class, parameters={})
+    @Export(name="workteamName", refs={String.class}, tree="[0]")
     private Output<String> workteamName;
 
     /**

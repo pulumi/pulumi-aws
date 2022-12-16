@@ -97,7 +97,7 @@ public class NamedQuery extends com.pulumi.resources.CustomResource {
      * Database to which the query belongs.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -111,7 +111,7 @@ public class NamedQuery extends com.pulumi.resources.CustomResource {
      * Brief explanation of the query. Maximum length of 1024.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -125,7 +125,7 @@ public class NamedQuery extends com.pulumi.resources.CustomResource {
      * Plain language name for the query. Maximum length of 128.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -139,7 +139,7 @@ public class NamedQuery extends com.pulumi.resources.CustomResource {
      * Text of the query itself. In other words, all query statements. Maximum length of 262144.
      * 
      */
-    @Export(name="query", type=String.class, parameters={})
+    @Export(name="query", refs={String.class}, tree="[0]")
     private Output<String> query;
 
     /**
@@ -153,7 +153,7 @@ public class NamedQuery extends com.pulumi.resources.CustomResource {
      * Workgroup to which the query belongs. Defaults to `primary`
      * 
      */
-    @Export(name="workgroup", type=String.class, parameters={})
+    @Export(name="workgroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workgroup;
 
     /**

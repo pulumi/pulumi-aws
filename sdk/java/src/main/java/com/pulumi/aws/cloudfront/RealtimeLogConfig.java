@@ -121,7 +121,7 @@ public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
      * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -135,7 +135,7 @@ public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
      * The Amazon Kinesis data streams where real-time log data is sent.
      * 
      */
-    @Export(name="endpoint", type=RealtimeLogConfigEndpoint.class, parameters={})
+    @Export(name="endpoint", refs={RealtimeLogConfigEndpoint.class}, tree="[0]")
     private Output<RealtimeLogConfigEndpoint> endpoint;
 
     /**
@@ -149,7 +149,7 @@ public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
      * The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
      * 
      */
-    @Export(name="fields", type=List.class, parameters={String.class})
+    @Export(name="fields", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> fields;
 
     /**
@@ -163,7 +163,7 @@ public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
      * The unique name to identify this real-time log configuration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -177,7 +177,7 @@ public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
      * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
      * 
      */
-    @Export(name="samplingRate", type=Integer.class, parameters={})
+    @Export(name="samplingRate", refs={Integer.class}, tree="[0]")
     private Output<Integer> samplingRate;
 
     /**

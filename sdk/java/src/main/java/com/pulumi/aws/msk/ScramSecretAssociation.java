@@ -132,7 +132,7 @@ public class ScramSecretAssociation extends com.pulumi.resources.CustomResource 
      * Amazon Resource Name (ARN) of the MSK cluster.
      * 
      */
-    @Export(name="clusterArn", type=String.class, parameters={})
+    @Export(name="clusterArn", refs={String.class}, tree="[0]")
     private Output<String> clusterArn;
 
     /**
@@ -146,7 +146,7 @@ public class ScramSecretAssociation extends com.pulumi.resources.CustomResource 
      * List of AWS Secrets Manager secret ARNs.
      * 
      */
-    @Export(name="secretArnLists", type=List.class, parameters={String.class})
+    @Export(name="secretArnLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> secretArnLists;
 
     /**

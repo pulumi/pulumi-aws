@@ -100,7 +100,7 @@ public class VpcAssociationAuthorization extends com.pulumi.resources.CustomReso
      * The VPC to authorize for association with the private hosted zone.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
@@ -114,7 +114,7 @@ public class VpcAssociationAuthorization extends com.pulumi.resources.CustomReso
      * The VPC&#39;s region. Defaults to the region of the AWS provider.
      * 
      */
-    @Export(name="vpcRegion", type=String.class, parameters={})
+    @Export(name="vpcRegion", refs={String.class}, tree="[0]")
     private Output<String> vpcRegion;
 
     /**
@@ -128,7 +128,7 @@ public class VpcAssociationAuthorization extends com.pulumi.resources.CustomReso
      * The ID of the private hosted zone that you want to authorize associating a VPC with.
      * 
      */
-    @Export(name="zoneId", type=String.class, parameters={})
+    @Export(name="zoneId", refs={String.class}, tree="[0]")
     private Output<String> zoneId;
 
     /**

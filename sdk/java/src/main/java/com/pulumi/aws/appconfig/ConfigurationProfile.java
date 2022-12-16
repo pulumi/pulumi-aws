@@ -73,7 +73,7 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
      * Application ID. Must be between 4 and 7 characters in length.
      * 
      */
-    @Export(name="applicationId", type=String.class, parameters={})
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
@@ -87,7 +87,7 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
      * ARN of the AppConfig Configuration Profile.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -101,7 +101,7 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
      * The configuration profile ID.
      * 
      */
-    @Export(name="configurationProfileId", type=String.class, parameters={})
+    @Export(name="configurationProfileId", refs={String.class}, tree="[0]")
     private Output<String> configurationProfileId;
 
     /**
@@ -115,7 +115,7 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
      * Description of the configuration profile. Can be at most 1024 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -129,7 +129,7 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
      * URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
      * 
      */
-    @Export(name="locationUri", type=String.class, parameters={})
+    @Export(name="locationUri", refs={String.class}, tree="[0]")
     private Output<String> locationUri;
 
     /**
@@ -143,7 +143,7 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
      * Name for the configuration profile. Must be between 1 and 64 characters in length.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -157,7 +157,7 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
      * ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
      * 
      */
-    @Export(name="retrievalRoleArn", type=String.class, parameters={})
+    @Export(name="retrievalRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> retrievalRoleArn;
 
     /**
@@ -171,7 +171,7 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -185,7 +185,7 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -199,7 +199,7 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
      * Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -213,7 +213,7 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
      * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      * 
      */
-    @Export(name="validators", type=List.class, parameters={ConfigurationProfileValidator.class})
+    @Export(name="validators", refs={List.class,ConfigurationProfileValidator.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ConfigurationProfileValidator>> validators;
 
     /**

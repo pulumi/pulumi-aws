@@ -100,7 +100,7 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      * The unique ID of the target network association.
      * 
      */
-    @Export(name="associationId", type=String.class, parameters={})
+    @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
     /**
@@ -114,7 +114,7 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the Client VPN endpoint.
      * 
      */
-    @Export(name="clientVpnEndpointId", type=String.class, parameters={})
+    @Export(name="clientVpnEndpointId", refs={String.class}, tree="[0]")
     private Output<String> clientVpnEndpointId;
 
     /**
@@ -132,7 +132,7 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead. */
-    @Export(name="securityGroups", type=List.class, parameters={String.class})
+    @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroups;
 
     /**
@@ -150,7 +150,7 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This attribute has been deprecated. */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -164,7 +164,7 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the subnet to associate with the Client VPN endpoint.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
@@ -178,7 +178,7 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the VPC in which the target subnet is located.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

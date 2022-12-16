@@ -26,7 +26,7 @@ public class CertificateAuthorityCertificate extends com.pulumi.resources.Custom
      * PEM-encoded certificate for the Certificate Authority.
      * 
      */
-    @Export(name="certificate", type=String.class, parameters={})
+    @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     /**
@@ -40,7 +40,7 @@ public class CertificateAuthorityCertificate extends com.pulumi.resources.Custom
      * ARN of the Certificate Authority.
      * 
      */
-    @Export(name="certificateAuthorityArn", type=String.class, parameters={})
+    @Export(name="certificateAuthorityArn", refs={String.class}, tree="[0]")
     private Output<String> certificateAuthorityArn;
 
     /**
@@ -54,7 +54,7 @@ public class CertificateAuthorityCertificate extends com.pulumi.resources.Custom
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      * 
      */
-    @Export(name="certificateChain", type=String.class, parameters={})
+    @Export(name="certificateChain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateChain;
 
     /**

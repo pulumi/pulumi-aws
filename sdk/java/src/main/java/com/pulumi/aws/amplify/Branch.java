@@ -176,7 +176,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Unique ID for an Amplify app.
      * 
      */
-    @Export(name="appId", type=String.class, parameters={})
+    @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
@@ -190,7 +190,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * ARN for the branch.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -204,7 +204,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * A list of custom resources that are linked to this branch.
      * 
      */
-    @Export(name="associatedResources", type=List.class, parameters={String.class})
+    @Export(name="associatedResources", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> associatedResources;
 
     /**
@@ -218,7 +218,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * ARN for a backend environment that is part of an Amplify app.
      * 
      */
-    @Export(name="backendEnvironmentArn", type=String.class, parameters={})
+    @Export(name="backendEnvironmentArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backendEnvironmentArn;
 
     /**
@@ -232,7 +232,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Basic authorization credentials for the branch.
      * 
      */
-    @Export(name="basicAuthCredentials", type=String.class, parameters={})
+    @Export(name="basicAuthCredentials", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> basicAuthCredentials;
 
     /**
@@ -246,7 +246,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Name for the branch.
      * 
      */
-    @Export(name="branchName", type=String.class, parameters={})
+    @Export(name="branchName", refs={String.class}, tree="[0]")
     private Output<String> branchName;
 
     /**
@@ -260,7 +260,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Custom domains for the branch.
      * 
      */
-    @Export(name="customDomains", type=List.class, parameters={String.class})
+    @Export(name="customDomains", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> customDomains;
 
     /**
@@ -274,7 +274,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Description for the branch.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -288,7 +288,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Destination branch if the branch is a pull request branch.
      * 
      */
-    @Export(name="destinationBranch", type=String.class, parameters={})
+    @Export(name="destinationBranch", refs={String.class}, tree="[0]")
     private Output<String> destinationBranch;
 
     /**
@@ -302,7 +302,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Display name for a branch. This is used as the default domain prefix.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -316,7 +316,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Enables auto building for the branch.
      * 
      */
-    @Export(name="enableAutoBuild", type=Boolean.class, parameters={})
+    @Export(name="enableAutoBuild", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableAutoBuild;
 
     /**
@@ -330,7 +330,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Enables basic authorization for the branch.
      * 
      */
-    @Export(name="enableBasicAuth", type=Boolean.class, parameters={})
+    @Export(name="enableBasicAuth", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableBasicAuth;
 
     /**
@@ -344,7 +344,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Enables notifications for the branch.
      * 
      */
-    @Export(name="enableNotification", type=Boolean.class, parameters={})
+    @Export(name="enableNotification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableNotification;
 
     /**
@@ -358,7 +358,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Enables performance mode for the branch.
      * 
      */
-    @Export(name="enablePerformanceMode", type=Boolean.class, parameters={})
+    @Export(name="enablePerformanceMode", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePerformanceMode;
 
     /**
@@ -372,7 +372,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Enables pull request previews for this branch.
      * 
      */
-    @Export(name="enablePullRequestPreview", type=Boolean.class, parameters={})
+    @Export(name="enablePullRequestPreview", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePullRequestPreview;
 
     /**
@@ -386,7 +386,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Environment variables for the branch.
      * 
      */
-    @Export(name="environmentVariables", type=Map.class, parameters={String.class, String.class})
+    @Export(name="environmentVariables", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> environmentVariables;
 
     /**
@@ -400,7 +400,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Framework for the branch.
      * 
      */
-    @Export(name="framework", type=String.class, parameters={})
+    @Export(name="framework", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> framework;
 
     /**
@@ -414,7 +414,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Amplify environment name for the pull request.
      * 
      */
-    @Export(name="pullRequestEnvironmentName", type=String.class, parameters={})
+    @Export(name="pullRequestEnvironmentName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pullRequestEnvironmentName;
 
     /**
@@ -428,7 +428,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Source branch if the branch is a pull request branch.
      * 
      */
-    @Export(name="sourceBranch", type=String.class, parameters={})
+    @Export(name="sourceBranch", refs={String.class}, tree="[0]")
     private Output<String> sourceBranch;
 
     /**
@@ -442,7 +442,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
      * 
      */
-    @Export(name="stage", type=String.class, parameters={})
+    @Export(name="stage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stage;
 
     /**
@@ -456,7 +456,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -470,7 +470,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -484,7 +484,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
      * Content Time To Live (TTL) for the website in seconds.
      * 
      */
-    @Export(name="ttl", type=String.class, parameters={})
+    @Export(name="ttl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ttl;
 
     /**

@@ -173,7 +173,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the container service.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -187,7 +187,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * The Availability Zone. Follows the format us-east-2a (case-sensitive).
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
@@ -197,7 +197,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     public Output<String> createdAt() {
@@ -207,7 +207,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * A Boolean value indicating whether the container service is disabled. Defaults to `false`.
      * 
      */
-    @Export(name="isDisabled", type=Boolean.class, parameters={})
+    @Export(name="isDisabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isDisabled;
 
     /**
@@ -222,7 +222,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * unique within each AWS Region in your Lightsail account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -239,7 +239,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
      * 
      */
-    @Export(name="power", type=String.class, parameters={})
+    @Export(name="power", refs={String.class}, tree="[0]")
     private Output<String> power;
 
     /**
@@ -258,7 +258,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      *   service permission to access resources in your standard AWS account.
      * 
      */
-    @Export(name="powerId", type=String.class, parameters={})
+    @Export(name="powerId", refs={String.class}, tree="[0]")
     private Output<String> powerId;
 
     /**
@@ -271,7 +271,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
     public Output<String> powerId() {
         return this.powerId;
     }
-    @Export(name="principalArn", type=String.class, parameters={})
+    @Export(name="principalArn", refs={String.class}, tree="[0]")
     private Output<String> principalArn;
 
     public Output<String> principalArn() {
@@ -282,7 +282,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * by other resources within the default virtual private cloud (VPC) of your Lightsail account.
      * 
      */
-    @Export(name="privateDomainName", type=String.class, parameters={})
+    @Export(name="privateDomainName", refs={String.class}, tree="[0]")
     private Output<String> privateDomainName;
 
     /**
@@ -297,7 +297,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
      * 
      */
-    @Export(name="privateRegistryAccess", type=ContainerServicePrivateRegistryAccess.class, parameters={})
+    @Export(name="privateRegistryAccess", refs={ContainerServicePrivateRegistryAccess.class}, tree="[0]")
     private Output<ContainerServicePrivateRegistryAccess> privateRegistryAccess;
 
     /**
@@ -315,7 +315,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * Defined below.
      * 
      */
-    @Export(name="publicDomainNames", type=ContainerServicePublicDomainNames.class, parameters={})
+    @Export(name="publicDomainNames", refs={ContainerServicePublicDomainNames.class}, tree="[0]")
     private Output</* @Nullable */ ContainerServicePublicDomainNames> publicDomainNames;
 
     /**
@@ -333,7 +333,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * The Lightsail resource type of the container service (i.e., ContainerService).
      * 
      */
-    @Export(name="resourceType", type=String.class, parameters={})
+    @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
@@ -348,7 +348,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * nodes of the container service.
      * 
      */
-    @Export(name="scale", type=Integer.class, parameters={})
+    @Export(name="scale", refs={Integer.class}, tree="[0]")
     private Output<Integer> scale;
 
     /**
@@ -363,7 +363,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * The current state of the container service.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -380,7 +380,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -398,7 +398,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -414,7 +414,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
      * currentDeployment, this URL returns a 404 response.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

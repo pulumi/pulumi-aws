@@ -77,7 +77,7 @@ public class SharedDirectoryAccepter extends com.pulumi.resources.CustomResource
      * Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
      * 
      */
-    @Export(name="method", type=String.class, parameters={})
+    @Export(name="method", refs={String.class}, tree="[0]")
     private Output<String> method;
 
     /**
@@ -91,7 +91,7 @@ public class SharedDirectoryAccepter extends com.pulumi.resources.CustomResource
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      * 
      */
-    @Export(name="notes", type=String.class, parameters={})
+    @Export(name="notes", refs={String.class}, tree="[0]")
     private Output<String> notes;
 
     /**
@@ -105,7 +105,7 @@ public class SharedDirectoryAccepter extends com.pulumi.resources.CustomResource
      * Account identifier of the directory owner.
      * 
      */
-    @Export(name="ownerAccountId", type=String.class, parameters={})
+    @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
@@ -119,7 +119,7 @@ public class SharedDirectoryAccepter extends com.pulumi.resources.CustomResource
      * Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
      * 
      */
-    @Export(name="ownerDirectoryId", type=String.class, parameters={})
+    @Export(name="ownerDirectoryId", refs={String.class}, tree="[0]")
     private Output<String> ownerDirectoryId;
 
     /**
@@ -133,7 +133,7 @@ public class SharedDirectoryAccepter extends com.pulumi.resources.CustomResource
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      * 
      */
-    @Export(name="sharedDirectoryId", type=String.class, parameters={})
+    @Export(name="sharedDirectoryId", refs={String.class}, tree="[0]")
     private Output<String> sharedDirectoryId;
 
     /**

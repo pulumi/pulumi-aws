@@ -83,7 +83,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Routing Profile.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -97,7 +97,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * Specifies the default outbound queue for the Routing Profile.
      * 
      */
-    @Export(name="defaultOutboundQueueId", type=String.class, parameters={})
+    @Export(name="defaultOutboundQueueId", refs={String.class}, tree="[0]")
     private Output<String> defaultOutboundQueueId;
 
     /**
@@ -111,7 +111,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * Specifies the description of the Routing Profile.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -125,7 +125,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
@@ -139,7 +139,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
      * 
      */
-    @Export(name="mediaConcurrencies", type=List.class, parameters={RoutingProfileMediaConcurrency.class})
+    @Export(name="mediaConcurrencies", refs={List.class,RoutingProfileMediaConcurrency.class}, tree="[0,1]")
     private Output<List<RoutingProfileMediaConcurrency>> mediaConcurrencies;
 
     /**
@@ -153,7 +153,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Routing Profile.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -167,7 +167,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
      * 
      */
-    @Export(name="queueConfigs", type=List.class, parameters={RoutingProfileQueueConfig.class})
+    @Export(name="queueConfigs", refs={List.class,RoutingProfileQueueConfig.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RoutingProfileQueueConfig>> queueConfigs;
 
     /**
@@ -177,7 +177,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<RoutingProfileQueueConfig>>> queueConfigs() {
         return Codegen.optional(this.queueConfigs);
     }
-    @Export(name="queueConfigsAssociateds", type=List.class, parameters={RoutingProfileQueueConfigsAssociated.class})
+    @Export(name="queueConfigsAssociateds", refs={List.class,RoutingProfileQueueConfigsAssociated.class}, tree="[0,1]")
     private Output<List<RoutingProfileQueueConfigsAssociated>> queueConfigsAssociateds;
 
     public Output<List<RoutingProfileQueueConfigsAssociated>> queueConfigsAssociateds() {
@@ -187,7 +187,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * The identifier for the Routing Profile.
      * 
      */
-    @Export(name="routingProfileId", type=String.class, parameters={})
+    @Export(name="routingProfileId", refs={String.class}, tree="[0]")
     private Output<String> routingProfileId;
 
     /**
@@ -202,7 +202,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -217,7 +217,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

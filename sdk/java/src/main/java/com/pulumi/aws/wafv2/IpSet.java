@@ -73,7 +73,7 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
      * 
      */
-    @Export(name="addresses", type=List.class, parameters={String.class})
+    @Export(name="addresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> addresses;
 
     /**
@@ -87,7 +87,7 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the IP set.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -101,7 +101,7 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * A friendly description of the IP set.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -115,7 +115,7 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
      * 
      */
-    @Export(name="ipAddressVersion", type=String.class, parameters={})
+    @Export(name="ipAddressVersion", refs={String.class}, tree="[0]")
     private Output<String> ipAddressVersion;
 
     /**
@@ -125,7 +125,7 @@ public class IpSet extends com.pulumi.resources.CustomResource {
     public Output<String> ipAddressVersion() {
         return this.ipAddressVersion;
     }
-    @Export(name="lockToken", type=String.class, parameters={})
+    @Export(name="lockToken", refs={String.class}, tree="[0]")
     private Output<String> lockToken;
 
     public Output<String> lockToken() {
@@ -135,7 +135,7 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * A friendly name of the IP set.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -149,7 +149,7 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
      * 
      */
-    @Export(name="scope", type=String.class, parameters={})
+    @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
     /**
@@ -163,7 +163,7 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -177,7 +177,7 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

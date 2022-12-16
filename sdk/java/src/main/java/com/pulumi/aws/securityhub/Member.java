@@ -71,7 +71,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The ID of the member AWS account.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -85,7 +85,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The email of the member AWS account.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -99,7 +99,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
      * 
      */
-    @Export(name="invite", type=Boolean.class, parameters={})
+    @Export(name="invite", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> invite;
 
     /**
@@ -113,7 +113,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The ID of the master Security Hub AWS account.
      * 
      */
-    @Export(name="masterId", type=String.class, parameters={})
+    @Export(name="masterId", refs={String.class}, tree="[0]")
     private Output<String> masterId;
 
     /**
@@ -127,7 +127,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The status of the member account relationship.
      * 
      */
-    @Export(name="memberStatus", type=String.class, parameters={})
+    @Export(name="memberStatus", refs={String.class}, tree="[0]")
     private Output<String> memberStatus;
 
     /**

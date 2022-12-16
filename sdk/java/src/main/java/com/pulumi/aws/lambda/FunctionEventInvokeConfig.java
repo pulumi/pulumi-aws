@@ -217,7 +217,7 @@ public class FunctionEventInvokeConfig extends com.pulumi.resources.CustomResour
      * Configuration block with destination configuration. See below for details.
      * 
      */
-    @Export(name="destinationConfig", type=FunctionEventInvokeConfigDestinationConfig.class, parameters={})
+    @Export(name="destinationConfig", refs={FunctionEventInvokeConfigDestinationConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionEventInvokeConfigDestinationConfig> destinationConfig;
 
     /**
@@ -231,7 +231,7 @@ public class FunctionEventInvokeConfig extends com.pulumi.resources.CustomResour
      * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
      * 
      */
-    @Export(name="functionName", type=String.class, parameters={})
+    @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
     /**
@@ -245,7 +245,7 @@ public class FunctionEventInvokeConfig extends com.pulumi.resources.CustomResour
      * Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
      * 
      */
-    @Export(name="maximumEventAgeInSeconds", type=Integer.class, parameters={})
+    @Export(name="maximumEventAgeInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maximumEventAgeInSeconds;
 
     /**
@@ -259,7 +259,7 @@ public class FunctionEventInvokeConfig extends com.pulumi.resources.CustomResour
      * Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
      * 
      */
-    @Export(name="maximumRetryAttempts", type=Integer.class, parameters={})
+    @Export(name="maximumRetryAttempts", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maximumRetryAttempts;
 
     /**
@@ -273,7 +273,7 @@ public class FunctionEventInvokeConfig extends com.pulumi.resources.CustomResour
      * Lambda Function published version, `$LATEST`, or Lambda Alias name.
      * 
      */
-    @Export(name="qualifier", type=String.class, parameters={})
+    @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> qualifier;
 
     /**

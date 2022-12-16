@@ -87,7 +87,7 @@ public class VoiceConnectorGroup extends com.pulumi.resources.CustomResource {
      * The Amazon Chime Voice Connectors to route inbound calls to.
      * 
      */
-    @Export(name="connectors", type=List.class, parameters={VoiceConnectorGroupConnector.class})
+    @Export(name="connectors", refs={List.class,VoiceConnectorGroupConnector.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VoiceConnectorGroupConnector>> connectors;
 
     /**
@@ -101,7 +101,7 @@ public class VoiceConnectorGroup extends com.pulumi.resources.CustomResource {
      * The name of the Amazon Chime Voice Connector group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

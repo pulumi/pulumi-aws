@@ -74,7 +74,7 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * The ID of the approval rule template
      * 
      */
-    @Export(name="approvalRuleTemplateId", type=String.class, parameters={})
+    @Export(name="approvalRuleTemplateId", refs={String.class}, tree="[0]")
     private Output<String> approvalRuleTemplateId;
 
     /**
@@ -88,7 +88,7 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * The content of the approval rule template. Maximum of 3000 characters.
      * 
      */
-    @Export(name="content", type=String.class, parameters={})
+    @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
@@ -102,7 +102,7 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    @Export(name="creationDate", type=String.class, parameters={})
+    @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
     /**
@@ -116,7 +116,7 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * The description of the approval rule template. Maximum of 1000 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -130,7 +130,7 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    @Export(name="lastModifiedDate", type=String.class, parameters={})
+    @Export(name="lastModifiedDate", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedDate;
 
     /**
@@ -144,7 +144,7 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
      * 
      */
-    @Export(name="lastModifiedUser", type=String.class, parameters={})
+    @Export(name="lastModifiedUser", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedUser;
 
     /**
@@ -158,7 +158,7 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * The name for the approval rule template. Maximum of 100 characters.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -172,7 +172,7 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
      * The SHA-256 hash signature for the content of the approval rule template.
      * 
      */
-    @Export(name="ruleContentSha256", type=String.class, parameters={})
+    @Export(name="ruleContentSha256", refs={String.class}, tree="[0]")
     private Output<String> ruleContentSha256;
 
     /**

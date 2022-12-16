@@ -106,7 +106,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * The files and folders on this share will only be visible to users with read access. Default value is `false`.
      * 
      */
-    @Export(name="accessBasedEnumeration", type=Boolean.class, parameters={})
+    @Export(name="accessBasedEnumeration", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> accessBasedEnumeration;
 
     /**
@@ -120,7 +120,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      * 
      */
-    @Export(name="adminUserLists", type=List.class, parameters={String.class})
+    @Export(name="adminUserLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> adminUserLists;
 
     /**
@@ -134,7 +134,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the SMB File Share.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -148,7 +148,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
      * 
      */
-    @Export(name="auditDestinationArn", type=String.class, parameters={})
+    @Export(name="auditDestinationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> auditDestinationArn;
 
     /**
@@ -162,7 +162,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      * 
      */
-    @Export(name="authentication", type=String.class, parameters={})
+    @Export(name="authentication", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authentication;
 
     /**
@@ -176,7 +176,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
      * 
      */
-    @Export(name="bucketRegion", type=String.class, parameters={})
+    @Export(name="bucketRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bucketRegion;
 
     /**
@@ -190,7 +190,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * Refresh cache information. see Cache Attributes for more details.
      * 
      */
-    @Export(name="cacheAttributes", type=SmbFileShareCacheAttributes.class, parameters={})
+    @Export(name="cacheAttributes", refs={SmbFileShareCacheAttributes.class}, tree="[0]")
     private Output</* @Nullable */ SmbFileShareCacheAttributes> cacheAttributes;
 
     /**
@@ -204,7 +204,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
      * 
      */
-    @Export(name="caseSensitivity", type=String.class, parameters={})
+    @Export(name="caseSensitivity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> caseSensitivity;
 
     /**
@@ -218,7 +218,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      * 
      */
-    @Export(name="defaultStorageClass", type=String.class, parameters={})
+    @Export(name="defaultStorageClass", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultStorageClass;
 
     /**
@@ -232,7 +232,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
      * 
      */
-    @Export(name="fileShareName", type=String.class, parameters={})
+    @Export(name="fileShareName", refs={String.class}, tree="[0]")
     private Output<String> fileShareName;
 
     /**
@@ -246,7 +246,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * ID of the SMB File Share.
      * 
      */
-    @Export(name="fileshareId", type=String.class, parameters={})
+    @Export(name="fileshareId", refs={String.class}, tree="[0]")
     private Output<String> fileshareId;
 
     /**
@@ -260,7 +260,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the file gateway.
      * 
      */
-    @Export(name="gatewayArn", type=String.class, parameters={})
+    @Export(name="gatewayArn", refs={String.class}, tree="[0]")
     private Output<String> gatewayArn;
 
     /**
@@ -274,7 +274,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
      * 
      */
-    @Export(name="guessMimeTypeEnabled", type=Boolean.class, parameters={})
+    @Export(name="guessMimeTypeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> guessMimeTypeEnabled;
 
     /**
@@ -288,7 +288,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      * 
      */
-    @Export(name="invalidUserLists", type=List.class, parameters={String.class})
+    @Export(name="invalidUserLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> invalidUserLists;
 
     /**
@@ -302,7 +302,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
      * 
      */
-    @Export(name="kmsEncrypted", type=Boolean.class, parameters={})
+    @Export(name="kmsEncrypted", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> kmsEncrypted;
 
     /**
@@ -316,7 +316,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
      * 
      */
-    @Export(name="kmsKeyArn", type=String.class, parameters={})
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
@@ -330,7 +330,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * The ARN of the backed storage used for storing file data.
      * 
      */
-    @Export(name="locationArn", type=String.class, parameters={})
+    @Export(name="locationArn", refs={String.class}, tree="[0]")
     private Output<String> locationArn;
 
     /**
@@ -344,7 +344,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
      * 
      */
-    @Export(name="notificationPolicy", type=String.class, parameters={})
+    @Export(name="notificationPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationPolicy;
 
     /**
@@ -358,7 +358,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * Access Control List permission for S3 objects. Defaults to `private`.
      * 
      */
-    @Export(name="objectAcl", type=String.class, parameters={})
+    @Export(name="objectAcl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> objectAcl;
 
     /**
@@ -372,7 +372,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
      * 
      */
-    @Export(name="oplocksEnabled", type=Boolean.class, parameters={})
+    @Export(name="oplocksEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> oplocksEnabled;
 
     /**
@@ -386,7 +386,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * File share path used by the NFS client to identify the mount point.
      * 
      */
-    @Export(name="path", type=String.class, parameters={})
+    @Export(name="path", refs={String.class}, tree="[0]")
     private Output<String> path;
 
     /**
@@ -400,7 +400,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      * 
      */
-    @Export(name="readOnly", type=Boolean.class, parameters={})
+    @Export(name="readOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> readOnly;
 
     /**
@@ -414,7 +414,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      * 
      */
-    @Export(name="requesterPays", type=Boolean.class, parameters={})
+    @Export(name="requesterPays", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requesterPays;
 
     /**
@@ -428,7 +428,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -442,7 +442,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
      * 
      */
-    @Export(name="smbAclEnabled", type=Boolean.class, parameters={})
+    @Export(name="smbAclEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> smbAclEnabled;
 
     /**
@@ -456,7 +456,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -470,7 +470,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -484,7 +484,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;@&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
      * 
      */
-    @Export(name="validUserLists", type=List.class, parameters={String.class})
+    @Export(name="validUserLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> validUserLists;
 
     /**
@@ -498,7 +498,7 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
      * The DNS name of the VPC endpoint for S3 private link.
      * 
      */
-    @Export(name="vpcEndpointDnsName", type=String.class, parameters={})
+    @Export(name="vpcEndpointDnsName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcEndpointDnsName;
 
     /**

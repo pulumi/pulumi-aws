@@ -209,7 +209,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the compute environment.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -223,7 +223,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
-    @Export(name="computeEnvironmentName", type=String.class, parameters={})
+    @Export(name="computeEnvironmentName", refs={String.class}, tree="[0]")
     private Output<String> computeEnvironmentName;
 
     /**
@@ -237,7 +237,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
      * 
      */
-    @Export(name="computeEnvironmentNamePrefix", type=String.class, parameters={})
+    @Export(name="computeEnvironmentNamePrefix", refs={String.class}, tree="[0]")
     private Output<String> computeEnvironmentNamePrefix;
 
     /**
@@ -251,7 +251,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      * 
      */
-    @Export(name="computeResources", type=ComputeEnvironmentComputeResources.class, parameters={})
+    @Export(name="computeResources", refs={ComputeEnvironmentComputeResources.class}, tree="[0]")
     private Output</* @Nullable */ ComputeEnvironmentComputeResources> computeResources;
 
     /**
@@ -265,7 +265,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
-    @Export(name="ecsClusterArn", type=String.class, parameters={})
+    @Export(name="ecsClusterArn", refs={String.class}, tree="[0]")
     private Output<String> ecsClusterArn;
 
     /**
@@ -279,7 +279,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * Details for the Amazon EKS cluster that supports the compute environment. See details below.
      * 
      */
-    @Export(name="eksConfiguration", type=ComputeEnvironmentEksConfiguration.class, parameters={})
+    @Export(name="eksConfiguration", refs={ComputeEnvironmentEksConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ComputeEnvironmentEksConfiguration> eksConfiguration;
 
     /**
@@ -293,7 +293,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
-    @Export(name="serviceRole", type=String.class, parameters={})
+    @Export(name="serviceRole", refs={String.class}, tree="[0]")
     private Output<String> serviceRole;
 
     /**
@@ -307,7 +307,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
@@ -321,7 +321,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * The current status of the compute environment (for example, CREATING or VALID).
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -335,7 +335,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * A short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
-    @Export(name="statusReason", type=String.class, parameters={})
+    @Export(name="statusReason", refs={String.class}, tree="[0]")
     private Output<String> statusReason;
 
     /**
@@ -349,7 +349,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -363,7 +363,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -377,7 +377,7 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

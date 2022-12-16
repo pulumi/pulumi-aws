@@ -103,7 +103,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * The ARN (Amazon Resource Name) for the resolver rule.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -117,7 +117,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -131,7 +131,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -145,7 +145,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -160,7 +160,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * This argument should only be specified for `FORWARD` type rules.
      * 
      */
-    @Export(name="resolverEndpointId", type=String.class, parameters={})
+    @Export(name="resolverEndpointId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resolverEndpointId;
 
     /**
@@ -175,7 +175,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      * 
      */
-    @Export(name="ruleType", type=String.class, parameters={})
+    @Export(name="ruleType", refs={String.class}, tree="[0]")
     private Output<String> ruleType;
 
     /**
@@ -190,7 +190,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      * 
      */
-    @Export(name="shareStatus", type=String.class, parameters={})
+    @Export(name="shareStatus", refs={String.class}, tree="[0]")
     private Output<String> shareStatus;
 
     /**
@@ -205,7 +205,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -219,7 +219,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -234,7 +234,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
      * This argument should only be specified for `FORWARD` type rules.
      * 
      */
-    @Export(name="targetIps", type=List.class, parameters={ResolverRuleTargetIp.class})
+    @Export(name="targetIps", refs={List.class,ResolverRuleTargetIp.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResolverRuleTargetIp>> targetIps;
 
     /**

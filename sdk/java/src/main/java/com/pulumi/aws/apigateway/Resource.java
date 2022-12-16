@@ -69,7 +69,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * ID of the parent API resource
      * 
      */
-    @Export(name="parentId", type=String.class, parameters={})
+    @Export(name="parentId", refs={String.class}, tree="[0]")
     private Output<String> parentId;
 
     /**
@@ -83,7 +83,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * Complete path for this API resource, including all parent paths.
      * 
      */
-    @Export(name="path", type=String.class, parameters={})
+    @Export(name="path", refs={String.class}, tree="[0]")
     private Output<String> path;
 
     /**
@@ -97,7 +97,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * Last path segment of this API resource.
      * 
      */
-    @Export(name="pathPart", type=String.class, parameters={})
+    @Export(name="pathPart", refs={String.class}, tree="[0]")
     private Output<String> pathPart;
 
     /**
@@ -111,7 +111,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * ID of the associated REST API
      * 
      */
-    @Export(name="restApi", type=String.class, parameters={})
+    @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
     /**

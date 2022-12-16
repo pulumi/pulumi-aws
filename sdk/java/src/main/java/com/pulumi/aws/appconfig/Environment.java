@@ -79,7 +79,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * AppConfig application ID. Must be between 4 and 7 characters in length.
      * 
      */
-    @Export(name="applicationId", type=String.class, parameters={})
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
@@ -93,7 +93,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * ARN of the AppConfig Environment.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -107,7 +107,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Description of the environment. Can be at most 1024 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -121,7 +121,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * AppConfig environment ID.
      * 
      */
-    @Export(name="environmentId", type=String.class, parameters={})
+    @Export(name="environmentId", refs={String.class}, tree="[0]")
     private Output<String> environmentId;
 
     /**
@@ -135,7 +135,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
      * 
      */
-    @Export(name="monitors", type=List.class, parameters={EnvironmentMonitor.class})
+    @Export(name="monitors", refs={List.class,EnvironmentMonitor.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EnvironmentMonitor>> monitors;
 
     /**
@@ -149,7 +149,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Name for the environment. Must be between 1 and 64 characters in length.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -164,7 +164,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * or `ROLLED_BACK`.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -179,7 +179,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -193,7 +193,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

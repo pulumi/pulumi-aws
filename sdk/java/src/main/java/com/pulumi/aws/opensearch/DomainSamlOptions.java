@@ -88,7 +88,7 @@ public class DomainSamlOptions extends com.pulumi.resources.CustomResource {
      * Name of the domain.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -102,7 +102,7 @@ public class DomainSamlOptions extends com.pulumi.resources.CustomResource {
      * SAML authentication options for an AWS OpenSearch Domain.
      * 
      */
-    @Export(name="samlOptions", type=DomainSamlOptionsSamlOptions.class, parameters={})
+    @Export(name="samlOptions", refs={DomainSamlOptionsSamlOptions.class}, tree="[0]")
     private Output</* @Nullable */ DomainSamlOptionsSamlOptions> samlOptions;
 
     /**

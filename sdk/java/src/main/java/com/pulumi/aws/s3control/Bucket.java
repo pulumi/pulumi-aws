@@ -67,7 +67,7 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the bucket.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -81,7 +81,7 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * Name of the bucket.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -95,7 +95,7 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    @Export(name="creationDate", type=String.class, parameters={})
+    @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
     /**
@@ -109,7 +109,7 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * Identifier of the Outpost to contain this bucket.
      * 
      */
-    @Export(name="outpostId", type=String.class, parameters={})
+    @Export(name="outpostId", refs={String.class}, tree="[0]")
     private Output<String> outpostId;
 
     /**
@@ -123,7 +123,7 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * Boolean whether Public Access Block is enabled.
      * 
      */
-    @Export(name="publicAccessBlockEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicAccessBlockEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> publicAccessBlockEnabled;
 
     /**
@@ -137,7 +137,7 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -151,7 +151,7 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

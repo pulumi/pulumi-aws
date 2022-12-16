@@ -71,7 +71,7 @@ public class DomainEntry extends com.pulumi.resources.CustomResource {
      * The name of the Lightsail domain in which to create the entry
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -85,7 +85,7 @@ public class DomainEntry extends com.pulumi.resources.CustomResource {
      * If the entry should be an alias Defaults to `false`
      * 
      */
-    @Export(name="isAlias", type=Boolean.class, parameters={})
+    @Export(name="isAlias", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isAlias;
 
     /**
@@ -99,7 +99,7 @@ public class DomainEntry extends com.pulumi.resources.CustomResource {
      * Name of the entry record
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -113,7 +113,7 @@ public class DomainEntry extends com.pulumi.resources.CustomResource {
      * Target of the domain entry
      * 
      */
-    @Export(name="target", type=String.class, parameters={})
+    @Export(name="target", refs={String.class}, tree="[0]")
     private Output<String> target;
 
     /**
@@ -127,7 +127,7 @@ public class DomainEntry extends com.pulumi.resources.CustomResource {
      * Type of record
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

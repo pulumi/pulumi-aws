@@ -128,7 +128,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
      * 
      */
-    @Export(name="createDate", type=String.class, parameters={})
+    @Export(name="createDate", refs={String.class}, tree="[0]")
     private Output<String> createDate;
 
     /**
@@ -142,7 +142,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
      * 
      */
-    @Export(name="encryptedSecret", type=String.class, parameters={})
+    @Export(name="encryptedSecret", refs={String.class}, tree="[0]")
     private Output<String> encryptedSecret;
 
     /**
@@ -156,7 +156,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
      * 
      */
-    @Export(name="encryptedSesSmtpPasswordV4", type=String.class, parameters={})
+    @Export(name="encryptedSesSmtpPasswordV4", refs={String.class}, tree="[0]")
     private Output<String> encryptedSesSmtpPasswordV4;
 
     /**
@@ -170,7 +170,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
      * 
      */
-    @Export(name="keyFingerprint", type=String.class, parameters={})
+    @Export(name="keyFingerprint", refs={String.class}, tree="[0]")
     private Output<String> keyFingerprint;
 
     /**
@@ -184,7 +184,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the &#34;raw&#34; version and not the &#34;armored&#34; one (e.g. avoid passing the `-a` option to `gpg --export`).
      * 
      */
-    @Export(name="pgpKey", type=String.class, parameters={})
+    @Export(name="pgpKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pgpKey;
 
     /**
@@ -198,7 +198,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
      * 
      */
-    @Export(name="secret", type=String.class, parameters={})
+    @Export(name="secret", refs={String.class}, tree="[0]")
     private Output<String> secret;
 
     /**
@@ -212,7 +212,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * Secret access key converted into an SES SMTP password by applying [AWS&#39;s documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
      * 
      */
-    @Export(name="sesSmtpPasswordV4", type=String.class, parameters={})
+    @Export(name="sesSmtpPasswordV4", refs={String.class}, tree="[0]")
     private Output<String> sesSmtpPasswordV4;
 
     /**
@@ -226,7 +226,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -240,7 +240,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
      * IAM user to associate with this access key.
      * 
      */
-    @Export(name="user", type=String.class, parameters={})
+    @Export(name="user", refs={String.class}, tree="[0]")
     private Output<String> user;
 
     /**

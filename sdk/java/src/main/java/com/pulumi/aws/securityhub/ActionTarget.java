@@ -68,7 +68,7 @@ public class ActionTarget extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Security Hub custom action target.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -82,7 +82,7 @@ public class ActionTarget extends com.pulumi.resources.CustomResource {
      * The name of the custom action target.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -96,7 +96,7 @@ public class ActionTarget extends com.pulumi.resources.CustomResource {
      * The ID for the custom action target.
      * 
      */
-    @Export(name="identifier", type=String.class, parameters={})
+    @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
     /**
@@ -110,7 +110,7 @@ public class ActionTarget extends com.pulumi.resources.CustomResource {
      * The description for the custom action target.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

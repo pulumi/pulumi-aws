@@ -122,7 +122,7 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
      * The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to &#39;all&#39;.
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> availabilityZone;
 
     /**
@@ -136,7 +136,7 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
      * The port on which targets receive traffic.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
     /**
@@ -150,7 +150,7 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
      * The ARN of the target group with which to register targets
      * 
      */
-    @Export(name="targetGroupArn", type=String.class, parameters={})
+    @Export(name="targetGroupArn", refs={String.class}, tree="[0]")
     private Output<String> targetGroupArn;
 
     /**
@@ -164,7 +164,7 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
      * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
      * 
      */
-    @Export(name="targetId", type=String.class, parameters={})
+    @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
     /**

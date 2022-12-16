@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:quicksight/groupMembership:GroupMembership")
 public class GroupMembership extends com.pulumi.resources.CustomResource {
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     public Output<String> arn() {
@@ -69,7 +69,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
-    @Export(name="awsAccountId", type=String.class, parameters={})
+    @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
     /**
@@ -83,7 +83,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * The name of the group in which the member will be added.
      * 
      */
-    @Export(name="groupName", type=String.class, parameters={})
+    @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
     /**
@@ -97,7 +97,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * The name of the member to add to the group.
      * 
      */
-    @Export(name="memberName", type=String.class, parameters={})
+    @Export(name="memberName", refs={String.class}, tree="[0]")
     private Output<String> memberName;
 
     /**
@@ -111,7 +111,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * The namespace. Defaults to `default`. Currently only `default` is supported.
      * 
      */
-    @Export(name="namespace", type=String.class, parameters={})
+    @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namespace;
 
     /**

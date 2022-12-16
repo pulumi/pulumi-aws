@@ -81,7 +81,7 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
      * Whether to automatically enable Security Hub for new accounts in the organization.
      * 
      */
-    @Export(name="autoEnable", type=Boolean.class, parameters={})
+    @Export(name="autoEnable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoEnable;
 
     /**

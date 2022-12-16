@@ -56,7 +56,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * Whether users can specify their own SSH public key through the My Settings page
      * 
      */
-    @Export(name="allowSelfManagement", type=Boolean.class, parameters={})
+    @Export(name="allowSelfManagement", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowSelfManagement;
 
     /**
@@ -70,7 +70,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * The users public key
      * 
      */
-    @Export(name="sshPublicKey", type=String.class, parameters={})
+    @Export(name="sshPublicKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sshPublicKey;
 
     /**
@@ -84,7 +84,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * The ssh username, with witch this user wants to log in
      * 
      */
-    @Export(name="sshUsername", type=String.class, parameters={})
+    @Export(name="sshUsername", refs={String.class}, tree="[0]")
     private Output<String> sshUsername;
 
     /**
@@ -98,7 +98,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * The user&#39;s IAM ARN
      * 
      */
-    @Export(name="userArn", type=String.class, parameters={})
+    @Export(name="userArn", refs={String.class}, tree="[0]")
     private Output<String> userArn;
 
     /**

@@ -80,7 +80,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * The ARN of the fleet
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -94,7 +94,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Reserved.
      * 
      */
-    @Export(name="context", type=String.class, parameters={})
+    @Export(name="context", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> context;
 
     /**
@@ -108,7 +108,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
      * 
      */
-    @Export(name="excessCapacityTerminationPolicy", type=String.class, parameters={})
+    @Export(name="excessCapacityTerminationPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excessCapacityTerminationPolicy;
 
     /**
@@ -122,7 +122,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      * 
      */
-    @Export(name="launchTemplateConfig", type=FleetLaunchTemplateConfig.class, parameters={})
+    @Export(name="launchTemplateConfig", refs={FleetLaunchTemplateConfig.class}, tree="[0]")
     private Output<FleetLaunchTemplateConfig> launchTemplateConfig;
 
     /**
@@ -136,7 +136,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Nested argument containing On-Demand configurations. Defined below.
      * 
      */
-    @Export(name="onDemandOptions", type=FleetOnDemandOptions.class, parameters={})
+    @Export(name="onDemandOptions", refs={FleetOnDemandOptions.class}, tree="[0]")
     private Output</* @Nullable */ FleetOnDemandOptions> onDemandOptions;
 
     /**
@@ -150,7 +150,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
      * 
      */
-    @Export(name="replaceUnhealthyInstances", type=Boolean.class, parameters={})
+    @Export(name="replaceUnhealthyInstances", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replaceUnhealthyInstances;
 
     /**
@@ -164,7 +164,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Nested argument containing Spot configurations. Defined below.
      * 
      */
-    @Export(name="spotOptions", type=FleetSpotOptions.class, parameters={})
+    @Export(name="spotOptions", refs={FleetSpotOptions.class}, tree="[0]")
     private Output</* @Nullable */ FleetSpotOptions> spotOptions;
 
     /**
@@ -178,7 +178,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -192,7 +192,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -206,7 +206,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Nested argument containing target capacity configurations. Defined below.
      * 
      */
-    @Export(name="targetCapacitySpecification", type=FleetTargetCapacitySpecification.class, parameters={})
+    @Export(name="targetCapacitySpecification", refs={FleetTargetCapacitySpecification.class}, tree="[0]")
     private Output<FleetTargetCapacitySpecification> targetCapacitySpecification;
 
     /**
@@ -220,7 +220,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
      * 
      */
-    @Export(name="terminateInstances", type=Boolean.class, parameters={})
+    @Export(name="terminateInstances", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> terminateInstances;
 
     /**
@@ -234,7 +234,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
      * 
      */
-    @Export(name="terminateInstancesWithExpiration", type=Boolean.class, parameters={})
+    @Export(name="terminateInstancesWithExpiration", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> terminateInstancesWithExpiration;
 
     /**
@@ -248,7 +248,7 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

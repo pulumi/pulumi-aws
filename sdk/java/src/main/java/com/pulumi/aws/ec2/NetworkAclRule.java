@@ -91,7 +91,7 @@ public class NetworkAclRule extends com.pulumi.resources.CustomResource {
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      * 
      */
-    @Export(name="cidrBlock", type=String.class, parameters={})
+    @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cidrBlock;
 
     /**
@@ -105,7 +105,7 @@ public class NetworkAclRule extends com.pulumi.resources.CustomResource {
      * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
      * 
      */
-    @Export(name="egress", type=Boolean.class, parameters={})
+    @Export(name="egress", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> egress;
 
     /**
@@ -119,7 +119,7 @@ public class NetworkAclRule extends com.pulumi.resources.CustomResource {
      * The from port to match.
      * 
      */
-    @Export(name="fromPort", type=Integer.class, parameters={})
+    @Export(name="fromPort", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> fromPort;
 
     /**
@@ -133,7 +133,7 @@ public class NetworkAclRule extends com.pulumi.resources.CustomResource {
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
      * 
      */
-    @Export(name="icmpCode", type=Integer.class, parameters={})
+    @Export(name="icmpCode", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> icmpCode;
 
     /**
@@ -147,7 +147,7 @@ public class NetworkAclRule extends com.pulumi.resources.CustomResource {
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
      * 
      */
-    @Export(name="icmpType", type=Integer.class, parameters={})
+    @Export(name="icmpType", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> icmpType;
 
     /**
@@ -161,7 +161,7 @@ public class NetworkAclRule extends com.pulumi.resources.CustomResource {
      * The IPv6 CIDR block to allow or deny.
      * 
      */
-    @Export(name="ipv6CidrBlock", type=String.class, parameters={})
+    @Export(name="ipv6CidrBlock", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipv6CidrBlock;
 
     /**
@@ -175,7 +175,7 @@ public class NetworkAclRule extends com.pulumi.resources.CustomResource {
      * The ID of the network ACL.
      * 
      */
-    @Export(name="networkAclId", type=String.class, parameters={})
+    @Export(name="networkAclId", refs={String.class}, tree="[0]")
     private Output<String> networkAclId;
 
     /**
@@ -189,7 +189,7 @@ public class NetworkAclRule extends com.pulumi.resources.CustomResource {
      * The protocol. A value of -1 means all protocols.
      * 
      */
-    @Export(name="protocol", type=String.class, parameters={})
+    @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
@@ -203,7 +203,7 @@ public class NetworkAclRule extends com.pulumi.resources.CustomResource {
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      * 
      */
-    @Export(name="ruleAction", type=String.class, parameters={})
+    @Export(name="ruleAction", refs={String.class}, tree="[0]")
     private Output<String> ruleAction;
 
     /**
@@ -217,7 +217,7 @@ public class NetworkAclRule extends com.pulumi.resources.CustomResource {
      * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
      * 
      */
-    @Export(name="ruleNumber", type=Integer.class, parameters={})
+    @Export(name="ruleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleNumber;
 
     /**
@@ -231,7 +231,7 @@ public class NetworkAclRule extends com.pulumi.resources.CustomResource {
      * The to port to match.
      * 
      */
-    @Export(name="toPort", type=Integer.class, parameters={})
+    @Export(name="toPort", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> toPort;
 
     /**

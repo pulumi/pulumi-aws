@@ -100,7 +100,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * See `access_endpoints` below.
      * 
      */
-    @Export(name="accessEndpoints", type=List.class, parameters={StackAccessEndpoint.class})
+    @Export(name="accessEndpoints", refs={List.class,StackAccessEndpoint.class}, tree="[0,1]")
     private Output<List<StackAccessEndpoint>> accessEndpoints;
 
     /**
@@ -116,7 +116,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * See `application_settings` below.
      * 
      */
-    @Export(name="applicationSettings", type=StackApplicationSettings.class, parameters={})
+    @Export(name="applicationSettings", refs={StackApplicationSettings.class}, tree="[0]")
     private Output<StackApplicationSettings> applicationSettings;
 
     /**
@@ -131,7 +131,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * ARN of the appstream stack.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -145,7 +145,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * Date and time, in UTC and extended RFC 3339 format, when the stack was created.
      * 
      */
-    @Export(name="createdTime", type=String.class, parameters={})
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
@@ -159,7 +159,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * Description for the AppStream stack.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -173,7 +173,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * Stack name to display.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -187,7 +187,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
      * 
      */
-    @Export(name="embedHostDomains", type=List.class, parameters={String.class})
+    @Export(name="embedHostDomains", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> embedHostDomains;
 
     /**
@@ -201,7 +201,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
      * 
      */
-    @Export(name="feedbackUrl", type=String.class, parameters={})
+    @Export(name="feedbackUrl", refs={String.class}, tree="[0]")
     private Output<String> feedbackUrl;
 
     /**
@@ -215,7 +215,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * Unique name for the AppStream stack.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -229,7 +229,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * URL that users are redirected to after their streaming session ends.
      * 
      */
-    @Export(name="redirectUrl", type=String.class, parameters={})
+    @Export(name="redirectUrl", refs={String.class}, tree="[0]")
     private Output<String> redirectUrl;
 
     /**
@@ -244,7 +244,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * See `storage_connectors` below.
      * 
      */
-    @Export(name="storageConnectors", type=List.class, parameters={StackStorageConnector.class})
+    @Export(name="storageConnectors", refs={List.class,StackStorageConnector.class}, tree="[0,1]")
     private Output<List<StackStorageConnector>> storageConnectors;
 
     /**
@@ -259,7 +259,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -269,7 +269,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -280,7 +280,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * See `user_settings` below.
      * 
      */
-    @Export(name="userSettings", type=List.class, parameters={StackUserSetting.class})
+    @Export(name="userSettings", refs={List.class,StackUserSetting.class}, tree="[0,1]")
     private Output<List<StackUserSetting>> userSettings;
 
     /**

@@ -101,7 +101,7 @@ public class LogDataProtectionPolicy extends com.pulumi.resources.CustomResource
      * The name of the log group under which the log stream is to be created.
      * 
      */
-    @Export(name="logGroupName", type=String.class, parameters={})
+    @Export(name="logGroupName", refs={String.class}, tree="[0]")
     private Output<String> logGroupName;
 
     /**
@@ -115,7 +115,7 @@ public class LogDataProtectionPolicy extends com.pulumi.resources.CustomResource
      * Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
      * 
      */
-    @Export(name="policyDocument", type=String.class, parameters={})
+    @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output<String> policyDocument;
 
     /**

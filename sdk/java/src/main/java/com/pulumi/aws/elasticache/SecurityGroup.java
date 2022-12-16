@@ -72,7 +72,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * description for the cache security group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -86,7 +86,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * Name for the cache security group. This value is stored as a lowercase string.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -101,7 +101,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * authorized for ingress to the cache security group
      * 
      */
-    @Export(name="securityGroupNames", type=List.class, parameters={String.class})
+    @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupNames;
 
     /**

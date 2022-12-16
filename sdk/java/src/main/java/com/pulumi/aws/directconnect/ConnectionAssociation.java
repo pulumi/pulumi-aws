@@ -68,7 +68,7 @@ public class ConnectionAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the connection.
      * 
      */
-    @Export(name="connectionId", type=String.class, parameters={})
+    @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
     /**
@@ -82,7 +82,7 @@ public class ConnectionAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the LAG with which to associate the connection.
      * 
      */
-    @Export(name="lagId", type=String.class, parameters={})
+    @Export(name="lagId", refs={String.class}, tree="[0]")
     private Output<String> lagId;
 
     /**

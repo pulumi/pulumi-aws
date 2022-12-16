@@ -83,7 +83,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * The ARN of the table.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -97,7 +97,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Specifies the read/write throughput capacity mode for the table.
      * 
      */
-    @Export(name="capacitySpecification", type=TableCapacitySpecification.class, parameters={})
+    @Export(name="capacitySpecification", refs={TableCapacitySpecification.class}, tree="[0]")
     private Output<TableCapacitySpecification> capacitySpecification;
 
     /**
@@ -111,7 +111,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * A description of the table.
      * 
      */
-    @Export(name="comment", type=TableComment.class, parameters={})
+    @Export(name="comment", refs={TableComment.class}, tree="[0]")
     private Output<TableComment> comment;
 
     /**
@@ -125,7 +125,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      * 
      */
-    @Export(name="defaultTimeToLive", type=Integer.class, parameters={})
+    @Export(name="defaultTimeToLive", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> defaultTimeToLive;
 
     /**
@@ -139,7 +139,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
      * 
      */
-    @Export(name="encryptionSpecification", type=TableEncryptionSpecification.class, parameters={})
+    @Export(name="encryptionSpecification", refs={TableEncryptionSpecification.class}, tree="[0]")
     private Output<TableEncryptionSpecification> encryptionSpecification;
 
     /**
@@ -153,7 +153,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * The name of the keyspace that the table is going to be created in.
      * 
      */
-    @Export(name="keyspaceName", type=String.class, parameters={})
+    @Export(name="keyspaceName", refs={String.class}, tree="[0]")
     private Output<String> keyspaceName;
 
     /**
@@ -167,7 +167,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
      * 
      */
-    @Export(name="pointInTimeRecovery", type=TablePointInTimeRecovery.class, parameters={})
+    @Export(name="pointInTimeRecovery", refs={TablePointInTimeRecovery.class}, tree="[0]")
     private Output<TablePointInTimeRecovery> pointInTimeRecovery;
 
     /**
@@ -181,7 +181,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Describes the schema of the table.
      * 
      */
-    @Export(name="schemaDefinition", type=TableSchemaDefinition.class, parameters={})
+    @Export(name="schemaDefinition", refs={TableSchemaDefinition.class}, tree="[0]")
     private Output<TableSchemaDefinition> schemaDefinition;
 
     /**
@@ -195,7 +195,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * The name of the table.
      * 
      */
-    @Export(name="tableName", type=String.class, parameters={})
+    @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     /**
@@ -209,7 +209,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -223,7 +223,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -237,7 +237,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
      * 
      */
-    @Export(name="ttl", type=TableTtl.class, parameters={})
+    @Export(name="ttl", refs={TableTtl.class}, tree="[0]")
     private Output</* @Nullable */ TableTtl> ttl;
 
     /**

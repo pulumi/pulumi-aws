@@ -100,7 +100,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * JSON-formatted IAM policy to attach to the specified private CA resource.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -114,7 +114,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * ARN of the private CA to associate with the policy.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**

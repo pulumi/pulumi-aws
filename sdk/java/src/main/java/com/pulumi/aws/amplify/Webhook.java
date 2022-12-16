@@ -74,7 +74,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * Unique ID for an Amplify app.
      * 
      */
-    @Export(name="appId", type=String.class, parameters={})
+    @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
@@ -88,7 +88,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * ARN for the webhook.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -102,7 +102,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * Name for a branch that is part of the Amplify app.
      * 
      */
-    @Export(name="branchName", type=String.class, parameters={})
+    @Export(name="branchName", refs={String.class}, tree="[0]")
     private Output<String> branchName;
 
     /**
@@ -116,7 +116,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * Description for a webhook.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -130,7 +130,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * URL of the webhook.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

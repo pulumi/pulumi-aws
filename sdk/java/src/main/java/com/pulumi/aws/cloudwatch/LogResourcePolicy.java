@@ -124,7 +124,7 @@ public class LogResourcePolicy extends com.pulumi.resources.CustomResource {
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      * 
      */
-    @Export(name="policyDocument", type=String.class, parameters={})
+    @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output<String> policyDocument;
 
     /**
@@ -138,7 +138,7 @@ public class LogResourcePolicy extends com.pulumi.resources.CustomResource {
      * Name of the resource policy.
      * 
      */
-    @Export(name="policyName", type=String.class, parameters={})
+    @Export(name="policyName", refs={String.class}, tree="[0]")
     private Output<String> policyName;
 
     /**

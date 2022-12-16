@@ -63,7 +63,7 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
      * 
      */
-    @Export(name="collectionArn", type=String.class, parameters={})
+    @Export(name="collectionArn", refs={String.class}, tree="[0]")
     private Output<String> collectionArn;
 
     /**
@@ -77,7 +77,7 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * The name of the geofence collection.
      * 
      */
-    @Export(name="collectionName", type=String.class, parameters={})
+    @Export(name="collectionName", refs={String.class}, tree="[0]")
     private Output<String> collectionName;
 
     /**
@@ -91,7 +91,7 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * The timestamp for when the geofence collection resource was created in ISO 8601 format.
      * 
      */
-    @Export(name="createTime", type=String.class, parameters={})
+    @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
@@ -105,7 +105,7 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * The optional description for the geofence collection.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -119,7 +119,7 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
@@ -133,7 +133,7 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -143,7 +143,7 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -153,7 +153,7 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
      * The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
      * 
      */
-    @Export(name="updateTime", type=String.class, parameters={})
+    @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
     /**

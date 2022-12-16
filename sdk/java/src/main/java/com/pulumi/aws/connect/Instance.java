@@ -134,7 +134,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the instance.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -148,7 +148,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Specifies whether auto resolve best voices is enabled. Defaults to `true`.
      * 
      */
-    @Export(name="autoResolveBestVoicesEnabled", type=Boolean.class, parameters={})
+    @Export(name="autoResolveBestVoicesEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoResolveBestVoicesEnabled;
 
     /**
@@ -162,7 +162,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Specifies whether contact flow logs are enabled. Defaults to `false`.
      * 
      */
-    @Export(name="contactFlowLogsEnabled", type=Boolean.class, parameters={})
+    @Export(name="contactFlowLogsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> contactFlowLogsEnabled;
 
     /**
@@ -176,7 +176,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Specifies whether contact lens is enabled. Defaults to `true`.
      * 
      */
-    @Export(name="contactLensEnabled", type=Boolean.class, parameters={})
+    @Export(name="contactLensEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> contactLensEnabled;
 
     /**
@@ -190,7 +190,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * When the instance was created.
      * 
      */
-    @Export(name="createdTime", type=String.class, parameters={})
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
@@ -204,7 +204,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
      * 
      */
-    @Export(name="directoryId", type=String.class, parameters={})
+    @Export(name="directoryId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> directoryId;
 
     /**
@@ -218,7 +218,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
      * 
      */
-    @Export(name="earlyMediaEnabled", type=Boolean.class, parameters={})
+    @Export(name="earlyMediaEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> earlyMediaEnabled;
 
     /**
@@ -232,7 +232,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
      * 
      */
-    @Export(name="identityManagementType", type=String.class, parameters={})
+    @Export(name="identityManagementType", refs={String.class}, tree="[0]")
     private Output<String> identityManagementType;
 
     /**
@@ -246,7 +246,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Specifies whether inbound calls are enabled.
      * 
      */
-    @Export(name="inboundCallsEnabled", type=Boolean.class, parameters={})
+    @Export(name="inboundCallsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> inboundCallsEnabled;
 
     /**
@@ -260,7 +260,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Specifies the name of the instance. Required if `directory_id` not specified.
      * 
      */
-    @Export(name="instanceAlias", type=String.class, parameters={})
+    @Export(name="instanceAlias", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceAlias;
 
     /**
@@ -274,7 +274,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="multiPartyConferenceEnabled", type=Boolean.class, parameters={})
+    @Export(name="multiPartyConferenceEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> multiPartyConferenceEnabled;
 
     /**
@@ -289,7 +289,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
-    @Export(name="outboundCallsEnabled", type=Boolean.class, parameters={})
+    @Export(name="outboundCallsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> outboundCallsEnabled;
 
     /**
@@ -304,7 +304,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The service role of the instance.
      * 
      */
-    @Export(name="serviceRole", type=String.class, parameters={})
+    @Export(name="serviceRole", refs={String.class}, tree="[0]")
     private Output<String> serviceRole;
 
     /**
@@ -318,7 +318,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The state of the instance.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

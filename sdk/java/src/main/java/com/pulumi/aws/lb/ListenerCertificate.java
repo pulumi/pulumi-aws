@@ -77,7 +77,7 @@ public class ListenerCertificate extends com.pulumi.resources.CustomResource {
      * The ARN of the certificate to attach to the listener.
      * 
      */
-    @Export(name="certificateArn", type=String.class, parameters={})
+    @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output<String> certificateArn;
 
     /**
@@ -91,7 +91,7 @@ public class ListenerCertificate extends com.pulumi.resources.CustomResource {
      * The ARN of the listener to which to attach the certificate.
      * 
      */
-    @Export(name="listenerArn", type=String.class, parameters={})
+    @Export(name="listenerArn", refs={String.class}, tree="[0]")
     private Output<String> listenerArn;
 
     /**

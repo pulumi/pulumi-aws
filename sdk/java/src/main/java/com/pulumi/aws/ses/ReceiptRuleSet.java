@@ -61,7 +61,7 @@ public class ReceiptRuleSet extends com.pulumi.resources.CustomResource {
      * SES receipt rule set ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -75,7 +75,7 @@ public class ReceiptRuleSet extends com.pulumi.resources.CustomResource {
      * Name of the rule set.
      * 
      */
-    @Export(name="ruleSetName", type=String.class, parameters={})
+    @Export(name="ruleSetName", refs={String.class}, tree="[0]")
     private Output<String> ruleSetName;
 
     /**

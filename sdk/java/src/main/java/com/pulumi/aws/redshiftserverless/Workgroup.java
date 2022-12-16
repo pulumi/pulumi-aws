@@ -69,7 +69,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
      * 
      */
-    @Export(name="baseCapacity", type=Integer.class, parameters={})
+    @Export(name="baseCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> baseCapacity;
 
     /**
@@ -97,7 +97,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
      * 
      */
-    @Export(name="configParameters", type=List.class, parameters={WorkgroupConfigParameter.class})
+    @Export(name="configParameters", refs={List.class,WorkgroupConfigParameter.class}, tree="[0,1]")
     private Output<List<WorkgroupConfigParameter>> configParameters;
 
     /**
@@ -111,7 +111,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * The endpoint that is created from the workgroup. See `Endpoint` below.
      * 
      */
-    @Export(name="endpoints", type=List.class, parameters={WorkgroupEndpoint.class})
+    @Export(name="endpoints", refs={List.class,WorkgroupEndpoint.class}, tree="[0,1]")
     private Output<List<WorkgroupEndpoint>> endpoints;
 
     /**
@@ -125,7 +125,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
-    @Export(name="enhancedVpcRouting", type=Boolean.class, parameters={})
+    @Export(name="enhancedVpcRouting", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enhancedVpcRouting;
 
     /**
@@ -135,7 +135,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> enhancedVpcRouting() {
         return Codegen.optional(this.enhancedVpcRouting);
     }
-    @Export(name="namespaceName", type=String.class, parameters={})
+    @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
     public Output<String> namespaceName() {
@@ -145,7 +145,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * A value that specifies whether the workgroup can be accessed from a public network.
      * 
      */
-    @Export(name="publiclyAccessible", type=Boolean.class, parameters={})
+    @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publiclyAccessible;
 
     /**
@@ -159,7 +159,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * An array of security group IDs to associate with the workgroup.
      * 
      */
-    @Export(name="securityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
@@ -173,7 +173,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * An array of VPC subnet IDs to associate with the workgroup.
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
@@ -187,7 +187,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -201,7 +201,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -215,7 +215,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * The Redshift Workgroup ID.
      * 
      */
-    @Export(name="workgroupId", type=String.class, parameters={})
+    @Export(name="workgroupId", refs={String.class}, tree="[0]")
     private Output<String> workgroupId;
 
     /**
@@ -229,7 +229,7 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
      * The name of the workgroup.
      * 
      */
-    @Export(name="workgroupName", type=String.class, parameters={})
+    @Export(name="workgroupName", refs={String.class}, tree="[0]")
     private Output<String> workgroupName;
 
     /**

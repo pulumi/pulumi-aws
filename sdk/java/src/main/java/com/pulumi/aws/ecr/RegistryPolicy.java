@@ -31,7 +31,7 @@ public class RegistryPolicy extends com.pulumi.resources.CustomResource {
      * The policy document. This is a JSON formatted string.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -45,7 +45,7 @@ public class RegistryPolicy extends com.pulumi.resources.CustomResource {
      * The registry ID where the registry was created.
      * 
      */
-    @Export(name="registryId", type=String.class, parameters={})
+    @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
     /**

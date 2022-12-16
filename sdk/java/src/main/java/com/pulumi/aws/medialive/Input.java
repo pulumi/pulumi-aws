@@ -82,7 +82,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * ARN of the Input.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -96,7 +96,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * Channels attached to Input.
      * 
      */
-    @Export(name="attachedChannels", type=List.class, parameters={String.class})
+    @Export(name="attachedChannels", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> attachedChannels;
 
     /**
@@ -110,7 +110,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * Destination settings for PUSH type inputs. See Destinations for more details.
      * 
      */
-    @Export(name="destinations", type=List.class, parameters={InputDestination.class})
+    @Export(name="destinations", refs={List.class,InputDestination.class}, tree="[0,1]")
     private Output</* @Nullable */ List<InputDestination>> destinations;
 
     /**
@@ -124,7 +124,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * The input class.
      * 
      */
-    @Export(name="inputClass", type=String.class, parameters={})
+    @Export(name="inputClass", refs={String.class}, tree="[0]")
     private Output<String> inputClass;
 
     /**
@@ -138,7 +138,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * Settings for the devices. See Input Devices for more details.
      * 
      */
-    @Export(name="inputDevices", type=List.class, parameters={InputInputDevice.class})
+    @Export(name="inputDevices", refs={List.class,InputInputDevice.class}, tree="[0,1]")
     private Output<List<InputInputDevice>> inputDevices;
 
     /**
@@ -152,7 +152,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * A list of IDs for all Inputs which are partners of this one.
      * 
      */
-    @Export(name="inputPartnerIds", type=List.class, parameters={String.class})
+    @Export(name="inputPartnerIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> inputPartnerIds;
 
     /**
@@ -166,7 +166,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * List of input security groups.
      * 
      */
-    @Export(name="inputSecurityGroups", type=List.class, parameters={String.class})
+    @Export(name="inputSecurityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> inputSecurityGroups;
 
     /**
@@ -180,7 +180,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * Source type of the input.
      * 
      */
-    @Export(name="inputSourceType", type=String.class, parameters={})
+    @Export(name="inputSourceType", refs={String.class}, tree="[0]")
     private Output<String> inputSourceType;
 
     /**
@@ -194,7 +194,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * A list of the MediaConnect Flows. See Media Connect Flows for more details.
      * 
      */
-    @Export(name="mediaConnectFlows", type=List.class, parameters={InputMediaConnectFlow.class})
+    @Export(name="mediaConnectFlows", refs={List.class,InputMediaConnectFlow.class}, tree="[0,1]")
     private Output<List<InputMediaConnectFlow>> mediaConnectFlows;
 
     /**
@@ -208,7 +208,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * Name of the input.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -222,7 +222,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * The ARN of the role this input assumes during and after creation.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -236,7 +236,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * The source URLs for a PULL-type input. See Sources for more details.
      * 
      */
-    @Export(name="sources", type=List.class, parameters={InputSource.class})
+    @Export(name="sources", refs={List.class,InputSource.class}, tree="[0,1]")
     private Output<List<InputSource>> sources;
 
     /**
@@ -250,7 +250,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -260,7 +260,7 @@ public class Input extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -270,7 +270,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * The different types of inputs that AWS Elemental MediaLive supports.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -284,7 +284,7 @@ public class Input extends com.pulumi.resources.CustomResource {
      * Settings for a private VPC Input. See VPC for more details.
      * 
      */
-    @Export(name="vpc", type=InputVpc.class, parameters={})
+    @Export(name="vpc", refs={InputVpc.class}, tree="[0]")
     private Output</* @Nullable */ InputVpc> vpc;
 
     /**

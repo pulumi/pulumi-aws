@@ -151,7 +151,7 @@ public class ResourceLfTags extends com.pulumi.resources.CustomResource {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    @Export(name="catalogId", type=String.class, parameters={})
+    @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
@@ -165,7 +165,7 @@ public class ResourceLfTags extends com.pulumi.resources.CustomResource {
      * Configuration block for a database resource. See below.
      * 
      */
-    @Export(name="database", type=ResourceLfTagsDatabase.class, parameters={})
+    @Export(name="database", refs={ResourceLfTagsDatabase.class}, tree="[0]")
     private Output<ResourceLfTagsDatabase> database;
 
     /**
@@ -179,7 +179,7 @@ public class ResourceLfTags extends com.pulumi.resources.CustomResource {
      * Set of LF-tags to attach to the resource. See below.
      * 
      */
-    @Export(name="lfTags", type=List.class, parameters={ResourceLfTagsLfTag.class})
+    @Export(name="lfTags", refs={List.class,ResourceLfTagsLfTag.class}, tree="[0,1]")
     private Output<List<ResourceLfTagsLfTag>> lfTags;
 
     /**
@@ -193,7 +193,7 @@ public class ResourceLfTags extends com.pulumi.resources.CustomResource {
      * Configuration block for a table resource. See below.
      * 
      */
-    @Export(name="table", type=ResourceLfTagsTable.class, parameters={})
+    @Export(name="table", refs={ResourceLfTagsTable.class}, tree="[0]")
     private Output<ResourceLfTagsTable> table;
 
     /**
@@ -207,7 +207,7 @@ public class ResourceLfTags extends com.pulumi.resources.CustomResource {
      * Configuration block for a table with columns resource. See below.
      * 
      */
-    @Export(name="tableWithColumns", type=ResourceLfTagsTableWithColumns.class, parameters={})
+    @Export(name="tableWithColumns", refs={ResourceLfTagsTableWithColumns.class}, tree="[0]")
     private Output<ResourceLfTagsTableWithColumns> tableWithColumns;
 
     /**

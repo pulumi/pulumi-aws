@@ -177,7 +177,7 @@ public class Classifier extends com.pulumi.resources.CustomResource {
      * A classifier for Csv content. Defined below.
      * 
      */
-    @Export(name="csvClassifier", type=ClassifierCsvClassifier.class, parameters={})
+    @Export(name="csvClassifier", refs={ClassifierCsvClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierCsvClassifier> csvClassifier;
 
     /**
@@ -191,7 +191,7 @@ public class Classifier extends com.pulumi.resources.CustomResource {
      * A classifier that uses grok patterns. Defined below.
      * 
      */
-    @Export(name="grokClassifier", type=ClassifierGrokClassifier.class, parameters={})
+    @Export(name="grokClassifier", refs={ClassifierGrokClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierGrokClassifier> grokClassifier;
 
     /**
@@ -205,7 +205,7 @@ public class Classifier extends com.pulumi.resources.CustomResource {
      * A classifier for JSON content. Defined below.
      * 
      */
-    @Export(name="jsonClassifier", type=ClassifierJsonClassifier.class, parameters={})
+    @Export(name="jsonClassifier", refs={ClassifierJsonClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierJsonClassifier> jsonClassifier;
 
     /**
@@ -219,7 +219,7 @@ public class Classifier extends com.pulumi.resources.CustomResource {
      * The name of the classifier.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -233,7 +233,7 @@ public class Classifier extends com.pulumi.resources.CustomResource {
      * A classifier for XML content. Defined below.
      * 
      */
-    @Export(name="xmlClassifier", type=ClassifierXmlClassifier.class, parameters={})
+    @Export(name="xmlClassifier", refs={ClassifierXmlClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierXmlClassifier> xmlClassifier;
 
     /**

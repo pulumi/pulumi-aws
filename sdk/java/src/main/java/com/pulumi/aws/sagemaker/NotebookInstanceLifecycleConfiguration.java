@@ -32,7 +32,7 @@ public class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources
      * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -46,7 +46,7 @@ public class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources
      * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -60,7 +60,7 @@ public class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources
      * A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
      * 
      */
-    @Export(name="onCreate", type=String.class, parameters={})
+    @Export(name="onCreate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onCreate;
 
     /**
@@ -74,7 +74,7 @@ public class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources
      * A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it&#39;s created.
      * 
      */
-    @Export(name="onStart", type=String.class, parameters={})
+    @Export(name="onStart", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onStart;
 
     /**

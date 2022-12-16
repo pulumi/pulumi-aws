@@ -61,7 +61,7 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
      * 
      */
-    @Export(name="amazonSideAsn", type=String.class, parameters={})
+    @Export(name="amazonSideAsn", refs={String.class}, tree="[0]")
     private Output<String> amazonSideAsn;
 
     /**
@@ -75,7 +75,7 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * The name of the connection.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -89,7 +89,7 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * AWS Account ID of the gateway.
      * 
      */
-    @Export(name="ownerAccountId", type=String.class, parameters={})
+    @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**

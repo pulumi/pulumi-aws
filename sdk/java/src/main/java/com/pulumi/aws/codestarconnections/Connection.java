@@ -99,7 +99,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The codestar connection ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -113,7 +113,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
-    @Export(name="connectionStatus", type=String.class, parameters={})
+    @Export(name="connectionStatus", refs={String.class}, tree="[0]")
     private Output<String> connectionStatus;
 
     /**
@@ -127,7 +127,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
      * 
      */
-    @Export(name="hostArn", type=String.class, parameters={})
+    @Export(name="hostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hostArn;
 
     /**
@@ -141,7 +141,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -155,7 +155,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
      * 
      */
-    @Export(name="providerType", type=String.class, parameters={})
+    @Export(name="providerType", refs={String.class}, tree="[0]")
     private Output<String> providerType;
 
     /**
@@ -169,7 +169,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -183,7 +183,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

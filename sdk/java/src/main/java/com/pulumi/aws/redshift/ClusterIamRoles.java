@@ -65,7 +65,7 @@ public class ClusterIamRoles extends com.pulumi.resources.CustomResource {
      * The name of the Redshift Cluster IAM Roles.
      * 
      */
-    @Export(name="clusterIdentifier", type=String.class, parameters={})
+    @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
@@ -79,7 +79,7 @@ public class ClusterIamRoles extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
-    @Export(name="defaultIamRoleArn", type=String.class, parameters={})
+    @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> defaultIamRoleArn;
 
     /**
@@ -93,7 +93,7 @@ public class ClusterIamRoles extends com.pulumi.resources.CustomResource {
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      * 
      */
-    @Export(name="iamRoleArns", type=List.class, parameters={String.class})
+    @Export(name="iamRoleArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> iamRoleArns;
 
     /**

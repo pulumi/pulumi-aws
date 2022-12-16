@@ -71,7 +71,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * Link Amazon Resource Name (ARN).
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -85,7 +85,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * The upload speed and download speed in Mbps. Documented below.
      * 
      */
-    @Export(name="bandwidth", type=LinkBandwidth.class, parameters={})
+    @Export(name="bandwidth", refs={LinkBandwidth.class}, tree="[0]")
     private Output<LinkBandwidth> bandwidth;
 
     /**
@@ -99,7 +99,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * A description of the link.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -113,7 +113,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * The ID of the global network.
      * 
      */
-    @Export(name="globalNetworkId", type=String.class, parameters={})
+    @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
@@ -127,7 +127,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * The provider of the link.
      * 
      */
-    @Export(name="providerName", type=String.class, parameters={})
+    @Export(name="providerName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerName;
 
     /**
@@ -141,7 +141,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * The ID of the site.
      * 
      */
-    @Export(name="siteId", type=String.class, parameters={})
+    @Export(name="siteId", refs={String.class}, tree="[0]")
     private Output<String> siteId;
 
     /**
@@ -155,7 +155,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -169,7 +169,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -183,7 +183,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * The type of the link.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

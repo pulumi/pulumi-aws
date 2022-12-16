@@ -73,7 +73,7 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
      * 
      */
-    @Export(name="apiCachingBehavior", type=String.class, parameters={})
+    @Export(name="apiCachingBehavior", refs={String.class}, tree="[0]")
     private Output<String> apiCachingBehavior;
 
     /**
@@ -87,7 +87,7 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      * GraphQL API ID.
      * 
      */
-    @Export(name="apiId", type=String.class, parameters={})
+    @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
     /**
@@ -101,7 +101,7 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      * At-rest encryption flag for cache. You cannot update this setting after creation.
      * 
      */
-    @Export(name="atRestEncryptionEnabled", type=Boolean.class, parameters={})
+    @Export(name="atRestEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> atRestEncryptionEnabled;
 
     /**
@@ -115,7 +115,7 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
      * 
      */
-    @Export(name="transitEncryptionEnabled", type=Boolean.class, parameters={})
+    @Export(name="transitEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> transitEncryptionEnabled;
 
     /**
@@ -129,7 +129,7 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      * TTL in seconds for cache entries.
      * 
      */
-    @Export(name="ttl", type=Integer.class, parameters={})
+    @Export(name="ttl", refs={Integer.class}, tree="[0]")
     private Output<Integer> ttl;
 
     /**
@@ -143,7 +143,7 @@ public class ApiCache extends com.pulumi.resources.CustomResource {
      * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

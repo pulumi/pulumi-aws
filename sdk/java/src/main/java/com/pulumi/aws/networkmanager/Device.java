@@ -67,7 +67,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the device.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -81,7 +81,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The AWS location of the device. Documented below.
      * 
      */
-    @Export(name="awsLocation", type=DeviceAwsLocation.class, parameters={})
+    @Export(name="awsLocation", refs={DeviceAwsLocation.class}, tree="[0]")
     private Output</* @Nullable */ DeviceAwsLocation> awsLocation;
 
     /**
@@ -95,7 +95,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * A description of the device.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -109,7 +109,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The ID of the global network.
      * 
      */
-    @Export(name="globalNetworkId", type=String.class, parameters={})
+    @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
@@ -123,7 +123,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The location of the device. Documented below.
      * 
      */
-    @Export(name="location", type=DeviceLocation.class, parameters={})
+    @Export(name="location", refs={DeviceLocation.class}, tree="[0]")
     private Output</* @Nullable */ DeviceLocation> location;
 
     /**
@@ -137,7 +137,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The model of device.
      * 
      */
-    @Export(name="model", type=String.class, parameters={})
+    @Export(name="model", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> model;
 
     /**
@@ -151,7 +151,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The serial number of the device.
      * 
      */
-    @Export(name="serialNumber", type=String.class, parameters={})
+    @Export(name="serialNumber", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serialNumber;
 
     /**
@@ -165,7 +165,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The ID of the site.
      * 
      */
-    @Export(name="siteId", type=String.class, parameters={})
+    @Export(name="siteId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> siteId;
 
     /**
@@ -179,7 +179,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -193,7 +193,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -207,7 +207,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The type of device.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -221,7 +221,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The vendor of the device.
      * 
      */
-    @Export(name="vendor", type=String.class, parameters={})
+    @Export(name="vendor", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vendor;
 
     /**

@@ -69,7 +69,7 @@ public class MonitoringSubscription extends com.pulumi.resources.CustomResource 
      * The ID of the distribution that you are enabling metrics for.
      * 
      */
-    @Export(name="distributionId", type=String.class, parameters={})
+    @Export(name="distributionId", refs={String.class}, tree="[0]")
     private Output<String> distributionId;
 
     /**
@@ -83,7 +83,7 @@ public class MonitoringSubscription extends com.pulumi.resources.CustomResource 
      * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
      * 
      */
-    @Export(name="monitoringSubscription", type=MonitoringSubscriptionMonitoringSubscription.class, parameters={})
+    @Export(name="monitoringSubscription", refs={MonitoringSubscriptionMonitoringSubscription.class}, tree="[0]")
     private Output<MonitoringSubscriptionMonitoringSubscription> monitoringSubscription;
 
     /**

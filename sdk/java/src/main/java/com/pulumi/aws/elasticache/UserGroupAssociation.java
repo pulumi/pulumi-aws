@@ -90,7 +90,7 @@ public class UserGroupAssociation extends com.pulumi.resources.CustomResource {
      * ID of the user group.
      * 
      */
-    @Export(name="userGroupId", type=String.class, parameters={})
+    @Export(name="userGroupId", refs={String.class}, tree="[0]")
     private Output<String> userGroupId;
 
     /**
@@ -104,7 +104,7 @@ public class UserGroupAssociation extends com.pulumi.resources.CustomResource {
      * ID of the user to associated with the user group.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**

@@ -64,7 +64,7 @@ public class WebsiteCertificateAuthorityAssociation extends com.pulumi.resources
      * The root certificate of the Certificate Authority.
      * 
      */
-    @Export(name="certificate", type=String.class, parameters={})
+    @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     /**
@@ -78,7 +78,7 @@ public class WebsiteCertificateAuthorityAssociation extends com.pulumi.resources
      * The certificate name to display.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -92,7 +92,7 @@ public class WebsiteCertificateAuthorityAssociation extends com.pulumi.resources
      * The ARN of the fleet.
      * 
      */
-    @Export(name="fleetArn", type=String.class, parameters={})
+    @Export(name="fleetArn", refs={String.class}, tree="[0]")
     private Output<String> fleetArn;
 
     /**
@@ -106,7 +106,7 @@ public class WebsiteCertificateAuthorityAssociation extends com.pulumi.resources
      * A unique identifier for the Certificate Authority.
      * 
      */
-    @Export(name="websiteCaId", type=String.class, parameters={})
+    @Export(name="websiteCaId", refs={String.class}, tree="[0]")
     private Output<String> websiteCaId;
 
     /**

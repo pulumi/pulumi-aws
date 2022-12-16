@@ -130,7 +130,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      * 
      */
-    @Export(name="allocatedStorage", type=Integer.class, parameters={})
+    @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
     private Output<Integer> allocatedStorage;
 
     /**
@@ -144,7 +144,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * Indicates that major version upgrades are allowed.
      * 
      */
-    @Export(name="allowMajorVersionUpgrade", type=Boolean.class, parameters={})
+    @Export(name="allowMajorVersionUpgrade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowMajorVersionUpgrade;
 
     /**
@@ -158,7 +158,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      * 
      */
-    @Export(name="applyImmediately", type=Boolean.class, parameters={})
+    @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
@@ -172,7 +172,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      * 
      */
-    @Export(name="autoMinorVersionUpgrade", type=Boolean.class, parameters={})
+    @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoMinorVersionUpgrade;
 
     /**
@@ -186,7 +186,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * The EC2 Availability Zone that the replication instance will be created in.
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
@@ -200,7 +200,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * The engine version number of the replication instance.
      * 
      */
-    @Export(name="engineVersion", type=String.class, parameters={})
+    @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
@@ -214,7 +214,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
-    @Export(name="kmsKeyArn", type=String.class, parameters={})
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
     /**
@@ -228,7 +228,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
      * 
      */
-    @Export(name="multiAz", type=Boolean.class, parameters={})
+    @Export(name="multiAz", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> multiAz;
 
     /**
@@ -242,7 +242,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      * 
      */
-    @Export(name="preferredMaintenanceWindow", type=String.class, parameters={})
+    @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredMaintenanceWindow;
 
     /**
@@ -256,7 +256,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      * 
      */
-    @Export(name="publiclyAccessible", type=Boolean.class, parameters={})
+    @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> publiclyAccessible;
 
     /**
@@ -270,7 +270,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the replication instance.
      * 
      */
-    @Export(name="replicationInstanceArn", type=String.class, parameters={})
+    @Export(name="replicationInstanceArn", refs={String.class}, tree="[0]")
     private Output<String> replicationInstanceArn;
 
     /**
@@ -284,7 +284,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
      * 
      */
-    @Export(name="replicationInstanceClass", type=String.class, parameters={})
+    @Export(name="replicationInstanceClass", refs={String.class}, tree="[0]")
     private Output<String> replicationInstanceClass;
 
     /**
@@ -298,7 +298,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * The replication instance identifier. This parameter is stored as a lowercase string.
      * 
      */
-    @Export(name="replicationInstanceId", type=String.class, parameters={})
+    @Export(name="replicationInstanceId", refs={String.class}, tree="[0]")
     private Output<String> replicationInstanceId;
 
     /**
@@ -312,7 +312,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * A list of the private IP addresses of the replication instance.
      * 
      */
-    @Export(name="replicationInstancePrivateIps", type=List.class, parameters={String.class})
+    @Export(name="replicationInstancePrivateIps", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> replicationInstancePrivateIps;
 
     /**
@@ -326,7 +326,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * A list of the public IP addresses of the replication instance.
      * 
      */
-    @Export(name="replicationInstancePublicIps", type=List.class, parameters={String.class})
+    @Export(name="replicationInstancePublicIps", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> replicationInstancePublicIps;
 
     /**
@@ -340,7 +340,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * A subnet group to associate with the replication instance.
      * 
      */
-    @Export(name="replicationSubnetGroupId", type=String.class, parameters={})
+    @Export(name="replicationSubnetGroupId", refs={String.class}, tree="[0]")
     private Output<String> replicationSubnetGroupId;
 
     /**
@@ -354,7 +354,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -368,7 +368,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -382,7 +382,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
      * 
      */
-    @Export(name="vpcSecurityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
     /**

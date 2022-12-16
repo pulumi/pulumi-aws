@@ -74,7 +74,7 @@ public class QuickConnect extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Quick Connect.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -88,7 +88,7 @@ public class QuickConnect extends com.pulumi.resources.CustomResource {
      * Specifies the description of the Quick Connect.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -102,7 +102,7 @@ public class QuickConnect extends com.pulumi.resources.CustomResource {
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
@@ -116,7 +116,7 @@ public class QuickConnect extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Quick Connect.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -130,7 +130,7 @@ public class QuickConnect extends com.pulumi.resources.CustomResource {
      * A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
      * 
      */
-    @Export(name="quickConnectConfig", type=QuickConnectQuickConnectConfig.class, parameters={})
+    @Export(name="quickConnectConfig", refs={QuickConnectQuickConnectConfig.class}, tree="[0]")
     private Output<QuickConnectQuickConnectConfig> quickConnectConfig;
 
     /**
@@ -144,7 +144,7 @@ public class QuickConnect extends com.pulumi.resources.CustomResource {
      * The identifier for the Quick Connect.
      * 
      */
-    @Export(name="quickConnectId", type=String.class, parameters={})
+    @Export(name="quickConnectId", refs={String.class}, tree="[0]")
     private Output<String> quickConnectId;
 
     /**
@@ -158,7 +158,7 @@ public class QuickConnect extends com.pulumi.resources.CustomResource {
      * Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -172,7 +172,7 @@ public class QuickConnect extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

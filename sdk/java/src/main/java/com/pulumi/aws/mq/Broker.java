@@ -137,7 +137,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
-    @Export(name="applyImmediately", type=Boolean.class, parameters={})
+    @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
@@ -151,7 +151,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * ARN of the broker.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -165,7 +165,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
      * 
      */
-    @Export(name="authenticationStrategy", type=String.class, parameters={})
+    @Export(name="authenticationStrategy", refs={String.class}, tree="[0]")
     private Output<String> authenticationStrategy;
 
     /**
@@ -179,7 +179,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
      * 
      */
-    @Export(name="autoMinorVersionUpgrade", type=Boolean.class, parameters={})
+    @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoMinorVersionUpgrade;
 
     /**
@@ -193,7 +193,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Name of the broker.
      * 
      */
-    @Export(name="brokerName", type=String.class, parameters={})
+    @Export(name="brokerName", refs={String.class}, tree="[0]")
     private Output<String> brokerName;
 
     /**
@@ -207,7 +207,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` only. Detailed below.
      * 
      */
-    @Export(name="configuration", type=BrokerConfiguration.class, parameters={})
+    @Export(name="configuration", refs={BrokerConfiguration.class}, tree="[0]")
     private Output<BrokerConfiguration> configuration;
 
     /**
@@ -221,7 +221,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
      * 
      */
-    @Export(name="deploymentMode", type=String.class, parameters={})
+    @Export(name="deploymentMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deploymentMode;
 
     /**
@@ -235,7 +235,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Configuration block containing encryption options. Detailed below.
      * 
      */
-    @Export(name="encryptionOptions", type=BrokerEncryptionOptions.class, parameters={})
+    @Export(name="encryptionOptions", refs={BrokerEncryptionOptions.class}, tree="[0]")
     private Output</* @Nullable */ BrokerEncryptionOptions> encryptionOptions;
 
     /**
@@ -249,7 +249,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      * 
      */
-    @Export(name="engineType", type=String.class, parameters={})
+    @Export(name="engineType", refs={String.class}, tree="[0]")
     private Output<String> engineType;
 
     /**
@@ -263,7 +263,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
      * 
      */
-    @Export(name="engineVersion", type=String.class, parameters={})
+    @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
@@ -277,7 +277,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
      * 
      */
-    @Export(name="hostInstanceType", type=String.class, parameters={})
+    @Export(name="hostInstanceType", refs={String.class}, tree="[0]")
     private Output<String> hostInstanceType;
 
     /**
@@ -302,7 +302,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
      * 
      */
-    @Export(name="instances", type=List.class, parameters={BrokerInstance.class})
+    @Export(name="instances", refs={List.class,BrokerInstance.class}, tree="[0,1]")
     private Output<List<BrokerInstance>> instances;
 
     /**
@@ -327,7 +327,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
      * 
      */
-    @Export(name="ldapServerMetadata", type=BrokerLdapServerMetadata.class, parameters={})
+    @Export(name="ldapServerMetadata", refs={BrokerLdapServerMetadata.class}, tree="[0]")
     private Output</* @Nullable */ BrokerLdapServerMetadata> ldapServerMetadata;
 
     /**
@@ -341,7 +341,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Configuration block for the logging configuration of the broker. Detailed below.
      * 
      */
-    @Export(name="logs", type=BrokerLogs.class, parameters={})
+    @Export(name="logs", refs={BrokerLogs.class}, tree="[0]")
     private Output</* @Nullable */ BrokerLogs> logs;
 
     /**
@@ -355,7 +355,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Configuration block for the maintenance window start time. Detailed below.
      * 
      */
-    @Export(name="maintenanceWindowStartTime", type=BrokerMaintenanceWindowStartTime.class, parameters={})
+    @Export(name="maintenanceWindowStartTime", refs={BrokerMaintenanceWindowStartTime.class}, tree="[0]")
     private Output<BrokerMaintenanceWindowStartTime> maintenanceWindowStartTime;
 
     /**
@@ -369,7 +369,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Whether to enable connections from applications outside of the VPC that hosts the broker&#39;s subnets.
      * 
      */
-    @Export(name="publiclyAccessible", type=Boolean.class, parameters={})
+    @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publiclyAccessible;
 
     /**
@@ -383,7 +383,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * List of security group IDs assigned to the broker.
      * 
      */
-    @Export(name="securityGroups", type=List.class, parameters={String.class})
+    @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroups;
 
     /**
@@ -397,7 +397,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      * 
      */
-    @Export(name="storageType", type=String.class, parameters={})
+    @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output<String> storageType;
 
     /**
@@ -411,7 +411,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
@@ -425,7 +425,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -439,7 +439,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -453,7 +453,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
      * Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      * 
      */
-    @Export(name="users", type=List.class, parameters={BrokerUser.class})
+    @Export(name="users", refs={List.class,BrokerUser.class}, tree="[0,1]")
     private Output<List<BrokerUser>> users;
 
     /**

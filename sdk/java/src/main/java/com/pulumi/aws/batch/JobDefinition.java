@@ -171,7 +171,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name of the job definition.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -186,7 +186,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
      * 
      */
-    @Export(name="containerProperties", type=String.class, parameters={})
+    @Export(name="containerProperties", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> containerProperties;
 
     /**
@@ -201,7 +201,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies the name of the job definition.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -215,7 +215,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies the parameter substitution placeholders to set in the job definition.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -229,7 +229,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
      * 
      */
-    @Export(name="platformCapabilities", type=List.class, parameters={String.class})
+    @Export(name="platformCapabilities", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> platformCapabilities;
 
     /**
@@ -243,7 +243,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      * 
      */
-    @Export(name="propagateTags", type=Boolean.class, parameters={})
+    @Export(name="propagateTags", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> propagateTags;
 
     /**
@@ -258,7 +258,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * Maximum number of `retry_strategy` is `1`.  Defined below.
      * 
      */
-    @Export(name="retryStrategy", type=JobDefinitionRetryStrategy.class, parameters={})
+    @Export(name="retryStrategy", refs={JobDefinitionRetryStrategy.class}, tree="[0]")
     private Output</* @Nullable */ JobDefinitionRetryStrategy> retryStrategy;
 
     /**
@@ -273,7 +273,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * The revision of the job definition.
      * 
      */
-    @Export(name="revision", type=Integer.class, parameters={})
+    @Export(name="revision", refs={Integer.class}, tree="[0]")
     private Output<Integer> revision;
 
     /**
@@ -287,7 +287,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -301,7 +301,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -315,7 +315,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      * 
      */
-    @Export(name="timeout", type=JobDefinitionTimeout.class, parameters={})
+    @Export(name="timeout", refs={JobDefinitionTimeout.class}, tree="[0]")
     private Output</* @Nullable */ JobDefinitionTimeout> timeout;
 
     /**
@@ -329,7 +329,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      * The type of job definition.  Must be `container`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

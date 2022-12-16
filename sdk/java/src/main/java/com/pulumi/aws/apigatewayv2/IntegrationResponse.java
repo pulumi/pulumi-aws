@@ -67,7 +67,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * API identifier.
      * 
      */
-    @Export(name="apiId", type=String.class, parameters={})
+    @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
     /**
@@ -81,7 +81,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
      * 
      */
-    @Export(name="contentHandlingStrategy", type=String.class, parameters={})
+    @Export(name="contentHandlingStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentHandlingStrategy;
 
     /**
@@ -95,7 +95,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * Identifier of the `aws.apigatewayv2.Integration`.
      * 
      */
-    @Export(name="integrationId", type=String.class, parameters={})
+    @Export(name="integrationId", refs={String.class}, tree="[0]")
     private Output<String> integrationId;
 
     /**
@@ -109,7 +109,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * Integration response key.
      * 
      */
-    @Export(name="integrationResponseKey", type=String.class, parameters={})
+    @Export(name="integrationResponseKey", refs={String.class}, tree="[0]")
     private Output<String> integrationResponseKey;
 
     /**
@@ -123,7 +123,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      * 
      */
-    @Export(name="responseTemplates", type=Map.class, parameters={String.class, String.class})
+    @Export(name="responseTemplates", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseTemplates;
 
     /**
@@ -137,7 +137,7 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      * 
      */
-    @Export(name="templateSelectionExpression", type=String.class, parameters={})
+    @Export(name="templateSelectionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateSelectionExpression;
 
     /**

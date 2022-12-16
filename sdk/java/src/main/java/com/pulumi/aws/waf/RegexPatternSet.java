@@ -65,7 +65,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN)
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -79,7 +79,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * The name or description of the Regex Pattern Set.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -93,7 +93,7 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
      * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
      * 
      */
-    @Export(name="regexPatternStrings", type=List.class, parameters={String.class})
+    @Export(name="regexPatternStrings", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> regexPatternStrings;
 
     /**

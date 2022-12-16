@@ -73,7 +73,7 @@ public class ClassificationExportConfiguration extends com.pulumi.resources.Cust
      * Configuration block for a S3 Destination. Defined below
      * 
      */
-    @Export(name="s3Destination", type=ClassificationExportConfigurationS3Destination.class, parameters={})
+    @Export(name="s3Destination", refs={ClassificationExportConfigurationS3Destination.class}, tree="[0]")
     private Output</* @Nullable */ ClassificationExportConfigurationS3Destination> s3Destination;
 
     /**

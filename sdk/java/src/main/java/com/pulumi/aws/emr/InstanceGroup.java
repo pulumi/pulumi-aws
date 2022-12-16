@@ -73,7 +73,7 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
      * 
      */
-    @Export(name="autoscalingPolicy", type=String.class, parameters={})
+    @Export(name="autoscalingPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoscalingPolicy;
 
     /**
@@ -87,7 +87,7 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
      * 
      */
-    @Export(name="bidPrice", type=String.class, parameters={})
+    @Export(name="bidPrice", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bidPrice;
 
     /**
@@ -101,7 +101,7 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterId", type=String.class, parameters={})
+    @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
     /**
@@ -115,7 +115,7 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
      * 
      */
-    @Export(name="configurationsJson", type=String.class, parameters={})
+    @Export(name="configurationsJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurationsJson;
 
     /**
@@ -129,7 +129,7 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="ebsConfigs", type=List.class, parameters={InstanceGroupEbsConfig.class})
+    @Export(name="ebsConfigs", refs={List.class,InstanceGroupEbsConfig.class}, tree="[0,1]")
     private Output<List<InstanceGroupEbsConfig>> ebsConfigs;
 
     /**
@@ -143,7 +143,7 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="ebsOptimized", type=Boolean.class, parameters={})
+    @Export(name="ebsOptimized", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ebsOptimized;
 
     /**
@@ -157,7 +157,7 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * target number of instances for the instance group. defaults to 0.
      * 
      */
-    @Export(name="instanceCount", type=Integer.class, parameters={})
+    @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> instanceCount;
 
     /**
@@ -171,7 +171,7 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="instanceType", type=String.class, parameters={})
+    @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
     /**
@@ -185,7 +185,7 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * Human friendly name given to the instance group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -195,13 +195,13 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="runningInstanceCount", type=Integer.class, parameters={})
+    @Export(name="runningInstanceCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> runningInstanceCount;
 
     public Output<Integer> runningInstanceCount() {
         return this.runningInstanceCount;
     }
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     public Output<String> status() {

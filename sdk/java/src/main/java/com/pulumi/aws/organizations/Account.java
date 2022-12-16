@@ -88,7 +88,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The ARN for this account.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -102,7 +102,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
      * 
      */
-    @Export(name="closeOnDeletion", type=Boolean.class, parameters={})
+    @Export(name="closeOnDeletion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> closeOnDeletion;
 
     /**
@@ -116,7 +116,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
      * 
      */
-    @Export(name="createGovcloud", type=Boolean.class, parameters={})
+    @Export(name="createGovcloud", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> createGovcloud;
 
     /**
@@ -130,7 +130,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -144,7 +144,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * ID for a GovCloud account created with the account.
      * 
      */
-    @Export(name="govcloudId", type=String.class, parameters={})
+    @Export(name="govcloudId", refs={String.class}, tree="[0]")
     private Output<String> govcloudId;
 
     /**
@@ -158,7 +158,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
      * 
      */
-    @Export(name="iamUserAccessToBilling", type=String.class, parameters={})
+    @Export(name="iamUserAccessToBilling", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iamUserAccessToBilling;
 
     /**
@@ -168,13 +168,13 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> iamUserAccessToBilling() {
         return Codegen.optional(this.iamUserAccessToBilling);
     }
-    @Export(name="joinedMethod", type=String.class, parameters={})
+    @Export(name="joinedMethod", refs={String.class}, tree="[0]")
     private Output<String> joinedMethod;
 
     public Output<String> joinedMethod() {
         return this.joinedMethod;
     }
-    @Export(name="joinedTimestamp", type=String.class, parameters={})
+    @Export(name="joinedTimestamp", refs={String.class}, tree="[0]")
     private Output<String> joinedTimestamp;
 
     public Output<String> joinedTimestamp() {
@@ -184,7 +184,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Friendly name for the member account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -198,7 +198,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
      * 
      */
-    @Export(name="parentId", type=String.class, parameters={})
+    @Export(name="parentId", refs={String.class}, tree="[0]")
     private Output<String> parentId;
 
     /**
@@ -212,7 +212,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
      * 
      */
-    @Export(name="roleName", type=String.class, parameters={})
+    @Export(name="roleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleName;
 
     /**
@@ -222,7 +222,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> roleName() {
         return Codegen.optional(this.roleName);
     }
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     public Output<String> status() {
@@ -232,7 +232,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -246,7 +246,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

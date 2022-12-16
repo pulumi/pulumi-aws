@@ -64,7 +64,7 @@ public class ResourceAssociation extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
@@ -78,7 +78,7 @@ public class ResourceAssociation extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the RAM Resource Share.
      * 
      */
-    @Export(name="resourceShareArn", type=String.class, parameters={})
+    @Export(name="resourceShareArn", refs={String.class}, tree="[0]")
     private Output<String> resourceShareArn;
 
     /**

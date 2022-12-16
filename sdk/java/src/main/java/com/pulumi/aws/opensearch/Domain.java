@@ -288,7 +288,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * IAM policy document specifying the access policies for the domain.
      * 
      */
-    @Export(name="accessPolicies", type=String.class, parameters={})
+    @Export(name="accessPolicies", refs={String.class}, tree="[0]")
     private Output<String> accessPolicies;
 
     /**
@@ -302,7 +302,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
      * 
      */
-    @Export(name="advancedOptions", type=Map.class, parameters={String.class, String.class})
+    @Export(name="advancedOptions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> advancedOptions;
 
     /**
@@ -316,7 +316,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      * 
      */
-    @Export(name="advancedSecurityOptions", type=DomainAdvancedSecurityOptions.class, parameters={})
+    @Export(name="advancedSecurityOptions", refs={DomainAdvancedSecurityOptions.class}, tree="[0]")
     private Output<DomainAdvancedSecurityOptions> advancedSecurityOptions;
 
     /**
@@ -330,7 +330,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * ARN of the domain.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -344,7 +344,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      * 
      */
-    @Export(name="autoTuneOptions", type=DomainAutoTuneOptions.class, parameters={})
+    @Export(name="autoTuneOptions", refs={DomainAutoTuneOptions.class}, tree="[0]")
     private Output<DomainAutoTuneOptions> autoTuneOptions;
 
     /**
@@ -358,7 +358,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Configuration block for the cluster of the domain. Detailed below.
      * 
      */
-    @Export(name="clusterConfig", type=DomainClusterConfig.class, parameters={})
+    @Export(name="clusterConfig", refs={DomainClusterConfig.class}, tree="[0]")
     private Output<DomainClusterConfig> clusterConfig;
 
     /**
@@ -372,7 +372,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Configuration block for authenticating Kibana with Cognito. Detailed below.
      * 
      */
-    @Export(name="cognitoOptions", type=DomainCognitoOptions.class, parameters={})
+    @Export(name="cognitoOptions", refs={DomainCognitoOptions.class}, tree="[0]")
     private Output</* @Nullable */ DomainCognitoOptions> cognitoOptions;
 
     /**
@@ -386,7 +386,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      * 
      */
-    @Export(name="domainEndpointOptions", type=DomainDomainEndpointOptions.class, parameters={})
+    @Export(name="domainEndpointOptions", refs={DomainDomainEndpointOptions.class}, tree="[0]")
     private Output<DomainDomainEndpointOptions> domainEndpointOptions;
 
     /**
@@ -400,7 +400,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Unique identifier for the domain.
      * 
      */
-    @Export(name="domainId", type=String.class, parameters={})
+    @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
     /**
@@ -414,7 +414,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Name of the domain.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -428,7 +428,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
      * 
      */
-    @Export(name="ebsOptions", type=DomainEbsOptions.class, parameters={})
+    @Export(name="ebsOptions", refs={DomainEbsOptions.class}, tree="[0]")
     private Output<DomainEbsOptions> ebsOptions;
 
     /**
@@ -442,7 +442,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
      * 
      */
-    @Export(name="encryptAtRest", type=DomainEncryptAtRest.class, parameters={})
+    @Export(name="encryptAtRest", refs={DomainEncryptAtRest.class}, tree="[0]")
     private Output<DomainEncryptAtRest> encryptAtRest;
 
     /**
@@ -456,7 +456,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
@@ -470,7 +470,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
      * 
      */
-    @Export(name="engineVersion", type=String.class, parameters={})
+    @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engineVersion;
 
     /**
@@ -484,7 +484,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Domain-specific endpoint for kibana without https scheme.
      * 
      */
-    @Export(name="kibanaEndpoint", type=String.class, parameters={})
+    @Export(name="kibanaEndpoint", refs={String.class}, tree="[0]")
     private Output<String> kibanaEndpoint;
 
     /**
@@ -498,7 +498,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      * 
      */
-    @Export(name="logPublishingOptions", type=List.class, parameters={DomainLogPublishingOption.class})
+    @Export(name="logPublishingOptions", refs={List.class,DomainLogPublishingOption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DomainLogPublishingOption>> logPublishingOptions;
 
     /**
@@ -512,7 +512,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Configuration block for node-to-node encryption options. Detailed below.
      * 
      */
-    @Export(name="nodeToNodeEncryption", type=DomainNodeToNodeEncryption.class, parameters={})
+    @Export(name="nodeToNodeEncryption", refs={DomainNodeToNodeEncryption.class}, tree="[0]")
     private Output<DomainNodeToNodeEncryption> nodeToNodeEncryption;
 
     /**
@@ -526,7 +526,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      * 
      */
-    @Export(name="snapshotOptions", type=DomainSnapshotOptions.class, parameters={})
+    @Export(name="snapshotOptions", refs={DomainSnapshotOptions.class}, tree="[0]")
     private Output</* @Nullable */ DomainSnapshotOptions> snapshotOptions;
 
     /**
@@ -540,7 +540,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -556,7 +556,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -572,7 +572,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
      * 
      */
-    @Export(name="vpcOptions", type=DomainVpcOptions.class, parameters={})
+    @Export(name="vpcOptions", refs={DomainVpcOptions.class}, tree="[0]")
     private Output</* @Nullable */ DomainVpcOptions> vpcOptions;
 
     /**

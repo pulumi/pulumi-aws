@@ -71,7 +71,7 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
      * The key pair ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -85,7 +85,7 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      * 
      */
-    @Export(name="fingerprint", type=String.class, parameters={})
+    @Export(name="fingerprint", refs={String.class}, tree="[0]")
     private Output<String> fingerprint;
 
     /**
@@ -99,7 +99,7 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
      * The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
      * 
      */
-    @Export(name="keyName", type=String.class, parameters={})
+    @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
     /**
@@ -113,7 +113,7 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
      * 
      */
-    @Export(name="keyNamePrefix", type=String.class, parameters={})
+    @Export(name="keyNamePrefix", refs={String.class}, tree="[0]")
     private Output<String> keyNamePrefix;
 
     /**
@@ -127,7 +127,7 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
      * The key pair ID.
      * 
      */
-    @Export(name="keyPairId", type=String.class, parameters={})
+    @Export(name="keyPairId", refs={String.class}, tree="[0]")
     private Output<String> keyPairId;
 
     /**
@@ -141,7 +141,7 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
      * The type of key pair.
      * 
      */
-    @Export(name="keyType", type=String.class, parameters={})
+    @Export(name="keyType", refs={String.class}, tree="[0]")
     private Output<String> keyType;
 
     /**
@@ -155,7 +155,7 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
      * The public key material.
      * 
      */
-    @Export(name="publicKey", type=String.class, parameters={})
+    @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output<String> publicKey;
 
     /**
@@ -169,7 +169,7 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -183,7 +183,7 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

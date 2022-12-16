@@ -121,7 +121,7 @@ public class PipelineDefinition extends com.pulumi.resources.CustomResource {
      * Configuration block for the parameter objects used in the pipeline definition. See below
      * 
      */
-    @Export(name="parameterObjects", type=List.class, parameters={PipelineDefinitionParameterObject.class})
+    @Export(name="parameterObjects", refs={List.class,PipelineDefinitionParameterObject.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PipelineDefinitionParameterObject>> parameterObjects;
 
     /**
@@ -135,7 +135,7 @@ public class PipelineDefinition extends com.pulumi.resources.CustomResource {
      * Configuration block for the parameter values used in the pipeline definition. See below
      * 
      */
-    @Export(name="parameterValues", type=List.class, parameters={PipelineDefinitionParameterValue.class})
+    @Export(name="parameterValues", refs={List.class,PipelineDefinitionParameterValue.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PipelineDefinitionParameterValue>> parameterValues;
 
     /**
@@ -149,7 +149,7 @@ public class PipelineDefinition extends com.pulumi.resources.CustomResource {
      * ID of the pipeline.
      * 
      */
-    @Export(name="pipelineId", type=String.class, parameters={})
+    @Export(name="pipelineId", refs={String.class}, tree="[0]")
     private Output<String> pipelineId;
 
     /**
@@ -163,7 +163,7 @@ public class PipelineDefinition extends com.pulumi.resources.CustomResource {
      * Configuration block for the objects that define the pipeline. See below
      * 
      */
-    @Export(name="pipelineObjects", type=List.class, parameters={PipelineDefinitionPipelineObject.class})
+    @Export(name="pipelineObjects", refs={List.class,PipelineDefinitionPipelineObject.class}, tree="[0,1]")
     private Output<List<PipelineDefinitionPipelineObject>> pipelineObjects;
 
     /**

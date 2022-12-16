@@ -64,7 +64,7 @@ public class ProductPortfolioAssociation extends com.pulumi.resources.CustomReso
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    @Export(name="acceptLanguage", type=String.class, parameters={})
+    @Export(name="acceptLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acceptLanguage;
 
     /**
@@ -78,7 +78,7 @@ public class ProductPortfolioAssociation extends com.pulumi.resources.CustomReso
      * Portfolio identifier.
      * 
      */
-    @Export(name="portfolioId", type=String.class, parameters={})
+    @Export(name="portfolioId", refs={String.class}, tree="[0]")
     private Output<String> portfolioId;
 
     /**
@@ -92,7 +92,7 @@ public class ProductPortfolioAssociation extends com.pulumi.resources.CustomReso
      * Product identifier.
      * 
      */
-    @Export(name="productId", type=String.class, parameters={})
+    @Export(name="productId", refs={String.class}, tree="[0]")
     private Output<String> productId;
 
     /**
@@ -106,7 +106,7 @@ public class ProductPortfolioAssociation extends com.pulumi.resources.CustomReso
      * Identifier of the source portfolio.
      * 
      */
-    @Export(name="sourcePortfolioId", type=String.class, parameters={})
+    @Export(name="sourcePortfolioId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourcePortfolioId;
 
     /**

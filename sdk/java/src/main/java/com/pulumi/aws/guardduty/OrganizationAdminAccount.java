@@ -74,7 +74,7 @@ public class OrganizationAdminAccount extends com.pulumi.resources.CustomResourc
      * AWS account identifier to designate as a delegated administrator for GuardDuty.
      * 
      */
-    @Export(name="adminAccountId", type=String.class, parameters={})
+    @Export(name="adminAccountId", refs={String.class}, tree="[0]")
     private Output<String> adminAccountId;
 
     /**

@@ -32,7 +32,7 @@ public class PublishingDestination extends com.pulumi.resources.CustomResource {
      * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      * 
      */
-    @Export(name="destinationArn", type=String.class, parameters={})
+    @Export(name="destinationArn", refs={String.class}, tree="[0]")
     private Output<String> destinationArn;
 
     /**
@@ -46,7 +46,7 @@ public class PublishingDestination extends com.pulumi.resources.CustomResource {
      * Currently there is only &#34;S3&#34; available as destination type which is also the default value
      * 
      */
-    @Export(name="destinationType", type=String.class, parameters={})
+    @Export(name="destinationType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationType;
 
     /**
@@ -60,7 +60,7 @@ public class PublishingDestination extends com.pulumi.resources.CustomResource {
      * The detector ID of the GuardDuty.
      * 
      */
-    @Export(name="detectorId", type=String.class, parameters={})
+    @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
     /**
@@ -74,7 +74,7 @@ public class PublishingDestination extends com.pulumi.resources.CustomResource {
      * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      * 
      */
-    @Export(name="kmsKeyArn", type=String.class, parameters={})
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
     /**

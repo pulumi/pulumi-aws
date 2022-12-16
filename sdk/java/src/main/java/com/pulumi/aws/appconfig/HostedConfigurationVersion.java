@@ -151,7 +151,7 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * Application ID.
      * 
      */
-    @Export(name="applicationId", type=String.class, parameters={})
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
@@ -165,7 +165,7 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * ARN of the AppConfig  hosted configuration version.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -179,7 +179,7 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * Configuration profile ID.
      * 
      */
-    @Export(name="configurationProfileId", type=String.class, parameters={})
+    @Export(name="configurationProfileId", refs={String.class}, tree="[0]")
     private Output<String> configurationProfileId;
 
     /**
@@ -193,7 +193,7 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * Content of the configuration or the configuration data.
      * 
      */
-    @Export(name="content", type=String.class, parameters={})
+    @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
@@ -207,7 +207,7 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      * 
      */
-    @Export(name="contentType", type=String.class, parameters={})
+    @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output<String> contentType;
 
     /**
@@ -221,7 +221,7 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * Description of the configuration.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -235,7 +235,7 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
      * Version number of the hosted configuration.
      * 
      */
-    @Export(name="versionNumber", type=Integer.class, parameters={})
+    @Export(name="versionNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> versionNumber;
 
     /**

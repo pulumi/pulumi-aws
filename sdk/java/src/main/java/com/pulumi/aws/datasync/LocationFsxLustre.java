@@ -65,7 +65,7 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -79,7 +79,7 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
      * The time that the FSx for Lustre location was created.
      * 
      */
-    @Export(name="creationTime", type=String.class, parameters={})
+    @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
@@ -93,7 +93,7 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
      * 
      */
-    @Export(name="fsxFilesystemArn", type=String.class, parameters={})
+    @Export(name="fsxFilesystemArn", refs={String.class}, tree="[0]")
     private Output<String> fsxFilesystemArn;
 
     /**
@@ -107,7 +107,7 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
      * 
      */
-    @Export(name="securityGroupArns", type=List.class, parameters={String.class})
+    @Export(name="securityGroupArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupArns;
 
     /**
@@ -121,7 +121,7 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
      * Subdirectory to perform actions as source or destination.
      * 
      */
-    @Export(name="subdirectory", type=String.class, parameters={})
+    @Export(name="subdirectory", refs={String.class}, tree="[0]")
     private Output<String> subdirectory;
 
     /**
@@ -135,7 +135,7 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -149,7 +149,7 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -163,7 +163,7 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
      * The URL of the FSx for Lustre location that was described.
      * 
      */
-    @Export(name="uri", type=String.class, parameters={})
+    @Export(name="uri", refs={String.class}, tree="[0]")
     private Output<String> uri;
 
     /**

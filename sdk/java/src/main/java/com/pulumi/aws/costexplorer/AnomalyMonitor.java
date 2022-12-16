@@ -113,7 +113,7 @@ public class AnomalyMonitor extends com.pulumi.resources.CustomResource {
      * ARN of the anomaly monitor.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -127,7 +127,7 @@ public class AnomalyMonitor extends com.pulumi.resources.CustomResource {
      * The dimensions to evaluate. Valid values: `SERVICE`.
      * 
      */
-    @Export(name="monitorDimension", type=String.class, parameters={})
+    @Export(name="monitorDimension", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> monitorDimension;
 
     /**
@@ -141,7 +141,7 @@ public class AnomalyMonitor extends com.pulumi.resources.CustomResource {
      * A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
      * 
      */
-    @Export(name="monitorSpecification", type=String.class, parameters={})
+    @Export(name="monitorSpecification", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> monitorSpecification;
 
     /**
@@ -155,7 +155,7 @@ public class AnomalyMonitor extends com.pulumi.resources.CustomResource {
      * The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
      * 
      */
-    @Export(name="monitorType", type=String.class, parameters={})
+    @Export(name="monitorType", refs={String.class}, tree="[0]")
     private Output<String> monitorType;
 
     /**
@@ -169,7 +169,7 @@ public class AnomalyMonitor extends com.pulumi.resources.CustomResource {
      * The name of the monitor.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -183,7 +183,7 @@ public class AnomalyMonitor extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -197,7 +197,7 @@ public class AnomalyMonitor extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

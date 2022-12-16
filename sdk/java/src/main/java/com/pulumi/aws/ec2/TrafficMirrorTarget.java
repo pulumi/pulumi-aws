@@ -77,7 +77,7 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
      * The ARN of the traffic mirror target.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -91,7 +91,7 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
      * A description of the traffic mirror session.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -105,7 +105,7 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
      * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
      * 
      */
-    @Export(name="gatewayLoadBalancerEndpointId", type=String.class, parameters={})
+    @Export(name="gatewayLoadBalancerEndpointId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gatewayLoadBalancerEndpointId;
 
     /**
@@ -119,7 +119,7 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
      * The network interface ID that is associated with the target.
      * 
      */
-    @Export(name="networkInterfaceId", type=String.class, parameters={})
+    @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkInterfaceId;
 
     /**
@@ -133,7 +133,7 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      * 
      */
-    @Export(name="networkLoadBalancerArn", type=String.class, parameters={})
+    @Export(name="networkLoadBalancerArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkLoadBalancerArn;
 
     /**
@@ -147,7 +147,7 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
      * The ID of the AWS account that owns the traffic mirror target.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -161,7 +161,7 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -175,7 +175,7 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

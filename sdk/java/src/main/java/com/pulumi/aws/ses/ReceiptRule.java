@@ -85,7 +85,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * A list of Add Header Action blocks. Documented below.
      * 
      */
-    @Export(name="addHeaderActions", type=List.class, parameters={ReceiptRuleAddHeaderAction.class})
+    @Export(name="addHeaderActions", refs={List.class,ReceiptRuleAddHeaderAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleAddHeaderAction>> addHeaderActions;
 
     /**
@@ -99,7 +99,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * The name of the rule to place this rule after
      * 
      */
-    @Export(name="after", type=String.class, parameters={})
+    @Export(name="after", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> after;
 
     /**
@@ -113,7 +113,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * The SES receipt rule ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -127,7 +127,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * A list of Bounce Action blocks. Documented below.
      * 
      */
-    @Export(name="bounceActions", type=List.class, parameters={ReceiptRuleBounceAction.class})
+    @Export(name="bounceActions", refs={List.class,ReceiptRuleBounceAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleBounceAction>> bounceActions;
 
     /**
@@ -141,7 +141,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * If true, the rule will be enabled
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -155,7 +155,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * A list of Lambda Action blocks. Documented below.
      * 
      */
-    @Export(name="lambdaActions", type=List.class, parameters={ReceiptRuleLambdaAction.class})
+    @Export(name="lambdaActions", refs={List.class,ReceiptRuleLambdaAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleLambdaAction>> lambdaActions;
 
     /**
@@ -169,7 +169,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * The name of the rule
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -183,7 +183,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * A list of email addresses
      * 
      */
-    @Export(name="recipients", type=List.class, parameters={String.class})
+    @Export(name="recipients", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> recipients;
 
     /**
@@ -197,7 +197,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * The name of the rule set
      * 
      */
-    @Export(name="ruleSetName", type=String.class, parameters={})
+    @Export(name="ruleSetName", refs={String.class}, tree="[0]")
     private Output<String> ruleSetName;
 
     /**
@@ -211,7 +211,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * A list of S3 Action blocks. Documented below.
      * 
      */
-    @Export(name="s3Actions", type=List.class, parameters={ReceiptRuleS3Action.class})
+    @Export(name="s3Actions", refs={List.class,ReceiptRuleS3Action.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleS3Action>> s3Actions;
 
     /**
@@ -225,7 +225,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * If true, incoming emails will be scanned for spam and viruses
      * 
      */
-    @Export(name="scanEnabled", type=Boolean.class, parameters={})
+    @Export(name="scanEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> scanEnabled;
 
     /**
@@ -239,7 +239,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * A list of SNS Action blocks. Documented below.
      * 
      */
-    @Export(name="snsActions", type=List.class, parameters={ReceiptRuleSnsAction.class})
+    @Export(name="snsActions", refs={List.class,ReceiptRuleSnsAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleSnsAction>> snsActions;
 
     /**
@@ -253,7 +253,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * A list of Stop Action blocks. Documented below.
      * 
      */
-    @Export(name="stopActions", type=List.class, parameters={ReceiptRuleStopAction.class})
+    @Export(name="stopActions", refs={List.class,ReceiptRuleStopAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleStopAction>> stopActions;
 
     /**
@@ -267,7 +267,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * `Require` or `Optional`
      * 
      */
-    @Export(name="tlsPolicy", type=String.class, parameters={})
+    @Export(name="tlsPolicy", refs={String.class}, tree="[0]")
     private Output<String> tlsPolicy;
 
     /**
@@ -281,7 +281,7 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
      * A list of WorkMail Action blocks. Documented below.
      * 
      */
-    @Export(name="workmailActions", type=List.class, parameters={ReceiptRuleWorkmailAction.class})
+    @Export(name="workmailActions", refs={List.class,ReceiptRuleWorkmailAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleWorkmailAction>> workmailActions;
 
     /**

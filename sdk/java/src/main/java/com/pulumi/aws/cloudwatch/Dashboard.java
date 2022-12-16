@@ -99,7 +99,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the dashboard.
      * 
      */
-    @Export(name="dashboardArn", type=String.class, parameters={})
+    @Export(name="dashboardArn", refs={String.class}, tree="[0]")
     private Output<String> dashboardArn;
 
     /**
@@ -113,7 +113,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
      * 
      */
-    @Export(name="dashboardBody", type=String.class, parameters={})
+    @Export(name="dashboardBody", refs={String.class}, tree="[0]")
     private Output<String> dashboardBody;
 
     /**
@@ -127,7 +127,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The name of the dashboard.
      * 
      */
-    @Export(name="dashboardName", type=String.class, parameters={})
+    @Export(name="dashboardName", refs={String.class}, tree="[0]")
     private Output<String> dashboardName;
 
     /**

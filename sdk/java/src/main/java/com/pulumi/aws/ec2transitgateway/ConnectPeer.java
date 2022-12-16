@@ -73,7 +73,7 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * EC2 Transit Gateway Connect Peer ARN
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -87,7 +87,7 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
      * 
      */
-    @Export(name="bgpAsn", type=String.class, parameters={})
+    @Export(name="bgpAsn", refs={String.class}, tree="[0]")
     private Output<String> bgpAsn;
 
     /**
@@ -101,7 +101,7 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
      * 
      */
-    @Export(name="insideCidrBlocks", type=List.class, parameters={String.class})
+    @Export(name="insideCidrBlocks", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> insideCidrBlocks;
 
     /**
@@ -115,7 +115,7 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
      * 
      */
-    @Export(name="peerAddress", type=String.class, parameters={})
+    @Export(name="peerAddress", refs={String.class}, tree="[0]")
     private Output<String> peerAddress;
 
     /**
@@ -129,7 +129,7 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -143,7 +143,7 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -157,7 +157,7 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
      * 
      */
-    @Export(name="transitGatewayAddress", type=String.class, parameters={})
+    @Export(name="transitGatewayAddress", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayAddress;
 
     /**
@@ -171,7 +171,7 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      * The Transit Gateway Connect
      * 
      */
-    @Export(name="transitGatewayAttachmentId", type=String.class, parameters={})
+    @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayAttachmentId;
 
     /**

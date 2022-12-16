@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:dms/replicationSubnetGroup:ReplicationSubnetGroup")
 public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource {
-    @Export(name="replicationSubnetGroupArn", type=String.class, parameters={})
+    @Export(name="replicationSubnetGroupArn", refs={String.class}, tree="[0]")
     private Output<String> replicationSubnetGroupArn;
 
     public Output<String> replicationSubnetGroupArn() {
@@ -73,7 +73,7 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
      * The description for the subnet group.
      * 
      */
-    @Export(name="replicationSubnetGroupDescription", type=String.class, parameters={})
+    @Export(name="replicationSubnetGroupDescription", refs={String.class}, tree="[0]")
     private Output<String> replicationSubnetGroupDescription;
 
     /**
@@ -87,7 +87,7 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
      * The name for the replication subnet group. This value is stored as a lowercase string.
      * 
      */
-    @Export(name="replicationSubnetGroupId", type=String.class, parameters={})
+    @Export(name="replicationSubnetGroupId", refs={String.class}, tree="[0]")
     private Output<String> replicationSubnetGroupId;
 
     /**
@@ -101,7 +101,7 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
      * A list of the EC2 subnet IDs for the subnet group.
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
@@ -115,7 +115,7 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -129,7 +129,7 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -143,7 +143,7 @@ public class ReplicationSubnetGroup extends com.pulumi.resources.CustomResource 
      * The ID of the VPC the subnet group is in.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

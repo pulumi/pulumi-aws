@@ -192,7 +192,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name of the backup.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -206,7 +206,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
      * 
      */
-    @Export(name="fileSystemId", type=String.class, parameters={})
+    @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileSystemId;
 
     /**
@@ -220,7 +220,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system&#39;s data at rest.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -234,7 +234,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * AWS account identifier that created the file system.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -248,7 +248,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tags;
 
     /**
@@ -262,7 +262,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -276,7 +276,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * The type of the file system backup.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -290,7 +290,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * The ID of the volume to back up. Required if backing up a ONTAP Volume.
      * 
      */
-    @Export(name="volumeId", type=String.class, parameters={})
+    @Export(name="volumeId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> volumeId;
 
     /**

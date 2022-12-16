@@ -147,7 +147,7 @@ public class NetworkInterfaceSecurityGroupAttachment extends com.pulumi.resource
      * The ID of the network interface to attach to.
      * 
      */
-    @Export(name="networkInterfaceId", type=String.class, parameters={})
+    @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
     /**
@@ -161,7 +161,7 @@ public class NetworkInterfaceSecurityGroupAttachment extends com.pulumi.resource
      * The ID of the security group.
      * 
      */
-    @Export(name="securityGroupId", type=String.class, parameters={})
+    @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
     /**

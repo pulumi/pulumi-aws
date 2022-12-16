@@ -84,7 +84,7 @@ public class InvitationAccepter extends com.pulumi.resources.CustomResource {
      * The AWS account ID for the account that sent the invitation.
      * 
      */
-    @Export(name="administratorAccountId", type=String.class, parameters={})
+    @Export(name="administratorAccountId", refs={String.class}, tree="[0]")
     private Output<String> administratorAccountId;
 
     /**
@@ -98,7 +98,7 @@ public class InvitationAccepter extends com.pulumi.resources.CustomResource {
      * The unique identifier for the invitation.
      * 
      */
-    @Export(name="invitationId", type=String.class, parameters={})
+    @Export(name="invitationId", refs={String.class}, tree="[0]")
     private Output<String> invitationId;
 
     /**

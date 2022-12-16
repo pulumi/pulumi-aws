@@ -63,7 +63,7 @@ public class AccountAlias extends com.pulumi.resources.CustomResource {
      * The account alias
      * 
      */
-    @Export(name="accountAlias", type=String.class, parameters={})
+    @Export(name="accountAlias", refs={String.class}, tree="[0]")
     private Output<String> accountAlias;
 
     /**

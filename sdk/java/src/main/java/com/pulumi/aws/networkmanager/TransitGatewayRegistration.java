@@ -73,7 +73,7 @@ public class TransitGatewayRegistration extends com.pulumi.resources.CustomResou
      * The ID of the Global Network to register to.
      * 
      */
-    @Export(name="globalNetworkId", type=String.class, parameters={})
+    @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
@@ -87,7 +87,7 @@ public class TransitGatewayRegistration extends com.pulumi.resources.CustomResou
      * The ARN of the Transit Gateway to register.
      * 
      */
-    @Export(name="transitGatewayArn", type=String.class, parameters={})
+    @Export(name="transitGatewayArn", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayArn;
 
     /**

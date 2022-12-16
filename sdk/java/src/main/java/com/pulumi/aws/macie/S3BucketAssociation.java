@@ -64,7 +64,7 @@ public class S3BucketAssociation extends com.pulumi.resources.CustomResource {
      * The name of the S3 bucket that you want to associate with Amazon Macie.
      * 
      */
-    @Export(name="bucketName", type=String.class, parameters={})
+    @Export(name="bucketName", refs={String.class}, tree="[0]")
     private Output<String> bucketName;
 
     /**
@@ -78,7 +78,7 @@ public class S3BucketAssociation extends com.pulumi.resources.CustomResource {
      * The configuration of how Amazon Macie classifies the S3 objects.
      * 
      */
-    @Export(name="classificationType", type=S3BucketAssociationClassificationType.class, parameters={})
+    @Export(name="classificationType", refs={S3BucketAssociationClassificationType.class}, tree="[0]")
     private Output<S3BucketAssociationClassificationType> classificationType;
 
     /**
@@ -92,7 +92,7 @@ public class S3BucketAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn&#39;t specified, the action associates specified S3 resources with Macie for the current master account.
      * 
      */
-    @Export(name="memberAccountId", type=String.class, parameters={})
+    @Export(name="memberAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> memberAccountId;
 
     /**
@@ -106,7 +106,7 @@ public class S3BucketAssociation extends com.pulumi.resources.CustomResource {
      * Object key prefix identifying one or more S3 objects to which the association applies.
      * 
      */
-    @Export(name="prefix", type=String.class, parameters={})
+    @Export(name="prefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> prefix;
 
     /**

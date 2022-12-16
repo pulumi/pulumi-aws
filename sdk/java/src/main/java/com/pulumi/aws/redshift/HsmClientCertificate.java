@@ -63,7 +63,7 @@ public class HsmClientCertificate extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Hsm Client Certificate.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -77,7 +77,7 @@ public class HsmClientCertificate extends com.pulumi.resources.CustomResource {
      * The identifier of the HSM client certificate.
      * 
      */
-    @Export(name="hsmClientCertificateIdentifier", type=String.class, parameters={})
+    @Export(name="hsmClientCertificateIdentifier", refs={String.class}, tree="[0]")
     private Output<String> hsmClientCertificateIdentifier;
 
     /**
@@ -91,7 +91,7 @@ public class HsmClientCertificate extends com.pulumi.resources.CustomResource {
      * The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
      * 
      */
-    @Export(name="hsmClientCertificatePublicKey", type=String.class, parameters={})
+    @Export(name="hsmClientCertificatePublicKey", refs={String.class}, tree="[0]")
     private Output<String> hsmClientCertificatePublicKey;
 
     /**
@@ -105,7 +105,7 @@ public class HsmClientCertificate extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -119,7 +119,7 @@ public class HsmClientCertificate extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

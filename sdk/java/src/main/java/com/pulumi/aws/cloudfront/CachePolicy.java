@@ -94,7 +94,7 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      * A comment to describe the cache policy.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -108,7 +108,7 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      * The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    @Export(name="defaultTtl", type=Integer.class, parameters={})
+    @Export(name="defaultTtl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> defaultTtl;
 
     /**
@@ -122,7 +122,7 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      * The current version of the cache policy.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -136,7 +136,7 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      * The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    @Export(name="maxTtl", type=Integer.class, parameters={})
+    @Export(name="maxTtl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxTtl;
 
     /**
@@ -150,7 +150,7 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      * The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    @Export(name="minTtl", type=Integer.class, parameters={})
+    @Export(name="minTtl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minTtl;
 
     /**
@@ -164,7 +164,7 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      * A unique name to identify the cache policy.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -178,7 +178,7 @@ public class CachePolicy extends com.pulumi.resources.CustomResource {
      * The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
      * 
      */
-    @Export(name="parametersInCacheKeyAndForwardedToOrigin", type=CachePolicyParametersInCacheKeyAndForwardedToOrigin.class, parameters={})
+    @Export(name="parametersInCacheKeyAndForwardedToOrigin", refs={CachePolicyParametersInCacheKeyAndForwardedToOrigin.class}, tree="[0]")
     private Output<CachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigin;
 
     /**

@@ -36,7 +36,7 @@ public class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.resources.
      * The ARN of the virtual interface.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -50,7 +50,7 @@ public class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.resources.
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      * 
      */
-    @Export(name="dxGatewayId", type=String.class, parameters={})
+    @Export(name="dxGatewayId", refs={String.class}, tree="[0]")
     private Output<String> dxGatewayId;
 
     /**
@@ -64,7 +64,7 @@ public class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.resources.
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -78,7 +78,7 @@ public class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.resources.
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -92,7 +92,7 @@ public class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.resources.
      * The ID of the Direct Connect virtual interface to accept.
      * 
      */
-    @Export(name="virtualInterfaceId", type=String.class, parameters={})
+    @Export(name="virtualInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> virtualInterfaceId;
 
     /**

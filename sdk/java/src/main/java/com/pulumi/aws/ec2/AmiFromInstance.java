@@ -75,7 +75,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * Machine architecture for created instances. Defaults to &#34;x86_64&#34;.
      * 
      */
-    @Export(name="architecture", type=String.class, parameters={})
+    @Export(name="architecture", refs={String.class}, tree="[0]")
     private Output<String> architecture;
 
     /**
@@ -89,7 +89,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * ARN of the AMI.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -103,7 +103,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    @Export(name="bootMode", type=String.class, parameters={})
+    @Export(name="bootMode", refs={String.class}, tree="[0]")
     private Output<String> bootMode;
 
     /**
@@ -117,7 +117,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    @Export(name="deprecationTime", type=String.class, parameters={})
+    @Export(name="deprecationTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deprecationTime;
 
     /**
@@ -131,7 +131,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * Longer, human-readable description for the AMI.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -146,7 +146,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * attached to created instances. The structure of this block is described below.
      * 
      */
-    @Export(name="ebsBlockDevices", type=List.class, parameters={AmiFromInstanceEbsBlockDevice.class})
+    @Export(name="ebsBlockDevices", refs={List.class,AmiFromInstanceEbsBlockDevice.class}, tree="[0,1]")
     private Output<List<AmiFromInstanceEbsBlockDevice>> ebsBlockDevices;
 
     /**
@@ -161,7 +161,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="enaSupport", type=Boolean.class, parameters={})
+    @Export(name="enaSupport", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enaSupport;
 
     /**
@@ -176,7 +176,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * should be attached to created instances. The structure of this block is described below.
      * 
      */
-    @Export(name="ephemeralBlockDevices", type=List.class, parameters={AmiFromInstanceEphemeralBlockDevice.class})
+    @Export(name="ephemeralBlockDevices", refs={List.class,AmiFromInstanceEphemeralBlockDevice.class}, tree="[0,1]")
     private Output<List<AmiFromInstanceEphemeralBlockDevice>> ephemeralBlockDevices;
 
     /**
@@ -187,7 +187,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
     public Output<List<AmiFromInstanceEphemeralBlockDevice>> ephemeralBlockDevices() {
         return this.ephemeralBlockDevices;
     }
-    @Export(name="hypervisor", type=String.class, parameters={})
+    @Export(name="hypervisor", refs={String.class}, tree="[0]")
     private Output<String> hypervisor;
 
     public Output<String> hypervisor() {
@@ -198,7 +198,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      * 
      */
-    @Export(name="imageLocation", type=String.class, parameters={})
+    @Export(name="imageLocation", refs={String.class}, tree="[0]")
     private Output<String> imageLocation;
 
     /**
@@ -209,13 +209,13 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
     public Output<String> imageLocation() {
         return this.imageLocation;
     }
-    @Export(name="imageOwnerAlias", type=String.class, parameters={})
+    @Export(name="imageOwnerAlias", refs={String.class}, tree="[0]")
     private Output<String> imageOwnerAlias;
 
     public Output<String> imageOwnerAlias() {
         return this.imageOwnerAlias;
     }
-    @Export(name="imageType", type=String.class, parameters={})
+    @Export(name="imageType", refs={String.class}, tree="[0]")
     private Output<String> imageType;
 
     public Output<String> imageType() {
@@ -225,7 +225,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      * 
      */
-    @Export(name="imdsSupport", type=String.class, parameters={})
+    @Export(name="imdsSupport", refs={String.class}, tree="[0]")
     private Output<String> imdsSupport;
 
     /**
@@ -240,7 +240,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * kernel in created instances.
      * 
      */
-    @Export(name="kernelId", type=String.class, parameters={})
+    @Export(name="kernelId", refs={String.class}, tree="[0]")
     private Output<String> kernelId;
 
     /**
@@ -251,7 +251,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
     public Output<String> kernelId() {
         return this.kernelId;
     }
-    @Export(name="manageEbsSnapshots", type=Boolean.class, parameters={})
+    @Export(name="manageEbsSnapshots", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> manageEbsSnapshots;
 
     public Output<Boolean> manageEbsSnapshots() {
@@ -261,7 +261,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * Region-unique name for the AMI.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -271,25 +271,25 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    @Export(name="platform", type=String.class, parameters={})
+    @Export(name="platform", refs={String.class}, tree="[0]")
     private Output<String> platform;
 
     public Output<String> platform() {
         return this.platform;
     }
-    @Export(name="platformDetails", type=String.class, parameters={})
+    @Export(name="platformDetails", refs={String.class}, tree="[0]")
     private Output<String> platformDetails;
 
     public Output<String> platformDetails() {
         return this.platformDetails;
     }
-    @Export(name="public", type=Boolean.class, parameters={})
+    @Export(name="public", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> public_;
 
     public Output<Boolean> public_() {
@@ -300,7 +300,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * created instances.
      * 
      */
-    @Export(name="ramdiskId", type=String.class, parameters={})
+    @Export(name="ramdiskId", refs={String.class}, tree="[0]")
     private Output<String> ramdiskId;
 
     /**
@@ -315,7 +315,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
-    @Export(name="rootDeviceName", type=String.class, parameters={})
+    @Export(name="rootDeviceName", refs={String.class}, tree="[0]")
     private Output<String> rootDeviceName;
 
     /**
@@ -325,7 +325,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
     public Output<String> rootDeviceName() {
         return this.rootDeviceName;
     }
-    @Export(name="rootSnapshotId", type=String.class, parameters={})
+    @Export(name="rootSnapshotId", refs={String.class}, tree="[0]")
     private Output<String> rootSnapshotId;
 
     public Output<String> rootSnapshotId() {
@@ -338,7 +338,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * guarantees that no filesystem writes will be underway at the time of snapshot.
      * 
      */
-    @Export(name="snapshotWithoutReboot", type=Boolean.class, parameters={})
+    @Export(name="snapshotWithoutReboot", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> snapshotWithoutReboot;
 
     /**
@@ -355,7 +355,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * ID of the instance to use as the basis of the AMI.
      * 
      */
-    @Export(name="sourceInstanceId", type=String.class, parameters={})
+    @Export(name="sourceInstanceId", refs={String.class}, tree="[0]")
     private Output<String> sourceInstanceId;
 
     /**
@@ -370,7 +370,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * for created instances. No other value is supported at this time.
      * 
      */
-    @Export(name="sriovNetSupport", type=String.class, parameters={})
+    @Export(name="sriovNetSupport", refs={String.class}, tree="[0]")
     private Output<String> sriovNetSupport;
 
     /**
@@ -385,7 +385,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -395,7 +395,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -405,7 +405,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    @Export(name="tpmSupport", type=String.class, parameters={})
+    @Export(name="tpmSupport", refs={String.class}, tree="[0]")
     private Output<String> tpmSupport;
 
     /**
@@ -415,7 +415,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
     public Output<String> tpmSupport() {
         return this.tpmSupport;
     }
-    @Export(name="usageOperation", type=String.class, parameters={})
+    @Export(name="usageOperation", refs={String.class}, tree="[0]")
     private Output<String> usageOperation;
 
     public Output<String> usageOperation() {
@@ -427,7 +427,7 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      * changes the set of further arguments that are required, as described below.
      * 
      */
-    @Export(name="virtualizationType", type=String.class, parameters={})
+    @Export(name="virtualizationType", refs={String.class}, tree="[0]")
     private Output<String> virtualizationType;
 
     /**

@@ -85,7 +85,7 @@ public class LogDestinationPolicy extends com.pulumi.resources.CustomResource {
      * The policy document. This is a JSON formatted string.
      * 
      */
-    @Export(name="accessPolicy", type=String.class, parameters={})
+    @Export(name="accessPolicy", refs={String.class}, tree="[0]")
     private Output<String> accessPolicy;
 
     /**
@@ -99,7 +99,7 @@ public class LogDestinationPolicy extends com.pulumi.resources.CustomResource {
      * A name for the subscription filter
      * 
      */
-    @Export(name="destinationName", type=String.class, parameters={})
+    @Export(name="destinationName", refs={String.class}, tree="[0]")
     private Output<String> destinationName;
 
     /**
@@ -113,7 +113,7 @@ public class LogDestinationPolicy extends com.pulumi.resources.CustomResource {
      * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
      * 
      */
-    @Export(name="forceUpdate", type=Boolean.class, parameters={})
+    @Export(name="forceUpdate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceUpdate;
 
     /**

@@ -86,7 +86,7 @@ public class FieldLevelEncryptionConfig extends com.pulumi.resources.CustomResou
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
      * 
      */
-    @Export(name="callerReference", type=String.class, parameters={})
+    @Export(name="callerReference", refs={String.class}, tree="[0]")
     private Output<String> callerReference;
 
     /**
@@ -100,7 +100,7 @@ public class FieldLevelEncryptionConfig extends com.pulumi.resources.CustomResou
      * An optional comment about the Field Level Encryption Config.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -114,7 +114,7 @@ public class FieldLevelEncryptionConfig extends com.pulumi.resources.CustomResou
      * Content Type Profile Config specifies when to forward content if a content type isn&#39;t recognized and profiles to use as by default in a request if a query argument doesn&#39;t specify a profile to use.
      * 
      */
-    @Export(name="contentTypeProfileConfig", type=FieldLevelEncryptionConfigContentTypeProfileConfig.class, parameters={})
+    @Export(name="contentTypeProfileConfig", refs={FieldLevelEncryptionConfigContentTypeProfileConfig.class}, tree="[0]")
     private Output<FieldLevelEncryptionConfigContentTypeProfileConfig> contentTypeProfileConfig;
 
     /**
@@ -128,7 +128,7 @@ public class FieldLevelEncryptionConfig extends com.pulumi.resources.CustomResou
      * The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -142,7 +142,7 @@ public class FieldLevelEncryptionConfig extends com.pulumi.resources.CustomResou
      * Query Arg Profile Config that specifies when to forward content if a profile isn&#39;t found and the profile that can be provided as a query argument in a request.
      * 
      */
-    @Export(name="queryArgProfileConfig", type=FieldLevelEncryptionConfigQueryArgProfileConfig.class, parameters={})
+    @Export(name="queryArgProfileConfig", refs={FieldLevelEncryptionConfigQueryArgProfileConfig.class}, tree="[0]")
     private Output<FieldLevelEncryptionConfigQueryArgProfileConfig> queryArgProfileConfig;
 
     /**

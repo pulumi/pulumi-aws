@@ -85,7 +85,7 @@ public class UserGroupMembership extends com.pulumi.resources.CustomResource {
      * A list of IAM Groups to add the user to
      * 
      */
-    @Export(name="groups", type=List.class, parameters={String.class})
+    @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> groups;
 
     /**
@@ -99,7 +99,7 @@ public class UserGroupMembership extends com.pulumi.resources.CustomResource {
      * The name of the IAM User to add to groups
      * 
      */
-    @Export(name="user", type=String.class, parameters={})
+    @Export(name="user", refs={String.class}, tree="[0]")
     private Output<String> user;
 
     /**

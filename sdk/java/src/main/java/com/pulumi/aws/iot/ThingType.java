@@ -62,7 +62,7 @@ public class ThingType extends com.pulumi.resources.CustomResource {
      * The ARN of the created AWS IoT Thing Type.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -76,7 +76,7 @@ public class ThingType extends com.pulumi.resources.CustomResource {
      * Whether the thing type is deprecated. If true, no new things could be associated with this type.
      * 
      */
-    @Export(name="deprecated", type=Boolean.class, parameters={})
+    @Export(name="deprecated", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deprecated;
 
     /**
@@ -90,7 +90,7 @@ public class ThingType extends com.pulumi.resources.CustomResource {
      * The name of the thing type.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -104,7 +104,7 @@ public class ThingType extends com.pulumi.resources.CustomResource {
      * , Configuration block that can contain the following properties of the thing type:
      * 
      */
-    @Export(name="properties", type=ThingTypeProperties.class, parameters={})
+    @Export(name="properties", refs={ThingTypeProperties.class}, tree="[0]")
     private Output</* @Nullable */ ThingTypeProperties> properties;
 
     /**
@@ -118,7 +118,7 @@ public class ThingType extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -132,7 +132,7 @@ public class ThingType extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

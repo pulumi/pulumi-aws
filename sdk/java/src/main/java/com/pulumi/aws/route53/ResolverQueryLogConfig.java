@@ -64,7 +64,7 @@ public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource 
      * The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -79,7 +79,7 @@ public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource 
      * You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
      * 
      */
-    @Export(name="destinationArn", type=String.class, parameters={})
+    @Export(name="destinationArn", refs={String.class}, tree="[0]")
     private Output<String> destinationArn;
 
     /**
@@ -94,7 +94,7 @@ public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource 
      * The name of the Route 53 Resolver query logging configuration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -108,7 +108,7 @@ public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource 
      * The AWS account ID of the account that created the query logging configuration.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -124,7 +124,7 @@ public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource 
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      * 
      */
-    @Export(name="shareStatus", type=String.class, parameters={})
+    @Export(name="shareStatus", refs={String.class}, tree="[0]")
     private Output<String> shareStatus;
 
     /**
@@ -140,7 +140,7 @@ public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource 
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -154,7 +154,7 @@ public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource 
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

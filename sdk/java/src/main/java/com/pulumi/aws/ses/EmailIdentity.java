@@ -61,7 +61,7 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * The ARN of the email identity.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -75,7 +75,7 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
      * The email address to assign to SES.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**

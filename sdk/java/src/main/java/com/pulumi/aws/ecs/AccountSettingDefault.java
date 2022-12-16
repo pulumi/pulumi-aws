@@ -65,7 +65,7 @@ public class AccountSettingDefault extends com.pulumi.resources.CustomResource {
      * Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -75,7 +75,7 @@ public class AccountSettingDefault extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="principalArn", type=String.class, parameters={})
+    @Export(name="principalArn", refs={String.class}, tree="[0]")
     private Output<String> principalArn;
 
     public Output<String> principalArn() {
@@ -85,7 +85,7 @@ public class AccountSettingDefault extends com.pulumi.resources.CustomResource {
      * State of the setting. Valid values are `enabled` and `disabled`.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

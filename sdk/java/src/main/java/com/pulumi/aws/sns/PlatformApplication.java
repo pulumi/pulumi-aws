@@ -129,7 +129,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * The bundle identifier that&#39;s assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
      * 
      */
-    @Export(name="applePlatformBundleId", type=String.class, parameters={})
+    @Export(name="applePlatformBundleId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> applePlatformBundleId;
 
     /**
@@ -143,7 +143,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * The identifier that&#39;s assigned to your Apple developer account team. Must be 10 alphanumeric characters.
      * 
      */
-    @Export(name="applePlatformTeamId", type=String.class, parameters={})
+    @Export(name="applePlatformTeamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> applePlatformTeamId;
 
     /**
@@ -157,7 +157,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * The ARN of the SNS platform application
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -171,7 +171,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      * 
      */
-    @Export(name="eventDeliveryFailureTopicArn", type=String.class, parameters={})
+    @Export(name="eventDeliveryFailureTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventDeliveryFailureTopicArn;
 
     /**
@@ -185,7 +185,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
      * 
      */
-    @Export(name="eventEndpointCreatedTopicArn", type=String.class, parameters={})
+    @Export(name="eventEndpointCreatedTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventEndpointCreatedTopicArn;
 
     /**
@@ -199,7 +199,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      * 
      */
-    @Export(name="eventEndpointDeletedTopicArn", type=String.class, parameters={})
+    @Export(name="eventEndpointDeletedTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventEndpointDeletedTopicArn;
 
     /**
@@ -213,7 +213,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      * 
      */
-    @Export(name="eventEndpointUpdatedTopicArn", type=String.class, parameters={})
+    @Export(name="eventEndpointUpdatedTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventEndpointUpdatedTopicArn;
 
     /**
@@ -227,7 +227,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      * 
      */
-    @Export(name="failureFeedbackRoleArn", type=String.class, parameters={})
+    @Export(name="failureFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> failureFeedbackRoleArn;
 
     /**
@@ -241,7 +241,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * The friendly name for the SNS platform application
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -255,7 +255,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
      * 
      */
-    @Export(name="platform", type=String.class, parameters={})
+    @Export(name="platform", refs={String.class}, tree="[0]")
     private Output<String> platform;
 
     /**
@@ -269,7 +269,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      * 
      */
-    @Export(name="platformCredential", type=String.class, parameters={})
+    @Export(name="platformCredential", refs={String.class}, tree="[0]")
     private Output<String> platformCredential;
 
     /**
@@ -283,7 +283,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      * 
      */
-    @Export(name="platformPrincipal", type=String.class, parameters={})
+    @Export(name="platformPrincipal", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> platformPrincipal;
 
     /**
@@ -297,7 +297,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      * 
      */
-    @Export(name="successFeedbackRoleArn", type=String.class, parameters={})
+    @Export(name="successFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> successFeedbackRoleArn;
 
     /**
@@ -311,7 +311,7 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
      * The sample rate percentage (0-100) of successfully delivered messages.
      * 
      */
-    @Export(name="successFeedbackSampleRate", type=String.class, parameters={})
+    @Export(name="successFeedbackSampleRate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> successFeedbackSampleRate;
 
     /**

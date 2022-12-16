@@ -94,7 +94,7 @@ public class DedicatedIpPool extends com.pulumi.resources.CustomResource {
      * ARN of the Dedicated IP Pool.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -108,7 +108,7 @@ public class DedicatedIpPool extends com.pulumi.resources.CustomResource {
      * Name of the dedicated IP pool.
      * 
      */
-    @Export(name="poolName", type=String.class, parameters={})
+    @Export(name="poolName", refs={String.class}, tree="[0]")
     private Output<String> poolName;
 
     /**
@@ -122,7 +122,7 @@ public class DedicatedIpPool extends com.pulumi.resources.CustomResource {
      * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
      * 
      */
-    @Export(name="scalingMode", type=String.class, parameters={})
+    @Export(name="scalingMode", refs={String.class}, tree="[0]")
     private Output<String> scalingMode;
 
     /**
@@ -136,7 +136,7 @@ public class DedicatedIpPool extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -146,7 +146,7 @@ public class DedicatedIpPool extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {

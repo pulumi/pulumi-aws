@@ -72,7 +72,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    @Export(name="addressFamily", type=String.class, parameters={})
+    @Export(name="addressFamily", refs={String.class}, tree="[0]")
     private Output<String> addressFamily;
 
     /**
@@ -86,7 +86,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      * 
      */
-    @Export(name="amazonAddress", type=String.class, parameters={})
+    @Export(name="amazonAddress", refs={String.class}, tree="[0]")
     private Output<String> amazonAddress;
 
     /**
@@ -96,7 +96,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
     public Output<String> amazonAddress() {
         return this.amazonAddress;
     }
-    @Export(name="amazonSideAsn", type=String.class, parameters={})
+    @Export(name="amazonSideAsn", refs={String.class}, tree="[0]")
     private Output<String> amazonSideAsn;
 
     public Output<String> amazonSideAsn() {
@@ -106,7 +106,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * The ARN of the virtual interface.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -120,7 +120,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * The Direct Connect endpoint on which the virtual interface terminates.
      * 
      */
-    @Export(name="awsDevice", type=String.class, parameters={})
+    @Export(name="awsDevice", refs={String.class}, tree="[0]")
     private Output<String> awsDevice;
 
     /**
@@ -134,7 +134,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    @Export(name="bgpAsn", type=Integer.class, parameters={})
+    @Export(name="bgpAsn", refs={Integer.class}, tree="[0]")
     private Output<Integer> bgpAsn;
 
     /**
@@ -148,7 +148,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * The authentication key for BGP configuration.
      * 
      */
-    @Export(name="bgpAuthKey", type=String.class, parameters={})
+    @Export(name="bgpAuthKey", refs={String.class}, tree="[0]")
     private Output<String> bgpAuthKey;
 
     /**
@@ -162,7 +162,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      * 
      */
-    @Export(name="connectionId", type=String.class, parameters={})
+    @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
     /**
@@ -176,7 +176,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      * 
      */
-    @Export(name="customerAddress", type=String.class, parameters={})
+    @Export(name="customerAddress", refs={String.class}, tree="[0]")
     private Output<String> customerAddress;
 
     /**
@@ -190,7 +190,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * The name for the virtual interface.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -204,7 +204,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * The AWS account that will own the new virtual interface.
      * 
      */
-    @Export(name="ownerAccountId", type=String.class, parameters={})
+    @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
@@ -218,7 +218,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * A list of routes to be advertised to the AWS network in this region.
      * 
      */
-    @Export(name="routeFilterPrefixes", type=List.class, parameters={String.class})
+    @Export(name="routeFilterPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> routeFilterPrefixes;
 
     /**
@@ -232,7 +232,7 @@ public class HostedPublicVirtualInterface extends com.pulumi.resources.CustomRes
      * The VLAN ID.
      * 
      */
-    @Export(name="vlan", type=Integer.class, parameters={})
+    @Export(name="vlan", refs={Integer.class}, tree="[0]")
     private Output<Integer> vlan;
 
     /**

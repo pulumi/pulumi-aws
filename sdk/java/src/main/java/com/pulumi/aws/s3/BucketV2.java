@@ -607,7 +607,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_accelerate_configuration resource instead */
-    @Export(name="accelerationStatus", type=String.class, parameters={})
+    @Export(name="accelerationStatus", refs={String.class}, tree="[0]")
     private Output<String> accelerationStatus;
 
     /**
@@ -626,7 +626,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_acl resource instead */
-    @Export(name="acl", type=String.class, parameters={})
+    @Export(name="acl", refs={String.class}, tree="[0]")
     private Output<String> acl;
 
     /**
@@ -640,7 +640,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -654,7 +654,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -668,7 +668,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      * 
      */
-    @Export(name="bucketDomainName", type=String.class, parameters={})
+    @Export(name="bucketDomainName", refs={String.class}, tree="[0]")
     private Output<String> bucketDomainName;
 
     /**
@@ -682,7 +682,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      * 
      */
-    @Export(name="bucketPrefix", type=String.class, parameters={})
+    @Export(name="bucketPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bucketPrefix;
 
     /**
@@ -696,7 +696,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
      * 
      */
-    @Export(name="bucketRegionalDomainName", type=String.class, parameters={})
+    @Export(name="bucketRegionalDomainName", refs={String.class}, tree="[0]")
     private Output<String> bucketRegionalDomainName;
 
     /**
@@ -714,7 +714,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_cors_configuration resource instead */
-    @Export(name="corsRules", type=List.class, parameters={BucketV2CorsRule.class})
+    @Export(name="corsRules", refs={List.class,BucketV2CorsRule.class}, tree="[0,1]")
     private Output<List<BucketV2CorsRule>> corsRules;
 
     /**
@@ -724,7 +724,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
     public Output<List<BucketV2CorsRule>> corsRules() {
         return this.corsRules;
     }
-    @Export(name="forceDestroy", type=Boolean.class, parameters={})
+    @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     public Output<Optional<Boolean>> forceDestroy() {
@@ -738,7 +738,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_acl resource instead */
-    @Export(name="grants", type=List.class, parameters={BucketV2Grant.class})
+    @Export(name="grants", refs={List.class,BucketV2Grant.class}, tree="[0,1]")
     private Output<List<BucketV2Grant>> grants;
 
     /**
@@ -752,7 +752,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket&#39;s region.
      * 
      */
-    @Export(name="hostedZoneId", type=String.class, parameters={})
+    @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
     /**
@@ -771,7 +771,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_lifecycle_configuration resource instead */
-    @Export(name="lifecycleRules", type=List.class, parameters={BucketV2LifecycleRule.class})
+    @Export(name="lifecycleRules", refs={List.class,BucketV2LifecycleRule.class}, tree="[0,1]")
     private Output<List<BucketV2LifecycleRule>> lifecycleRules;
 
     /**
@@ -791,7 +791,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_logging resource instead */
-    @Export(name="loggings", type=List.class, parameters={BucketV2Logging.class})
+    @Export(name="loggings", refs={List.class,BucketV2Logging.class}, tree="[0,1]")
     private Output<List<BucketV2Logging>> loggings;
 
     /**
@@ -812,7 +812,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead */
-    @Export(name="objectLockConfiguration", type=BucketV2ObjectLockConfiguration.class, parameters={})
+    @Export(name="objectLockConfiguration", refs={BucketV2ObjectLockConfiguration.class}, tree="[0]")
     private Output<BucketV2ObjectLockConfiguration> objectLockConfiguration;
 
     /**
@@ -828,7 +828,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      * 
      */
-    @Export(name="objectLockEnabled", type=Boolean.class, parameters={})
+    @Export(name="objectLockEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> objectLockEnabled;
 
     /**
@@ -848,7 +848,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_policy resource instead */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -864,7 +864,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * The AWS region this bucket resides in.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
@@ -883,7 +883,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
-    @Export(name="replicationConfigurations", type=List.class, parameters={BucketV2ReplicationConfiguration.class})
+    @Export(name="replicationConfigurations", refs={List.class,BucketV2ReplicationConfiguration.class}, tree="[0,1]")
     private Output<List<BucketV2ReplicationConfiguration>> replicationConfigurations;
 
     /**
@@ -906,7 +906,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_request_payment_configuration resource instead */
-    @Export(name="requestPayer", type=String.class, parameters={})
+    @Export(name="requestPayer", refs={String.class}, tree="[0]")
     private Output<String> requestPayer;
 
     /**
@@ -930,7 +930,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
-    @Export(name="serverSideEncryptionConfigurations", type=List.class, parameters={BucketV2ServerSideEncryptionConfiguration.class})
+    @Export(name="serverSideEncryptionConfigurations", refs={List.class,BucketV2ServerSideEncryptionConfiguration.class}, tree="[0,1]")
     private Output<List<BucketV2ServerSideEncryptionConfiguration>> serverSideEncryptionConfigurations;
 
     /**
@@ -946,7 +946,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -960,7 +960,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -978,7 +978,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
-    @Export(name="versionings", type=List.class, parameters={BucketV2Versioning.class})
+    @Export(name="versionings", refs={List.class,BucketV2Versioning.class}, tree="[0,1]")
     private Output<List<BucketV2Versioning>> versionings;
 
     /**
@@ -996,7 +996,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_website_configuration resource */
-    @Export(name="websiteDomain", type=String.class, parameters={})
+    @Export(name="websiteDomain", refs={String.class}, tree="[0]")
     private Output<String> websiteDomain;
 
     /**
@@ -1014,7 +1014,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_website_configuration resource */
-    @Export(name="websiteEndpoint", type=String.class, parameters={})
+    @Export(name="websiteEndpoint", refs={String.class}, tree="[0]")
     private Output<String> websiteEndpoint;
 
     /**
@@ -1033,7 +1033,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
-    @Export(name="websites", type=List.class, parameters={BucketV2Website.class})
+    @Export(name="websites", refs={List.class,BucketV2Website.class}, tree="[0,1]")
     private Output<List<BucketV2Website>> websites;
 
     /**

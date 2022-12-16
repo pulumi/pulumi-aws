@@ -72,7 +72,7 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
      * The ARN of the lightsail certificate.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -86,7 +86,7 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
      * The timestamp when the instance was created.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -100,7 +100,7 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
      * The domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -110,7 +110,7 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
     public Output<String> domainName() {
         return this.domainName;
     }
-    @Export(name="domainValidationRecords", type=List.class, parameters={LbCertificateDomainValidationRecord.class})
+    @Export(name="domainValidationRecords", refs={List.class,LbCertificateDomainValidationRecord.class}, tree="[0,1]")
     private Output<List<LbCertificateDomainValidationRecord>> domainValidationRecords;
 
     public Output<List<LbCertificateDomainValidationRecord>> domainValidationRecords() {
@@ -120,7 +120,7 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
      * The load balancer name where you want to create the SSL/TLS certificate.
      * 
      */
-    @Export(name="lbName", type=String.class, parameters={})
+    @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
     /**
@@ -134,7 +134,7 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
      * The SSL/TLS certificate name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -148,7 +148,7 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
      * Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
      * 
      */
-    @Export(name="subjectAlternativeNames", type=List.class, parameters={String.class})
+    @Export(name="subjectAlternativeNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subjectAlternativeNames;
 
     /**
@@ -158,7 +158,7 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
     public Output<List<String>> subjectAlternativeNames() {
         return this.subjectAlternativeNames;
     }
-    @Export(name="supportCode", type=String.class, parameters={})
+    @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
     public Output<String> supportCode() {

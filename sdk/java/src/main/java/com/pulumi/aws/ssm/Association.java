@@ -179,7 +179,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
      * 
      */
-    @Export(name="applyOnlyAtCronInterval", type=Boolean.class, parameters={})
+    @Export(name="applyOnlyAtCronInterval", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> applyOnlyAtCronInterval;
 
     /**
@@ -193,7 +193,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * The ARN of the SSM association
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -207,7 +207,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * The ID of the SSM association.
      * 
      */
-    @Export(name="associationId", type=String.class, parameters={})
+    @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
     /**
@@ -221,7 +221,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * The descriptive name for the association.
      * 
      */
-    @Export(name="associationName", type=String.class, parameters={})
+    @Export(name="associationName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> associationName;
 
     /**
@@ -235,7 +235,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
      * 
      */
-    @Export(name="automationTargetParameterName", type=String.class, parameters={})
+    @Export(name="automationTargetParameterName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> automationTargetParameterName;
 
     /**
@@ -249,7 +249,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      * 
      */
-    @Export(name="complianceSeverity", type=String.class, parameters={})
+    @Export(name="complianceSeverity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> complianceSeverity;
 
     /**
@@ -263,7 +263,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      * 
      */
-    @Export(name="documentVersion", type=String.class, parameters={})
+    @Export(name="documentVersion", refs={String.class}, tree="[0]")
     private Output<String> documentVersion;
 
     /**
@@ -281,7 +281,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceId;
 
     /**
@@ -295,7 +295,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      * 
      */
-    @Export(name="maxConcurrency", type=String.class, parameters={})
+    @Export(name="maxConcurrency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maxConcurrency;
 
     /**
@@ -309,7 +309,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      * 
      */
-    @Export(name="maxErrors", type=String.class, parameters={})
+    @Export(name="maxErrors", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maxErrors;
 
     /**
@@ -323,7 +323,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * The name of the SSM document to apply.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -337,7 +337,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * An output location block. Output Location is documented below.
      * 
      */
-    @Export(name="outputLocation", type=AssociationOutputLocation.class, parameters={})
+    @Export(name="outputLocation", refs={AssociationOutputLocation.class}, tree="[0]")
     private Output</* @Nullable */ AssociationOutputLocation> outputLocation;
 
     /**
@@ -351,7 +351,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * A block of arbitrary string parameters to pass to the SSM document.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> parameters;
 
     /**
@@ -365,7 +365,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      * 
      */
-    @Export(name="scheduleExpression", type=String.class, parameters={})
+    @Export(name="scheduleExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scheduleExpression;
 
     /**
@@ -379,7 +379,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      * 
      */
-    @Export(name="targets", type=List.class, parameters={AssociationTarget.class})
+    @Export(name="targets", refs={List.class,AssociationTarget.class}, tree="[0,1]")
     private Output<List<AssociationTarget>> targets;
 
     /**
@@ -393,7 +393,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      * 
      */
-    @Export(name="waitForSuccessTimeoutSeconds", type=Integer.class, parameters={})
+    @Export(name="waitForSuccessTimeoutSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> waitForSuccessTimeoutSeconds;
 
     /**

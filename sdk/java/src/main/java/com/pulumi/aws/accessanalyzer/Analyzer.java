@@ -103,7 +103,7 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
      * Name of the Analyzer.
      * 
      */
-    @Export(name="analyzerName", type=String.class, parameters={})
+    @Export(name="analyzerName", refs={String.class}, tree="[0]")
     private Output<String> analyzerName;
 
     /**
@@ -117,7 +117,7 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
      * ARN of the Analyzer.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -131,7 +131,7 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -145,7 +145,7 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -159,7 +159,7 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
      * Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

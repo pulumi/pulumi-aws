@@ -86,7 +86,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
      * 
      */
-    @Export(name="accountAccessType", type=String.class, parameters={})
+    @Export(name="accountAccessType", refs={String.class}, tree="[0]")
     private Output<String> accountAccessType;
 
     /**
@@ -100,7 +100,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Grafana workspace.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -114,7 +114,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
-    @Export(name="authenticationProviders", type=List.class, parameters={String.class})
+    @Export(name="authenticationProviders", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> authenticationProviders;
 
     /**
@@ -128,7 +128,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
      * 
      */
-    @Export(name="dataSources", type=List.class, parameters={String.class})
+    @Export(name="dataSources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dataSources;
 
     /**
@@ -142,7 +142,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The workspace description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -156,7 +156,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The endpoint of the Grafana workspace.
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
@@ -170,7 +170,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The version of Grafana running on the workspace.
      * 
      */
-    @Export(name="grafanaVersion", type=String.class, parameters={})
+    @Export(name="grafanaVersion", refs={String.class}, tree="[0]")
     private Output<String> grafanaVersion;
 
     /**
@@ -184,7 +184,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The Grafana workspace name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -198,7 +198,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      * 
      */
-    @Export(name="notificationDestinations", type=List.class, parameters={String.class})
+    @Export(name="notificationDestinations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notificationDestinations;
 
     /**
@@ -212,7 +212,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The role name that the workspace uses to access resources through Amazon Organizations.
      * 
      */
-    @Export(name="organizationRoleName", type=String.class, parameters={})
+    @Export(name="organizationRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organizationRoleName;
 
     /**
@@ -226,7 +226,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      * 
      */
-    @Export(name="organizationalUnits", type=List.class, parameters={String.class})
+    @Export(name="organizationalUnits", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> organizationalUnits;
 
     /**
@@ -240,7 +240,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
      * 
      */
-    @Export(name="permissionType", type=String.class, parameters={})
+    @Export(name="permissionType", refs={String.class}, tree="[0]")
     private Output<String> permissionType;
 
     /**
@@ -254,7 +254,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The IAM role ARN that the workspace assumes.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
@@ -264,7 +264,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
     }
-    @Export(name="samlConfigurationStatus", type=String.class, parameters={})
+    @Export(name="samlConfigurationStatus", refs={String.class}, tree="[0]")
     private Output<String> samlConfigurationStatus;
 
     public Output<String> samlConfigurationStatus() {
@@ -274,7 +274,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      * 
      */
-    @Export(name="stackSetName", type=String.class, parameters={})
+    @Export(name="stackSetName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stackSetName;
 
     /**
@@ -288,7 +288,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -302,7 +302,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

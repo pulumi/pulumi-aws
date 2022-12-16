@@ -73,7 +73,7 @@ public class DelegationSet extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Delegation Set.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -88,7 +88,7 @@ public class DelegationSet extends com.pulumi.resources.CustomResource {
      * (effectively a list of NS records).
      * 
      */
-    @Export(name="nameServers", type=List.class, parameters={String.class})
+    @Export(name="nameServers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> nameServers;
 
     /**
@@ -104,7 +104,7 @@ public class DelegationSet extends com.pulumi.resources.CustomResource {
      * (helpful for identifying single delegation set amongst others)
      * 
      */
-    @Export(name="referenceName", type=String.class, parameters={})
+    @Export(name="referenceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> referenceName;
 
     /**

@@ -162,7 +162,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * The description of the scheduled action.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -176,7 +176,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * Whether to enable the scheduled action. Default is `true` .
      * 
      */
-    @Export(name="enable", type=Boolean.class, parameters={})
+    @Export(name="enable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enable;
 
     /**
@@ -190,7 +190,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
      * 
      */
-    @Export(name="endTime", type=String.class, parameters={})
+    @Export(name="endTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endTime;
 
     /**
@@ -204,7 +204,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * The IAM role to assume to run the scheduled action.
      * 
      */
-    @Export(name="iamRole", type=String.class, parameters={})
+    @Export(name="iamRole", refs={String.class}, tree="[0]")
     private Output<String> iamRole;
 
     /**
@@ -218,7 +218,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * The scheduled action name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -232,7 +232,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * The schedule of action. The schedule is defined format of &#34;at expression&#34; or &#34;cron expression&#34;, for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
      * 
      */
-    @Export(name="schedule", type=String.class, parameters={})
+    @Export(name="schedule", refs={String.class}, tree="[0]")
     private Output<String> schedule;
 
     /**
@@ -246,7 +246,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
      * 
      */
-    @Export(name="startTime", type=String.class, parameters={})
+    @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startTime;
 
     /**
@@ -260,7 +260,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * Target action. Documented below.
      * 
      */
-    @Export(name="targetAction", type=ScheduledActionTargetAction.class, parameters={})
+    @Export(name="targetAction", refs={ScheduledActionTargetAction.class}, tree="[0]")
     private Output<ScheduledActionTargetAction> targetAction;
 
     /**

@@ -250,7 +250,7 @@ public class Selection extends com.pulumi.resources.CustomResource {
      * A list of conditions that you define to assign resources to your backup plans using tags.
      * 
      */
-    @Export(name="conditions", type=List.class, parameters={SelectionCondition.class})
+    @Export(name="conditions", refs={List.class,SelectionCondition.class}, tree="[0,1]")
     private Output<List<SelectionCondition>> conditions;
 
     /**
@@ -264,7 +264,7 @@ public class Selection extends com.pulumi.resources.CustomResource {
      * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
      */
-    @Export(name="iamRoleArn", type=String.class, parameters={})
+    @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamRoleArn;
 
     /**
@@ -278,7 +278,7 @@ public class Selection extends com.pulumi.resources.CustomResource {
      * The display name of a resource selection document.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -292,7 +292,7 @@ public class Selection extends com.pulumi.resources.CustomResource {
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
      * 
      */
-    @Export(name="notResources", type=List.class, parameters={String.class})
+    @Export(name="notResources", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> notResources;
 
     /**
@@ -306,7 +306,7 @@ public class Selection extends com.pulumi.resources.CustomResource {
      * The backup plan ID to be associated with the selection of resources.
      * 
      */
-    @Export(name="planId", type=String.class, parameters={})
+    @Export(name="planId", refs={String.class}, tree="[0]")
     private Output<String> planId;
 
     /**
@@ -320,7 +320,7 @@ public class Selection extends com.pulumi.resources.CustomResource {
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
      * 
      */
-    @Export(name="resources", type=List.class, parameters={String.class})
+    @Export(name="resources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resources;
 
     /**
@@ -334,7 +334,7 @@ public class Selection extends com.pulumi.resources.CustomResource {
      * Tag-based conditions used to specify a set of resources to assign to a backup plan.
      * 
      */
-    @Export(name="selectionTags", type=List.class, parameters={SelectionSelectionTag.class})
+    @Export(name="selectionTags", refs={List.class,SelectionSelectionTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SelectionSelectionTag>> selectionTags;
 
     /**

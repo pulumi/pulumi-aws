@@ -69,7 +69,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * ARN of this auto scaling configuration version.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * Name of the auto scaling configuration.
      * 
      */
-    @Export(name="autoScalingConfigurationName", type=String.class, parameters={})
+    @Export(name="autoScalingConfigurationName", refs={String.class}, tree="[0]")
     private Output<String> autoScalingConfigurationName;
 
     /**
@@ -97,7 +97,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * The revision of this auto scaling configuration.
      * 
      */
-    @Export(name="autoScalingConfigurationRevision", type=Integer.class, parameters={})
+    @Export(name="autoScalingConfigurationRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> autoScalingConfigurationRevision;
 
     /**
@@ -111,7 +111,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
      * 
      */
-    @Export(name="latest", type=Boolean.class, parameters={})
+    @Export(name="latest", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> latest;
 
     /**
@@ -125,7 +125,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      * 
      */
-    @Export(name="maxConcurrency", type=Integer.class, parameters={})
+    @Export(name="maxConcurrency", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxConcurrency;
 
     /**
@@ -139,7 +139,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * Maximal number of instances that App Runner provisions for your service.
      * 
      */
-    @Export(name="maxSize", type=Integer.class, parameters={})
+    @Export(name="maxSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxSize;
 
     /**
@@ -153,7 +153,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * Minimal number of instances that App Runner provisions for your service.
      * 
      */
-    @Export(name="minSize", type=Integer.class, parameters={})
+    @Export(name="minSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minSize;
 
     /**
@@ -167,7 +167,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -181,7 +181,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -195,7 +195,7 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

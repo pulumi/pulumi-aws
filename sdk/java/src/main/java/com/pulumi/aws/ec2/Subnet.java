@@ -109,7 +109,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The ARN of the subnet.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -125,7 +125,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * assigned an IPv6 address. Default is `false`
      * 
      */
-    @Export(name="assignIpv6AddressOnCreation", type=Boolean.class, parameters={})
+    @Export(name="assignIpv6AddressOnCreation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> assignIpv6AddressOnCreation;
 
     /**
@@ -141,7 +141,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * AZ for the subnet.
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
@@ -155,7 +155,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
      * 
      */
-    @Export(name="availabilityZoneId", type=String.class, parameters={})
+    @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneId;
 
     /**
@@ -169,7 +169,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The IPv4 CIDR block for the subnet.
      * 
      */
-    @Export(name="cidrBlock", type=String.class, parameters={})
+    @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cidrBlock;
 
     /**
@@ -183,7 +183,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
      * 
      */
-    @Export(name="customerOwnedIpv4Pool", type=String.class, parameters={})
+    @Export(name="customerOwnedIpv4Pool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerOwnedIpv4Pool;
 
     /**
@@ -197,7 +197,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
      * 
      */
-    @Export(name="enableDns64", type=Boolean.class, parameters={})
+    @Export(name="enableDns64", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableDns64;
 
     /**
@@ -211,7 +211,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
      * 
      */
-    @Export(name="enableResourceNameDnsARecordOnLaunch", type=Boolean.class, parameters={})
+    @Export(name="enableResourceNameDnsARecordOnLaunch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableResourceNameDnsARecordOnLaunch;
 
     /**
@@ -225,7 +225,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
      * 
      */
-    @Export(name="enableResourceNameDnsAaaaRecordOnLaunch", type=Boolean.class, parameters={})
+    @Export(name="enableResourceNameDnsAaaaRecordOnLaunch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableResourceNameDnsAaaaRecordOnLaunch;
 
     /**
@@ -240,7 +240,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * in CIDR notation. The subnet size must use a /64 prefix length.
      * 
      */
-    @Export(name="ipv6CidrBlock", type=String.class, parameters={})
+    @Export(name="ipv6CidrBlock", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipv6CidrBlock;
 
     /**
@@ -255,7 +255,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The association ID for the IPv6 CIDR block.
      * 
      */
-    @Export(name="ipv6CidrBlockAssociationId", type=String.class, parameters={})
+    @Export(name="ipv6CidrBlockAssociationId", refs={String.class}, tree="[0]")
     private Output<String> ipv6CidrBlockAssociationId;
 
     /**
@@ -269,7 +269,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * Indicates whether to create an IPv6-only subnet. Default: `false`.
      * 
      */
-    @Export(name="ipv6Native", type=Boolean.class, parameters={})
+    @Export(name="ipv6Native", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipv6Native;
 
     /**
@@ -283,7 +283,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
      * 
      */
-    @Export(name="mapCustomerOwnedIpOnLaunch", type=Boolean.class, parameters={})
+    @Export(name="mapCustomerOwnedIpOnLaunch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> mapCustomerOwnedIpOnLaunch;
 
     /**
@@ -299,7 +299,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * a public IP address. Default is `false`.
      * 
      */
-    @Export(name="mapPublicIpOnLaunch", type=Boolean.class, parameters={})
+    @Export(name="mapPublicIpOnLaunch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> mapPublicIpOnLaunch;
 
     /**
@@ -315,7 +315,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Outpost.
      * 
      */
-    @Export(name="outpostArn", type=String.class, parameters={})
+    @Export(name="outpostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outpostArn;
 
     /**
@@ -329,7 +329,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The ID of the AWS account that owns the subnet.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -343,7 +343,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
      * 
      */
-    @Export(name="privateDnsHostnameTypeOnLaunch", type=String.class, parameters={})
+    @Export(name="privateDnsHostnameTypeOnLaunch", refs={String.class}, tree="[0]")
     private Output<String> privateDnsHostnameTypeOnLaunch;
 
     /**
@@ -357,7 +357,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -371,7 +371,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -385,7 +385,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The VPC ID.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

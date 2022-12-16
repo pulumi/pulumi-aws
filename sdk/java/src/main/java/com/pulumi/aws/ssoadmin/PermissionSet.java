@@ -35,7 +35,7 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Permission Set.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -49,7 +49,7 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    @Export(name="createdDate", type=String.class, parameters={})
+    @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
     /**
@@ -63,7 +63,7 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * The description of the Permission Set.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -77,7 +77,7 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      * 
      */
-    @Export(name="instanceArn", type=String.class, parameters={})
+    @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
     /**
@@ -91,7 +91,7 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * The name of the Permission Set.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -105,7 +105,7 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * The relay state URL used to redirect users within the application during the federation authentication process.
      * 
      */
-    @Export(name="relayState", type=String.class, parameters={})
+    @Export(name="relayState", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> relayState;
 
     /**
@@ -119,7 +119,7 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
      * 
      */
-    @Export(name="sessionDuration", type=String.class, parameters={})
+    @Export(name="sessionDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sessionDuration;
 
     /**
@@ -133,7 +133,7 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -147,7 +147,7 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

@@ -72,7 +72,7 @@ public class BucketPublicAccessBlock extends com.pulumi.resources.CustomResource
      * * PUT Object calls will fail if the request includes an object ACL.
      * 
      */
-    @Export(name="blockPublicAcls", type=Boolean.class, parameters={})
+    @Export(name="blockPublicAcls", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockPublicAcls;
 
     /**
@@ -89,7 +89,7 @@ public class BucketPublicAccessBlock extends com.pulumi.resources.CustomResource
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      * 
      */
-    @Export(name="blockPublicPolicy", type=Boolean.class, parameters={})
+    @Export(name="blockPublicPolicy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockPublicPolicy;
 
     /**
@@ -104,7 +104,7 @@ public class BucketPublicAccessBlock extends com.pulumi.resources.CustomResource
      * S3 Bucket to which this Public Access Block configuration should be applied.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -119,7 +119,7 @@ public class BucketPublicAccessBlock extends com.pulumi.resources.CustomResource
      * * Ignore public ACLs on this bucket and any objects that it contains.
      * 
      */
-    @Export(name="ignorePublicAcls", type=Boolean.class, parameters={})
+    @Export(name="ignorePublicAcls", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignorePublicAcls;
 
     /**
@@ -135,7 +135,7 @@ public class BucketPublicAccessBlock extends com.pulumi.resources.CustomResource
      * * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
      * 
      */
-    @Export(name="restrictPublicBuckets", type=Boolean.class, parameters={})
+    @Export(name="restrictPublicBuckets", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> restrictPublicBuckets;
 
     /**

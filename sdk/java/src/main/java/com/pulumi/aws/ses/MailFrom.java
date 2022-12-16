@@ -126,7 +126,7 @@ public class MailFrom extends com.pulumi.resources.CustomResource {
      * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      * 
      */
-    @Export(name="behaviorOnMxFailure", type=String.class, parameters={})
+    @Export(name="behaviorOnMxFailure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> behaviorOnMxFailure;
 
     /**
@@ -140,7 +140,7 @@ public class MailFrom extends com.pulumi.resources.CustomResource {
      * Verified domain name or email identity to generate DKIM tokens for.
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
@@ -154,7 +154,7 @@ public class MailFrom extends com.pulumi.resources.CustomResource {
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
      * 
      */
-    @Export(name="mailFromDomain", type=String.class, parameters={})
+    @Export(name="mailFromDomain", refs={String.class}, tree="[0]")
     private Output<String> mailFromDomain;
 
     /**

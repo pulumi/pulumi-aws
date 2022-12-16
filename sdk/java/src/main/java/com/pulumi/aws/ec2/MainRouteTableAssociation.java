@@ -65,7 +65,7 @@ public class MainRouteTableAssociation extends com.pulumi.resources.CustomResour
      * Used internally, see **Notes** below
      * 
      */
-    @Export(name="originalRouteTableId", type=String.class, parameters={})
+    @Export(name="originalRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> originalRouteTableId;
 
     /**
@@ -80,7 +80,7 @@ public class MainRouteTableAssociation extends com.pulumi.resources.CustomResour
      * main route table for the target VPC
      * 
      */
-    @Export(name="routeTableId", type=String.class, parameters={})
+    @Export(name="routeTableId", refs={String.class}, tree="[0]")
     private Output<String> routeTableId;
 
     /**
@@ -95,7 +95,7 @@ public class MainRouteTableAssociation extends com.pulumi.resources.CustomResour
      * The ID of the VPC whose main route table should be set
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

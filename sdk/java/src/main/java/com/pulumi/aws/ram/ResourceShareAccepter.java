@@ -34,7 +34,7 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * The ARN of the resource share invitation.
      * 
      */
-    @Export(name="invitationArn", type=String.class, parameters={})
+    @Export(name="invitationArn", refs={String.class}, tree="[0]")
     private Output<String> invitationArn;
 
     /**
@@ -48,7 +48,7 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * The account ID of the receiver account which accepts the invitation.
      * 
      */
-    @Export(name="receiverAccountId", type=String.class, parameters={})
+    @Export(name="receiverAccountId", refs={String.class}, tree="[0]")
     private Output<String> receiverAccountId;
 
     /**
@@ -62,7 +62,7 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * A list of the resource ARNs shared via the resource share.
      * 
      */
-    @Export(name="resources", type=List.class, parameters={String.class})
+    @Export(name="resources", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> resources;
 
     /**
@@ -76,7 +76,7 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * The account ID of the sender account which submits the invitation.
      * 
      */
-    @Export(name="senderAccountId", type=String.class, parameters={})
+    @Export(name="senderAccountId", refs={String.class}, tree="[0]")
     private Output<String> senderAccountId;
 
     /**
@@ -90,7 +90,7 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * The ARN of the resource share.
      * 
      */
-    @Export(name="shareArn", type=String.class, parameters={})
+    @Export(name="shareArn", refs={String.class}, tree="[0]")
     private Output<String> shareArn;
 
     /**
@@ -104,7 +104,7 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * The ID of the resource share as displayed in the console.
      * 
      */
-    @Export(name="shareId", type=String.class, parameters={})
+    @Export(name="shareId", refs={String.class}, tree="[0]")
     private Output<String> shareId;
 
     /**
@@ -118,7 +118,7 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * The name of the resource share.
      * 
      */
-    @Export(name="shareName", type=String.class, parameters={})
+    @Export(name="shareName", refs={String.class}, tree="[0]")
     private Output<String> shareName;
 
     /**
@@ -132,7 +132,7 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
      * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

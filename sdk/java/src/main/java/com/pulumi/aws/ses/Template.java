@@ -67,7 +67,7 @@ public class Template extends com.pulumi.resources.CustomResource {
      * The ARN of the SES template
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -81,7 +81,7 @@ public class Template extends com.pulumi.resources.CustomResource {
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      * 
      */
-    @Export(name="html", type=String.class, parameters={})
+    @Export(name="html", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> html;
 
     /**
@@ -95,7 +95,7 @@ public class Template extends com.pulumi.resources.CustomResource {
      * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -109,7 +109,7 @@ public class Template extends com.pulumi.resources.CustomResource {
      * The subject line of the email.
      * 
      */
-    @Export(name="subject", type=String.class, parameters={})
+    @Export(name="subject", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subject;
 
     /**
@@ -123,7 +123,7 @@ public class Template extends com.pulumi.resources.CustomResource {
      * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      * 
      */
-    @Export(name="text", type=String.class, parameters={})
+    @Export(name="text", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> text;
 
     /**

@@ -145,7 +145,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
      * 
      */
-    @Export(name="addressFamily", type=String.class, parameters={})
+    @Export(name="addressFamily", refs={String.class}, tree="[0]")
     private Output<String> addressFamily;
 
     /**
@@ -159,7 +159,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
      * 
      */
-    @Export(name="allocationDefaultNetmaskLength", type=Integer.class, parameters={})
+    @Export(name="allocationDefaultNetmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> allocationDefaultNetmaskLength;
 
     /**
@@ -173,7 +173,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * The maximum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
-    @Export(name="allocationMaxNetmaskLength", type=Integer.class, parameters={})
+    @Export(name="allocationMaxNetmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> allocationMaxNetmaskLength;
 
     /**
@@ -187,7 +187,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * The minimum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
-    @Export(name="allocationMinNetmaskLength", type=Integer.class, parameters={})
+    @Export(name="allocationMinNetmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> allocationMinNetmaskLength;
 
     /**
@@ -201,7 +201,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
      * 
      */
-    @Export(name="allocationResourceTags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="allocationResourceTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> allocationResourceTags;
 
     /**
@@ -215,7 +215,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of IPAM
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -230,7 +230,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * within the CIDR range in the pool.
      * 
      */
-    @Export(name="autoImport", type=Boolean.class, parameters={})
+    @Export(name="autoImport", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoImport;
 
     /**
@@ -245,7 +245,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
      * 
      */
-    @Export(name="awsService", type=String.class, parameters={})
+    @Export(name="awsService", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsService;
 
     /**
@@ -259,7 +259,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * A description for the IPAM pool.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -273,7 +273,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * The ID of the scope in which you would like to create the IPAM pool.
      * 
      */
-    @Export(name="ipamScopeId", type=String.class, parameters={})
+    @Export(name="ipamScopeId", refs={String.class}, tree="[0]")
     private Output<String> ipamScopeId;
 
     /**
@@ -283,7 +283,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
     public Output<String> ipamScopeId() {
         return this.ipamScopeId;
     }
-    @Export(name="ipamScopeType", type=String.class, parameters={})
+    @Export(name="ipamScopeType", refs={String.class}, tree="[0]")
     private Output<String> ipamScopeType;
 
     public Output<String> ipamScopeType() {
@@ -293,7 +293,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. Possible values: Any AWS region, such as `us-east-1`.
      * 
      */
-    @Export(name="locale", type=String.class, parameters={})
+    @Export(name="locale", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> locale;
 
     /**
@@ -303,7 +303,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> locale() {
         return Codegen.optional(this.locale);
     }
-    @Export(name="poolDepth", type=Integer.class, parameters={})
+    @Export(name="poolDepth", refs={Integer.class}, tree="[0]")
     private Output<Integer> poolDepth;
 
     public Output<Integer> poolDepth() {
@@ -313,7 +313,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
      * 
      */
-    @Export(name="publiclyAdvertisable", type=Boolean.class, parameters={})
+    @Export(name="publiclyAdvertisable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publiclyAdvertisable;
 
     /**
@@ -327,7 +327,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      * 
      */
-    @Export(name="sourceIpamPoolId", type=String.class, parameters={})
+    @Export(name="sourceIpamPoolId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceIpamPoolId;
 
     /**
@@ -341,7 +341,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * The ID of the IPAM
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -355,7 +355,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -369,7 +369,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

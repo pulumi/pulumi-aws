@@ -70,7 +70,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * ID of the associated AppSync API
      * 
      */
-    @Export(name="apiId", type=String.class, parameters={})
+    @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
     /**
@@ -84,7 +84,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -98,7 +98,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
      * 
      */
-    @Export(name="expires", type=String.class, parameters={})
+    @Export(name="expires", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expires;
 
     /**
@@ -112,7 +112,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * API key
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**

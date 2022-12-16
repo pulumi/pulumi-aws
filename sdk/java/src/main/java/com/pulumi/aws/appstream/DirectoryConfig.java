@@ -69,7 +69,7 @@ public class DirectoryConfig extends com.pulumi.resources.CustomResource {
      * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
      * 
      */
-    @Export(name="createdTime", type=String.class, parameters={})
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
@@ -83,7 +83,7 @@ public class DirectoryConfig extends com.pulumi.resources.CustomResource {
      * Fully qualified name of the directory.
      * 
      */
-    @Export(name="directoryName", type=String.class, parameters={})
+    @Export(name="directoryName", refs={String.class}, tree="[0]")
     private Output<String> directoryName;
 
     /**
@@ -97,7 +97,7 @@ public class DirectoryConfig extends com.pulumi.resources.CustomResource {
      * Distinguished names of the organizational units for computer accounts.
      * 
      */
-    @Export(name="organizationalUnitDistinguishedNames", type=List.class, parameters={String.class})
+    @Export(name="organizationalUnitDistinguishedNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> organizationalUnitDistinguishedNames;
 
     /**
@@ -111,7 +111,7 @@ public class DirectoryConfig extends com.pulumi.resources.CustomResource {
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
      * 
      */
-    @Export(name="serviceAccountCredentials", type=DirectoryConfigServiceAccountCredentials.class, parameters={})
+    @Export(name="serviceAccountCredentials", refs={DirectoryConfigServiceAccountCredentials.class}, tree="[0]")
     private Output<DirectoryConfigServiceAccountCredentials> serviceAccountCredentials;
 
     /**

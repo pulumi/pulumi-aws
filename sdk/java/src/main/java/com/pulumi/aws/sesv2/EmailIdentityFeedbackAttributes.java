@@ -71,7 +71,7 @@ public class EmailIdentityFeedbackAttributes extends com.pulumi.resources.Custom
      * Sets the feedback forwarding configuration for the identity.
      * 
      */
-    @Export(name="emailForwardingEnabled", type=Boolean.class, parameters={})
+    @Export(name="emailForwardingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> emailForwardingEnabled;
 
     /**
@@ -85,7 +85,7 @@ public class EmailIdentityFeedbackAttributes extends com.pulumi.resources.Custom
      * The email identity.
      * 
      */
-    @Export(name="emailIdentity", type=String.class, parameters={})
+    @Export(name="emailIdentity", refs={String.class}, tree="[0]")
     private Output<String> emailIdentity;
 
     /**

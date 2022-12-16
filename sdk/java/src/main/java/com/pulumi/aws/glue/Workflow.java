@@ -90,7 +90,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of Glue Workflow
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -104,7 +104,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
-    @Export(name="defaultRunProperties", type=Map.class, parameters={String.class, Object.class})
+    @Export(name="defaultRunProperties", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> defaultRunProperties;
 
     /**
@@ -118,7 +118,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Description of the workflow.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -132,7 +132,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
      * 
      */
-    @Export(name="maxConcurrentRuns", type=Integer.class, parameters={})
+    @Export(name="maxConcurrentRuns", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxConcurrentRuns;
 
     /**
@@ -146,7 +146,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The name you assign to this workflow.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -160,7 +160,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -174,7 +174,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

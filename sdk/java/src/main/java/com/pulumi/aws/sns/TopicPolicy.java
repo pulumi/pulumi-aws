@@ -97,7 +97,7 @@ public class TopicPolicy extends com.pulumi.resources.CustomResource {
      * The ARN of the SNS topic
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -111,7 +111,7 @@ public class TopicPolicy extends com.pulumi.resources.CustomResource {
      * The AWS Account ID of the SNS topic owner
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -125,7 +125,7 @@ public class TopicPolicy extends com.pulumi.resources.CustomResource {
      * The fully-formed AWS policy as JSON.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**

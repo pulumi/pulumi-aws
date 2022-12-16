@@ -121,7 +121,7 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * The AWS account ID for the user pool owner.
      * 
      */
-    @Export(name="awsAccountId", type=String.class, parameters={})
+    @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
     /**
@@ -135,7 +135,7 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      * 
      */
-    @Export(name="certificateArn", type=String.class, parameters={})
+    @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateArn;
 
     /**
@@ -149,7 +149,7 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      * 
      */
-    @Export(name="cloudfrontDistributionArn", type=String.class, parameters={})
+    @Export(name="cloudfrontDistributionArn", refs={String.class}, tree="[0]")
     private Output<String> cloudfrontDistributionArn;
 
     /**
@@ -163,7 +163,7 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
@@ -177,7 +177,7 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * The S3 bucket where the static files for this domain are stored.
      * 
      */
-    @Export(name="s3Bucket", type=String.class, parameters={})
+    @Export(name="s3Bucket", refs={String.class}, tree="[0]")
     private Output<String> s3Bucket;
 
     /**
@@ -191,7 +191,7 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * The user pool ID.
      * 
      */
-    @Export(name="userPoolId", type=String.class, parameters={})
+    @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
     /**
@@ -205,7 +205,7 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      * The app version.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**

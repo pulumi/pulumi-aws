@@ -72,7 +72,7 @@ public class UsageLimit extends com.pulumi.resources.CustomResource {
      * The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
      * 
      */
-    @Export(name="amount", type=Integer.class, parameters={})
+    @Export(name="amount", refs={Integer.class}, tree="[0]")
     private Output<Integer> amount;
 
     /**
@@ -86,7 +86,7 @@ public class UsageLimit extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -100,7 +100,7 @@ public class UsageLimit extends com.pulumi.resources.CustomResource {
      * The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
      * 
      */
-    @Export(name="breachAction", type=String.class, parameters={})
+    @Export(name="breachAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> breachAction;
 
     /**
@@ -114,7 +114,7 @@ public class UsageLimit extends com.pulumi.resources.CustomResource {
      * The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
      * 
      */
-    @Export(name="period", type=String.class, parameters={})
+    @Export(name="period", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> period;
 
     /**
@@ -128,7 +128,7 @@ public class UsageLimit extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
@@ -142,7 +142,7 @@ public class UsageLimit extends com.pulumi.resources.CustomResource {
      * The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
      * 
      */
-    @Export(name="usageType", type=String.class, parameters={})
+    @Export(name="usageType", refs={String.class}, tree="[0]")
     private Output<String> usageType;
 
     /**

@@ -71,7 +71,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) identifying your CloudFront Function.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -85,7 +85,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Source code of the function
      * 
      */
-    @Export(name="code", type=String.class, parameters={})
+    @Export(name="code", refs={String.class}, tree="[0]")
     private Output<String> code;
 
     /**
@@ -99,7 +99,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Comment.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -113,7 +113,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -127,7 +127,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * ETag hash of any `LIVE` stage of the function.
      * 
      */
-    @Export(name="liveStageEtag", type=String.class, parameters={})
+    @Export(name="liveStageEtag", refs={String.class}, tree="[0]")
     private Output<String> liveStageEtag;
 
     /**
@@ -141,7 +141,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Unique name for your CloudFront Function.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -155,7 +155,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
      * 
      */
-    @Export(name="publish", type=Boolean.class, parameters={})
+    @Export(name="publish", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publish;
 
     /**
@@ -169,7 +169,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
      * 
      */
-    @Export(name="runtime", type=String.class, parameters={})
+    @Export(name="runtime", refs={String.class}, tree="[0]")
     private Output<String> runtime;
 
     /**
@@ -183,7 +183,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

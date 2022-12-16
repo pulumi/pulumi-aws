@@ -73,7 +73,7 @@ public class Connect extends com.pulumi.resources.CustomResource {
      * The tunnel protocol. Valida values: `gre`. Default is `gre`.
      * 
      */
-    @Export(name="protocol", type=String.class, parameters={})
+    @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocol;
 
     /**
@@ -87,7 +87,7 @@ public class Connect extends com.pulumi.resources.CustomResource {
      * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -101,7 +101,7 @@ public class Connect extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -115,7 +115,7 @@ public class Connect extends com.pulumi.resources.CustomResource {
      * Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
-    @Export(name="transitGatewayDefaultRouteTableAssociation", type=Boolean.class, parameters={})
+    @Export(name="transitGatewayDefaultRouteTableAssociation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> transitGatewayDefaultRouteTableAssociation;
 
     /**
@@ -129,7 +129,7 @@ public class Connect extends com.pulumi.resources.CustomResource {
      * Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
-    @Export(name="transitGatewayDefaultRouteTablePropagation", type=Boolean.class, parameters={})
+    @Export(name="transitGatewayDefaultRouteTablePropagation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> transitGatewayDefaultRouteTablePropagation;
 
     /**
@@ -143,7 +143,7 @@ public class Connect extends com.pulumi.resources.CustomResource {
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    @Export(name="transitGatewayId", type=String.class, parameters={})
+    @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayId;
 
     /**
@@ -157,7 +157,7 @@ public class Connect extends com.pulumi.resources.CustomResource {
      * The underlaying VPC attachment
      * 
      */
-    @Export(name="transportAttachmentId", type=String.class, parameters={})
+    @Export(name="transportAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transportAttachmentId;
 
     /**

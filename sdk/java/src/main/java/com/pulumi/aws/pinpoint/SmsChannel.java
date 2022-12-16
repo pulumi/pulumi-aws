@@ -67,7 +67,7 @@ public class SmsChannel extends com.pulumi.resources.CustomResource {
      * The application ID.
      * 
      */
-    @Export(name="applicationId", type=String.class, parameters={})
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
@@ -81,7 +81,7 @@ public class SmsChannel extends com.pulumi.resources.CustomResource {
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -95,7 +95,7 @@ public class SmsChannel extends com.pulumi.resources.CustomResource {
      * Promotional messages per second that can be sent.
      * 
      */
-    @Export(name="promotionalMessagesPerSecond", type=Integer.class, parameters={})
+    @Export(name="promotionalMessagesPerSecond", refs={Integer.class}, tree="[0]")
     private Output<Integer> promotionalMessagesPerSecond;
 
     /**
@@ -109,7 +109,7 @@ public class SmsChannel extends com.pulumi.resources.CustomResource {
      * Sender identifier of your messages.
      * 
      */
-    @Export(name="senderId", type=String.class, parameters={})
+    @Export(name="senderId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> senderId;
 
     /**
@@ -123,7 +123,7 @@ public class SmsChannel extends com.pulumi.resources.CustomResource {
      * The Short Code registered with the phone provider.
      * 
      */
-    @Export(name="shortCode", type=String.class, parameters={})
+    @Export(name="shortCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> shortCode;
 
     /**
@@ -137,7 +137,7 @@ public class SmsChannel extends com.pulumi.resources.CustomResource {
      * Transactional messages per second that can be sent.
      * 
      */
-    @Export(name="transactionalMessagesPerSecond", type=Integer.class, parameters={})
+    @Export(name="transactionalMessagesPerSecond", refs={Integer.class}, tree="[0]")
     private Output<Integer> transactionalMessagesPerSecond;
 
     /**

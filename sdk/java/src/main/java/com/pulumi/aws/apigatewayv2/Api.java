@@ -98,7 +98,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      * 
      */
-    @Export(name="apiEndpoint", type=String.class, parameters={})
+    @Export(name="apiEndpoint", refs={String.class}, tree="[0]")
     private Output<String> apiEndpoint;
 
     /**
@@ -114,7 +114,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Applicable for WebSocket APIs.
      * 
      */
-    @Export(name="apiKeySelectionExpression", type=String.class, parameters={})
+    @Export(name="apiKeySelectionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKeySelectionExpression;
 
     /**
@@ -130,7 +130,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * ARN of the API.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -144,7 +144,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
      * 
      */
-    @Export(name="body", type=String.class, parameters={})
+    @Export(name="body", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> body;
 
     /**
@@ -158,7 +158,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      * 
      */
-    @Export(name="corsConfiguration", type=ApiCorsConfiguration.class, parameters={})
+    @Export(name="corsConfiguration", refs={ApiCorsConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ApiCorsConfiguration> corsConfiguration;
 
     /**
@@ -172,7 +172,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
      * 
      */
-    @Export(name="credentialsArn", type=String.class, parameters={})
+    @Export(name="credentialsArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialsArn;
 
     /**
@@ -186,7 +186,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Description of the API. Must be less than or equal to 1024 characters in length.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -202,7 +202,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * To require that clients use a custom domain name to invoke the API, disable the default endpoint.
      * 
      */
-    @Export(name="disableExecuteApiEndpoint", type=Boolean.class, parameters={})
+    @Export(name="disableExecuteApiEndpoint", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableExecuteApiEndpoint;
 
     /**
@@ -220,7 +220,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
-    @Export(name="executionArn", type=String.class, parameters={})
+    @Export(name="executionArn", refs={String.class}, tree="[0]")
     private Output<String> executionArn;
 
     /**
@@ -236,7 +236,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
      * 
      */
-    @Export(name="failOnWarnings", type=Boolean.class, parameters={})
+    @Export(name="failOnWarnings", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> failOnWarnings;
 
     /**
@@ -250,7 +250,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Name of the API. Must be less than or equal to 128 characters in length.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -264,7 +264,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      * 
      */
-    @Export(name="protocolType", type=String.class, parameters={})
+    @Export(name="protocolType", refs={String.class}, tree="[0]")
     private Output<String> protocolType;
 
     /**
@@ -278,7 +278,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
      * 
      */
-    @Export(name="routeKey", type=String.class, parameters={})
+    @Export(name="routeKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> routeKey;
 
     /**
@@ -293,7 +293,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Defaults to `$request.method $request.path`.
      * 
      */
-    @Export(name="routeSelectionExpression", type=String.class, parameters={})
+    @Export(name="routeSelectionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> routeSelectionExpression;
 
     /**
@@ -308,7 +308,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -322,7 +322,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -338,7 +338,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
      * 
      */
-    @Export(name="target", type=String.class, parameters={})
+    @Export(name="target", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> target;
 
     /**
@@ -354,7 +354,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Version identifier for the API. Must be between 1 and 64 characters in length.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> version;
 
     /**

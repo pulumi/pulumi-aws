@@ -84,7 +84,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -101,7 +101,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * The default value is `false`.
      * 
      */
-    @Export(name="bypassPolicyLockoutSafetyCheck", type=Boolean.class, parameters={})
+    @Export(name="bypassPolicyLockoutSafetyCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bypassPolicyLockoutSafetyCheck;
 
     /**
@@ -119,7 +119,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      * 
      */
-    @Export(name="deletionWindowInDays", type=Integer.class, parameters={})
+    @Export(name="deletionWindowInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> deletionWindowInDays;
 
     /**
@@ -134,7 +134,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * A description of the KMS key.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -148,7 +148,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -162,7 +162,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * The key ID of the replica key. Related multi-Region keys have the same key ID.
      * 
      */
-    @Export(name="keyId", type=String.class, parameters={})
+    @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
     /**
@@ -176,7 +176,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
      * 
      */
-    @Export(name="keyRotationEnabled", type=Boolean.class, parameters={})
+    @Export(name="keyRotationEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> keyRotationEnabled;
 
     /**
@@ -190,7 +190,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * The type of key material in the KMS key. This is a shared property of multi-Region keys.
      * 
      */
-    @Export(name="keySpec", type=String.class, parameters={})
+    @Export(name="keySpec", refs={String.class}, tree="[0]")
     private Output<String> keySpec;
 
     /**
@@ -204,7 +204,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      * 
      */
-    @Export(name="keyUsage", type=String.class, parameters={})
+    @Export(name="keyUsage", refs={String.class}, tree="[0]")
     private Output<String> keyUsage;
 
     /**
@@ -218,7 +218,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -232,7 +232,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      * 
      */
-    @Export(name="primaryKeyArn", type=String.class, parameters={})
+    @Export(name="primaryKeyArn", refs={String.class}, tree="[0]")
     private Output<String> primaryKeyArn;
 
     /**
@@ -246,7 +246,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -260,7 +260,7 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

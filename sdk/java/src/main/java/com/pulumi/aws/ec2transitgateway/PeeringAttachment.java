@@ -97,7 +97,7 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
-    @Export(name="peerAccountId", type=String.class, parameters={})
+    @Export(name="peerAccountId", refs={String.class}, tree="[0]")
     private Output<String> peerAccountId;
 
     /**
@@ -111,7 +111,7 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
      * Region of EC2 Transit Gateway to peer with.
      * 
      */
-    @Export(name="peerRegion", type=String.class, parameters={})
+    @Export(name="peerRegion", refs={String.class}, tree="[0]")
     private Output<String> peerRegion;
 
     /**
@@ -125,7 +125,7 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
      * Identifier of EC2 Transit Gateway to peer with.
      * 
      */
-    @Export(name="peerTransitGatewayId", type=String.class, parameters={})
+    @Export(name="peerTransitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> peerTransitGatewayId;
 
     /**
@@ -139,7 +139,7 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -153,7 +153,7 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -167,7 +167,7 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    @Export(name="transitGatewayId", type=String.class, parameters={})
+    @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayId;
 
     /**

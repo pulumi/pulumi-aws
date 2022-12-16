@@ -180,7 +180,7 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      * 
      */
-    @Export(name="allowedPrefixes", type=List.class, parameters={String.class})
+    @Export(name="allowedPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowedPrefixes;
 
     /**
@@ -195,7 +195,7 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * Used for single account Direct Connect gateway associations.
      * 
      */
-    @Export(name="associatedGatewayId", type=String.class, parameters={})
+    @Export(name="associatedGatewayId", refs={String.class}, tree="[0]")
     private Output<String> associatedGatewayId;
 
     /**
@@ -211,7 +211,7 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * Used for cross-account Direct Connect gateway associations.
      * 
      */
-    @Export(name="associatedGatewayOwnerAccountId", type=String.class, parameters={})
+    @Export(name="associatedGatewayOwnerAccountId", refs={String.class}, tree="[0]")
     private Output<String> associatedGatewayOwnerAccountId;
 
     /**
@@ -226,7 +226,7 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      * 
      */
-    @Export(name="associatedGatewayType", type=String.class, parameters={})
+    @Export(name="associatedGatewayType", refs={String.class}, tree="[0]")
     private Output<String> associatedGatewayType;
 
     /**
@@ -240,7 +240,7 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the Direct Connect gateway association.
      * 
      */
-    @Export(name="dxGatewayAssociationId", type=String.class, parameters={})
+    @Export(name="dxGatewayAssociationId", refs={String.class}, tree="[0]")
     private Output<String> dxGatewayAssociationId;
 
     /**
@@ -254,7 +254,7 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the Direct Connect gateway.
      * 
      */
-    @Export(name="dxGatewayId", type=String.class, parameters={})
+    @Export(name="dxGatewayId", refs={String.class}, tree="[0]")
     private Output<String> dxGatewayId;
 
     /**
@@ -268,7 +268,7 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the AWS account that owns the Direct Connect gateway.
      * 
      */
-    @Export(name="dxGatewayOwnerAccountId", type=String.class, parameters={})
+    @Export(name="dxGatewayOwnerAccountId", refs={String.class}, tree="[0]")
     private Output<String> dxGatewayOwnerAccountId;
 
     /**
@@ -283,7 +283,7 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * Used for cross-account Direct Connect gateway associations.
      * 
      */
-    @Export(name="proposalId", type=String.class, parameters={})
+    @Export(name="proposalId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proposalId;
 
     /**
@@ -300,7 +300,7 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* use 'associated_gateway_id' argument instead */
-    @Export(name="vpnGatewayId", type=String.class, parameters={})
+    @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpnGatewayId;
 
     public Output<Optional<String>> vpnGatewayId() {

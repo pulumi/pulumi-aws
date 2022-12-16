@@ -63,7 +63,7 @@ public class Tracker extends com.pulumi.resources.CustomResource {
      * The timestamp for when the tracker resource was created in ISO 8601 format.
      * 
      */
-    @Export(name="createTime", type=String.class, parameters={})
+    @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
@@ -77,7 +77,7 @@ public class Tracker extends com.pulumi.resources.CustomResource {
      * The optional description for the tracker resource.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -91,7 +91,7 @@ public class Tracker extends com.pulumi.resources.CustomResource {
      * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
@@ -105,7 +105,7 @@ public class Tracker extends com.pulumi.resources.CustomResource {
      * The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
      * 
      */
-    @Export(name="positionFiltering", type=String.class, parameters={})
+    @Export(name="positionFiltering", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> positionFiltering;
 
     /**
@@ -119,7 +119,7 @@ public class Tracker extends com.pulumi.resources.CustomResource {
      * Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -133,7 +133,7 @@ public class Tracker extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -147,7 +147,7 @@ public class Tracker extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
-    @Export(name="trackerArn", type=String.class, parameters={})
+    @Export(name="trackerArn", refs={String.class}, tree="[0]")
     private Output<String> trackerArn;
 
     /**
@@ -161,7 +161,7 @@ public class Tracker extends com.pulumi.resources.CustomResource {
      * The name of the tracker resource.
      * 
      */
-    @Export(name="trackerName", type=String.class, parameters={})
+    @Export(name="trackerName", refs={String.class}, tree="[0]")
     private Output<String> trackerName;
 
     /**
@@ -175,7 +175,7 @@ public class Tracker extends com.pulumi.resources.CustomResource {
      * The timestamp for when the tracker resource was last updated in ISO 8601 format.
      * 
      */
-    @Export(name="updateTime", type=String.class, parameters={})
+    @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
     /**

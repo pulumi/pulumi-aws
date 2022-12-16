@@ -127,7 +127,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
      * 
      */
-    @Export(name="administrationRoleArn", type=String.class, parameters={})
+    @Export(name="administrationRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> administrationRoleArn;
 
     /**
@@ -141,7 +141,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the StackSet.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -155,7 +155,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
      * 
      */
-    @Export(name="autoDeployment", type=StackSetAutoDeployment.class, parameters={})
+    @Export(name="autoDeployment", refs={StackSetAutoDeployment.class}, tree="[0]")
     private Output</* @Nullable */ StackSetAutoDeployment> autoDeployment;
 
     /**
@@ -169,7 +169,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * Specifies whether you are acting as an account administrator in the organization&#39;s management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      * 
      */
-    @Export(name="callAs", type=String.class, parameters={})
+    @Export(name="callAs", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> callAs;
 
     /**
@@ -183,7 +183,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
      * 
      */
-    @Export(name="capabilities", type=List.class, parameters={String.class})
+    @Export(name="capabilities", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> capabilities;
 
     /**
@@ -197,7 +197,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * Description of the StackSet.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -211,7 +211,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
      * 
      */
-    @Export(name="executionRoleName", type=String.class, parameters={})
+    @Export(name="executionRoleName", refs={String.class}, tree="[0]")
     private Output<String> executionRoleName;
 
     /**
@@ -225,7 +225,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -239,7 +239,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * Preferences for how AWS CloudFormation performs a stack set update.
      * 
      */
-    @Export(name="operationPreferences", type=StackSetOperationPreferences.class, parameters={})
+    @Export(name="operationPreferences", refs={StackSetOperationPreferences.class}, tree="[0]")
     private Output</* @Nullable */ StackSetOperationPreferences> operationPreferences;
 
     /**
@@ -253,7 +253,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -267,7 +267,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
      * 
      */
-    @Export(name="permissionModel", type=String.class, parameters={})
+    @Export(name="permissionModel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> permissionModel;
 
     /**
@@ -281,7 +281,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * Unique identifier of the StackSet.
      * 
      */
-    @Export(name="stackSetId", type=String.class, parameters={})
+    @Export(name="stackSetId", refs={String.class}, tree="[0]")
     private Output<String> stackSetId;
 
     /**
@@ -295,7 +295,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -309,7 +309,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -323,7 +323,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
      * 
      */
-    @Export(name="templateBody", type=String.class, parameters={})
+    @Export(name="templateBody", refs={String.class}, tree="[0]")
     private Output<String> templateBody;
 
     /**
@@ -337,7 +337,7 @@ public class StackSet extends com.pulumi.resources.CustomResource {
      * String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
      * 
      */
-    @Export(name="templateUrl", type=String.class, parameters={})
+    @Export(name="templateUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateUrl;
 
     /**

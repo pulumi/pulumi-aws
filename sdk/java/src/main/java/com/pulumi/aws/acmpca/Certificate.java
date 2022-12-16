@@ -101,7 +101,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * ARN of the certificate.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -115,7 +115,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * PEM-encoded certificate value.
      * 
      */
-    @Export(name="certificate", type=String.class, parameters={})
+    @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
     /**
@@ -129,7 +129,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * ARN of the certificate authority.
      * 
      */
-    @Export(name="certificateAuthorityArn", type=String.class, parameters={})
+    @Export(name="certificateAuthorityArn", refs={String.class}, tree="[0]")
     private Output<String> certificateAuthorityArn;
 
     /**
@@ -143,7 +143,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
-    @Export(name="certificateChain", type=String.class, parameters={})
+    @Export(name="certificateChain", refs={String.class}, tree="[0]")
     private Output<String> certificateChain;
 
     /**
@@ -157,7 +157,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Certificate Signing Request in PEM format.
      * 
      */
-    @Export(name="certificateSigningRequest", type=String.class, parameters={})
+    @Export(name="certificateSigningRequest", refs={String.class}, tree="[0]")
     private Output<String> certificateSigningRequest;
 
     /**
@@ -171,7 +171,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
      * 
      */
-    @Export(name="signingAlgorithm", type=String.class, parameters={})
+    @Export(name="signingAlgorithm", refs={String.class}, tree="[0]")
     private Output<String> signingAlgorithm;
 
     /**
@@ -186,7 +186,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
      * 
      */
-    @Export(name="templateArn", type=String.class, parameters={})
+    @Export(name="templateArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateArn;
 
     /**
@@ -201,7 +201,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Configures end of the validity period for the certificate. See validity block below.
      * 
      */
-    @Export(name="validity", type=CertificateValidity.class, parameters={})
+    @Export(name="validity", refs={CertificateValidity.class}, tree="[0]")
     private Output<CertificateValidity> validity;
 
     /**

@@ -136,7 +136,7 @@ public class RecorderStatus extends com.pulumi.resources.CustomResource {
      * Whether the configuration recorder should be enabled or disabled.
      * 
      */
-    @Export(name="isEnabled", type=Boolean.class, parameters={})
+    @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isEnabled;
 
     /**
@@ -150,7 +150,7 @@ public class RecorderStatus extends com.pulumi.resources.CustomResource {
      * The name of the recorder
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

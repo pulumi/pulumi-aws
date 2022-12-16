@@ -62,7 +62,7 @@ public class DomainNameApiAssociation extends com.pulumi.resources.CustomResourc
      * API ID.
      * 
      */
-    @Export(name="apiId", type=String.class, parameters={})
+    @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
     /**
@@ -76,7 +76,7 @@ public class DomainNameApiAssociation extends com.pulumi.resources.CustomResourc
      * Appsync domain name.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**

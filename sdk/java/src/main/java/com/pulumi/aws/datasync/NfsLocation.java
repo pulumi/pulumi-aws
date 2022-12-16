@@ -72,7 +72,7 @@ public class NfsLocation extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -86,7 +86,7 @@ public class NfsLocation extends com.pulumi.resources.CustomResource {
      * Configuration block containing mount options used by DataSync to access the NFS Server.
      * 
      */
-    @Export(name="mountOptions", type=NfsLocationMountOptions.class, parameters={})
+    @Export(name="mountOptions", refs={NfsLocationMountOptions.class}, tree="[0]")
     private Output</* @Nullable */ NfsLocationMountOptions> mountOptions;
 
     /**
@@ -100,7 +100,7 @@ public class NfsLocation extends com.pulumi.resources.CustomResource {
      * Configuration block containing information for connecting to the NFS File System.
      * 
      */
-    @Export(name="onPremConfig", type=NfsLocationOnPremConfig.class, parameters={})
+    @Export(name="onPremConfig", refs={NfsLocationOnPremConfig.class}, tree="[0]")
     private Output<NfsLocationOnPremConfig> onPremConfig;
 
     /**
@@ -114,7 +114,7 @@ public class NfsLocation extends com.pulumi.resources.CustomResource {
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      * 
      */
-    @Export(name="serverHostname", type=String.class, parameters={})
+    @Export(name="serverHostname", refs={String.class}, tree="[0]")
     private Output<String> serverHostname;
 
     /**
@@ -128,7 +128,7 @@ public class NfsLocation extends com.pulumi.resources.CustomResource {
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      * 
      */
-    @Export(name="subdirectory", type=String.class, parameters={})
+    @Export(name="subdirectory", refs={String.class}, tree="[0]")
     private Output<String> subdirectory;
 
     /**
@@ -142,7 +142,7 @@ public class NfsLocation extends com.pulumi.resources.CustomResource {
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -156,7 +156,7 @@ public class NfsLocation extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -166,7 +166,7 @@ public class NfsLocation extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    @Export(name="uri", type=String.class, parameters={})
+    @Export(name="uri", refs={String.class}, tree="[0]")
     private Output<String> uri;
 
     public Output<String> uri() {

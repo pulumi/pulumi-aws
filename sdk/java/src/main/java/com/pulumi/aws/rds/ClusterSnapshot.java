@@ -67,7 +67,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * Allocated storage size in gigabytes (GB).
      * 
      */
-    @Export(name="allocatedStorage", type=Integer.class, parameters={})
+    @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
     private Output<Integer> allocatedStorage;
 
     /**
@@ -81,7 +81,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      * 
      */
-    @Export(name="availabilityZones", type=List.class, parameters={String.class})
+    @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
     /**
@@ -95,7 +95,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * The DB Cluster Identifier from which to take the snapshot.
      * 
      */
-    @Export(name="dbClusterIdentifier", type=String.class, parameters={})
+    @Export(name="dbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbClusterIdentifier;
 
     /**
@@ -109,7 +109,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
      * 
      */
-    @Export(name="dbClusterSnapshotArn", type=String.class, parameters={})
+    @Export(name="dbClusterSnapshotArn", refs={String.class}, tree="[0]")
     private Output<String> dbClusterSnapshotArn;
 
     /**
@@ -123,7 +123,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * The Identifier for the snapshot.
      * 
      */
-    @Export(name="dbClusterSnapshotIdentifier", type=String.class, parameters={})
+    @Export(name="dbClusterSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbClusterSnapshotIdentifier;
 
     /**
@@ -137,7 +137,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * Name of the database engine.
      * 
      */
-    @Export(name="engine", type=String.class, parameters={})
+    @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
@@ -151,7 +151,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * Version of the database engine for this DB cluster snapshot.
      * 
      */
-    @Export(name="engineVersion", type=String.class, parameters={})
+    @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
@@ -165,7 +165,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -179,7 +179,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * License model information for the restored DB cluster.
      * 
      */
-    @Export(name="licenseModel", type=String.class, parameters={})
+    @Export(name="licenseModel", refs={String.class}, tree="[0]")
     private Output<String> licenseModel;
 
     /**
@@ -193,7 +193,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * Port that the DB cluster was listening on at the time of the snapshot.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
@@ -203,13 +203,13 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
     public Output<Integer> port() {
         return this.port;
     }
-    @Export(name="snapshotType", type=String.class, parameters={})
+    @Export(name="snapshotType", refs={String.class}, tree="[0]")
     private Output<String> snapshotType;
 
     public Output<String> snapshotType() {
         return this.snapshotType;
     }
-    @Export(name="sourceDbClusterSnapshotArn", type=String.class, parameters={})
+    @Export(name="sourceDbClusterSnapshotArn", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterSnapshotArn;
 
     public Output<String> sourceDbClusterSnapshotArn() {
@@ -219,7 +219,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * The status of this DB Cluster Snapshot.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -233,7 +233,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * Whether the DB cluster snapshot is encrypted.
      * 
      */
-    @Export(name="storageEncrypted", type=Boolean.class, parameters={})
+    @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
     /**
@@ -247,7 +247,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -261,7 +261,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -275,7 +275,7 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
      * The VPC ID associated with the DB cluster snapshot.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

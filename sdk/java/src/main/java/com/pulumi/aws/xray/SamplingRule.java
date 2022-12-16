@@ -76,7 +76,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * The ARN of the sampling rule.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -90,7 +90,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * Matches attributes derived from the request.
      * 
      */
-    @Export(name="attributes", type=Map.class, parameters={String.class, String.class})
+    @Export(name="attributes", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> attributes;
 
     /**
@@ -104,7 +104,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * The percentage of matching requests to instrument, after the reservoir is exhausted.
      * 
      */
-    @Export(name="fixedRate", type=Double.class, parameters={})
+    @Export(name="fixedRate", refs={Double.class}, tree="[0]")
     private Output<Double> fixedRate;
 
     /**
@@ -118,7 +118,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * Matches the hostname from a request URL.
      * 
      */
-    @Export(name="host", type=String.class, parameters={})
+    @Export(name="host", refs={String.class}, tree="[0]")
     private Output<String> host;
 
     /**
@@ -132,7 +132,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * Matches the HTTP method of a request.
      * 
      */
-    @Export(name="httpMethod", type=String.class, parameters={})
+    @Export(name="httpMethod", refs={String.class}, tree="[0]")
     private Output<String> httpMethod;
 
     /**
@@ -146,7 +146,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * The priority of the sampling rule.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
@@ -160,7 +160,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      * 
      */
-    @Export(name="reservoirSize", type=Integer.class, parameters={})
+    @Export(name="reservoirSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> reservoirSize;
 
     /**
@@ -174,7 +174,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * Matches the ARN of the AWS resource on which the service runs.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
@@ -188,7 +188,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * The name of the sampling rule.
      * 
      */
-    @Export(name="ruleName", type=String.class, parameters={})
+    @Export(name="ruleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ruleName;
 
     /**
@@ -202,7 +202,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * Matches the `name` that the service uses to identify itself in segments.
      * 
      */
-    @Export(name="serviceName", type=String.class, parameters={})
+    @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
     /**
@@ -216,7 +216,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * Matches the `origin` that the service uses to identify its type in segments.
      * 
      */
-    @Export(name="serviceType", type=String.class, parameters={})
+    @Export(name="serviceType", refs={String.class}, tree="[0]")
     private Output<String> serviceType;
 
     /**
@@ -230,7 +230,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -244,7 +244,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -258,7 +258,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * Matches the path from a request URL.
      * 
      */
-    @Export(name="urlPath", type=String.class, parameters={})
+    @Export(name="urlPath", refs={String.class}, tree="[0]")
     private Output<String> urlPath;
 
     /**
@@ -272,7 +272,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * The version of the sampling rule format (`1` )
      * 
      */
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**

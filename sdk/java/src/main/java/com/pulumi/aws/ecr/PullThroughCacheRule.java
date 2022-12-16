@@ -65,7 +65,7 @@ public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
      * The repository name prefix to use when caching images from the source registry.
      * 
      */
-    @Export(name="ecrRepositoryPrefix", type=String.class, parameters={})
+    @Export(name="ecrRepositoryPrefix", refs={String.class}, tree="[0]")
     private Output<String> ecrRepositoryPrefix;
 
     /**
@@ -79,7 +79,7 @@ public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
      * The registry ID where the repository was created.
      * 
      */
-    @Export(name="registryId", type=String.class, parameters={})
+    @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
     /**
@@ -93,7 +93,7 @@ public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
      * The registry URL of the upstream public registry to use as the source.
      * 
      */
-    @Export(name="upstreamRegistryUrl", type=String.class, parameters={})
+    @Export(name="upstreamRegistryUrl", refs={String.class}, tree="[0]")
     private Output<String> upstreamRegistryUrl;
 
     /**

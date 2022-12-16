@@ -93,7 +93,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * (Required) Amazon Resource Name (ARN) of the container recipe.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -107,7 +107,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * Ordered configuration block(s) with components for the container recipe. Detailed below.
      * 
      */
-    @Export(name="components", type=List.class, parameters={ContainerRecipeComponent.class})
+    @Export(name="components", refs={List.class,ContainerRecipeComponent.class}, tree="[0,1]")
     private Output<List<ContainerRecipeComponent>> components;
 
     /**
@@ -121,7 +121,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * The type of the container to create. Valid values: `DOCKER`.
      * 
      */
-    @Export(name="containerType", type=String.class, parameters={})
+    @Export(name="containerType", refs={String.class}, tree="[0]")
     private Output<String> containerType;
 
     /**
@@ -135,7 +135,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * Date the container recipe was created.
      * 
      */
-    @Export(name="dateCreated", type=String.class, parameters={})
+    @Export(name="dateCreated", refs={String.class}, tree="[0]")
     private Output<String> dateCreated;
 
     /**
@@ -149,7 +149,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * The description of the container recipe.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -163,7 +163,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * The Dockerfile template used to build the image as an inline data blob.
      * 
      */
-    @Export(name="dockerfileTemplateData", type=String.class, parameters={})
+    @Export(name="dockerfileTemplateData", refs={String.class}, tree="[0]")
     private Output<String> dockerfileTemplateData;
 
     /**
@@ -177,7 +177,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * The Amazon S3 URI for the Dockerfile that will be used to build the container image.
      * 
      */
-    @Export(name="dockerfileTemplateUri", type=String.class, parameters={})
+    @Export(name="dockerfileTemplateUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dockerfileTemplateUri;
 
     /**
@@ -191,7 +191,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    @Export(name="encrypted", type=Boolean.class, parameters={})
+    @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> encrypted;
 
     /**
@@ -205,7 +205,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * Configuration block used to configure an instance for building and testing container images. Detailed below.
      * 
      */
-    @Export(name="instanceConfiguration", type=ContainerRecipeInstanceConfiguration.class, parameters={})
+    @Export(name="instanceConfiguration", refs={ContainerRecipeInstanceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ContainerRecipeInstanceConfiguration> instanceConfiguration;
 
     /**
@@ -219,7 +219,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
@@ -233,7 +233,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * The name of the component parameter.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -247,7 +247,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * Owner of the container recipe.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -261,7 +261,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * The base image for the container recipe.
      * 
      */
-    @Export(name="parentImage", type=String.class, parameters={})
+    @Export(name="parentImage", refs={String.class}, tree="[0]")
     private Output<String> parentImage;
 
     /**
@@ -275,7 +275,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * Platform of the container recipe.
      * 
      */
-    @Export(name="platform", type=String.class, parameters={})
+    @Export(name="platform", refs={String.class}, tree="[0]")
     private Output<String> platform;
 
     /**
@@ -289,7 +289,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -303,7 +303,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -317,7 +317,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * The destination repository for the container image. Detailed below.
      * 
      */
-    @Export(name="targetRepository", type=ContainerRecipeTargetRepository.class, parameters={})
+    @Export(name="targetRepository", refs={ContainerRecipeTargetRepository.class}, tree="[0]")
     private Output<ContainerRecipeTargetRepository> targetRepository;
 
     /**
@@ -331,7 +331,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * Version of the container recipe.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
@@ -345,7 +345,7 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
      * The working directory to be used during build and test workflows.
      * 
      */
-    @Export(name="workingDirectory", type=String.class, parameters={})
+    @Export(name="workingDirectory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workingDirectory;
 
     /**

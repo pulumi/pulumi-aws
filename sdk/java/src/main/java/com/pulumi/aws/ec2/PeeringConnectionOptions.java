@@ -102,7 +102,7 @@ public class PeeringConnectionOptions extends com.pulumi.resources.CustomResourc
      * the peering connection (a maximum of one).
      * 
      */
-    @Export(name="accepter", type=PeeringConnectionOptionsAccepter.class, parameters={})
+    @Export(name="accepter", refs={PeeringConnectionOptionsAccepter.class}, tree="[0]")
     private Output<PeeringConnectionOptionsAccepter> accepter;
 
     /**
@@ -120,7 +120,7 @@ public class PeeringConnectionOptions extends com.pulumi.resources.CustomResourc
      * the peering connection (a maximum of one).
      * 
      */
-    @Export(name="requester", type=PeeringConnectionOptionsRequester.class, parameters={})
+    @Export(name="requester", refs={PeeringConnectionOptionsRequester.class}, tree="[0]")
     private Output<PeeringConnectionOptionsRequester> requester;
 
     /**
@@ -136,7 +136,7 @@ public class PeeringConnectionOptions extends com.pulumi.resources.CustomResourc
      * The ID of the requester VPC peering connection.
      * 
      */
-    @Export(name="vpcPeeringConnectionId", type=String.class, parameters={})
+    @Export(name="vpcPeeringConnectionId", refs={String.class}, tree="[0]")
     private Output<String> vpcPeeringConnectionId;
 
     /**

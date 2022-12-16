@@ -74,7 +74,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The AWS account ID for the account.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -88,7 +88,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The AWS account ID for the administrator account.
      * 
      */
-    @Export(name="administratorAccountId", type=String.class, parameters={})
+    @Export(name="administratorAccountId", refs={String.class}, tree="[0]")
     private Output<String> administratorAccountId;
 
     /**
@@ -102,7 +102,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the account.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -116,7 +116,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The email address for the account.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -130,7 +130,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
      * 
      */
-    @Export(name="invitationDisableEmailNotification", type=Boolean.class, parameters={})
+    @Export(name="invitationDisableEmailNotification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> invitationDisableEmailNotification;
 
     /**
@@ -144,7 +144,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
      * 
      */
-    @Export(name="invitationMessage", type=String.class, parameters={})
+    @Export(name="invitationMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> invitationMessage;
 
     /**
@@ -158,7 +158,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Send an invitation to a member
      * 
      */
-    @Export(name="invite", type=Boolean.class, parameters={})
+    @Export(name="invite", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> invite;
 
     /**
@@ -172,7 +172,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn&#39;t been sent to the account.
      * 
      */
-    @Export(name="invitedAt", type=String.class, parameters={})
+    @Export(name="invitedAt", refs={String.class}, tree="[0]")
     private Output<String> invitedAt;
 
     /**
@@ -182,7 +182,7 @@ public class Member extends com.pulumi.resources.CustomResource {
     public Output<String> invitedAt() {
         return this.invitedAt;
     }
-    @Export(name="masterAccountId", type=String.class, parameters={})
+    @Export(name="masterAccountId", refs={String.class}, tree="[0]")
     private Output<String> masterAccountId;
 
     public Output<String> masterAccountId() {
@@ -192,7 +192,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The current status of the relationship between the account and the administrator account.
      * 
      */
-    @Export(name="relationshipStatus", type=String.class, parameters={})
+    @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
     private Output<String> relationshipStatus;
 
     /**
@@ -206,7 +206,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -220,7 +220,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -230,7 +230,7 @@ public class Member extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -240,7 +240,7 @@ public class Member extends com.pulumi.resources.CustomResource {
      * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
      * 
      */
-    @Export(name="updatedAt", type=String.class, parameters={})
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**

@@ -362,7 +362,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
      * 
      */
-    @Export(name="advancedEventSelectors", type=List.class, parameters={TrailAdvancedEventSelector.class})
+    @Export(name="advancedEventSelectors", refs={List.class,TrailAdvancedEventSelector.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TrailAdvancedEventSelector>> advancedEventSelectors;
 
     /**
@@ -376,7 +376,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * ARN of the trail.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -390,7 +390,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
      * 
      */
-    @Export(name="cloudWatchLogsGroupArn", type=String.class, parameters={})
+    @Export(name="cloudWatchLogsGroupArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cloudWatchLogsGroupArn;
 
     /**
@@ -404,7 +404,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
      * 
      */
-    @Export(name="cloudWatchLogsRoleArn", type=String.class, parameters={})
+    @Export(name="cloudWatchLogsRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cloudWatchLogsRoleArn;
 
     /**
@@ -418,7 +418,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Whether log file integrity validation is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="enableLogFileValidation", type=Boolean.class, parameters={})
+    @Export(name="enableLogFileValidation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableLogFileValidation;
 
     /**
@@ -432,7 +432,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
      * 
      */
-    @Export(name="enableLogging", type=Boolean.class, parameters={})
+    @Export(name="enableLogging", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableLogging;
 
     /**
@@ -446,7 +446,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
      * 
      */
-    @Export(name="eventSelectors", type=List.class, parameters={TrailEventSelector.class})
+    @Export(name="eventSelectors", refs={List.class,TrailEventSelector.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TrailEventSelector>> eventSelectors;
 
     /**
@@ -460,7 +460,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Region in which the trail was created.
      * 
      */
-    @Export(name="homeRegion", type=String.class, parameters={})
+    @Export(name="homeRegion", refs={String.class}, tree="[0]")
     private Output<String> homeRegion;
 
     /**
@@ -474,7 +474,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
      * 
      */
-    @Export(name="includeGlobalServiceEvents", type=Boolean.class, parameters={})
+    @Export(name="includeGlobalServiceEvents", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> includeGlobalServiceEvents;
 
     /**
@@ -488,7 +488,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Configuration block for identifying unusual operational activity. See details below.
      * 
      */
-    @Export(name="insightSelectors", type=List.class, parameters={TrailInsightSelector.class})
+    @Export(name="insightSelectors", refs={List.class,TrailInsightSelector.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TrailInsightSelector>> insightSelectors;
 
     /**
@@ -502,7 +502,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Whether the trail is created in the current region or in all regions. Defaults to `false`.
      * 
      */
-    @Export(name="isMultiRegionTrail", type=Boolean.class, parameters={})
+    @Export(name="isMultiRegionTrail", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isMultiRegionTrail;
 
     /**
@@ -516,7 +516,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
      * 
      */
-    @Export(name="isOrganizationTrail", type=Boolean.class, parameters={})
+    @Export(name="isOrganizationTrail", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isOrganizationTrail;
 
     /**
@@ -530,7 +530,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * KMS key ARN to use to encrypt the logs delivered by CloudTrail.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
@@ -544,7 +544,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Name of the advanced event selector.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -558,7 +558,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Name of the S3 bucket designated for publishing log files.
      * 
      */
-    @Export(name="s3BucketName", type=String.class, parameters={})
+    @Export(name="s3BucketName", refs={String.class}, tree="[0]")
     private Output<String> s3BucketName;
 
     /**
@@ -572,7 +572,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * S3 key prefix that follows the name of the bucket you have designated for log file delivery.
      * 
      */
-    @Export(name="s3KeyPrefix", type=String.class, parameters={})
+    @Export(name="s3KeyPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3KeyPrefix;
 
     /**
@@ -586,7 +586,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Name of the Amazon SNS topic defined for notification of log file delivery.
      * 
      */
-    @Export(name="snsTopicName", type=String.class, parameters={})
+    @Export(name="snsTopicName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snsTopicName;
 
     /**
@@ -600,7 +600,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -614,7 +614,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

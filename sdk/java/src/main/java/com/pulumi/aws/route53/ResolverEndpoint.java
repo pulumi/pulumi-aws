@@ -78,7 +78,7 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      * The ARN of the Route 53 Resolver endpoint.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -94,7 +94,7 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
      * 
      */
-    @Export(name="direction", type=String.class, parameters={})
+    @Export(name="direction", refs={String.class}, tree="[0]")
     private Output<String> direction;
 
     /**
@@ -110,7 +110,7 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      * The ID of the VPC that you want to create the resolver endpoint in.
      * 
      */
-    @Export(name="hostVpcId", type=String.class, parameters={})
+    @Export(name="hostVpcId", refs={String.class}, tree="[0]")
     private Output<String> hostVpcId;
 
     /**
@@ -125,7 +125,7 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      * 
      */
-    @Export(name="ipAddresses", type=List.class, parameters={ResolverEndpointIpAddress.class})
+    @Export(name="ipAddresses", refs={List.class,ResolverEndpointIpAddress.class}, tree="[0,1]")
     private Output<List<ResolverEndpointIpAddress>> ipAddresses;
 
     /**
@@ -140,7 +140,7 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      * The friendly name of the Route 53 Resolver endpoint.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -154,7 +154,7 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      * The ID of one or more security groups that you want to use to control access to this VPC.
      * 
      */
-    @Export(name="securityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
@@ -168,7 +168,7 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -182,7 +182,7 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

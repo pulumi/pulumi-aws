@@ -133,7 +133,7 @@ public class ConfigurationAggregator extends com.pulumi.resources.CustomResource
      * The account(s) to aggregate config data from as documented below.
      * 
      */
-    @Export(name="accountAggregationSource", type=ConfigurationAggregatorAccountAggregationSource.class, parameters={})
+    @Export(name="accountAggregationSource", refs={ConfigurationAggregatorAccountAggregationSource.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationAggregatorAccountAggregationSource> accountAggregationSource;
 
     /**
@@ -147,7 +147,7 @@ public class ConfigurationAggregator extends com.pulumi.resources.CustomResource
      * The ARN of the aggregator
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -161,7 +161,7 @@ public class ConfigurationAggregator extends com.pulumi.resources.CustomResource
      * The name of the configuration aggregator.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -175,7 +175,7 @@ public class ConfigurationAggregator extends com.pulumi.resources.CustomResource
      * The organization to aggregate config data from as documented below.
      * 
      */
-    @Export(name="organizationAggregationSource", type=ConfigurationAggregatorOrganizationAggregationSource.class, parameters={})
+    @Export(name="organizationAggregationSource", refs={ConfigurationAggregatorOrganizationAggregationSource.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationAggregatorOrganizationAggregationSource> organizationAggregationSource;
 
     /**
@@ -189,7 +189,7 @@ public class ConfigurationAggregator extends com.pulumi.resources.CustomResource
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -203,7 +203,7 @@ public class ConfigurationAggregator extends com.pulumi.resources.CustomResource
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

@@ -71,7 +71,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
      * 
      */
-    @Export(name="accessPointArn", type=String.class, parameters={})
+    @Export(name="accessPointArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessPointArn;
 
     /**
@@ -85,7 +85,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -99,7 +99,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      * 
      */
-    @Export(name="ec2Config", type=EfsLocationEc2Config.class, parameters={})
+    @Export(name="ec2Config", refs={EfsLocationEc2Config.class}, tree="[0]")
     private Output<EfsLocationEc2Config> ec2Config;
 
     /**
@@ -113,7 +113,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of EFS File System.
      * 
      */
-    @Export(name="efsFileSystemArn", type=String.class, parameters={})
+    @Export(name="efsFileSystemArn", refs={String.class}, tree="[0]")
     private Output<String> efsFileSystemArn;
 
     /**
@@ -127,7 +127,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      * 
      */
-    @Export(name="fileSystemAccessRoleArn", type=String.class, parameters={})
+    @Export(name="fileSystemAccessRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileSystemAccessRoleArn;
 
     /**
@@ -141,7 +141,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
      * 
      */
-    @Export(name="inTransitEncryption", type=String.class, parameters={})
+    @Export(name="inTransitEncryption", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inTransitEncryption;
 
     /**
@@ -155,7 +155,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * Subdirectory to perform actions as source or destination. Default `/`.
      * 
      */
-    @Export(name="subdirectory", type=String.class, parameters={})
+    @Export(name="subdirectory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subdirectory;
 
     /**
@@ -169,7 +169,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -183,7 +183,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -193,7 +193,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    @Export(name="uri", type=String.class, parameters={})
+    @Export(name="uri", refs={String.class}, tree="[0]")
     private Output<String> uri;
 
     public Output<String> uri() {

@@ -74,7 +74,7 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
      * The ARN of the DHCP Options Set.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -84,13 +84,13 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     public Output<String> domainName() {
         return this.domainName;
     }
-    @Export(name="domainNameServers", type=String.class, parameters={})
+    @Export(name="domainNameServers", refs={String.class}, tree="[0]")
     private Output<String> domainNameServers;
 
     public Output<String> domainNameServers() {
@@ -100,7 +100,7 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
      * List of NETBIOS name servers.
      * 
      */
-    @Export(name="netbiosNameServers", type=String.class, parameters={})
+    @Export(name="netbiosNameServers", refs={String.class}, tree="[0]")
     private Output<String> netbiosNameServers;
 
     /**
@@ -114,7 +114,7 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      * 
      */
-    @Export(name="netbiosNodeType", type=String.class, parameters={})
+    @Export(name="netbiosNodeType", refs={String.class}, tree="[0]")
     private Output<String> netbiosNodeType;
 
     /**
@@ -124,7 +124,7 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
     public Output<String> netbiosNodeType() {
         return this.netbiosNodeType;
     }
-    @Export(name="ntpServers", type=String.class, parameters={})
+    @Export(name="ntpServers", refs={String.class}, tree="[0]")
     private Output<String> ntpServers;
 
     public Output<String> ntpServers() {
@@ -134,7 +134,7 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
      * The ID of the AWS account that owns the DHCP options set.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -148,7 +148,7 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -158,7 +158,7 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {

@@ -70,7 +70,7 @@ public class BackupPolicy extends com.pulumi.resources.CustomResource {
      * A backup_policy object (documented below).
      * 
      */
-    @Export(name="backupPolicy", type=BackupPolicyBackupPolicy.class, parameters={})
+    @Export(name="backupPolicy", refs={BackupPolicyBackupPolicy.class}, tree="[0]")
     private Output<BackupPolicyBackupPolicy> backupPolicy;
 
     /**
@@ -84,7 +84,7 @@ public class BackupPolicy extends com.pulumi.resources.CustomResource {
      * The ID of the EFS file system.
      * 
      */
-    @Export(name="fileSystemId", type=String.class, parameters={})
+    @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
     /**

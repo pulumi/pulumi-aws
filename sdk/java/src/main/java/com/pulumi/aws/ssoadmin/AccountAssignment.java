@@ -32,7 +32,7 @@ public class AccountAssignment extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the SSO Instance.
      * 
      */
-    @Export(name="instanceArn", type=String.class, parameters={})
+    @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
     /**
@@ -46,7 +46,7 @@ public class AccountAssignment extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
      * 
      */
-    @Export(name="permissionSetArn", type=String.class, parameters={})
+    @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
     /**
@@ -60,7 +60,7 @@ public class AccountAssignment extends com.pulumi.resources.CustomResource {
      * An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
      * 
      */
-    @Export(name="principalId", type=String.class, parameters={})
+    @Export(name="principalId", refs={String.class}, tree="[0]")
     private Output<String> principalId;
 
     /**
@@ -74,7 +74,7 @@ public class AccountAssignment extends com.pulumi.resources.CustomResource {
      * The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
      * 
      */
-    @Export(name="principalType", type=String.class, parameters={})
+    @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
 
     /**
@@ -88,7 +88,7 @@ public class AccountAssignment extends com.pulumi.resources.CustomResource {
      * An AWS account identifier, typically a 10-12 digit string.
      * 
      */
-    @Export(name="targetId", type=String.class, parameters={})
+    @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
     /**
@@ -102,7 +102,7 @@ public class AccountAssignment extends com.pulumi.resources.CustomResource {
      * The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
      * 
      */
-    @Export(name="targetType", type=String.class, parameters={})
+    @Export(name="targetType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetType;
 
     /**

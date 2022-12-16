@@ -72,7 +72,7 @@ public class BucketAccelerateConfigurationV2 extends com.pulumi.resources.Custom
      * The name of the bucket.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -86,7 +86,7 @@ public class BucketAccelerateConfigurationV2 extends com.pulumi.resources.Custom
      * The account ID of the expected bucket owner.
      * 
      */
-    @Export(name="expectedBucketOwner", type=String.class, parameters={})
+    @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
@@ -100,7 +100,7 @@ public class BucketAccelerateConfigurationV2 extends com.pulumi.resources.Custom
      * The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

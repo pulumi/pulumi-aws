@@ -84,7 +84,7 @@ public class Recorder extends com.pulumi.resources.CustomResource {
      * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -98,7 +98,7 @@ public class Recorder extends com.pulumi.resources.CustomResource {
      * Recording group - see below.
      * 
      */
-    @Export(name="recordingGroup", type=RecorderRecordingGroup.class, parameters={})
+    @Export(name="recordingGroup", refs={RecorderRecordingGroup.class}, tree="[0]")
     private Output<RecorderRecordingGroup> recordingGroup;
 
     /**
@@ -112,7 +112,7 @@ public class Recorder extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**

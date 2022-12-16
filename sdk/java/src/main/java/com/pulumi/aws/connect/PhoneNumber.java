@@ -134,7 +134,7 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * The ARN of the phone number.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -148,7 +148,7 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
      * 
      */
-    @Export(name="countryCode", type=String.class, parameters={})
+    @Export(name="countryCode", refs={String.class}, tree="[0]")
     private Output<String> countryCode;
 
     /**
@@ -162,7 +162,7 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * The description of the phone number.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -176,7 +176,7 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
      * 
      */
-    @Export(name="phoneNumber", type=String.class, parameters={})
+    @Export(name="phoneNumber", refs={String.class}, tree="[0]")
     private Output<String> phoneNumber;
 
     /**
@@ -190,7 +190,7 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
      * 
      */
-    @Export(name="prefix", type=String.class, parameters={})
+    @Export(name="prefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> prefix;
 
     /**
@@ -204,7 +204,7 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
      * 
      */
-    @Export(name="statuses", type=List.class, parameters={PhoneNumberStatus.class})
+    @Export(name="statuses", refs={List.class,PhoneNumberStatus.class}, tree="[0,1]")
     private Output<List<PhoneNumberStatus>> statuses;
 
     /**
@@ -218,7 +218,7 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -232,7 +232,7 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -246,7 +246,7 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
      * 
      */
-    @Export(name="targetArn", type=String.class, parameters={})
+    @Export(name="targetArn", refs={String.class}, tree="[0]")
     private Output<String> targetArn;
 
     /**
@@ -260,7 +260,7 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
      * The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

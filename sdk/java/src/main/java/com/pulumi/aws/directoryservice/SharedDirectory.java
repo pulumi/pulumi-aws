@@ -83,7 +83,7 @@ public class SharedDirectory extends com.pulumi.resources.CustomResource {
      * Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
      * 
      */
-    @Export(name="directoryId", type=String.class, parameters={})
+    @Export(name="directoryId", refs={String.class}, tree="[0]")
     private Output<String> directoryId;
 
     /**
@@ -97,7 +97,7 @@ public class SharedDirectory extends com.pulumi.resources.CustomResource {
      * Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
      * 
      */
-    @Export(name="method", type=String.class, parameters={})
+    @Export(name="method", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> method;
 
     /**
@@ -111,7 +111,7 @@ public class SharedDirectory extends com.pulumi.resources.CustomResource {
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      * 
      */
-    @Export(name="notes", type=String.class, parameters={})
+    @Export(name="notes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notes;
 
     /**
@@ -125,7 +125,7 @@ public class SharedDirectory extends com.pulumi.resources.CustomResource {
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      * 
      */
-    @Export(name="sharedDirectoryId", type=String.class, parameters={})
+    @Export(name="sharedDirectoryId", refs={String.class}, tree="[0]")
     private Output<String> sharedDirectoryId;
 
     /**
@@ -139,7 +139,7 @@ public class SharedDirectory extends com.pulumi.resources.CustomResource {
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
      * 
      */
-    @Export(name="target", type=SharedDirectoryTarget.class, parameters={})
+    @Export(name="target", refs={SharedDirectoryTarget.class}, tree="[0]")
     private Output<SharedDirectoryTarget> target;
 
     /**

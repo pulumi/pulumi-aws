@@ -66,7 +66,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * The ARN assigned by AWS for this provider.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -80,7 +80,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
      * 
      */
-    @Export(name="clientIdLists", type=List.class, parameters={String.class})
+    @Export(name="clientIdLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> clientIdLists;
 
     /**
@@ -94,7 +94,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -108,7 +108,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -122,7 +122,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
      * 
      */
-    @Export(name="thumbprintLists", type=List.class, parameters={String.class})
+    @Export(name="thumbprintLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> thumbprintLists;
 
     /**
@@ -136,7 +136,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
      * The URL of the identity provider. Corresponds to the _iss_ claim.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

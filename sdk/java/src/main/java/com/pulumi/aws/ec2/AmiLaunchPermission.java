@@ -94,7 +94,7 @@ public class AmiLaunchPermission extends com.pulumi.resources.CustomResource {
      * AWS account ID for the launch permission.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountId;
 
     /**
@@ -108,7 +108,7 @@ public class AmiLaunchPermission extends com.pulumi.resources.CustomResource {
      * Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
      * 
      */
-    @Export(name="group", type=String.class, parameters={})
+    @Export(name="group", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> group;
 
     /**
@@ -122,7 +122,7 @@ public class AmiLaunchPermission extends com.pulumi.resources.CustomResource {
      * ID of the AMI.
      * 
      */
-    @Export(name="imageId", type=String.class, parameters={})
+    @Export(name="imageId", refs={String.class}, tree="[0]")
     private Output<String> imageId;
 
     /**
@@ -136,7 +136,7 @@ public class AmiLaunchPermission extends com.pulumi.resources.CustomResource {
      * ARN of an organization for the launch permission.
      * 
      */
-    @Export(name="organizationArn", type=String.class, parameters={})
+    @Export(name="organizationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organizationArn;
 
     /**
@@ -150,7 +150,7 @@ public class AmiLaunchPermission extends com.pulumi.resources.CustomResource {
      * ARN of an organizational unit for the launch permission.
      * 
      */
-    @Export(name="organizationalUnitArn", type=String.class, parameters={})
+    @Export(name="organizationalUnitArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organizationalUnitArn;
 
     /**

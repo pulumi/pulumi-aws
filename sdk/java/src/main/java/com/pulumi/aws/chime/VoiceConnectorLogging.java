@@ -71,7 +71,7 @@ public class VoiceConnectorLogging extends com.pulumi.resources.CustomResource {
      * When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
      * 
      */
-    @Export(name="enableMediaMetricLogs", type=Boolean.class, parameters={})
+    @Export(name="enableMediaMetricLogs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMediaMetricLogs;
 
     /**
@@ -85,7 +85,7 @@ public class VoiceConnectorLogging extends com.pulumi.resources.CustomResource {
      * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
      * 
      */
-    @Export(name="enableSipLogs", type=Boolean.class, parameters={})
+    @Export(name="enableSipLogs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableSipLogs;
 
     /**
@@ -99,7 +99,7 @@ public class VoiceConnectorLogging extends com.pulumi.resources.CustomResource {
      * The Amazon Chime Voice Connector ID.
      * 
      */
-    @Export(name="voiceConnectorId", type=String.class, parameters={})
+    @Export(name="voiceConnectorId", refs={String.class}, tree="[0]")
     private Output<String> voiceConnectorId;
 
     /**

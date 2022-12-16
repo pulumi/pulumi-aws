@@ -66,7 +66,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the key alias.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -80,7 +80,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -95,7 +95,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -110,7 +110,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the target key identifier.
      * 
      */
-    @Export(name="targetKeyArn", type=String.class, parameters={})
+    @Export(name="targetKeyArn", refs={String.class}, tree="[0]")
     private Output<String> targetKeyArn;
 
     /**
@@ -124,7 +124,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * Identifier for the key for which the alias is for, can be either an ARN or key_id.
      * 
      */
-    @Export(name="targetKeyId", type=String.class, parameters={})
+    @Export(name="targetKeyId", refs={String.class}, tree="[0]")
     private Output<String> targetKeyId;
 
     /**

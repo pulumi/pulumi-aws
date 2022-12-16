@@ -32,7 +32,7 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
      * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
      * 
      */
-    @Export(name="enableHybrid", type=String.class, parameters={})
+    @Export(name="enableHybrid", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enableHybrid;
 
     /**
@@ -46,7 +46,7 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
      * The policy to be applied to the aws glue data catalog.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**

@@ -73,7 +73,7 @@ public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
      * Name of the Lightsail Instance.
      * 
      */
-    @Export(name="instanceName", type=String.class, parameters={})
+    @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
     /**
@@ -87,7 +87,7 @@ public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
      * Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
      * 
      */
-    @Export(name="portInfos", type=List.class, parameters={InstancePublicPortsPortInfo.class})
+    @Export(name="portInfos", refs={List.class,InstancePublicPortsPortInfo.class}, tree="[0,1]")
     private Output<List<InstancePublicPortsPortInfo>> portInfos;
 
     /**

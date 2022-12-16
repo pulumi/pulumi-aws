@@ -71,7 +71,7 @@ public class KeyGroup extends com.pulumi.resources.CustomResource {
      * A comment to describe the key group..
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -85,7 +85,7 @@ public class KeyGroup extends com.pulumi.resources.CustomResource {
      * The identifier for this version of the key group.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -99,7 +99,7 @@ public class KeyGroup extends com.pulumi.resources.CustomResource {
      * A list of the identifiers of the public keys in the key group.
      * 
      */
-    @Export(name="items", type=List.class, parameters={String.class})
+    @Export(name="items", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> items;
 
     /**
@@ -113,7 +113,7 @@ public class KeyGroup extends com.pulumi.resources.CustomResource {
      * A name to identify the key group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

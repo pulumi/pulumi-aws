@@ -181,7 +181,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    @Export(name="amiType", type=String.class, parameters={})
+    @Export(name="amiType", refs={String.class}, tree="[0]")
     private Output<String> amiType;
 
     /**
@@ -195,7 +195,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the EKS Node Group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -209,7 +209,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    @Export(name="capacityType", type=String.class, parameters={})
+    @Export(name="capacityType", refs={String.class}, tree="[0]")
     private Output<String> capacityType;
 
     /**
@@ -223,7 +223,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
@@ -237,7 +237,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    @Export(name="diskSize", type=Integer.class, parameters={})
+    @Export(name="diskSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> diskSize;
 
     /**
@@ -251,7 +251,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
      * 
      */
-    @Export(name="forceUpdateVersion", type=Boolean.class, parameters={})
+    @Export(name="forceUpdateVersion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceUpdateVersion;
 
     /**
@@ -265,7 +265,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    @Export(name="instanceTypes", type=List.class, parameters={String.class})
+    @Export(name="instanceTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> instanceTypes;
 
     /**
@@ -279,7 +279,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      * 
      */
-    @Export(name="labels", type=Map.class, parameters={String.class, String.class})
+    @Export(name="labels", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> labels;
 
     /**
@@ -293,7 +293,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Configuration block with Launch Template settings. Detailed below.
      * 
      */
-    @Export(name="launchTemplate", type=NodeGroupLaunchTemplate.class, parameters={})
+    @Export(name="launchTemplate", refs={NodeGroupLaunchTemplate.class}, tree="[0]")
     private Output</* @Nullable */ NodeGroupLaunchTemplate> launchTemplate;
 
     /**
@@ -307,7 +307,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`.
      * 
      */
-    @Export(name="nodeGroupName", type=String.class, parameters={})
+    @Export(name="nodeGroupName", refs={String.class}, tree="[0]")
     private Output<String> nodeGroupName;
 
     /**
@@ -321,7 +321,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
      * 
      */
-    @Export(name="nodeGroupNamePrefix", type=String.class, parameters={})
+    @Export(name="nodeGroupNamePrefix", refs={String.class}, tree="[0]")
     private Output<String> nodeGroupNamePrefix;
 
     /**
@@ -335,7 +335,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      * 
      */
-    @Export(name="nodeRoleArn", type=String.class, parameters={})
+    @Export(name="nodeRoleArn", refs={String.class}, tree="[0]")
     private Output<String> nodeRoleArn;
 
     /**
@@ -349,7 +349,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
      * 
      */
-    @Export(name="releaseVersion", type=String.class, parameters={})
+    @Export(name="releaseVersion", refs={String.class}, tree="[0]")
     private Output<String> releaseVersion;
 
     /**
@@ -363,7 +363,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Configuration block with remote access settings. Detailed below.
      * 
      */
-    @Export(name="remoteAccess", type=NodeGroupRemoteAccess.class, parameters={})
+    @Export(name="remoteAccess", refs={NodeGroupRemoteAccess.class}, tree="[0]")
     private Output</* @Nullable */ NodeGroupRemoteAccess> remoteAccess;
 
     /**
@@ -377,7 +377,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * List of objects containing information about underlying resources.
      * 
      */
-    @Export(name="resources", type=List.class, parameters={NodeGroupResource.class})
+    @Export(name="resources", refs={List.class,NodeGroupResource.class}, tree="[0,1]")
     private Output<List<NodeGroupResource>> resources;
 
     /**
@@ -391,7 +391,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Configuration block with scaling settings. Detailed below.
      * 
      */
-    @Export(name="scalingConfig", type=NodeGroupScalingConfig.class, parameters={})
+    @Export(name="scalingConfig", refs={NodeGroupScalingConfig.class}, tree="[0]")
     private Output<NodeGroupScalingConfig> scalingConfig;
 
     /**
@@ -405,7 +405,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Status of the EKS Node Group.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -419,7 +419,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
      * 
      */
-    @Export(name="subnetIds", type=List.class, parameters={String.class})
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
@@ -433,7 +433,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -447,7 +447,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -461,7 +461,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
      * 
      */
-    @Export(name="taints", type=List.class, parameters={NodeGroupTaint.class})
+    @Export(name="taints", refs={List.class,NodeGroupTaint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NodeGroupTaint>> taints;
 
     /**
@@ -471,7 +471,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<NodeGroupTaint>>> taints() {
         return Codegen.optional(this.taints);
     }
-    @Export(name="updateConfig", type=NodeGroupUpdateConfig.class, parameters={})
+    @Export(name="updateConfig", refs={NodeGroupUpdateConfig.class}, tree="[0]")
     private Output<NodeGroupUpdateConfig> updateConfig;
 
     public Output<NodeGroupUpdateConfig> updateConfig() {
@@ -481,7 +481,7 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**

@@ -74,7 +74,7 @@ public class Model extends com.pulumi.resources.CustomResource {
      * API identifier.
      * 
      */
-    @Export(name="apiId", type=String.class, parameters={})
+    @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
     /**
@@ -88,7 +88,7 @@ public class Model extends com.pulumi.resources.CustomResource {
      * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
      * 
      */
-    @Export(name="contentType", type=String.class, parameters={})
+    @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output<String> contentType;
 
     /**
@@ -102,7 +102,7 @@ public class Model extends com.pulumi.resources.CustomResource {
      * Description of the model. Must be between 1 and 128 characters in length.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -116,7 +116,7 @@ public class Model extends com.pulumi.resources.CustomResource {
      * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -130,7 +130,7 @@ public class Model extends com.pulumi.resources.CustomResource {
      * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**

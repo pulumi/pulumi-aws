@@ -137,7 +137,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * ARN of the Channel.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -151,7 +151,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
      * 
      */
-    @Export(name="cdiInputSpecification", type=ChannelCdiInputSpecification.class, parameters={})
+    @Export(name="cdiInputSpecification", refs={ChannelCdiInputSpecification.class}, tree="[0]")
     private Output</* @Nullable */ ChannelCdiInputSpecification> cdiInputSpecification;
 
     /**
@@ -165,7 +165,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Concise argument description.
      * 
      */
-    @Export(name="channelClass", type=String.class, parameters={})
+    @Export(name="channelClass", refs={String.class}, tree="[0]")
     private Output<String> channelClass;
 
     /**
@@ -179,7 +179,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * ID of the channel in MediaPackage that is the destination for this output group.
      * 
      */
-    @Export(name="channelId", type=String.class, parameters={})
+    @Export(name="channelId", refs={String.class}, tree="[0]")
     private Output<String> channelId;
 
     /**
@@ -193,7 +193,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Destinations for channel. See Destinations for more details.
      * 
      */
-    @Export(name="destinations", type=List.class, parameters={ChannelDestination.class})
+    @Export(name="destinations", refs={List.class,ChannelDestination.class}, tree="[0,1]")
     private Output<List<ChannelDestination>> destinations;
 
     /**
@@ -207,7 +207,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Encoder settings. See Encoder Settings for more details.
      * 
      */
-    @Export(name="encoderSettings", type=ChannelEncoderSettings.class, parameters={})
+    @Export(name="encoderSettings", refs={ChannelEncoderSettings.class}, tree="[0]")
     private Output<ChannelEncoderSettings> encoderSettings;
 
     /**
@@ -221,7 +221,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Input attachments for the channel. See Input Attachments for more details.
      * 
      */
-    @Export(name="inputAttachments", type=List.class, parameters={ChannelInputAttachment.class})
+    @Export(name="inputAttachments", refs={List.class,ChannelInputAttachment.class}, tree="[0,1]")
     private Output<List<ChannelInputAttachment>> inputAttachments;
 
     /**
@@ -235,7 +235,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Specification of network and file inputs for the channel.
      * 
      */
-    @Export(name="inputSpecification", type=ChannelInputSpecification.class, parameters={})
+    @Export(name="inputSpecification", refs={ChannelInputSpecification.class}, tree="[0]")
     private Output<ChannelInputSpecification> inputSpecification;
 
     /**
@@ -249,7 +249,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * The log level to write to Cloudwatch logs.
      * 
      */
-    @Export(name="logLevel", type=String.class, parameters={})
+    @Export(name="logLevel", refs={String.class}, tree="[0]")
     private Output<String> logLevel;
 
     /**
@@ -263,7 +263,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Maintenance settings for this channel. See Maintenance for more details.
      * 
      */
-    @Export(name="maintenance", type=ChannelMaintenance.class, parameters={})
+    @Export(name="maintenance", refs={ChannelMaintenance.class}, tree="[0]")
     private Output<ChannelMaintenance> maintenance;
 
     /**
@@ -277,7 +277,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * The name of the video description.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -291,7 +291,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Concise argument description.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
@@ -305,7 +305,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Whether to start/stop channel. Default: `false`
      * 
      */
-    @Export(name="startChannel", type=Boolean.class, parameters={})
+    @Export(name="startChannel", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> startChannel;
 
     /**
@@ -319,7 +319,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -329,7 +329,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -339,7 +339,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * Settings for the VPC outputs.
      * 
      */
-    @Export(name="vpc", type=ChannelVpc.class, parameters={})
+    @Export(name="vpc", refs={ChannelVpc.class}, tree="[0]")
     private Output</* @Nullable */ ChannelVpc> vpc;
 
     /**

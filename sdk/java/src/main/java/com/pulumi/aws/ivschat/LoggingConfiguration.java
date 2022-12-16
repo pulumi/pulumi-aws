@@ -197,7 +197,7 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      * ARN of the Logging Configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -211,7 +211,7 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
      * 
      */
-    @Export(name="destinationConfiguration", type=LoggingConfigurationDestinationConfiguration.class, parameters={})
+    @Export(name="destinationConfiguration", refs={LoggingConfigurationDestinationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ LoggingConfigurationDestinationConfiguration> destinationConfiguration;
 
     /**
@@ -225,7 +225,7 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      * Logging Configuration name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -239,7 +239,7 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      * State of the Logging Configuration.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -253,7 +253,7 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -267,7 +267,7 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

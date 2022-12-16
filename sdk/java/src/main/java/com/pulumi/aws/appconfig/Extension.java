@@ -98,7 +98,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The action points defined in the extension. Detailed below.
      * 
      */
-    @Export(name="actionPoints", type=List.class, parameters={ExtensionActionPoint.class})
+    @Export(name="actionPoints", refs={List.class,ExtensionActionPoint.class}, tree="[0,1]")
     private Output<List<ExtensionActionPoint>> actionPoints;
 
     /**
@@ -112,7 +112,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * ARN of the AppConfig Extension.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -126,7 +126,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Information about the extension.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -140,7 +140,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -154,7 +154,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      * 
      */
-    @Export(name="parameters", type=List.class, parameters={ExtensionParameter.class})
+    @Export(name="parameters", refs={List.class,ExtensionParameter.class}, tree="[0,1]")
     private Output<List<ExtensionParameter>> parameters;
 
     /**
@@ -168,7 +168,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -178,7 +178,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -188,7 +188,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The version number for the extension.
      * 
      */
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**

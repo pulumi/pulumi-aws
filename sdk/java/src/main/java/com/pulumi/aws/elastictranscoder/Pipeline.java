@@ -79,7 +79,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The ARN of the Elastictranscoder pipeline.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -93,7 +93,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
      * 
      */
-    @Export(name="awsKmsKeyArn", type=String.class, parameters={})
+    @Export(name="awsKmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsKmsKeyArn;
 
     /**
@@ -107,7 +107,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
      * 
      */
-    @Export(name="contentConfig", type=PipelineContentConfig.class, parameters={})
+    @Export(name="contentConfig", refs={PipelineContentConfig.class}, tree="[0]")
     private Output<PipelineContentConfig> contentConfig;
 
     /**
@@ -121,7 +121,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The permissions for the `content_config` object. (documented below)
      * 
      */
-    @Export(name="contentConfigPermissions", type=List.class, parameters={PipelineContentConfigPermission.class})
+    @Export(name="contentConfigPermissions", refs={List.class,PipelineContentConfigPermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PipelineContentConfigPermission>> contentConfigPermissions;
 
     /**
@@ -135,7 +135,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
      * 
      */
-    @Export(name="inputBucket", type=String.class, parameters={})
+    @Export(name="inputBucket", refs={String.class}, tree="[0]")
     private Output<String> inputBucket;
 
     /**
@@ -149,7 +149,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The name of the pipeline. Maximum 40 characters
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -163,7 +163,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
      * 
      */
-    @Export(name="notifications", type=PipelineNotifications.class, parameters={})
+    @Export(name="notifications", refs={PipelineNotifications.class}, tree="[0]")
     private Output</* @Nullable */ PipelineNotifications> notifications;
 
     /**
@@ -177,7 +177,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      * 
      */
-    @Export(name="outputBucket", type=String.class, parameters={})
+    @Export(name="outputBucket", refs={String.class}, tree="[0]")
     private Output<String> outputBucket;
 
     /**
@@ -191,7 +191,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
@@ -205,7 +205,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
      * 
      */
-    @Export(name="thumbnailConfig", type=PipelineThumbnailConfig.class, parameters={})
+    @Export(name="thumbnailConfig", refs={PipelineThumbnailConfig.class}, tree="[0]")
     private Output<PipelineThumbnailConfig> thumbnailConfig;
 
     /**
@@ -219,7 +219,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      * The permissions for the `thumbnail_config` object. (documented below)
      * 
      */
-    @Export(name="thumbnailConfigPermissions", type=List.class, parameters={PipelineThumbnailConfigPermission.class})
+    @Export(name="thumbnailConfigPermissions", refs={List.class,PipelineThumbnailConfigPermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PipelineThumbnailConfigPermission>> thumbnailConfigPermissions;
 
     /**

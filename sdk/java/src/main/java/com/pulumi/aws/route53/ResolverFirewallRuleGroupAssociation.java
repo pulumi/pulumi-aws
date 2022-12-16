@@ -69,7 +69,7 @@ public class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.C
      * The ARN (Amazon Resource Name) of the firewall rule group association.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.C
      * The unique identifier of the firewall rule group.
      * 
      */
-    @Export(name="firewallRuleGroupId", type=String.class, parameters={})
+    @Export(name="firewallRuleGroupId", refs={String.class}, tree="[0]")
     private Output<String> firewallRuleGroupId;
 
     /**
@@ -97,7 +97,7 @@ public class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.C
      * If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    @Export(name="mutationProtection", type=String.class, parameters={})
+    @Export(name="mutationProtection", refs={String.class}, tree="[0]")
     private Output<String> mutationProtection;
 
     /**
@@ -111,7 +111,7 @@ public class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.C
      * A name that lets you identify the rule group association, to manage and use it.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -125,7 +125,7 @@ public class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.C
      * The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
@@ -139,7 +139,7 @@ public class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.C
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -153,7 +153,7 @@ public class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.C
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -167,7 +167,7 @@ public class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.C
      * The unique identifier of the VPC that you want to associate with the rule group.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

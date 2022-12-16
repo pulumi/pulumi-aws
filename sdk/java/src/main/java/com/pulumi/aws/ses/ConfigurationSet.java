@@ -96,7 +96,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * SES configuration set ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -110,7 +110,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * Whether messages that use the configuration set are required to use TLS. See below.
      * 
      */
-    @Export(name="deliveryOptions", type=ConfigurationSetDeliveryOptions.class, parameters={})
+    @Export(name="deliveryOptions", refs={ConfigurationSetDeliveryOptions.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationSetDeliveryOptions> deliveryOptions;
 
     /**
@@ -124,7 +124,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      * 
      */
-    @Export(name="lastFreshStart", type=String.class, parameters={})
+    @Export(name="lastFreshStart", refs={String.class}, tree="[0]")
     private Output<String> lastFreshStart;
 
     /**
@@ -138,7 +138,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * Name of the configuration set.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -152,7 +152,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
      * 
      */
-    @Export(name="reputationMetricsEnabled", type=Boolean.class, parameters={})
+    @Export(name="reputationMetricsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> reputationMetricsEnabled;
 
     /**
@@ -166,7 +166,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
      * 
      */
-    @Export(name="sendingEnabled", type=Boolean.class, parameters={})
+    @Export(name="sendingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendingEnabled;
 
     /**
@@ -180,7 +180,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
      * 
      */
-    @Export(name="trackingOptions", type=ConfigurationSetTrackingOptions.class, parameters={})
+    @Export(name="trackingOptions", refs={ConfigurationSetTrackingOptions.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationSetTrackingOptions> trackingOptions;
 
     /**

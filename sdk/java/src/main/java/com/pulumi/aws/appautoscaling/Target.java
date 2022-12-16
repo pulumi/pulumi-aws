@@ -201,7 +201,7 @@ public class Target extends com.pulumi.resources.CustomResource {
      * Max capacity of the scalable target.
      * 
      */
-    @Export(name="maxCapacity", type=Integer.class, parameters={})
+    @Export(name="maxCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxCapacity;
 
     /**
@@ -215,7 +215,7 @@ public class Target extends com.pulumi.resources.CustomResource {
      * Min capacity of the scalable target.
      * 
      */
-    @Export(name="minCapacity", type=Integer.class, parameters={})
+    @Export(name="minCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> minCapacity;
 
     /**
@@ -229,7 +229,7 @@ public class Target extends com.pulumi.resources.CustomResource {
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -243,7 +243,7 @@ public class Target extends com.pulumi.resources.CustomResource {
      * ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -257,7 +257,7 @@ public class Target extends com.pulumi.resources.CustomResource {
      * Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
-    @Export(name="scalableDimension", type=String.class, parameters={})
+    @Export(name="scalableDimension", refs={String.class}, tree="[0]")
     private Output<String> scalableDimension;
 
     /**
@@ -271,7 +271,7 @@ public class Target extends com.pulumi.resources.CustomResource {
      * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
-    @Export(name="serviceNamespace", type=String.class, parameters={})
+    @Export(name="serviceNamespace", refs={String.class}, tree="[0]")
     private Output<String> serviceNamespace;
 
     /**

@@ -62,7 +62,7 @@ public class ReceiptFilter extends com.pulumi.resources.CustomResource {
      * The SES receipt filter ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -76,7 +76,7 @@ public class ReceiptFilter extends com.pulumi.resources.CustomResource {
      * The IP address or address range to filter, in CIDR notation
      * 
      */
-    @Export(name="cidr", type=String.class, parameters={})
+    @Export(name="cidr", refs={String.class}, tree="[0]")
     private Output<String> cidr;
 
     /**
@@ -90,7 +90,7 @@ public class ReceiptFilter extends com.pulumi.resources.CustomResource {
      * The name of the filter
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -104,7 +104,7 @@ public class ReceiptFilter extends com.pulumi.resources.CustomResource {
      * Block or Allow
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**

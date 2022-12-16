@@ -65,7 +65,7 @@ public class RequestValidator extends com.pulumi.resources.CustomResource {
      * Name of the request validator
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -79,7 +79,7 @@ public class RequestValidator extends com.pulumi.resources.CustomResource {
      * ID of the associated Rest API
      * 
      */
-    @Export(name="restApi", type=String.class, parameters={})
+    @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
     /**
@@ -93,7 +93,7 @@ public class RequestValidator extends com.pulumi.resources.CustomResource {
      * Boolean whether to validate request body. Defaults to `false`.
      * 
      */
-    @Export(name="validateRequestBody", type=Boolean.class, parameters={})
+    @Export(name="validateRequestBody", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> validateRequestBody;
 
     /**
@@ -107,7 +107,7 @@ public class RequestValidator extends com.pulumi.resources.CustomResource {
      * Boolean whether to validate request parameters. Defaults to `false`.
      * 
      */
-    @Export(name="validateRequestParameters", type=Boolean.class, parameters={})
+    @Export(name="validateRequestParameters", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> validateRequestParameters;
 
     /**

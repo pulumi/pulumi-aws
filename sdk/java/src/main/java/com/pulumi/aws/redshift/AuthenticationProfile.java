@@ -68,7 +68,7 @@ public class AuthenticationProfile extends com.pulumi.resources.CustomResource {
      * The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
      * 
      */
-    @Export(name="authenticationProfileContent", type=String.class, parameters={})
+    @Export(name="authenticationProfileContent", refs={String.class}, tree="[0]")
     private Output<String> authenticationProfileContent;
 
     /**
@@ -82,7 +82,7 @@ public class AuthenticationProfile extends com.pulumi.resources.CustomResource {
      * The name of the authentication profile.
      * 
      */
-    @Export(name="authenticationProfileName", type=String.class, parameters={})
+    @Export(name="authenticationProfileName", refs={String.class}, tree="[0]")
     private Output<String> authenticationProfileName;
 
     /**

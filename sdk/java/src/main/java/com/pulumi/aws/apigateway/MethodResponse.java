@@ -99,7 +99,7 @@ public class MethodResponse extends com.pulumi.resources.CustomResource {
      * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      * 
      */
-    @Export(name="httpMethod", type=String.class, parameters={})
+    @Export(name="httpMethod", refs={String.class}, tree="[0]")
     private Output<String> httpMethod;
 
     /**
@@ -113,7 +113,7 @@ public class MethodResponse extends com.pulumi.resources.CustomResource {
      * API resource ID
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -127,7 +127,7 @@ public class MethodResponse extends com.pulumi.resources.CustomResource {
      * Map of the API models used for the response&#39;s content type
      * 
      */
-    @Export(name="responseModels", type=Map.class, parameters={String.class, String.class})
+    @Export(name="responseModels", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseModels;
 
     /**
@@ -143,7 +143,7 @@ public class MethodResponse extends com.pulumi.resources.CustomResource {
      * would define that the header `X-Some-Header` can be provided on the response.
      * 
      */
-    @Export(name="responseParameters", type=Map.class, parameters={String.class, Boolean.class})
+    @Export(name="responseParameters", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Boolean>> responseParameters;
 
     /**
@@ -159,7 +159,7 @@ public class MethodResponse extends com.pulumi.resources.CustomResource {
      * ID of the associated REST API
      * 
      */
-    @Export(name="restApi", type=String.class, parameters={})
+    @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
     /**
@@ -173,7 +173,7 @@ public class MethodResponse extends com.pulumi.resources.CustomResource {
      * HTTP status code
      * 
      */
-    @Export(name="statusCode", type=String.class, parameters={})
+    @Export(name="statusCode", refs={String.class}, tree="[0]")
     private Output<String> statusCode;
 
     /**

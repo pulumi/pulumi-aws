@@ -97,7 +97,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * Indicates whether to drop traffic that matches this route (default to `false`).
      * 
      */
-    @Export(name="blackhole", type=Boolean.class, parameters={})
+    @Export(name="blackhole", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blackhole;
 
     /**
@@ -111,7 +111,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      * 
      */
-    @Export(name="destinationCidrBlock", type=String.class, parameters={})
+    @Export(name="destinationCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> destinationCidrBlock;
 
     /**
@@ -125,7 +125,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
      * 
      */
-    @Export(name="transitGatewayAttachmentId", type=String.class, parameters={})
+    @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transitGatewayAttachmentId;
 
     /**
@@ -139,7 +139,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * Identifier of EC2 Transit Gateway Route Table.
      * 
      */
-    @Export(name="transitGatewayRouteTableId", type=String.class, parameters={})
+    @Export(name="transitGatewayRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayRouteTableId;
 
     /**

@@ -123,7 +123,7 @@ public class AnalyticsConfiguration extends com.pulumi.resources.CustomResource 
      * The name of the bucket this analytics configuration is associated with.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -137,7 +137,7 @@ public class AnalyticsConfiguration extends com.pulumi.resources.CustomResource 
      * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      * 
      */
-    @Export(name="filter", type=AnalyticsConfigurationFilter.class, parameters={})
+    @Export(name="filter", refs={AnalyticsConfigurationFilter.class}, tree="[0]")
     private Output</* @Nullable */ AnalyticsConfigurationFilter> filter;
 
     /**
@@ -151,7 +151,7 @@ public class AnalyticsConfiguration extends com.pulumi.resources.CustomResource 
      * Unique identifier of the analytics configuration for the bucket.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -165,7 +165,7 @@ public class AnalyticsConfiguration extends com.pulumi.resources.CustomResource 
      * Configuration for the analytics data export (documented below).
      * 
      */
-    @Export(name="storageClassAnalysis", type=AnalyticsConfigurationStorageClassAnalysis.class, parameters={})
+    @Export(name="storageClassAnalysis", refs={AnalyticsConfigurationStorageClassAnalysis.class}, tree="[0]")
     private Output</* @Nullable */ AnalyticsConfigurationStorageClassAnalysis> storageClassAnalysis;
 
     /**

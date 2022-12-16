@@ -58,7 +58,7 @@ public class Enabler extends com.pulumi.resources.CustomResource {
      * Set of account IDs.
      * 
      */
-    @Export(name="accountIds", type=List.class, parameters={String.class})
+    @Export(name="accountIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> accountIds;
 
     /**
@@ -72,7 +72,7 @@ public class Enabler extends com.pulumi.resources.CustomResource {
      * Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
      * 
      */
-    @Export(name="resourceTypes", type=List.class, parameters={String.class})
+    @Export(name="resourceTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> resourceTypes;
 
     /**

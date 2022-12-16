@@ -96,7 +96,7 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      * Action to be performed during an experiment. See below.
      * 
      */
-    @Export(name="actions", type=List.class, parameters={ExperimentTemplateAction.class})
+    @Export(name="actions", refs={List.class,ExperimentTemplateAction.class}, tree="[0,1]")
     private Output<List<ExperimentTemplateAction>> actions;
 
     /**
@@ -110,7 +110,7 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      * Description of the action.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -124,7 +124,7 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -138,7 +138,7 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      * When an ongoing experiment should be stopped. See below.
      * 
      */
-    @Export(name="stopConditions", type=List.class, parameters={ExperimentTemplateStopCondition.class})
+    @Export(name="stopConditions", refs={List.class,ExperimentTemplateStopCondition.class}, tree="[0,1]")
     private Output<List<ExperimentTemplateStopCondition>> stopConditions;
 
     /**
@@ -152,7 +152,7 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      * Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -162,7 +162,7 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -172,7 +172,7 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      * Action&#39;s target, if applicable. See below.
      * 
      */
-    @Export(name="targets", type=List.class, parameters={ExperimentTemplateTarget.class})
+    @Export(name="targets", refs={List.class,ExperimentTemplateTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ExperimentTemplateTarget>> targets;
 
     /**

@@ -67,7 +67,7 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * The ARN of the Lightsail load balancer.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -81,7 +81,7 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * The timestamp when the load balancer was created.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -95,7 +95,7 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * The DNS name of the load balancer.
      * 
      */
-    @Export(name="dnsName", type=String.class, parameters={})
+    @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
@@ -109,7 +109,7 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * The health check path of the load balancer. Default value &#34;/&#34;.
      * 
      */
-    @Export(name="healthCheckPath", type=String.class, parameters={})
+    @Export(name="healthCheckPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> healthCheckPath;
 
     /**
@@ -123,7 +123,7 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * The instance port the load balancer will connect.
      * 
      */
-    @Export(name="instancePort", type=Integer.class, parameters={})
+    @Export(name="instancePort", refs={Integer.class}, tree="[0]")
     private Output<Integer> instancePort;
 
     /**
@@ -133,7 +133,7 @@ public class Lb extends com.pulumi.resources.CustomResource {
     public Output<Integer> instancePort() {
         return this.instancePort;
     }
-    @Export(name="ipAddressType", type=String.class, parameters={})
+    @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddressType;
 
     public Output<Optional<String>> ipAddressType() {
@@ -143,7 +143,7 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * The name of the Lightsail load balancer.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -157,7 +157,7 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * The protocol of the load balancer.
      * 
      */
-    @Export(name="protocol", type=String.class, parameters={})
+    @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
@@ -171,7 +171,7 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * The public ports of the load balancer.
      * 
      */
-    @Export(name="publicPorts", type=List.class, parameters={Integer.class})
+    @Export(name="publicPorts", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> publicPorts;
 
     /**
@@ -185,7 +185,7 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    @Export(name="supportCode", type=String.class, parameters={})
+    @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
     /**
@@ -199,7 +199,7 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -213,7 +213,7 @@ public class Lb extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

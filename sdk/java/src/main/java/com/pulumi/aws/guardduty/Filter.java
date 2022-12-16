@@ -90,7 +90,7 @@ public class Filter extends com.pulumi.resources.CustomResource {
      * Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
      * 
      */
-    @Export(name="action", type=String.class, parameters={})
+    @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
@@ -104,7 +104,7 @@ public class Filter extends com.pulumi.resources.CustomResource {
      * The ARN of the GuardDuty filter.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -118,7 +118,7 @@ public class Filter extends com.pulumi.resources.CustomResource {
      * Description of the filter.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -132,7 +132,7 @@ public class Filter extends com.pulumi.resources.CustomResource {
      * ID of a GuardDuty detector, attached to your account.
      * 
      */
-    @Export(name="detectorId", type=String.class, parameters={})
+    @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
     /**
@@ -146,7 +146,7 @@ public class Filter extends com.pulumi.resources.CustomResource {
      * Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      * 
      */
-    @Export(name="findingCriteria", type=FilterFindingCriteria.class, parameters={})
+    @Export(name="findingCriteria", refs={FilterFindingCriteria.class}, tree="[0]")
     private Output<FilterFindingCriteria> findingCriteria;
 
     /**
@@ -160,7 +160,7 @@ public class Filter extends com.pulumi.resources.CustomResource {
      * The name of your filter.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -174,7 +174,7 @@ public class Filter extends com.pulumi.resources.CustomResource {
      * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
      * 
      */
-    @Export(name="rank", type=Integer.class, parameters={})
+    @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output<Integer> rank;
 
     /**
@@ -188,7 +188,7 @@ public class Filter extends com.pulumi.resources.CustomResource {
      * The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -202,7 +202,7 @@ public class Filter extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

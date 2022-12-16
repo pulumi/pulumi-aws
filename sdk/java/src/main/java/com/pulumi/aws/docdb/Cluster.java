@@ -83,7 +83,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * `false`.
      * 
      */
-    @Export(name="applyImmediately", type=Boolean.class, parameters={})
+    @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> applyImmediately;
 
     /**
@@ -99,7 +99,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of cluster
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -114,7 +114,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * instances in the DB cluster can be created in.
      * 
      */
-    @Export(name="availabilityZones", type=List.class, parameters={String.class})
+    @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
     /**
@@ -129,7 +129,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The days to retain backups for. Default `1`
      * 
      */
-    @Export(name="backupRetentionPeriod", type=Integer.class, parameters={})
+    @Export(name="backupRetentionPeriod", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> backupRetentionPeriod;
 
     /**
@@ -143,7 +143,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The cluster identifier. If omitted, the provider will assign a random, unique identifier.
      * 
      */
-    @Export(name="clusterIdentifier", type=String.class, parameters={})
+    @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
@@ -157,7 +157,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
-    @Export(name="clusterIdentifierPrefix", type=String.class, parameters={})
+    @Export(name="clusterIdentifierPrefix", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifierPrefix;
 
     /**
@@ -171,7 +171,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * List of DocDB Instances that are a part of this cluster
      * 
      */
-    @Export(name="clusterMembers", type=List.class, parameters={String.class})
+    @Export(name="clusterMembers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> clusterMembers;
 
     /**
@@ -185,7 +185,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The DocDB Cluster Resource ID
      * 
      */
-    @Export(name="clusterResourceId", type=String.class, parameters={})
+    @Export(name="clusterResourceId", refs={String.class}, tree="[0]")
     private Output<String> clusterResourceId;
 
     /**
@@ -199,7 +199,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A cluster parameter group to associate with the cluster.
      * 
      */
-    @Export(name="dbClusterParameterGroupName", type=String.class, parameters={})
+    @Export(name="dbClusterParameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> dbClusterParameterGroupName;
 
     /**
@@ -213,7 +213,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A DB subnet group to associate with this DB instance.
      * 
      */
-    @Export(name="dbSubnetGroupName", type=String.class, parameters={})
+    @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> dbSubnetGroupName;
 
     /**
@@ -227,7 +227,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A value that indicates whether the DB cluster has deletion protection enabled. The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      * 
      */
-    @Export(name="deletionProtection", type=Boolean.class, parameters={})
+    @Export(name="deletionProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deletionProtection;
 
     /**
@@ -242,7 +242,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The following log types are supported: `audit`, `profiler`.
      * 
      */
-    @Export(name="enabledCloudwatchLogsExports", type=List.class, parameters={String.class})
+    @Export(name="enabledCloudwatchLogsExports", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enabledCloudwatchLogsExports;
 
     /**
@@ -257,7 +257,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The DNS address of the DocDB instance
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
@@ -271,7 +271,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
      * 
      */
-    @Export(name="engine", type=String.class, parameters={})
+    @Export(name="engine", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engine;
 
     /**
@@ -285,7 +285,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The database engine version. Updating this argument results in an outage.
      * 
      */
-    @Export(name="engineVersion", type=String.class, parameters={})
+    @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
@@ -301,7 +301,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * made.
      * 
      */
-    @Export(name="finalSnapshotIdentifier", type=String.class, parameters={})
+    @Export(name="finalSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> finalSnapshotIdentifier;
 
     /**
@@ -317,7 +317,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The global cluster identifier specified on `aws.docdb.GlobalCluster`.
      * 
      */
-    @Export(name="globalClusterIdentifier", type=String.class, parameters={})
+    @Export(name="globalClusterIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> globalClusterIdentifier;
 
     /**
@@ -331,7 +331,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The Route53 Hosted Zone ID of the endpoint
      * 
      */
-    @Export(name="hostedZoneId", type=String.class, parameters={})
+    @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
     /**
@@ -345,7 +345,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -360,7 +360,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
      * 
      */
-    @Export(name="masterPassword", type=String.class, parameters={})
+    @Export(name="masterPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> masterPassword;
 
     /**
@@ -375,7 +375,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Username for the master DB user.
      * 
      */
-    @Export(name="masterUsername", type=String.class, parameters={})
+    @Export(name="masterUsername", refs={String.class}, tree="[0]")
     private Output<String> masterUsername;
 
     /**
@@ -389,7 +389,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The port on which the DB accepts connections
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
     /**
@@ -404,7 +404,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
-    @Export(name="preferredBackupWindow", type=String.class, parameters={})
+    @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredBackupWindow;
 
     /**
@@ -419,7 +419,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
-    @Export(name="preferredMaintenanceWindow", type=String.class, parameters={})
+    @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredMaintenanceWindow;
 
     /**
@@ -433,7 +433,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
      * 
      */
-    @Export(name="readerEndpoint", type=String.class, parameters={})
+    @Export(name="readerEndpoint", refs={String.class}, tree="[0]")
     private Output<String> readerEndpoint;
 
     /**
@@ -447,7 +447,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      * 
      */
-    @Export(name="skipFinalSnapshot", type=Boolean.class, parameters={})
+    @Export(name="skipFinalSnapshot", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipFinalSnapshot;
 
     /**
@@ -461,7 +461,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
      * 
      */
-    @Export(name="snapshotIdentifier", type=String.class, parameters={})
+    @Export(name="snapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotIdentifier;
 
     /**
@@ -475,7 +475,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies whether the DB cluster is encrypted. The default is `false`.
      * 
      */
-    @Export(name="storageEncrypted", type=Boolean.class, parameters={})
+    @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> storageEncrypted;
 
     /**
@@ -489,7 +489,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -503,7 +503,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -518,7 +518,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * with the Cluster
      * 
      */
-    @Export(name="vpcSecurityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
     /**

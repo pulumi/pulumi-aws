@@ -66,7 +66,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * The user profile Amazon Resource Name (ARN).
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -80,7 +80,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * The ID of the associated Domain.
      * 
      */
-    @Export(name="domainId", type=String.class, parameters={})
+    @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
     /**
@@ -94,7 +94,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * The ID of the user&#39;s profile in the Amazon Elastic File System (EFS) volume.
      * 
      */
-    @Export(name="homeEfsFileSystemUid", type=String.class, parameters={})
+    @Export(name="homeEfsFileSystemUid", refs={String.class}, tree="[0]")
     private Output<String> homeEfsFileSystemUid;
 
     /**
@@ -108,7 +108,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
      * 
      */
-    @Export(name="singleSignOnUserIdentifier", type=String.class, parameters={})
+    @Export(name="singleSignOnUserIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> singleSignOnUserIdentifier;
 
     /**
@@ -122,7 +122,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * The username of the associated AWS Single Sign-On User for this User Profile. If the Domain&#39;s AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
      * 
      */
-    @Export(name="singleSignOnUserValue", type=String.class, parameters={})
+    @Export(name="singleSignOnUserValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> singleSignOnUserValue;
 
     /**
@@ -136,7 +136,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -150,7 +150,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -164,7 +164,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * The name for the User Profile.
      * 
      */
-    @Export(name="userProfileName", type=String.class, parameters={})
+    @Export(name="userProfileName", refs={String.class}, tree="[0]")
     private Output<String> userProfileName;
 
     /**
@@ -178,7 +178,7 @@ public class UserProfile extends com.pulumi.resources.CustomResource {
      * The user settings. See User Settings below.
      * 
      */
-    @Export(name="userSettings", type=UserProfileUserSettings.class, parameters={})
+    @Export(name="userSettings", refs={UserProfileUserSettings.class}, tree="[0]")
     private Output</* @Nullable */ UserProfileUserSettings> userSettings;
 
     /**

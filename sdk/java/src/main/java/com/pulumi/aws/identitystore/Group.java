@@ -36,7 +36,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A string containing the description of the group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -50,7 +50,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A string containing the name of the group. This value is commonly displayed when the group is referenced.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -64,7 +64,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
      * 
      */
-    @Export(name="externalIds", type=List.class, parameters={GroupExternalId.class})
+    @Export(name="externalIds", refs={List.class,GroupExternalId.class}, tree="[0,1]")
     private Output<List<GroupExternalId>> externalIds;
 
     /**
@@ -78,7 +78,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The identifier of the newly created group in the identity store.
      * 
      */
-    @Export(name="groupId", type=String.class, parameters={})
+    @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
@@ -92,7 +92,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The globally unique identifier for the identity store.
      * 
      */
-    @Export(name="identityStoreId", type=String.class, parameters={})
+    @Export(name="identityStoreId", refs={String.class}, tree="[0]")
     private Output<String> identityStoreId;
 
     /**

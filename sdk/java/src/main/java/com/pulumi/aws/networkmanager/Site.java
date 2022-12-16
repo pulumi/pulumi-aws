@@ -67,7 +67,7 @@ public class Site extends com.pulumi.resources.CustomResource {
      * Site Amazon Resource Name (ARN)
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -81,7 +81,7 @@ public class Site extends com.pulumi.resources.CustomResource {
      * Description of the Site.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -95,7 +95,7 @@ public class Site extends com.pulumi.resources.CustomResource {
      * The ID of the Global Network to create the site in.
      * 
      */
-    @Export(name="globalNetworkId", type=String.class, parameters={})
+    @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
@@ -109,7 +109,7 @@ public class Site extends com.pulumi.resources.CustomResource {
      * The site location as documented below.
      * 
      */
-    @Export(name="location", type=SiteLocation.class, parameters={})
+    @Export(name="location", refs={SiteLocation.class}, tree="[0]")
     private Output</* @Nullable */ SiteLocation> location;
 
     /**
@@ -123,7 +123,7 @@ public class Site extends com.pulumi.resources.CustomResource {
      * Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -137,7 +137,7 @@ public class Site extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

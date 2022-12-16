@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:elasticbeanstalk/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
-    @Export(name="appversionLifecycle", type=ApplicationAppversionLifecycle.class, parameters={})
+    @Export(name="appversionLifecycle", refs={ApplicationAppversionLifecycle.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationAppversionLifecycle> appversionLifecycle;
 
     public Output<Optional<ApplicationAppversionLifecycle>> appversionLifecycle() {
@@ -81,7 +81,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The ARN assigned by AWS for this Elastic Beanstalk Application.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -95,7 +95,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Short description of the application
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -109,7 +109,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name of the application, must be unique within your account
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -123,7 +123,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -137,7 +137,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

@@ -206,7 +206,7 @@ public class EventBusPolicy extends com.pulumi.resources.CustomResource {
      * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
      * 
      */
-    @Export(name="eventBusName", type=String.class, parameters={})
+    @Export(name="eventBusName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventBusName;
 
     /**
@@ -220,7 +220,7 @@ public class EventBusPolicy extends com.pulumi.resources.CustomResource {
      * The text of the policy.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**

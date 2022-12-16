@@ -62,7 +62,7 @@ public class VpcEndpointRouteTableAssociation extends com.pulumi.resources.Custo
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      * 
      */
-    @Export(name="routeTableId", type=String.class, parameters={})
+    @Export(name="routeTableId", refs={String.class}, tree="[0]")
     private Output<String> routeTableId;
 
     /**
@@ -76,7 +76,7 @@ public class VpcEndpointRouteTableAssociation extends com.pulumi.resources.Custo
      * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
      * 
      */
-    @Export(name="vpcEndpointId", type=String.class, parameters={})
+    @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointId;
 
     /**

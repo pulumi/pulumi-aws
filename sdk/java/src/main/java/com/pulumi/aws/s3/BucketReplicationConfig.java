@@ -295,7 +295,7 @@ public class BucketReplicationConfig extends com.pulumi.resources.CustomResource
      * The name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -309,7 +309,7 @@ public class BucketReplicationConfig extends com.pulumi.resources.CustomResource
      * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
@@ -323,7 +323,7 @@ public class BucketReplicationConfig extends com.pulumi.resources.CustomResource
      * List of configuration blocks describing the rules managing the replication documented below.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={BucketReplicationConfigRule.class})
+    @Export(name="rules", refs={List.class,BucketReplicationConfigRule.class}, tree="[0,1]")
     private Output<List<BucketReplicationConfigRule>> rules;
 
     /**
@@ -338,7 +338,7 @@ public class BucketReplicationConfig extends com.pulumi.resources.CustomResource
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
      * 
      */
-    @Export(name="token", type=String.class, parameters={})
+    @Export(name="token", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> token;
 
     /**

@@ -232,7 +232,7 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    @Export(name="catalogId", type=String.class, parameters={})
+    @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> catalogId;
 
     /**
@@ -246,7 +246,7 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      * 
      */
-    @Export(name="catalogResource", type=Boolean.class, parameters={})
+    @Export(name="catalogResource", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> catalogResource;
 
     /**
@@ -260,7 +260,7 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      * Configuration block for a data location resource. Detailed below.
      * 
      */
-    @Export(name="dataLocation", type=PermissionsDataLocation.class, parameters={})
+    @Export(name="dataLocation", refs={PermissionsDataLocation.class}, tree="[0]")
     private Output<PermissionsDataLocation> dataLocation;
 
     /**
@@ -274,7 +274,7 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      * Configuration block for a database resource. Detailed below.
      * 
      */
-    @Export(name="database", type=PermissionsDatabase.class, parameters={})
+    @Export(name="database", refs={PermissionsDatabase.class}, tree="[0]")
     private Output<PermissionsDatabase> database;
 
     /**
@@ -288,7 +288,7 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      * Configuration block for an LF-tag resource. Detailed below.
      * 
      */
-    @Export(name="lfTag", type=PermissionsLfTag.class, parameters={})
+    @Export(name="lfTag", refs={PermissionsLfTag.class}, tree="[0]")
     private Output<PermissionsLfTag> lfTag;
 
     /**
@@ -302,7 +302,7 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      * Configuration block for an LF-tag policy resource. Detailed below.
      * 
      */
-    @Export(name="lfTagPolicy", type=PermissionsLfTagPolicy.class, parameters={})
+    @Export(name="lfTagPolicy", refs={PermissionsLfTagPolicy.class}, tree="[0]")
     private Output<PermissionsLfTagPolicy> lfTagPolicy;
 
     /**
@@ -316,7 +316,7 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      * 
      */
-    @Export(name="permissions", type=List.class, parameters={String.class})
+    @Export(name="permissions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> permissions;
 
     /**
@@ -330,7 +330,7 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      * Subset of `permissions` which the principal can pass.
      * 
      */
-    @Export(name="permissionsWithGrantOptions", type=List.class, parameters={String.class})
+    @Export(name="permissionsWithGrantOptions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> permissionsWithGrantOptions;
 
     /**
@@ -344,7 +344,7 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      * Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -358,7 +358,7 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      * Configuration block for a table resource. Detailed below.
      * 
      */
-    @Export(name="table", type=PermissionsTable.class, parameters={})
+    @Export(name="table", refs={PermissionsTable.class}, tree="[0]")
     private Output<PermissionsTable> table;
 
     /**
@@ -372,7 +372,7 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      * Configuration block for a table with columns resource. Detailed below.
      * 
      */
-    @Export(name="tableWithColumns", type=PermissionsTableWithColumns.class, parameters={})
+    @Export(name="tableWithColumns", refs={PermissionsTableWithColumns.class}, tree="[0]")
     private Output<PermissionsTableWithColumns> tableWithColumns;
 
     /**

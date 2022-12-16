@@ -66,7 +66,7 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
      * Indicates whether principals outside your organization can be associated with a resource share.
      * 
      */
-    @Export(name="allowExternalPrincipals", type=Boolean.class, parameters={})
+    @Export(name="allowExternalPrincipals", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowExternalPrincipals;
 
     /**
@@ -80,7 +80,7 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the resource share.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -94,7 +94,7 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
      * The name of the resource share.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -108,7 +108,7 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
      * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      * 
      */
-    @Export(name="permissionArns", type=List.class, parameters={String.class})
+    @Export(name="permissionArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> permissionArns;
 
     /**
@@ -122,7 +122,7 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -136,7 +136,7 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

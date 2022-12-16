@@ -64,7 +64,7 @@ public class AvailabilityZoneGroup extends com.pulumi.resources.CustomResource {
      * Name of the Availability Zone Group.
      * 
      */
-    @Export(name="groupName", type=String.class, parameters={})
+    @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
     /**
@@ -78,7 +78,7 @@ public class AvailabilityZoneGroup extends com.pulumi.resources.CustomResource {
      * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
      * 
      */
-    @Export(name="optInStatus", type=String.class, parameters={})
+    @Export(name="optInStatus", refs={String.class}, tree="[0]")
     private Output<String> optInStatus;
 
     /**

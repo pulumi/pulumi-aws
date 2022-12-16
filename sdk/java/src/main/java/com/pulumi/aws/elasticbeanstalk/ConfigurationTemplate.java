@@ -73,7 +73,7 @@ public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
      * name of the application to associate with this configuration template
      * 
      */
-    @Export(name="application", type=String.class, parameters={})
+    @Export(name="application", refs={String.class}, tree="[0]")
     private Output<String> application;
 
     /**
@@ -87,7 +87,7 @@ public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
      * Short description of the Template
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -101,7 +101,7 @@ public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
      * The ID of the environment used with this configuration template
      * 
      */
-    @Export(name="environmentId", type=String.class, parameters={})
+    @Export(name="environmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> environmentId;
 
     /**
@@ -115,7 +115,7 @@ public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
      * A unique name for this Template.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -131,7 +131,7 @@ public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
      * below in Option Settings
      * 
      */
-    @Export(name="settings", type=List.class, parameters={ConfigurationTemplateSetting.class})
+    @Export(name="settings", refs={List.class,ConfigurationTemplateSetting.class}, tree="[0,1]")
     private Output<List<ConfigurationTemplateSetting>> settings;
 
     /**
@@ -148,7 +148,7 @@ public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      * 
      */
-    @Export(name="solutionStackName", type=String.class, parameters={})
+    @Export(name="solutionStackName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> solutionStackName;
 
     /**

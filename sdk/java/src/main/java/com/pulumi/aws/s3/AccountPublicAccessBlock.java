@@ -68,7 +68,7 @@ public class AccountPublicAccessBlock extends com.pulumi.resources.CustomResourc
      * AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -84,7 +84,7 @@ public class AccountPublicAccessBlock extends com.pulumi.resources.CustomResourc
      * * PUT Object calls fail if the request includes a public ACL.
      * 
      */
-    @Export(name="blockPublicAcls", type=Boolean.class, parameters={})
+    @Export(name="blockPublicAcls", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockPublicAcls;
 
     /**
@@ -101,7 +101,7 @@ public class AccountPublicAccessBlock extends com.pulumi.resources.CustomResourc
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      * 
      */
-    @Export(name="blockPublicPolicy", type=Boolean.class, parameters={})
+    @Export(name="blockPublicPolicy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockPublicPolicy;
 
     /**
@@ -117,7 +117,7 @@ public class AccountPublicAccessBlock extends com.pulumi.resources.CustomResourc
      * * Ignore all public ACLs on buckets in this account and any objects that they contain.
      * 
      */
-    @Export(name="ignorePublicAcls", type=Boolean.class, parameters={})
+    @Export(name="ignorePublicAcls", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignorePublicAcls;
 
     /**
@@ -133,7 +133,7 @@ public class AccountPublicAccessBlock extends com.pulumi.resources.CustomResourc
      * * Only the bucket owner and AWS Services can access buckets with public policies.
      * 
      */
-    @Export(name="restrictPublicBuckets", type=Boolean.class, parameters={})
+    @Export(name="restrictPublicBuckets", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> restrictPublicBuckets;
 
     /**

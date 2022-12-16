@@ -105,7 +105,7 @@ public class EventPermission extends com.pulumi.resources.CustomResource {
      * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
      * 
      */
-    @Export(name="action", type=String.class, parameters={})
+    @Export(name="action", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> action;
 
     /**
@@ -119,7 +119,7 @@ public class EventPermission extends com.pulumi.resources.CustomResource {
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      * 
      */
-    @Export(name="condition", type=EventPermissionCondition.class, parameters={})
+    @Export(name="condition", refs={EventPermissionCondition.class}, tree="[0]")
     private Output</* @Nullable */ EventPermissionCondition> condition;
 
     /**
@@ -133,7 +133,7 @@ public class EventPermission extends com.pulumi.resources.CustomResource {
      * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
      * 
      */
-    @Export(name="eventBusName", type=String.class, parameters={})
+    @Export(name="eventBusName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventBusName;
 
     /**
@@ -147,7 +147,7 @@ public class EventPermission extends com.pulumi.resources.CustomResource {
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -161,7 +161,7 @@ public class EventPermission extends com.pulumi.resources.CustomResource {
      * An identifier string for the external account that you are granting permissions to.
      * 
      */
-    @Export(name="statementId", type=String.class, parameters={})
+    @Export(name="statementId", refs={String.class}, tree="[0]")
     private Output<String> statementId;
 
     /**

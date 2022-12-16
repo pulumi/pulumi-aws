@@ -60,7 +60,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * ARN of the cluster
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -74,7 +74,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
      * 
      */
-    @Export(name="clusterEndpoints", type=List.class, parameters={ClusterClusterEndpoint.class})
+    @Export(name="clusterEndpoints", refs={List.class,ClusterClusterEndpoint.class}, tree="[0,1]")
     private Output<List<ClusterClusterEndpoint>> clusterEndpoints;
 
     /**
@@ -88,7 +88,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Unique name describing the cluster.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -102,7 +102,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

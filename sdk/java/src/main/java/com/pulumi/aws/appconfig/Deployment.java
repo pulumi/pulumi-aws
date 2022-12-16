@@ -70,7 +70,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Application ID. Must be between 4 and 7 characters in length.
      * 
      */
-    @Export(name="applicationId", type=String.class, parameters={})
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
@@ -84,7 +84,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * ARN of the AppConfig Deployment.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -98,7 +98,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Configuration profile ID. Must be between 4 and 7 characters in length.
      * 
      */
-    @Export(name="configurationProfileId", type=String.class, parameters={})
+    @Export(name="configurationProfileId", refs={String.class}, tree="[0]")
     private Output<String> configurationProfileId;
 
     /**
@@ -112,7 +112,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Configuration version to deploy. Can be at most 1024 characters.
      * 
      */
-    @Export(name="configurationVersion", type=String.class, parameters={})
+    @Export(name="configurationVersion", refs={String.class}, tree="[0]")
     private Output<String> configurationVersion;
 
     /**
@@ -126,7 +126,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Deployment number.
      * 
      */
-    @Export(name="deploymentNumber", type=Integer.class, parameters={})
+    @Export(name="deploymentNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> deploymentNumber;
 
     /**
@@ -140,7 +140,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      * 
      */
-    @Export(name="deploymentStrategyId", type=String.class, parameters={})
+    @Export(name="deploymentStrategyId", refs={String.class}, tree="[0]")
     private Output<String> deploymentStrategyId;
 
     /**
@@ -154,7 +154,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Description of the deployment. Can be at most 1024 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -168,7 +168,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Environment ID. Must be between 4 and 7 characters in length.
      * 
      */
-    @Export(name="environmentId", type=String.class, parameters={})
+    @Export(name="environmentId", refs={String.class}, tree="[0]")
     private Output<String> environmentId;
 
     /**
@@ -182,7 +182,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * State of the deployment.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -196,7 +196,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -210,7 +210,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

@@ -84,7 +84,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * The license configuration ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -98,7 +98,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * Description of the license configuration.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -112,7 +112,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * Number of licenses managed by the license configuration.
      * 
      */
-    @Export(name="licenseCount", type=Integer.class, parameters={})
+    @Export(name="licenseCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> licenseCount;
 
     /**
@@ -126,7 +126,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * Sets the number of available licenses as a hard limit.
      * 
      */
-    @Export(name="licenseCountHardLimit", type=Boolean.class, parameters={})
+    @Export(name="licenseCountHardLimit", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> licenseCountHardLimit;
 
     /**
@@ -140,7 +140,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
      * 
      */
-    @Export(name="licenseCountingType", type=String.class, parameters={})
+    @Export(name="licenseCountingType", refs={String.class}, tree="[0]")
     private Output<String> licenseCountingType;
 
     /**
@@ -154,7 +154,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * Array of configured License Manager rules.
      * 
      */
-    @Export(name="licenseRules", type=List.class, parameters={String.class})
+    @Export(name="licenseRules", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> licenseRules;
 
     /**
@@ -168,7 +168,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * Name of the license configuration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -182,7 +182,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * Account ID of the owner of the license configuration.
      * 
      */
-    @Export(name="ownerAccountId", type=String.class, parameters={})
+    @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
@@ -196,7 +196,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -210,7 +210,7 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

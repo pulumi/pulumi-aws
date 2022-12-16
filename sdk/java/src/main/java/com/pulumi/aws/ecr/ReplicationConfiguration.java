@@ -33,7 +33,7 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * The account ID of the destination registry to replicate to.
      * 
      */
-    @Export(name="registryId", type=String.class, parameters={})
+    @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
     /**
@@ -47,7 +47,7 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
      * Replication configuration for a registry. See Replication Configuration.
      * 
      */
-    @Export(name="replicationConfiguration", type=ReplicationConfigurationReplicationConfiguration.class, parameters={})
+    @Export(name="replicationConfiguration", refs={ReplicationConfigurationReplicationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ReplicationConfigurationReplicationConfiguration> replicationConfiguration;
 
     /**

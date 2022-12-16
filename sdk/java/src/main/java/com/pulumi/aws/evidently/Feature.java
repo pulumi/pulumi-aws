@@ -206,7 +206,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * The ARN of the feature.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -220,7 +220,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * The date and time that the feature is created.
      * 
      */
-    @Export(name="createdTime", type=String.class, parameters={})
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
@@ -234,7 +234,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
      * 
      */
-    @Export(name="defaultVariation", type=String.class, parameters={})
+    @Export(name="defaultVariation", refs={String.class}, tree="[0]")
     private Output<String> defaultVariation;
 
     /**
@@ -248,7 +248,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * Specifies the description of the feature.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -262,7 +262,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
      * 
      */
-    @Export(name="entityOverrides", type=Map.class, parameters={String.class, String.class})
+    @Export(name="entityOverrides", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> entityOverrides;
 
     /**
@@ -276,7 +276,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * One or more blocks that define the evaluation rules for the feature. Detailed below
      * 
      */
-    @Export(name="evaluationRules", type=List.class, parameters={FeatureEvaluationRule.class})
+    @Export(name="evaluationRules", refs={List.class,FeatureEvaluationRule.class}, tree="[0,1]")
     private Output<List<FeatureEvaluationRule>> evaluationRules;
 
     /**
@@ -290,7 +290,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
      * 
      */
-    @Export(name="evaluationStrategy", type=String.class, parameters={})
+    @Export(name="evaluationStrategy", refs={String.class}, tree="[0]")
     private Output<String> evaluationStrategy;
 
     /**
@@ -304,7 +304,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * The date and time that the feature was most recently updated.
      * 
      */
-    @Export(name="lastUpdatedTime", type=String.class, parameters={})
+    @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
     /**
@@ -318,7 +318,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * The name for the new feature. Minimum length of `1`. Maximum length of `127`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -332,7 +332,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * The name or ARN of the project that is to contain the new feature.
      * 
      */
-    @Export(name="project", type=String.class, parameters={})
+    @Export(name="project", refs={String.class}, tree="[0]")
     private Output<String> project;
 
     /**
@@ -346,7 +346,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -360,7 +360,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -374,7 +374,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -388,7 +388,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
      * 
      */
-    @Export(name="valueType", type=String.class, parameters={})
+    @Export(name="valueType", refs={String.class}, tree="[0]")
     private Output<String> valueType;
 
     /**
@@ -402,7 +402,7 @@ public class Feature extends com.pulumi.resources.CustomResource {
      * One or more blocks that contain the configuration of the feature&#39;s different variations. Detailed below
      * 
      */
-    @Export(name="variations", type=List.class, parameters={FeatureVariation.class})
+    @Export(name="variations", refs={List.class,FeatureVariation.class}, tree="[0,1]")
     private Output<List<FeatureVariation>> variations;
 
     /**

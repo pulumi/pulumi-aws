@@ -110,7 +110,7 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      * The group(s) the policy should be applied to
      * 
      */
-    @Export(name="groups", type=List.class, parameters={String.class})
+    @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groups;
 
     /**
@@ -124,7 +124,7 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      * The name of the attachment. This cannot be an empty string.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -138,7 +138,7 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      * The ARN of the policy you want to apply
      * 
      */
-    @Export(name="policyArn", type=String.class, parameters={})
+    @Export(name="policyArn", refs={String.class}, tree="[0]")
     private Output<String> policyArn;
 
     /**
@@ -152,7 +152,7 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      * The role(s) the policy should be applied to
      * 
      */
-    @Export(name="roles", type=List.class, parameters={String.class})
+    @Export(name="roles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> roles;
 
     /**
@@ -166,7 +166,7 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      * The user(s) the policy should be applied to
      * 
      */
-    @Export(name="users", type=List.class, parameters={String.class})
+    @Export(name="users", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> users;
 
     /**

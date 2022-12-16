@@ -281,7 +281,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
      * 
      */
-    @Export(name="applyImmediately", type=Boolean.class, parameters={})
+    @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> applyImmediately;
 
     /**
@@ -295,7 +295,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The ARN of the Lightsail instance (matches `id`).
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -309,7 +309,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
@@ -323,7 +323,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
      * 
      */
-    @Export(name="backupRetentionEnabled", type=Boolean.class, parameters={})
+    @Export(name="backupRetentionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> backupRetentionEnabled;
 
     /**
@@ -337,7 +337,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
      * 
      */
-    @Export(name="blueprintId", type=String.class, parameters={})
+    @Export(name="blueprintId", refs={String.class}, tree="[0]")
     private Output<String> blueprintId;
 
     /**
@@ -351,7 +351,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
      * 
      */
-    @Export(name="bundleId", type=String.class, parameters={})
+    @Export(name="bundleId", refs={String.class}, tree="[0]")
     private Output<String> bundleId;
 
     /**
@@ -365,7 +365,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The certificate associated with the database.
      * 
      */
-    @Export(name="caCertificateIdentifier", type=String.class, parameters={})
+    @Export(name="caCertificateIdentifier", refs={String.class}, tree="[0]")
     private Output<String> caCertificateIdentifier;
 
     /**
@@ -379,7 +379,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The number of vCPUs for the database.
      * 
      */
-    @Export(name="cpuCount", type=Integer.class, parameters={})
+    @Export(name="cpuCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuCount;
 
     /**
@@ -393,7 +393,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The timestamp when the instance was created.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -407,7 +407,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The size of the disk for the database.
      * 
      */
-    @Export(name="diskSize", type=Double.class, parameters={})
+    @Export(name="diskSize", refs={Double.class}, tree="[0]")
     private Output<Double> diskSize;
 
     /**
@@ -421,7 +421,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The database software (for example, MySQL).
      * 
      */
-    @Export(name="engine", type=String.class, parameters={})
+    @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
@@ -435,7 +435,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The database engine version (for example, 5.7.23).
      * 
      */
-    @Export(name="engineVersion", type=String.class, parameters={})
+    @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
@@ -449,7 +449,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
      * 
      */
-    @Export(name="finalSnapshotName", type=String.class, parameters={})
+    @Export(name="finalSnapshotName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> finalSnapshotName;
 
     /**
@@ -463,7 +463,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the master database created when the Lightsail database resource is created.
      * 
      */
-    @Export(name="masterDatabaseName", type=String.class, parameters={})
+    @Export(name="masterDatabaseName", refs={String.class}, tree="[0]")
     private Output<String> masterDatabaseName;
 
     /**
@@ -477,7 +477,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The master endpoint fqdn for the database.
      * 
      */
-    @Export(name="masterEndpointAddress", type=String.class, parameters={})
+    @Export(name="masterEndpointAddress", refs={String.class}, tree="[0]")
     private Output<String> masterEndpointAddress;
 
     /**
@@ -491,7 +491,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The master endpoint network port for the database.
      * 
      */
-    @Export(name="masterEndpointPort", type=Integer.class, parameters={})
+    @Export(name="masterEndpointPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> masterEndpointPort;
 
     /**
@@ -505,7 +505,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;@&#34;.
      * 
      */
-    @Export(name="masterPassword", type=String.class, parameters={})
+    @Export(name="masterPassword", refs={String.class}, tree="[0]")
     private Output<String> masterPassword;
 
     /**
@@ -519,7 +519,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The master user name for your new database.
      * 
      */
-    @Export(name="masterUsername", type=String.class, parameters={})
+    @Export(name="masterUsername", refs={String.class}, tree="[0]")
     private Output<String> masterUsername;
 
     /**
@@ -533,7 +533,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
      * 
      */
-    @Export(name="preferredBackupWindow", type=String.class, parameters={})
+    @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredBackupWindow;
 
     /**
@@ -547,7 +547,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
      * 
      */
-    @Export(name="preferredMaintenanceWindow", type=String.class, parameters={})
+    @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredMaintenanceWindow;
 
     /**
@@ -561,7 +561,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
      * 
      */
-    @Export(name="publiclyAccessible", type=Boolean.class, parameters={})
+    @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publiclyAccessible;
 
     /**
@@ -575,7 +575,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The amount of RAM in GB for the database.
      * 
      */
-    @Export(name="ramSize", type=Double.class, parameters={})
+    @Export(name="ramSize", refs={Double.class}, tree="[0]")
     private Output<Double> ramSize;
 
     /**
@@ -585,7 +585,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     public Output<Double> ramSize() {
         return this.ramSize;
     }
-    @Export(name="relationalDatabaseName", type=String.class, parameters={})
+    @Export(name="relationalDatabaseName", refs={String.class}, tree="[0]")
     private Output<String> relationalDatabaseName;
 
     public Output<String> relationalDatabaseName() {
@@ -595,7 +595,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
      * 
      */
-    @Export(name="secondaryAvailabilityZone", type=String.class, parameters={})
+    @Export(name="secondaryAvailabilityZone", refs={String.class}, tree="[0]")
     private Output<String> secondaryAvailabilityZone;
 
     /**
@@ -609,7 +609,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
      * 
      */
-    @Export(name="skipFinalSnapshot", type=Boolean.class, parameters={})
+    @Export(name="skipFinalSnapshot", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipFinalSnapshot;
 
     /**
@@ -623,7 +623,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    @Export(name="supportCode", type=String.class, parameters={})
+    @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
     /**
@@ -637,7 +637,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -651,7 +651,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

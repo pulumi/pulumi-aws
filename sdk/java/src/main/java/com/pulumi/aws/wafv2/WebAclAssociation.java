@@ -125,7 +125,7 @@ public class WebAclAssociation extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
@@ -139,7 +139,7 @@ public class WebAclAssociation extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
      * 
      */
-    @Export(name="webAclArn", type=String.class, parameters={})
+    @Export(name="webAclArn", refs={String.class}, tree="[0]")
     private Output<String> webAclArn;
 
     /**

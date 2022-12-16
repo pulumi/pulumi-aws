@@ -198,7 +198,7 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -212,7 +212,7 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      * The name of your flow definition.
      * 
      */
-    @Export(name="flowDefinitionName", type=String.class, parameters={})
+    @Export(name="flowDefinitionName", refs={String.class}, tree="[0]")
     private Output<String> flowDefinitionName;
 
     /**
@@ -226,7 +226,7 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
      * 
      */
-    @Export(name="humanLoopActivationConfig", type=FlowDefinitionHumanLoopActivationConfig.class, parameters={})
+    @Export(name="humanLoopActivationConfig", refs={FlowDefinitionHumanLoopActivationConfig.class}, tree="[0]")
     private Output</* @Nullable */ FlowDefinitionHumanLoopActivationConfig> humanLoopActivationConfig;
 
     /**
@@ -240,7 +240,7 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
      * 
      */
-    @Export(name="humanLoopConfig", type=FlowDefinitionHumanLoopConfig.class, parameters={})
+    @Export(name="humanLoopConfig", refs={FlowDefinitionHumanLoopConfig.class}, tree="[0]")
     private Output<FlowDefinitionHumanLoopConfig> humanLoopConfig;
 
     /**
@@ -254,7 +254,7 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
      * 
      */
-    @Export(name="humanLoopRequestSource", type=FlowDefinitionHumanLoopRequestSource.class, parameters={})
+    @Export(name="humanLoopRequestSource", refs={FlowDefinitionHumanLoopRequestSource.class}, tree="[0]")
     private Output</* @Nullable */ FlowDefinitionHumanLoopRequestSource> humanLoopRequestSource;
 
     /**
@@ -268,7 +268,7 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      * An object containing information about where the human review results will be uploaded. See Output Config details below.
      * 
      */
-    @Export(name="outputConfig", type=FlowDefinitionOutputConfig.class, parameters={})
+    @Export(name="outputConfig", refs={FlowDefinitionOutputConfig.class}, tree="[0]")
     private Output<FlowDefinitionOutputConfig> outputConfig;
 
     /**
@@ -282,7 +282,7 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -296,7 +296,7 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -310,7 +310,7 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

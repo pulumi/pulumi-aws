@@ -91,7 +91,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * ARN of the Configuration Set.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -105,7 +105,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * The name of the configuration set.
      * 
      */
-    @Export(name="configurationSetName", type=String.class, parameters={})
+    @Export(name="configurationSetName", refs={String.class}, tree="[0]")
     private Output<String> configurationSetName;
 
     /**
@@ -119,7 +119,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
      * 
      */
-    @Export(name="deliveryOptions", type=ConfigurationSetDeliveryOptions.class, parameters={})
+    @Export(name="deliveryOptions", refs={ConfigurationSetDeliveryOptions.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationSetDeliveryOptions> deliveryOptions;
 
     /**
@@ -133,7 +133,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      * 
      */
-    @Export(name="reputationOptions", type=ConfigurationSetReputationOptions.class, parameters={})
+    @Export(name="reputationOptions", refs={ConfigurationSetReputationOptions.class}, tree="[0]")
     private Output<ConfigurationSetReputationOptions> reputationOptions;
 
     /**
@@ -147,7 +147,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
      * 
      */
-    @Export(name="sendingOptions", type=ConfigurationSetSendingOptions.class, parameters={})
+    @Export(name="sendingOptions", refs={ConfigurationSetSendingOptions.class}, tree="[0]")
     private Output<ConfigurationSetSendingOptions> sendingOptions;
 
     /**
@@ -161,7 +161,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * An object that contains information about the suppression list preferences for your account.
      * 
      */
-    @Export(name="suppressionOptions", type=ConfigurationSetSuppressionOptions.class, parameters={})
+    @Export(name="suppressionOptions", refs={ConfigurationSetSuppressionOptions.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationSetSuppressionOptions> suppressionOptions;
 
     /**
@@ -175,7 +175,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -185,7 +185,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     public Output<Map<String,String>> tagsAll() {
@@ -195,7 +195,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      * 
      */
-    @Export(name="trackingOptions", type=ConfigurationSetTrackingOptions.class, parameters={})
+    @Export(name="trackingOptions", refs={ConfigurationSetTrackingOptions.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationSetTrackingOptions> trackingOptions;
 
     /**

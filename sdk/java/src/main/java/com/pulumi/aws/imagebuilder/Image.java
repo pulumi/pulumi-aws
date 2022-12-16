@@ -69,7 +69,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the image.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * - Amazon Resource Name (ARN) of the container recipe.
      * 
      */
-    @Export(name="containerRecipeArn", type=String.class, parameters={})
+    @Export(name="containerRecipeArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> containerRecipeArn;
 
     /**
@@ -97,7 +97,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Date the image was created.
      * 
      */
-    @Export(name="dateCreated", type=String.class, parameters={})
+    @Export(name="dateCreated", refs={String.class}, tree="[0]")
     private Output<String> dateCreated;
 
     /**
@@ -111,7 +111,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      * 
      */
-    @Export(name="distributionConfigurationArn", type=String.class, parameters={})
+    @Export(name="distributionConfigurationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> distributionConfigurationArn;
 
     /**
@@ -125,7 +125,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Whether additional information about the image being created is collected. Defaults to `true`.
      * 
      */
-    @Export(name="enhancedImageMetadataEnabled", type=Boolean.class, parameters={})
+    @Export(name="enhancedImageMetadataEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enhancedImageMetadataEnabled;
 
     /**
@@ -139,7 +139,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
-    @Export(name="imageRecipeArn", type=String.class, parameters={})
+    @Export(name="imageRecipeArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageRecipeArn;
 
     /**
@@ -153,7 +153,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Configuration block with image tests configuration. Detailed below.
      * 
      */
-    @Export(name="imageTestsConfiguration", type=ImageImageTestsConfiguration.class, parameters={})
+    @Export(name="imageTestsConfiguration", refs={ImageImageTestsConfiguration.class}, tree="[0]")
     private Output<ImageImageTestsConfiguration> imageTestsConfiguration;
 
     /**
@@ -167,7 +167,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      * 
      */
-    @Export(name="infrastructureConfigurationArn", type=String.class, parameters={})
+    @Export(name="infrastructureConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> infrastructureConfigurationArn;
 
     /**
@@ -181,7 +181,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Name of the AMI.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -195,7 +195,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Operating System version of the image.
      * 
      */
-    @Export(name="osVersion", type=String.class, parameters={})
+    @Export(name="osVersion", refs={String.class}, tree="[0]")
     private Output<String> osVersion;
 
     /**
@@ -209,7 +209,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * List of objects with resources created by the image.
      * 
      */
-    @Export(name="outputResources", type=List.class, parameters={ImageOutputResource.class})
+    @Export(name="outputResources", refs={List.class,ImageOutputResource.class}, tree="[0,1]")
     private Output<List<ImageOutputResource>> outputResources;
 
     /**
@@ -223,7 +223,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Platform of the image.
      * 
      */
-    @Export(name="platform", type=String.class, parameters={})
+    @Export(name="platform", refs={String.class}, tree="[0]")
     private Output<String> platform;
 
     /**
@@ -237,7 +237,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -251,7 +251,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -265,7 +265,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Version of the image.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**

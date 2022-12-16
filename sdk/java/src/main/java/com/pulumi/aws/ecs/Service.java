@@ -196,7 +196,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
      * 
      */
-    @Export(name="capacityProviderStrategies", type=List.class, parameters={ServiceCapacityProviderStrategy.class})
+    @Export(name="capacityProviderStrategies", refs={List.class,ServiceCapacityProviderStrategy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceCapacityProviderStrategy>> capacityProviderStrategies;
 
     /**
@@ -210,7 +210,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * ARN of an ECS cluster.
      * 
      */
-    @Export(name="cluster", type=String.class, parameters={})
+    @Export(name="cluster", refs={String.class}, tree="[0]")
     private Output<String> cluster;
 
     /**
@@ -224,7 +224,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Configuration block for deployment circuit breaker. See below.
      * 
      */
-    @Export(name="deploymentCircuitBreaker", type=ServiceDeploymentCircuitBreaker.class, parameters={})
+    @Export(name="deploymentCircuitBreaker", refs={ServiceDeploymentCircuitBreaker.class}, tree="[0]")
     private Output</* @Nullable */ ServiceDeploymentCircuitBreaker> deploymentCircuitBreaker;
 
     /**
@@ -238,7 +238,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Configuration block for deployment controller configuration. See below.
      * 
      */
-    @Export(name="deploymentController", type=ServiceDeploymentController.class, parameters={})
+    @Export(name="deploymentController", refs={ServiceDeploymentController.class}, tree="[0]")
     private Output</* @Nullable */ ServiceDeploymentController> deploymentController;
 
     /**
@@ -252,7 +252,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Upper limit (as a percentage of the service&#39;s desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      * 
      */
-    @Export(name="deploymentMaximumPercent", type=Integer.class, parameters={})
+    @Export(name="deploymentMaximumPercent", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> deploymentMaximumPercent;
 
     /**
@@ -266,7 +266,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Lower limit (as a percentage of the service&#39;s desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      * 
      */
-    @Export(name="deploymentMinimumHealthyPercent", type=Integer.class, parameters={})
+    @Export(name="deploymentMinimumHealthyPercent", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> deploymentMinimumHealthyPercent;
 
     /**
@@ -280,7 +280,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      * 
      */
-    @Export(name="desiredCount", type=Integer.class, parameters={})
+    @Export(name="desiredCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> desiredCount;
 
     /**
@@ -294,7 +294,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
      * 
      */
-    @Export(name="enableEcsManagedTags", type=Boolean.class, parameters={})
+    @Export(name="enableEcsManagedTags", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableEcsManagedTags;
 
     /**
@@ -308,7 +308,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
      * 
      */
-    @Export(name="enableExecuteCommand", type=Boolean.class, parameters={})
+    @Export(name="enableExecuteCommand", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableExecuteCommand;
 
     /**
@@ -322,7 +322,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
      * 
      */
-    @Export(name="forceNewDeployment", type=Boolean.class, parameters={})
+    @Export(name="forceNewDeployment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceNewDeployment;
 
     /**
@@ -336,7 +336,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
      * 
      */
-    @Export(name="healthCheckGracePeriodSeconds", type=Integer.class, parameters={})
+    @Export(name="healthCheckGracePeriodSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> healthCheckGracePeriodSeconds;
 
     /**
@@ -350,7 +350,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
      * 
      */
-    @Export(name="iamRole", type=String.class, parameters={})
+    @Export(name="iamRole", refs={String.class}, tree="[0]")
     private Output<String> iamRole;
 
     /**
@@ -364,7 +364,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      * 
      */
-    @Export(name="launchType", type=String.class, parameters={})
+    @Export(name="launchType", refs={String.class}, tree="[0]")
     private Output<String> launchType;
 
     /**
@@ -378,7 +378,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Configuration block for load balancers. See below.
      * 
      */
-    @Export(name="loadBalancers", type=List.class, parameters={ServiceLoadBalancer.class})
+    @Export(name="loadBalancers", refs={List.class,ServiceLoadBalancer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceLoadBalancer>> loadBalancers;
 
     /**
@@ -392,7 +392,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -406,7 +406,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
      * 
      */
-    @Export(name="networkConfiguration", type=ServiceNetworkConfiguration.class, parameters={})
+    @Export(name="networkConfiguration", refs={ServiceNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceNetworkConfiguration> networkConfiguration;
 
     /**
@@ -420,7 +420,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
      * 
      */
-    @Export(name="orderedPlacementStrategies", type=List.class, parameters={ServiceOrderedPlacementStrategy.class})
+    @Export(name="orderedPlacementStrategies", refs={List.class,ServiceOrderedPlacementStrategy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceOrderedPlacementStrategy>> orderedPlacementStrategies;
 
     /**
@@ -434,7 +434,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
      * 
      */
-    @Export(name="placementConstraints", type=List.class, parameters={ServicePlacementConstraint.class})
+    @Export(name="placementConstraints", refs={List.class,ServicePlacementConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServicePlacementConstraint>> placementConstraints;
 
     /**
@@ -448,7 +448,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
-    @Export(name="platformVersion", type=String.class, parameters={})
+    @Export(name="platformVersion", refs={String.class}, tree="[0]")
     private Output<String> platformVersion;
 
     /**
@@ -462,7 +462,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      * 
      */
-    @Export(name="propagateTags", type=String.class, parameters={})
+    @Export(name="propagateTags", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> propagateTags;
 
     /**
@@ -476,7 +476,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don&#39;t support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      * 
      */
-    @Export(name="schedulingStrategy", type=String.class, parameters={})
+    @Export(name="schedulingStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schedulingStrategy;
 
     /**
@@ -490,7 +490,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      * 
      */
-    @Export(name="serviceConnectConfiguration", type=ServiceServiceConnectConfiguration.class, parameters={})
+    @Export(name="serviceConnectConfiguration", refs={ServiceServiceConnectConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceServiceConnectConfiguration> serviceConnectConfiguration;
 
     /**
@@ -504,7 +504,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
      * 
      */
-    @Export(name="serviceRegistries", type=ServiceServiceRegistries.class, parameters={})
+    @Export(name="serviceRegistries", refs={ServiceServiceRegistries.class}, tree="[0]")
     private Output</* @Nullable */ ServiceServiceRegistries> serviceRegistries;
 
     /**
@@ -518,7 +518,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -532,7 +532,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -546,7 +546,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      * 
      */
-    @Export(name="taskDefinition", type=String.class, parameters={})
+    @Export(name="taskDefinition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> taskDefinition;
 
     /**
@@ -560,7 +560,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
      * 
      */
-    @Export(name="triggers", type=Map.class, parameters={String.class, String.class})
+    @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> triggers;
 
     /**
@@ -574,7 +574,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      * 
      */
-    @Export(name="waitForSteadyState", type=Boolean.class, parameters={})
+    @Export(name="waitForSteadyState", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> waitForSteadyState;
 
     /**

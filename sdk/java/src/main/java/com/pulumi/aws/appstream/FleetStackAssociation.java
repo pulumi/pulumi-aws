@@ -76,7 +76,7 @@ public class FleetStackAssociation extends com.pulumi.resources.CustomResource {
      * Name of the fleet.
      * 
      */
-    @Export(name="fleetName", type=String.class, parameters={})
+    @Export(name="fleetName", refs={String.class}, tree="[0]")
     private Output<String> fleetName;
 
     /**
@@ -90,7 +90,7 @@ public class FleetStackAssociation extends com.pulumi.resources.CustomResource {
      * Name of the stack.
      * 
      */
-    @Export(name="stackName", type=String.class, parameters={})
+    @Export(name="stackName", refs={String.class}, tree="[0]")
     private Output<String> stackName;
 
     /**

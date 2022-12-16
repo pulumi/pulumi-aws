@@ -34,7 +34,7 @@ public class HostedPublicVirtualInterfaceAccepter extends com.pulumi.resources.C
      * The ARN of the virtual interface.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -48,7 +48,7 @@ public class HostedPublicVirtualInterfaceAccepter extends com.pulumi.resources.C
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -62,7 +62,7 @@ public class HostedPublicVirtualInterfaceAccepter extends com.pulumi.resources.C
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -76,7 +76,7 @@ public class HostedPublicVirtualInterfaceAccepter extends com.pulumi.resources.C
      * The ID of the Direct Connect virtual interface to accept.
      * 
      */
-    @Export(name="virtualInterfaceId", type=String.class, parameters={})
+    @Export(name="virtualInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> virtualInterfaceId;
 
     /**

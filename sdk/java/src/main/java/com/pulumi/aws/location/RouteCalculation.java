@@ -64,7 +64,7 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      * 
      */
-    @Export(name="calculatorArn", type=String.class, parameters={})
+    @Export(name="calculatorArn", refs={String.class}, tree="[0]")
     private Output<String> calculatorArn;
 
     /**
@@ -78,7 +78,7 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * The name of the route calculator resource.
      * 
      */
-    @Export(name="calculatorName", type=String.class, parameters={})
+    @Export(name="calculatorName", refs={String.class}, tree="[0]")
     private Output<String> calculatorName;
 
     /**
@@ -92,7 +92,7 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * The timestamp for when the route calculator resource was created in ISO 8601 format.
      * 
      */
-    @Export(name="createTime", type=String.class, parameters={})
+    @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
@@ -106,7 +106,7 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * Specifies the data provider of traffic and road network data.
      * 
      */
-    @Export(name="dataSource", type=String.class, parameters={})
+    @Export(name="dataSource", refs={String.class}, tree="[0]")
     private Output<String> dataSource;
 
     /**
@@ -120,7 +120,7 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * The optional description for the route calculator resource.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -134,7 +134,7 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -148,7 +148,7 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -162,7 +162,7 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
      * The timestamp for when the route calculator resource was last update in ISO 8601.
      * 
      */
-    @Export(name="updateTime", type=String.class, parameters={})
+    @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
     /**

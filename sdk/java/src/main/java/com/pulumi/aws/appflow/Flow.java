@@ -183,7 +183,7 @@ public class Flow extends com.pulumi.resources.CustomResource {
      * Flow&#39;s ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -197,7 +197,7 @@ public class Flow extends com.pulumi.resources.CustomResource {
      * Description of the flow you want to create.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -211,7 +211,7 @@ public class Flow extends com.pulumi.resources.CustomResource {
      * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
      * 
      */
-    @Export(name="destinationFlowConfigs", type=List.class, parameters={FlowDestinationFlowConfig.class})
+    @Export(name="destinationFlowConfigs", refs={List.class,FlowDestinationFlowConfig.class}, tree="[0,1]")
     private Output<List<FlowDestinationFlowConfig>> destinationFlowConfigs;
 
     /**
@@ -225,7 +225,7 @@ public class Flow extends com.pulumi.resources.CustomResource {
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
-    @Export(name="kmsArn", type=String.class, parameters={})
+    @Export(name="kmsArn", refs={String.class}, tree="[0]")
     private Output<String> kmsArn;
 
     /**
@@ -239,7 +239,7 @@ public class Flow extends com.pulumi.resources.CustomResource {
      * Name of the flow.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -253,7 +253,7 @@ public class Flow extends com.pulumi.resources.CustomResource {
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      * 
      */
-    @Export(name="sourceFlowConfig", type=FlowSourceFlowConfig.class, parameters={})
+    @Export(name="sourceFlowConfig", refs={FlowSourceFlowConfig.class}, tree="[0]")
     private Output<FlowSourceFlowConfig> sourceFlowConfig;
 
     /**
@@ -267,7 +267,7 @@ public class Flow extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -281,7 +281,7 @@ public class Flow extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -295,7 +295,7 @@ public class Flow extends com.pulumi.resources.CustomResource {
      * A Task that Amazon AppFlow performs while transferring the data in the flow run.
      * 
      */
-    @Export(name="tasks", type=List.class, parameters={FlowTask.class})
+    @Export(name="tasks", refs={List.class,FlowTask.class}, tree="[0,1]")
     private Output<List<FlowTask>> tasks;
 
     /**
@@ -309,7 +309,7 @@ public class Flow extends com.pulumi.resources.CustomResource {
      * A Trigger that determine how and when the flow runs.
      * 
      */
-    @Export(name="triggerConfig", type=FlowTriggerConfig.class, parameters={})
+    @Export(name="triggerConfig", refs={FlowTriggerConfig.class}, tree="[0]")
     private Output<FlowTriggerConfig> triggerConfig;
 
     /**

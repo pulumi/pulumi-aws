@@ -32,7 +32,7 @@ public class TopicRuleDestination extends com.pulumi.resources.CustomResource {
      * The ARN of the topic rule destination
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -46,7 +46,7 @@ public class TopicRuleDestination extends com.pulumi.resources.CustomResource {
      * Whether or not to enable the destination. Default: `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -60,7 +60,7 @@ public class TopicRuleDestination extends com.pulumi.resources.CustomResource {
      * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
      * 
      */
-    @Export(name="vpcConfiguration", type=TopicRuleDestinationVpcConfiguration.class, parameters={})
+    @Export(name="vpcConfiguration", refs={TopicRuleDestinationVpcConfiguration.class}, tree="[0]")
     private Output<TopicRuleDestinationVpcConfiguration> vpcConfiguration;
 
     /**

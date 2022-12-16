@@ -158,7 +158,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The account number of the AWS account that manages the repository.
      * 
      */
-    @Export(name="administratorAccount", type=String.class, parameters={})
+    @Export(name="administratorAccount", refs={String.class}, tree="[0]")
     private Output<String> administratorAccount;
 
     /**
@@ -172,7 +172,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The ARN of the repository.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -186,7 +186,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The description of the repository.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -200,7 +200,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The domain that contains the created repository.
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
@@ -214,7 +214,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The account number of the AWS account that owns the domain.
      * 
      */
-    @Export(name="domainOwner", type=String.class, parameters={})
+    @Export(name="domainOwner", refs={String.class}, tree="[0]")
     private Output<String> domainOwner;
 
     /**
@@ -228,7 +228,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      * 
      */
-    @Export(name="externalConnections", type=RepositoryExternalConnections.class, parameters={})
+    @Export(name="externalConnections", refs={RepositoryExternalConnections.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryExternalConnections> externalConnections;
 
     /**
@@ -242,7 +242,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * The name of the repository to create.
      * 
      */
-    @Export(name="repository", type=String.class, parameters={})
+    @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
     /**
@@ -256,7 +256,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -270,7 +270,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -284,7 +284,7 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      * 
      */
-    @Export(name="upstreams", type=List.class, parameters={RepositoryUpstream.class})
+    @Export(name="upstreams", refs={List.class,RepositoryUpstream.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RepositoryUpstream>> upstreams;
 
     /**

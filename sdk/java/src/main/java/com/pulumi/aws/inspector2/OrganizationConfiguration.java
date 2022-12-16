@@ -63,7 +63,7 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
      * Configuration block for auto enabling. See below.
      * 
      */
-    @Export(name="autoEnable", type=OrganizationConfigurationAutoEnable.class, parameters={})
+    @Export(name="autoEnable", refs={OrganizationConfigurationAutoEnable.class}, tree="[0]")
     private Output<OrganizationConfigurationAutoEnable> autoEnable;
 
     /**
@@ -77,7 +77,7 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
      * Whether your configuration reached the max account limit.
      * 
      */
-    @Export(name="maxAccountLimitReached", type=Boolean.class, parameters={})
+    @Export(name="maxAccountLimitReached", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> maxAccountLimitReached;
 
     /**

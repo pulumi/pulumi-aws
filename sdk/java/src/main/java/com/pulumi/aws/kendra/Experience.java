@@ -80,7 +80,7 @@ public class Experience extends com.pulumi.resources.CustomResource {
      * ARN of the Experience.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -94,7 +94,7 @@ public class Experience extends com.pulumi.resources.CustomResource {
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
-    @Export(name="configuration", type=ExperienceConfiguration.class, parameters={})
+    @Export(name="configuration", refs={ExperienceConfiguration.class}, tree="[0]")
     private Output<ExperienceConfiguration> configuration;
 
     /**
@@ -108,7 +108,7 @@ public class Experience extends com.pulumi.resources.CustomResource {
      * A description for your Amazon Kendra experience.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -122,7 +122,7 @@ public class Experience extends com.pulumi.resources.CustomResource {
      * Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
      * 
      */
-    @Export(name="endpoints", type=List.class, parameters={ExperienceEndpoint.class})
+    @Export(name="endpoints", refs={List.class,ExperienceEndpoint.class}, tree="[0,1]")
     private Output<List<ExperienceEndpoint>> endpoints;
 
     /**
@@ -136,7 +136,7 @@ public class Experience extends com.pulumi.resources.CustomResource {
      * The unique identifier of the experience.
      * 
      */
-    @Export(name="experienceId", type=String.class, parameters={})
+    @Export(name="experienceId", refs={String.class}, tree="[0]")
     private Output<String> experienceId;
 
     /**
@@ -150,7 +150,7 @@ public class Experience extends com.pulumi.resources.CustomResource {
      * The identifier of the index for your Amazon Kendra experience.
      * 
      */
-    @Export(name="indexId", type=String.class, parameters={})
+    @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
     /**
@@ -164,7 +164,7 @@ public class Experience extends com.pulumi.resources.CustomResource {
      * A name for your Amazon Kendra experience.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -178,7 +178,7 @@ public class Experience extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -192,7 +192,7 @@ public class Experience extends com.pulumi.resources.CustomResource {
      * The current processing status of your Amazon Kendra experience.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

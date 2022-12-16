@@ -88,7 +88,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * ARN that identifies the capacity provider.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -102,7 +102,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * Configuration block for the provider for the ECS auto scaling group. Detailed below.
      * 
      */
-    @Export(name="autoScalingGroupProvider", type=CapacityProviderAutoScalingGroupProvider.class, parameters={})
+    @Export(name="autoScalingGroupProvider", refs={CapacityProviderAutoScalingGroupProvider.class}, tree="[0]")
     private Output<CapacityProviderAutoScalingGroupProvider> autoScalingGroupProvider;
 
     /**
@@ -116,7 +116,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * Name of the capacity provider.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -130,7 +130,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -144,7 +144,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

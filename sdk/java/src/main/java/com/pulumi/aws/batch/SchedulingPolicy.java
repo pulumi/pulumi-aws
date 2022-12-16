@@ -78,7 +78,7 @@ public class SchedulingPolicy extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name of the scheduling policy.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -88,7 +88,7 @@ public class SchedulingPolicy extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    @Export(name="fairSharePolicy", type=SchedulingPolicyFairSharePolicy.class, parameters={})
+    @Export(name="fairSharePolicy", refs={SchedulingPolicyFairSharePolicy.class}, tree="[0]")
     private Output</* @Nullable */ SchedulingPolicyFairSharePolicy> fairSharePolicy;
 
     public Output<Optional<SchedulingPolicyFairSharePolicy>> fairSharePolicy() {
@@ -98,7 +98,7 @@ public class SchedulingPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the name of the scheduling policy.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -112,7 +112,7 @@ public class SchedulingPolicy extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -126,7 +126,7 @@ public class SchedulingPolicy extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

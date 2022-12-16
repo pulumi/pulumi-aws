@@ -62,7 +62,7 @@ public class CostAllocationTag extends com.pulumi.resources.CustomResource {
      * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -76,7 +76,7 @@ public class CostAllocationTag extends com.pulumi.resources.CustomResource {
      * The key for the cost allocation tag.
      * 
      */
-    @Export(name="tagKey", type=String.class, parameters={})
+    @Export(name="tagKey", refs={String.class}, tree="[0]")
     private Output<String> tagKey;
 
     /**
@@ -90,7 +90,7 @@ public class CostAllocationTag extends com.pulumi.resources.CustomResource {
      * The type of cost allocation tag.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

@@ -89,7 +89,7 @@ public class BucketLifecycleConfiguration extends com.pulumi.resources.CustomRes
      * Amazon Resource Name (ARN) of the bucket.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -103,7 +103,7 @@ public class BucketLifecycleConfiguration extends com.pulumi.resources.CustomRes
      * Configuration block(s) containing lifecycle rules for the bucket.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={BucketLifecycleConfigurationRule.class})
+    @Export(name="rules", refs={List.class,BucketLifecycleConfigurationRule.class}, tree="[0,1]")
     private Output<List<BucketLifecycleConfigurationRule>> rules;
 
     /**

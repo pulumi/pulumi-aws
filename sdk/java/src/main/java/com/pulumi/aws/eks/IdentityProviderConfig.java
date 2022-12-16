@@ -70,7 +70,7 @@ public class IdentityProviderConfig extends com.pulumi.resources.CustomResource 
      * Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -84,7 +84,7 @@ public class IdentityProviderConfig extends com.pulumi.resources.CustomResource 
      * Name of the EKS Cluster.
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
@@ -98,7 +98,7 @@ public class IdentityProviderConfig extends com.pulumi.resources.CustomResource 
      * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
      * 
      */
-    @Export(name="oidc", type=IdentityProviderConfigOidc.class, parameters={})
+    @Export(name="oidc", refs={IdentityProviderConfigOidc.class}, tree="[0]")
     private Output<IdentityProviderConfigOidc> oidc;
 
     /**
@@ -112,7 +112,7 @@ public class IdentityProviderConfig extends com.pulumi.resources.CustomResource 
      * Status of the EKS Identity Provider Configuration.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -126,7 +126,7 @@ public class IdentityProviderConfig extends com.pulumi.resources.CustomResource 
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -140,7 +140,7 @@ public class IdentityProviderConfig extends com.pulumi.resources.CustomResource 
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

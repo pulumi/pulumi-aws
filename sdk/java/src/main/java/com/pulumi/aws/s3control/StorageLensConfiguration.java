@@ -34,7 +34,7 @@ public class StorageLensConfiguration extends com.pulumi.resources.CustomResourc
      * The account ID of the owner of the S3 Storage Lens metrics export bucket.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -48,7 +48,7 @@ public class StorageLensConfiguration extends com.pulumi.resources.CustomResourc
      * The Amazon Resource Name (ARN) of the bucket.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -62,7 +62,7 @@ public class StorageLensConfiguration extends com.pulumi.resources.CustomResourc
      * The ID of the S3 Storage Lens configuration.
      * 
      */
-    @Export(name="configId", type=String.class, parameters={})
+    @Export(name="configId", refs={String.class}, tree="[0]")
     private Output<String> configId;
 
     /**
@@ -76,7 +76,7 @@ public class StorageLensConfiguration extends com.pulumi.resources.CustomResourc
      * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
      * 
      */
-    @Export(name="storageLensConfiguration", type=StorageLensConfigurationStorageLensConfiguration.class, parameters={})
+    @Export(name="storageLensConfiguration", refs={StorageLensConfigurationStorageLensConfiguration.class}, tree="[0]")
     private Output<StorageLensConfigurationStorageLensConfiguration> storageLensConfiguration;
 
     /**
@@ -90,7 +90,7 @@ public class StorageLensConfiguration extends com.pulumi.resources.CustomResourc
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -104,7 +104,7 @@ public class StorageLensConfiguration extends com.pulumi.resources.CustomResourc
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

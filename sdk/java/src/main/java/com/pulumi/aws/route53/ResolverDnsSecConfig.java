@@ -69,7 +69,7 @@ public class ResolverDnsSecConfig extends com.pulumi.resources.CustomResource {
      * The ARN for a configuration for DNSSEC validation.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class ResolverDnsSecConfig extends com.pulumi.resources.CustomResource {
      * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -97,7 +97,7 @@ public class ResolverDnsSecConfig extends com.pulumi.resources.CustomResource {
      * The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -111,7 +111,7 @@ public class ResolverDnsSecConfig extends com.pulumi.resources.CustomResource {
      * The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
      * 
      */
-    @Export(name="validationStatus", type=String.class, parameters={})
+    @Export(name="validationStatus", refs={String.class}, tree="[0]")
     private Output<String> validationStatus;
 
     /**

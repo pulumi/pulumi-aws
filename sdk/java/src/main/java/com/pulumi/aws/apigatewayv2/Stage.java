@@ -71,7 +71,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
      * 
      */
-    @Export(name="accessLogSettings", type=StageAccessLogSettings.class, parameters={})
+    @Export(name="accessLogSettings", refs={StageAccessLogSettings.class}, tree="[0]")
     private Output</* @Nullable */ StageAccessLogSettings> accessLogSettings;
 
     /**
@@ -86,7 +86,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * API identifier.
      * 
      */
-    @Export(name="apiId", type=String.class, parameters={})
+    @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
     /**
@@ -100,7 +100,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * ARN of the stage.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -114,7 +114,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
      * 
      */
-    @Export(name="autoDeploy", type=Boolean.class, parameters={})
+    @Export(name="autoDeploy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoDeploy;
 
     /**
@@ -129,7 +129,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Supported only for WebSocket APIs.
      * 
      */
-    @Export(name="clientCertificateId", type=String.class, parameters={})
+    @Export(name="clientCertificateId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateId;
 
     /**
@@ -144,7 +144,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Default route settings for the stage.
      * 
      */
-    @Export(name="defaultRouteSettings", type=StageDefaultRouteSettings.class, parameters={})
+    @Export(name="defaultRouteSettings", refs={StageDefaultRouteSettings.class}, tree="[0]")
     private Output</* @Nullable */ StageDefaultRouteSettings> defaultRouteSettings;
 
     /**
@@ -158,7 +158,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      * 
      */
-    @Export(name="deploymentId", type=String.class, parameters={})
+    @Export(name="deploymentId", refs={String.class}, tree="[0]")
     private Output<String> deploymentId;
 
     /**
@@ -172,7 +172,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Description for the stage. Must be less than or equal to 1024 characters in length.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -188,7 +188,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
-    @Export(name="executionArn", type=String.class, parameters={})
+    @Export(name="executionArn", refs={String.class}, tree="[0]")
     private Output<String> executionArn;
 
     /**
@@ -205,7 +205,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      * 
      */
-    @Export(name="invokeUrl", type=String.class, parameters={})
+    @Export(name="invokeUrl", refs={String.class}, tree="[0]")
     private Output<String> invokeUrl;
 
     /**
@@ -220,7 +220,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Name of the stage. Must be between 1 and 128 characters in length.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -234,7 +234,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Route settings for the stage.
      * 
      */
-    @Export(name="routeSettings", type=List.class, parameters={StageRouteSetting.class})
+    @Export(name="routeSettings", refs={List.class,StageRouteSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<StageRouteSetting>> routeSettings;
 
     /**
@@ -248,7 +248,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Map that defines the stage variables for the stage.
      * 
      */
-    @Export(name="stageVariables", type=Map.class, parameters={String.class, String.class})
+    @Export(name="stageVariables", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> stageVariables;
 
     /**
@@ -262,7 +262,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -276,7 +276,7 @@ public class Stage extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

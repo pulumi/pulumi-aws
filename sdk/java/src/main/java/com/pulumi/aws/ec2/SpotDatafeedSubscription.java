@@ -69,7 +69,7 @@ public class SpotDatafeedSubscription extends com.pulumi.resources.CustomResourc
      * The Amazon S3 bucket in which to store the Spot instance data feed.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -83,7 +83,7 @@ public class SpotDatafeedSubscription extends com.pulumi.resources.CustomResourc
      * Path of folder inside bucket to place spot pricing data.
      * 
      */
-    @Export(name="prefix", type=String.class, parameters={})
+    @Export(name="prefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> prefix;
 
     /**

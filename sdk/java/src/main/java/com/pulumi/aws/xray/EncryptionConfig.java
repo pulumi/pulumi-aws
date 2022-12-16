@@ -64,7 +64,7 @@ public class EncryptionConfig extends com.pulumi.resources.CustomResource {
      * An AWS KMS customer master key (CMK) ARN.
      * 
      */
-    @Export(name="keyId", type=String.class, parameters={})
+    @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyId;
 
     /**
@@ -78,7 +78,7 @@ public class EncryptionConfig extends com.pulumi.resources.CustomResource {
      * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

@@ -141,7 +141,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The ARN of the service.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -155,7 +155,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The description of the service.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -169,7 +169,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      * 
      */
-    @Export(name="dnsConfig", type=ServiceDnsConfig.class, parameters={})
+    @Export(name="dnsConfig", refs={ServiceDnsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceDnsConfig> dnsConfig;
 
     /**
@@ -183,7 +183,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
      * 
      */
-    @Export(name="forceDestroy", type=Boolean.class, parameters={})
+    @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     /**
@@ -197,7 +197,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      * 
      */
-    @Export(name="healthCheckConfig", type=ServiceHealthCheckConfig.class, parameters={})
+    @Export(name="healthCheckConfig", refs={ServiceHealthCheckConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceHealthCheckConfig> healthCheckConfig;
 
     /**
@@ -211,7 +211,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A complex type that contains settings for ECS managed health checks.
      * 
      */
-    @Export(name="healthCheckCustomConfig", type=ServiceHealthCheckCustomConfig.class, parameters={})
+    @Export(name="healthCheckCustomConfig", refs={ServiceHealthCheckCustomConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceHealthCheckCustomConfig> healthCheckCustomConfig;
 
     /**
@@ -225,7 +225,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the service.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -239,7 +239,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The ID of the namespace to use for DNS configuration.
      * 
      */
-    @Export(name="namespaceId", type=String.class, parameters={})
+    @Export(name="namespaceId", refs={String.class}, tree="[0]")
     private Output<String> namespaceId;
 
     /**
@@ -253,7 +253,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -267,7 +267,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:fms/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     public Output<String> arn() {
@@ -102,7 +102,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
      * 
      */
-    @Export(name="deleteAllPolicyResources", type=Boolean.class, parameters={})
+    @Export(name="deleteAllPolicyResources", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteAllPolicyResources;
 
     /**
@@ -116,7 +116,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
      * 
      */
-    @Export(name="deleteUnusedFmManagedResources", type=Boolean.class, parameters={})
+    @Export(name="deleteUnusedFmManagedResources", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteUnusedFmManagedResources;
 
     /**
@@ -130,7 +130,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A map of lists of accounts and OU&#39;s to exclude from the policy.
      * 
      */
-    @Export(name="excludeMap", type=PolicyExcludeMap.class, parameters={})
+    @Export(name="excludeMap", refs={PolicyExcludeMap.class}, tree="[0]")
     private Output</* @Nullable */ PolicyExcludeMap> excludeMap;
 
     /**
@@ -144,7 +144,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
      * 
      */
-    @Export(name="excludeResourceTags", type=Boolean.class, parameters={})
+    @Export(name="excludeResourceTags", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> excludeResourceTags;
 
     /**
@@ -158,7 +158,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A map of lists of accounts and OU&#39;s to include in the policy.
      * 
      */
-    @Export(name="includeMap", type=PolicyIncludeMap.class, parameters={})
+    @Export(name="includeMap", refs={PolicyIncludeMap.class}, tree="[0]")
     private Output</* @Nullable */ PolicyIncludeMap> includeMap;
 
     /**
@@ -172,7 +172,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * The friendly name of the AWS Firewall Manager Policy.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -186,7 +186,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A unique identifier for each update to the policy.
      * 
      */
-    @Export(name="policyUpdateToken", type=String.class, parameters={})
+    @Export(name="policyUpdateToken", refs={String.class}, tree="[0]")
     private Output<String> policyUpdateToken;
 
     /**
@@ -200,7 +200,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      * 
      */
-    @Export(name="remediationEnabled", type=Boolean.class, parameters={})
+    @Export(name="remediationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> remediationEnabled;
 
     /**
@@ -214,7 +214,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      * 
      */
-    @Export(name="resourceTags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="resourceTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> resourceTags;
 
     /**
@@ -228,7 +228,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
      * 
      */
-    @Export(name="resourceType", type=String.class, parameters={})
+    @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
@@ -242,7 +242,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
      * 
      */
-    @Export(name="resourceTypeLists", type=List.class, parameters={String.class})
+    @Export(name="resourceTypeLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> resourceTypeLists;
 
     /**
@@ -256,7 +256,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * The objects to include in Security Service Policy Data. Documented below.
      * 
      */
-    @Export(name="securityServicePolicyData", type=PolicySecurityServicePolicyData.class, parameters={})
+    @Export(name="securityServicePolicyData", refs={PolicySecurityServicePolicyData.class}, tree="[0]")
     private Output<PolicySecurityServicePolicyData> securityServicePolicyData;
 
     /**
@@ -270,7 +270,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -284,7 +284,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

@@ -56,7 +56,7 @@ public class MulticastGroupMember extends com.pulumi.resources.CustomResource {
      * The IP address assigned to the transit gateway multicast group.
      * 
      */
-    @Export(name="groupIpAddress", type=String.class, parameters={})
+    @Export(name="groupIpAddress", refs={String.class}, tree="[0]")
     private Output<String> groupIpAddress;
 
     /**
@@ -70,7 +70,7 @@ public class MulticastGroupMember extends com.pulumi.resources.CustomResource {
      * The group members&#39; network interface ID to register with the transit gateway multicast group.
      * 
      */
-    @Export(name="networkInterfaceId", type=String.class, parameters={})
+    @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
     /**
@@ -84,7 +84,7 @@ public class MulticastGroupMember extends com.pulumi.resources.CustomResource {
      * The ID of the transit gateway multicast domain.
      * 
      */
-    @Export(name="transitGatewayMulticastDomainId", type=String.class, parameters={})
+    @Export(name="transitGatewayMulticastDomainId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayMulticastDomainId;
 
     /**

@@ -137,7 +137,7 @@ public class PartitionIndex extends com.pulumi.resources.CustomResource {
      * The catalog ID where the table resides.
      * 
      */
-    @Export(name="catalogId", type=String.class, parameters={})
+    @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
@@ -151,7 +151,7 @@ public class PartitionIndex extends com.pulumi.resources.CustomResource {
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -165,7 +165,7 @@ public class PartitionIndex extends com.pulumi.resources.CustomResource {
      * Configuration block for a partition index. See `partition_index` below.
      * 
      */
-    @Export(name="partitionIndex", type=PartitionIndexPartitionIndex.class, parameters={})
+    @Export(name="partitionIndex", refs={PartitionIndexPartitionIndex.class}, tree="[0]")
     private Output<PartitionIndexPartitionIndex> partitionIndex;
 
     /**
@@ -179,7 +179,7 @@ public class PartitionIndex extends com.pulumi.resources.CustomResource {
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
      */
-    @Export(name="tableName", type=String.class, parameters={})
+    @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     /**

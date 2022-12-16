@@ -77,7 +77,7 @@ public class IndexingConfiguration extends com.pulumi.resources.CustomResource {
      * Thing group indexing configuration. See below.
      * 
      */
-    @Export(name="thingGroupIndexingConfiguration", type=IndexingConfigurationThingGroupIndexingConfiguration.class, parameters={})
+    @Export(name="thingGroupIndexingConfiguration", refs={IndexingConfigurationThingGroupIndexingConfiguration.class}, tree="[0]")
     private Output<IndexingConfigurationThingGroupIndexingConfiguration> thingGroupIndexingConfiguration;
 
     /**
@@ -91,7 +91,7 @@ public class IndexingConfiguration extends com.pulumi.resources.CustomResource {
      * Thing indexing configuration. See below.
      * 
      */
-    @Export(name="thingIndexingConfiguration", type=IndexingConfigurationThingIndexingConfiguration.class, parameters={})
+    @Export(name="thingIndexingConfiguration", refs={IndexingConfigurationThingIndexingConfiguration.class}, tree="[0]")
     private Output<IndexingConfigurationThingIndexingConfiguration> thingIndexingConfiguration;
 
     /**

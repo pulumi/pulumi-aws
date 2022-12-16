@@ -35,7 +35,7 @@ public class TrustAnchor extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Trust Anchor
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -49,7 +49,7 @@ public class TrustAnchor extends com.pulumi.resources.CustomResource {
      * Whether or not the Trust Anchor should be enabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -63,7 +63,7 @@ public class TrustAnchor extends com.pulumi.resources.CustomResource {
      * The name of the Trust Anchor.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -77,7 +77,7 @@ public class TrustAnchor extends com.pulumi.resources.CustomResource {
      * The source of trust, documented below
      * 
      */
-    @Export(name="source", type=TrustAnchorSource.class, parameters={})
+    @Export(name="source", refs={TrustAnchorSource.class}, tree="[0]")
     private Output<TrustAnchorSource> source;
 
     /**
@@ -91,7 +91,7 @@ public class TrustAnchor extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -105,7 +105,7 @@ public class TrustAnchor extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

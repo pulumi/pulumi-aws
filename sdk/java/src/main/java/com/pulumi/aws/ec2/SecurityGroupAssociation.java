@@ -64,7 +64,7 @@ public class SecurityGroupAssociation extends com.pulumi.resources.CustomResourc
      * Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
      * 
      */
-    @Export(name="replaceDefaultAssociation", type=Boolean.class, parameters={})
+    @Export(name="replaceDefaultAssociation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replaceDefaultAssociation;
 
     /**
@@ -78,7 +78,7 @@ public class SecurityGroupAssociation extends com.pulumi.resources.CustomResourc
      * The ID of the security group to be associated with the VPC endpoint.
      * 
      */
-    @Export(name="securityGroupId", type=String.class, parameters={})
+    @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
     /**
@@ -92,7 +92,7 @@ public class SecurityGroupAssociation extends com.pulumi.resources.CustomResourc
      * The ID of the VPC endpoint with which the security group will be associated.
      * 
      */
-    @Export(name="vpcEndpointId", type=String.class, parameters={})
+    @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointId;
 
     /**

@@ -58,7 +58,7 @@ public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
      * The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -72,7 +72,7 @@ public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
      * Specifies the name of the API key. Key names must be unique to the workspace.
      * 
      */
-    @Export(name="keyName", type=String.class, parameters={})
+    @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
     /**
@@ -86,7 +86,7 @@ public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
      * Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
      * 
      */
-    @Export(name="keyRole", type=String.class, parameters={})
+    @Export(name="keyRole", refs={String.class}, tree="[0]")
     private Output<String> keyRole;
 
     /**
@@ -100,7 +100,7 @@ public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
      * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
      * 
      */
-    @Export(name="secondsToLive", type=Integer.class, parameters={})
+    @Export(name="secondsToLive", refs={Integer.class}, tree="[0]")
     private Output<Integer> secondsToLive;
 
     /**
@@ -114,7 +114,7 @@ public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
      * The ID of the workspace that the API key is valid for.
      * 
      */
-    @Export(name="workspaceId", type=String.class, parameters={})
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**

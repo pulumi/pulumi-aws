@@ -105,7 +105,7 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
      * ARN of the AppConfig Extension Association.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -119,7 +119,7 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
      * The ARN of the extension defined in the association.
      * 
      */
-    @Export(name="extensionArn", type=String.class, parameters={})
+    @Export(name="extensionArn", refs={String.class}, tree="[0]")
     private Output<String> extensionArn;
 
     /**
@@ -133,7 +133,7 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
      * The version number for the extension defined in the association.
      * 
      */
-    @Export(name="extensionVersion", type=Integer.class, parameters={})
+    @Export(name="extensionVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> extensionVersion;
 
     /**
@@ -147,7 +147,7 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
      * The parameter names and values defined for the association.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -161,7 +161,7 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
      * The ARN of the application, configuration profile, or environment to associate with the extension.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**

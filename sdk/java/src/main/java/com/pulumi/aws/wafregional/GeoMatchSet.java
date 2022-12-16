@@ -73,7 +73,7 @@ public class GeoMatchSet extends com.pulumi.resources.CustomResource {
      * The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      * 
      */
-    @Export(name="geoMatchConstraints", type=List.class, parameters={GeoMatchSetGeoMatchConstraint.class})
+    @Export(name="geoMatchConstraints", refs={List.class,GeoMatchSetGeoMatchConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GeoMatchSetGeoMatchConstraint>> geoMatchConstraints;
 
     /**
@@ -87,7 +87,7 @@ public class GeoMatchSet extends com.pulumi.resources.CustomResource {
      * The name or description of the Geo Match Set.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

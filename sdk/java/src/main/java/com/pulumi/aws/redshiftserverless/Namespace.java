@@ -64,7 +64,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The password of the administrator for the first database created in the namespace.
      * 
      */
-    @Export(name="adminUserPassword", type=String.class, parameters={})
+    @Export(name="adminUserPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminUserPassword;
 
     /**
@@ -78,7 +78,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The username of the administrator for the first database created in the namespace.
      * 
      */
-    @Export(name="adminUsername", type=String.class, parameters={})
+    @Export(name="adminUsername", refs={String.class}, tree="[0]")
     private Output<String> adminUsername;
 
     /**
@@ -92,7 +92,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -106,7 +106,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The name of the first database created in the namespace.
      * 
      */
-    @Export(name="dbName", type=String.class, parameters={})
+    @Export(name="dbName", refs={String.class}, tree="[0]")
     private Output<String> dbName;
 
     /**
@@ -120,7 +120,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
      * 
      */
-    @Export(name="defaultIamRoleArn", type=String.class, parameters={})
+    @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultIamRoleArn;
 
     /**
@@ -134,7 +134,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * A list of IAM roles to associate with the namespace.
      * 
      */
-    @Export(name="iamRoles", type=List.class, parameters={String.class})
+    @Export(name="iamRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> iamRoles;
 
     /**
@@ -148,7 +148,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
      * 
      */
-    @Export(name="kmsKeyId", type=String.class, parameters={})
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
@@ -162,7 +162,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
      * 
      */
-    @Export(name="logExports", type=List.class, parameters={String.class})
+    @Export(name="logExports", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> logExports;
 
     /**
@@ -176,7 +176,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The Redshift Namespace ID.
      * 
      */
-    @Export(name="namespaceId", type=String.class, parameters={})
+    @Export(name="namespaceId", refs={String.class}, tree="[0]")
     private Output<String> namespaceId;
 
     /**
@@ -190,7 +190,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The name of the namespace.
      * 
      */
-    @Export(name="namespaceName", type=String.class, parameters={})
+    @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
     /**
@@ -204,7 +204,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -218,7 +218,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

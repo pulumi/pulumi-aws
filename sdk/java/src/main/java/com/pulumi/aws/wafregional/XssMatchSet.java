@@ -78,7 +78,7 @@ public class XssMatchSet extends com.pulumi.resources.CustomResource {
      * The name of the set
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -92,7 +92,7 @@ public class XssMatchSet extends com.pulumi.resources.CustomResource {
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      * 
      */
-    @Export(name="xssMatchTuples", type=List.class, parameters={XssMatchSetXssMatchTuple.class})
+    @Export(name="xssMatchTuples", refs={List.class,XssMatchSetXssMatchTuple.class}, tree="[0,1]")
     private Output</* @Nullable */ List<XssMatchSetXssMatchTuple>> xssMatchTuples;
 
     /**

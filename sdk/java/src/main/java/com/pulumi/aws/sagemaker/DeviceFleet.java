@@ -71,7 +71,7 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -85,7 +85,7 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
      * A description of the fleet.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -99,7 +99,7 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
      * The name of the Device Fleet (must be unique).
      * 
      */
-    @Export(name="deviceFleetName", type=String.class, parameters={})
+    @Export(name="deviceFleetName", refs={String.class}, tree="[0]")
     private Output<String> deviceFleetName;
 
     /**
@@ -113,7 +113,7 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
      * Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: &#34;SageMakerEdge-{DeviceFleetName}&#34;.
      * 
      */
-    @Export(name="enableIotRoleAlias", type=Boolean.class, parameters={})
+    @Export(name="enableIotRoleAlias", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableIotRoleAlias;
 
     /**
@@ -123,7 +123,7 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> enableIotRoleAlias() {
         return Codegen.optional(this.enableIotRoleAlias);
     }
-    @Export(name="iotRoleAlias", type=String.class, parameters={})
+    @Export(name="iotRoleAlias", refs={String.class}, tree="[0]")
     private Output<String> iotRoleAlias;
 
     public Output<String> iotRoleAlias() {
@@ -133,7 +133,7 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
      * Specifies details about the repository. see Output Config details below.
      * 
      */
-    @Export(name="outputConfig", type=DeviceFleetOutputConfig.class, parameters={})
+    @Export(name="outputConfig", refs={DeviceFleetOutputConfig.class}, tree="[0]")
     private Output<DeviceFleetOutputConfig> outputConfig;
 
     /**
@@ -147,7 +147,7 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -161,7 +161,7 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -175,7 +175,7 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

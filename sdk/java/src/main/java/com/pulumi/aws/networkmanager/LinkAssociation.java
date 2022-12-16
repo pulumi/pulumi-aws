@@ -65,7 +65,7 @@ public class LinkAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the device.
      * 
      */
-    @Export(name="deviceId", type=String.class, parameters={})
+    @Export(name="deviceId", refs={String.class}, tree="[0]")
     private Output<String> deviceId;
 
     /**
@@ -79,7 +79,7 @@ public class LinkAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the global network.
      * 
      */
-    @Export(name="globalNetworkId", type=String.class, parameters={})
+    @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
@@ -93,7 +93,7 @@ public class LinkAssociation extends com.pulumi.resources.CustomResource {
      * The ID of the link.
      * 
      */
-    @Export(name="linkId", type=String.class, parameters={})
+    @Export(name="linkId", refs={String.class}, tree="[0]")
     private Output<String> linkId;
 
     /**

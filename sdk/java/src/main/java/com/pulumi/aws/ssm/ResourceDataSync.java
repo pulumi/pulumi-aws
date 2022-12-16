@@ -105,7 +105,7 @@ public class ResourceDataSync extends com.pulumi.resources.CustomResource {
      * Name for the configuration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -119,7 +119,7 @@ public class ResourceDataSync extends com.pulumi.resources.CustomResource {
      * Amazon S3 configuration details for the sync.
      * 
      */
-    @Export(name="s3Destination", type=ResourceDataSyncS3Destination.class, parameters={})
+    @Export(name="s3Destination", refs={ResourceDataSyncS3Destination.class}, tree="[0]")
     private Output<ResourceDataSyncS3Destination> s3Destination;
 
     /**

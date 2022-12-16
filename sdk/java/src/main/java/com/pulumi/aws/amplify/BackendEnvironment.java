@@ -67,7 +67,7 @@ public class BackendEnvironment extends com.pulumi.resources.CustomResource {
      * Unique ID for an Amplify app.
      * 
      */
-    @Export(name="appId", type=String.class, parameters={})
+    @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
@@ -81,7 +81,7 @@ public class BackendEnvironment extends com.pulumi.resources.CustomResource {
      * ARN for a backend environment that is part of an Amplify app.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -95,7 +95,7 @@ public class BackendEnvironment extends com.pulumi.resources.CustomResource {
      * Name of deployment artifacts.
      * 
      */
-    @Export(name="deploymentArtifacts", type=String.class, parameters={})
+    @Export(name="deploymentArtifacts", refs={String.class}, tree="[0]")
     private Output<String> deploymentArtifacts;
 
     /**
@@ -109,7 +109,7 @@ public class BackendEnvironment extends com.pulumi.resources.CustomResource {
      * Name for the backend environment.
      * 
      */
-    @Export(name="environmentName", type=String.class, parameters={})
+    @Export(name="environmentName", refs={String.class}, tree="[0]")
     private Output<String> environmentName;
 
     /**
@@ -123,7 +123,7 @@ public class BackendEnvironment extends com.pulumi.resources.CustomResource {
      * AWS CloudFormation stack name of a backend environment.
      * 
      */
-    @Export(name="stackName", type=String.class, parameters={})
+    @Export(name="stackName", refs={String.class}, tree="[0]")
     private Output<String> stackName;
 
     /**

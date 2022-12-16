@@ -66,7 +66,7 @@ public class EndpointAuthorization extends com.pulumi.resources.CustomResource {
      * The Amazon Web Services account ID to grant access to.
      * 
      */
-    @Export(name="account", type=String.class, parameters={})
+    @Export(name="account", refs={String.class}, tree="[0]")
     private Output<String> account;
 
     /**
@@ -80,7 +80,7 @@ public class EndpointAuthorization extends com.pulumi.resources.CustomResource {
      * Indicates whether all VPCs in the grantee account are allowed access to the cluster.
      * 
      */
-    @Export(name="allowedAllVpcs", type=Boolean.class, parameters={})
+    @Export(name="allowedAllVpcs", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> allowedAllVpcs;
 
     /**
@@ -94,7 +94,7 @@ public class EndpointAuthorization extends com.pulumi.resources.CustomResource {
      * The cluster identifier of the cluster to grant access to.
      * 
      */
-    @Export(name="clusterIdentifier", type=String.class, parameters={})
+    @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
@@ -108,7 +108,7 @@ public class EndpointAuthorization extends com.pulumi.resources.CustomResource {
      * The number of Redshift-managed VPC endpoints created for the authorization.
      * 
      */
-    @Export(name="endpointCount", type=Integer.class, parameters={})
+    @Export(name="endpointCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> endpointCount;
 
     /**
@@ -122,7 +122,7 @@ public class EndpointAuthorization extends com.pulumi.resources.CustomResource {
      * Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
      * 
      */
-    @Export(name="forceDelete", type=Boolean.class, parameters={})
+    @Export(name="forceDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDelete;
 
     /**
@@ -136,7 +136,7 @@ public class EndpointAuthorization extends com.pulumi.resources.CustomResource {
      * The Amazon Web Services account ID of the grantee of the cluster.
      * 
      */
-    @Export(name="grantee", type=String.class, parameters={})
+    @Export(name="grantee", refs={String.class}, tree="[0]")
     private Output<String> grantee;
 
     /**
@@ -150,7 +150,7 @@ public class EndpointAuthorization extends com.pulumi.resources.CustomResource {
      * The Amazon Web Services account ID of the cluster owner.
      * 
      */
-    @Export(name="grantor", type=String.class, parameters={})
+    @Export(name="grantor", refs={String.class}, tree="[0]")
     private Output<String> grantor;
 
     /**
@@ -164,7 +164,7 @@ public class EndpointAuthorization extends com.pulumi.resources.CustomResource {
      * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      * 
      */
-    @Export(name="vpcIds", type=List.class, parameters={String.class})
+    @Export(name="vpcIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> vpcIds;
 
     /**

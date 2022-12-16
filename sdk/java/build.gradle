@@ -43,7 +43,7 @@ repositories {
 dependencies {
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("com.google.code.gson:gson:2.8.9")
-    implementation("com.pulumi:pulumi:0.5.4")
+    implementation("com.pulumi:pulumi:0.7.1")
 }
 
 task sourcesJar(type: Jar) {
@@ -123,7 +123,7 @@ javadoc {
     if (JavaVersion.current().isJava9Compatible()) {
         options.addBooleanOption('html5', true)
     }
-    options.jFlags("-Xmx2g", "-Xms512m")
+    options.jFlags("-Xmx8g", "-Xms512m")
 }
 
 if (publishRepoUsername) {

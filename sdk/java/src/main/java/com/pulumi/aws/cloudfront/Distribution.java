@@ -286,7 +286,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * this distribution.
      * 
      */
-    @Export(name="aliases", type=List.class, parameters={String.class})
+    @Export(name="aliases", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> aliases;
 
     /**
@@ -301,7 +301,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -316,7 +316,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * updates to the distribution configuration.
      * 
      */
-    @Export(name="callerReference", type=String.class, parameters={})
+    @Export(name="callerReference", refs={String.class}, tree="[0]")
     private Output<String> callerReference;
 
     /**
@@ -332,7 +332,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * distribution.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -347,7 +347,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * One or more custom error response elements (multiples allowed).
      * 
      */
-    @Export(name="customErrorResponses", type=List.class, parameters={DistributionCustomErrorResponse.class})
+    @Export(name="customErrorResponses", refs={List.class,DistributionCustomErrorResponse.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DistributionCustomErrorResponse>> customErrorResponses;
 
     /**
@@ -362,7 +362,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * one).
      * 
      */
-    @Export(name="defaultCacheBehavior", type=DistributionDefaultCacheBehavior.class, parameters={})
+    @Export(name="defaultCacheBehavior", refs={DistributionDefaultCacheBehavior.class}, tree="[0]")
     private Output<DistributionDefaultCacheBehavior> defaultCacheBehavior;
 
     /**
@@ -378,7 +378,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * return (for example, index.html) when an end user requests the root URL.
      * 
      */
-    @Export(name="defaultRootObject", type=String.class, parameters={})
+    @Export(name="defaultRootObject", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultRootObject;
 
     /**
@@ -394,7 +394,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * web site of your custom origin.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -409,7 +409,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * A flag that specifies whether Origin Shield is enabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -424,7 +424,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * `E2QWRUHAPOMQZL`.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -441,7 +441,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * alias for the zone ID `Z2FDTNDATAQYW2`.
      * 
      */
-    @Export(name="hostedZoneId", type=String.class, parameters={})
+    @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
     /**
@@ -459,7 +459,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * `http2`.
      * 
      */
-    @Export(name="httpVersion", type=String.class, parameters={})
+    @Export(name="httpVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpVersion;
 
     /**
@@ -476,7 +476,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * currently in progress.
      * 
      */
-    @Export(name="inProgressValidationBatches", type=Integer.class, parameters={})
+    @Export(name="inProgressValidationBatches", refs={Integer.class}, tree="[0]")
     private Output<Integer> inProgressValidationBatches;
 
     /**
@@ -491,7 +491,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * Whether the IPv6 is enabled for the distribution.
      * 
      */
-    @Export(name="isIpv6Enabled", type=Boolean.class, parameters={})
+    @Export(name="isIpv6Enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isIpv6Enabled;
 
     /**
@@ -505,7 +505,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * The date and time the distribution was last modified.
      * 
      */
-    @Export(name="lastModifiedTime", type=String.class, parameters={})
+    @Export(name="lastModifiedTime", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedTime;
 
     /**
@@ -521,7 +521,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * to your distribution (maximum one).
      * 
      */
-    @Export(name="loggingConfig", type=DistributionLoggingConfig.class, parameters={})
+    @Export(name="loggingConfig", refs={DistributionLoggingConfig.class}, tree="[0]")
     private Output</* @Nullable */ DistributionLoggingConfig> loggingConfig;
 
     /**
@@ -539,7 +539,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * in order of precedence. The topmost cache behavior will have precedence 0.
      * 
      */
-    @Export(name="orderedCacheBehaviors", type=List.class, parameters={DistributionOrderedCacheBehavior.class})
+    @Export(name="orderedCacheBehaviors", refs={List.class,DistributionOrderedCacheBehavior.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DistributionOrderedCacheBehavior>> orderedCacheBehaviors;
 
     /**
@@ -556,7 +556,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * distribution (multiples allowed).
      * 
      */
-    @Export(name="originGroups", type=List.class, parameters={DistributionOriginGroup.class})
+    @Export(name="originGroups", refs={List.class,DistributionOriginGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DistributionOriginGroup>> originGroups;
 
     /**
@@ -572,7 +572,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * distribution (multiples allowed).
      * 
      */
-    @Export(name="origins", type=List.class, parameters={DistributionOrigin.class})
+    @Export(name="origins", refs={List.class,DistributionOrigin.class}, tree="[0,1]")
     private Output<List<DistributionOrigin>> origins;
 
     /**
@@ -588,7 +588,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
      * 
      */
-    @Export(name="priceClass", type=String.class, parameters={})
+    @Export(name="priceClass", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> priceClass;
 
     /**
@@ -604,7 +604,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * configuration for this distribution (maximum one).
      * 
      */
-    @Export(name="restrictions", type=DistributionRestrictions.class, parameters={})
+    @Export(name="restrictions", refs={DistributionRestrictions.class}, tree="[0]")
     private Output<DistributionRestrictions> restrictions;
 
     /**
@@ -621,7 +621,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * the distribution needs to be deleted manually afterwards. Default: `false`.
      * 
      */
-    @Export(name="retainOnDelete", type=Boolean.class, parameters={})
+    @Export(name="retainOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> retainOnDelete;
 
     /**
@@ -639,7 +639,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * CloudFront system.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -655,7 +655,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -669,7 +669,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -684,7 +684,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
-    @Export(name="trustedKeyGroups", type=List.class, parameters={DistributionTrustedKeyGroup.class})
+    @Export(name="trustedKeyGroups", refs={List.class,DistributionTrustedKeyGroup.class}, tree="[0,1]")
     private Output<List<DistributionTrustedKeyGroup>> trustedKeyGroups;
 
     /**
@@ -700,7 +700,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
-    @Export(name="trustedSigners", type=List.class, parameters={DistributionTrustedSigner.class})
+    @Export(name="trustedSigners", refs={List.class,DistributionTrustedSigner.class}, tree="[0,1]")
     private Output<List<DistributionTrustedSigner>> trustedSigners;
 
     /**
@@ -717,7 +717,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * one).
      * 
      */
-    @Export(name="viewerCertificate", type=DistributionViewerCertificate.class, parameters={})
+    @Export(name="viewerCertificate", refs={DistributionViewerCertificate.class}, tree="[0]")
     private Output<DistributionViewerCertificate> viewerCertificate;
 
     /**
@@ -735,7 +735,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * this to`false` will skip the process. Default: `true`.
      * 
      */
-    @Export(name="waitForDeployment", type=Boolean.class, parameters={})
+    @Export(name="waitForDeployment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> waitForDeployment;
 
     /**
@@ -757,7 +757,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      * 
      */
-    @Export(name="webAclId", type=String.class, parameters={})
+    @Export(name="webAclId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> webAclId;
 
     /**

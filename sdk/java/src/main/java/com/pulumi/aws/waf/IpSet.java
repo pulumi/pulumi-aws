@@ -73,7 +73,7 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * The ARN of the WAF IPSet.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -87,7 +87,7 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
      * 
      */
-    @Export(name="ipSetDescriptors", type=List.class, parameters={IpSetIpSetDescriptor.class})
+    @Export(name="ipSetDescriptors", refs={List.class,IpSetIpSetDescriptor.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IpSetIpSetDescriptor>> ipSetDescriptors;
 
     /**
@@ -101,7 +101,7 @@ public class IpSet extends com.pulumi.resources.CustomResource {
      * The name or description of the IPSet.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

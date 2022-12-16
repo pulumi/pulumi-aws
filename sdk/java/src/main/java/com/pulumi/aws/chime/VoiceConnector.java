@@ -64,7 +64,7 @@ public class VoiceConnector extends com.pulumi.resources.CustomResource {
      * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
      * 
      */
-    @Export(name="awsRegion", type=String.class, parameters={})
+    @Export(name="awsRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsRegion;
 
     /**
@@ -78,7 +78,7 @@ public class VoiceConnector extends com.pulumi.resources.CustomResource {
      * The name of the Amazon Chime Voice Connector.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -92,7 +92,7 @@ public class VoiceConnector extends com.pulumi.resources.CustomResource {
      * The outbound host name for the Amazon Chime Voice Connector.
      * 
      */
-    @Export(name="outboundHostName", type=String.class, parameters={})
+    @Export(name="outboundHostName", refs={String.class}, tree="[0]")
     private Output<String> outboundHostName;
 
     /**
@@ -106,7 +106,7 @@ public class VoiceConnector extends com.pulumi.resources.CustomResource {
      * When enabled, requires encryption for the Amazon Chime Voice Connector.
      * 
      */
-    @Export(name="requireEncryption", type=Boolean.class, parameters={})
+    @Export(name="requireEncryption", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> requireEncryption;
 
     /**

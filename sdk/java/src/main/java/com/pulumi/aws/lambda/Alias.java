@@ -72,7 +72,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) identifying your Lambda function alias.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -86,7 +86,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * Description of the alias.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -100,7 +100,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * Lambda Function name or ARN.
      * 
      */
-    @Export(name="functionName", type=String.class, parameters={})
+    @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
     /**
@@ -114,7 +114,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
      * 
      */
-    @Export(name="functionVersion", type=String.class, parameters={})
+    @Export(name="functionVersion", refs={String.class}, tree="[0]")
     private Output<String> functionVersion;
 
     /**
@@ -128,7 +128,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`
      * 
      */
-    @Export(name="invokeArn", type=String.class, parameters={})
+    @Export(name="invokeArn", refs={String.class}, tree="[0]")
     private Output<String> invokeArn;
 
     /**
@@ -142,7 +142,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -156,7 +156,7 @@ public class Alias extends com.pulumi.resources.CustomResource {
      * The Lambda alias&#39; route configuration settings. Fields documented below
      * 
      */
-    @Export(name="routingConfig", type=AliasRoutingConfig.class, parameters={})
+    @Export(name="routingConfig", refs={AliasRoutingConfig.class}, tree="[0]")
     private Output</* @Nullable */ AliasRoutingConfig> routingConfig;
 
     /**

@@ -121,7 +121,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of Transfer User
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -135,7 +135,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      * 
      */
-    @Export(name="homeDirectory", type=String.class, parameters={})
+    @Export(name="homeDirectory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> homeDirectory;
 
     /**
@@ -149,7 +149,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      * 
      */
-    @Export(name="homeDirectoryMappings", type=List.class, parameters={UserHomeDirectoryMapping.class})
+    @Export(name="homeDirectoryMappings", refs={List.class,UserHomeDirectoryMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserHomeDirectoryMapping>> homeDirectoryMappings;
 
     /**
@@ -163,7 +163,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The type of landing directory (folder) you mapped for your users&#39; home directory. Valid values are `PATH` and `LOGICAL`.
      * 
      */
-    @Export(name="homeDirectoryType", type=String.class, parameters={})
+    @Export(name="homeDirectoryType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> homeDirectoryType;
 
     /**
@@ -177,7 +177,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policy;
 
     /**
@@ -191,7 +191,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users&#39; access to your Amazon EFS file systems. See Posix Profile below.
      * 
      */
-    @Export(name="posixProfile", type=UserPosixProfile.class, parameters={})
+    @Export(name="posixProfile", refs={UserPosixProfile.class}, tree="[0]")
     private Output</* @Nullable */ UserPosixProfile> posixProfile;
 
     /**
@@ -205,7 +205,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
@@ -219,7 +219,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
-    @Export(name="serverId", type=String.class, parameters={})
+    @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
     /**
@@ -233,7 +233,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -247,7 +247,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -261,7 +261,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The name used for log in to your SFTP server.
      * 
      */
-    @Export(name="userName", type=String.class, parameters={})
+    @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**

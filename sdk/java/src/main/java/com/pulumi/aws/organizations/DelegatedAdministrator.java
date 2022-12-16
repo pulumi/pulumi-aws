@@ -62,7 +62,7 @@ public class DelegatedAdministrator extends com.pulumi.resources.CustomResource 
      * The account ID number of the member account in the organization to register as a delegated administrator.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -76,7 +76,7 @@ public class DelegatedAdministrator extends com.pulumi.resources.CustomResource 
      * The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -90,7 +90,7 @@ public class DelegatedAdministrator extends com.pulumi.resources.CustomResource 
      * The date when the account was made a delegated administrator.
      * 
      */
-    @Export(name="delegationEnabledDate", type=String.class, parameters={})
+    @Export(name="delegationEnabledDate", refs={String.class}, tree="[0]")
     private Output<String> delegationEnabledDate;
 
     /**
@@ -104,7 +104,7 @@ public class DelegatedAdministrator extends com.pulumi.resources.CustomResource 
      * The email address that is associated with the delegated administrator&#39;s AWS account.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -118,7 +118,7 @@ public class DelegatedAdministrator extends com.pulumi.resources.CustomResource 
      * The method by which the delegated administrator&#39;s account joined the organization.
      * 
      */
-    @Export(name="joinedMethod", type=String.class, parameters={})
+    @Export(name="joinedMethod", refs={String.class}, tree="[0]")
     private Output<String> joinedMethod;
 
     /**
@@ -132,7 +132,7 @@ public class DelegatedAdministrator extends com.pulumi.resources.CustomResource 
      * The date when the delegated administrator&#39;s account became a part of the organization.
      * 
      */
-    @Export(name="joinedTimestamp", type=String.class, parameters={})
+    @Export(name="joinedTimestamp", refs={String.class}, tree="[0]")
     private Output<String> joinedTimestamp;
 
     /**
@@ -146,7 +146,7 @@ public class DelegatedAdministrator extends com.pulumi.resources.CustomResource 
      * The friendly name of the delegated administrator&#39;s account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -160,7 +160,7 @@ public class DelegatedAdministrator extends com.pulumi.resources.CustomResource 
      * The service principal of the AWS service for which you want to make the member account a delegated administrator.
      * 
      */
-    @Export(name="servicePrincipal", type=String.class, parameters={})
+    @Export(name="servicePrincipal", refs={String.class}, tree="[0]")
     private Output<String> servicePrincipal;
 
     /**
@@ -174,7 +174,7 @@ public class DelegatedAdministrator extends com.pulumi.resources.CustomResource 
      * The status of the delegated administrator&#39;s account in the organization.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

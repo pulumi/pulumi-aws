@@ -92,7 +92,7 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * The code the system generates when it processes the activation.
      * 
      */
-    @Export(name="activationCode", type=String.class, parameters={})
+    @Export(name="activationCode", refs={String.class}, tree="[0]")
     private Output<String> activationCode;
 
     /**
@@ -106,7 +106,7 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * The description of the resource that you want to register.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -120,7 +120,7 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    @Export(name="expirationDate", type=String.class, parameters={})
+    @Export(name="expirationDate", refs={String.class}, tree="[0]")
     private Output<String> expirationDate;
 
     /**
@@ -134,7 +134,7 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * If the current activation has expired.
      * 
      */
-    @Export(name="expired", type=Boolean.class, parameters={})
+    @Export(name="expired", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> expired;
 
     /**
@@ -148,7 +148,7 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * The IAM Role to attach to the managed instance.
      * 
      */
-    @Export(name="iamRole", type=String.class, parameters={})
+    @Export(name="iamRole", refs={String.class}, tree="[0]")
     private Output<String> iamRole;
 
     /**
@@ -162,7 +162,7 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * The default name of the registered managed instance.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -176,7 +176,7 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * The number of managed instances that are currently registered using this activation.
      * 
      */
-    @Export(name="registrationCount", type=Integer.class, parameters={})
+    @Export(name="registrationCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> registrationCount;
 
     /**
@@ -190,7 +190,7 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * The maximum number of managed instances you want to register. The default value is 1 instance.
      * 
      */
-    @Export(name="registrationLimit", type=Integer.class, parameters={})
+    @Export(name="registrationLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> registrationLimit;
 
     /**
@@ -204,7 +204,7 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -218,7 +218,7 @@ public class Activation extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

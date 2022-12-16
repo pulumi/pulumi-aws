@@ -561,7 +561,7 @@ public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomR
      * The name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -575,7 +575,7 @@ public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomR
      * The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
-    @Export(name="expectedBucketOwner", type=String.class, parameters={})
+    @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
@@ -589,7 +589,7 @@ public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomR
      * List of configuration blocks describing the rules managing the replication documented below.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={BucketLifecycleConfigurationV2Rule.class})
+    @Export(name="rules", refs={List.class,BucketLifecycleConfigurationV2Rule.class}, tree="[0,1]")
     private Output<List<BucketLifecycleConfigurationV2Rule>> rules;
 
     /**

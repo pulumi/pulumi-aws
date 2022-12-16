@@ -71,7 +71,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * API identifier.
      * 
      */
-    @Export(name="apiId", type=String.class, parameters={})
+    @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
     /**
@@ -85,7 +85,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Whether the deployment was automatically released.
      * 
      */
-    @Export(name="autoDeployed", type=Boolean.class, parameters={})
+    @Export(name="autoDeployed", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoDeployed;
 
     /**
@@ -99,7 +99,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -113,7 +113,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
-    @Export(name="triggers", type=Map.class, parameters={String.class, String.class})
+    @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> triggers;
 
     /**

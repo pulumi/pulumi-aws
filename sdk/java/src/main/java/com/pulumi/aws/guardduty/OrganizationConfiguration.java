@@ -96,7 +96,7 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
      * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
      * 
      */
-    @Export(name="autoEnable", type=Boolean.class, parameters={})
+    @Export(name="autoEnable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoEnable;
 
     /**
@@ -110,7 +110,7 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
      * Configuration for the collected datasources.
      * 
      */
-    @Export(name="datasources", type=OrganizationConfigurationDatasources.class, parameters={})
+    @Export(name="datasources", refs={OrganizationConfigurationDatasources.class}, tree="[0]")
     private Output<OrganizationConfigurationDatasources> datasources;
 
     /**
@@ -124,7 +124,7 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
      * The detector ID of the GuardDuty account.
      * 
      */
-    @Export(name="detectorId", type=String.class, parameters={})
+    @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
     /**

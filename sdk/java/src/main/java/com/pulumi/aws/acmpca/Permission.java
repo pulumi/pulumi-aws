@@ -74,7 +74,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
      * 
      */
-    @Export(name="actions", type=List.class, parameters={String.class})
+    @Export(name="actions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> actions;
 
     /**
@@ -88,7 +88,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * ARN of the CA that grants the permissions.
      * 
      */
-    @Export(name="certificateAuthorityArn", type=String.class, parameters={})
+    @Export(name="certificateAuthorityArn", refs={String.class}, tree="[0]")
     private Output<String> certificateAuthorityArn;
 
     /**
@@ -102,7 +102,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * IAM policy that is associated with the permission.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -116,7 +116,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -130,7 +130,7 @@ public class Permission extends com.pulumi.resources.CustomResource {
      * ID of the calling account
      * 
      */
-    @Export(name="sourceAccount", type=String.class, parameters={})
+    @Export(name="sourceAccount", refs={String.class}, tree="[0]")
     private Output<String> sourceAccount;
 
     /**

@@ -36,7 +36,7 @@ public class CertificateValidation extends com.pulumi.resources.CustomResource {
      * ARN of the certificate that is being validated.
      * 
      */
-    @Export(name="certificateArn", type=String.class, parameters={})
+    @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output<String> certificateArn;
 
     /**
@@ -50,7 +50,7 @@ public class CertificateValidation extends com.pulumi.resources.CustomResource {
      * List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
      * 
      */
-    @Export(name="validationRecordFqdns", type=List.class, parameters={String.class})
+    @Export(name="validationRecordFqdns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> validationRecordFqdns;
 
     /**

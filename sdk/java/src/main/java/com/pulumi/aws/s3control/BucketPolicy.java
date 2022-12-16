@@ -78,7 +78,7 @@ public class BucketPolicy extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the bucket.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -92,7 +92,7 @@ public class BucketPolicy extends com.pulumi.resources.CustomResource {
      * JSON string of the resource policy.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**

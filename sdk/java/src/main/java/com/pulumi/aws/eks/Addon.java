@@ -107,7 +107,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      * 
      */
-    @Export(name="addonName", type=String.class, parameters={})
+    @Export(name="addonName", refs={String.class}, tree="[0]")
     private Output<String> addonName;
 
     /**
@@ -123,7 +123,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      * 
      */
-    @Export(name="addonVersion", type=String.class, parameters={})
+    @Export(name="addonVersion", refs={String.class}, tree="[0]")
     private Output<String> addonVersion;
 
     /**
@@ -138,7 +138,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the EKS add-on.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -152,7 +152,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
@@ -166,7 +166,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -180,7 +180,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      * 
      */
-    @Export(name="modifiedAt", type=String.class, parameters={})
+    @Export(name="modifiedAt", refs={String.class}, tree="[0]")
     private Output<String> modifiedAt;
 
     /**
@@ -194,7 +194,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      * 
      */
-    @Export(name="preserve", type=Boolean.class, parameters={})
+    @Export(name="preserve", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> preserve;
 
     /**
@@ -210,7 +210,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      * 
      */
-    @Export(name="resolveConflicts", type=String.class, parameters={})
+    @Export(name="resolveConflicts", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resolveConflicts;
 
     /**
@@ -231,7 +231,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * in the Amazon EKS User Guide.
      * 
      */
-    @Export(name="serviceAccountRoleArn", type=String.class, parameters={})
+    @Export(name="serviceAccountRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceAccountRoleArn;
 
     /**
@@ -250,7 +250,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -264,7 +264,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

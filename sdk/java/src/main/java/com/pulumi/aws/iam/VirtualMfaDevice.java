@@ -65,7 +65,7 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) specifying the virtual mfa device.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -79,7 +79,7 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
      * The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
      * 
      */
-    @Export(name="base32StringSeed", type=String.class, parameters={})
+    @Export(name="base32StringSeed", refs={String.class}, tree="[0]")
     private Output<String> base32StringSeed;
 
     /**
@@ -93,7 +93,7 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
      * The path for the virtual MFA device.
      * 
      */
-    @Export(name="path", type=String.class, parameters={})
+    @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
     /**
@@ -107,7 +107,7 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
      * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
      * 
      */
-    @Export(name="qrCodePng", type=String.class, parameters={})
+    @Export(name="qrCodePng", refs={String.class}, tree="[0]")
     private Output<String> qrCodePng;
 
     /**
@@ -121,7 +121,7 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
      * Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -135,7 +135,7 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -149,7 +149,7 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      * 
      */
-    @Export(name="virtualMfaDeviceName", type=String.class, parameters={})
+    @Export(name="virtualMfaDeviceName", refs={String.class}, tree="[0]")
     private Output<String> virtualMfaDeviceName;
 
     /**

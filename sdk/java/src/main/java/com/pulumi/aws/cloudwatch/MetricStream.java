@@ -237,7 +237,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * ARN of the metric stream.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -251,7 +251,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
      * 
      */
-    @Export(name="creationDate", type=String.class, parameters={})
+    @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
     /**
@@ -265,7 +265,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
      * 
      */
-    @Export(name="excludeFilters", type=List.class, parameters={MetricStreamExcludeFilter.class})
+    @Export(name="excludeFilters", refs={List.class,MetricStreamExcludeFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MetricStreamExcludeFilter>> excludeFilters;
 
     /**
@@ -279,7 +279,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
      * 
      */
-    @Export(name="firehoseArn", type=String.class, parameters={})
+    @Export(name="firehoseArn", refs={String.class}, tree="[0]")
     private Output<String> firehoseArn;
 
     /**
@@ -293,7 +293,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
      * 
      */
-    @Export(name="includeFilters", type=List.class, parameters={MetricStreamIncludeFilter.class})
+    @Export(name="includeFilters", refs={List.class,MetricStreamIncludeFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MetricStreamIncludeFilter>> includeFilters;
 
     /**
@@ -307,7 +307,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
      * 
      */
-    @Export(name="lastUpdateDate", type=String.class, parameters={})
+    @Export(name="lastUpdateDate", refs={String.class}, tree="[0]")
     private Output<String> lastUpdateDate;
 
     /**
@@ -321,7 +321,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -335,7 +335,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -349,7 +349,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
      * 
      */
-    @Export(name="outputFormat", type=String.class, parameters={})
+    @Export(name="outputFormat", refs={String.class}, tree="[0]")
     private Output<String> outputFormat;
 
     /**
@@ -363,7 +363,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -377,7 +377,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * State of the metric stream. Possible values are `running` and `stopped`.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -391,7 +391,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
      * 
      */
-    @Export(name="statisticsConfigurations", type=List.class, parameters={MetricStreamStatisticsConfiguration.class})
+    @Export(name="statisticsConfigurations", refs={List.class,MetricStreamStatisticsConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MetricStreamStatisticsConfiguration>> statisticsConfigurations;
 
     /**
@@ -405,7 +405,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -419,7 +419,7 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

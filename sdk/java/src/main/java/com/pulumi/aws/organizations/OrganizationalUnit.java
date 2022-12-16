@@ -65,7 +65,7 @@ public class OrganizationalUnit extends com.pulumi.resources.CustomResource {
      * List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
      * 
      */
-    @Export(name="accounts", type=List.class, parameters={OrganizationalUnitAccount.class})
+    @Export(name="accounts", refs={List.class,OrganizationalUnitAccount.class}, tree="[0,1]")
     private Output<List<OrganizationalUnitAccount>> accounts;
 
     /**
@@ -79,7 +79,7 @@ public class OrganizationalUnit extends com.pulumi.resources.CustomResource {
      * ARN of the organizational unit
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -93,7 +93,7 @@ public class OrganizationalUnit extends com.pulumi.resources.CustomResource {
      * The name for the organizational unit
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -107,7 +107,7 @@ public class OrganizationalUnit extends com.pulumi.resources.CustomResource {
      * ID of the parent organizational unit, which may be the root
      * 
      */
-    @Export(name="parentId", type=String.class, parameters={})
+    @Export(name="parentId", refs={String.class}, tree="[0]")
     private Output<String> parentId;
 
     /**
@@ -121,7 +121,7 @@ public class OrganizationalUnit extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -135,7 +135,7 @@ public class OrganizationalUnit extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

@@ -66,7 +66,7 @@ public class VaultLockConfiguration extends com.pulumi.resources.CustomResource 
      * The ARN of the vault.
      * 
      */
-    @Export(name="backupVaultArn", type=String.class, parameters={})
+    @Export(name="backupVaultArn", refs={String.class}, tree="[0]")
     private Output<String> backupVaultArn;
 
     /**
@@ -80,7 +80,7 @@ public class VaultLockConfiguration extends com.pulumi.resources.CustomResource 
      * Name of the backup vault to add a lock configuration for.
      * 
      */
-    @Export(name="backupVaultName", type=String.class, parameters={})
+    @Export(name="backupVaultName", refs={String.class}, tree="[0]")
     private Output<String> backupVaultName;
 
     /**
@@ -94,7 +94,7 @@ public class VaultLockConfiguration extends com.pulumi.resources.CustomResource 
      * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      * 
      */
-    @Export(name="changeableForDays", type=Integer.class, parameters={})
+    @Export(name="changeableForDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> changeableForDays;
 
     /**
@@ -108,7 +108,7 @@ public class VaultLockConfiguration extends com.pulumi.resources.CustomResource 
      * The maximum retention period that the vault retains its recovery points.
      * 
      */
-    @Export(name="maxRetentionDays", type=Integer.class, parameters={})
+    @Export(name="maxRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxRetentionDays;
 
     /**
@@ -122,7 +122,7 @@ public class VaultLockConfiguration extends com.pulumi.resources.CustomResource 
      * The minimum retention period that the vault retains its recovery points.
      * 
      */
-    @Export(name="minRetentionDays", type=Integer.class, parameters={})
+    @Export(name="minRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minRetentionDays;
 
     /**

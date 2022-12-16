@@ -66,7 +66,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the connection.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -80,7 +80,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The ID of the second device in the connection.
      * 
      */
-    @Export(name="connectedDeviceId", type=String.class, parameters={})
+    @Export(name="connectedDeviceId", refs={String.class}, tree="[0]")
     private Output<String> connectedDeviceId;
 
     /**
@@ -94,7 +94,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The ID of the link for the second device.
      * 
      */
-    @Export(name="connectedLinkId", type=String.class, parameters={})
+    @Export(name="connectedLinkId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectedLinkId;
 
     /**
@@ -108,7 +108,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * A description of the connection.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -122,7 +122,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The ID of the first device in the connection.
      * 
      */
-    @Export(name="deviceId", type=String.class, parameters={})
+    @Export(name="deviceId", refs={String.class}, tree="[0]")
     private Output<String> deviceId;
 
     /**
@@ -136,7 +136,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The ID of the global network.
      * 
      */
-    @Export(name="globalNetworkId", type=String.class, parameters={})
+    @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
@@ -150,7 +150,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The ID of the link for the first device.
      * 
      */
-    @Export(name="linkId", type=String.class, parameters={})
+    @Export(name="linkId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> linkId;
 
     /**
@@ -164,7 +164,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -178,7 +178,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

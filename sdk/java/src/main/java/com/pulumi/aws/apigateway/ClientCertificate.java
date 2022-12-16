@@ -63,7 +63,7 @@ public class ClientCertificate extends com.pulumi.resources.CustomResource {
      * ARN
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -77,7 +77,7 @@ public class ClientCertificate extends com.pulumi.resources.CustomResource {
      * Date when the client certificate was created.
      * 
      */
-    @Export(name="createdDate", type=String.class, parameters={})
+    @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
     /**
@@ -91,7 +91,7 @@ public class ClientCertificate extends com.pulumi.resources.CustomResource {
      * Description of the client certificate.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -105,7 +105,7 @@ public class ClientCertificate extends com.pulumi.resources.CustomResource {
      * Date when the client certificate will expire.
      * 
      */
-    @Export(name="expirationDate", type=String.class, parameters={})
+    @Export(name="expirationDate", refs={String.class}, tree="[0]")
     private Output<String> expirationDate;
 
     /**
@@ -119,7 +119,7 @@ public class ClientCertificate extends com.pulumi.resources.CustomResource {
      * The PEM-encoded public key of the client certificate.
      * 
      */
-    @Export(name="pemEncodedCertificate", type=String.class, parameters={})
+    @Export(name="pemEncodedCertificate", refs={String.class}, tree="[0]")
     private Output<String> pemEncodedCertificate;
 
     /**
@@ -133,7 +133,7 @@ public class ClientCertificate extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -147,7 +147,7 @@ public class ClientCertificate extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

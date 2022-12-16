@@ -224,7 +224,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
      * 
      */
-    @Export(name="airflowConfigurationOptions", type=Map.class, parameters={String.class, String.class})
+    @Export(name="airflowConfigurationOptions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> airflowConfigurationOptions;
 
     /**
@@ -238,7 +238,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Airflow version of your environment, will be set by default to the latest version that MWAA supports.
      * 
      */
-    @Export(name="airflowVersion", type=String.class, parameters={})
+    @Export(name="airflowVersion", refs={String.class}, tree="[0]")
     private Output<String> airflowVersion;
 
     /**
@@ -252,7 +252,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The ARN of the MWAA Environment
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -267,7 +267,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -282,7 +282,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
-    @Export(name="dagS3Path", type=String.class, parameters={})
+    @Export(name="dagS3Path", refs={String.class}, tree="[0]")
     private Output<String> dagS3Path;
 
     /**
@@ -296,7 +296,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      * 
      */
-    @Export(name="environmentClass", type=String.class, parameters={})
+    @Export(name="environmentClass", refs={String.class}, tree="[0]")
     private Output<String> environmentClass;
 
     /**
@@ -310,7 +310,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
      * 
      */
-    @Export(name="executionRoleArn", type=String.class, parameters={})
+    @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> executionRoleArn;
 
     /**
@@ -324,7 +324,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
      * 
      */
-    @Export(name="kmsKey", type=String.class, parameters={})
+    @Export(name="kmsKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKey;
 
     /**
@@ -334,7 +334,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> kmsKey() {
         return Codegen.optional(this.kmsKey);
     }
-    @Export(name="lastUpdateds", type=List.class, parameters={EnvironmentLastUpdated.class})
+    @Export(name="lastUpdateds", refs={List.class,EnvironmentLastUpdated.class}, tree="[0,1]")
     private Output<List<EnvironmentLastUpdated>> lastUpdateds;
 
     public Output<List<EnvironmentLastUpdated>> lastUpdateds() {
@@ -344,7 +344,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
      * 
      */
-    @Export(name="loggingConfiguration", type=EnvironmentLoggingConfiguration.class, parameters={})
+    @Export(name="loggingConfiguration", refs={EnvironmentLoggingConfiguration.class}, tree="[0]")
     private Output<EnvironmentLoggingConfiguration> loggingConfiguration;
 
     /**
@@ -358,7 +358,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      * 
      */
-    @Export(name="maxWorkers", type=Integer.class, parameters={})
+    @Export(name="maxWorkers", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxWorkers;
 
     /**
@@ -372,7 +372,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
      * 
      */
-    @Export(name="minWorkers", type=Integer.class, parameters={})
+    @Export(name="minWorkers", refs={Integer.class}, tree="[0]")
     private Output<Integer> minWorkers;
 
     /**
@@ -386,7 +386,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The name of the Apache Airflow Environment
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -400,7 +400,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
      * 
      */
-    @Export(name="networkConfiguration", type=EnvironmentNetworkConfiguration.class, parameters={})
+    @Export(name="networkConfiguration", refs={EnvironmentNetworkConfiguration.class}, tree="[0]")
     private Output<EnvironmentNetworkConfiguration> networkConfiguration;
 
     /**
@@ -414,7 +414,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The plugins.zip file version you want to use.
      * 
      */
-    @Export(name="pluginsS3ObjectVersion", type=String.class, parameters={})
+    @Export(name="pluginsS3ObjectVersion", refs={String.class}, tree="[0]")
     private Output<String> pluginsS3ObjectVersion;
 
     /**
@@ -428,7 +428,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
-    @Export(name="pluginsS3Path", type=String.class, parameters={})
+    @Export(name="pluginsS3Path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pluginsS3Path;
 
     /**
@@ -442,7 +442,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The requirements.txt file version you want to use.
      * 
      */
-    @Export(name="requirementsS3ObjectVersion", type=String.class, parameters={})
+    @Export(name="requirementsS3ObjectVersion", refs={String.class}, tree="[0]")
     private Output<String> requirementsS3ObjectVersion;
 
     /**
@@ -456,7 +456,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
-    @Export(name="requirementsS3Path", type=String.class, parameters={})
+    @Export(name="requirementsS3Path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requirementsS3Path;
 
     /**
@@ -470,7 +470,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
      * 
      */
-    @Export(name="schedulers", type=Integer.class, parameters={})
+    @Export(name="schedulers", refs={Integer.class}, tree="[0]")
     private Output<Integer> schedulers;
 
     /**
@@ -484,7 +484,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The Service Role ARN of the Amazon MWAA Environment
      * 
      */
-    @Export(name="serviceRoleArn", type=String.class, parameters={})
+    @Export(name="serviceRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceRoleArn;
 
     /**
@@ -498,7 +498,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
      * 
      */
-    @Export(name="sourceBucketArn", type=String.class, parameters={})
+    @Export(name="sourceBucketArn", refs={String.class}, tree="[0]")
     private Output<String> sourceBucketArn;
 
     /**
@@ -512,7 +512,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The status of the Amazon MWAA Environment
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -526,7 +526,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -540,7 +540,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -554,7 +554,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      * 
      */
-    @Export(name="webserverAccessMode", type=String.class, parameters={})
+    @Export(name="webserverAccessMode", refs={String.class}, tree="[0]")
     private Output<String> webserverAccessMode;
 
     /**
@@ -568,7 +568,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The webserver URL of the MWAA Environment
      * 
      */
-    @Export(name="webserverUrl", type=String.class, parameters={})
+    @Export(name="webserverUrl", refs={String.class}, tree="[0]")
     private Output<String> webserverUrl;
 
     /**
@@ -582,7 +582,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Specifies the start date for the weekly maintenance window.
      * 
      */
-    @Export(name="weeklyMaintenanceWindowStart", type=String.class, parameters={})
+    @Export(name="weeklyMaintenanceWindowStart", refs={String.class}, tree="[0]")
     private Output<String> weeklyMaintenanceWindowStart;
 
     /**

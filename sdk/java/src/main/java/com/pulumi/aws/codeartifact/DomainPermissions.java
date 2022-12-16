@@ -87,7 +87,7 @@ public class DomainPermissions extends com.pulumi.resources.CustomResource {
      * The name of the domain on which to set the resource policy.
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
@@ -101,7 +101,7 @@ public class DomainPermissions extends com.pulumi.resources.CustomResource {
      * The account number of the AWS account that owns the domain.
      * 
      */
-    @Export(name="domainOwner", type=String.class, parameters={})
+    @Export(name="domainOwner", refs={String.class}, tree="[0]")
     private Output<String> domainOwner;
 
     /**
@@ -115,7 +115,7 @@ public class DomainPermissions extends com.pulumi.resources.CustomResource {
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      * 
      */
-    @Export(name="policyDocument", type=String.class, parameters={})
+    @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output<String> policyDocument;
 
     /**
@@ -129,7 +129,7 @@ public class DomainPermissions extends com.pulumi.resources.CustomResource {
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
      * 
      */
-    @Export(name="policyRevision", type=String.class, parameters={})
+    @Export(name="policyRevision", refs={String.class}, tree="[0]")
     private Output<String> policyRevision;
 
     /**
@@ -143,7 +143,7 @@ public class DomainPermissions extends com.pulumi.resources.CustomResource {
      * The ARN of the resource associated with the resource policy.
      * 
      */
-    @Export(name="resourceArn", type=String.class, parameters={})
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**

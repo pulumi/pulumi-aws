@@ -82,7 +82,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The ARN assigned by AWS for this resource group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -96,7 +96,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
      * 
      */
-    @Export(name="configurations", type=List.class, parameters={GroupConfiguration.class})
+    @Export(name="configurations", refs={List.class,GroupConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GroupConfiguration>> configurations;
 
     /**
@@ -110,7 +110,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A description of the resource group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -124,7 +124,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The resource group&#39;s name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -138,7 +138,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A `resource_query` block. Resource queries are documented below.
      * 
      */
-    @Export(name="resourceQuery", type=GroupResourceQuery.class, parameters={})
+    @Export(name="resourceQuery", refs={GroupResourceQuery.class}, tree="[0]")
     private Output</* @Nullable */ GroupResourceQuery> resourceQuery;
 
     /**
@@ -152,7 +152,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -166,7 +166,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

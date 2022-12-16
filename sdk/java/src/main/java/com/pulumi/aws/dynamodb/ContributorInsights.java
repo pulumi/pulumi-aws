@@ -62,7 +62,7 @@ public class ContributorInsights extends com.pulumi.resources.CustomResource {
      * The global secondary index name
      * 
      */
-    @Export(name="indexName", type=String.class, parameters={})
+    @Export(name="indexName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> indexName;
 
     /**
@@ -76,7 +76,7 @@ public class ContributorInsights extends com.pulumi.resources.CustomResource {
      * The name of the table to enable contributor insights
      * 
      */
-    @Export(name="tableName", type=String.class, parameters={})
+    @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     /**

@@ -71,7 +71,7 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      * The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
      * 
      */
-    @Export(name="authenticationProtocol", type=String.class, parameters={})
+    @Export(name="authenticationProtocol", refs={String.class}, tree="[0]")
     private Output<String> authenticationProtocol;
 
     /**
@@ -85,7 +85,7 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      * The identifier of the directory for which you want to manager RADIUS settings.
      * 
      */
-    @Export(name="directoryId", type=String.class, parameters={})
+    @Export(name="directoryId", refs={String.class}, tree="[0]")
     private Output<String> directoryId;
 
     /**
@@ -99,7 +99,7 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      * Display label.
      * 
      */
-    @Export(name="displayLabel", type=String.class, parameters={})
+    @Export(name="displayLabel", refs={String.class}, tree="[0]")
     private Output<String> displayLabel;
 
     /**
@@ -113,7 +113,7 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      * The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
      * 
      */
-    @Export(name="radiusPort", type=Integer.class, parameters={})
+    @Export(name="radiusPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> radiusPort;
 
     /**
@@ -127,7 +127,7 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      * The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
      * 
      */
-    @Export(name="radiusRetries", type=Integer.class, parameters={})
+    @Export(name="radiusRetries", refs={Integer.class}, tree="[0]")
     private Output<Integer> radiusRetries;
 
     /**
@@ -141,7 +141,7 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      * An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
      * 
      */
-    @Export(name="radiusServers", type=List.class, parameters={String.class})
+    @Export(name="radiusServers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> radiusServers;
 
     /**
@@ -155,7 +155,7 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      * The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
      * 
      */
-    @Export(name="radiusTimeout", type=Integer.class, parameters={})
+    @Export(name="radiusTimeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> radiusTimeout;
 
     /**
@@ -169,7 +169,7 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      * Required for enabling RADIUS on the directory.
      * 
      */
-    @Export(name="sharedSecret", type=String.class, parameters={})
+    @Export(name="sharedSecret", refs={String.class}, tree="[0]")
     private Output<String> sharedSecret;
 
     /**
@@ -183,7 +183,7 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      * Not currently used.
      * 
      */
-    @Export(name="useSameUsername", type=Boolean.class, parameters={})
+    @Export(name="useSameUsername", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useSameUsername;
 
     /**

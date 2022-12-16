@@ -157,7 +157,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Whether to add column name information to the .csv output file. Default is `false`.
      * 
      */
-    @Export(name="addColumnName", type=Boolean.class, parameters={})
+    @Export(name="addColumnName", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> addColumnName;
 
     /**
@@ -171,7 +171,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Whether to add padding. Default is `false`. (Ignored for source endpoints.)
      * 
      */
-    @Export(name="addTrailingPaddingCharacter", type=Boolean.class, parameters={})
+    @Export(name="addTrailingPaddingCharacter", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> addTrailingPaddingCharacter;
 
     /**
@@ -185,7 +185,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * S3 object prefix.
      * 
      */
-    @Export(name="bucketFolder", type=String.class, parameters={})
+    @Export(name="bucketFolder", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bucketFolder;
 
     /**
@@ -199,7 +199,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * S3 bucket name.
      * 
      */
-    @Export(name="bucketName", type=String.class, parameters={})
+    @Export(name="bucketName", refs={String.class}, tree="[0]")
     private Output<String> bucketName;
 
     /**
@@ -213,7 +213,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
      * 
      */
-    @Export(name="cannedAclForObjects", type=String.class, parameters={})
+    @Export(name="cannedAclForObjects", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cannedAclForObjects;
 
     /**
@@ -227,7 +227,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
      * 
      */
-    @Export(name="cdcInsertsAndUpdates", type=Boolean.class, parameters={})
+    @Export(name="cdcInsertsAndUpdates", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cdcInsertsAndUpdates;
 
     /**
@@ -241,7 +241,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Whether to write insert operations to .csv or .parquet output files. Default is `false`.
      * 
      */
-    @Export(name="cdcInsertsOnly", type=Boolean.class, parameters={})
+    @Export(name="cdcInsertsOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cdcInsertsOnly;
 
     /**
@@ -255,7 +255,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
      * 
      */
-    @Export(name="cdcMaxBatchInterval", type=Integer.class, parameters={})
+    @Export(name="cdcMaxBatchInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> cdcMaxBatchInterval;
 
     /**
@@ -269,7 +269,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
      * 
      */
-    @Export(name="cdcMinFileSize", type=Integer.class, parameters={})
+    @Export(name="cdcMinFileSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> cdcMinFileSize;
 
     /**
@@ -283,7 +283,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
      * 
      */
-    @Export(name="cdcPath", type=String.class, parameters={})
+    @Export(name="cdcPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cdcPath;
 
     /**
@@ -297,7 +297,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * ARN for the certificate.
      * 
      */
-    @Export(name="certificateArn", type=String.class, parameters={})
+    @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output<String> certificateArn;
 
     /**
@@ -311,7 +311,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
      * 
      */
-    @Export(name="compressionType", type=String.class, parameters={})
+    @Export(name="compressionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> compressionType;
 
     /**
@@ -325,7 +325,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Delimiter used to separate columns in the source files. Default is `,`.
      * 
      */
-    @Export(name="csvDelimiter", type=String.class, parameters={})
+    @Export(name="csvDelimiter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> csvDelimiter;
 
     /**
@@ -339,7 +339,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
      * 
      */
-    @Export(name="csvNoSupValue", type=String.class, parameters={})
+    @Export(name="csvNoSupValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> csvNoSupValue;
 
     /**
@@ -353,7 +353,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * String to as null when writing to the target. (AWS default is `NULL`.)
      * 
      */
-    @Export(name="csvNullValue", type=String.class, parameters={})
+    @Export(name="csvNullValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> csvNullValue;
 
     /**
@@ -367,7 +367,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
      * 
      */
-    @Export(name="csvRowDelimiter", type=String.class, parameters={})
+    @Export(name="csvRowDelimiter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> csvRowDelimiter;
 
     /**
@@ -381,7 +381,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
      * 
      */
-    @Export(name="dataFormat", type=String.class, parameters={})
+    @Export(name="dataFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dataFormat;
 
     /**
@@ -395,7 +395,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
      * 
      */
-    @Export(name="dataPageSize", type=Integer.class, parameters={})
+    @Export(name="dataPageSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dataPageSize;
 
     /**
@@ -409,7 +409,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
      * 
      */
-    @Export(name="datePartitionDelimiter", type=String.class, parameters={})
+    @Export(name="datePartitionDelimiter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> datePartitionDelimiter;
 
     /**
@@ -423,7 +423,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Partition S3 bucket folders based on transaction commit dates. Default is `false`.
      * 
      */
-    @Export(name="datePartitionEnabled", type=Boolean.class, parameters={})
+    @Export(name="datePartitionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> datePartitionEnabled;
 
     /**
@@ -437,7 +437,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
      * 
      */
-    @Export(name="datePartitionSequence", type=String.class, parameters={})
+    @Export(name="datePartitionSequence", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> datePartitionSequence;
 
     /**
@@ -451,7 +451,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
      * 
      */
-    @Export(name="datePartitionTimezone", type=String.class, parameters={})
+    @Export(name="datePartitionTimezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> datePartitionTimezone;
 
     /**
@@ -465,7 +465,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
      * 
      */
-    @Export(name="dictPageSizeLimit", type=Integer.class, parameters={})
+    @Export(name="dictPageSizeLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dictPageSizeLimit;
 
     /**
@@ -479,7 +479,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Whether to enable statistics for Parquet pages and row groups. Default is `true`.
      * 
      */
-    @Export(name="enableStatistics", type=Boolean.class, parameters={})
+    @Export(name="enableStatistics", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableStatistics;
 
     /**
@@ -493,7 +493,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
      * 
      */
-    @Export(name="encodingType", type=String.class, parameters={})
+    @Export(name="encodingType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encodingType;
 
     /**
@@ -507,7 +507,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
      * 
      */
-    @Export(name="encryptionMode", type=String.class, parameters={})
+    @Export(name="encryptionMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptionMode;
 
     /**
@@ -521,7 +521,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * ARN for the endpoint.
      * 
      */
-    @Export(name="endpointArn", type=String.class, parameters={})
+    @Export(name="endpointArn", refs={String.class}, tree="[0]")
     private Output<String> endpointArn;
 
     /**
@@ -535,7 +535,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      * 
      */
-    @Export(name="endpointId", type=String.class, parameters={})
+    @Export(name="endpointId", refs={String.class}, tree="[0]")
     private Output<String> endpointId;
 
     /**
@@ -549,7 +549,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Type of endpoint. Valid values are `source`, `target`.
      * 
      */
-    @Export(name="endpointType", type=String.class, parameters={})
+    @Export(name="endpointType", refs={String.class}, tree="[0]")
     private Output<String> endpointType;
 
     /**
@@ -563,7 +563,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Expanded name for the engine name.
      * 
      */
-    @Export(name="engineDisplayName", type=String.class, parameters={})
+    @Export(name="engineDisplayName", refs={String.class}, tree="[0]")
     private Output<String> engineDisplayName;
 
     /**
@@ -577,7 +577,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Bucket owner to prevent sniping. Value is an AWS account ID.
      * 
      */
-    @Export(name="expectedBucketOwner", type=String.class, parameters={})
+    @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
@@ -591,7 +591,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Can be used for cross-account validation. Use it in another account with `aws.dms.S3Endpoint` to create the endpoint cross-account.
      * 
      */
-    @Export(name="externalId", type=String.class, parameters={})
+    @Export(name="externalId", refs={String.class}, tree="[0]")
     private Output<String> externalId;
 
     /**
@@ -605,7 +605,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * JSON document that describes how AWS DMS should interpret the data.
      * 
      */
-    @Export(name="externalTableDefinition", type=String.class, parameters={})
+    @Export(name="externalTableDefinition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> externalTableDefinition;
 
     /**
@@ -615,7 +615,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> externalTableDefinition() {
         return Codegen.optional(this.externalTableDefinition);
     }
-    @Export(name="ignoreHeaderRows", type=Integer.class, parameters={})
+    @Export(name="ignoreHeaderRows", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ignoreHeaderRows;
 
     public Output<Optional<Integer>> ignoreHeaderRows() {
@@ -625,7 +625,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
      * 
      */
-    @Export(name="includeOpForFullLoad", type=Boolean.class, parameters={})
+    @Export(name="includeOpForFullLoad", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> includeOpForFullLoad;
 
     /**
@@ -639,7 +639,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
-    @Export(name="kmsKeyArn", type=String.class, parameters={})
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
     /**
@@ -653,7 +653,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
      * 
      */
-    @Export(name="maxFileSize", type=Integer.class, parameters={})
+    @Export(name="maxFileSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxFileSize;
 
     /**
@@ -667,7 +667,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
      * 
      */
-    @Export(name="parquetTimestampInMillisecond", type=Boolean.class, parameters={})
+    @Export(name="parquetTimestampInMillisecond", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> parquetTimestampInMillisecond;
 
     /**
@@ -681,7 +681,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
      * 
      */
-    @Export(name="parquetVersion", type=String.class, parameters={})
+    @Export(name="parquetVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parquetVersion;
 
     /**
@@ -695,7 +695,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
      * 
      */
-    @Export(name="preserveTransactions", type=Boolean.class, parameters={})
+    @Export(name="preserveTransactions", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> preserveTransactions;
 
     /**
@@ -709,7 +709,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
      * 
      */
-    @Export(name="rfc4180", type=Boolean.class, parameters={})
+    @Export(name="rfc4180", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rfc4180;
 
     /**
@@ -723,7 +723,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Number of rows in a row group. (AWS default is `10000`.)
      * 
      */
-    @Export(name="rowGroupLength", type=Integer.class, parameters={})
+    @Export(name="rowGroupLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> rowGroupLength;
 
     /**
@@ -737,7 +737,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
      * 
      */
-    @Export(name="serverSideEncryptionKmsKeyId", type=String.class, parameters={})
+    @Export(name="serverSideEncryptionKmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serverSideEncryptionKmsKeyId;
 
     /**
@@ -751,7 +751,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * ARN of the IAM role with permissions to the S3 Bucket.
      * 
      */
-    @Export(name="serviceAccessRoleArn", type=String.class, parameters={})
+    @Export(name="serviceAccessRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceAccessRoleArn;
 
     /**
@@ -765,7 +765,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
      * 
      */
-    @Export(name="sslMode", type=String.class, parameters={})
+    @Export(name="sslMode", refs={String.class}, tree="[0]")
     private Output<String> sslMode;
 
     /**
@@ -779,7 +779,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Status of the endpoint.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -793,7 +793,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -807,7 +807,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -821,7 +821,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Column to add with timestamp information to the endpoint data for an Amazon S3 target.
      * 
      */
-    @Export(name="timestampColumnName", type=String.class, parameters={})
+    @Export(name="timestampColumnName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timestampColumnName;
 
     /**
@@ -835,7 +835,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
      * 
      */
-    @Export(name="useCsvNoSupValue", type=Boolean.class, parameters={})
+    @Export(name="useCsvNoSupValue", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useCsvNoSupValue;
 
     /**
@@ -849,7 +849,7 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      * When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
      * 
      */
-    @Export(name="useTaskStartTimeForFullLoadTimestamp", type=Boolean.class, parameters={})
+    @Export(name="useTaskStartTimeForFullLoadTimestamp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useTaskStartTimeForFullLoadTimestamp;
 
     /**

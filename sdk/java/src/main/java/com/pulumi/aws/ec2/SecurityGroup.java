@@ -210,7 +210,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * ARN of the security group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -224,7 +224,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * Description of this egress rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -238,7 +238,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
-    @Export(name="egress", type=List.class, parameters={SecurityGroupEgress.class})
+    @Export(name="egress", refs={List.class,SecurityGroupEgress.class}, tree="[0,1]")
     private Output<List<SecurityGroupEgress>> egress;
 
     /**
@@ -252,7 +252,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
-    @Export(name="ingress", type=List.class, parameters={SecurityGroupIngress.class})
+    @Export(name="ingress", refs={List.class,SecurityGroupIngress.class}, tree="[0,1]")
     private Output<List<SecurityGroupIngress>> ingress;
 
     /**
@@ -266,7 +266,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * Name of the security group. If omitted, this provider will assign a random, unique name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -280,7 +280,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -294,7 +294,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * Owner ID.
      * 
      */
-    @Export(name="ownerId", type=String.class, parameters={})
+    @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
@@ -308,7 +308,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
      * 
      */
-    @Export(name="revokeRulesOnDelete", type=Boolean.class, parameters={})
+    @Export(name="revokeRulesOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revokeRulesOnDelete;
 
     /**
@@ -322,7 +322,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -336,7 +336,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -351,7 +351,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
      * Defaults to the region&#39;s default VPC.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**

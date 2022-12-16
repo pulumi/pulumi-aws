@@ -76,7 +76,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    @Export(name="addressFamily", type=String.class, parameters={})
+    @Export(name="addressFamily", refs={String.class}, tree="[0]")
     private Output<String> addressFamily;
 
     /**
@@ -90,7 +90,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      * 
      */
-    @Export(name="amazonAddress", type=String.class, parameters={})
+    @Export(name="amazonAddress", refs={String.class}, tree="[0]")
     private Output<String> amazonAddress;
 
     /**
@@ -100,7 +100,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
     public Output<String> amazonAddress() {
         return this.amazonAddress;
     }
-    @Export(name="amazonSideAsn", type=String.class, parameters={})
+    @Export(name="amazonSideAsn", refs={String.class}, tree="[0]")
     private Output<String> amazonSideAsn;
 
     public Output<String> amazonSideAsn() {
@@ -110,7 +110,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * The ARN of the virtual interface.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -124,7 +124,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * The Direct Connect endpoint on which the virtual interface terminates.
      * 
      */
-    @Export(name="awsDevice", type=String.class, parameters={})
+    @Export(name="awsDevice", refs={String.class}, tree="[0]")
     private Output<String> awsDevice;
 
     /**
@@ -138,7 +138,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    @Export(name="bgpAsn", type=Integer.class, parameters={})
+    @Export(name="bgpAsn", refs={Integer.class}, tree="[0]")
     private Output<Integer> bgpAsn;
 
     /**
@@ -152,7 +152,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * The authentication key for BGP configuration.
      * 
      */
-    @Export(name="bgpAuthKey", type=String.class, parameters={})
+    @Export(name="bgpAuthKey", refs={String.class}, tree="[0]")
     private Output<String> bgpAuthKey;
 
     /**
@@ -166,7 +166,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      * 
      */
-    @Export(name="connectionId", type=String.class, parameters={})
+    @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
     /**
@@ -180,7 +180,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      * 
      */
-    @Export(name="customerAddress", type=String.class, parameters={})
+    @Export(name="customerAddress", refs={String.class}, tree="[0]")
     private Output<String> customerAddress;
 
     /**
@@ -194,7 +194,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      * 
      */
-    @Export(name="dxGatewayId", type=String.class, parameters={})
+    @Export(name="dxGatewayId", refs={String.class}, tree="[0]")
     private Output<String> dxGatewayId;
 
     /**
@@ -208,7 +208,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * Indicates whether jumbo frames (8500 MTU) are supported.
      * 
      */
-    @Export(name="jumboFrameCapable", type=Boolean.class, parameters={})
+    @Export(name="jumboFrameCapable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> jumboFrameCapable;
 
     /**
@@ -223,7 +223,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
      * 
      */
-    @Export(name="mtu", type=Integer.class, parameters={})
+    @Export(name="mtu", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> mtu;
 
     /**
@@ -238,7 +238,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * The name for the virtual interface.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -248,7 +248,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="sitelinkEnabled", type=Boolean.class, parameters={})
+    @Export(name="sitelinkEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sitelinkEnabled;
 
     public Output<Optional<Boolean>> sitelinkEnabled() {
@@ -258,7 +258,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -272,7 +272,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -286,7 +286,7 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
      * The VLAN ID.
      * 
      */
-    @Export(name="vlan", type=Integer.class, parameters={})
+    @Export(name="vlan", refs={Integer.class}, tree="[0]")
     private Output<Integer> vlan;
 
     /**

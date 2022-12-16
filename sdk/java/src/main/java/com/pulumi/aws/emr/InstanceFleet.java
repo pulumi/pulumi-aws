@@ -104,7 +104,7 @@ public class InstanceFleet extends com.pulumi.resources.CustomResource {
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterId", type=String.class, parameters={})
+    @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
     /**
@@ -118,7 +118,7 @@ public class InstanceFleet extends com.pulumi.resources.CustomResource {
      * Configuration block for instance fleet
      * 
      */
-    @Export(name="instanceTypeConfigs", type=List.class, parameters={InstanceFleetInstanceTypeConfig.class})
+    @Export(name="instanceTypeConfigs", refs={List.class,InstanceFleetInstanceTypeConfig.class}, tree="[0,1]")
     private Output</* @Nullable */ List<InstanceFleetInstanceTypeConfig>> instanceTypeConfigs;
 
     /**
@@ -132,7 +132,7 @@ public class InstanceFleet extends com.pulumi.resources.CustomResource {
      * Configuration block for launch specification
      * 
      */
-    @Export(name="launchSpecifications", type=InstanceFleetLaunchSpecifications.class, parameters={})
+    @Export(name="launchSpecifications", refs={InstanceFleetLaunchSpecifications.class}, tree="[0]")
     private Output</* @Nullable */ InstanceFleetLaunchSpecifications> launchSpecifications;
 
     /**
@@ -146,7 +146,7 @@ public class InstanceFleet extends com.pulumi.resources.CustomResource {
      * Friendly name given to the instance fleet.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -156,13 +156,13 @@ public class InstanceFleet extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="provisionedOnDemandCapacity", type=Integer.class, parameters={})
+    @Export(name="provisionedOnDemandCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> provisionedOnDemandCapacity;
 
     public Output<Integer> provisionedOnDemandCapacity() {
         return this.provisionedOnDemandCapacity;
     }
-    @Export(name="provisionedSpotCapacity", type=Integer.class, parameters={})
+    @Export(name="provisionedSpotCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> provisionedSpotCapacity;
 
     public Output<Integer> provisionedSpotCapacity() {
@@ -172,7 +172,7 @@ public class InstanceFleet extends com.pulumi.resources.CustomResource {
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      * 
      */
-    @Export(name="targetOnDemandCapacity", type=Integer.class, parameters={})
+    @Export(name="targetOnDemandCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> targetOnDemandCapacity;
 
     /**
@@ -186,7 +186,7 @@ public class InstanceFleet extends com.pulumi.resources.CustomResource {
      * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
      * 
      */
-    @Export(name="targetSpotCapacity", type=Integer.class, parameters={})
+    @Export(name="targetSpotCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> targetSpotCapacity;
 
     /**

@@ -73,7 +73,7 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
      * ARN of the Recording Configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -87,7 +87,7 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
      * Object containing destination configuration for where recorded video will be stored.
      * 
      */
-    @Export(name="destinationConfiguration", type=RecordingConfigurationDestinationConfiguration.class, parameters={})
+    @Export(name="destinationConfiguration", refs={RecordingConfigurationDestinationConfiguration.class}, tree="[0]")
     private Output<RecordingConfigurationDestinationConfiguration> destinationConfiguration;
 
     /**
@@ -101,7 +101,7 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
      * Recording Configuration name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
      * If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
      * 
      */
-    @Export(name="recordingReconnectWindowSeconds", type=Integer.class, parameters={})
+    @Export(name="recordingReconnectWindowSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> recordingReconnectWindowSeconds;
 
     /**
@@ -129,7 +129,7 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
      * The current state of the Recording Configuration.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -143,7 +143,7 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -157,7 +157,7 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -171,7 +171,7 @@ public class RecordingConfiguration extends com.pulumi.resources.CustomResource 
      * Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
      * 
      */
-    @Export(name="thumbnailConfiguration", type=RecordingConfigurationThumbnailConfiguration.class, parameters={})
+    @Export(name="thumbnailConfiguration", refs={RecordingConfigurationThumbnailConfiguration.class}, tree="[0]")
     private Output<RecordingConfigurationThumbnailConfiguration> thumbnailConfiguration;
 
     /**

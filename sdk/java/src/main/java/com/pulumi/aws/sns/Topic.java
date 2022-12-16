@@ -175,7 +175,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * IAM role for failure feedback
      * 
      */
-    @Export(name="applicationFailureFeedbackRoleArn", type=String.class, parameters={})
+    @Export(name="applicationFailureFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> applicationFailureFeedbackRoleArn;
 
     /**
@@ -189,7 +189,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The IAM role permitted to receive success feedback for this topic
      * 
      */
-    @Export(name="applicationSuccessFeedbackRoleArn", type=String.class, parameters={})
+    @Export(name="applicationSuccessFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> applicationSuccessFeedbackRoleArn;
 
     /**
@@ -203,7 +203,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Percentage of success to sample
      * 
      */
-    @Export(name="applicationSuccessFeedbackSampleRate", type=Integer.class, parameters={})
+    @Export(name="applicationSuccessFeedbackSampleRate", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> applicationSuccessFeedbackSampleRate;
 
     /**
@@ -217,7 +217,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The ARN of the SNS topic, as a more obvious property (clone of id)
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -231,7 +231,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
      * 
      */
-    @Export(name="contentBasedDeduplication", type=Boolean.class, parameters={})
+    @Export(name="contentBasedDeduplication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> contentBasedDeduplication;
 
     /**
@@ -245,7 +245,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
      * 
      */
-    @Export(name="deliveryPolicy", type=String.class, parameters={})
+    @Export(name="deliveryPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryPolicy;
 
     /**
@@ -259,7 +259,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The display name for the topic
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -273,7 +273,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
      * 
      */
-    @Export(name="fifoTopic", type=Boolean.class, parameters={})
+    @Export(name="fifoTopic", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> fifoTopic;
 
     /**
@@ -287,7 +287,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * IAM role for failure feedback
      * 
      */
-    @Export(name="firehoseFailureFeedbackRoleArn", type=String.class, parameters={})
+    @Export(name="firehoseFailureFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> firehoseFailureFeedbackRoleArn;
 
     /**
@@ -301,7 +301,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The IAM role permitted to receive success feedback for this topic
      * 
      */
-    @Export(name="firehoseSuccessFeedbackRoleArn", type=String.class, parameters={})
+    @Export(name="firehoseSuccessFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> firehoseSuccessFeedbackRoleArn;
 
     /**
@@ -315,7 +315,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Percentage of success to sample
      * 
      */
-    @Export(name="firehoseSuccessFeedbackSampleRate", type=Integer.class, parameters={})
+    @Export(name="firehoseSuccessFeedbackSampleRate", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> firehoseSuccessFeedbackSampleRate;
 
     /**
@@ -329,7 +329,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * IAM role for failure feedback
      * 
      */
-    @Export(name="httpFailureFeedbackRoleArn", type=String.class, parameters={})
+    @Export(name="httpFailureFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpFailureFeedbackRoleArn;
 
     /**
@@ -343,7 +343,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The IAM role permitted to receive success feedback for this topic
      * 
      */
-    @Export(name="httpSuccessFeedbackRoleArn", type=String.class, parameters={})
+    @Export(name="httpSuccessFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpSuccessFeedbackRoleArn;
 
     /**
@@ -357,7 +357,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Percentage of success to sample
      * 
      */
-    @Export(name="httpSuccessFeedbackSampleRate", type=Integer.class, parameters={})
+    @Export(name="httpSuccessFeedbackSampleRate", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> httpSuccessFeedbackSampleRate;
 
     /**
@@ -371,7 +371,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
      * 
      */
-    @Export(name="kmsMasterKeyId", type=String.class, parameters={})
+    @Export(name="kmsMasterKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsMasterKeyId;
 
     /**
@@ -385,7 +385,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * IAM role for failure feedback
      * 
      */
-    @Export(name="lambdaFailureFeedbackRoleArn", type=String.class, parameters={})
+    @Export(name="lambdaFailureFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lambdaFailureFeedbackRoleArn;
 
     /**
@@ -399,7 +399,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The IAM role permitted to receive success feedback for this topic
      * 
      */
-    @Export(name="lambdaSuccessFeedbackRoleArn", type=String.class, parameters={})
+    @Export(name="lambdaSuccessFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lambdaSuccessFeedbackRoleArn;
 
     /**
@@ -413,7 +413,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Percentage of success to sample
      * 
      */
-    @Export(name="lambdaSuccessFeedbackSampleRate", type=Integer.class, parameters={})
+    @Export(name="lambdaSuccessFeedbackSampleRate", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> lambdaSuccessFeedbackSampleRate;
 
     /**
@@ -427,7 +427,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -441,7 +441,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -455,7 +455,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The AWS Account ID of the SNS topic owner
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -469,7 +469,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The fully-formed AWS policy as JSON.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -483,7 +483,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * IAM role for failure feedback
      * 
      */
-    @Export(name="sqsFailureFeedbackRoleArn", type=String.class, parameters={})
+    @Export(name="sqsFailureFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqsFailureFeedbackRoleArn;
 
     /**
@@ -497,7 +497,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The IAM role permitted to receive success feedback for this topic
      * 
      */
-    @Export(name="sqsSuccessFeedbackRoleArn", type=String.class, parameters={})
+    @Export(name="sqsSuccessFeedbackRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqsSuccessFeedbackRoleArn;
 
     /**
@@ -511,7 +511,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Percentage of success to sample
      * 
      */
-    @Export(name="sqsSuccessFeedbackSampleRate", type=Integer.class, parameters={})
+    @Export(name="sqsSuccessFeedbackSampleRate", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> sqsSuccessFeedbackSampleRate;
 
     /**
@@ -525,7 +525,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -539,7 +539,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

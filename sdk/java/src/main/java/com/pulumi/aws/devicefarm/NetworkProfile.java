@@ -69,7 +69,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name of this network profile.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * The description of the network profile.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -97,7 +97,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
      * 
      */
-    @Export(name="downlinkBandwidthBits", type=Integer.class, parameters={})
+    @Export(name="downlinkBandwidthBits", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> downlinkBandwidthBits;
 
     /**
@@ -111,7 +111,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
      * 
      */
-    @Export(name="downlinkDelayMs", type=Integer.class, parameters={})
+    @Export(name="downlinkDelayMs", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> downlinkDelayMs;
 
     /**
@@ -125,7 +125,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
      * 
      */
-    @Export(name="downlinkJitterMs", type=Integer.class, parameters={})
+    @Export(name="downlinkJitterMs", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> downlinkJitterMs;
 
     /**
@@ -139,7 +139,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * Proportion of received packets that fail to arrive from `0` to `100` percent.
      * 
      */
-    @Export(name="downlinkLossPercent", type=Integer.class, parameters={})
+    @Export(name="downlinkLossPercent", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> downlinkLossPercent;
 
     /**
@@ -153,7 +153,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * The name for the network profile.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -167,7 +167,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * The ARN of the project for the network profile.
      * 
      */
-    @Export(name="projectArn", type=String.class, parameters={})
+    @Export(name="projectArn", refs={String.class}, tree="[0]")
     private Output<String> projectArn;
 
     /**
@@ -181,7 +181,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -195,7 +195,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -209,7 +209,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -223,7 +223,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
      * 
      */
-    @Export(name="uplinkBandwidthBits", type=Integer.class, parameters={})
+    @Export(name="uplinkBandwidthBits", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> uplinkBandwidthBits;
 
     /**
@@ -237,7 +237,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
      * 
      */
-    @Export(name="uplinkDelayMs", type=Integer.class, parameters={})
+    @Export(name="uplinkDelayMs", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> uplinkDelayMs;
 
     /**
@@ -251,7 +251,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
      * 
      */
-    @Export(name="uplinkJitterMs", type=Integer.class, parameters={})
+    @Export(name="uplinkJitterMs", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> uplinkJitterMs;
 
     /**
@@ -265,7 +265,7 @@ public class NetworkProfile extends com.pulumi.resources.CustomResource {
      * Proportion of received packets that fail to arrive from `0` to `100` percent.
      * 
      */
-    @Export(name="uplinkLossPercent", type=Integer.class, parameters={})
+    @Export(name="uplinkLossPercent", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> uplinkLossPercent;
 
     /**

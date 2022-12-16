@@ -125,7 +125,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -139,7 +139,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * Audio parameters object (documented below).
      * 
      */
-    @Export(name="audio", type=PresetAudio.class, parameters={})
+    @Export(name="audio", refs={PresetAudio.class}, tree="[0]")
     private Output</* @Nullable */ PresetAudio> audio;
 
     /**
@@ -153,7 +153,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * Codec options for the audio parameters (documented below)
      * 
      */
-    @Export(name="audioCodecOptions", type=PresetAudioCodecOptions.class, parameters={})
+    @Export(name="audioCodecOptions", refs={PresetAudioCodecOptions.class}, tree="[0]")
     private Output<PresetAudioCodecOptions> audioCodecOptions;
 
     /**
@@ -167,7 +167,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      * 
      */
-    @Export(name="container", type=String.class, parameters={})
+    @Export(name="container", refs={String.class}, tree="[0]")
     private Output<String> container;
 
     /**
@@ -181,7 +181,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * A description of the preset (maximum 255 characters)
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -195,7 +195,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * The name of the preset. (maximum 40 characters)
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -209,7 +209,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * Thumbnail parameters object (documented below)
      * 
      */
-    @Export(name="thumbnails", type=PresetThumbnails.class, parameters={})
+    @Export(name="thumbnails", refs={PresetThumbnails.class}, tree="[0]")
     private Output</* @Nullable */ PresetThumbnails> thumbnails;
 
     /**
@@ -219,7 +219,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
     public Output<Optional<PresetThumbnails>> thumbnails() {
         return Codegen.optional(this.thumbnails);
     }
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     public Output<String> type() {
@@ -229,7 +229,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * Video parameters object (documented below)
      * 
      */
-    @Export(name="video", type=PresetVideo.class, parameters={})
+    @Export(name="video", refs={PresetVideo.class}, tree="[0]")
     private Output</* @Nullable */ PresetVideo> video;
 
     /**
@@ -243,7 +243,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * Codec options for the video parameters
      * 
      */
-    @Export(name="videoCodecOptions", type=Map.class, parameters={String.class, String.class})
+    @Export(name="videoCodecOptions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> videoCodecOptions;
 
     /**
@@ -257,7 +257,7 @@ public class Preset extends com.pulumi.resources.CustomResource {
      * Watermark parameters for the video parameters (documented below)
      * 
      */
-    @Export(name="videoWatermarks", type=List.class, parameters={PresetVideoWatermark.class})
+    @Export(name="videoWatermarks", refs={List.class,PresetVideoWatermark.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PresetVideoWatermark>> videoWatermarks;
 
     /**

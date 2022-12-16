@@ -73,7 +73,7 @@ public class LbStickinessPolicy extends com.pulumi.resources.CustomResource {
      * The cookie duration in seconds. This determines the length of the session stickiness.
      * 
      */
-    @Export(name="cookieDuration", type=Integer.class, parameters={})
+    @Export(name="cookieDuration", refs={Integer.class}, tree="[0]")
     private Output<Integer> cookieDuration;
 
     /**
@@ -87,7 +87,7 @@ public class LbStickinessPolicy extends com.pulumi.resources.CustomResource {
      * - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -101,7 +101,7 @@ public class LbStickinessPolicy extends com.pulumi.resources.CustomResource {
      * The name of the load balancer to which you want to enable session stickiness.
      * 
      */
-    @Export(name="lbName", type=String.class, parameters={})
+    @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
     /**

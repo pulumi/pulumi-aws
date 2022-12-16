@@ -123,7 +123,7 @@ public class UserHierarchyStructure extends com.pulumi.resources.CustomResource 
      * A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
      * 
      */
-    @Export(name="hierarchyStructure", type=UserHierarchyStructureHierarchyStructure.class, parameters={})
+    @Export(name="hierarchyStructure", refs={UserHierarchyStructureHierarchyStructure.class}, tree="[0]")
     private Output<UserHierarchyStructureHierarchyStructure> hierarchyStructure;
 
     /**
@@ -137,7 +137,7 @@ public class UserHierarchyStructure extends com.pulumi.resources.CustomResource 
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**

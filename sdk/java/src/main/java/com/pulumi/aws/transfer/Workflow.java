@@ -127,7 +127,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The Workflow ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -141,7 +141,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * A textual description for the workflow.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -155,7 +155,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
      * 
      */
-    @Export(name="onExceptionSteps", type=List.class, parameters={WorkflowOnExceptionStep.class})
+    @Export(name="onExceptionSteps", refs={List.class,WorkflowOnExceptionStep.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WorkflowOnExceptionStep>> onExceptionSteps;
 
     /**
@@ -169,7 +169,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      * 
      */
-    @Export(name="steps", type=List.class, parameters={WorkflowStep.class})
+    @Export(name="steps", refs={List.class,WorkflowStep.class}, tree="[0,1]")
     private Output<List<WorkflowStep>> steps;
 
     /**
@@ -183,7 +183,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -197,7 +197,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

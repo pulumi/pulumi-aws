@@ -24,7 +24,7 @@ public class ControlTowerControl extends com.pulumi.resources.CustomResource {
      * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
      * 
      */
-    @Export(name="controlIdentifier", type=String.class, parameters={})
+    @Export(name="controlIdentifier", refs={String.class}, tree="[0]")
     private Output<String> controlIdentifier;
 
     /**
@@ -38,7 +38,7 @@ public class ControlTowerControl extends com.pulumi.resources.CustomResource {
      * The ARN of the organizational unit.
      * 
      */
-    @Export(name="targetIdentifier", type=String.class, parameters={})
+    @Export(name="targetIdentifier", refs={String.class}, tree="[0]")
     private Output<String> targetIdentifier;
 
     /**

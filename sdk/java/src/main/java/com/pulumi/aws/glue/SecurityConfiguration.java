@@ -77,7 +77,7 @@ public class SecurityConfiguration extends com.pulumi.resources.CustomResource {
      * Configuration block containing encryption configuration. Detailed below.
      * 
      */
-    @Export(name="encryptionConfiguration", type=SecurityConfigurationEncryptionConfiguration.class, parameters={})
+    @Export(name="encryptionConfiguration", refs={SecurityConfigurationEncryptionConfiguration.class}, tree="[0]")
     private Output<SecurityConfigurationEncryptionConfiguration> encryptionConfiguration;
 
     /**
@@ -91,7 +91,7 @@ public class SecurityConfiguration extends com.pulumi.resources.CustomResource {
      * Name of the security configuration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

@@ -57,7 +57,7 @@ public class RdsDbInstance extends com.pulumi.resources.CustomResource {
      * A db password
      * 
      */
-    @Export(name="dbPassword", type=String.class, parameters={})
+    @Export(name="dbPassword", refs={String.class}, tree="[0]")
     private Output<String> dbPassword;
 
     /**
@@ -71,7 +71,7 @@ public class RdsDbInstance extends com.pulumi.resources.CustomResource {
      * A db username
      * 
      */
-    @Export(name="dbUser", type=String.class, parameters={})
+    @Export(name="dbUser", refs={String.class}, tree="[0]")
     private Output<String> dbUser;
 
     /**
@@ -85,7 +85,7 @@ public class RdsDbInstance extends com.pulumi.resources.CustomResource {
      * The db instance to register for this stack. Changing this will force a new resource.
      * 
      */
-    @Export(name="rdsDbInstanceArn", type=String.class, parameters={})
+    @Export(name="rdsDbInstanceArn", refs={String.class}, tree="[0]")
     private Output<String> rdsDbInstanceArn;
 
     /**
@@ -99,7 +99,7 @@ public class RdsDbInstance extends com.pulumi.resources.CustomResource {
      * The stack to register a db instance for. Changing this will force a new resource.
      * 
      */
-    @Export(name="stackId", type=String.class, parameters={})
+    @Export(name="stackId", refs={String.class}, tree="[0]")
     private Output<String> stackId;
 
     /**

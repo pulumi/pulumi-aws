@@ -137,7 +137,7 @@ public class IdentityPoolRoleAttachment extends com.pulumi.resources.CustomResou
      * An identity pool ID in the format `REGION_GUID`.
      * 
      */
-    @Export(name="identityPoolId", type=String.class, parameters={})
+    @Export(name="identityPoolId", refs={String.class}, tree="[0]")
     private Output<String> identityPoolId;
 
     /**
@@ -151,7 +151,7 @@ public class IdentityPoolRoleAttachment extends com.pulumi.resources.CustomResou
      * A List of Role Mapping.
      * 
      */
-    @Export(name="roleMappings", type=List.class, parameters={IdentityPoolRoleAttachmentRoleMapping.class})
+    @Export(name="roleMappings", refs={List.class,IdentityPoolRoleAttachmentRoleMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IdentityPoolRoleAttachmentRoleMapping>> roleMappings;
 
     /**
@@ -165,7 +165,7 @@ public class IdentityPoolRoleAttachment extends com.pulumi.resources.CustomResou
      * The map of roles associated with this pool. For a given role, the key will be either &#34;authenticated&#34; or &#34;unauthenticated&#34; and the value will be the Role ARN.
      * 
      */
-    @Export(name="roles", type=Map.class, parameters={String.class, String.class})
+    @Export(name="roles", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> roles;
 
     /**

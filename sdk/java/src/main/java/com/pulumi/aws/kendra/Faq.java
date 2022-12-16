@@ -144,7 +144,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * ARN of the FAQ.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -158,7 +158,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * The Unix datetime that the FAQ was created.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -172,7 +172,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * The description for a FAQ.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -186,7 +186,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * When the Status field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    @Export(name="errorMessage", type=String.class, parameters={})
+    @Export(name="errorMessage", refs={String.class}, tree="[0]")
     private Output<String> errorMessage;
 
     /**
@@ -200,7 +200,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * The identifier of the FAQ.
      * 
      */
-    @Export(name="faqId", type=String.class, parameters={})
+    @Export(name="faqId", refs={String.class}, tree="[0]")
     private Output<String> faqId;
 
     /**
@@ -214,7 +214,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
      * 
      */
-    @Export(name="fileFormat", type=String.class, parameters={})
+    @Export(name="fileFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileFormat;
 
     /**
@@ -228,7 +228,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * The identifier of the index for a FAQ.
      * 
      */
-    @Export(name="indexId", type=String.class, parameters={})
+    @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
     /**
@@ -242,7 +242,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      * 
      */
-    @Export(name="languageCode", type=String.class, parameters={})
+    @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
@@ -256,7 +256,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * The name that should be associated with the FAQ.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -270,7 +270,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
@@ -284,7 +284,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * The S3 location of the FAQ input data. Detailed below.
      * 
      */
-    @Export(name="s3Path", type=FaqS3Path.class, parameters={})
+    @Export(name="s3Path", refs={FaqS3Path.class}, tree="[0]")
     private Output<FaqS3Path> s3Path;
 
     /**
@@ -298,7 +298,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * The status of the FAQ. It is ready to use when the status is ACTIVE.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -312,7 +312,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -326,7 +326,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -340,7 +340,7 @@ public class Faq extends com.pulumi.resources.CustomResource {
      * The date and time that the FAQ was last updated.
      * 
      */
-    @Export(name="updatedAt", type=String.class, parameters={})
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**

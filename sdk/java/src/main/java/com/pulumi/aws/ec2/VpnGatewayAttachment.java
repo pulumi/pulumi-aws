@@ -79,7 +79,7 @@ public class VpnGatewayAttachment extends com.pulumi.resources.CustomResource {
      * The ID of the VPC.
      * 
      */
-    @Export(name="vpcId", type=String.class, parameters={})
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
@@ -93,7 +93,7 @@ public class VpnGatewayAttachment extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Private Gateway.
      * 
      */
-    @Export(name="vpnGatewayId", type=String.class, parameters={})
+    @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
     private Output<String> vpnGatewayId;
 
     /**

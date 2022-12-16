@@ -64,7 +64,7 @@ public class ApplicationSnapshot extends com.pulumi.resources.CustomResource {
      * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      * 
      */
-    @Export(name="applicationName", type=String.class, parameters={})
+    @Export(name="applicationName", refs={String.class}, tree="[0]")
     private Output<String> applicationName;
 
     /**
@@ -78,7 +78,7 @@ public class ApplicationSnapshot extends com.pulumi.resources.CustomResource {
      * The current application version ID when the snapshot was created.
      * 
      */
-    @Export(name="applicationVersionId", type=Integer.class, parameters={})
+    @Export(name="applicationVersionId", refs={Integer.class}, tree="[0]")
     private Output<Integer> applicationVersionId;
 
     /**
@@ -92,7 +92,7 @@ public class ApplicationSnapshot extends com.pulumi.resources.CustomResource {
      * The timestamp of the application snapshot.
      * 
      */
-    @Export(name="snapshotCreationTimestamp", type=String.class, parameters={})
+    @Export(name="snapshotCreationTimestamp", refs={String.class}, tree="[0]")
     private Output<String> snapshotCreationTimestamp;
 
     /**
@@ -106,7 +106,7 @@ public class ApplicationSnapshot extends com.pulumi.resources.CustomResource {
      * The name of the application snapshot.
      * 
      */
-    @Export(name="snapshotName", type=String.class, parameters={})
+    @Export(name="snapshotName", refs={String.class}, tree="[0]")
     private Output<String> snapshotName;
 
     /**

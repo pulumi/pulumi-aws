@@ -62,7 +62,7 @@ public class ApprovalRuleTemplateAssociation extends com.pulumi.resources.Custom
      * The name for the approval rule template.
      * 
      */
-    @Export(name="approvalRuleTemplateName", type=String.class, parameters={})
+    @Export(name="approvalRuleTemplateName", refs={String.class}, tree="[0]")
     private Output<String> approvalRuleTemplateName;
 
     /**
@@ -76,7 +76,7 @@ public class ApprovalRuleTemplateAssociation extends com.pulumi.resources.Custom
      * The name of the repository that you want to associate with the template.
      * 
      */
-    @Export(name="repositoryName", type=String.class, parameters={})
+    @Export(name="repositoryName", refs={String.class}, tree="[0]")
     private Output<String> repositoryName;
 
     /**

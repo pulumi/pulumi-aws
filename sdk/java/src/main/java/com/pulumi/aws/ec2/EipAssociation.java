@@ -85,7 +85,7 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * The allocation ID. This is required for EC2-VPC.
      * 
      */
-    @Export(name="allocationId", type=String.class, parameters={})
+    @Export(name="allocationId", refs={String.class}, tree="[0]")
     private Output<String> allocationId;
 
     /**
@@ -100,7 +100,7 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * be re-associated. Defaults to `true` in VPC.
      * 
      */
-    @Export(name="allowReassociation", type=Boolean.class, parameters={})
+    @Export(name="allowReassociation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowReassociation;
 
     /**
@@ -118,7 +118,7 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * instance ID unless exactly one network interface is attached.
      * 
      */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
@@ -137,7 +137,7 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * interface ID.
      * 
      */
-    @Export(name="networkInterfaceId", type=String.class, parameters={})
+    @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
     /**
@@ -156,7 +156,7 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * address.
      * 
      */
-    @Export(name="privateIpAddress", type=String.class, parameters={})
+    @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
     private Output<String> privateIpAddress;
 
     /**
@@ -173,7 +173,7 @@ public class EipAssociation extends com.pulumi.resources.CustomResource {
      * The Elastic IP address. This is required for EC2-Classic.
      * 
      */
-    @Export(name="publicIp", type=String.class, parameters={})
+    @Export(name="publicIp", refs={String.class}, tree="[0]")
     private Output<String> publicIp;
 
     /**

@@ -62,7 +62,7 @@ public class ServiceSetting extends com.pulumi.resources.CustomResource {
      * ARN of the service setting.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -76,7 +76,7 @@ public class ServiceSetting extends com.pulumi.resources.CustomResource {
      * ID of the service setting.
      * 
      */
-    @Export(name="settingId", type=String.class, parameters={})
+    @Export(name="settingId", refs={String.class}, tree="[0]")
     private Output<String> settingId;
 
     /**
@@ -90,7 +90,7 @@ public class ServiceSetting extends com.pulumi.resources.CustomResource {
      * Value of the service setting.
      * 
      */
-    @Export(name="settingValue", type=String.class, parameters={})
+    @Export(name="settingValue", refs={String.class}, tree="[0]")
     private Output<String> settingValue;
 
     /**
@@ -104,7 +104,7 @@ public class ServiceSetting extends com.pulumi.resources.CustomResource {
      * Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

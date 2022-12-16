@@ -430,7 +430,7 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
      * Name of the bucket for notification configuration.
      * 
      */
-    @Export(name="bucket", type=String.class, parameters={})
+    @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
@@ -444,7 +444,7 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
      * Whether to enable Amazon EventBridge notifications.
      * 
      */
-    @Export(name="eventbridge", type=Boolean.class, parameters={})
+    @Export(name="eventbridge", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> eventbridge;
 
     /**
@@ -458,7 +458,7 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
      * Used to configure notifications to a Lambda Function. See below.
      * 
      */
-    @Export(name="lambdaFunctions", type=List.class, parameters={BucketNotificationLambdaFunction.class})
+    @Export(name="lambdaFunctions", refs={List.class,BucketNotificationLambdaFunction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BucketNotificationLambdaFunction>> lambdaFunctions;
 
     /**
@@ -472,7 +472,7 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
      * Notification configuration to SQS Queue. See below.
      * 
      */
-    @Export(name="queues", type=List.class, parameters={BucketNotificationQueue.class})
+    @Export(name="queues", refs={List.class,BucketNotificationQueue.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BucketNotificationQueue>> queues;
 
     /**
@@ -486,7 +486,7 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
      * Notification configuration to SNS Topic. See below.
      * 
      */
-    @Export(name="topics", type=List.class, parameters={BucketNotificationTopic.class})
+    @Export(name="topics", refs={List.class,BucketNotificationTopic.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BucketNotificationTopic>> topics;
 
     /**

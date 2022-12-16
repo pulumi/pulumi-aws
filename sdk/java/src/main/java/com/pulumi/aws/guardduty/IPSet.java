@@ -99,7 +99,7 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      * Specifies whether GuardDuty is to start using the uploaded IPSet.
      * 
      */
-    @Export(name="activate", type=Boolean.class, parameters={})
+    @Export(name="activate", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> activate;
 
     /**
@@ -113,7 +113,7 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the GuardDuty IPSet.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -127,7 +127,7 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      * The detector ID of the GuardDuty.
      * 
      */
-    @Export(name="detectorId", type=String.class, parameters={})
+    @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
     /**
@@ -141,7 +141,7 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      * 
      */
-    @Export(name="format", type=String.class, parameters={})
+    @Export(name="format", refs={String.class}, tree="[0]")
     private Output<String> format;
 
     /**
@@ -155,7 +155,7 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      * The URI of the file that contains the IPSet.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -169,7 +169,7 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      * The friendly name to identify the IPSet.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -183,7 +183,7 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -197,7 +197,7 @@ public class IPSet extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

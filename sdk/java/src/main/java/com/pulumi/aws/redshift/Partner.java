@@ -64,7 +64,7 @@ public class Partner extends com.pulumi.resources.CustomResource {
      * The Amazon Web Services account ID that owns the cluster.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -78,7 +78,7 @@ public class Partner extends com.pulumi.resources.CustomResource {
      * The cluster identifier of the cluster that receives data from the partner.
      * 
      */
-    @Export(name="clusterIdentifier", type=String.class, parameters={})
+    @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
@@ -92,7 +92,7 @@ public class Partner extends com.pulumi.resources.CustomResource {
      * The name of the database that receives data from the partner.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -106,7 +106,7 @@ public class Partner extends com.pulumi.resources.CustomResource {
      * The name of the partner that is authorized to send data.
      * 
      */
-    @Export(name="partnerName", type=String.class, parameters={})
+    @Export(name="partnerName", refs={String.class}, tree="[0]")
     private Output<String> partnerName;
 
     /**
@@ -120,7 +120,7 @@ public class Partner extends com.pulumi.resources.CustomResource {
      * (Optional) The partner integration status.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -134,7 +134,7 @@ public class Partner extends com.pulumi.resources.CustomResource {
      * (Optional) The status message provided by the partner.
      * 
      */
-    @Export(name="statusMessage", type=String.class, parameters={})
+    @Export(name="statusMessage", refs={String.class}, tree="[0]")
     private Output<String> statusMessage;
 
     /**

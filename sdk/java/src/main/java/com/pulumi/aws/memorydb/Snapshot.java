@@ -67,7 +67,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The ARN of the snapshot.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -81,7 +81,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The configuration of the cluster from which the snapshot was taken.
      * 
      */
-    @Export(name="clusterConfigurations", type=List.class, parameters={SnapshotClusterConfiguration.class})
+    @Export(name="clusterConfigurations", refs={List.class,SnapshotClusterConfiguration.class}, tree="[0,1]")
     private Output<List<SnapshotClusterConfiguration>> clusterConfigurations;
 
     /**
@@ -95,7 +95,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Name of the MemoryDB cluster to take a snapshot of.
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
@@ -109,7 +109,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * ARN of the KMS key used to encrypt the snapshot at rest.
      * 
      */
-    @Export(name="kmsKeyArn", type=String.class, parameters={})
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
@@ -123,7 +123,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -137,7 +137,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    @Export(name="namePrefix", type=String.class, parameters={})
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
@@ -151,7 +151,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      * 
      */
-    @Export(name="source", type=String.class, parameters={})
+    @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**
@@ -165,7 +165,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -179,7 +179,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

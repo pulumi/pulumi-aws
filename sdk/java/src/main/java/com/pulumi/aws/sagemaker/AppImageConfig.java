@@ -110,7 +110,7 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
      * The name of the App Image Config.
      * 
      */
-    @Export(name="appImageConfigName", type=String.class, parameters={})
+    @Export(name="appImageConfigName", refs={String.class}, tree="[0]")
     private Output<String> appImageConfigName;
 
     /**
@@ -124,7 +124,7 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -138,7 +138,7 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
      * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      * 
      */
-    @Export(name="kernelGatewayImageConfig", type=AppImageConfigKernelGatewayImageConfig.class, parameters={})
+    @Export(name="kernelGatewayImageConfig", refs={AppImageConfigKernelGatewayImageConfig.class}, tree="[0]")
     private Output</* @Nullable */ AppImageConfigKernelGatewayImageConfig> kernelGatewayImageConfig;
 
     /**
@@ -152,7 +152,7 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -166,7 +166,7 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

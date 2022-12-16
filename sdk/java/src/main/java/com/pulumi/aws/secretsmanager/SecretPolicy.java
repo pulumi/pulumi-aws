@@ -83,7 +83,7 @@ public class SecretPolicy extends com.pulumi.resources.CustomResource {
      * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
      * 
      */
-    @Export(name="blockPublicPolicy", type=Boolean.class, parameters={})
+    @Export(name="blockPublicPolicy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockPublicPolicy;
 
     /**
@@ -97,7 +97,7 @@ public class SecretPolicy extends com.pulumi.resources.CustomResource {
      * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `&#34;{}&#34;` to delete the policy, `&#34;{}&#34;` is not a valid policy since `policy` is required.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -111,7 +111,7 @@ public class SecretPolicy extends com.pulumi.resources.CustomResource {
      * Secret ARN.
      * 
      */
-    @Export(name="secretArn", type=String.class, parameters={})
+    @Export(name="secretArn", refs={String.class}, tree="[0]")
     private Output<String> secretArn;
 
     /**

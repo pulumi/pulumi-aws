@@ -79,7 +79,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * ARN of the configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -93,7 +93,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
      * 
      */
-    @Export(name="authenticationStrategy", type=String.class, parameters={})
+    @Export(name="authenticationStrategy", refs={String.class}, tree="[0]")
     private Output<String> authenticationStrategy;
 
     /**
@@ -107,7 +107,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
      * 
      */
-    @Export(name="data", type=String.class, parameters={})
+    @Export(name="data", refs={String.class}, tree="[0]")
     private Output<String> data;
 
     /**
@@ -121,7 +121,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Description of the configuration.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -135,7 +135,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      * 
      */
-    @Export(name="engineType", type=String.class, parameters={})
+    @Export(name="engineType", refs={String.class}, tree="[0]")
     private Output<String> engineType;
 
     /**
@@ -149,7 +149,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Version of the broker engine.
      * 
      */
-    @Export(name="engineVersion", type=String.class, parameters={})
+    @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
@@ -163,7 +163,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Latest revision of the configuration.
      * 
      */
-    @Export(name="latestRevision", type=Integer.class, parameters={})
+    @Export(name="latestRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> latestRevision;
 
     /**
@@ -177,7 +177,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Name of the configuration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -191,7 +191,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -205,7 +205,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

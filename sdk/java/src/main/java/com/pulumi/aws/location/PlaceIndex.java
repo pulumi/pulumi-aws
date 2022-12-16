@@ -65,7 +65,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * The timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
-    @Export(name="createTime", type=String.class, parameters={})
+    @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
@@ -79,7 +79,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * Specifies the geospatial data provider for the new place index.
      * 
      */
-    @Export(name="dataSource", type=String.class, parameters={})
+    @Export(name="dataSource", refs={String.class}, tree="[0]")
     private Output<String> dataSource;
 
     /**
@@ -93,7 +93,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * Configuration block with the data storage option chosen for requesting Places. Detailed below.
      * 
      */
-    @Export(name="dataSourceConfiguration", type=PlaceIndexDataSourceConfiguration.class, parameters={})
+    @Export(name="dataSourceConfiguration", refs={PlaceIndexDataSourceConfiguration.class}, tree="[0]")
     private Output<PlaceIndexDataSourceConfiguration> dataSourceConfiguration;
 
     /**
@@ -107,7 +107,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * The optional description for the place index resource.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -121,7 +121,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      * 
      */
-    @Export(name="indexArn", type=String.class, parameters={})
+    @Export(name="indexArn", refs={String.class}, tree="[0]")
     private Output<String> indexArn;
 
     /**
@@ -135,7 +135,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * The name of the place index resource.
      * 
      */
-    @Export(name="indexName", type=String.class, parameters={})
+    @Export(name="indexName", refs={String.class}, tree="[0]")
     private Output<String> indexName;
 
     /**
@@ -149,7 +149,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -163,7 +163,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -177,7 +177,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
      * The timestamp for when the place index resource was last update in ISO 8601.
      * 
      */
-    @Export(name="updateTime", type=String.class, parameters={})
+    @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
     /**

@@ -70,7 +70,7 @@ public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the VPC Ingress Connection.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -84,7 +84,7 @@ public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
      * The domain name associated with the VPC Ingress Connection resource.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -98,7 +98,7 @@ public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
      * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
      * 
      */
-    @Export(name="ingressVpcConfiguration", type=VpcIngressConnectionIngressVpcConfiguration.class, parameters={})
+    @Export(name="ingressVpcConfiguration", refs={VpcIngressConnectionIngressVpcConfiguration.class}, tree="[0]")
     private Output<VpcIngressConnectionIngressVpcConfiguration> ingressVpcConfiguration;
 
     /**
@@ -112,7 +112,7 @@ public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
      * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      * 
      */
-    @Export(name="serviceArn", type=String.class, parameters={})
+    @Export(name="serviceArn", refs={String.class}, tree="[0]")
     private Output<String> serviceArn;
 
     /**
@@ -140,7 +140,7 @@ public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
      * The current status of the VPC Ingress Connection.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -154,7 +154,7 @@ public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -168,7 +168,7 @@ public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

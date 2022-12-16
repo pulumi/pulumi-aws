@@ -97,7 +97,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * The description of the user group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -111,7 +111,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * The name of the user group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -125,7 +125,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * The precedence of the user group.
      * 
      */
-    @Export(name="precedence", type=Integer.class, parameters={})
+    @Export(name="precedence", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> precedence;
 
     /**
@@ -139,7 +139,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * The ARN of the IAM role to be associated with the user group.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
@@ -153,7 +153,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * The user pool ID.
      * 
      */
-    @Export(name="userPoolId", type=String.class, parameters={})
+    @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
     /**

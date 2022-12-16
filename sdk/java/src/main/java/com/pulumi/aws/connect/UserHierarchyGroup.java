@@ -106,7 +106,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the hierarchy group.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -120,7 +120,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * The identifier for the hierarchy group.
      * 
      */
-    @Export(name="hierarchyGroupId", type=String.class, parameters={})
+    @Export(name="hierarchyGroupId", refs={String.class}, tree="[0]")
     private Output<String> hierarchyGroupId;
 
     /**
@@ -134,7 +134,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
      * 
      */
-    @Export(name="hierarchyPaths", type=List.class, parameters={UserHierarchyGroupHierarchyPath.class})
+    @Export(name="hierarchyPaths", refs={List.class,UserHierarchyGroupHierarchyPath.class}, tree="[0,1]")
     private Output<List<UserHierarchyGroupHierarchyPath>> hierarchyPaths;
 
     /**
@@ -148,7 +148,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    @Export(name="instanceId", type=String.class, parameters={})
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
@@ -162,7 +162,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * The identifier of the level in the hierarchy group.
      * 
      */
-    @Export(name="levelId", type=String.class, parameters={})
+    @Export(name="levelId", refs={String.class}, tree="[0]")
     private Output<String> levelId;
 
     /**
@@ -176,7 +176,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * The name of the user hierarchy group. Must not be more than 100 characters.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -190,7 +190,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
      * 
      */
-    @Export(name="parentGroupId", type=String.class, parameters={})
+    @Export(name="parentGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentGroupId;
 
     /**
@@ -205,7 +205,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -220,7 +220,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

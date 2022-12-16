@@ -92,7 +92,7 @@ public class VaultNotifications extends com.pulumi.resources.CustomResource {
      * The ARN of the vault.
      * 
      */
-    @Export(name="backupVaultArn", type=String.class, parameters={})
+    @Export(name="backupVaultArn", refs={String.class}, tree="[0]")
     private Output<String> backupVaultArn;
 
     /**
@@ -106,7 +106,7 @@ public class VaultNotifications extends com.pulumi.resources.CustomResource {
      * An array of events that indicate the status of jobs to back up resources to the backup vault.
      * 
      */
-    @Export(name="backupVaultEvents", type=List.class, parameters={String.class})
+    @Export(name="backupVaultEvents", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> backupVaultEvents;
 
     /**
@@ -120,7 +120,7 @@ public class VaultNotifications extends com.pulumi.resources.CustomResource {
      * Name of the backup vault to add notifications for.
      * 
      */
-    @Export(name="backupVaultName", type=String.class, parameters={})
+    @Export(name="backupVaultName", refs={String.class}, tree="[0]")
     private Output<String> backupVaultName;
 
     /**
@@ -134,7 +134,7 @@ public class VaultNotifications extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
      * 
      */
-    @Export(name="snsTopicArn", type=String.class, parameters={})
+    @Export(name="snsTopicArn", refs={String.class}, tree="[0]")
     private Output<String> snsTopicArn;
 
     /**

@@ -65,7 +65,7 @@ public class TagOption extends com.pulumi.resources.CustomResource {
      * Whether tag option is active. Default is `true`.
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
@@ -79,7 +79,7 @@ public class TagOption extends com.pulumi.resources.CustomResource {
      * Tag option key.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -89,7 +89,7 @@ public class TagOption extends com.pulumi.resources.CustomResource {
     public Output<String> key() {
         return this.key;
     }
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     public Output<String> owner() {
@@ -99,7 +99,7 @@ public class TagOption extends com.pulumi.resources.CustomResource {
      * Tag option value.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

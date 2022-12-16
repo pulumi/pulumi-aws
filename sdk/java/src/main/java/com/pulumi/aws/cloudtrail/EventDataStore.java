@@ -131,7 +131,7 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
      * 
      */
-    @Export(name="advancedEventSelectors", type=List.class, parameters={EventDataStoreAdvancedEventSelector.class})
+    @Export(name="advancedEventSelectors", refs={List.class,EventDataStoreAdvancedEventSelector.class}, tree="[0,1]")
     private Output<List<EventDataStoreAdvancedEventSelector>> advancedEventSelectors;
 
     /**
@@ -145,7 +145,7 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * ARN of the event data store.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -159,7 +159,7 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
      * 
      */
-    @Export(name="multiRegionEnabled", type=Boolean.class, parameters={})
+    @Export(name="multiRegionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> multiRegionEnabled;
 
     /**
@@ -173,7 +173,7 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * Specifies the name of the advanced event selector.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -187,7 +187,7 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
      * 
      */
-    @Export(name="organizationEnabled", type=Boolean.class, parameters={})
+    @Export(name="organizationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> organizationEnabled;
 
     /**
@@ -201,7 +201,7 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
      * 
      */
-    @Export(name="retentionPeriod", type=Integer.class, parameters={})
+    @Export(name="retentionPeriod", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retentionPeriod;
 
     /**
@@ -215,7 +215,7 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -229,7 +229,7 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -243,7 +243,7 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
      * 
      */
-    @Export(name="terminationProtectionEnabled", type=Boolean.class, parameters={})
+    @Export(name="terminationProtectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> terminationProtectionEnabled;
 
     /**

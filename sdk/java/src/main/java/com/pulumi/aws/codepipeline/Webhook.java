@@ -139,7 +139,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * The CodePipeline webhook&#39;s ARN.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -153,7 +153,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
      * 
      */
-    @Export(name="authentication", type=String.class, parameters={})
+    @Export(name="authentication", refs={String.class}, tree="[0]")
     private Output<String> authentication;
 
     /**
@@ -167,7 +167,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
      * 
      */
-    @Export(name="authenticationConfiguration", type=WebhookAuthenticationConfiguration.class, parameters={})
+    @Export(name="authenticationConfiguration", refs={WebhookAuthenticationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WebhookAuthenticationConfiguration> authenticationConfiguration;
 
     /**
@@ -181,7 +181,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * One or more `filter` blocks. Filter blocks are documented below.
      * 
      */
-    @Export(name="filters", type=List.class, parameters={WebhookFilter.class})
+    @Export(name="filters", refs={List.class,WebhookFilter.class}, tree="[0,1]")
     private Output<List<WebhookFilter>> filters;
 
     /**
@@ -195,7 +195,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * The name of the webhook.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -209,7 +209,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -223,7 +223,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -237,7 +237,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      * 
      */
-    @Export(name="targetAction", type=String.class, parameters={})
+    @Export(name="targetAction", refs={String.class}, tree="[0]")
     private Output<String> targetAction;
 
     /**
@@ -251,7 +251,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * The name of the pipeline.
      * 
      */
-    @Export(name="targetPipeline", type=String.class, parameters={})
+    @Export(name="targetPipeline", refs={String.class}, tree="[0]")
     private Output<String> targetPipeline;
 
     /**
@@ -265,7 +265,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * The CodePipeline webhook&#39;s URL. POST events to this endpoint to trigger the target.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

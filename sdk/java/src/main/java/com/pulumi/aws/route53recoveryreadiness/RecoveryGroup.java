@@ -64,7 +64,7 @@ public class RecoveryGroup extends com.pulumi.resources.CustomResource {
      * ARN of the recovery group
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -78,7 +78,7 @@ public class RecoveryGroup extends com.pulumi.resources.CustomResource {
      * List of cell arns to add as nested fault domains within this recovery group
      * 
      */
-    @Export(name="cells", type=List.class, parameters={String.class})
+    @Export(name="cells", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cells;
 
     /**
@@ -92,7 +92,7 @@ public class RecoveryGroup extends com.pulumi.resources.CustomResource {
      * A unique name describing the recovery group.
      * 
      */
-    @Export(name="recoveryGroupName", type=String.class, parameters={})
+    @Export(name="recoveryGroupName", refs={String.class}, tree="[0]")
     private Output<String> recoveryGroupName;
 
     /**
@@ -106,7 +106,7 @@ public class RecoveryGroup extends com.pulumi.resources.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -120,7 +120,7 @@ public class RecoveryGroup extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

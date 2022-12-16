@@ -62,7 +62,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of group
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -76,7 +76,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
-    @Export(name="awsAccountId", type=String.class, parameters={})
+    @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
     /**
@@ -90,7 +90,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A description for the group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -104,7 +104,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A name for the group.
      * 
      */
-    @Export(name="groupName", type=String.class, parameters={})
+    @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
     /**
@@ -118,7 +118,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The namespace. Currently, you should set this to `default`.
      * 
      */
-    @Export(name="namespace", type=String.class, parameters={})
+    @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namespace;
 
     /**

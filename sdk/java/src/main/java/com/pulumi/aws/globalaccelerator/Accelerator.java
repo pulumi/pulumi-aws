@@ -75,7 +75,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * The attributes of the accelerator. Fields documented below.
      * 
      */
-    @Export(name="attributes", type=AcceleratorAttributes.class, parameters={})
+    @Export(name="attributes", refs={AcceleratorAttributes.class}, tree="[0]")
     private Output</* @Nullable */ AcceleratorAttributes> attributes;
 
     /**
@@ -92,7 +92,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      *   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
-    @Export(name="dnsName", type=String.class, parameters={})
+    @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
@@ -109,7 +109,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -119,7 +119,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    @Export(name="hostedZoneId", type=String.class, parameters={})
+    @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
     public Output<String> hostedZoneId() {
@@ -129,7 +129,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      * 
      */
-    @Export(name="ipAddressType", type=String.class, parameters={})
+    @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddressType;
 
     /**
@@ -143,7 +143,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
-    @Export(name="ipAddresses", type=List.class, parameters={String.class})
+    @Export(name="ipAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ipAddresses;
 
     /**
@@ -157,7 +157,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * IP address set associated with the accelerator.
      * 
      */
-    @Export(name="ipSets", type=List.class, parameters={AcceleratorIpSet.class})
+    @Export(name="ipSets", refs={List.class,AcceleratorIpSet.class}, tree="[0,1]")
     private Output<List<AcceleratorIpSet>> ipSets;
 
     /**
@@ -171,7 +171,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * The name of the accelerator.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -185,7 +185,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -199,7 +199,7 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

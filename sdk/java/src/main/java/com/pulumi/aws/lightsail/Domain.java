@@ -59,7 +59,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The ARN of the Lightsail domain
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -73,7 +73,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The name of the Lightsail domain to manage
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**

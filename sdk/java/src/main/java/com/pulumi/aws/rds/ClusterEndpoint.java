@@ -125,7 +125,7 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of cluster
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -139,7 +139,7 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
      * The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      * 
      */
-    @Export(name="clusterEndpointIdentifier", type=String.class, parameters={})
+    @Export(name="clusterEndpointIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterEndpointIdentifier;
 
     /**
@@ -153,7 +153,7 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
      * The cluster identifier.
      * 
      */
-    @Export(name="clusterIdentifier", type=String.class, parameters={})
+    @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
@@ -167,7 +167,7 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
      * The type of the endpoint. One of: READER , ANY .
      * 
      */
-    @Export(name="customEndpointType", type=String.class, parameters={})
+    @Export(name="customEndpointType", refs={String.class}, tree="[0]")
     private Output<String> customEndpointType;
 
     /**
@@ -181,7 +181,7 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
      * A custom endpoint for the Aurora cluster
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
@@ -195,7 +195,7 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
      * List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
      * 
      */
-    @Export(name="excludedMembers", type=List.class, parameters={String.class})
+    @Export(name="excludedMembers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> excludedMembers;
 
     /**
@@ -209,7 +209,7 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
      * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
      * 
      */
-    @Export(name="staticMembers", type=List.class, parameters={String.class})
+    @Export(name="staticMembers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> staticMembers;
 
     /**
@@ -223,7 +223,7 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -237,7 +237,7 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

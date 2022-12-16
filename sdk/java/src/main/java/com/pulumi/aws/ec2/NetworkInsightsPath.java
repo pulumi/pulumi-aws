@@ -66,7 +66,7 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      * ARN of the Network Insights Path.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -80,7 +80,7 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
      * 
      */
-    @Export(name="destination", type=String.class, parameters={})
+    @Export(name="destination", refs={String.class}, tree="[0]")
     private Output<String> destination;
 
     /**
@@ -94,7 +94,7 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      * IP address of the destination resource.
      * 
      */
-    @Export(name="destinationIp", type=String.class, parameters={})
+    @Export(name="destinationIp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationIp;
 
     /**
@@ -108,7 +108,7 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      * Destination port to analyze access to.
      * 
      */
-    @Export(name="destinationPort", type=Integer.class, parameters={})
+    @Export(name="destinationPort", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> destinationPort;
 
     /**
@@ -122,7 +122,7 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
      * 
      */
-    @Export(name="protocol", type=String.class, parameters={})
+    @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
@@ -136,7 +136,7 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
      * 
      */
-    @Export(name="source", type=String.class, parameters={})
+    @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**
@@ -150,7 +150,7 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      * IP address of the source resource.
      * 
      */
-    @Export(name="sourceIp", type=String.class, parameters={})
+    @Export(name="sourceIp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceIp;
 
     /**
@@ -164,7 +164,7 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -178,7 +178,7 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

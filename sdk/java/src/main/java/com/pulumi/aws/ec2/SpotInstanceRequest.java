@@ -93,7 +93,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      * 
      */
-    @Export(name="ami", type=String.class, parameters={})
+    @Export(name="ami", refs={String.class}, tree="[0]")
     private Output<String> ami;
 
     /**
@@ -103,7 +103,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     public Output<String> ami() {
         return this.ami;
     }
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     public Output<String> arn() {
@@ -113,7 +113,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Whether to associate a public IP address with an instance in a VPC.
      * 
      */
-    @Export(name="associatePublicIpAddress", type=Boolean.class, parameters={})
+    @Export(name="associatePublicIpAddress", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> associatePublicIpAddress;
 
     /**
@@ -127,7 +127,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * AZ to start the instance in.
      * 
      */
-    @Export(name="availabilityZone", type=String.class, parameters={})
+    @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
@@ -143,7 +143,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Note that you can&#39;t specify an Availability Zone group or a launch group if you specify a duration.
      * 
      */
-    @Export(name="blockDurationMinutes", type=Integer.class, parameters={})
+    @Export(name="blockDurationMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> blockDurationMinutes;
 
     /**
@@ -159,7 +159,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      * 
      */
-    @Export(name="capacityReservationSpecification", type=SpotInstanceRequestCapacityReservationSpecification.class, parameters={})
+    @Export(name="capacityReservationSpecification", refs={SpotInstanceRequestCapacityReservationSpecification.class}, tree="[0]")
     private Output<SpotInstanceRequestCapacityReservationSpecification> capacityReservationSpecification;
 
     /**
@@ -173,7 +173,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      * 
      */
-    @Export(name="cpuCoreCount", type=Integer.class, parameters={})
+    @Export(name="cpuCoreCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuCoreCount;
 
     /**
@@ -187,7 +187,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      * 
      */
-    @Export(name="cpuThreadsPerCore", type=Integer.class, parameters={})
+    @Export(name="cpuThreadsPerCore", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuThreadsPerCore;
 
     /**
@@ -201,7 +201,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      * 
      */
-    @Export(name="creditSpecification", type=SpotInstanceRequestCreditSpecification.class, parameters={})
+    @Export(name="creditSpecification", refs={SpotInstanceRequestCreditSpecification.class}, tree="[0]")
     private Output</* @Nullable */ SpotInstanceRequestCreditSpecification> creditSpecification;
 
     /**
@@ -215,7 +215,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      * 
      */
-    @Export(name="disableApiStop", type=Boolean.class, parameters={})
+    @Export(name="disableApiStop", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> disableApiStop;
 
     /**
@@ -229,7 +229,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      * 
      */
-    @Export(name="disableApiTermination", type=Boolean.class, parameters={})
+    @Export(name="disableApiTermination", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> disableApiTermination;
 
     /**
@@ -243,7 +243,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
-    @Export(name="ebsBlockDevices", type=List.class, parameters={SpotInstanceRequestEbsBlockDevice.class})
+    @Export(name="ebsBlockDevices", refs={List.class,SpotInstanceRequestEbsBlockDevice.class}, tree="[0,1]")
     private Output<List<SpotInstanceRequestEbsBlockDevice>> ebsBlockDevices;
 
     /**
@@ -257,7 +257,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      * 
      */
-    @Export(name="ebsOptimized", type=Boolean.class, parameters={})
+    @Export(name="ebsOptimized", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> ebsOptimized;
 
     /**
@@ -271,7 +271,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      * 
      */
-    @Export(name="enclaveOptions", type=SpotInstanceRequestEnclaveOptions.class, parameters={})
+    @Export(name="enclaveOptions", refs={SpotInstanceRequestEnclaveOptions.class}, tree="[0]")
     private Output<SpotInstanceRequestEnclaveOptions> enclaveOptions;
 
     /**
@@ -285,7 +285,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * One or more configuration blocks to customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
-    @Export(name="ephemeralBlockDevices", type=List.class, parameters={SpotInstanceRequestEphemeralBlockDevice.class})
+    @Export(name="ephemeralBlockDevices", refs={List.class,SpotInstanceRequestEphemeralBlockDevice.class}, tree="[0,1]")
     private Output<List<SpotInstanceRequestEphemeralBlockDevice>> ephemeralBlockDevices;
 
     /**
@@ -299,7 +299,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
-    @Export(name="getPasswordData", type=Boolean.class, parameters={})
+    @Export(name="getPasswordData", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> getPasswordData;
 
     /**
@@ -313,7 +313,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * If true, the launched EC2 instance will support hibernation.
      * 
      */
-    @Export(name="hibernation", type=Boolean.class, parameters={})
+    @Export(name="hibernation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hibernation;
 
     /**
@@ -327,7 +327,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      * 
      */
-    @Export(name="hostId", type=String.class, parameters={})
+    @Export(name="hostId", refs={String.class}, tree="[0]")
     private Output<String> hostId;
 
     /**
@@ -341,7 +341,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
      * 
      */
-    @Export(name="hostResourceGroupArn", type=String.class, parameters={})
+    @Export(name="hostResourceGroupArn", refs={String.class}, tree="[0]")
     private Output<String> hostResourceGroupArn;
 
     /**
@@ -355,7 +355,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * 
      */
-    @Export(name="iamInstanceProfile", type=String.class, parameters={})
+    @Export(name="iamInstanceProfile", refs={String.class}, tree="[0]")
     private Output<String> iamInstanceProfile;
 
     /**
@@ -369,7 +369,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      * 
      */
-    @Export(name="instanceInitiatedShutdownBehavior", type=String.class, parameters={})
+    @Export(name="instanceInitiatedShutdownBehavior", refs={String.class}, tree="[0]")
     private Output<String> instanceInitiatedShutdownBehavior;
 
     /**
@@ -383,7 +383,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      * 
      */
-    @Export(name="instanceInterruptionBehavior", type=String.class, parameters={})
+    @Export(name="instanceInterruptionBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceInterruptionBehavior;
 
     /**
@@ -393,7 +393,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> instanceInterruptionBehavior() {
         return Codegen.optional(this.instanceInterruptionBehavior);
     }
-    @Export(name="instanceState", type=String.class, parameters={})
+    @Export(name="instanceState", refs={String.class}, tree="[0]")
     private Output<String> instanceState;
 
     public Output<String> instanceState() {
@@ -403,7 +403,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
-    @Export(name="instanceType", type=String.class, parameters={})
+    @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
     /**
@@ -417,7 +417,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
-    @Export(name="ipv6AddressCount", type=Integer.class, parameters={})
+    @Export(name="ipv6AddressCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> ipv6AddressCount;
 
     /**
@@ -431,7 +431,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      * 
      */
-    @Export(name="ipv6Addresses", type=List.class, parameters={String.class})
+    @Export(name="ipv6Addresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> ipv6Addresses;
 
     /**
@@ -445,7 +445,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      * 
      */
-    @Export(name="keyName", type=String.class, parameters={})
+    @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
     /**
@@ -460,7 +460,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * If left empty instances are launched and terminated individually.
      * 
      */
-    @Export(name="launchGroup", type=String.class, parameters={})
+    @Export(name="launchGroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> launchGroup;
 
     /**
@@ -476,7 +476,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * See Launch Template Specification below for more details.
      * 
      */
-    @Export(name="launchTemplate", type=SpotInstanceRequestLaunchTemplate.class, parameters={})
+    @Export(name="launchTemplate", refs={SpotInstanceRequestLaunchTemplate.class}, tree="[0]")
     private Output</* @Nullable */ SpotInstanceRequestLaunchTemplate> launchTemplate;
 
     /**
@@ -491,7 +491,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      * 
      */
-    @Export(name="maintenanceOptions", type=SpotInstanceRequestMaintenanceOptions.class, parameters={})
+    @Export(name="maintenanceOptions", refs={SpotInstanceRequestMaintenanceOptions.class}, tree="[0]")
     private Output<SpotInstanceRequestMaintenanceOptions> maintenanceOptions;
 
     /**
@@ -505,7 +505,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      * 
      */
-    @Export(name="metadataOptions", type=SpotInstanceRequestMetadataOptions.class, parameters={})
+    @Export(name="metadataOptions", refs={SpotInstanceRequestMetadataOptions.class}, tree="[0]")
     private Output<SpotInstanceRequestMetadataOptions> metadataOptions;
 
     /**
@@ -519,7 +519,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      * 
      */
-    @Export(name="monitoring", type=Boolean.class, parameters={})
+    @Export(name="monitoring", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> monitoring;
 
     /**
@@ -533,7 +533,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
      */
-    @Export(name="networkInterfaces", type=List.class, parameters={SpotInstanceRequestNetworkInterface.class})
+    @Export(name="networkInterfaces", refs={List.class,SpotInstanceRequestNetworkInterface.class}, tree="[0,1]")
     private Output<List<SpotInstanceRequestNetworkInterface>> networkInterfaces;
 
     /**
@@ -543,13 +543,13 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     public Output<List<SpotInstanceRequestNetworkInterface>> networkInterfaces() {
         return this.networkInterfaces;
     }
-    @Export(name="outpostArn", type=String.class, parameters={})
+    @Export(name="outpostArn", refs={String.class}, tree="[0]")
     private Output<String> outpostArn;
 
     public Output<String> outpostArn() {
         return this.outpostArn;
     }
-    @Export(name="passwordData", type=String.class, parameters={})
+    @Export(name="passwordData", refs={String.class}, tree="[0]")
     private Output<String> passwordData;
 
     public Output<String> passwordData() {
@@ -559,7 +559,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Placement Group to start the instance in.
      * 
      */
-    @Export(name="placementGroup", type=String.class, parameters={})
+    @Export(name="placementGroup", refs={String.class}, tree="[0]")
     private Output<String> placementGroup;
 
     /**
@@ -573,7 +573,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
-    @Export(name="placementPartitionNumber", type=Integer.class, parameters={})
+    @Export(name="placementPartitionNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> placementPartitionNumber;
 
     /**
@@ -583,7 +583,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     public Output<Integer> placementPartitionNumber() {
         return this.placementPartitionNumber;
     }
-    @Export(name="primaryNetworkInterfaceId", type=String.class, parameters={})
+    @Export(name="primaryNetworkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> primaryNetworkInterfaceId;
 
     public Output<String> primaryNetworkInterfaceId() {
@@ -595,7 +595,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * for your VPC
      * 
      */
-    @Export(name="privateDns", type=String.class, parameters={})
+    @Export(name="privateDns", refs={String.class}, tree="[0]")
     private Output<String> privateDns;
 
     /**
@@ -611,7 +611,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
-    @Export(name="privateDnsNameOptions", type=SpotInstanceRequestPrivateDnsNameOptions.class, parameters={})
+    @Export(name="privateDnsNameOptions", refs={SpotInstanceRequestPrivateDnsNameOptions.class}, tree="[0]")
     private Output<SpotInstanceRequestPrivateDnsNameOptions> privateDnsNameOptions;
 
     /**
@@ -625,7 +625,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Private IP address to associate with the instance in a VPC.
      * 
      */
-    @Export(name="privateIp", type=String.class, parameters={})
+    @Export(name="privateIp", refs={String.class}, tree="[0]")
     private Output<String> privateIp;
 
     /**
@@ -640,7 +640,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * is only available if you&#39;ve enabled DNS hostnames for your VPC
      * 
      */
-    @Export(name="publicDns", type=String.class, parameters={})
+    @Export(name="publicDns", refs={String.class}, tree="[0]")
     private Output<String> publicDns;
 
     /**
@@ -655,7 +655,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * The public IP address assigned to the instance, if applicable.
      * 
      */
-    @Export(name="publicIp", type=String.class, parameters={})
+    @Export(name="publicIp", refs={String.class}, tree="[0]")
     private Output<String> publicIp;
 
     /**
@@ -669,7 +669,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      * 
      */
-    @Export(name="rootBlockDevice", type=SpotInstanceRequestRootBlockDevice.class, parameters={})
+    @Export(name="rootBlockDevice", refs={SpotInstanceRequestRootBlockDevice.class}, tree="[0]")
     private Output<SpotInstanceRequestRootBlockDevice> rootBlockDevice;
 
     /**
@@ -683,7 +683,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
-    @Export(name="secondaryPrivateIps", type=List.class, parameters={String.class})
+    @Export(name="secondaryPrivateIps", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> secondaryPrivateIps;
 
     /**
@@ -697,7 +697,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * List of security group names to associate with.
      * 
      */
-    @Export(name="securityGroups", type=List.class, parameters={String.class})
+    @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroups;
 
     /**
@@ -711,7 +711,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
      * 
      */
-    @Export(name="sourceDestCheck", type=Boolean.class, parameters={})
+    @Export(name="sourceDestCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sourceDestCheck;
 
     /**
@@ -730,7 +730,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      *   of the Spot Instance Request.
      * 
      */
-    @Export(name="spotBidStatus", type=String.class, parameters={})
+    @Export(name="spotBidStatus", refs={String.class}, tree="[0]")
     private Output<String> spotBidStatus;
 
     /**
@@ -750,7 +750,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * the Spot Instance request.
      * 
      */
-    @Export(name="spotInstanceId", type=String.class, parameters={})
+    @Export(name="spotInstanceId", refs={String.class}, tree="[0]")
     private Output<String> spotInstanceId;
 
     /**
@@ -765,7 +765,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * The maximum price to request on the spot market.
      * 
      */
-    @Export(name="spotPrice", type=String.class, parameters={})
+    @Export(name="spotPrice", refs={String.class}, tree="[0]")
     private Output<String> spotPrice;
 
     /**
@@ -775,7 +775,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     public Output<String> spotPrice() {
         return this.spotPrice;
     }
-    @Export(name="spotRequestState", type=String.class, parameters={})
+    @Export(name="spotRequestState", refs={String.class}, tree="[0]")
     private Output<String> spotRequestState;
 
     public Output<String> spotRequestState() {
@@ -786,7 +786,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * the instance is terminated, the spot request will be closed.
      * 
      */
-    @Export(name="spotType", type=String.class, parameters={})
+    @Export(name="spotType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> spotType;
 
     /**
@@ -801,7 +801,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * VPC Subnet ID to launch in.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
@@ -815,7 +815,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -829,7 +829,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -843,7 +843,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
-    @Export(name="tenancy", type=String.class, parameters={})
+    @Export(name="tenancy", refs={String.class}, tree="[0]")
     private Output<String> tenancy;
 
     /**
@@ -857,7 +857,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
      * 
      */
-    @Export(name="userData", type=String.class, parameters={})
+    @Export(name="userData", refs={String.class}, tree="[0]")
     private Output<String> userData;
 
     /**
@@ -871,7 +871,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
      * 
      */
-    @Export(name="userDataBase64", type=String.class, parameters={})
+    @Export(name="userDataBase64", refs={String.class}, tree="[0]")
     private Output<String> userDataBase64;
 
     /**
@@ -885,7 +885,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
      * 
      */
-    @Export(name="userDataReplaceOnChange", type=Boolean.class, parameters={})
+    @Export(name="userDataReplaceOnChange", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> userDataReplaceOnChange;
 
     /**
@@ -899,7 +899,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      * 
      */
-    @Export(name="validFrom", type=String.class, parameters={})
+    @Export(name="validFrom", refs={String.class}, tree="[0]")
     private Output<String> validFrom;
 
     /**
@@ -913,7 +913,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      * 
      */
-    @Export(name="validUntil", type=String.class, parameters={})
+    @Export(name="validUntil", refs={String.class}, tree="[0]")
     private Output<String> validUntil;
 
     /**
@@ -927,7 +927,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
      */
-    @Export(name="volumeTags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="volumeTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> volumeTags;
 
     /**
@@ -941,7 +941,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * List of security group IDs to associate with.
      * 
      */
-    @Export(name="vpcSecurityGroupIds", type=List.class, parameters={String.class})
+    @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
     /**
@@ -957,7 +957,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * timeout of 10m is reached.
      * 
      */
-    @Export(name="waitForFulfillment", type=Boolean.class, parameters={})
+    @Export(name="waitForFulfillment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> waitForFulfillment;
 
     /**

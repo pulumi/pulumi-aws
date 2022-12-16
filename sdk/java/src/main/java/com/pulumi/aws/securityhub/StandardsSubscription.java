@@ -77,7 +77,7 @@ public class StandardsSubscription extends com.pulumi.resources.CustomResource {
      * The ARN of a standard - see below.
      * 
      */
-    @Export(name="standardsArn", type=String.class, parameters={})
+    @Export(name="standardsArn", refs={String.class}, tree="[0]")
     private Output<String> standardsArn;
 
     /**

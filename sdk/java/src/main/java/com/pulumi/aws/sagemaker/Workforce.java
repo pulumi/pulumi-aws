@@ -129,7 +129,7 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -143,7 +143,7 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
      * 
      */
-    @Export(name="cognitoConfig", type=WorkforceCognitoConfig.class, parameters={})
+    @Export(name="cognitoConfig", refs={WorkforceCognitoConfig.class}, tree="[0]")
     private Output</* @Nullable */ WorkforceCognitoConfig> cognitoConfig;
 
     /**
@@ -157,7 +157,7 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
      * 
      */
-    @Export(name="oidcConfig", type=WorkforceOidcConfig.class, parameters={})
+    @Export(name="oidcConfig", refs={WorkforceOidcConfig.class}, tree="[0]")
     private Output</* @Nullable */ WorkforceOidcConfig> oidcConfig;
 
     /**
@@ -171,7 +171,7 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
      * 
      */
-    @Export(name="sourceIpConfig", type=WorkforceSourceIpConfig.class, parameters={})
+    @Export(name="sourceIpConfig", refs={WorkforceSourceIpConfig.class}, tree="[0]")
     private Output<WorkforceSourceIpConfig> sourceIpConfig;
 
     /**
@@ -186,7 +186,7 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      * 
      */
-    @Export(name="subdomain", type=String.class, parameters={})
+    @Export(name="subdomain", refs={String.class}, tree="[0]")
     private Output<String> subdomain;
 
     /**
@@ -201,7 +201,7 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * The name of the Workforce (must be unique).
      * 
      */
-    @Export(name="workforceName", type=String.class, parameters={})
+    @Export(name="workforceName", refs={String.class}, tree="[0]")
     private Output<String> workforceName;
 
     /**
@@ -215,7 +215,7 @@ public class Workforce extends com.pulumi.resources.CustomResource {
      * configure a workforce using VPC. see Workforce VPC Config details below.
      * 
      */
-    @Export(name="workforceVpcConfig", type=WorkforceWorkforceVpcConfig.class, parameters={})
+    @Export(name="workforceVpcConfig", refs={WorkforceWorkforceVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ WorkforceWorkforceVpcConfig> workforceVpcConfig;
 
     /**

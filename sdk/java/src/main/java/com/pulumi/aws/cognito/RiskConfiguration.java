@@ -73,7 +73,7 @@ public class RiskConfiguration extends com.pulumi.resources.CustomResource {
      * The account takeover risk configuration. See details below.
      * 
      */
-    @Export(name="accountTakeoverRiskConfiguration", type=RiskConfigurationAccountTakeoverRiskConfiguration.class, parameters={})
+    @Export(name="accountTakeoverRiskConfiguration", refs={RiskConfigurationAccountTakeoverRiskConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ RiskConfigurationAccountTakeoverRiskConfiguration> accountTakeoverRiskConfiguration;
 
     /**
@@ -87,7 +87,7 @@ public class RiskConfiguration extends com.pulumi.resources.CustomResource {
      * The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
      * 
      */
-    @Export(name="clientId", type=String.class, parameters={})
+    @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientId;
 
     /**
@@ -101,7 +101,7 @@ public class RiskConfiguration extends com.pulumi.resources.CustomResource {
      * The compromised credentials risk configuration. See details below.
      * 
      */
-    @Export(name="compromisedCredentialsRiskConfiguration", type=RiskConfigurationCompromisedCredentialsRiskConfiguration.class, parameters={})
+    @Export(name="compromisedCredentialsRiskConfiguration", refs={RiskConfigurationCompromisedCredentialsRiskConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ RiskConfigurationCompromisedCredentialsRiskConfiguration> compromisedCredentialsRiskConfiguration;
 
     /**
@@ -115,7 +115,7 @@ public class RiskConfiguration extends com.pulumi.resources.CustomResource {
      * The configuration to override the risk decision. See details below.
      * 
      */
-    @Export(name="riskExceptionConfiguration", type=RiskConfigurationRiskExceptionConfiguration.class, parameters={})
+    @Export(name="riskExceptionConfiguration", refs={RiskConfigurationRiskExceptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ RiskConfigurationRiskExceptionConfiguration> riskExceptionConfiguration;
 
     /**
@@ -129,7 +129,7 @@ public class RiskConfiguration extends com.pulumi.resources.CustomResource {
      * The user pool ID.
      * 
      */
-    @Export(name="userPoolId", type=String.class, parameters={})
+    @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
     /**

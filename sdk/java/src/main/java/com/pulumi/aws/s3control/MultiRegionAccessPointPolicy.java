@@ -34,7 +34,7 @@ public class MultiRegionAccessPointPolicy extends com.pulumi.resources.CustomRes
      * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -48,7 +48,7 @@ public class MultiRegionAccessPointPolicy extends com.pulumi.resources.CustomRes
      * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
      * 
      */
-    @Export(name="details", type=MultiRegionAccessPointPolicyDetails.class, parameters={})
+    @Export(name="details", refs={MultiRegionAccessPointPolicyDetails.class}, tree="[0]")
     private Output<MultiRegionAccessPointPolicyDetails> details;
 
     /**
@@ -62,7 +62,7 @@ public class MultiRegionAccessPointPolicy extends com.pulumi.resources.CustomRes
      * The last established policy for the Multi-Region Access Point.
      * 
      */
-    @Export(name="established", type=String.class, parameters={})
+    @Export(name="established", refs={String.class}, tree="[0]")
     private Output<String> established;
 
     /**
@@ -76,7 +76,7 @@ public class MultiRegionAccessPointPolicy extends com.pulumi.resources.CustomRes
      * The proposed policy for the Multi-Region Access Point.
      * 
      */
-    @Export(name="proposed", type=String.class, parameters={})
+    @Export(name="proposed", refs={String.class}, tree="[0]")
     private Output<String> proposed;
 
     /**

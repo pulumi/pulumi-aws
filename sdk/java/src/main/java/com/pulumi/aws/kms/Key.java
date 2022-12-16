@@ -66,7 +66,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the key.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -83,7 +83,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The default value is `false`.
      * 
      */
-    @Export(name="bypassPolicyLockoutSafetyCheck", type=Boolean.class, parameters={})
+    @Export(name="bypassPolicyLockoutSafetyCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bypassPolicyLockoutSafetyCheck;
 
     /**
@@ -100,7 +100,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
      * 
      */
-    @Export(name="customKeyStoreId", type=String.class, parameters={})
+    @Export(name="customKeyStoreId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customKeyStoreId;
 
     /**
@@ -115,7 +115,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      * 
      */
-    @Export(name="customerMasterKeySpec", type=String.class, parameters={})
+    @Export(name="customerMasterKeySpec", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerMasterKeySpec;
 
     /**
@@ -132,7 +132,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
      * 
      */
-    @Export(name="deletionWindowInDays", type=Integer.class, parameters={})
+    @Export(name="deletionWindowInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> deletionWindowInDays;
 
     /**
@@ -148,7 +148,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The description of the key as viewed in AWS console.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -162,7 +162,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="enableKeyRotation", type=Boolean.class, parameters={})
+    @Export(name="enableKeyRotation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableKeyRotation;
 
     /**
@@ -176,7 +176,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Specifies whether the key is enabled. Defaults to `true`.
      * 
      */
-    @Export(name="isEnabled", type=Boolean.class, parameters={})
+    @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isEnabled;
 
     /**
@@ -190,7 +190,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The globally unique identifier for the key.
      * 
      */
-    @Export(name="keyId", type=String.class, parameters={})
+    @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
     /**
@@ -205,7 +205,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Defaults to `ENCRYPT_DECRYPT`.
      * 
      */
-    @Export(name="keyUsage", type=String.class, parameters={})
+    @Export(name="keyUsage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyUsage;
 
     /**
@@ -220,7 +220,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      * 
      */
-    @Export(name="multiRegion", type=Boolean.class, parameters={})
+    @Export(name="multiRegion", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> multiRegion;
 
     /**
@@ -234,7 +234,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -248,7 +248,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -262,7 +262,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

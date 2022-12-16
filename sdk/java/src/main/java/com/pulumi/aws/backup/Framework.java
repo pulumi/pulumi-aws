@@ -136,7 +136,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * The ARN of the backup framework.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -150,7 +150,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
      * 
      */
-    @Export(name="controls", type=List.class, parameters={FrameworkControl.class})
+    @Export(name="controls", refs={List.class,FrameworkControl.class}, tree="[0,1]")
     private Output<List<FrameworkControl>> controls;
 
     /**
@@ -164,7 +164,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    @Export(name="creationTime", type=String.class, parameters={})
+    @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
@@ -178,7 +178,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
      * 
      */
-    @Export(name="deploymentStatus", type=String.class, parameters={})
+    @Export(name="deploymentStatus", refs={String.class}, tree="[0]")
     private Output<String> deploymentStatus;
 
     /**
@@ -192,7 +192,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * The description of the framework with a maximum of 1,024 characters
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -206,7 +206,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * The name of a parameter, for example, BackupPlanFrequency.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -220,7 +220,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -234,7 +234,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -248,7 +248,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

@@ -77,7 +77,7 @@ public class TrafficPolicy extends com.pulumi.resources.CustomResource {
      * Comment for the traffic policy.
      * 
      */
-    @Export(name="comment", type=String.class, parameters={})
+    @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
@@ -91,7 +91,7 @@ public class TrafficPolicy extends com.pulumi.resources.CustomResource {
      * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
      * 
      */
-    @Export(name="document", type=String.class, parameters={})
+    @Export(name="document", refs={String.class}, tree="[0]")
     private Output<String> document;
 
     /**
@@ -105,7 +105,7 @@ public class TrafficPolicy extends com.pulumi.resources.CustomResource {
      * Name of the traffic policy.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -119,7 +119,7 @@ public class TrafficPolicy extends com.pulumi.resources.CustomResource {
      * DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -133,7 +133,7 @@ public class TrafficPolicy extends com.pulumi.resources.CustomResource {
      * Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
      * 
      */
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**

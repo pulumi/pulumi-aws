@@ -126,7 +126,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
      * 
      */
-    @Export(name="activeDirectoryConfiguration", type=OntapStorageVirtualMachineActiveDirectoryConfiguration.class, parameters={})
+    @Export(name="activeDirectoryConfiguration", refs={OntapStorageVirtualMachineActiveDirectoryConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ OntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfiguration;
 
     /**
@@ -140,7 +140,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * Amazon Resource Name of the storage virtual machine.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -154,7 +154,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
-    @Export(name="endpoints", type=List.class, parameters={OntapStorageVirtualMachineEndpoint.class})
+    @Export(name="endpoints", refs={List.class,OntapStorageVirtualMachineEndpoint.class}, tree="[0,1]")
     private Output<List<OntapStorageVirtualMachineEndpoint>> endpoints;
 
     /**
@@ -168,7 +168,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      * 
      */
-    @Export(name="fileSystemId", type=String.class, parameters={})
+    @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
     /**
@@ -182,7 +182,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -196,7 +196,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      * 
      */
-    @Export(name="rootVolumeSecurityStyle", type=String.class, parameters={})
+    @Export(name="rootVolumeSecurityStyle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rootVolumeSecurityStyle;
 
     /**
@@ -212,13 +212,13 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * 
      */
     @Deprecated /* this trait has been removed from the API */
-    @Export(name="subtype", type=String.class, parameters={})
+    @Export(name="subtype", refs={String.class}, tree="[0]")
     private Output<String> subtype;
 
     public Output<String> subtype() {
         return this.subtype;
     }
-    @Export(name="svmAdminPassword", type=String.class, parameters={})
+    @Export(name="svmAdminPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> svmAdminPassword;
 
     public Output<Optional<String>> svmAdminPassword() {
@@ -228,7 +228,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -242,7 +242,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -256,7 +256,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * The SVM&#39;s UUID (universally unique identifier).
      * 
      */
-    @Export(name="uuid", type=String.class, parameters={})
+    @Export(name="uuid", refs={String.class}, tree="[0]")
     private Output<String> uuid;
 
     /**

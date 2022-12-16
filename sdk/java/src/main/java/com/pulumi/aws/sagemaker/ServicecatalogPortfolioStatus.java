@@ -63,7 +63,7 @@ public class ServicecatalogPortfolioStatus extends com.pulumi.resources.CustomRe
      * Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**

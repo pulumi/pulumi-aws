@@ -71,7 +71,7 @@ public class LayerVersionPermission extends com.pulumi.resources.CustomResource 
      * Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
      * 
      */
-    @Export(name="action", type=String.class, parameters={})
+    @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
@@ -85,7 +85,7 @@ public class LayerVersionPermission extends com.pulumi.resources.CustomResource 
      * The name or ARN of the Lambda Layer, which you want to grant access to.
      * 
      */
-    @Export(name="layerName", type=String.class, parameters={})
+    @Export(name="layerName", refs={String.class}, tree="[0]")
     private Output<String> layerName;
 
     /**
@@ -99,7 +99,7 @@ public class LayerVersionPermission extends com.pulumi.resources.CustomResource 
      * An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
      * 
      */
-    @Export(name="organizationId", type=String.class, parameters={})
+    @Export(name="organizationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organizationId;
 
     /**
@@ -113,7 +113,7 @@ public class LayerVersionPermission extends com.pulumi.resources.CustomResource 
      * Full Lambda Layer Permission policy.
      * 
      */
-    @Export(name="policy", type=String.class, parameters={})
+    @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
@@ -127,7 +127,7 @@ public class LayerVersionPermission extends com.pulumi.resources.CustomResource 
      * AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -141,7 +141,7 @@ public class LayerVersionPermission extends com.pulumi.resources.CustomResource 
      * A unique identifier for the current revision of the policy.
      * 
      */
-    @Export(name="revisionId", type=String.class, parameters={})
+    @Export(name="revisionId", refs={String.class}, tree="[0]")
     private Output<String> revisionId;
 
     /**
@@ -155,7 +155,7 @@ public class LayerVersionPermission extends com.pulumi.resources.CustomResource 
      * The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
      * 
      */
-    @Export(name="statementId", type=String.class, parameters={})
+    @Export(name="statementId", refs={String.class}, tree="[0]")
     private Output<String> statementId;
 
     /**
@@ -169,7 +169,7 @@ public class LayerVersionPermission extends com.pulumi.resources.CustomResource 
      * Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
      * 
      */
-    @Export(name="versionNumber", type=Integer.class, parameters={})
+    @Export(name="versionNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> versionNumber;
 
     /**

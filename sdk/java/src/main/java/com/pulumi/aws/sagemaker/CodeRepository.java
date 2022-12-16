@@ -121,7 +121,7 @@ public class CodeRepository extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -135,7 +135,7 @@ public class CodeRepository extends com.pulumi.resources.CustomResource {
      * The name of the Code Repository (must be unique).
      * 
      */
-    @Export(name="codeRepositoryName", type=String.class, parameters={})
+    @Export(name="codeRepositoryName", refs={String.class}, tree="[0]")
     private Output<String> codeRepositoryName;
 
     /**
@@ -149,7 +149,7 @@ public class CodeRepository extends com.pulumi.resources.CustomResource {
      * Specifies details about the repository. see Git Config details below.
      * 
      */
-    @Export(name="gitConfig", type=CodeRepositoryGitConfig.class, parameters={})
+    @Export(name="gitConfig", refs={CodeRepositoryGitConfig.class}, tree="[0]")
     private Output<CodeRepositoryGitConfig> gitConfig;
 
     /**
@@ -163,7 +163,7 @@ public class CodeRepository extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -177,7 +177,7 @@ public class CodeRepository extends com.pulumi.resources.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**

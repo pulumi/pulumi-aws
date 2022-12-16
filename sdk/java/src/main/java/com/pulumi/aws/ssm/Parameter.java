@@ -117,7 +117,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * Regular expression used to validate the parameter value.
      * 
      */
-    @Export(name="allowedPattern", type=String.class, parameters={})
+    @Export(name="allowedPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowedPattern;
 
     /**
@@ -131,7 +131,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * ARN of the parameter.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -145,7 +145,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
      * 
      */
-    @Export(name="dataType", type=String.class, parameters={})
+    @Export(name="dataType", refs={String.class}, tree="[0]")
     private Output<String> dataType;
 
     /**
@@ -159,7 +159,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * Description of the parameter.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -173,7 +173,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
      * 
      */
-    @Export(name="insecureValue", type=String.class, parameters={})
+    @Export(name="insecureValue", refs={String.class}, tree="[0]")
     private Output<String> insecureValue;
 
     /**
@@ -187,7 +187,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * KMS key ID or ARN for encrypting a SecureString.
      * 
      */
-    @Export(name="keyId", type=String.class, parameters={})
+    @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
     /**
@@ -201,7 +201,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -215,7 +215,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
      * 
      */
-    @Export(name="overwrite", type=Boolean.class, parameters={})
+    @Export(name="overwrite", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overwrite;
 
     /**
@@ -229,7 +229,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -243,7 +243,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
@@ -257,7 +257,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
      * 
      */
-    @Export(name="tier", type=String.class, parameters={})
+    @Export(name="tier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tier;
 
     /**
@@ -271,7 +271,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -285,7 +285,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
@@ -299,7 +299,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * Version of the parameter.
      * 
      */
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**

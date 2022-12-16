@@ -79,7 +79,7 @@ public class DefaultPatchBaseline extends com.pulumi.resources.CustomResource {
      * When specifying an AWS-provided patch baseline, must be the ARN.
      * 
      */
-    @Export(name="baselineId", type=String.class, parameters={})
+    @Export(name="baselineId", refs={String.class}, tree="[0]")
     private Output<String> baselineId;
 
     /**
@@ -109,7 +109,7 @@ public class DefaultPatchBaseline extends com.pulumi.resources.CustomResource {
      * `WINDOWS`.
      * 
      */
-    @Export(name="operatingSystem", type=String.class, parameters={})
+    @Export(name="operatingSystem", refs={String.class}, tree="[0]")
     private Output<String> operatingSystem;
 
     /**

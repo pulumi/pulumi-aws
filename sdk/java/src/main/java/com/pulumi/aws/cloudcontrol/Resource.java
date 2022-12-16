@@ -64,7 +64,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * JSON string matching the CloudFormation resource type schema with desired configuration.
      * 
      */
-    @Export(name="desiredState", type=String.class, parameters={})
+    @Export(name="desiredState", refs={String.class}, tree="[0]")
     private Output<String> desiredState;
 
     /**
@@ -78,7 +78,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)[&#34;example&#34;]`.
      * 
      */
-    @Export(name="properties", type=String.class, parameters={})
+    @Export(name="properties", refs={String.class}, tree="[0]")
     private Output<String> properties;
 
     /**
@@ -92,7 +92,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
      * 
      */
-    @Export(name="roleArn", type=String.class, parameters={})
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
@@ -106,7 +106,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -120,7 +120,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
      * 
      */
-    @Export(name="typeName", type=String.class, parameters={})
+    @Export(name="typeName", refs={String.class}, tree="[0]")
     private Output<String> typeName;
 
     /**
@@ -134,7 +134,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
      * Identifier of the CloudFormation resource type version.
      * 
      */
-    @Export(name="typeVersionId", type=String.class, parameters={})
+    @Export(name="typeVersionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> typeVersionId;
 
     /**

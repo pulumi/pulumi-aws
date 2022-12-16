@@ -64,7 +64,7 @@ public class Thing extends com.pulumi.resources.CustomResource {
      * The ARN of the thing.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -78,7 +78,7 @@ public class Thing extends com.pulumi.resources.CustomResource {
      * Map of attributes of the thing.
      * 
      */
-    @Export(name="attributes", type=Map.class, parameters={String.class, String.class})
+    @Export(name="attributes", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> attributes;
 
     /**
@@ -92,7 +92,7 @@ public class Thing extends com.pulumi.resources.CustomResource {
      * The default client ID.
      * 
      */
-    @Export(name="defaultClientId", type=String.class, parameters={})
+    @Export(name="defaultClientId", refs={String.class}, tree="[0]")
     private Output<String> defaultClientId;
 
     /**
@@ -106,7 +106,7 @@ public class Thing extends com.pulumi.resources.CustomResource {
      * The name of the thing.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -120,7 +120,7 @@ public class Thing extends com.pulumi.resources.CustomResource {
      * The thing type name.
      * 
      */
-    @Export(name="thingTypeName", type=String.class, parameters={})
+    @Export(name="thingTypeName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> thingTypeName;
 
     /**
@@ -134,7 +134,7 @@ public class Thing extends com.pulumi.resources.CustomResource {
      * The current version of the thing record in the registry.
      * 
      */
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**

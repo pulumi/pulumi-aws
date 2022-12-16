@@ -117,7 +117,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Boolean flag to indicate if the certificate should be active
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> active;
 
     /**
@@ -131,7 +131,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The ARN of the created certificate.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -145,7 +145,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
      * 
      */
-    @Export(name="caPem", type=String.class, parameters={})
+    @Export(name="caPem", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> caPem;
 
     /**
@@ -163,7 +163,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * for more information on registering a certificate.
      * 
      */
-    @Export(name="certificatePem", type=String.class, parameters={})
+    @Export(name="certificatePem", refs={String.class}, tree="[0]")
     private Output<String> certificatePem;
 
     /**
@@ -185,7 +185,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * for more information on generating keys and a certificate.
      * 
      */
-    @Export(name="csr", type=String.class, parameters={})
+    @Export(name="csr", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> csr;
 
     /**
@@ -203,7 +203,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * When neither CSR nor certificate is provided, the private key.
      * 
      */
-    @Export(name="privateKey", type=String.class, parameters={})
+    @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output<String> privateKey;
 
     /**
@@ -217,7 +217,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * When neither CSR nor certificate is provided, the public key.
      * 
      */
-    @Export(name="publicKey", type=String.class, parameters={})
+    @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output<String> publicKey;
 
     /**

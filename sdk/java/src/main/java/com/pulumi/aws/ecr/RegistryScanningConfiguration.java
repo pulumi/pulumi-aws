@@ -118,7 +118,7 @@ public class RegistryScanningConfiguration extends com.pulumi.resources.CustomRe
      * The registry ID the scanning configuration applies to.
      * 
      */
-    @Export(name="registryId", type=String.class, parameters={})
+    @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
     /**
@@ -132,7 +132,7 @@ public class RegistryScanningConfiguration extends com.pulumi.resources.CustomRe
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={RegistryScanningConfigurationRule.class})
+    @Export(name="rules", refs={List.class,RegistryScanningConfigurationRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RegistryScanningConfigurationRule>> rules;
 
     /**
@@ -146,7 +146,7 @@ public class RegistryScanningConfiguration extends com.pulumi.resources.CustomRe
      * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
      * 
      */
-    @Export(name="scanType", type=String.class, parameters={})
+    @Export(name="scanType", refs={String.class}, tree="[0]")
     private Output<String> scanType;
 
     /**

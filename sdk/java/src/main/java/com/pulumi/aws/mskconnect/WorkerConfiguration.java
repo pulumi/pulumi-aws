@@ -68,7 +68,7 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
      * the Amazon Resource Name (ARN) of the worker configuration.
      * 
      */
-    @Export(name="arn", type=String.class, parameters={})
+    @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
@@ -82,7 +82,7 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
      * A summary description of the worker configuration.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -96,7 +96,7 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
      * an ID of the latest successfully created revision of the worker configuration.
      * 
      */
-    @Export(name="latestRevision", type=Integer.class, parameters={})
+    @Export(name="latestRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> latestRevision;
 
     /**
@@ -110,7 +110,7 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
      * The name of the worker configuration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -124,7 +124,7 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
      * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
      * 
      */
-    @Export(name="propertiesFileContent", type=String.class, parameters={})
+    @Export(name="propertiesFileContent", refs={String.class}, tree="[0]")
     private Output<String> propertiesFileContent;
 
     /**
