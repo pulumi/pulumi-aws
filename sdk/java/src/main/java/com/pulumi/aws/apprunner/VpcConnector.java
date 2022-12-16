@@ -66,9 +66,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:apprunner/vpcConnector:VpcConnector")
 public class VpcConnector extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of VPC connector.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of VPC connector.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }

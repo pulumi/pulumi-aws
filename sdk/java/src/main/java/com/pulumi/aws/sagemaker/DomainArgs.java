@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker;
 
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultSpaceSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDomainSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainRetentionPolicyArgs;
@@ -63,6 +64,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> authMode() {
         return this.authMode;
+    }
+
+    /**
+     * The default space settings. See Default Space Settings below.
+     * 
+     */
+    @Import(name="defaultSpaceSettings")
+    private @Nullable Output<DomainDefaultSpaceSettingsArgs> defaultSpaceSettings;
+
+    /**
+     * @return The default space settings. See Default Space Settings below.
+     * 
+     */
+    public Optional<Output<DomainDefaultSpaceSettingsArgs>> defaultSpaceSettings() {
+        return Optional.ofNullable(this.defaultSpaceSettings);
     }
 
     /**
@@ -191,6 +207,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         this.appNetworkAccessType = $.appNetworkAccessType;
         this.appSecurityGroupManagement = $.appSecurityGroupManagement;
         this.authMode = $.authMode;
+        this.defaultSpaceSettings = $.defaultSpaceSettings;
         this.defaultUserSettings = $.defaultUserSettings;
         this.domainName = $.domainName;
         this.domainSettings = $.domainSettings;
@@ -280,6 +297,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder authMode(String authMode) {
             return authMode(Output.of(authMode));
+        }
+
+        /**
+         * @param defaultSpaceSettings The default space settings. See Default Space Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultSpaceSettings(@Nullable Output<DomainDefaultSpaceSettingsArgs> defaultSpaceSettings) {
+            $.defaultSpaceSettings = defaultSpaceSettings;
+            return this;
+        }
+
+        /**
+         * @param defaultSpaceSettings The default space settings. See Default Space Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultSpaceSettings(DomainDefaultSpaceSettingsArgs defaultSpaceSettings) {
+            return defaultSpaceSettings(Output.of(defaultSpaceSettings));
         }
 
         /**

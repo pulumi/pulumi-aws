@@ -1919,6 +1919,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.pinpointsmsvoice);
     }
 
+    @Import(name="pipes")
+    private @Nullable Output<String> pipes;
+
+    public Optional<Output<String>> pipes() {
+        return Optional.ofNullable(this.pipes);
+    }
+
     @Import(name="polly")
     private @Nullable Output<String> polly;
 
@@ -2901,6 +2908,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.pinpoint = $.pinpoint;
         this.pinpointemail = $.pinpointemail;
         this.pinpointsmsvoice = $.pinpointsmsvoice;
+        this.pipes = $.pipes;
         this.polly = $.polly;
         this.pricing = $.pricing;
         this.prometheus = $.prometheus;
@@ -5468,6 +5476,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder pinpointsmsvoice(String pinpointsmsvoice) {
             return pinpointsmsvoice(Output.of(pinpointsmsvoice));
+        }
+
+        public Builder pipes(@Nullable Output<String> pipes) {
+            $.pipes = pipes;
+            return this;
+        }
+
+        public Builder pipes(String pipes) {
+            return pipes(Output.of(pipes));
         }
 
         public Builder polly(@Nullable Output<String> polly) {

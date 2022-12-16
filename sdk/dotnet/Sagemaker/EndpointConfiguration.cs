@@ -86,10 +86,16 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Fields are documented below.
+        /// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
         /// </summary>
         [Output("productionVariants")]
         public Output<ImmutableArray<Outputs.EndpointConfigurationProductionVariant>> ProductionVariants { get; private set; } = null!;
+
+        /// <summary>
+        /// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        /// </summary>
+        [Output("shadowProductionVariants")]
+        public Output<ImmutableArray<Outputs.EndpointConfigurationShadowProductionVariant>> ShadowProductionVariants { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -177,12 +183,24 @@ namespace Pulumi.Aws.Sagemaker
         private InputList<Inputs.EndpointConfigurationProductionVariantArgs>? _productionVariants;
 
         /// <summary>
-        /// Fields are documented below.
+        /// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
         /// </summary>
         public InputList<Inputs.EndpointConfigurationProductionVariantArgs> ProductionVariants
         {
             get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantArgs>());
             set => _productionVariants = value;
+        }
+
+        [Input("shadowProductionVariants")]
+        private InputList<Inputs.EndpointConfigurationShadowProductionVariantArgs>? _shadowProductionVariants;
+
+        /// <summary>
+        /// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        /// </summary>
+        public InputList<Inputs.EndpointConfigurationShadowProductionVariantArgs> ShadowProductionVariants
+        {
+            get => _shadowProductionVariants ?? (_shadowProductionVariants = new InputList<Inputs.EndpointConfigurationShadowProductionVariantArgs>());
+            set => _shadowProductionVariants = value;
         }
 
         [Input("tags")]
@@ -239,12 +257,24 @@ namespace Pulumi.Aws.Sagemaker
         private InputList<Inputs.EndpointConfigurationProductionVariantGetArgs>? _productionVariants;
 
         /// <summary>
-        /// Fields are documented below.
+        /// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
         /// </summary>
         public InputList<Inputs.EndpointConfigurationProductionVariantGetArgs> ProductionVariants
         {
             get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantGetArgs>());
             set => _productionVariants = value;
+        }
+
+        [Input("shadowProductionVariants")]
+        private InputList<Inputs.EndpointConfigurationShadowProductionVariantGetArgs>? _shadowProductionVariants;
+
+        /// <summary>
+        /// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        /// </summary>
+        public InputList<Inputs.EndpointConfigurationShadowProductionVariantGetArgs> ShadowProductionVariants
+        {
+            get => _shadowProductionVariants ?? (_shadowProductionVariants = new InputList<Inputs.EndpointConfigurationShadowProductionVariantGetArgs>());
+            set => _shadowProductionVariants = value;
         }
 
         [Input("tags")]

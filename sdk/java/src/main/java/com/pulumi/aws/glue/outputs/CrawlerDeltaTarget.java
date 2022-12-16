@@ -8,6 +8,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class CrawlerDeltaTarget {
@@ -15,7 +17,7 @@ public final class CrawlerDeltaTarget {
      * @return The name of the connection to use to connect to the Delta table target.
      * 
      */
-    private String connectionName;
+    private @Nullable String connectionName;
     /**
      * @return A list of the Amazon S3 paths to the Delta tables.
      * 
@@ -32,8 +34,8 @@ public final class CrawlerDeltaTarget {
      * @return The name of the connection to use to connect to the Delta table target.
      * 
      */
-    public String connectionName() {
-        return this.connectionName;
+    public Optional<String> connectionName() {
+        return Optional.ofNullable(this.connectionName);
     }
     /**
      * @return A list of the Amazon S3 paths to the Delta tables.
@@ -59,7 +61,7 @@ public final class CrawlerDeltaTarget {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String connectionName;
+        private @Nullable String connectionName;
         private List<String> deltaTables;
         private Boolean writeManifest;
         public Builder() {}
@@ -71,8 +73,8 @@ public final class CrawlerDeltaTarget {
         }
 
         @CustomType.Setter
-        public Builder connectionName(String connectionName) {
-            this.connectionName = Objects.requireNonNull(connectionName);
+        public Builder connectionName(@Nullable String connectionName) {
+            this.connectionName = connectionName;
             return this;
         }
         @CustomType.Setter

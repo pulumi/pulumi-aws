@@ -66,6 +66,8 @@ type LookupAddonResult struct {
 	// ARN of the EKS add-on.
 	Arn         string `pulumi:"arn"`
 	ClusterName string `pulumi:"clusterName"`
+	// Configuration values for the addon with a single JSON string.
+	ConfigurationValues string `pulumi:"configurationValues"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// The provider-assigned unique ID for this managed resource.
@@ -136,6 +138,11 @@ func (o LookupAddonResultOutput) Arn() pulumi.StringOutput {
 
 func (o LookupAddonResultOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// Configuration values for the addon with a single JSON string.
+func (o LookupAddonResultOutput) ConfigurationValues() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAddonResult) string { return v.ConfigurationValues }).(pulumi.StringOutput)
 }
 
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.

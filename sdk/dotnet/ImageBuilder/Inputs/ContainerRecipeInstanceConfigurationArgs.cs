@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         private InputList<Inputs.ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs>? _blockDeviceMappings;
 
         /// <summary>
-        /// Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+        /// Configuration block(s) with block device mappings for the container recipe. Detailed below.
         /// </summary>
         public InputList<Inputs.ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs> BlockDeviceMappings
         {

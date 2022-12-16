@@ -166,9 +166,335 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+type PermissionsBoundaryAttachmentPermissionsBoundary struct {
+	// Specifies the name and path of a customer managed policy. See below.
+	CustomerManagedPolicyReference *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReference"`
+	// AWS-managed IAM policy ARN to use as the permissions boundary.
+	ManagedPolicyArn *string `pulumi:"managedPolicyArn"`
+}
+
+// PermissionsBoundaryAttachmentPermissionsBoundaryInput is an input type that accepts PermissionsBoundaryAttachmentPermissionsBoundaryArgs and PermissionsBoundaryAttachmentPermissionsBoundaryOutput values.
+// You can construct a concrete instance of `PermissionsBoundaryAttachmentPermissionsBoundaryInput` via:
+//
+//	PermissionsBoundaryAttachmentPermissionsBoundaryArgs{...}
+type PermissionsBoundaryAttachmentPermissionsBoundaryInput interface {
+	pulumi.Input
+
+	ToPermissionsBoundaryAttachmentPermissionsBoundaryOutput() PermissionsBoundaryAttachmentPermissionsBoundaryOutput
+	ToPermissionsBoundaryAttachmentPermissionsBoundaryOutputWithContext(context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryOutput
+}
+
+type PermissionsBoundaryAttachmentPermissionsBoundaryArgs struct {
+	// Specifies the name and path of a customer managed policy. See below.
+	CustomerManagedPolicyReference PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrInput `pulumi:"customerManagedPolicyReference"`
+	// AWS-managed IAM policy ARN to use as the permissions boundary.
+	ManagedPolicyArn pulumi.StringPtrInput `pulumi:"managedPolicyArn"`
+}
+
+func (PermissionsBoundaryAttachmentPermissionsBoundaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundary)(nil)).Elem()
+}
+
+func (i PermissionsBoundaryAttachmentPermissionsBoundaryArgs) ToPermissionsBoundaryAttachmentPermissionsBoundaryOutput() PermissionsBoundaryAttachmentPermissionsBoundaryOutput {
+	return i.ToPermissionsBoundaryAttachmentPermissionsBoundaryOutputWithContext(context.Background())
+}
+
+func (i PermissionsBoundaryAttachmentPermissionsBoundaryArgs) ToPermissionsBoundaryAttachmentPermissionsBoundaryOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentPermissionsBoundaryOutput)
+}
+
+func (i PermissionsBoundaryAttachmentPermissionsBoundaryArgs) ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput() PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput {
+	return i.ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutputWithContext(context.Background())
+}
+
+func (i PermissionsBoundaryAttachmentPermissionsBoundaryArgs) ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentPermissionsBoundaryOutput).ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutputWithContext(ctx)
+}
+
+// PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput is an input type that accepts PermissionsBoundaryAttachmentPermissionsBoundaryArgs, PermissionsBoundaryAttachmentPermissionsBoundaryPtr and PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput values.
+// You can construct a concrete instance of `PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput` via:
+//
+//	        PermissionsBoundaryAttachmentPermissionsBoundaryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput interface {
+	pulumi.Input
+
+	ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput() PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput
+	ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutputWithContext(context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput
+}
+
+type permissionsBoundaryAttachmentPermissionsBoundaryPtrType PermissionsBoundaryAttachmentPermissionsBoundaryArgs
+
+func PermissionsBoundaryAttachmentPermissionsBoundaryPtr(v *PermissionsBoundaryAttachmentPermissionsBoundaryArgs) PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput {
+	return (*permissionsBoundaryAttachmentPermissionsBoundaryPtrType)(v)
+}
+
+func (*permissionsBoundaryAttachmentPermissionsBoundaryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionsBoundaryAttachmentPermissionsBoundary)(nil)).Elem()
+}
+
+func (i *permissionsBoundaryAttachmentPermissionsBoundaryPtrType) ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput() PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput {
+	return i.ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutputWithContext(context.Background())
+}
+
+func (i *permissionsBoundaryAttachmentPermissionsBoundaryPtrType) ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput)
+}
+
+type PermissionsBoundaryAttachmentPermissionsBoundaryOutput struct{ *pulumi.OutputState }
+
+func (PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundary)(nil)).Elem()
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryOutput() PermissionsBoundaryAttachmentPermissionsBoundaryOutput {
+	return o
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryOutput {
+	return o
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput() PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput {
+	return o.ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsBoundaryAttachmentPermissionsBoundary) *PermissionsBoundaryAttachmentPermissionsBoundary {
+		return &v
+	}).(PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput)
+}
+
+// Specifies the name and path of a customer managed policy. See below.
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) CustomerManagedPolicyReference() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
+	return o.ApplyT(func(v PermissionsBoundaryAttachmentPermissionsBoundary) *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference {
+		return v.CustomerManagedPolicyReference
+	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput)
+}
+
+// AWS-managed IAM policy ARN to use as the permissions boundary.
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ManagedPolicyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PermissionsBoundaryAttachmentPermissionsBoundary) *string { return v.ManagedPolicyArn }).(pulumi.StringPtrOutput)
+}
+
+type PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionsBoundaryAttachmentPermissionsBoundary)(nil)).Elem()
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput() PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput {
+	return o
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput {
+	return o
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) Elem() PermissionsBoundaryAttachmentPermissionsBoundaryOutput {
+	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundary) PermissionsBoundaryAttachmentPermissionsBoundary {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionsBoundaryAttachmentPermissionsBoundary
+		return ret
+	}).(PermissionsBoundaryAttachmentPermissionsBoundaryOutput)
+}
+
+// Specifies the name and path of a customer managed policy. See below.
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) CustomerManagedPolicyReference() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
+	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundary) *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerManagedPolicyReference
+	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput)
+}
+
+// AWS-managed IAM policy ARN to use as the permissions boundary.
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) ManagedPolicyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedPolicyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference struct {
+	// Name of the customer managed IAM Policy to be attached.
+	Name string `pulumi:"name"`
+	// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+	Path *string `pulumi:"path"`
+}
+
+// PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceInput is an input type that accepts PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs and PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput values.
+// You can construct a concrete instance of `PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceInput` via:
+//
+//	PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{...}
+type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceInput interface {
+	pulumi.Input
+
+	ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput
+	ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutputWithContext(context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput
+}
+
+type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs struct {
+	// Name of the customer managed IAM Policy to be attached.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (i PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput {
+	return i.ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutputWithContext(context.Background())
+}
+
+func (i PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput)
+}
+
+func (i PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
+	return i.ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutputWithContext(context.Background())
+}
+
+func (i PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput).ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutputWithContext(ctx)
+}
+
+// PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrInput is an input type that accepts PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs, PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtr and PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput values.
+// You can construct a concrete instance of `PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrInput` via:
+//
+//	        PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrInput interface {
+	pulumi.Input
+
+	ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput
+	ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutputWithContext(context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput
+}
+
+type permissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrType PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs
+
+func PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtr(v *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs) PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrInput {
+	return (*permissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrType)(v)
+}
+
+func (*permissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (i *permissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrType) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
+	return i.ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *permissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrType) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput)
+}
+
+type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput struct{ *pulumi.OutputState }
+
+func (PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput {
+	return o
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput {
+	return o
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
+	return o.ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutputWithContext(context.Background())
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference {
+		return &v
+	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput)
+}
+
+// Name of the customer managed IAM Policy to be attached.
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) *string {
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
+	return o
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
+	return o
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) Elem() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput {
+	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference
+		return ret
+	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput)
+}
+
+// Name of the customer managed IAM Policy to be attached.
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceInput)(nil)).Elem(), CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrInput)(nil)).Elem(), CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{})
 	pulumi.RegisterOutputType(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput{})
 	pulumi.RegisterOutputType(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput{})
+	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryOutput{})
+	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput{})
+	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput{})
+	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput{})
 }

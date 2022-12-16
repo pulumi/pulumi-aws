@@ -644,6 +644,7 @@ namespace Pulumi.Aws
                 public string? Pinpoint { get; set; } = null!;
                 public string? Pinpointemail { get; set; } = null!;
                 public string? Pinpointsmsvoice { get; set; } = null!;
+                public string? Pipes { get; set; } = null!;
                 public string? Polly { get; set; } = null!;
                 public string? Pricing { get; set; } = null!;
                 public string? Prometheus { get; set; } = null!;

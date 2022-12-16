@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// SageMaker Code Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
+    /// SageMaker Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example

@@ -19,6 +19,10 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
      * 
      */
     private String subject;
+    /**
+     * @return The email text body.
+     * 
+     */
     private String textBody;
 
     private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail() {}
@@ -36,6 +40,10 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
     public String subject() {
         return this.subject;
     }
+    /**
+     * @return The email text body.
+     * 
+     */
     public String textBody() {
         return this.textBody;
     }

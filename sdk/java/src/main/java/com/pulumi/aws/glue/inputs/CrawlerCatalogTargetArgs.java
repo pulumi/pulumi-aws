@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CrawlerCatalogTargetArgs Empty = new CrawlerCatalogTargetArgs();
+
+    /**
+     * The name of the connection to use to connect to the Delta table target.
+     * 
+     */
+    @Import(name="connectionName")
+    private @Nullable Output<String> connectionName;
+
+    /**
+     * @return The name of the connection to use to connect to the Delta table target.
+     * 
+     */
+    public Optional<Output<String>> connectionName() {
+        return Optional.ofNullable(this.connectionName);
+    }
 
     /**
      * The name of the Glue database to be synchronized.
@@ -27,6 +44,36 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
      */
     public Output<String> databaseName() {
         return this.databaseName;
+    }
+
+    /**
+     * A valid Amazon SQS ARN.
+     * 
+     */
+    @Import(name="dlqEventQueueArn")
+    private @Nullable Output<String> dlqEventQueueArn;
+
+    /**
+     * @return A valid Amazon SQS ARN.
+     * 
+     */
+    public Optional<Output<String>> dlqEventQueueArn() {
+        return Optional.ofNullable(this.dlqEventQueueArn);
+    }
+
+    /**
+     * A valid Amazon SQS ARN.
+     * 
+     */
+    @Import(name="eventQueueArn")
+    private @Nullable Output<String> eventQueueArn;
+
+    /**
+     * @return A valid Amazon SQS ARN.
+     * 
+     */
+    public Optional<Output<String>> eventQueueArn() {
+        return Optional.ofNullable(this.eventQueueArn);
     }
 
     /**
@@ -47,7 +94,10 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
     private CrawlerCatalogTargetArgs() {}
 
     private CrawlerCatalogTargetArgs(CrawlerCatalogTargetArgs $) {
+        this.connectionName = $.connectionName;
         this.databaseName = $.databaseName;
+        this.dlqEventQueueArn = $.dlqEventQueueArn;
+        this.eventQueueArn = $.eventQueueArn;
         this.tables = $.tables;
     }
 
@@ -70,6 +120,27 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
+         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionName(@Nullable Output<String> connectionName) {
+            $.connectionName = connectionName;
+            return this;
+        }
+
+        /**
+         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionName(String connectionName) {
+            return connectionName(Output.of(connectionName));
+        }
+
+        /**
          * @param databaseName The name of the Glue database to be synchronized.
          * 
          * @return builder
@@ -88,6 +159,48 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
          */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
+        }
+
+        /**
+         * @param dlqEventQueueArn A valid Amazon SQS ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dlqEventQueueArn(@Nullable Output<String> dlqEventQueueArn) {
+            $.dlqEventQueueArn = dlqEventQueueArn;
+            return this;
+        }
+
+        /**
+         * @param dlqEventQueueArn A valid Amazon SQS ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dlqEventQueueArn(String dlqEventQueueArn) {
+            return dlqEventQueueArn(Output.of(dlqEventQueueArn));
+        }
+
+        /**
+         * @param eventQueueArn A valid Amazon SQS ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventQueueArn(@Nullable Output<String> eventQueueArn) {
+            $.eventQueueArn = eventQueueArn;
+            return this;
+        }
+
+        /**
+         * @param eventQueueArn A valid Amazon SQS ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventQueueArn(String eventQueueArn) {
+            return eventQueueArn(Output.of(eventQueueArn));
         }
 
         /**

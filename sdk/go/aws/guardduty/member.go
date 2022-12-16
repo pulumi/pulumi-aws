@@ -57,7 +57,7 @@ import (
 //
 // ## Import
 //
-// GuardDuty members can be imported using the the primary GuardDuty detector ID and member AWS account ID, e.g.,
+// GuardDuty members can be imported using the primary GuardDuty detector ID and member AWS account ID, e.g.,
 //
 // ```sh
 //

@@ -134,7 +134,7 @@ type Instance struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`. See [Amazon RDS Documentation for more
 	// information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
+	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// The ARN of the RDS instance.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Indicates that minor engine upgrades
@@ -226,6 +226,8 @@ type Instance struct {
 	InstanceClass pulumi.StringOutput `pulumi:"instanceClass"`
 	// The amount of provisioned IOPS. Setting this implies a
 	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+	// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
+	// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	Iops pulumi.IntOutput `pulumi:"iops"`
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
@@ -326,7 +328,7 @@ type Instance struct {
 	// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
 	// default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
-	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	StorageThroughput pulumi.IntOutput `pulumi:"storageThroughput"`
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
@@ -494,6 +496,8 @@ type instanceState struct {
 	InstanceClass *string `pulumi:"instanceClass"`
 	// The amount of provisioned IOPS. Setting this implies a
 	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+	// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
+	// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	Iops *int `pulumi:"iops"`
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
@@ -594,7 +598,7 @@ type instanceState struct {
 	// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
 	// default is `false` if not specified.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	StorageThroughput *int `pulumi:"storageThroughput"`
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
@@ -724,6 +728,8 @@ type InstanceState struct {
 	InstanceClass pulumi.StringPtrInput
 	// The amount of provisioned IOPS. Setting this implies a
 	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+	// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
+	// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	Iops pulumi.IntPtrInput
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
@@ -824,7 +830,7 @@ type InstanceState struct {
 	// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
 	// default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrInput
-	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	StorageThroughput pulumi.IntPtrInput
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
@@ -947,6 +953,8 @@ type instanceArgs struct {
 	InstanceClass string `pulumi:"instanceClass"`
 	// The amount of provisioned IOPS. Setting this implies a
 	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+	// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
+	// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	Iops *int `pulumi:"iops"`
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
@@ -1040,7 +1048,7 @@ type instanceArgs struct {
 	// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
 	// default is `false` if not specified.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	StorageThroughput *int `pulumi:"storageThroughput"`
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
@@ -1158,6 +1166,8 @@ type InstanceArgs struct {
 	InstanceClass pulumi.StringInput
 	// The amount of provisioned IOPS. Setting this implies a
 	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+	// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
+	// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	Iops pulumi.IntPtrInput
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
@@ -1251,7 +1261,7 @@ type InstanceArgs struct {
 	// is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
 	// default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrInput
-	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+	// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	StorageThroughput pulumi.IntPtrInput
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
@@ -1382,8 +1392,8 @@ func (o InstanceOutput) AllowMajorVersionUpgrade() pulumi.BoolPtrOutput {
 // are applied immediately, or during the next maintenance window. Default is
 // `false`. See [Amazon RDS Documentation for more
 // information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-func (o InstanceOutput) ApplyImmediately() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Instance) pulumi.BoolOutput { return v.ApplyImmediately }).(pulumi.BoolOutput)
+func (o InstanceOutput) ApplyImmediately() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.ApplyImmediately }).(pulumi.BoolPtrOutput)
 }
 
 // The ARN of the RDS instance.
@@ -1561,6 +1571,8 @@ func (o InstanceOutput) InstanceClass() pulumi.StringOutput {
 
 // The amount of provisioned IOPS. Setting this implies a
 // storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
+// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 func (o InstanceOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.Iops }).(pulumi.IntOutput)
 }
@@ -1754,7 +1766,7 @@ func (o InstanceOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+// The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 func (o InstanceOutput) StorageThroughput() pulumi.IntOutput {
 	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.StorageThroughput }).(pulumi.IntOutput)
 }

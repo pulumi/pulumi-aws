@@ -23,6 +23,11 @@ public final class GetAddonResult {
     private String arn;
     private String clusterName;
     /**
+     * @return Configuration values for the addon with a single JSON string.
+     * 
+     */
+    private String configurationValues;
+    /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      * 
      */
@@ -65,6 +70,13 @@ public final class GetAddonResult {
     }
     public String clusterName() {
         return this.clusterName;
+    }
+    /**
+     * @return Configuration values for the addon with a single JSON string.
+     * 
+     */
+    public String configurationValues() {
+        return this.configurationValues;
     }
     /**
      * @return Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
@@ -112,6 +124,7 @@ public final class GetAddonResult {
         private String addonVersion;
         private String arn;
         private String clusterName;
+        private String configurationValues;
         private String createdAt;
         private String id;
         private String modifiedAt;
@@ -124,6 +137,7 @@ public final class GetAddonResult {
     	      this.addonVersion = defaults.addonVersion;
     	      this.arn = defaults.arn;
     	      this.clusterName = defaults.clusterName;
+    	      this.configurationValues = defaults.configurationValues;
     	      this.createdAt = defaults.createdAt;
     	      this.id = defaults.id;
     	      this.modifiedAt = defaults.modifiedAt;
@@ -149,6 +163,11 @@ public final class GetAddonResult {
         @CustomType.Setter
         public Builder clusterName(String clusterName) {
             this.clusterName = Objects.requireNonNull(clusterName);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder configurationValues(String configurationValues) {
+            this.configurationValues = Objects.requireNonNull(configurationValues);
             return this;
         }
         @CustomType.Setter
@@ -182,6 +201,7 @@ public final class GetAddonResult {
             o.addonVersion = addonVersion;
             o.arn = arn;
             o.clusterName = clusterName;
+            o.configurationValues = configurationValues;
             o.createdAt = createdAt;
             o.id = id;
             o.modifiedAt = modifiedAt;

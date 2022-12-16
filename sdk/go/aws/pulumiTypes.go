@@ -911,6 +911,7 @@ type ProviderEndpoint struct {
 	Pinpoint                            *string `pulumi:"pinpoint"`
 	Pinpointemail                       *string `pulumi:"pinpointemail"`
 	Pinpointsmsvoice                    *string `pulumi:"pinpointsmsvoice"`
+	Pipes                               *string `pulumi:"pipes"`
 	Polly                               *string `pulumi:"polly"`
 	Pricing                             *string `pulumi:"pricing"`
 	Prometheus                          *string `pulumi:"prometheus"`
@@ -1298,6 +1299,7 @@ type ProviderEndpointArgs struct {
 	Pinpoint                            pulumi.StringPtrInput `pulumi:"pinpoint"`
 	Pinpointemail                       pulumi.StringPtrInput `pulumi:"pinpointemail"`
 	Pinpointsmsvoice                    pulumi.StringPtrInput `pulumi:"pinpointsmsvoice"`
+	Pipes                               pulumi.StringPtrInput `pulumi:"pipes"`
 	Polly                               pulumi.StringPtrInput `pulumi:"polly"`
 	Pricing                             pulumi.StringPtrInput `pulumi:"pricing"`
 	Prometheus                          pulumi.StringPtrInput `pulumi:"prometheus"`
@@ -2538,6 +2540,10 @@ func (o ProviderEndpointOutput) Pinpointemail() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Pinpointsmsvoice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Pinpointsmsvoice }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Pipes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Pipes }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Polly() pulumi.StringPtrOutput {

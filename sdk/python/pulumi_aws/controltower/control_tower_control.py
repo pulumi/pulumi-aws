@@ -101,6 +101,14 @@ class ControlTowerControl(pulumi.CustomResource):
         Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
         [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
 
+        ## Import
+
+        Control Tower Controls can be imported using their `organizational_unit_arn/control_identifier`, e.g.,
+
+        ```sh
+         $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
@@ -115,6 +123,14 @@ class ControlTowerControl(pulumi.CustomResource):
         """
         Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
         [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
+
+        ## Import
+
+        Control Tower Controls can be imported using their `organizational_unit_arn/control_identifier`, e.g.,
+
+        ```sh
+         $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+        ```
 
         :param str resource_name: The name of the resource.
         :param ControlTowerControlArgs args: The arguments to use to populate this resource's properties.

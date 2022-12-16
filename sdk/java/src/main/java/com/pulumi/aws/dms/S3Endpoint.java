@@ -308,14 +308,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return this.certificateArn;
     }
     /**
-     * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+     * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
      * 
      */
     @Export(name="compressionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> compressionType;
 
     /**
-     * @return Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+     * @return Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
      * 
      */
     public Output<Optional<String>> compressionType() {
@@ -420,14 +420,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.datePartitionDelimiter);
     }
     /**
-     * Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+     * Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
      * 
      */
     @Export(name="datePartitionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> datePartitionEnabled;
 
     /**
-     * @return Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+     * @return Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
      * 
      */
     public Output<Optional<Boolean>> datePartitionEnabled() {
@@ -734,14 +734,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rowGroupLength);
     }
     /**
-     * When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+     * When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
      * 
      */
     @Export(name="serverSideEncryptionKmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serverSideEncryptionKmsKeyId;
 
     /**
-     * @return When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+     * @return When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
      * 
      */
     public Output<Optional<String>> serverSideEncryptionKmsKeyId() {

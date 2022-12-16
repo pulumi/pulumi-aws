@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SageMaker Code Apps can be imported using the `id`, e.g.,
+ * SageMaker Apps can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
@@ -66,7 +66,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly appName!: pulumi.Output<string>;
     /**
-     * The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
      */
     public readonly appType!: pulumi.Output<string>;
     /**
@@ -82,6 +82,10 @@ export class App extends pulumi.CustomResource {
      */
     public readonly resourceSpec!: pulumi.Output<outputs.sagemaker.AppResourceSpec>;
     /**
+     * The name of the space. At least on of `userProfileName` or `spaceName` required.
+     */
+    public readonly spaceName!: pulumi.Output<string | undefined>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -90,9 +94,9 @@ export class App extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The user profile name.
+     * The user profile name. At least on of `userProfileName` or `spaceName` required.
      */
-    public readonly userProfileName!: pulumi.Output<string>;
+    public readonly userProfileName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a App resource with the given unique name, arguments, and options.
@@ -112,6 +116,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["domainId"] = state ? state.domainId : undefined;
             resourceInputs["resourceSpec"] = state ? state.resourceSpec : undefined;
+            resourceInputs["spaceName"] = state ? state.spaceName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["userProfileName"] = state ? state.userProfileName : undefined;
@@ -126,13 +131,11 @@ export class App extends pulumi.CustomResource {
             if ((!args || args.domainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            if ((!args || args.userProfileName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userProfileName'");
-            }
             resourceInputs["appName"] = args ? args.appName : undefined;
             resourceInputs["appType"] = args ? args.appType : undefined;
             resourceInputs["domainId"] = args ? args.domainId : undefined;
             resourceInputs["resourceSpec"] = args ? args.resourceSpec : undefined;
+            resourceInputs["spaceName"] = args ? args.spaceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userProfileName"] = args ? args.userProfileName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -152,7 +155,7 @@ export interface AppState {
      */
     appName?: pulumi.Input<string>;
     /**
-     * The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
      */
     appType?: pulumi.Input<string>;
     /**
@@ -168,6 +171,10 @@ export interface AppState {
      */
     resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec>;
     /**
+     * The name of the space. At least on of `userProfileName` or `spaceName` required.
+     */
+    spaceName?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -176,7 +183,7 @@ export interface AppState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The user profile name.
+     * The user profile name. At least on of `userProfileName` or `spaceName` required.
      */
     userProfileName?: pulumi.Input<string>;
 }
@@ -190,7 +197,7 @@ export interface AppArgs {
      */
     appName: pulumi.Input<string>;
     /**
-     * The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
      */
     appType: pulumi.Input<string>;
     /**
@@ -202,11 +209,15 @@ export interface AppArgs {
      */
     resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec>;
     /**
+     * The name of the space. At least on of `userProfileName` or `spaceName` required.
+     */
+    spaceName?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The user profile name.
+     * The user profile name. At least on of `userProfileName` or `spaceName` required.
      */
-    userProfileName: pulumi.Input<string>;
+    userProfileName?: pulumi.Input<string>;
 }

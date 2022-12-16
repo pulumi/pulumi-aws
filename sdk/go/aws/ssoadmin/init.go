@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PermissionSet{}
 	case "aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy":
 		r = &PermissionSetInlinePolicy{}
+	case "aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment":
+		r = &PermissionsBoundaryAttachment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -67,6 +69,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ssoadmin/permissionSetInlinePolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssoadmin/permissionsBoundaryAttachment",
 		&module{version},
 	)
 }

@@ -62,6 +62,9 @@ export class VpcConnector extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcConnector.__pulumiType;
     }
 
+    /**
+     * ARN of VPC connector.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
@@ -142,6 +145,9 @@ export class VpcConnector extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcConnector resources.
  */
 export interface VpcConnectorState {
+    /**
+     * ARN of VPC connector.
+     */
     arn?: pulumi.Input<string>;
     /**
      * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.

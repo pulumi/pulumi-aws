@@ -194,7 +194,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> applyImmediately;
+    private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
      * @return Specifies whether any database modifications
@@ -203,8 +203,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      * 
      */
-    public Output<Boolean> applyImmediately() {
-        return this.applyImmediately;
+    public Output<Optional<Boolean>> applyImmediately() {
+        return Codegen.optional(this.applyImmediately);
     }
     /**
      * The ARN of the RDS instance.
@@ -667,6 +667,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
+     * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+     * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
     @Export(name="iops", refs={Integer.class}, tree="[0]")
@@ -675,6 +677,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * @return The amount of provisioned IOPS. Setting this implies a
      * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
+     * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+     * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
     public Output<Integer> iops() {
@@ -1173,14 +1177,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageEncrypted);
     }
     /**
-     * The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`.
+     * The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
     @Export(name="storageThroughput", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageThroughput;
 
     /**
-     * @return The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`.
+     * @return The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
     public Output<Integer> storageThroughput() {

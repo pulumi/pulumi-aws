@@ -127,7 +127,7 @@ class ContainerRecipeInstanceConfigurationArgs:
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs']]]] = None,
                  image: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the container recipe. Detailed below.
         :param pulumi.Input[str] image: The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
         """
         if block_device_mappings is not None:
@@ -139,7 +139,7 @@ class ContainerRecipeInstanceConfigurationArgs:
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs']]]]:
         """
-        Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+        Configuration block(s) with block device mappings for the container recipe. Detailed below.
         """
         return pulumi.get(self, "block_device_mappings")
 

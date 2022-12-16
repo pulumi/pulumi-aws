@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsJupyterServerAppSettingsCodeRepository;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -12,6 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsJupyterServerAppSettings {
+    /**
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * 
+     */
+    private @Nullable List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepository> codeRepositories;
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
@@ -24,6 +30,13 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
     private @Nullable List<String> lifecycleConfigArns;
 
     private UserProfileUserSettingsJupyterServerAppSettings() {}
+    /**
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * 
+     */
+    public List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepository> codeRepositories() {
+        return this.codeRepositories == null ? List.of() : this.codeRepositories;
+    }
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
@@ -48,15 +61,25 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepository> codeRepositories;
         private UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
         private @Nullable List<String> lifecycleConfigArns;
         public Builder() {}
         public Builder(UserProfileUserSettingsJupyterServerAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.codeRepositories = defaults.codeRepositories;
     	      this.defaultResourceSpec = defaults.defaultResourceSpec;
     	      this.lifecycleConfigArns = defaults.lifecycleConfigArns;
         }
 
+        @CustomType.Setter
+        public Builder codeRepositories(@Nullable List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepository> codeRepositories) {
+            this.codeRepositories = codeRepositories;
+            return this;
+        }
+        public Builder codeRepositories(UserProfileUserSettingsJupyterServerAppSettingsCodeRepository... codeRepositories) {
+            return codeRepositories(List.of(codeRepositories));
+        }
         @CustomType.Setter
         public Builder defaultResourceSpec(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec) {
             this.defaultResourceSpec = Objects.requireNonNull(defaultResourceSpec);
@@ -72,6 +95,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
         }
         public UserProfileUserSettingsJupyterServerAppSettings build() {
             final var o = new UserProfileUserSettingsJupyterServerAppSettings();
+            o.codeRepositories = codeRepositories;
             o.defaultResourceSpec = defaultResourceSpec;
             o.lifecycleConfigArns = lifecycleConfigArns;
             return o;

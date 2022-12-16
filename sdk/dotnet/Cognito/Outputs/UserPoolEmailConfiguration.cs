@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly string? ReplyToEmailAddress;
         /// <summary>
-        /// ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+        /// ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
         /// </summary>
         public readonly string? SourceArn;
 

@@ -170,7 +170,7 @@ export class S3Endpoint extends pulumi.CustomResource {
      */
     public readonly certificateArn!: pulumi.Output<string>;
     /**
-     * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+     * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
      */
     public readonly compressionType!: pulumi.Output<string | undefined>;
     /**
@@ -202,7 +202,7 @@ export class S3Endpoint extends pulumi.CustomResource {
      */
     public readonly datePartitionDelimiter!: pulumi.Output<string | undefined>;
     /**
-     * Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+     * Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
      */
     public readonly datePartitionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -291,7 +291,7 @@ export class S3Endpoint extends pulumi.CustomResource {
      */
     public readonly rowGroupLength!: pulumi.Output<number | undefined>;
     /**
-     * When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+     * When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
      */
     public readonly serverSideEncryptionKmsKeyId!: pulumi.Output<string | undefined>;
     /**
@@ -511,7 +511,7 @@ export interface S3EndpointState {
      */
     certificateArn?: pulumi.Input<string>;
     /**
-     * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+     * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
      */
     compressionType?: pulumi.Input<string>;
     /**
@@ -543,7 +543,7 @@ export interface S3EndpointState {
      */
     datePartitionDelimiter?: pulumi.Input<string>;
     /**
-     * Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+     * Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
      */
     datePartitionEnabled?: pulumi.Input<boolean>;
     /**
@@ -632,7 +632,7 @@ export interface S3EndpointState {
      */
     rowGroupLength?: pulumi.Input<number>;
     /**
-     * When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+     * When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
      */
     serverSideEncryptionKmsKeyId?: pulumi.Input<string>;
     /**
@@ -718,7 +718,7 @@ export interface S3EndpointArgs {
      */
     certificateArn?: pulumi.Input<string>;
     /**
-     * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+     * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
      */
     compressionType?: pulumi.Input<string>;
     /**
@@ -750,7 +750,7 @@ export interface S3EndpointArgs {
      */
     datePartitionDelimiter?: pulumi.Input<string>;
     /**
-     * Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+     * Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
      */
     datePartitionEnabled?: pulumi.Input<boolean>;
     /**
@@ -827,7 +827,7 @@ export interface S3EndpointArgs {
      */
     rowGroupLength?: pulumi.Input<number>;
     /**
-     * When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+     * When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
      */
     serverSideEncryptionKmsKeyId?: pulumi.Input<string>;
     /**

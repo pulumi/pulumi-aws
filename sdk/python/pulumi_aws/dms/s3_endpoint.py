@@ -76,7 +76,7 @@ class S3EndpointArgs:
         :param pulumi.Input[int] cdc_min_file_size: Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
         :param pulumi.Input[str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
         :param pulumi.Input[str] certificate_arn: ARN for the certificate.
-        :param pulumi.Input[str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+        :param pulumi.Input[str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         :param pulumi.Input[str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
         :param pulumi.Input[str] csv_no_sup_value: Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         :param pulumi.Input[str] csv_null_value: String to as null when writing to the target. (AWS default is `NULL`.)
@@ -84,7 +84,7 @@ class S3EndpointArgs:
         :param pulumi.Input[str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
         :param pulumi.Input[int] data_page_size: Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[str] date_partition_delimiter: Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
-        :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+        :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_timezone: Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
         :param pulumi.Input[int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
@@ -101,7 +101,7 @@ class S3EndpointArgs:
         :param pulumi.Input[bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         :param pulumi.Input[int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
-        :param pulumi.Input[str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        :param pulumi.Input[str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
@@ -369,7 +369,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="compressionType")
     def compression_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+        Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         """
         return pulumi.get(self, "compression_type")
 
@@ -465,7 +465,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="datePartitionEnabled")
     def date_partition_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+        Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         """
         return pulumi.get(self, "date_partition_enabled")
 
@@ -678,7 +678,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
     def server_side_encryption_kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 
@@ -814,7 +814,7 @@ class _S3EndpointState:
         :param pulumi.Input[int] cdc_min_file_size: Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
         :param pulumi.Input[str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
         :param pulumi.Input[str] certificate_arn: ARN for the certificate.
-        :param pulumi.Input[str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+        :param pulumi.Input[str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         :param pulumi.Input[str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
         :param pulumi.Input[str] csv_no_sup_value: Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         :param pulumi.Input[str] csv_null_value: String to as null when writing to the target. (AWS default is `NULL`.)
@@ -822,7 +822,7 @@ class _S3EndpointState:
         :param pulumi.Input[str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
         :param pulumi.Input[int] data_page_size: Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[str] date_partition_delimiter: Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
-        :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+        :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_timezone: Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
         :param pulumi.Input[int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
@@ -844,7 +844,7 @@ class _S3EndpointState:
         :param pulumi.Input[bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         :param pulumi.Input[int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
-        :param pulumi.Input[str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        :param pulumi.Input[str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         :param pulumi.Input[str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         :param pulumi.Input[str] status: Status of the endpoint.
@@ -1093,7 +1093,7 @@ class _S3EndpointState:
     @pulumi.getter(name="compressionType")
     def compression_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+        Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         """
         return pulumi.get(self, "compression_type")
 
@@ -1189,7 +1189,7 @@ class _S3EndpointState:
     @pulumi.getter(name="datePartitionEnabled")
     def date_partition_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+        Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         """
         return pulumi.get(self, "date_partition_enabled")
 
@@ -1462,7 +1462,7 @@ class _S3EndpointState:
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
     def server_side_encryption_kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 
@@ -1721,7 +1721,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[int] cdc_min_file_size: Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
         :param pulumi.Input[str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
         :param pulumi.Input[str] certificate_arn: ARN for the certificate.
-        :param pulumi.Input[str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+        :param pulumi.Input[str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         :param pulumi.Input[str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
         :param pulumi.Input[str] csv_no_sup_value: Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         :param pulumi.Input[str] csv_null_value: String to as null when writing to the target. (AWS default is `NULL`.)
@@ -1729,7 +1729,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
         :param pulumi.Input[int] data_page_size: Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[str] date_partition_delimiter: Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
-        :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+        :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_timezone: Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
         :param pulumi.Input[int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
@@ -1748,7 +1748,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         :param pulumi.Input[int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
-        :param pulumi.Input[str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        :param pulumi.Input[str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         :param pulumi.Input[str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -2059,7 +2059,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[int] cdc_min_file_size: Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
         :param pulumi.Input[str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
         :param pulumi.Input[str] certificate_arn: ARN for the certificate.
-        :param pulumi.Input[str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+        :param pulumi.Input[str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         :param pulumi.Input[str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
         :param pulumi.Input[str] csv_no_sup_value: Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         :param pulumi.Input[str] csv_null_value: String to as null when writing to the target. (AWS default is `NULL`.)
@@ -2067,7 +2067,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
         :param pulumi.Input[int] data_page_size: Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[str] date_partition_delimiter: Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
-        :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+        :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_timezone: Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
         :param pulumi.Input[int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
@@ -2089,7 +2089,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         :param pulumi.Input[int] row_group_length: Number of rows in a row group. (AWS default is `10000`.)
-        :param pulumi.Input[str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        :param pulumi.Input[str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         :param pulumi.Input[str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         :param pulumi.Input[str] status: Status of the endpoint.
@@ -2248,7 +2248,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="compressionType")
     def compression_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+        Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         """
         return pulumi.get(self, "compression_type")
 
@@ -2312,7 +2312,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="datePartitionEnabled")
     def date_partition_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+        Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         """
         return pulumi.get(self, "date_partition_enabled")
 
@@ -2493,7 +2493,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
     def server_side_encryption_kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
-        When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 

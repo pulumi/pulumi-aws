@@ -42,7 +42,7 @@ import (
 //
 // ## Import
 //
-// SageMaker Code Model Package Groups can be imported using the `name`, e.g.,
+// SageMaker Model Package Groups can be imported using the `name`, e.g.,
 //
 // ```sh
 //

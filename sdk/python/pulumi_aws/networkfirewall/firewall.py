@@ -21,6 +21,7 @@ class FirewallArgs:
                  vpc_id: pulumi.Input[str],
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input['FirewallEncryptionConfigurationArgs']] = None,
                  firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  subnet_change_protection: Optional[pulumi.Input[bool]] = None,
@@ -32,6 +33,7 @@ class FirewallArgs:
         :param pulumi.Input[str] vpc_id: The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         :param pulumi.Input[bool] delete_protection: A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
         :param pulumi.Input[str] description: A friendly description of the firewall.
+        :param pulumi.Input['FirewallEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         :param pulumi.Input[str] name: A friendly name of the firewall.
         :param pulumi.Input[bool] subnet_change_protection: A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
@@ -44,6 +46,8 @@ class FirewallArgs:
             pulumi.set(__self__, "delete_protection", delete_protection)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if firewall_policy_change_protection is not None:
             pulumi.set(__self__, "firewall_policy_change_protection", firewall_policy_change_protection)
         if name is not None:
@@ -114,6 +118,18 @@ class FirewallArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['FirewallEncryptionConfigurationArgs']]:
+        """
+        KMS encryption configuration settings. See Encryption Configuration below for details.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['FirewallEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
+
+    @property
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -168,6 +184,7 @@ class _FirewallState:
                  arn: Optional[pulumi.Input[str]] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input['FirewallEncryptionConfigurationArgs']] = None,
                  firewall_policy_arn: Optional[pulumi.Input[str]] = None,
                  firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
                  firewall_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusArgs']]]] = None,
@@ -183,6 +200,7 @@ class _FirewallState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the firewall.
         :param pulumi.Input[bool] delete_protection: A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
         :param pulumi.Input[str] description: A friendly description of the firewall.
+        :param pulumi.Input['FirewallEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
         :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusArgs']]] firewall_statuses: Nested list of information about the current status of the firewall.
@@ -200,6 +218,8 @@ class _FirewallState:
             pulumi.set(__self__, "delete_protection", delete_protection)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if firewall_policy_arn is not None:
             pulumi.set(__self__, "firewall_policy_arn", firewall_policy_arn)
         if firewall_policy_change_protection is not None:
@@ -256,6 +276,18 @@ class _FirewallState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['FirewallEncryptionConfigurationArgs']]:
+        """
+        KMS encryption configuration settings. See Encryption Configuration below for details.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['FirewallEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter(name="firewallPolicyArn")
@@ -385,6 +417,7 @@ class Firewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallEncryptionConfigurationArgs']]] = None,
                  firewall_policy_arn: Optional[pulumi.Input[str]] = None,
                  firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -426,6 +459,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_protection: A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
         :param pulumi.Input[str] description: A friendly description of the firewall.
+        :param pulumi.Input[pulumi.InputType['FirewallEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
         :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         :param pulumi.Input[str] name: A friendly name of the firewall.
@@ -486,6 +520,7 @@ class Firewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_protection: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallEncryptionConfigurationArgs']]] = None,
                  firewall_policy_arn: Optional[pulumi.Input[str]] = None,
                  firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -504,6 +539,7 @@ class Firewall(pulumi.CustomResource):
 
             __props__.__dict__["delete_protection"] = delete_protection
             __props__.__dict__["description"] = description
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
             if firewall_policy_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_policy_arn'")
             __props__.__dict__["firewall_policy_arn"] = firewall_policy_arn
@@ -534,6 +570,7 @@ class Firewall(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             delete_protection: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            encryption_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallEncryptionConfigurationArgs']]] = None,
             firewall_policy_arn: Optional[pulumi.Input[str]] = None,
             firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
             firewall_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFirewallStatusArgs']]]]] = None,
@@ -554,6 +591,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the firewall.
         :param pulumi.Input[bool] delete_protection: A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
         :param pulumi.Input[str] description: A friendly description of the firewall.
+        :param pulumi.Input[pulumi.InputType['FirewallEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] firewall_policy_arn: The Amazon Resource Name (ARN) of the VPC Firewall policy.
         :param pulumi.Input[bool] firewall_policy_change_protection: A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallFirewallStatusArgs']]]] firewall_statuses: Nested list of information about the current status of the firewall.
@@ -572,6 +610,7 @@ class Firewall(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["delete_protection"] = delete_protection
         __props__.__dict__["description"] = description
+        __props__.__dict__["encryption_configuration"] = encryption_configuration
         __props__.__dict__["firewall_policy_arn"] = firewall_policy_arn
         __props__.__dict__["firewall_policy_change_protection"] = firewall_policy_change_protection
         __props__.__dict__["firewall_statuses"] = firewall_statuses
@@ -607,6 +646,14 @@ class Firewall(pulumi.CustomResource):
         A friendly description of the firewall.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output[Optional['outputs.FirewallEncryptionConfiguration']]:
+        """
+        KMS encryption configuration settings. See Encryption Configuration below for details.
+        """
+        return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="firewallPolicyArn")

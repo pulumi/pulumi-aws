@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.appsync.inputs;
 
+import com.pulumi.aws.appsync.inputs.FunctionRuntimeArgs;
 import com.pulumi.aws.appsync.inputs.FunctionSyncConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -45,6 +46,21 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * 
+     */
+    @Import(name="code")
+    private @Nullable Output<String> code;
+
+    /**
+     * @return The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * 
+     */
+    public Optional<Output<String>> code() {
+        return Optional.ofNullable(this.code);
     }
 
     /**
@@ -93,14 +109,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      * 
      */
     @Import(name="functionVersion")
     private @Nullable Output<String> functionVersion;
 
     /**
-     * @return Version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * @return Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      * 
      */
     public Optional<Output<String>> functionVersion() {
@@ -123,14 +139,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Function name. The function name does not have to be unique.
+     * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Function name. The function name does not have to be unique.
+     * @return The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -168,6 +184,21 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * 
+     */
+    @Import(name="runtime")
+    private @Nullable Output<FunctionRuntimeArgs> runtime;
+
+    /**
+     * @return Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * 
+     */
+    public Optional<Output<FunctionRuntimeArgs>> runtime() {
+        return Optional.ofNullable(this.runtime);
+    }
+
+    /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      * 
      */
@@ -187,6 +218,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     private FunctionState(FunctionState $) {
         this.apiId = $.apiId;
         this.arn = $.arn;
+        this.code = $.code;
         this.dataSource = $.dataSource;
         this.description = $.description;
         this.functionId = $.functionId;
@@ -195,6 +227,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.requestMappingTemplate = $.requestMappingTemplate;
         this.responseMappingTemplate = $.responseMappingTemplate;
+        this.runtime = $.runtime;
         this.syncConfig = $.syncConfig;
     }
 
@@ -256,6 +289,27 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param code The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder code(@Nullable Output<String> code) {
+            $.code = code;
+            return this;
+        }
+
+        /**
+         * @param code The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder code(String code) {
+            return code(Output.of(code));
         }
 
         /**
@@ -322,7 +376,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionVersion Version of the request mapping template. Currently the supported value is `2018-05-29`.
+         * @param functionVersion Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
          * 
          * @return builder
          * 
@@ -333,7 +387,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionVersion Version of the request mapping template. Currently the supported value is `2018-05-29`.
+         * @param functionVersion Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
          * 
          * @return builder
          * 
@@ -364,7 +418,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Function name. The function name does not have to be unique.
+         * @param name The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
          * 
          * @return builder
          * 
@@ -375,7 +429,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Function name. The function name does not have to be unique.
+         * @param name The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
          * 
          * @return builder
          * 
@@ -424,6 +478,27 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder responseMappingTemplate(String responseMappingTemplate) {
             return responseMappingTemplate(Output.of(responseMappingTemplate));
+        }
+
+        /**
+         * @param runtime Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtime(@Nullable Output<FunctionRuntimeArgs> runtime) {
+            $.runtime = runtime;
+            return this;
+        }
+
+        /**
+         * @param runtime Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtime(FunctionRuntimeArgs runtime) {
+            return runtime(Output.of(runtime));
         }
 
         /**

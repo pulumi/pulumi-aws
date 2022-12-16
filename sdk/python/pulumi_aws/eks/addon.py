@@ -17,6 +17,7 @@ class AddonArgs:
                  addon_name: pulumi.Input[str],
                  cluster_name: pulumi.Input[str],
                  addon_version: Optional[pulumi.Input[str]] = None,
+                 configuration_values: Optional[pulumi.Input[str]] = None,
                  preserve: Optional[pulumi.Input[bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
@@ -28,6 +29,7 @@ class AddonArgs:
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
+        :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts
                when migrating an existing add-on to an Amazon EKS add-on or when applying
@@ -44,6 +46,8 @@ class AddonArgs:
         pulumi.set(__self__, "cluster_name", cluster_name)
         if addon_version is not None:
             pulumi.set(__self__, "addon_version", addon_version)
+        if configuration_values is not None:
+            pulumi.set(__self__, "configuration_values", configuration_values)
         if preserve is not None:
             pulumi.set(__self__, "preserve", preserve)
         if resolve_conflicts is not None:
@@ -90,6 +94,18 @@ class AddonArgs:
     @addon_version.setter
     def addon_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "addon_version", value)
+
+    @property
+    @pulumi.getter(name="configurationValues")
+    def configuration_values(self) -> Optional[pulumi.Input[str]]:
+        """
+        custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        """
+        return pulumi.get(self, "configuration_values")
+
+    @configuration_values.setter
+    def configuration_values(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_values", value)
 
     @property
     @pulumi.getter
@@ -154,6 +170,7 @@ class _AddonState:
                  addon_version: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 configuration_values: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  modified_at: Optional[pulumi.Input[str]] = None,
                  preserve: Optional[pulumi.Input[bool]] = None,
@@ -169,6 +186,7 @@ class _AddonState:
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS add-on.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         :param pulumi.Input[str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
@@ -192,6 +210,8 @@ class _AddonState:
             pulumi.set(__self__, "arn", arn)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
+        if configuration_values is not None:
+            pulumi.set(__self__, "configuration_values", configuration_values)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if modified_at is not None:
@@ -256,6 +276,18 @@ class _AddonState:
     @cluster_name.setter
     def cluster_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="configurationValues")
+    def configuration_values(self) -> Optional[pulumi.Input[str]]:
+        """
+        custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        """
+        return pulumi.get(self, "configuration_values")
+
+    @configuration_values.setter
+    def configuration_values(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_values", value)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -357,6 +389,7 @@ class Addon(pulumi.CustomResource):
                  addon_name: Optional[pulumi.Input[str]] = None,
                  addon_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 configuration_values: Optional[pulumi.Input[str]] = None,
                  preserve: Optional[pulumi.Input[bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
@@ -397,6 +430,33 @@ class Addon(pulumi.CustomResource):
             resolve_conflicts="PRESERVE")
         ```
 
+        ## Example add-on usage with custom configuration_values
+
+        Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
+
+        > **Note:** `configuration_values` is a single JSON string should match the valid JSON schema for each add-on with specific version.
+
+        To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
+        This below is an example for extracting the `configuration_values` schema for `coredns`.
+
+        ```python
+        import pulumi
+        ```
+
+        Example to create a `coredns` managed addon with custom `configuration_values`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.eks.Addon("example",
+            addon_name="coredns",
+            addon_version="v1.8.7-eksbuild.3",
+            cluster_name="mycluster",
+            configuration_values="{\\"replicaCount\\":4,\\"resources\\":{\\"limits\\":{\\"cpu\\":\\"100m\\",\\"memory\\":\\"150Mi\\"},\\"requests\\":{\\"cpu\\":\\"100m\\",\\"memory\\":\\"150Mi\\"}}}",
+            resolve_conflicts="OVERWRITE")
+        ```
+
         ## Import
 
         EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,
@@ -412,6 +472,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts
                when migrating an existing add-on to an Amazon EKS add-on or when applying
@@ -465,6 +526,33 @@ class Addon(pulumi.CustomResource):
             resolve_conflicts="PRESERVE")
         ```
 
+        ## Example add-on usage with custom configuration_values
+
+        Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
+
+        > **Note:** `configuration_values` is a single JSON string should match the valid JSON schema for each add-on with specific version.
+
+        To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
+        This below is an example for extracting the `configuration_values` schema for `coredns`.
+
+        ```python
+        import pulumi
+        ```
+
+        Example to create a `coredns` managed addon with custom `configuration_values`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.eks.Addon("example",
+            addon_name="coredns",
+            addon_version="v1.8.7-eksbuild.3",
+            cluster_name="mycluster",
+            configuration_values="{\\"replicaCount\\":4,\\"resources\\":{\\"limits\\":{\\"cpu\\":\\"100m\\",\\"memory\\":\\"150Mi\\"},\\"requests\\":{\\"cpu\\":\\"100m\\",\\"memory\\":\\"150Mi\\"}}}",
+            resolve_conflicts="OVERWRITE")
+        ```
+
         ## Import
 
         EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,
@@ -491,6 +579,7 @@ class Addon(pulumi.CustomResource):
                  addon_name: Optional[pulumi.Input[str]] = None,
                  addon_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 configuration_values: Optional[pulumi.Input[str]] = None,
                  preserve: Optional[pulumi.Input[bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
@@ -511,6 +600,7 @@ class Addon(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["configuration_values"] = configuration_values
             __props__.__dict__["preserve"] = preserve
             __props__.__dict__["resolve_conflicts"] = resolve_conflicts
             __props__.__dict__["service_account_role_arn"] = service_account_role_arn
@@ -533,6 +623,7 @@ class Addon(pulumi.CustomResource):
             addon_version: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
+            configuration_values: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             modified_at: Optional[pulumi.Input[str]] = None,
             preserve: Optional[pulumi.Input[bool]] = None,
@@ -553,6 +644,7 @@ class Addon(pulumi.CustomResource):
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS add-on.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+        :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         :param pulumi.Input[str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
@@ -576,6 +668,7 @@ class Addon(pulumi.CustomResource):
         __props__.__dict__["addon_version"] = addon_version
         __props__.__dict__["arn"] = arn
         __props__.__dict__["cluster_name"] = cluster_name
+        __props__.__dict__["configuration_values"] = configuration_values
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["modified_at"] = modified_at
         __props__.__dict__["preserve"] = preserve
@@ -618,6 +711,14 @@ class Addon(pulumi.CustomResource):
         Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         """
         return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter(name="configurationValues")
+    def configuration_values(self) -> pulumi.Output[str]:
+        """
+        custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        """
+        return pulumi.get(self, "configuration_values")
 
     @property
     @pulumi.getter(name="createdAt")

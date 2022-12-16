@@ -72,6 +72,12 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// KMS encryption configuration settings. See Encryption Configuration below for details.
+        /// </summary>
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.FirewallEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the VPC Firewall policy.
         /// </summary>
         [Output("firewallPolicyArn")]
@@ -190,6 +196,12 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// KMS encryption configuration settings. See Encryption Configuration below for details.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.FirewallEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the VPC Firewall policy.
         /// </summary>
         [Input("firewallPolicyArn", required: true)]
@@ -268,6 +280,12 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// KMS encryption configuration settings. See Encryption Configuration below for details.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.FirewallEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the VPC Firewall policy.

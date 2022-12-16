@@ -60,15 +60,23 @@ export class LogDestination extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A name for the log destination
+     * A name for the log destination.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * The ARN of the target Amazon Kinesis stream resource for the destination
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The ARN of the target Amazon Kinesis stream resource for the destination.
      */
     public readonly targetArn!: pulumi.Output<string>;
 
@@ -88,6 +96,8 @@ export class LogDestination extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["targetArn"] = state ? state.targetArn : undefined;
         } else {
             const args = argsOrState as LogDestinationArgs | undefined;
@@ -99,8 +109,10 @@ export class LogDestination extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetArn"] = args ? args.targetArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogDestination.__pulumiType, name, resourceInputs, opts);
@@ -116,15 +128,23 @@ export interface LogDestinationState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * A name for the log destination
+     * A name for the log destination.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
      */
     roleArn?: pulumi.Input<string>;
     /**
-     * The ARN of the target Amazon Kinesis stream resource for the destination
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ARN of the target Amazon Kinesis stream resource for the destination.
      */
     targetArn?: pulumi.Input<string>;
 }
@@ -134,15 +154,19 @@ export interface LogDestinationState {
  */
 export interface LogDestinationArgs {
     /**
-     * A name for the log destination
+     * A name for the log destination.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
      */
     roleArn: pulumi.Input<string>;
     /**
-     * The ARN of the target Amazon Kinesis stream resource for the destination
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ARN of the target Amazon Kinesis stream resource for the destination.
      */
     targetArn: pulumi.Input<string>;
 }

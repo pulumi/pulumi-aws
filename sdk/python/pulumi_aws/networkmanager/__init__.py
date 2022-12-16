@@ -8,6 +8,7 @@ import typing
 from .attachment_accepter import *
 from .connect_attachment import *
 from .connection import *
+from .core_network import *
 from .customer_gateway_association import *
 from .device import *
 from .get_connection import *

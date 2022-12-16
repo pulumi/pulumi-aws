@@ -19,7 +19,7 @@ public final class GetCredentialsResult {
      */
     private String dbPassword;
     /**
-     * @return A database user name that is authorized to log on to the database `db_name` using the password `db_password` . If the specified `db_user` exists in the database, the new user name has the same database privileges as the the user named in `db_user` . By default, the user is added to PUBLIC. the user doesn&#39;t exist in the database.
+     * @return A database user name that is authorized to log on to the database `db_name` using the password `db_password` . If the specified `db_user` exists in the database, the new user name has the same database privileges as the user named in `db_user` . By default, the user is added to PUBLIC. the user doesn&#39;t exist in the database.
      * 
      */
     private String dbUser;
@@ -48,7 +48,7 @@ public final class GetCredentialsResult {
         return this.dbPassword;
     }
     /**
-     * @return A database user name that is authorized to log on to the database `db_name` using the password `db_password` . If the specified `db_user` exists in the database, the new user name has the same database privileges as the the user named in `db_user` . By default, the user is added to PUBLIC. the user doesn&#39;t exist in the database.
+     * @return A database user name that is authorized to log on to the database `db_name` using the password `db_password` . If the specified `db_user` exists in the database, the new user name has the same database privileges as the user named in `db_user` . By default, the user is added to PUBLIC. the user doesn&#39;t exist in the database.
      * 
      */
     public String dbUser() {

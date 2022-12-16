@@ -18,14 +18,14 @@ public final class ContainerRecipeInstanceConfigurationArgs extends com.pulumi.r
     public static final ContainerRecipeInstanceConfigurationArgs Empty = new ContainerRecipeInstanceConfigurationArgs();
 
     /**
-     * Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+     * Configuration block(s) with block device mappings for the container recipe. Detailed below.
      * 
      */
     @Import(name="blockDeviceMappings")
     private @Nullable Output<List<ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs>> blockDeviceMappings;
 
     /**
-     * @return Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+     * @return Configuration block(s) with block device mappings for the container recipe. Detailed below.
      * 
      */
     public Optional<Output<List<ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs>>> blockDeviceMappings() {
@@ -73,7 +73,7 @@ public final class ContainerRecipeInstanceConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param blockDeviceMappings Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+         * @param blockDeviceMappings Configuration block(s) with block device mappings for the container recipe. Detailed below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ContainerRecipeInstanceConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param blockDeviceMappings Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+         * @param blockDeviceMappings Configuration block(s) with block device mappings for the container recipe. Detailed below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ContainerRecipeInstanceConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param blockDeviceMappings Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+         * @param blockDeviceMappings Configuration block(s) with block device mappings for the container recipe. Detailed below.
          * 
          * @return builder
          * 

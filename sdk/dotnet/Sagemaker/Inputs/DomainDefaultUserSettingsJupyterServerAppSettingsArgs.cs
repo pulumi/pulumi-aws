@@ -12,6 +12,18 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DomainDefaultUserSettingsJupyterServerAppSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("codeRepositories")]
+        private InputList<Inputs.DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs>? _codeRepositories;
+
+        /// <summary>
+        /// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        /// </summary>
+        public InputList<Inputs.DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs> CodeRepositories
+        {
+            get => _codeRepositories ?? (_codeRepositories = new InputList<Inputs.DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs>());
+            set => _codeRepositories = value;
+        }
+
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         /// </summary>

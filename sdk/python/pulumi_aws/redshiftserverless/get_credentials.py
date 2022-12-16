@@ -61,7 +61,7 @@ class GetCredentialsResult:
     @pulumi.getter(name="dbUser")
     def db_user(self) -> str:
         """
-        A database user name that is authorized to log on to the database `db_name` using the password `db_password` . If the specified `db_user` exists in the database, the new user name has the same database privileges as the the user named in `db_user` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
+        A database user name that is authorized to log on to the database `db_name` using the password `db_password` . If the specified `db_user` exists in the database, the new user name has the same database privileges as the user named in `db_user` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
         """
         return pulumi.get(self, "db_user")
 

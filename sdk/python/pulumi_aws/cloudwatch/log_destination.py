@@ -16,23 +16,27 @@ class LogDestinationArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  target_arn: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LogDestination resource.
-        :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
-        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination
-        :param pulumi.Input[str] name: A name for the log destination
+        :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
+        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination.
+        :param pulumi.Input[str] name: A name for the log destination.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "target_arn", target_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+        The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
         """
         return pulumi.get(self, "role_arn")
 
@@ -44,7 +48,7 @@ class LogDestinationArgs:
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the target Amazon Kinesis stream resource for the destination
+        The ARN of the target Amazon Kinesis stream resource for the destination.
         """
         return pulumi.get(self, "target_arn")
 
@@ -56,13 +60,25 @@ class LogDestinationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name for the log destination
+        A name for the log destination.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -71,13 +87,17 @@ class _LogDestinationState:
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LogDestination resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the log destination.
-        :param pulumi.Input[str] name: A name for the log destination
-        :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
-        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination
+        :param pulumi.Input[str] name: A name for the log destination.
+        :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -85,6 +105,10 @@ class _LogDestinationState:
             pulumi.set(__self__, "name", name)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if target_arn is not None:
             pulumi.set(__self__, "target_arn", target_arn)
 
@@ -104,7 +128,7 @@ class _LogDestinationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name for the log destination
+        A name for the log destination.
         """
         return pulumi.get(self, "name")
 
@@ -116,7 +140,7 @@ class _LogDestinationState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+        The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
         """
         return pulumi.get(self, "role_arn")
 
@@ -125,10 +149,34 @@ class _LogDestinationState:
         pulumi.set(self, "role_arn", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the target Amazon Kinesis stream resource for the destination
+        The ARN of the target Amazon Kinesis stream resource for the destination.
         """
         return pulumi.get(self, "target_arn")
 
@@ -144,6 +192,7 @@ class LogDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -170,9 +219,10 @@ class LogDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: A name for the log destination
-        :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
-        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination
+        :param pulumi.Input[str] name: A name for the log destination.
+        :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination.
         """
         ...
     @overload
@@ -219,6 +269,7 @@ class LogDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -233,10 +284,12 @@ class LogDestination(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["tags"] = tags
             if target_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_arn'")
             __props__.__dict__["target_arn"] = target_arn
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(LogDestination, __self__).__init__(
             'aws:cloudwatch/logDestination:LogDestination',
             resource_name,
@@ -250,6 +303,8 @@ class LogDestination(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_arn: Optional[pulumi.Input[str]] = None) -> 'LogDestination':
         """
         Get an existing LogDestination resource's state with the given name, id, and optional extra
@@ -259,9 +314,11 @@ class LogDestination(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the log destination.
-        :param pulumi.Input[str] name: A name for the log destination
-        :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
-        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination
+        :param pulumi.Input[str] name: A name for the log destination.
+        :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -270,6 +327,8 @@ class LogDestination(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["name"] = name
         __props__.__dict__["role_arn"] = role_arn
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["target_arn"] = target_arn
         return LogDestination(resource_name, opts=opts, __props__=__props__)
 
@@ -285,7 +344,7 @@ class LogDestination(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        A name for the log destination
+        A name for the log destination.
         """
         return pulumi.get(self, "name")
 
@@ -293,15 +352,31 @@ class LogDestination(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+        The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the target Amazon Kinesis stream resource for the destination
+        The ARN of the target Amazon Kinesis stream resource for the destination.
         """
         return pulumi.get(self, "target_arn")
 

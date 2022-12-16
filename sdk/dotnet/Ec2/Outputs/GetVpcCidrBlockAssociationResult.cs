@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetVpcCidrBlockAssociationResult
     {
         /// <summary>
-        /// Association ID for the the IPv4 CIDR block.
+        /// Association ID for the IPv4 CIDR block.
         /// </summary>
         public readonly string AssociationId;
         /// <summary>

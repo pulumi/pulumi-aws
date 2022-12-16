@@ -11,6 +11,8 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Map;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -73,42 +75,70 @@ public class LogDestination extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A name for the log destination
+     * A name for the log destination.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name for the log destination
+     * @return A name for the log destination.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+     * @return The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
     /**
-     * The ARN of the target Amazon Kinesis stream resource for the destination
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
+    }
+    /**
+     * The ARN of the target Amazon Kinesis stream resource for the destination.
      * 
      */
     @Export(name="targetArn", refs={String.class}, tree="[0]")
     private Output<String> targetArn;
 
     /**
-     * @return The ARN of the target Amazon Kinesis stream resource for the destination
+     * @return The ARN of the target Amazon Kinesis stream resource for the destination.
      * 
      */
     public Output<String> targetArn() {

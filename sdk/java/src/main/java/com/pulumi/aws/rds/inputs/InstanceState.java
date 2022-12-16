@@ -584,6 +584,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
+     * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+     * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
     @Import(name="iops")
@@ -592,6 +594,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The amount of provisioned IOPS. Setting this implies a
      * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
+     * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+     * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
     public Optional<Output<Integer>> iops() {
@@ -1125,14 +1129,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`.
+     * The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
     @Import(name="storageThroughput")
     private @Nullable Output<Integer> storageThroughput;
 
     /**
-     * @return The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`.
+     * @return The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
     public Optional<Output<Integer>> storageThroughput() {
@@ -2121,6 +2125,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param iops The amount of provisioned IOPS. Setting this implies a
          * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
+         * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+         * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
          * 
          * @return builder
          * 
@@ -2133,6 +2139,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param iops The amount of provisioned IOPS. Setting this implies a
          * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
+         * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+         * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
          * 
          * @return builder
          * 
@@ -2864,7 +2872,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageThroughput The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`.
+         * @param storageThroughput The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
          * 
          * @return builder
          * 
@@ -2875,7 +2883,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageThroughput The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`.
+         * @param storageThroughput The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
          * 
          * @return builder
          * 

@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Cognito.Inputs
         [Input("subject", required: true)]
         public Input<string> Subject { get; set; } = null!;
 
+        /// <summary>
+        /// The email text body.
+        /// </summary>
         [Input("textBody", required: true)]
         public Input<string> TextBody { get; set; } = null!;
 

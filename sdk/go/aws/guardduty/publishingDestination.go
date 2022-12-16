@@ -15,7 +15,7 @@ import (
 //
 // ## Import
 //
-// GuardDuty PublishingDestination can be imported using the the master GuardDuty detector ID and PublishingDestinationID, e.g.,
+// GuardDuty PublishingDestination can be imported using the master GuardDuty detector ID and PublishingDestinationID, e.g.,
 //
 // ```sh
 //

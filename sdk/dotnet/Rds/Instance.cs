@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Rds
         /// information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
         [Output("applyImmediately")]
-        public Output<bool> ApplyImmediately { get; private set; } = null!;
+        public Output<bool?> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the RDS instance.
@@ -335,6 +335,8 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
         /// storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+        /// Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+        /// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Output("iops")]
         public Output<int> Iops { get; private set; } = null!;
@@ -555,7 +557,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Output("storageThroughput")]
         public Output<int> StorageThroughput { get; private set; } = null!;
@@ -863,6 +865,8 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
         /// storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+        /// Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+        /// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -1079,7 +1083,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Input("storageThroughput")]
         public Input<int>? StorageThroughput { get; set; }
@@ -1382,6 +1386,8 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
         /// storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+        /// Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+        /// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -1624,7 +1630,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Input("storageThroughput")]
         public Input<int>? StorageThroughput { get; set; }

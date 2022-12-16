@@ -147,6 +147,7 @@ from .vpc_ipam_preview_next_cidr import *
 from .vpc_ipam_scope import *
 from .vpc_ipv4_cidr_block_association import *
 from .vpc_ipv6_cidr_block_association import *
+from .vpc_network_performance_metric_subscription import *
 from .vpc_peering_connection import *
 from .vpc_peering_connection_accepter import *
 from .vpn_connection import *

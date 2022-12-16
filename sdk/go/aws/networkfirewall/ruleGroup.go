@@ -195,6 +195,8 @@ type RuleGroup struct {
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration RuleGroupEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// A friendly name of the rule group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
@@ -205,7 +207,7 @@ type RuleGroup struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+	// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A string token used when updating the rule group.
 	UpdateToken pulumi.StringOutput `pulumi:"updateToken"`
@@ -252,6 +254,8 @@ type ruleGroupState struct {
 	Capacity *int `pulumi:"capacity"`
 	// A friendly description of the rule group.
 	Description *string `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration *RuleGroupEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// A friendly name of the rule group.
 	Name *string `pulumi:"name"`
 	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
@@ -262,7 +266,7 @@ type ruleGroupState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+	// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
 	Type *string `pulumi:"type"`
 	// A string token used when updating the rule group.
 	UpdateToken *string `pulumi:"updateToken"`
@@ -275,6 +279,8 @@ type RuleGroupState struct {
 	Capacity pulumi.IntPtrInput
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrInput
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration RuleGroupEncryptionConfigurationPtrInput
 	// A friendly name of the rule group.
 	Name pulumi.StringPtrInput
 	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
@@ -285,7 +291,7 @@ type RuleGroupState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+	// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
 	Type pulumi.StringPtrInput
 	// A string token used when updating the rule group.
 	UpdateToken pulumi.StringPtrInput
@@ -300,6 +306,8 @@ type ruleGroupArgs struct {
 	Capacity int `pulumi:"capacity"`
 	// A friendly description of the rule group.
 	Description *string `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration *RuleGroupEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// A friendly name of the rule group.
 	Name *string `pulumi:"name"`
 	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
@@ -308,7 +316,7 @@ type ruleGroupArgs struct {
 	Rules *string `pulumi:"rules"`
 	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+	// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
 	Type string `pulumi:"type"`
 }
 
@@ -318,6 +326,8 @@ type RuleGroupArgs struct {
 	Capacity pulumi.IntInput
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrInput
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration RuleGroupEncryptionConfigurationPtrInput
 	// A friendly name of the rule group.
 	Name pulumi.StringPtrInput
 	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
@@ -326,7 +336,7 @@ type RuleGroupArgs struct {
 	Rules pulumi.StringPtrInput
 	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+	// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
 	Type pulumi.StringInput
 }
 
@@ -432,6 +442,11 @@ func (o RuleGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// KMS encryption configuration settings. See Encryption Configuration below for details.
+func (o RuleGroupOutput) EncryptionConfiguration() RuleGroupEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroupEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(RuleGroupEncryptionConfigurationPtrOutput)
+}
+
 // A friendly name of the rule group.
 func (o RuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -457,7 +472,7 @@ func (o RuleGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
 func (o RuleGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

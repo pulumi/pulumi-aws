@@ -33,6 +33,7 @@ __all__ = [
     'CrawlerDeltaTarget',
     'CrawlerDynamodbTarget',
     'CrawlerJdbcTarget',
+    'CrawlerLakeFormationConfiguration',
     'CrawlerLineageConfiguration',
     'CrawlerMongodbTarget',
     'CrawlerRecrawlPolicy',
@@ -1234,6 +1235,12 @@ class CrawlerCatalogTarget(dict):
         suggest = None
         if key == "databaseName":
             suggest = "database_name"
+        elif key == "connectionName":
+            suggest = "connection_name"
+        elif key == "dlqEventQueueArn":
+            suggest = "dlq_event_queue_arn"
+        elif key == "eventQueueArn":
+            suggest = "event_queue_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CrawlerCatalogTarget. Access the value via the '{suggest}' property getter instead.")
@@ -1248,13 +1255,25 @@ class CrawlerCatalogTarget(dict):
 
     def __init__(__self__, *,
                  database_name: str,
-                 tables: Sequence[str]):
+                 tables: Sequence[str],
+                 connection_name: Optional[str] = None,
+                 dlq_event_queue_arn: Optional[str] = None,
+                 event_queue_arn: Optional[str] = None):
         """
         :param str database_name: The name of the Glue database to be synchronized.
         :param Sequence[str] tables: A list of catalog tables to be synchronized.
+        :param str connection_name: The name of the connection to use to connect to the Delta table target.
+        :param str dlq_event_queue_arn: A valid Amazon SQS ARN.
+        :param str event_queue_arn: A valid Amazon SQS ARN.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "tables", tables)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if dlq_event_queue_arn is not None:
+            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+        if event_queue_arn is not None:
+            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -1272,18 +1291,42 @@ class CrawlerCatalogTarget(dict):
         """
         return pulumi.get(self, "tables")
 
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[str]:
+        """
+        The name of the connection to use to connect to the Delta table target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter(name="dlqEventQueueArn")
+    def dlq_event_queue_arn(self) -> Optional[str]:
+        """
+        A valid Amazon SQS ARN.
+        """
+        return pulumi.get(self, "dlq_event_queue_arn")
+
+    @property
+    @pulumi.getter(name="eventQueueArn")
+    def event_queue_arn(self) -> Optional[str]:
+        """
+        A valid Amazon SQS ARN.
+        """
+        return pulumi.get(self, "event_queue_arn")
+
 
 @pulumi.output_type
 class CrawlerDeltaTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "connectionName":
-            suggest = "connection_name"
-        elif key == "deltaTables":
+        if key == "deltaTables":
             suggest = "delta_tables"
         elif key == "writeManifest":
             suggest = "write_manifest"
+        elif key == "connectionName":
+            suggest = "connection_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CrawlerDeltaTarget. Access the value via the '{suggest}' property getter instead.")
@@ -1297,25 +1340,18 @@ class CrawlerDeltaTarget(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 connection_name: str,
                  delta_tables: Sequence[str],
-                 write_manifest: bool):
+                 write_manifest: bool,
+                 connection_name: Optional[str] = None):
         """
-        :param str connection_name: The name of the connection to use to connect to the Delta table target.
         :param Sequence[str] delta_tables: A list of the Amazon S3 paths to the Delta tables.
         :param bool write_manifest: Specifies whether to write the manifest files to the Delta table path.
+        :param str connection_name: The name of the connection to use to connect to the Delta table target.
         """
-        pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "delta_tables", delta_tables)
         pulumi.set(__self__, "write_manifest", write_manifest)
-
-    @property
-    @pulumi.getter(name="connectionName")
-    def connection_name(self) -> str:
-        """
-        The name of the connection to use to connect to the Delta table target.
-        """
-        return pulumi.get(self, "connection_name")
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
 
     @property
     @pulumi.getter(name="deltaTables")
@@ -1332,6 +1368,14 @@ class CrawlerDeltaTarget(dict):
         Specifies whether to write the manifest files to the Delta table path.
         """
         return pulumi.get(self, "write_manifest")
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[str]:
+        """
+        The name of the connection to use to connect to the Delta table target.
+        """
+        return pulumi.get(self, "connection_name")
 
 
 @pulumi.output_type
@@ -1402,6 +1446,8 @@ class CrawlerJdbcTarget(dict):
         suggest = None
         if key == "connectionName":
             suggest = "connection_name"
+        elif key == "enableAdditionalMetadatas":
+            suggest = "enable_additional_metadatas"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CrawlerJdbcTarget. Access the value via the '{suggest}' property getter instead.")
@@ -1417,14 +1463,18 @@ class CrawlerJdbcTarget(dict):
     def __init__(__self__, *,
                  connection_name: str,
                  path: str,
+                 enable_additional_metadatas: Optional[Sequence[str]] = None,
                  exclusions: Optional[Sequence[str]] = None):
         """
         :param str connection_name: The name of the connection to use to connect to the Delta table target.
         :param str path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        :param Sequence[str] enable_additional_metadatas: Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
         :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
         """
         pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "path", path)
+        if enable_additional_metadatas is not None:
+            pulumi.set(__self__, "enable_additional_metadatas", enable_additional_metadatas)
         if exclusions is not None:
             pulumi.set(__self__, "exclusions", exclusions)
 
@@ -1445,12 +1495,70 @@ class CrawlerJdbcTarget(dict):
         return pulumi.get(self, "path")
 
     @property
+    @pulumi.getter(name="enableAdditionalMetadatas")
+    def enable_additional_metadatas(self) -> Optional[Sequence[str]]:
+        """
+        Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+        """
+        return pulumi.get(self, "enable_additional_metadatas")
+
+    @property
     @pulumi.getter
     def exclusions(self) -> Optional[Sequence[str]]:
         """
         A list of glob patterns used to exclude from the crawl.
         """
         return pulumi.get(self, "exclusions")
+
+
+@pulumi.output_type
+class CrawlerLakeFormationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "useLakeFormationCredentials":
+            suggest = "use_lake_formation_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerLakeFormationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerLakeFormationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerLakeFormationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: Optional[str] = None,
+                 use_lake_formation_credentials: Optional[bool] = None):
+        """
+        :param str account_id: Required for cross account crawls. For same account crawls as the target data, this can omitted.
+        :param bool use_lake_formation_credentials: Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if use_lake_formation_credentials is not None:
+            pulumi.set(__self__, "use_lake_formation_credentials", use_lake_formation_credentials)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[str]:
+        """
+        Required for cross account crawls. For same account crawls as the target data, this can omitted.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="useLakeFormationCredentials")
+    def use_lake_formation_credentials(self) -> Optional[bool]:
+        """
+        Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+        """
+        return pulumi.get(self, "use_lake_formation_credentials")
 
 
 @pulumi.output_type
@@ -1620,8 +1728,8 @@ class CrawlerS3Target(dict):
         """
         :param str path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         :param str connection_name: The name of the connection to use to connect to the Delta table target.
-        :param str dlq_event_queue_arn: The ARN of the dead-letter SQS queue.
-        :param str event_queue_arn: The ARN of the SQS queue to receive S3 notifications from.
+        :param str dlq_event_queue_arn: A valid Amazon SQS ARN.
+        :param str event_queue_arn: A valid Amazon SQS ARN.
         :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
         :param int sample_size: Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
         """
@@ -1657,7 +1765,7 @@ class CrawlerS3Target(dict):
     @pulumi.getter(name="dlqEventQueueArn")
     def dlq_event_queue_arn(self) -> Optional[str]:
         """
-        The ARN of the dead-letter SQS queue.
+        A valid Amazon SQS ARN.
         """
         return pulumi.get(self, "dlq_event_queue_arn")
 
@@ -1665,7 +1773,7 @@ class CrawlerS3Target(dict):
     @pulumi.getter(name="eventQueueArn")
     def event_queue_arn(self) -> Optional[str]:
         """
-        The ARN of the SQS queue to receive S3 notifications from.
+        A valid Amazon SQS ARN.
         """
         return pulumi.get(self, "event_queue_arn")
 

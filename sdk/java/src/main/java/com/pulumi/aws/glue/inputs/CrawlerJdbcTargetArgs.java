@@ -32,6 +32,21 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+     * 
+     */
+    @Import(name="enableAdditionalMetadatas")
+    private @Nullable Output<List<String>> enableAdditionalMetadatas;
+
+    /**
+     * @return Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+     * 
+     */
+    public Optional<Output<List<String>>> enableAdditionalMetadatas() {
+        return Optional.ofNullable(this.enableAdditionalMetadatas);
+    }
+
+    /**
      * A list of glob patterns used to exclude from the crawl.
      * 
      */
@@ -65,6 +80,7 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
 
     private CrawlerJdbcTargetArgs(CrawlerJdbcTargetArgs $) {
         this.connectionName = $.connectionName;
+        this.enableAdditionalMetadatas = $.enableAdditionalMetadatas;
         this.exclusions = $.exclusions;
         this.path = $.path;
     }
@@ -106,6 +122,37 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder connectionName(String connectionName) {
             return connectionName(Output.of(connectionName));
+        }
+
+        /**
+         * @param enableAdditionalMetadatas Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableAdditionalMetadatas(@Nullable Output<List<String>> enableAdditionalMetadatas) {
+            $.enableAdditionalMetadatas = enableAdditionalMetadatas;
+            return this;
+        }
+
+        /**
+         * @param enableAdditionalMetadatas Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableAdditionalMetadatas(List<String> enableAdditionalMetadatas) {
+            return enableAdditionalMetadatas(Output.of(enableAdditionalMetadatas));
+        }
+
+        /**
+         * @param enableAdditionalMetadatas Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableAdditionalMetadatas(String... enableAdditionalMetadatas) {
+            return enableAdditionalMetadatas(List.of(enableAdditionalMetadatas));
         }
 
         /**

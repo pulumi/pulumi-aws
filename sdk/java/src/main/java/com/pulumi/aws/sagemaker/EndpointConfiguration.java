@@ -9,6 +9,7 @@ import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationState;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationAsyncInferenceConfig;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationDataCaptureConfig;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariant;
+import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationShadowProductionVariant;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -143,18 +144,32 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Fields are documented below.
+     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      * 
      */
     @Export(name="productionVariants", refs={List.class,EndpointConfigurationProductionVariant.class}, tree="[0,1]")
     private Output<List<EndpointConfigurationProductionVariant>> productionVariants;
 
     /**
-     * @return Fields are documented below.
+     * @return An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      * 
      */
     public Output<List<EndpointConfigurationProductionVariant>> productionVariants() {
         return this.productionVariants;
+    }
+    /**
+     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * 
+     */
+    @Export(name="shadowProductionVariants", refs={List.class,EndpointConfigurationShadowProductionVariant.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<EndpointConfigurationShadowProductionVariant>> shadowProductionVariants;
+
+    /**
+     * @return Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * 
+     */
+    public Output<Optional<List<EndpointConfigurationShadowProductionVariant>>> shadowProductionVariants() {
+        return Codegen.optional(this.shadowProductionVariants);
     }
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

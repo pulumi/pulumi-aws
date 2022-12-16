@@ -52,7 +52,7 @@ class ProjectArgs:
         :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]] file_system_locations: A set of file system locations to to mount inside the build. File system locations are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]] file_system_locations: A set of file system locations to mount inside the build. File system locations are documented below.
         :param pulumi.Input['ProjectLogsConfigArgs'] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
@@ -244,7 +244,7 @@ class ProjectArgs:
     @pulumi.getter(name="fileSystemLocations")
     def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]:
         """
-        A set of file system locations to to mount inside the build. File system locations are documented below.
+        A set of file system locations to mount inside the build. File system locations are documented below.
         """
         return pulumi.get(self, "file_system_locations")
 
@@ -428,7 +428,7 @@ class _ProjectState:
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input['ProjectEnvironmentArgs'] environment: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]] file_system_locations: A set of file system locations to to mount inside the build. File system locations are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]] file_system_locations: A set of file system locations to mount inside the build. File system locations are documented below.
         :param pulumi.Input['ProjectLogsConfigArgs'] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
@@ -636,7 +636,7 @@ class _ProjectState:
     @pulumi.getter(name="fileSystemLocations")
     def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]:
         """
-        A set of file system locations to to mount inside the build. File system locations are documented below.
+        A set of file system locations to mount inside the build. File system locations are documented below.
         """
         return pulumi.get(self, "file_system_locations")
 
@@ -1055,7 +1055,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']] environment: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]] file_system_locations: A set of file system locations to to mount inside the build. File system locations are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]] file_system_locations: A set of file system locations to mount inside the build. File system locations are documented below.
         :param pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
@@ -1403,7 +1403,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']] environment: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]] file_system_locations: A set of file system locations to to mount inside the build. File system locations are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]] file_system_locations: A set of file system locations to mount inside the build. File system locations are documented below.
         :param pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
@@ -1545,7 +1545,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="fileSystemLocations")
     def file_system_locations(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectFileSystemLocation']]]:
         """
-        A set of file system locations to to mount inside the build. File system locations are documented below.
+        A set of file system locations to mount inside the build. File system locations are documented below.
         """
         return pulumi.get(self, "file_system_locations")
 

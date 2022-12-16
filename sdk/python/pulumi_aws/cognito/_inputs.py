@@ -591,6 +591,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
         """
         :param pulumi.Input[str] html_body: The email HTML body.
         :param pulumi.Input[str] subject: The email subject.
+        :param pulumi.Input[str] text_body: The email text body.
         """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
@@ -623,6 +624,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> pulumi.Input[str]:
+        """
+        The email text body.
+        """
         return pulumi.get(self, "text_body")
 
     @text_body.setter
@@ -639,6 +643,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
         """
         :param pulumi.Input[str] html_body: The email HTML body.
         :param pulumi.Input[str] subject: The email subject.
+        :param pulumi.Input[str] text_body: The email text body.
         """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
@@ -671,6 +676,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> pulumi.Input[str]:
+        """
+        The email text body.
+        """
         return pulumi.get(self, "text_body")
 
     @text_body.setter
@@ -687,6 +695,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
         """
         :param pulumi.Input[str] html_body: The email HTML body.
         :param pulumi.Input[str] subject: The email subject.
+        :param pulumi.Input[str] text_body: The email text body.
         """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
@@ -719,6 +728,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> pulumi.Input[str]:
+        """
+        The email text body.
+        """
         return pulumi.get(self, "text_body")
 
     @text_body.setter
@@ -1172,7 +1184,7 @@ class UserPoolEmailConfigurationArgs:
         :param pulumi.Input[str] email_sending_account: Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
         :param pulumi.Input[str] from_email_address: Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith <john@example.com>` or `\\"John Smith Ph.D.\\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
         :param pulumi.Input[str] reply_to_email_address: REPLY-TO email address.
-        :param pulumi.Input[str] source_arn: ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+        :param pulumi.Input[str] source_arn: ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
         """
         if configuration_set is not None:
             pulumi.set(__self__, "configuration_set", configuration_set)
@@ -1237,7 +1249,7 @@ class UserPoolEmailConfigurationArgs:
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+        ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
         """
         return pulumi.get(self, "source_arn")
 

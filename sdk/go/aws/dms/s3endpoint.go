@@ -159,7 +159,7 @@ type S3Endpoint struct {
 	CdcPath pulumi.StringPtrOutput `pulumi:"cdcPath"`
 	// ARN for the certificate.
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
-	// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+	// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
 	CompressionType pulumi.StringPtrOutput `pulumi:"compressionType"`
 	// Delimiter used to separate columns in the source files. Default is `,`.
 	CsvDelimiter pulumi.StringPtrOutput `pulumi:"csvDelimiter"`
@@ -175,7 +175,7 @@ type S3Endpoint struct {
 	DataPageSize pulumi.IntPtrOutput `pulumi:"dataPageSize"`
 	// Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
 	DatePartitionDelimiter pulumi.StringPtrOutput `pulumi:"datePartitionDelimiter"`
-	// Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+	// Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
 	DatePartitionEnabled pulumi.BoolPtrOutput `pulumi:"datePartitionEnabled"`
 	// Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
 	DatePartitionSequence pulumi.StringPtrOutput `pulumi:"datePartitionSequence"`
@@ -220,7 +220,7 @@ type S3Endpoint struct {
 	Rfc4180 pulumi.BoolPtrOutput `pulumi:"rfc4180"`
 	// Number of rows in a row group. (AWS default is `10000`.)
 	RowGroupLength pulumi.IntPtrOutput `pulumi:"rowGroupLength"`
-	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrOutput `pulumi:"serverSideEncryptionKmsKeyId"`
 	// ARN of the IAM role with permissions to the S3 Bucket.
 	ServiceAccessRoleArn pulumi.StringOutput `pulumi:"serviceAccessRoleArn"`
@@ -303,7 +303,7 @@ type s3endpointState struct {
 	CdcPath *string `pulumi:"cdcPath"`
 	// ARN for the certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
-	// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+	// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
 	CompressionType *string `pulumi:"compressionType"`
 	// Delimiter used to separate columns in the source files. Default is `,`.
 	CsvDelimiter *string `pulumi:"csvDelimiter"`
@@ -319,7 +319,7 @@ type s3endpointState struct {
 	DataPageSize *int `pulumi:"dataPageSize"`
 	// Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
 	DatePartitionDelimiter *string `pulumi:"datePartitionDelimiter"`
-	// Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+	// Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
 	DatePartitionEnabled *bool `pulumi:"datePartitionEnabled"`
 	// Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
 	DatePartitionSequence *string `pulumi:"datePartitionSequence"`
@@ -364,7 +364,7 @@ type s3endpointState struct {
 	Rfc4180 *bool `pulumi:"rfc4180"`
 	// Number of rows in a row group. (AWS default is `10000`.)
 	RowGroupLength *int `pulumi:"rowGroupLength"`
-	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
 	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
 	// ARN of the IAM role with permissions to the S3 Bucket.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
@@ -407,7 +407,7 @@ type S3EndpointState struct {
 	CdcPath pulumi.StringPtrInput
 	// ARN for the certificate.
 	CertificateArn pulumi.StringPtrInput
-	// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+	// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
 	CompressionType pulumi.StringPtrInput
 	// Delimiter used to separate columns in the source files. Default is `,`.
 	CsvDelimiter pulumi.StringPtrInput
@@ -423,7 +423,7 @@ type S3EndpointState struct {
 	DataPageSize pulumi.IntPtrInput
 	// Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
 	DatePartitionDelimiter pulumi.StringPtrInput
-	// Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+	// Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
 	DatePartitionEnabled pulumi.BoolPtrInput
 	// Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
 	DatePartitionSequence pulumi.StringPtrInput
@@ -468,7 +468,7 @@ type S3EndpointState struct {
 	Rfc4180 pulumi.BoolPtrInput
 	// Number of rows in a row group. (AWS default is `10000`.)
 	RowGroupLength pulumi.IntPtrInput
-	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput
 	// ARN of the IAM role with permissions to the S3 Bucket.
 	ServiceAccessRoleArn pulumi.StringPtrInput
@@ -515,7 +515,7 @@ type s3endpointArgs struct {
 	CdcPath *string `pulumi:"cdcPath"`
 	// ARN for the certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
-	// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+	// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
 	CompressionType *string `pulumi:"compressionType"`
 	// Delimiter used to separate columns in the source files. Default is `,`.
 	CsvDelimiter *string `pulumi:"csvDelimiter"`
@@ -531,7 +531,7 @@ type s3endpointArgs struct {
 	DataPageSize *int `pulumi:"dataPageSize"`
 	// Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
 	DatePartitionDelimiter *string `pulumi:"datePartitionDelimiter"`
-	// Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+	// Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
 	DatePartitionEnabled *bool `pulumi:"datePartitionEnabled"`
 	// Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
 	DatePartitionSequence *string `pulumi:"datePartitionSequence"`
@@ -570,7 +570,7 @@ type s3endpointArgs struct {
 	Rfc4180 *bool `pulumi:"rfc4180"`
 	// Number of rows in a row group. (AWS default is `10000`.)
 	RowGroupLength *int `pulumi:"rowGroupLength"`
-	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
 	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
 	// ARN of the IAM role with permissions to the S3 Bucket.
 	ServiceAccessRoleArn string `pulumi:"serviceAccessRoleArn"`
@@ -610,7 +610,7 @@ type S3EndpointArgs struct {
 	CdcPath pulumi.StringPtrInput
 	// ARN for the certificate.
 	CertificateArn pulumi.StringPtrInput
-	// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+	// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
 	CompressionType pulumi.StringPtrInput
 	// Delimiter used to separate columns in the source files. Default is `,`.
 	CsvDelimiter pulumi.StringPtrInput
@@ -626,7 +626,7 @@ type S3EndpointArgs struct {
 	DataPageSize pulumi.IntPtrInput
 	// Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
 	DatePartitionDelimiter pulumi.StringPtrInput
-	// Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+	// Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
 	DatePartitionEnabled pulumi.BoolPtrInput
 	// Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
 	DatePartitionSequence pulumi.StringPtrInput
@@ -665,7 +665,7 @@ type S3EndpointArgs struct {
 	Rfc4180 pulumi.BoolPtrInput
 	// Number of rows in a row group. (AWS default is `10000`.)
 	RowGroupLength pulumi.IntPtrInput
-	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput
 	// ARN of the IAM role with permissions to the S3 Bucket.
 	ServiceAccessRoleArn pulumi.StringInput
@@ -823,7 +823,7 @@ func (o S3EndpointOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
 }
 
-// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
 func (o S3EndpointOutput) CompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.CompressionType }).(pulumi.StringPtrOutput)
 }
@@ -863,7 +863,7 @@ func (o S3EndpointOutput) DatePartitionDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.DatePartitionDelimiter }).(pulumi.StringPtrOutput)
 }
 
-// Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+// Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
 func (o S3EndpointOutput) DatePartitionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.BoolPtrOutput { return v.DatePartitionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -977,7 +977,7 @@ func (o S3EndpointOutput) RowGroupLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.IntPtrOutput { return v.RowGroupLength }).(pulumi.IntPtrOutput)
 }
 
-// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
 func (o S3EndpointOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }

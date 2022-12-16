@@ -3030,8 +3030,14 @@ func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SubnetId() pulumi.Str
 }
 
 type CrawlerCatalogTarget struct {
+	// The name of the connection to use to connect to the Delta table target.
+	ConnectionName *string `pulumi:"connectionName"`
 	// The name of the Glue database to be synchronized.
 	DatabaseName string `pulumi:"databaseName"`
+	// A valid Amazon SQS ARN.
+	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
+	// A valid Amazon SQS ARN.
+	EventQueueArn *string `pulumi:"eventQueueArn"`
 	// A list of catalog tables to be synchronized.
 	Tables []string `pulumi:"tables"`
 }
@@ -3048,8 +3054,14 @@ type CrawlerCatalogTargetInput interface {
 }
 
 type CrawlerCatalogTargetArgs struct {
+	// The name of the connection to use to connect to the Delta table target.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
 	// The name of the Glue database to be synchronized.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// A valid Amazon SQS ARN.
+	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
+	// A valid Amazon SQS ARN.
+	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
 	// A list of catalog tables to be synchronized.
 	Tables pulumi.StringArrayInput `pulumi:"tables"`
 }
@@ -3105,9 +3117,24 @@ func (o CrawlerCatalogTargetOutput) ToCrawlerCatalogTargetOutputWithContext(ctx 
 	return o
 }
 
+// The name of the connection to use to connect to the Delta table target.
+func (o CrawlerCatalogTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
 // The name of the Glue database to be synchronized.
 func (o CrawlerCatalogTargetOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// A valid Amazon SQS ARN.
+func (o CrawlerCatalogTargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
+}
+
+// A valid Amazon SQS ARN.
+func (o CrawlerCatalogTargetOutput) EventQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
 }
 
 // A list of catalog tables to be synchronized.
@@ -3137,7 +3164,7 @@ func (o CrawlerCatalogTargetArrayOutput) Index(i pulumi.IntInput) CrawlerCatalog
 
 type CrawlerDeltaTarget struct {
 	// The name of the connection to use to connect to the Delta table target.
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// A list of the Amazon S3 paths to the Delta tables.
 	DeltaTables []string `pulumi:"deltaTables"`
 	// Specifies whether to write the manifest files to the Delta table path.
@@ -3157,7 +3184,7 @@ type CrawlerDeltaTargetInput interface {
 
 type CrawlerDeltaTargetArgs struct {
 	// The name of the connection to use to connect to the Delta table target.
-	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
 	// A list of the Amazon S3 paths to the Delta tables.
 	DeltaTables pulumi.StringArrayInput `pulumi:"deltaTables"`
 	// Specifies whether to write the manifest files to the Delta table path.
@@ -3216,8 +3243,8 @@ func (o CrawlerDeltaTargetOutput) ToCrawlerDeltaTargetOutputWithContext(ctx cont
 }
 
 // The name of the connection to use to connect to the Delta table target.
-func (o CrawlerDeltaTargetOutput) ConnectionName() pulumi.StringOutput {
-	return o.ApplyT(func(v CrawlerDeltaTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
+func (o CrawlerDeltaTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
 // A list of the Amazon S3 paths to the Delta tables.
@@ -3368,6 +3395,8 @@ func (o CrawlerDynamodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamo
 type CrawlerJdbcTarget struct {
 	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName string `pulumi:"connectionName"`
+	// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+	EnableAdditionalMetadatas []string `pulumi:"enableAdditionalMetadatas"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
@@ -3388,6 +3417,8 @@ type CrawlerJdbcTargetInput interface {
 type CrawlerJdbcTargetArgs struct {
 	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
+	// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+	EnableAdditionalMetadatas pulumi.StringArrayInput `pulumi:"enableAdditionalMetadatas"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
@@ -3450,6 +3481,11 @@ func (o CrawlerJdbcTargetOutput) ConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
 }
 
+// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+func (o CrawlerJdbcTargetOutput) EnableAdditionalMetadatas() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerJdbcTarget) []string { return v.EnableAdditionalMetadatas }).(pulumi.StringArrayOutput)
+}
+
 // A list of glob patterns used to exclude from the crawl.
 func (o CrawlerJdbcTargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
@@ -3478,6 +3514,162 @@ func (o CrawlerJdbcTargetArrayOutput) Index(i pulumi.IntInput) CrawlerJdbcTarget
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerJdbcTarget {
 		return vs[0].([]CrawlerJdbcTarget)[vs[1].(int)]
 	}).(CrawlerJdbcTargetOutput)
+}
+
+type CrawlerLakeFormationConfiguration struct {
+	// Required for cross account crawls. For same account crawls as the target data, this can omitted.
+	AccountId *string `pulumi:"accountId"`
+	// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+	UseLakeFormationCredentials *bool `pulumi:"useLakeFormationCredentials"`
+}
+
+// CrawlerLakeFormationConfigurationInput is an input type that accepts CrawlerLakeFormationConfigurationArgs and CrawlerLakeFormationConfigurationOutput values.
+// You can construct a concrete instance of `CrawlerLakeFormationConfigurationInput` via:
+//
+//	CrawlerLakeFormationConfigurationArgs{...}
+type CrawlerLakeFormationConfigurationInput interface {
+	pulumi.Input
+
+	ToCrawlerLakeFormationConfigurationOutput() CrawlerLakeFormationConfigurationOutput
+	ToCrawlerLakeFormationConfigurationOutputWithContext(context.Context) CrawlerLakeFormationConfigurationOutput
+}
+
+type CrawlerLakeFormationConfigurationArgs struct {
+	// Required for cross account crawls. For same account crawls as the target data, this can omitted.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+	UseLakeFormationCredentials pulumi.BoolPtrInput `pulumi:"useLakeFormationCredentials"`
+}
+
+func (CrawlerLakeFormationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (i CrawlerLakeFormationConfigurationArgs) ToCrawlerLakeFormationConfigurationOutput() CrawlerLakeFormationConfigurationOutput {
+	return i.ToCrawlerLakeFormationConfigurationOutputWithContext(context.Background())
+}
+
+func (i CrawlerLakeFormationConfigurationArgs) ToCrawlerLakeFormationConfigurationOutputWithContext(ctx context.Context) CrawlerLakeFormationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerLakeFormationConfigurationOutput)
+}
+
+func (i CrawlerLakeFormationConfigurationArgs) ToCrawlerLakeFormationConfigurationPtrOutput() CrawlerLakeFormationConfigurationPtrOutput {
+	return i.ToCrawlerLakeFormationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CrawlerLakeFormationConfigurationArgs) ToCrawlerLakeFormationConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLakeFormationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerLakeFormationConfigurationOutput).ToCrawlerLakeFormationConfigurationPtrOutputWithContext(ctx)
+}
+
+// CrawlerLakeFormationConfigurationPtrInput is an input type that accepts CrawlerLakeFormationConfigurationArgs, CrawlerLakeFormationConfigurationPtr and CrawlerLakeFormationConfigurationPtrOutput values.
+// You can construct a concrete instance of `CrawlerLakeFormationConfigurationPtrInput` via:
+//
+//	        CrawlerLakeFormationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CrawlerLakeFormationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCrawlerLakeFormationConfigurationPtrOutput() CrawlerLakeFormationConfigurationPtrOutput
+	ToCrawlerLakeFormationConfigurationPtrOutputWithContext(context.Context) CrawlerLakeFormationConfigurationPtrOutput
+}
+
+type crawlerLakeFormationConfigurationPtrType CrawlerLakeFormationConfigurationArgs
+
+func CrawlerLakeFormationConfigurationPtr(v *CrawlerLakeFormationConfigurationArgs) CrawlerLakeFormationConfigurationPtrInput {
+	return (*crawlerLakeFormationConfigurationPtrType)(v)
+}
+
+func (*crawlerLakeFormationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (i *crawlerLakeFormationConfigurationPtrType) ToCrawlerLakeFormationConfigurationPtrOutput() CrawlerLakeFormationConfigurationPtrOutput {
+	return i.ToCrawlerLakeFormationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *crawlerLakeFormationConfigurationPtrType) ToCrawlerLakeFormationConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLakeFormationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerLakeFormationConfigurationPtrOutput)
+}
+
+type CrawlerLakeFormationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CrawlerLakeFormationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (o CrawlerLakeFormationConfigurationOutput) ToCrawlerLakeFormationConfigurationOutput() CrawlerLakeFormationConfigurationOutput {
+	return o
+}
+
+func (o CrawlerLakeFormationConfigurationOutput) ToCrawlerLakeFormationConfigurationOutputWithContext(ctx context.Context) CrawlerLakeFormationConfigurationOutput {
+	return o
+}
+
+func (o CrawlerLakeFormationConfigurationOutput) ToCrawlerLakeFormationConfigurationPtrOutput() CrawlerLakeFormationConfigurationPtrOutput {
+	return o.ToCrawlerLakeFormationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CrawlerLakeFormationConfigurationOutput) ToCrawlerLakeFormationConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLakeFormationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrawlerLakeFormationConfiguration) *CrawlerLakeFormationConfiguration {
+		return &v
+	}).(CrawlerLakeFormationConfigurationPtrOutput)
+}
+
+// Required for cross account crawls. For same account crawls as the target data, this can omitted.
+func (o CrawlerLakeFormationConfigurationOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerLakeFormationConfiguration) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+func (o CrawlerLakeFormationConfigurationOutput) UseLakeFormationCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CrawlerLakeFormationConfiguration) *bool { return v.UseLakeFormationCredentials }).(pulumi.BoolPtrOutput)
+}
+
+type CrawlerLakeFormationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerLakeFormationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (o CrawlerLakeFormationConfigurationPtrOutput) ToCrawlerLakeFormationConfigurationPtrOutput() CrawlerLakeFormationConfigurationPtrOutput {
+	return o
+}
+
+func (o CrawlerLakeFormationConfigurationPtrOutput) ToCrawlerLakeFormationConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLakeFormationConfigurationPtrOutput {
+	return o
+}
+
+func (o CrawlerLakeFormationConfigurationPtrOutput) Elem() CrawlerLakeFormationConfigurationOutput {
+	return o.ApplyT(func(v *CrawlerLakeFormationConfiguration) CrawlerLakeFormationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerLakeFormationConfiguration
+		return ret
+	}).(CrawlerLakeFormationConfigurationOutput)
+}
+
+// Required for cross account crawls. For same account crawls as the target data, this can omitted.
+func (o CrawlerLakeFormationConfigurationPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CrawlerLakeFormationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+func (o CrawlerLakeFormationConfigurationPtrOutput) UseLakeFormationCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CrawlerLakeFormationConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLakeFormationCredentials
+	}).(pulumi.BoolPtrOutput)
 }
 
 type CrawlerLineageConfiguration struct {
@@ -3872,9 +4064,9 @@ func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput 
 type CrawlerS3Target struct {
 	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName *string `pulumi:"connectionName"`
-	// The ARN of the dead-letter SQS queue.
+	// A valid Amazon SQS ARN.
 	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
-	// The ARN of the SQS queue to receive S3 notifications from.
+	// A valid Amazon SQS ARN.
 	EventQueueArn *string `pulumi:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
@@ -3898,9 +4090,9 @@ type CrawlerS3TargetInput interface {
 type CrawlerS3TargetArgs struct {
 	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
-	// The ARN of the dead-letter SQS queue.
+	// A valid Amazon SQS ARN.
 	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
-	// The ARN of the SQS queue to receive S3 notifications from.
+	// A valid Amazon SQS ARN.
 	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
@@ -3966,12 +4158,12 @@ func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the dead-letter SQS queue.
+// A valid Amazon SQS ARN.
 func (o CrawlerS3TargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the SQS queue to receive S3 notifications from.
+// A valid Amazon SQS ARN.
 func (o CrawlerS3TargetOutput) EventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
 }
@@ -9026,6 +9218,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamodbTargetArrayInput)(nil)).Elem(), CrawlerDynamodbTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetInput)(nil)).Elem(), CrawlerJdbcTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetArrayInput)(nil)).Elem(), CrawlerJdbcTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerLakeFormationConfigurationInput)(nil)).Elem(), CrawlerLakeFormationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerLakeFormationConfigurationPtrInput)(nil)).Elem(), CrawlerLakeFormationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerLineageConfigurationInput)(nil)).Elem(), CrawlerLineageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerLineageConfigurationPtrInput)(nil)).Elem(), CrawlerLineageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerMongodbTargetInput)(nil)).Elem(), CrawlerMongodbTargetArgs{})
@@ -9146,6 +9340,8 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerDynamodbTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerLakeFormationConfigurationOutput{})
+	pulumi.RegisterOutputType(CrawlerLakeFormationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerLineageConfigurationOutput{})
 	pulumi.RegisterOutputType(CrawlerLineageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerMongodbTargetOutput{})

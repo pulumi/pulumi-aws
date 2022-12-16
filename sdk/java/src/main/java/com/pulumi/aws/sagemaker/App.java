@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker Code Apps can be imported using the `id`, e.g.,
+ * SageMaker Apps can be imported using the `id`, e.g.,
  * 
  * ```sh
  *  $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
@@ -79,14 +79,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.appName;
     }
     /**
-     * The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
      * 
      */
     @Export(name="appType", refs={String.class}, tree="[0]")
     private Output<String> appType;
 
     /**
-     * @return The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+     * @return The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
      * 
      */
     public Output<String> appType() {
@@ -135,6 +135,20 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.resourceSpec;
     }
     /**
+     * The name of the space. At least on of `user_profile_name` or `space_name` required.
+     * 
+     */
+    @Export(name="spaceName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> spaceName;
+
+    /**
+     * @return The name of the space. At least on of `user_profile_name` or `space_name` required.
+     * 
+     */
+    public Output<Optional<String>> spaceName() {
+        return Codegen.optional(this.spaceName);
+    }
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -163,18 +177,18 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The user profile name.
+     * The user profile name. At least on of `user_profile_name` or `space_name` required.
      * 
      */
     @Export(name="userProfileName", refs={String.class}, tree="[0]")
-    private Output<String> userProfileName;
+    private Output</* @Nullable */ String> userProfileName;
 
     /**
-     * @return The user profile name.
+     * @return The user profile name. At least on of `user_profile_name` or `space_name` required.
      * 
      */
-    public Output<String> userProfileName() {
-        return this.userProfileName;
+    public Output<Optional<String>> userProfileName() {
+        return Codegen.optional(this.userProfileName);
     }
 
     /**

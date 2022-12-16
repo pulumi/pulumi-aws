@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.networkfirewall.RuleGroupArgs;
 import com.pulumi.aws.networkfirewall.inputs.RuleGroupState;
+import com.pulumi.aws.networkfirewall.outputs.RuleGroupEncryptionConfiguration;
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroup;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -358,6 +359,20 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     * 
+     */
+    @Export(name="encryptionConfiguration", refs={RuleGroupEncryptionConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ RuleGroupEncryptionConfiguration> encryptionConfiguration;
+
+    /**
+     * @return KMS encryption configuration settings. See Encryption Configuration below for details.
+     * 
+     */
+    public Output<Optional<RuleGroupEncryptionConfiguration>> encryptionConfiguration() {
+        return Codegen.optional(this.encryptionConfiguration);
+    }
+    /**
      * A friendly name of the rule group.
      * 
      */
@@ -428,14 +443,14 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+     * The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+     * @return The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
      * 
      */
     public Output<String> type() {

@@ -1512,6 +1512,162 @@ func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) Schema() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionRuntime struct {
+	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	Name string `pulumi:"name"`
+	// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+	RuntimeVersion string `pulumi:"runtimeVersion"`
+}
+
+// FunctionRuntimeInput is an input type that accepts FunctionRuntimeArgs and FunctionRuntimeOutput values.
+// You can construct a concrete instance of `FunctionRuntimeInput` via:
+//
+//	FunctionRuntimeArgs{...}
+type FunctionRuntimeInput interface {
+	pulumi.Input
+
+	ToFunctionRuntimeOutput() FunctionRuntimeOutput
+	ToFunctionRuntimeOutputWithContext(context.Context) FunctionRuntimeOutput
+}
+
+type FunctionRuntimeArgs struct {
+	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+}
+
+func (FunctionRuntimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionRuntime)(nil)).Elem()
+}
+
+func (i FunctionRuntimeArgs) ToFunctionRuntimeOutput() FunctionRuntimeOutput {
+	return i.ToFunctionRuntimeOutputWithContext(context.Background())
+}
+
+func (i FunctionRuntimeArgs) ToFunctionRuntimeOutputWithContext(ctx context.Context) FunctionRuntimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionRuntimeOutput)
+}
+
+func (i FunctionRuntimeArgs) ToFunctionRuntimePtrOutput() FunctionRuntimePtrOutput {
+	return i.ToFunctionRuntimePtrOutputWithContext(context.Background())
+}
+
+func (i FunctionRuntimeArgs) ToFunctionRuntimePtrOutputWithContext(ctx context.Context) FunctionRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionRuntimeOutput).ToFunctionRuntimePtrOutputWithContext(ctx)
+}
+
+// FunctionRuntimePtrInput is an input type that accepts FunctionRuntimeArgs, FunctionRuntimePtr and FunctionRuntimePtrOutput values.
+// You can construct a concrete instance of `FunctionRuntimePtrInput` via:
+//
+//	        FunctionRuntimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionRuntimePtrInput interface {
+	pulumi.Input
+
+	ToFunctionRuntimePtrOutput() FunctionRuntimePtrOutput
+	ToFunctionRuntimePtrOutputWithContext(context.Context) FunctionRuntimePtrOutput
+}
+
+type functionRuntimePtrType FunctionRuntimeArgs
+
+func FunctionRuntimePtr(v *FunctionRuntimeArgs) FunctionRuntimePtrInput {
+	return (*functionRuntimePtrType)(v)
+}
+
+func (*functionRuntimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionRuntime)(nil)).Elem()
+}
+
+func (i *functionRuntimePtrType) ToFunctionRuntimePtrOutput() FunctionRuntimePtrOutput {
+	return i.ToFunctionRuntimePtrOutputWithContext(context.Background())
+}
+
+func (i *functionRuntimePtrType) ToFunctionRuntimePtrOutputWithContext(ctx context.Context) FunctionRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionRuntimePtrOutput)
+}
+
+type FunctionRuntimeOutput struct{ *pulumi.OutputState }
+
+func (FunctionRuntimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionRuntime)(nil)).Elem()
+}
+
+func (o FunctionRuntimeOutput) ToFunctionRuntimeOutput() FunctionRuntimeOutput {
+	return o
+}
+
+func (o FunctionRuntimeOutput) ToFunctionRuntimeOutputWithContext(ctx context.Context) FunctionRuntimeOutput {
+	return o
+}
+
+func (o FunctionRuntimeOutput) ToFunctionRuntimePtrOutput() FunctionRuntimePtrOutput {
+	return o.ToFunctionRuntimePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionRuntimeOutput) ToFunctionRuntimePtrOutputWithContext(ctx context.Context) FunctionRuntimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionRuntime) *FunctionRuntime {
+		return &v
+	}).(FunctionRuntimePtrOutput)
+}
+
+// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+func (o FunctionRuntimeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionRuntime) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+func (o FunctionRuntimeOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionRuntime) string { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+type FunctionRuntimePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionRuntimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionRuntime)(nil)).Elem()
+}
+
+func (o FunctionRuntimePtrOutput) ToFunctionRuntimePtrOutput() FunctionRuntimePtrOutput {
+	return o
+}
+
+func (o FunctionRuntimePtrOutput) ToFunctionRuntimePtrOutputWithContext(ctx context.Context) FunctionRuntimePtrOutput {
+	return o
+}
+
+func (o FunctionRuntimePtrOutput) Elem() FunctionRuntimeOutput {
+	return o.ApplyT(func(v *FunctionRuntime) FunctionRuntime {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionRuntime
+		return ret
+	}).(FunctionRuntimeOutput)
+}
+
+// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+func (o FunctionRuntimePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionRuntime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+func (o FunctionRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionRuntime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuntimeVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 type FunctionSyncConfig struct {
 	// Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
 	ConflictDetection *string `pulumi:"conflictDetection"`
@@ -3870,6 +4026,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalDatabaseConfigPtrInput)(nil)).Elem(), DataSourceRelationalDatabaseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalDatabaseConfigHttpEndpointConfigInput)(nil)).Elem(), DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrInput)(nil)).Elem(), DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeInput)(nil)).Elem(), FunctionRuntimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimePtrInput)(nil)).Elem(), FunctionRuntimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSyncConfigInput)(nil)).Elem(), FunctionSyncConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSyncConfigPtrInput)(nil)).Elem(), FunctionSyncConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSyncConfigLambdaConflictHandlerConfigInput)(nil)).Elem(), FunctionSyncConfigLambdaConflictHandlerConfigArgs{})
@@ -3916,6 +4074,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceRelationalDatabaseConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionRuntimeOutput{})
+	pulumi.RegisterOutputType(FunctionRuntimePtrOutput{})
 	pulumi.RegisterOutputType(FunctionSyncConfigOutput{})
 	pulumi.RegisterOutputType(FunctionSyncConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSyncConfigLambdaConflictHandlerConfigOutput{})

@@ -12,5 +12,6 @@ from .get_permission_set import *
 from .managed_policy_attachment import *
 from .permission_set import *
 from .permission_set_inline_policy import *
+from .permissions_boundary_attachment import *
 from ._inputs import *
 from . import outputs

@@ -33,14 +33,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ARN of the dead-letter SQS queue.
+     * A valid Amazon SQS ARN.
      * 
      */
     @Import(name="dlqEventQueueArn")
     private @Nullable Output<String> dlqEventQueueArn;
 
     /**
-     * @return The ARN of the dead-letter SQS queue.
+     * @return A valid Amazon SQS ARN.
      * 
      */
     public Optional<Output<String>> dlqEventQueueArn() {
@@ -48,14 +48,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ARN of the SQS queue to receive S3 notifications from.
+     * A valid Amazon SQS ARN.
      * 
      */
     @Import(name="eventQueueArn")
     private @Nullable Output<String> eventQueueArn;
 
     /**
-     * @return The ARN of the SQS queue to receive S3 notifications from.
+     * @return A valid Amazon SQS ARN.
      * 
      */
     public Optional<Output<String>> eventQueueArn() {
@@ -158,7 +158,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dlqEventQueueArn The ARN of the dead-letter SQS queue.
+         * @param dlqEventQueueArn A valid Amazon SQS ARN.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dlqEventQueueArn The ARN of the dead-letter SQS queue.
+         * @param dlqEventQueueArn A valid Amazon SQS ARN.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventQueueArn The ARN of the SQS queue to receive S3 notifications from.
+         * @param eventQueueArn A valid Amazon SQS ARN.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventQueueArn The ARN of the SQS queue to receive S3 notifications from.
+         * @param eventQueueArn A valid Amazon SQS ARN.
          * 
          * @return builder
          * 

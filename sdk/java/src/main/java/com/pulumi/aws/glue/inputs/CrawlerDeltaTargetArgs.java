@@ -9,6 +9,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +21,15 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
      * The name of the connection to use to connect to the Delta table target.
      * 
      */
-    @Import(name="connectionName", required=true)
-    private Output<String> connectionName;
+    @Import(name="connectionName")
+    private @Nullable Output<String> connectionName;
 
     /**
      * @return The name of the connection to use to connect to the Delta table target.
      * 
      */
-    public Output<String> connectionName() {
-        return this.connectionName;
+    public Optional<Output<String>> connectionName() {
+        return Optional.ofNullable(this.connectionName);
     }
 
     /**
@@ -92,7 +94,7 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder connectionName(Output<String> connectionName) {
+        public Builder connectionName(@Nullable Output<String> connectionName) {
             $.connectionName = connectionName;
             return this;
         }
@@ -160,7 +162,6 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         public CrawlerDeltaTargetArgs build() {
-            $.connectionName = Objects.requireNonNull($.connectionName, "expected parameter 'connectionName' to be non-null");
             $.deltaTables = Objects.requireNonNull($.deltaTables, "expected parameter 'deltaTables' to be non-null");
             $.writeManifest = Objects.requireNonNull($.writeManifest, "expected parameter 'writeManifest' to be non-null");
             return $;

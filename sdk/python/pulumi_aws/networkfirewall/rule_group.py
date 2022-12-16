@@ -19,6 +19,7 @@ class RuleGroupArgs:
                  capacity: pulumi.Input[int],
                  type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
                  rules: Optional[pulumi.Input[str]] = None,
@@ -26,8 +27,9 @@ class RuleGroupArgs:
         """
         The set of arguments for constructing a RuleGroup resource.
         :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
-        :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        :param pulumi.Input[str] type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         :param pulumi.Input[str] description: A friendly description of the rule group.
+        :param pulumi.Input['RuleGroupEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] name: A friendly name of the rule group.
         :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
@@ -37,6 +39,8 @@ class RuleGroupArgs:
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if rule_group is not None:
@@ -62,7 +66,7 @@ class RuleGroupArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         """
         return pulumi.get(self, "type")
 
@@ -81,6 +85,18 @@ class RuleGroupArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']]:
+        """
+        KMS encryption configuration settings. See Encryption Configuration below for details.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter
@@ -137,6 +153,7 @@ class _RuleGroupState:
                  arn: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
                  rules: Optional[pulumi.Input[str]] = None,
@@ -149,12 +166,13 @@ class _RuleGroupState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the rule group.
         :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[str] description: A friendly description of the rule group.
+        :param pulumi.Input['RuleGroupEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] name: A friendly name of the rule group.
         :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        :param pulumi.Input[str] type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         :param pulumi.Input[str] update_token: A string token used when updating the rule group.
         """
         if arn is not None:
@@ -163,6 +181,8 @@ class _RuleGroupState:
             pulumi.set(__self__, "capacity", capacity)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if rule_group is not None:
@@ -213,6 +233,18 @@ class _RuleGroupState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']]:
+        """
+        KMS encryption configuration settings. See Encryption Configuration below for details.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter
@@ -278,7 +310,7 @@ class _RuleGroupState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         """
         return pulumi.get(self, "type")
 
@@ -306,6 +338,7 @@ class RuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
                  rules: Optional[pulumi.Input[str]] = None,
@@ -415,11 +448,12 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[str] description: A friendly description of the rule group.
+        :param pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] name: A friendly name of the rule group.
         :param pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        :param pulumi.Input[str] type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         """
         ...
     @overload
@@ -543,6 +577,7 @@ class RuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
                  rules: Optional[pulumi.Input[str]] = None,
@@ -561,6 +596,7 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'capacity'")
             __props__.__dict__["capacity"] = capacity
             __props__.__dict__["description"] = description
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["rule_group"] = rule_group
             __props__.__dict__["rules"] = rules
@@ -584,6 +620,7 @@ class RuleGroup(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
             rules: Optional[pulumi.Input[str]] = None,
@@ -601,12 +638,13 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the rule group.
         :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[str] description: A friendly description of the rule group.
+        :param pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] name: A friendly name of the rule group.
         :param pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        :param pulumi.Input[str] type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         :param pulumi.Input[str] update_token: A string token used when updating the rule group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -616,6 +654,7 @@ class RuleGroup(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["capacity"] = capacity
         __props__.__dict__["description"] = description
+        __props__.__dict__["encryption_configuration"] = encryption_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["rule_group"] = rule_group
         __props__.__dict__["rules"] = rules
@@ -648,6 +687,14 @@ class RuleGroup(pulumi.CustomResource):
         A friendly description of the rule group.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output[Optional['outputs.RuleGroupEncryptionConfiguration']]:
+        """
+        KMS encryption configuration settings. See Encryption Configuration below for details.
+        """
+        return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter
@@ -693,7 +740,7 @@ class RuleGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         """
         return pulumi.get(self, "type")
 

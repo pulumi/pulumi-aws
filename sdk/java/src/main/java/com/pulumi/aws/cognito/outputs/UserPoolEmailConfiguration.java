@@ -32,7 +32,7 @@ public final class UserPoolEmailConfiguration {
      */
     private @Nullable String replyToEmailAddress;
     /**
-     * @return ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+     * @return ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
      * 
      */
     private @Nullable String sourceArn;
@@ -67,7 +67,7 @@ public final class UserPoolEmailConfiguration {
         return Optional.ofNullable(this.replyToEmailAddress);
     }
     /**
-     * @return ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+     * @return ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
      * 
      */
     public Optional<String> sourceArn() {

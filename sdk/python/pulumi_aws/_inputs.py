@@ -535,6 +535,7 @@ class ProviderEndpointArgs:
                  pinpoint: Optional[pulumi.Input[str]] = None,
                  pinpointemail: Optional[pulumi.Input[str]] = None,
                  pinpointsmsvoice: Optional[pulumi.Input[str]] = None,
+                 pipes: Optional[pulumi.Input[str]] = None,
                  polly: Optional[pulumi.Input[str]] = None,
                  pricing: Optional[pulumi.Input[str]] = None,
                  prometheus: Optional[pulumi.Input[str]] = None,
@@ -1180,6 +1181,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "pinpointemail", pinpointemail)
         if pinpointsmsvoice is not None:
             pulumi.set(__self__, "pinpointsmsvoice", pinpointsmsvoice)
+        if pipes is not None:
+            pulumi.set(__self__, "pipes", pipes)
         if polly is not None:
             pulumi.set(__self__, "polly", polly)
         if pricing is not None:
@@ -3830,6 +3833,15 @@ class ProviderEndpointArgs:
     @pinpointsmsvoice.setter
     def pinpointsmsvoice(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pinpointsmsvoice", value)
+
+    @property
+    @pulumi.getter
+    def pipes(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pipes")
+
+    @pipes.setter
+    def pipes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipes", value)
 
     @property
     @pulumi.getter

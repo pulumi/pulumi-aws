@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     public sealed class ContainerRecipeInstanceConfiguration
     {
         /// <summary>
-        /// Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+        /// Configuration block(s) with block device mappings for the container recipe. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerRecipeInstanceConfigurationBlockDeviceMapping> BlockDeviceMappings;
         /// <summary>

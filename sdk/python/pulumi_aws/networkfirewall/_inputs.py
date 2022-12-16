@@ -10,9 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'FirewallEncryptionConfigurationArgs',
     'FirewallFirewallStatusArgs',
     'FirewallFirewallStatusSyncStateArgs',
     'FirewallFirewallStatusSyncStateAttachmentArgs',
+    'FirewallPolicyEncryptionConfigurationArgs',
     'FirewallPolicyFirewallPolicyArgs',
     'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs',
     'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs',
@@ -25,6 +27,7 @@ __all__ = [
     'FirewallSubnetMappingArgs',
     'LoggingConfigurationLoggingConfigurationArgs',
     'LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs',
+    'RuleGroupEncryptionConfigurationArgs',
     'RuleGroupRuleGroupArgs',
     'RuleGroupRuleGroupRuleVariablesArgs',
     'RuleGroupRuleGroupRuleVariablesIpSetArgs',
@@ -51,6 +54,44 @@ __all__ = [
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs',
     'RuleGroupRuleGroupStatefulRuleOptionsArgs',
 ]
+
+@pulumi.input_type
+class FirewallEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        :param pulumi.Input[str] key_id: The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
+        pulumi.set(__self__, "type", type)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_id", value)
+
 
 @pulumi.input_type
 class FirewallFirewallStatusArgs:
@@ -151,6 +192,44 @@ class FirewallFirewallStatusSyncStateAttachmentArgs:
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class FirewallPolicyEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        :param pulumi.Input[str] key_id: The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
+        pulumi.set(__self__, "type", type)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_id", value)
 
 
 @pulumi.input_type
@@ -613,6 +692,44 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs:
     @log_type.setter
     def log_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "log_type", value)
+
+
+@pulumi.input_type
+class RuleGroupEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        :param pulumi.Input[str] key_id: The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
+        pulumi.set(__self__, "type", type)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_id", value)
 
 
 @pulumi.input_type

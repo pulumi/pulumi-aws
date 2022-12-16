@@ -79,7 +79,7 @@ import (
 //
 // ## Import
 //
-// GuardDuty ThreatIntelSet can be imported using the the primary GuardDuty detector ID and ThreatIntelSetID, e.g.,
+// GuardDuty ThreatIntelSet can be imported using the primary GuardDuty detector ID and ThreatIntelSetID, e.g.,
 //
 // ```sh
 //

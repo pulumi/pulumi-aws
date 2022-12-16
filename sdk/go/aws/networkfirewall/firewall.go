@@ -67,6 +67,8 @@ type Firewall struct {
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration FirewallEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn pulumi.StringOutput `pulumi:"firewallPolicyArn"`
 	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
@@ -133,6 +135,8 @@ type firewallState struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
 	Description *string `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration *FirewallEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn *string `pulumi:"firewallPolicyArn"`
 	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
@@ -162,6 +166,8 @@ type FirewallState struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// A friendly description of the firewall.
 	Description pulumi.StringPtrInput
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration FirewallEncryptionConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn pulumi.StringPtrInput
 	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
@@ -193,6 +199,8 @@ type firewallArgs struct {
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
 	Description *string `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration *FirewallEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn string `pulumi:"firewallPolicyArn"`
 	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
@@ -215,6 +223,8 @@ type FirewallArgs struct {
 	DeleteProtection pulumi.BoolPtrInput
 	// A friendly description of the firewall.
 	Description pulumi.StringPtrInput
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration FirewallEncryptionConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn pulumi.StringInput
 	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
@@ -331,6 +341,11 @@ func (o FirewallOutput) DeleteProtection() pulumi.BoolPtrOutput {
 // A friendly description of the firewall.
 func (o FirewallOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// KMS encryption configuration settings. See Encryption Configuration below for details.
+func (o FirewallOutput) EncryptionConfiguration() FirewallEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *Firewall) FirewallEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(FirewallEncryptionConfigurationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the VPC Firewall policy.

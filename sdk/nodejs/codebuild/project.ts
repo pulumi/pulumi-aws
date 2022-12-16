@@ -274,7 +274,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<outputs.codebuild.ProjectEnvironment>;
     /**
-     * A set of file system locations to to mount inside the build. File system locations are documented below.
+     * A set of file system locations to mount inside the build. File system locations are documented below.
      */
     public readonly fileSystemLocations!: pulumi.Output<outputs.codebuild.ProjectFileSystemLocation[] | undefined>;
     /**
@@ -474,7 +474,7 @@ export interface ProjectState {
      */
     environment?: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
     /**
-     * A set of file system locations to to mount inside the build. File system locations are documented below.
+     * A set of file system locations to mount inside the build. File system locations are documented below.
      */
     fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
     /**
@@ -580,7 +580,7 @@ export interface ProjectArgs {
      */
     environment: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
     /**
-     * A set of file system locations to to mount inside the build. File system locations are documented below.
+     * A set of file system locations to mount inside the build. File system locations are documented below.
      */
     fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
     /**

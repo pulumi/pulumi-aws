@@ -61,7 +61,7 @@ type GetCredentialsResult struct {
 	DbName *string `pulumi:"dbName"`
 	// Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
 	DbPassword string `pulumi:"dbPassword"`
-	// A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
+	// A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
 	DbUser          string `pulumi:"dbUser"`
 	DurationSeconds *int   `pulumi:"durationSeconds"`
 	// Date and time the password in `dbPassword` expires.
@@ -122,7 +122,7 @@ func (o GetCredentialsResultOutput) DbPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.DbPassword }).(pulumi.StringOutput)
 }
 
-// A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
+// A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
 func (o GetCredentialsResultOutput) DbUser() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.DbUser }).(pulumi.StringOutput)
 }

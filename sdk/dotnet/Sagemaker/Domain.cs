@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// SageMaker Code Domains can be imported using the `id`, e.g.,
+    /// SageMaker Domains can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -166,6 +166,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Output("authMode")]
         public Output<string> AuthMode { get; private set; } = null!;
+
+        /// <summary>
+        /// The default space settings. See Default Space Settings below.
+        /// </summary>
+        [Output("defaultSpaceSettings")]
+        public Output<Outputs.DomainDefaultSpaceSettings?> DefaultSpaceSettings { get; private set; } = null!;
 
         /// <summary>
         /// The default user settings. See Default User Settings below.
@@ -310,6 +316,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> AuthMode { get; set; } = null!;
 
         /// <summary>
+        /// The default space settings. See Default Space Settings below.
+        /// </summary>
+        [Input("defaultSpaceSettings")]
+        public Input<Inputs.DomainDefaultSpaceSettingsArgs>? DefaultSpaceSettings { get; set; }
+
+        /// <summary>
         /// The default user settings. See Default User Settings below.
         /// </summary>
         [Input("defaultUserSettings", required: true)]
@@ -400,6 +412,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("authMode")]
         public Input<string>? AuthMode { get; set; }
+
+        /// <summary>
+        /// The default space settings. See Default Space Settings below.
+        /// </summary>
+        [Input("defaultSpaceSettings")]
+        public Input<Inputs.DomainDefaultSpaceSettingsGetArgs>? DefaultSpaceSettings { get; set; }
 
         /// <summary>
         /// The default user settings. See Default User Settings below.

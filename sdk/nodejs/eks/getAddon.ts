@@ -64,6 +64,10 @@ export interface GetAddonResult {
     readonly arn: string;
     readonly clusterName: string;
     /**
+     * Configuration values for the addon with a single JSON string.
+     */
+    readonly configurationValues: string;
+    /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      */
     readonly createdAt: string;

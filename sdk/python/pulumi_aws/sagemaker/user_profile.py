@@ -296,7 +296,7 @@ class UserProfile(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Code User Profiles can be imported using the `arn`, e.g.,
+        SageMaker User Profiles can be imported using the `arn`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
@@ -334,7 +334,7 @@ class UserProfile(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Code User Profiles can be imported using the `arn`, e.g.,
+        SageMaker User Profiles can be imported using the `arn`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name

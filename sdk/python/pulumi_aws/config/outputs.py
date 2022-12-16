@@ -451,6 +451,7 @@ class Endpoints(dict):
                  pinpoint: Optional[str] = None,
                  pinpointemail: Optional[str] = None,
                  pinpointsmsvoice: Optional[str] = None,
+                 pipes: Optional[str] = None,
                  polly: Optional[str] = None,
                  pricing: Optional[str] = None,
                  prometheus: Optional[str] = None,
@@ -1096,6 +1097,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "pinpointemail", pinpointemail)
         if pinpointsmsvoice is not None:
             pulumi.set(__self__, "pinpointsmsvoice", pinpointsmsvoice)
+        if pipes is not None:
+            pulumi.set(__self__, "pipes", pipes)
         if polly is not None:
             pulumi.set(__self__, "polly", polly)
         if pricing is not None:
@@ -2658,6 +2661,11 @@ class Endpoints(dict):
     @pulumi.getter
     def pinpointsmsvoice(self) -> Optional[str]:
         return pulumi.get(self, "pinpointsmsvoice")
+
+    @property
+    @pulumi.getter
+    def pipes(self) -> Optional[str]:
+        return pulumi.get(self, "pipes")
 
     @property
     @pulumi.getter

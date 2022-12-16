@@ -59,7 +59,7 @@ export interface GetCredentialsResult {
      */
     readonly dbPassword: string;
     /**
-     * A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
+     * A database user name that is authorized to log on to the database `dbName` using the password `dbPassword` . If the specified `dbUser` exists in the database, the new user name has the same database privileges as the user named in `dbUser` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
      */
     readonly dbUser: string;
     readonly durationSeconds?: number;

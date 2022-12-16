@@ -88,9 +88,13 @@ export class EndpointConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Fields are documented below.
+     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      */
     public readonly productionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigurationProductionVariant[]>;
+    /**
+     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     */
+    public readonly shadowProductionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigurationShadowProductionVariant[] | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -119,6 +123,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["productionVariants"] = state ? state.productionVariants : undefined;
+            resourceInputs["shadowProductionVariants"] = state ? state.shadowProductionVariants : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -131,6 +136,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["productionVariants"] = args ? args.productionVariants : undefined;
+            resourceInputs["shadowProductionVariants"] = args ? args.shadowProductionVariants : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -165,9 +171,13 @@ export interface EndpointConfigurationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Fields are documented below.
+     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      */
     productionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariant>[]>;
+    /**
+     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     */
+    shadowProductionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationShadowProductionVariant>[]>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -199,9 +209,13 @@ export interface EndpointConfigurationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Fields are documented below.
+     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      */
     productionVariants: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariant>[]>;
+    /**
+     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     */
+    shadowProductionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationShadowProductionVariant>[]>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

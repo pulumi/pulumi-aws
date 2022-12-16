@@ -275,6 +275,8 @@ type Crawler struct {
 	DynamodbTargets CrawlerDynamodbTargetArrayOutput `pulumi:"dynamodbTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayOutput `pulumi:"jdbcTargets"`
+	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+	LakeFormationConfiguration CrawlerLakeFormationConfigurationPtrOutput `pulumi:"lakeFormationConfiguration"`
 	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
 	LineageConfiguration CrawlerLineageConfigurationPtrOutput `pulumi:"lineageConfiguration"`
 	// List nested MongoDB target arguments. See MongoDB Target below.
@@ -352,6 +354,8 @@ type crawlerState struct {
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
+	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+	LakeFormationConfiguration *CrawlerLakeFormationConfiguration `pulumi:"lakeFormationConfiguration"`
 	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
 	LineageConfiguration *CrawlerLineageConfiguration `pulumi:"lineageConfiguration"`
 	// List nested MongoDB target arguments. See MongoDB Target below.
@@ -395,6 +399,8 @@ type CrawlerState struct {
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
+	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+	LakeFormationConfiguration CrawlerLakeFormationConfigurationPtrInput
 	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
 	LineageConfiguration CrawlerLineageConfigurationPtrInput
 	// List nested MongoDB target arguments. See MongoDB Target below.
@@ -440,6 +446,8 @@ type crawlerArgs struct {
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
+	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+	LakeFormationConfiguration *CrawlerLakeFormationConfiguration `pulumi:"lakeFormationConfiguration"`
 	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
 	LineageConfiguration *CrawlerLineageConfiguration `pulumi:"lineageConfiguration"`
 	// List nested MongoDB target arguments. See MongoDB Target below.
@@ -480,6 +488,8 @@ type CrawlerArgs struct {
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
+	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+	LakeFormationConfiguration CrawlerLakeFormationConfigurationPtrInput
 	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
 	LineageConfiguration CrawlerLineageConfigurationPtrInput
 	// List nested MongoDB target arguments. See MongoDB Target below.
@@ -632,6 +642,11 @@ func (o CrawlerOutput) DynamodbTargets() CrawlerDynamodbTargetArrayOutput {
 // List of nested JBDC target arguments. See JDBC Target below.
 func (o CrawlerOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerJdbcTargetArrayOutput { return v.JdbcTargets }).(CrawlerJdbcTargetArrayOutput)
+}
+
+// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+func (o CrawlerOutput) LakeFormationConfiguration() CrawlerLakeFormationConfigurationPtrOutput {
+	return o.ApplyT(func(v *Crawler) CrawlerLakeFormationConfigurationPtrOutput { return v.LakeFormationConfiguration }).(CrawlerLakeFormationConfigurationPtrOutput)
 }
 
 // Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.

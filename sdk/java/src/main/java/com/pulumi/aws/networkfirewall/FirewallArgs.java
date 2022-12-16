@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall;
 
+import com.pulumi.aws.networkfirewall.inputs.FirewallEncryptionConfigurationArgs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallSubnetMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -47,6 +48,21 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     * 
+     */
+    @Import(name="encryptionConfiguration")
+    private @Nullable Output<FirewallEncryptionConfigurationArgs> encryptionConfiguration;
+
+    /**
+     * @return KMS encryption configuration settings. See Encryption Configuration below for details.
+     * 
+     */
+    public Optional<Output<FirewallEncryptionConfigurationArgs>> encryptionConfiguration() {
+        return Optional.ofNullable(this.encryptionConfiguration);
     }
 
     /**
@@ -159,6 +175,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
     private FirewallArgs(FirewallArgs $) {
         this.deleteProtection = $.deleteProtection;
         this.description = $.description;
+        this.encryptionConfiguration = $.encryptionConfiguration;
         this.firewallPolicyArn = $.firewallPolicyArn;
         this.firewallPolicyChangeProtection = $.firewallPolicyChangeProtection;
         this.name = $.name;
@@ -226,6 +243,27 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param encryptionConfiguration KMS encryption configuration settings. See Encryption Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(@Nullable Output<FirewallEncryptionConfigurationArgs> encryptionConfiguration) {
+            $.encryptionConfiguration = encryptionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param encryptionConfiguration KMS encryption configuration settings. See Encryption Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(FirewallEncryptionConfigurationArgs encryptionConfiguration) {
+            return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
         /**

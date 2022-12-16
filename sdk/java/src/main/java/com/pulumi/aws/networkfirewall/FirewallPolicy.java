@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyState;
+import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyEncryptionConfiguration;
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -143,6 +144,20 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     * 
+     */
+    @Export(name="encryptionConfiguration", refs={FirewallPolicyEncryptionConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ FirewallPolicyEncryptionConfiguration> encryptionConfiguration;
+
+    /**
+     * @return KMS encryption configuration settings. See Encryption Configuration below for details.
+     * 
+     */
+    public Output<Optional<FirewallPolicyEncryptionConfiguration>> encryptionConfiguration() {
+        return Codegen.optional(this.encryptionConfiguration);
     }
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.

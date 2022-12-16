@@ -58,6 +58,45 @@ namespace Pulumi.Aws.Eks
     /// });
     /// ```
     /// 
+    /// ## Example add-on usage with custom configuration_values
+    /// 
+    /// Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
+    /// 
+    /// &gt; **Note:** `configuration_values` is a single JSON string should match the valid JSON schema for each add-on with specific version.
+    /// 
+    /// To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
+    /// This below is an example for extracting the `configuration_values` schema for `coredns`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
+    /// 
+    /// Example to create a `coredns` managed addon with custom `configuration_values`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Eks.Addon("example", new()
+    ///     {
+    ///         AddonName = "coredns",
+    ///         AddonVersion = "v1.8.7-eksbuild.3",
+    ///         ClusterName = "mycluster",
+    ///         ConfigurationValues = "{\"replicaCount\":4,\"resources\":{\"limits\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"}}}",
+    ///         ResolveConflicts = "OVERWRITE",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,
@@ -94,6 +133,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
+
+        /// <summary>
+        /// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        /// </summary>
+        [Output("configurationValues")]
+        public Output<string> ConfigurationValues { get; private set; } = null!;
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
@@ -211,6 +256,12 @@ namespace Pulumi.Aws.Eks
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
+        /// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        /// </summary>
+        [Input("configurationValues")]
+        public Input<string>? ConfigurationValues { get; set; }
+
+        /// <summary>
         /// Indicates if you want to preserve the created resources when deleting the EKS add-on.
         /// </summary>
         [Input("preserve")]
@@ -280,6 +331,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        /// </summary>
+        [Input("configurationValues")]
+        public Input<string>? ConfigurationValues { get; set; }
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.

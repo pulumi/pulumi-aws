@@ -72,6 +72,8 @@ type FirewallPolicy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A friendly description of the firewall policy.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration FirewallPolicyEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
 	FirewallPolicy FirewallPolicyFirewallPolicyOutput `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
@@ -120,6 +122,8 @@ type firewallPolicyState struct {
 	Arn *string `pulumi:"arn"`
 	// A friendly description of the firewall policy.
 	Description *string `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration *FirewallPolicyEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
 	FirewallPolicy *FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
@@ -137,6 +141,8 @@ type FirewallPolicyState struct {
 	Arn pulumi.StringPtrInput
 	// A friendly description of the firewall policy.
 	Description pulumi.StringPtrInput
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration FirewallPolicyEncryptionConfigurationPtrInput
 	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
 	FirewallPolicy FirewallPolicyFirewallPolicyPtrInput
 	// A friendly name of the firewall policy.
@@ -156,6 +162,8 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 type firewallPolicyArgs struct {
 	// A friendly description of the firewall policy.
 	Description *string `pulumi:"description"`
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration *FirewallPolicyEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
 	FirewallPolicy FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
@@ -168,6 +176,8 @@ type firewallPolicyArgs struct {
 type FirewallPolicyArgs struct {
 	// A friendly description of the firewall policy.
 	Description pulumi.StringPtrInput
+	// KMS encryption configuration settings. See Encryption Configuration below for details.
+	EncryptionConfiguration FirewallPolicyEncryptionConfigurationPtrInput
 	// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
 	FirewallPolicy FirewallPolicyFirewallPolicyInput
 	// A friendly name of the firewall policy.
@@ -271,6 +281,13 @@ func (o FirewallPolicyOutput) Arn() pulumi.StringOutput {
 // A friendly description of the firewall policy.
 func (o FirewallPolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// KMS encryption configuration settings. See Encryption Configuration below for details.
+func (o FirewallPolicyOutput) EncryptionConfiguration() FirewallPolicyEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyEncryptionConfigurationPtrOutput {
+		return v.EncryptionConfiguration
+	}).(FirewallPolicyEncryptionConfigurationPtrOutput)
 }
 
 // A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.

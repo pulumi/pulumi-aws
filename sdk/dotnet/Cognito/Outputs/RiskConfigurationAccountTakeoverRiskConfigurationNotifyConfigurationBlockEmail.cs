@@ -21,6 +21,9 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// The email subject.
         /// </summary>
         public readonly string Subject;
+        /// <summary>
+        /// The email text body.
+        /// </summary>
         public readonly string TextBody;
 
         [OutputConstructor]

@@ -39,6 +39,11 @@ export type PermissionSetInlinePolicy = import("./permissionSetInlinePolicy").Pe
 export const PermissionSetInlinePolicy: typeof import("./permissionSetInlinePolicy").PermissionSetInlinePolicy = null as any;
 utilities.lazyLoad(exports, ["PermissionSetInlinePolicy"], () => require("./permissionSetInlinePolicy"));
 
+export { PermissionsBoundaryAttachmentArgs, PermissionsBoundaryAttachmentState } from "./permissionsBoundaryAttachment";
+export type PermissionsBoundaryAttachment = import("./permissionsBoundaryAttachment").PermissionsBoundaryAttachment;
+export const PermissionsBoundaryAttachment: typeof import("./permissionsBoundaryAttachment").PermissionsBoundaryAttachment = null as any;
+utilities.lazyLoad(exports, ["PermissionsBoundaryAttachment"], () => require("./permissionsBoundaryAttachment"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -54,6 +59,8 @@ const _module = {
                 return new PermissionSet(name, <any>undefined, { urn })
             case "aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy":
                 return new PermissionSetInlinePolicy(name, <any>undefined, { urn })
+            case "aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment":
+                return new PermissionsBoundaryAttachment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -64,3 +71,4 @@ pulumi.runtime.registerResourceModule("aws", "ssoadmin/customerManagedPolicyAtta
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/managedPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSet", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSetInlinePolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionsBoundaryAttachment", _module)

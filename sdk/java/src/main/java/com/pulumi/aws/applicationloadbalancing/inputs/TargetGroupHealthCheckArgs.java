@@ -33,14 +33,14 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+     * Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
      * 
      */
     @Import(name="healthyThreshold")
     private @Nullable Output<Integer> healthyThreshold;
 
     /**
-     * @return Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+     * @return Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
      * 
      */
     public Optional<Output<Integer>> healthyThreshold() {
@@ -48,14 +48,14 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+     * Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
      * 
      */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
     /**
-     * @return Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+     * @return Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
      * 
      */
     public Optional<Output<Integer>> interval() {
@@ -93,14 +93,14 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+     * The port the load balancer uses when performing health checks on targets. Default is traffic-port.
      * 
      */
     @Import(name="port")
     private @Nullable Output<String> port;
 
     /**
-     * @return Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+     * @return The port the load balancer uses when performing health checks on targets. Default is traffic-port.
      * 
      */
     public Optional<Output<String>> port() {
@@ -108,14 +108,14 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+     * Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+     * @return Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -123,14 +123,14 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 5 seconds for HTTP health checks.
+     * Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
     /**
-     * @return Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 5 seconds for HTTP health checks.
+     * @return Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
      * 
      */
     public Optional<Output<Integer>> timeout() {
@@ -138,14 +138,14 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
+     * Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
      * 
      */
     @Import(name="unhealthyThreshold")
     private @Nullable Output<Integer> unhealthyThreshold;
 
     /**
-     * @return Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
+     * @return Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
      * 
      */
     public Optional<Output<Integer>> unhealthyThreshold() {
@@ -206,7 +206,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param healthyThreshold Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+         * @param healthyThreshold Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param healthyThreshold Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+         * @param healthyThreshold Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param interval Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+         * @param interval Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param interval Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+         * @param interval Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param port Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+         * @param port The port the load balancer uses when performing health checks on targets. Default is traffic-port.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param port Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+         * @param port The port the load balancer uses when performing health checks on targets. Default is traffic-port.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param protocol Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+         * @param protocol Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param protocol Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+         * @param protocol Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param timeout Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 5 seconds for HTTP health checks.
+         * @param timeout Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param timeout Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 5 seconds for HTTP health checks.
+         * @param timeout Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param unhealthyThreshold Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
+         * @param unhealthyThreshold Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param unhealthyThreshold Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
+         * @param unhealthyThreshold Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
          * 
          * @return builder
          * 

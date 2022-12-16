@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? ConnectionName;
         /// <summary>
-        /// The ARN of the dead-letter SQS queue.
+        /// A valid Amazon SQS ARN.
         /// </summary>
         public readonly string? DlqEventQueueArn;
         /// <summary>
-        /// The ARN of the SQS queue to receive S3 notifications from.
+        /// A valid Amazon SQS ARN.
         /// </summary>
         public readonly string? EventQueueArn;
         /// <summary>

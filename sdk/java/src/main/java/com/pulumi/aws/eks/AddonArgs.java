@@ -67,6 +67,21 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     * 
+     */
+    @Import(name="configurationValues")
+    private @Nullable Output<String> configurationValues;
+
+    /**
+     * @return custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     * 
+     */
+    public Optional<Output<String>> configurationValues() {
+        return Optional.ofNullable(this.configurationValues);
+    }
+
+    /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      * 
      */
@@ -146,6 +161,7 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
         this.addonName = $.addonName;
         this.addonVersion = $.addonVersion;
         this.clusterName = $.clusterName;
+        this.configurationValues = $.configurationValues;
         this.preserve = $.preserve;
         this.resolveConflicts = $.resolveConflicts;
         this.serviceAccountRoleArn = $.serviceAccountRoleArn;
@@ -235,6 +251,27 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
+        }
+
+        /**
+         * @param configurationValues custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurationValues(@Nullable Output<String> configurationValues) {
+            $.configurationValues = configurationValues;
+            return this;
+        }
+
+        /**
+         * @param configurationValues custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurationValues(String configurationValues) {
+            return configurationValues(Output.of(configurationValues));
         }
 
         /**
