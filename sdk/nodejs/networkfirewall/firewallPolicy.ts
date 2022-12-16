@@ -77,6 +77,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.networkfirewall.FirewallPolicyEncryptionConfiguration | undefined>;
+    /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      */
     public readonly firewallPolicy!: pulumi.Output<outputs.networkfirewall.FirewallPolicyFirewallPolicy>;
@@ -112,6 +116,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             const state = argsOrState as FirewallPolicyState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["firewallPolicy"] = state ? state.firewallPolicy : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -123,6 +128,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'firewallPolicy'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -147,6 +153,10 @@ export interface FirewallPolicyState {
      * A friendly description of the firewall policy.
      */
     description?: pulumi.Input<string>;
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallPolicyEncryptionConfiguration>;
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      */
@@ -177,6 +187,10 @@ export interface FirewallPolicyArgs {
      * A friendly description of the firewall policy.
      */
     description?: pulumi.Input<string>;
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallPolicyEncryptionConfiguration>;
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      */

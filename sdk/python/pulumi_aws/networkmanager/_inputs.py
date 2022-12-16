@@ -11,6 +11,8 @@ from .. import _utilities
 
 __all__ = [
     'ConnectAttachmentOptionsArgs',
+    'CoreNetworkEdgeArgs',
+    'CoreNetworkSegmentArgs',
     'DeviceAwsLocationArgs',
     'DeviceLocationArgs',
     'LinkBandwidthArgs',
@@ -40,6 +42,116 @@ class ConnectAttachmentOptionsArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class CoreNetworkEdgeArgs:
+    def __init__(__self__, *,
+                 asn: Optional[pulumi.Input[int]] = None,
+                 edge_location: Optional[pulumi.Input[str]] = None,
+                 inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[int] asn: ASN of a core network edge.
+        :param pulumi.Input[str] edge_location: Region where a core network edge is located.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: Inside IP addresses used for core network edges.
+        """
+        if asn is not None:
+            pulumi.set(__self__, "asn", asn)
+        if edge_location is not None:
+            pulumi.set(__self__, "edge_location", edge_location)
+        if inside_cidr_blocks is not None:
+            pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        ASN of a core network edge.
+        """
+        return pulumi.get(self, "asn")
+
+    @asn.setter
+    def asn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "asn", value)
+
+    @property
+    @pulumi.getter(name="edgeLocation")
+    def edge_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Region where a core network edge is located.
+        """
+        return pulumi.get(self, "edge_location")
+
+    @edge_location.setter
+    def edge_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_location", value)
+
+    @property
+    @pulumi.getter(name="insideCidrBlocks")
+    def inside_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Inside IP addresses used for core network edges.
+        """
+        return pulumi.get(self, "inside_cidr_blocks")
+
+    @inside_cidr_blocks.setter
+    def inside_cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "inside_cidr_blocks", value)
+
+
+@pulumi.input_type
+class CoreNetworkSegmentArgs:
+    def __init__(__self__, *,
+                 edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 shared_segments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] edge_locations: Regions where the edges are located.
+        :param pulumi.Input[str] name: Name of a core network segment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_segments: Shared segments of a core network.
+        """
+        if edge_locations is not None:
+            pulumi.set(__self__, "edge_locations", edge_locations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if shared_segments is not None:
+            pulumi.set(__self__, "shared_segments", shared_segments)
+
+    @property
+    @pulumi.getter(name="edgeLocations")
+    def edge_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Regions where the edges are located.
+        """
+        return pulumi.get(self, "edge_locations")
+
+    @edge_locations.setter
+    def edge_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "edge_locations", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a core network segment.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sharedSegments")
+    def shared_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Shared segments of a core network.
+        """
+        return pulumi.get(self, "shared_segments")
+
+    @shared_segments.setter
+    def shared_segments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_segments", value)
 
 
 @pulumi.input_type

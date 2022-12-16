@@ -21201,7 +21201,7 @@ class GetVpcCidrBlockAssociationResult(dict):
                  cidr_block: str,
                  state: str):
         """
-        :param str association_id: Association ID for the the IPv4 CIDR block.
+        :param str association_id: Association ID for the IPv4 CIDR block.
         :param str cidr_block: Cidr block of the desired VPC.
         :param str state: Current state of the desired VPC.
                Can be either `"pending"` or `"available"`.
@@ -21214,7 +21214,7 @@ class GetVpcCidrBlockAssociationResult(dict):
     @pulumi.getter(name="associationId")
     def association_id(self) -> str:
         """
-        Association ID for the the IPv4 CIDR block.
+        Association ID for the IPv4 CIDR block.
         """
         return pulumi.get(self, "association_id")
 

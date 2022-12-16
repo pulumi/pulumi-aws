@@ -6,6 +6,7 @@ package com.pulumi.aws.appsync;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.appsync.FunctionArgs;
 import com.pulumi.aws.appsync.inputs.FunctionState;
+import com.pulumi.aws.appsync.outputs.FunctionRuntime;
 import com.pulumi.aws.appsync.outputs.FunctionSyncConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -104,6 +105,43 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### With Code
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.Function;
+ * import com.pulumi.aws.appsync.FunctionArgs;
+ * import com.pulumi.aws.appsync.inputs.FunctionRuntimeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Function(&#34;example&#34;, FunctionArgs.builder()        
+ *             .apiId(aws_appsync_graphql_api.example().id())
+ *             .dataSource(aws_appsync_datasource.example().name())
+ *             .name(&#34;example&#34;)
+ *             .code(Files.readString(Paths.get(&#34;some-code-dir&#34;)))
+ *             .runtime(FunctionRuntimeArgs.builder()
+ *                 .name(&#34;APPSYNC_JS&#34;)
+ *                 .runtimeVersion(&#34;1.0.0&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -143,6 +181,20 @@ public class Function extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * 
+     */
+    @Export(name="code", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> code;
+
+    /**
+     * @return The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * 
+     */
+    public Output<Optional<String>> code() {
+        return Codegen.optional(this.code);
     }
     /**
      * Function data source name.
@@ -187,18 +239,18 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.functionId;
     }
     /**
-     * Version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      * 
      */
     @Export(name="functionVersion", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> functionVersion;
+    private Output<String> functionVersion;
 
     /**
-     * @return Version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * @return Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      * 
      */
-    public Output<Optional<String>> functionVersion() {
-        return Codegen.optional(this.functionVersion);
+    public Output<String> functionVersion() {
+        return this.functionVersion;
     }
     /**
      * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
@@ -215,14 +267,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxBatchSize);
     }
     /**
-     * Function name. The function name does not have to be unique.
+     * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Function name. The function name does not have to be unique.
+     * @return The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
      * 
      */
     public Output<String> name() {
@@ -233,28 +285,42 @@ public class Function extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="requestMappingTemplate", refs={String.class}, tree="[0]")
-    private Output<String> requestMappingTemplate;
+    private Output</* @Nullable */ String> requestMappingTemplate;
 
     /**
      * @return Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      * 
      */
-    public Output<String> requestMappingTemplate() {
-        return this.requestMappingTemplate;
+    public Output<Optional<String>> requestMappingTemplate() {
+        return Codegen.optional(this.requestMappingTemplate);
     }
     /**
      * Function response mapping template.
      * 
      */
     @Export(name="responseMappingTemplate", refs={String.class}, tree="[0]")
-    private Output<String> responseMappingTemplate;
+    private Output</* @Nullable */ String> responseMappingTemplate;
 
     /**
      * @return Function response mapping template.
      * 
      */
-    public Output<String> responseMappingTemplate() {
-        return this.responseMappingTemplate;
+    public Output<Optional<String>> responseMappingTemplate() {
+        return Codegen.optional(this.responseMappingTemplate);
+    }
+    /**
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * 
+     */
+    @Export(name="runtime", refs={FunctionRuntime.class}, tree="[0]")
+    private Output</* @Nullable */ FunctionRuntime> runtime;
+
+    /**
+     * @return Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * 
+     */
+    public Output<Optional<FunctionRuntime>> runtime() {
+        return Codegen.optional(this.runtime);
     }
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.

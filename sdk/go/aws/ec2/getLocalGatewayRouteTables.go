@@ -11,6 +11,33 @@ import (
 )
 
 // Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
+//
+// ## Example Usage
+//
+// The following shows outputing all Local Gateway Route Table Ids.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooLocalGatewayRouteTables, err := ec2.GetLocalGatewayRouteTables(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("foo", fooLocalGatewayRouteTables.Ids)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetLocalGatewayRouteTables(ctx *pulumi.Context, args *GetLocalGatewayRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayRouteTablesResult, error) {
 	var rv GetLocalGatewayRouteTablesResult
 	err := ctx.Invoke("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args, &rv, opts...)

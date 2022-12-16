@@ -421,14 +421,14 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.environment;
     }
     /**
-     * A set of file system locations to to mount inside the build. File system locations are documented below.
+     * A set of file system locations to mount inside the build. File system locations are documented below.
      * 
      */
     @Export(name="fileSystemLocations", refs={List.class,ProjectFileSystemLocation.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProjectFileSystemLocation>> fileSystemLocations;
 
     /**
-     * @return A set of file system locations to to mount inside the build. File system locations are documented below.
+     * @return A set of file system locations to mount inside the build. File system locations are documented below.
      * 
      */
     public Output<Optional<List<ProjectFileSystemLocation>>> fileSystemLocations() {

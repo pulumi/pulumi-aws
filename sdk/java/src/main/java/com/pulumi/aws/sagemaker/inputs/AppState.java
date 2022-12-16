@@ -33,14 +33,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
      * 
      */
     @Import(name="appType")
     private @Nullable Output<String> appType;
 
     /**
-     * @return The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+     * @return The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
      * 
      */
     public Optional<Output<String>> appType() {
@@ -93,6 +93,21 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The name of the space. At least on of `user_profile_name` or `space_name` required.
+     * 
+     */
+    @Import(name="spaceName")
+    private @Nullable Output<String> spaceName;
+
+    /**
+     * @return The name of the space. At least on of `user_profile_name` or `space_name` required.
+     * 
+     */
+    public Optional<Output<String>> spaceName() {
+        return Optional.ofNullable(this.spaceName);
+    }
+
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -123,14 +138,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The user profile name.
+     * The user profile name. At least on of `user_profile_name` or `space_name` required.
      * 
      */
     @Import(name="userProfileName")
     private @Nullable Output<String> userProfileName;
 
     /**
-     * @return The user profile name.
+     * @return The user profile name. At least on of `user_profile_name` or `space_name` required.
      * 
      */
     public Optional<Output<String>> userProfileName() {
@@ -145,6 +160,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.domainId = $.domainId;
         this.resourceSpec = $.resourceSpec;
+        this.spaceName = $.spaceName;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.userProfileName = $.userProfileName;
@@ -190,7 +206,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appType The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+         * @param appType The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
          * 
          * @return builder
          * 
@@ -201,7 +217,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appType The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+         * @param appType The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
          * 
          * @return builder
          * 
@@ -274,6 +290,27 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param spaceName The name of the space. At least on of `user_profile_name` or `space_name` required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceName(@Nullable Output<String> spaceName) {
+            $.spaceName = spaceName;
+            return this;
+        }
+
+        /**
+         * @param spaceName The name of the space. At least on of `user_profile_name` or `space_name` required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceName(String spaceName) {
+            return spaceName(Output.of(spaceName));
+        }
+
+        /**
          * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -316,7 +353,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userProfileName The user profile name.
+         * @param userProfileName The user profile name. At least on of `user_profile_name` or `space_name` required.
          * 
          * @return builder
          * 
@@ -327,7 +364,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userProfileName The user profile name.
+         * @param userProfileName The user profile name. At least on of `user_profile_name` or `space_name` required.
          * 
          * @return builder
          * 

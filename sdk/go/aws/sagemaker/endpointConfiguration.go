@@ -73,8 +73,10 @@ type EndpointConfiguration struct {
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Fields are documented below.
+	// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
 	ProductionVariants EndpointConfigurationProductionVariantArrayOutput `pulumi:"productionVariants"`
+	// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+	ShadowProductionVariants EndpointConfigurationShadowProductionVariantArrayOutput `pulumi:"shadowProductionVariants"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -123,8 +125,10 @@ type endpointConfigurationState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
-	// Fields are documented below.
+	// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
 	ProductionVariants []EndpointConfigurationProductionVariant `pulumi:"productionVariants"`
+	// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+	ShadowProductionVariants []EndpointConfigurationShadowProductionVariant `pulumi:"shadowProductionVariants"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -142,8 +146,10 @@ type EndpointConfigurationState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
-	// Fields are documented below.
+	// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
 	ProductionVariants EndpointConfigurationProductionVariantArrayInput
+	// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+	ShadowProductionVariants EndpointConfigurationShadowProductionVariantArrayInput
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -163,8 +169,10 @@ type endpointConfigurationArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
-	// Fields are documented below.
+	// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
 	ProductionVariants []EndpointConfigurationProductionVariant `pulumi:"productionVariants"`
+	// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+	ShadowProductionVariants []EndpointConfigurationShadowProductionVariant `pulumi:"shadowProductionVariants"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -179,8 +187,10 @@ type EndpointConfigurationArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
-	// Fields are documented below.
+	// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
 	ProductionVariants EndpointConfigurationProductionVariantArrayInput
+	// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+	ShadowProductionVariants EndpointConfigurationShadowProductionVariantArrayInput
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -301,11 +311,18 @@ func (o EndpointConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Fields are documented below.
+// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
 func (o EndpointConfigurationOutput) ProductionVariants() EndpointConfigurationProductionVariantArrayOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) EndpointConfigurationProductionVariantArrayOutput {
 		return v.ProductionVariants
 	}).(EndpointConfigurationProductionVariantArrayOutput)
+}
+
+// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+func (o EndpointConfigurationOutput) ShadowProductionVariants() EndpointConfigurationShadowProductionVariantArrayOutput {
+	return o.ApplyT(func(v *EndpointConfiguration) EndpointConfigurationShadowProductionVariantArrayOutput {
+		return v.ShadowProductionVariants
+	}).(EndpointConfigurationShadowProductionVariantArrayOutput)
 }
 
 // A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

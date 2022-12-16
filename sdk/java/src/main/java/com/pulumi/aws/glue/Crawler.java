@@ -10,6 +10,7 @@ import com.pulumi.aws.glue.outputs.CrawlerCatalogTarget;
 import com.pulumi.aws.glue.outputs.CrawlerDeltaTarget;
 import com.pulumi.aws.glue.outputs.CrawlerDynamodbTarget;
 import com.pulumi.aws.glue.outputs.CrawlerJdbcTarget;
+import com.pulumi.aws.glue.outputs.CrawlerLakeFormationConfiguration;
 import com.pulumi.aws.glue.outputs.CrawlerLineageConfiguration;
 import com.pulumi.aws.glue.outputs.CrawlerMongodbTarget;
 import com.pulumi.aws.glue.outputs.CrawlerRecrawlPolicy;
@@ -384,6 +385,20 @@ public class Crawler extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<CrawlerJdbcTarget>>> jdbcTargets() {
         return Codegen.optional(this.jdbcTargets);
+    }
+    /**
+     * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+     * 
+     */
+    @Export(name="lakeFormationConfiguration", refs={CrawlerLakeFormationConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ CrawlerLakeFormationConfiguration> lakeFormationConfiguration;
+
+    /**
+     * @return Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+     * 
+     */
+    public Output<Optional<CrawlerLakeFormationConfiguration>> lakeFormationConfiguration() {
+        return Codegen.optional(this.lakeFormationConfiguration);
     }
     /**
      * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.

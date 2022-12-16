@@ -59,6 +59,7 @@ import (
 type VpcConnector struct {
 	pulumi.CustomResourceState
 
+	// ARN of VPC connector.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
@@ -114,6 +115,7 @@ func GetVpcConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcConnector resources.
 type vpcConnectorState struct {
+	// ARN of VPC connector.
 	Arn *string `pulumi:"arn"`
 	// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -132,6 +134,7 @@ type vpcConnectorState struct {
 }
 
 type VpcConnectorState struct {
+	// ARN of VPC connector.
 	Arn pulumi.StringPtrInput
 	// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
 	SecurityGroups pulumi.StringArrayInput
@@ -263,6 +266,7 @@ func (o VpcConnectorOutput) ToVpcConnectorOutputWithContext(ctx context.Context)
 	return o
 }
 
+// ARN of VPC connector.
 func (o VpcConnectorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

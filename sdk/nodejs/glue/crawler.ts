@@ -189,6 +189,10 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly jdbcTargets!: pulumi.Output<outputs.glue.CrawlerJdbcTarget[] | undefined>;
     /**
+     * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+     */
+    public readonly lakeFormationConfiguration!: pulumi.Output<outputs.glue.CrawlerLakeFormationConfiguration | undefined>;
+    /**
      * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
      */
     public readonly lineageConfiguration!: pulumi.Output<outputs.glue.CrawlerLineageConfiguration | undefined>;
@@ -259,6 +263,7 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["dynamodbTargets"] = state ? state.dynamodbTargets : undefined;
             resourceInputs["jdbcTargets"] = state ? state.jdbcTargets : undefined;
+            resourceInputs["lakeFormationConfiguration"] = state ? state.lakeFormationConfiguration : undefined;
             resourceInputs["lineageConfiguration"] = state ? state.lineageConfiguration : undefined;
             resourceInputs["mongodbTargets"] = state ? state.mongodbTargets : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -287,6 +292,7 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dynamodbTargets"] = args ? args.dynamodbTargets : undefined;
             resourceInputs["jdbcTargets"] = args ? args.jdbcTargets : undefined;
+            resourceInputs["lakeFormationConfiguration"] = args ? args.lakeFormationConfiguration : undefined;
             resourceInputs["lineageConfiguration"] = args ? args.lineageConfiguration : undefined;
             resourceInputs["mongodbTargets"] = args ? args.mongodbTargets : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -340,6 +346,10 @@ export interface CrawlerState {
      * List of nested JBDC target arguments. See JDBC Target below.
      */
     jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
+    /**
+     * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+     */
+    lakeFormationConfiguration?: pulumi.Input<inputs.glue.CrawlerLakeFormationConfiguration>;
     /**
      * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
      */
@@ -420,6 +430,10 @@ export interface CrawlerArgs {
      * List of nested JBDC target arguments. See JDBC Target below.
      */
     jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
+    /**
+     * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+     */
+    lakeFormationConfiguration?: pulumi.Input<inputs.glue.CrawlerLakeFormationConfiguration>;
     /**
      * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
      */

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx
 {
     /// <summary>
-    /// Resource for managing an AWS FSx File Cache.
+    /// Resource for managing an Amazon File Cache cache.
     /// See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
     /// ## Example Usage
     /// 
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// FSx File Cache can be imported using the resource `id`.
+    /// Amazon File Cache cache can be imported using the resource `id`.
     /// 
     /// ```sh
     ///  $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589

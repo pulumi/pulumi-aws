@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.sagemaker.DomainArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainState;
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultSpaceSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDomainSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainRetentionPolicy;
@@ -151,7 +152,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker Code Domains can be imported using the `id`, e.g.,
+ * SageMaker Domains can be imported using the `id`, e.g.,
  * 
  * ```sh
  *  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -215,6 +216,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<String> authMode() {
         return this.authMode;
+    }
+    /**
+     * The default space settings. See Default Space Settings below.
+     * 
+     */
+    @Export(name="defaultSpaceSettings", refs={DomainDefaultSpaceSettings.class}, tree="[0]")
+    private Output</* @Nullable */ DomainDefaultSpaceSettings> defaultSpaceSettings;
+
+    /**
+     * @return The default space settings. See Default Space Settings below.
+     * 
+     */
+    public Output<Optional<DomainDefaultSpaceSettings>> defaultSpaceSettings() {
+        return Codegen.optional(this.defaultSpaceSettings);
     }
     /**
      * The default user settings. See Default User Settings below.

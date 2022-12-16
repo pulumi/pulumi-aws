@@ -143,6 +143,236 @@ func (o ConnectAttachmentOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type CoreNetworkEdge struct {
+	// ASN of a core network edge.
+	Asn *int `pulumi:"asn"`
+	// Region where a core network edge is located.
+	EdgeLocation *string `pulumi:"edgeLocation"`
+	// Inside IP addresses used for core network edges.
+	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
+}
+
+// CoreNetworkEdgeInput is an input type that accepts CoreNetworkEdgeArgs and CoreNetworkEdgeOutput values.
+// You can construct a concrete instance of `CoreNetworkEdgeInput` via:
+//
+//	CoreNetworkEdgeArgs{...}
+type CoreNetworkEdgeInput interface {
+	pulumi.Input
+
+	ToCoreNetworkEdgeOutput() CoreNetworkEdgeOutput
+	ToCoreNetworkEdgeOutputWithContext(context.Context) CoreNetworkEdgeOutput
+}
+
+type CoreNetworkEdgeArgs struct {
+	// ASN of a core network edge.
+	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	// Region where a core network edge is located.
+	EdgeLocation pulumi.StringPtrInput `pulumi:"edgeLocation"`
+	// Inside IP addresses used for core network edges.
+	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
+}
+
+func (CoreNetworkEdgeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkEdge)(nil)).Elem()
+}
+
+func (i CoreNetworkEdgeArgs) ToCoreNetworkEdgeOutput() CoreNetworkEdgeOutput {
+	return i.ToCoreNetworkEdgeOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkEdgeArgs) ToCoreNetworkEdgeOutputWithContext(ctx context.Context) CoreNetworkEdgeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkEdgeOutput)
+}
+
+// CoreNetworkEdgeArrayInput is an input type that accepts CoreNetworkEdgeArray and CoreNetworkEdgeArrayOutput values.
+// You can construct a concrete instance of `CoreNetworkEdgeArrayInput` via:
+//
+//	CoreNetworkEdgeArray{ CoreNetworkEdgeArgs{...} }
+type CoreNetworkEdgeArrayInput interface {
+	pulumi.Input
+
+	ToCoreNetworkEdgeArrayOutput() CoreNetworkEdgeArrayOutput
+	ToCoreNetworkEdgeArrayOutputWithContext(context.Context) CoreNetworkEdgeArrayOutput
+}
+
+type CoreNetworkEdgeArray []CoreNetworkEdgeInput
+
+func (CoreNetworkEdgeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CoreNetworkEdge)(nil)).Elem()
+}
+
+func (i CoreNetworkEdgeArray) ToCoreNetworkEdgeArrayOutput() CoreNetworkEdgeArrayOutput {
+	return i.ToCoreNetworkEdgeArrayOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkEdgeArray) ToCoreNetworkEdgeArrayOutputWithContext(ctx context.Context) CoreNetworkEdgeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkEdgeArrayOutput)
+}
+
+type CoreNetworkEdgeOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkEdgeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkEdge)(nil)).Elem()
+}
+
+func (o CoreNetworkEdgeOutput) ToCoreNetworkEdgeOutput() CoreNetworkEdgeOutput {
+	return o
+}
+
+func (o CoreNetworkEdgeOutput) ToCoreNetworkEdgeOutputWithContext(ctx context.Context) CoreNetworkEdgeOutput {
+	return o
+}
+
+// ASN of a core network edge.
+func (o CoreNetworkEdgeOutput) Asn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CoreNetworkEdge) *int { return v.Asn }).(pulumi.IntPtrOutput)
+}
+
+// Region where a core network edge is located.
+func (o CoreNetworkEdgeOutput) EdgeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CoreNetworkEdge) *string { return v.EdgeLocation }).(pulumi.StringPtrOutput)
+}
+
+// Inside IP addresses used for core network edges.
+func (o CoreNetworkEdgeOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CoreNetworkEdge) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+type CoreNetworkEdgeArrayOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkEdgeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CoreNetworkEdge)(nil)).Elem()
+}
+
+func (o CoreNetworkEdgeArrayOutput) ToCoreNetworkEdgeArrayOutput() CoreNetworkEdgeArrayOutput {
+	return o
+}
+
+func (o CoreNetworkEdgeArrayOutput) ToCoreNetworkEdgeArrayOutputWithContext(ctx context.Context) CoreNetworkEdgeArrayOutput {
+	return o
+}
+
+func (o CoreNetworkEdgeArrayOutput) Index(i pulumi.IntInput) CoreNetworkEdgeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CoreNetworkEdge {
+		return vs[0].([]CoreNetworkEdge)[vs[1].(int)]
+	}).(CoreNetworkEdgeOutput)
+}
+
+type CoreNetworkSegment struct {
+	// Regions where the edges are located.
+	EdgeLocations []string `pulumi:"edgeLocations"`
+	// Name of a core network segment.
+	Name *string `pulumi:"name"`
+	// Shared segments of a core network.
+	SharedSegments []string `pulumi:"sharedSegments"`
+}
+
+// CoreNetworkSegmentInput is an input type that accepts CoreNetworkSegmentArgs and CoreNetworkSegmentOutput values.
+// You can construct a concrete instance of `CoreNetworkSegmentInput` via:
+//
+//	CoreNetworkSegmentArgs{...}
+type CoreNetworkSegmentInput interface {
+	pulumi.Input
+
+	ToCoreNetworkSegmentOutput() CoreNetworkSegmentOutput
+	ToCoreNetworkSegmentOutputWithContext(context.Context) CoreNetworkSegmentOutput
+}
+
+type CoreNetworkSegmentArgs struct {
+	// Regions where the edges are located.
+	EdgeLocations pulumi.StringArrayInput `pulumi:"edgeLocations"`
+	// Name of a core network segment.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Shared segments of a core network.
+	SharedSegments pulumi.StringArrayInput `pulumi:"sharedSegments"`
+}
+
+func (CoreNetworkSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkSegment)(nil)).Elem()
+}
+
+func (i CoreNetworkSegmentArgs) ToCoreNetworkSegmentOutput() CoreNetworkSegmentOutput {
+	return i.ToCoreNetworkSegmentOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkSegmentArgs) ToCoreNetworkSegmentOutputWithContext(ctx context.Context) CoreNetworkSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkSegmentOutput)
+}
+
+// CoreNetworkSegmentArrayInput is an input type that accepts CoreNetworkSegmentArray and CoreNetworkSegmentArrayOutput values.
+// You can construct a concrete instance of `CoreNetworkSegmentArrayInput` via:
+//
+//	CoreNetworkSegmentArray{ CoreNetworkSegmentArgs{...} }
+type CoreNetworkSegmentArrayInput interface {
+	pulumi.Input
+
+	ToCoreNetworkSegmentArrayOutput() CoreNetworkSegmentArrayOutput
+	ToCoreNetworkSegmentArrayOutputWithContext(context.Context) CoreNetworkSegmentArrayOutput
+}
+
+type CoreNetworkSegmentArray []CoreNetworkSegmentInput
+
+func (CoreNetworkSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CoreNetworkSegment)(nil)).Elem()
+}
+
+func (i CoreNetworkSegmentArray) ToCoreNetworkSegmentArrayOutput() CoreNetworkSegmentArrayOutput {
+	return i.ToCoreNetworkSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i CoreNetworkSegmentArray) ToCoreNetworkSegmentArrayOutputWithContext(ctx context.Context) CoreNetworkSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkSegmentArrayOutput)
+}
+
+type CoreNetworkSegmentOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreNetworkSegment)(nil)).Elem()
+}
+
+func (o CoreNetworkSegmentOutput) ToCoreNetworkSegmentOutput() CoreNetworkSegmentOutput {
+	return o
+}
+
+func (o CoreNetworkSegmentOutput) ToCoreNetworkSegmentOutputWithContext(ctx context.Context) CoreNetworkSegmentOutput {
+	return o
+}
+
+// Regions where the edges are located.
+func (o CoreNetworkSegmentOutput) EdgeLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CoreNetworkSegment) []string { return v.EdgeLocations }).(pulumi.StringArrayOutput)
+}
+
+// Name of a core network segment.
+func (o CoreNetworkSegmentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CoreNetworkSegment) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Shared segments of a core network.
+func (o CoreNetworkSegmentOutput) SharedSegments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CoreNetworkSegment) []string { return v.SharedSegments }).(pulumi.StringArrayOutput)
+}
+
+type CoreNetworkSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (CoreNetworkSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CoreNetworkSegment)(nil)).Elem()
+}
+
+func (o CoreNetworkSegmentArrayOutput) ToCoreNetworkSegmentArrayOutput() CoreNetworkSegmentArrayOutput {
+	return o
+}
+
+func (o CoreNetworkSegmentArrayOutput) ToCoreNetworkSegmentArrayOutputWithContext(ctx context.Context) CoreNetworkSegmentArrayOutput {
+	return o
+}
+
+func (o CoreNetworkSegmentArrayOutput) Index(i pulumi.IntInput) CoreNetworkSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CoreNetworkSegment {
+		return vs[0].([]CoreNetworkSegment)[vs[1].(int)]
+	}).(CoreNetworkSegmentOutput)
+}
+
 type DeviceAwsLocation struct {
 	// The Amazon Resource Name (ARN) of the subnet that the device is located in.
 	SubnetArn *string `pulumi:"subnetArn"`
@@ -2278,6 +2508,10 @@ func (o GetSiteLocationArrayOutput) Index(i pulumi.IntInput) GetSiteLocationOutp
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsPtrInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkEdgeInput)(nil)).Elem(), CoreNetworkEdgeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkEdgeArrayInput)(nil)).Elem(), CoreNetworkEdgeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkSegmentInput)(nil)).Elem(), CoreNetworkSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkSegmentArrayInput)(nil)).Elem(), CoreNetworkSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationInput)(nil)).Elem(), DeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationPtrInput)(nil)).Elem(), DeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationInput)(nil)).Elem(), DeviceLocationArgs{})
@@ -2311,6 +2545,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSiteLocationArrayInput)(nil)).Elem(), GetSiteLocationArray{})
 	pulumi.RegisterOutputType(ConnectAttachmentOptionsOutput{})
 	pulumi.RegisterOutputType(ConnectAttachmentOptionsPtrOutput{})
+	pulumi.RegisterOutputType(CoreNetworkEdgeOutput{})
+	pulumi.RegisterOutputType(CoreNetworkEdgeArrayOutput{})
+	pulumi.RegisterOutputType(CoreNetworkSegmentOutput{})
+	pulumi.RegisterOutputType(CoreNetworkSegmentArrayOutput{})
 	pulumi.RegisterOutputType(DeviceAwsLocationOutput{})
 	pulumi.RegisterOutputType(DeviceAwsLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeviceLocationOutput{})

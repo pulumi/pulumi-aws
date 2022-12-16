@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantCoreDumpConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantServerlessConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -31,6 +32,36 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
      */
     public Optional<Output<String>> acceleratorType() {
         return Optional.ofNullable(this.acceleratorType);
+    }
+
+    /**
+     * The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+     * 
+     */
+    @Import(name="containerStartupHealthCheckTimeoutInSeconds")
+    private @Nullable Output<Integer> containerStartupHealthCheckTimeoutInSeconds;
+
+    /**
+     * @return The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+     * 
+     */
+    public Optional<Output<Integer>> containerStartupHealthCheckTimeoutInSeconds() {
+        return Optional.ofNullable(this.containerStartupHealthCheckTimeoutInSeconds);
+    }
+
+    /**
+     * Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+     * 
+     */
+    @Import(name="coreDumpConfig")
+    private @Nullable Output<EndpointConfigurationProductionVariantCoreDumpConfigArgs> coreDumpConfig;
+
+    /**
+     * @return Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+     * 
+     */
+    public Optional<Output<EndpointConfigurationProductionVariantCoreDumpConfigArgs>> coreDumpConfig() {
+        return Optional.ofNullable(this.coreDumpConfig);
     }
 
     /**
@@ -79,6 +110,21 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
+     * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+     * 
+     */
+    @Import(name="modelDataDownloadTimeoutInSeconds")
+    private @Nullable Output<Integer> modelDataDownloadTimeoutInSeconds;
+
+    /**
+     * @return The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+     * 
+     */
+    public Optional<Output<Integer>> modelDataDownloadTimeoutInSeconds() {
+        return Optional.ofNullable(this.modelDataDownloadTimeoutInSeconds);
+    }
+
+    /**
      * The name of the model to use.
      * 
      */
@@ -123,16 +169,35 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         return Optional.ofNullable(this.variantName);
     }
 
+    /**
+     * The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+     * 
+     */
+    @Import(name="volumeSizeInGb")
+    private @Nullable Output<Integer> volumeSizeInGb;
+
+    /**
+     * @return The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+     * 
+     */
+    public Optional<Output<Integer>> volumeSizeInGb() {
+        return Optional.ofNullable(this.volumeSizeInGb);
+    }
+
     private EndpointConfigurationProductionVariantArgs() {}
 
     private EndpointConfigurationProductionVariantArgs(EndpointConfigurationProductionVariantArgs $) {
         this.acceleratorType = $.acceleratorType;
+        this.containerStartupHealthCheckTimeoutInSeconds = $.containerStartupHealthCheckTimeoutInSeconds;
+        this.coreDumpConfig = $.coreDumpConfig;
         this.initialInstanceCount = $.initialInstanceCount;
         this.initialVariantWeight = $.initialVariantWeight;
         this.instanceType = $.instanceType;
+        this.modelDataDownloadTimeoutInSeconds = $.modelDataDownloadTimeoutInSeconds;
         this.modelName = $.modelName;
         this.serverlessConfig = $.serverlessConfig;
         this.variantName = $.variantName;
+        this.volumeSizeInGb = $.volumeSizeInGb;
     }
 
     public static Builder builder() {
@@ -172,6 +237,48 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
          */
         public Builder acceleratorType(String acceleratorType) {
             return acceleratorType(Output.of(acceleratorType));
+        }
+
+        /**
+         * @param containerStartupHealthCheckTimeoutInSeconds The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containerStartupHealthCheckTimeoutInSeconds(@Nullable Output<Integer> containerStartupHealthCheckTimeoutInSeconds) {
+            $.containerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
+            return this;
+        }
+
+        /**
+         * @param containerStartupHealthCheckTimeoutInSeconds The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containerStartupHealthCheckTimeoutInSeconds(Integer containerStartupHealthCheckTimeoutInSeconds) {
+            return containerStartupHealthCheckTimeoutInSeconds(Output.of(containerStartupHealthCheckTimeoutInSeconds));
+        }
+
+        /**
+         * @param coreDumpConfig Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder coreDumpConfig(@Nullable Output<EndpointConfigurationProductionVariantCoreDumpConfigArgs> coreDumpConfig) {
+            $.coreDumpConfig = coreDumpConfig;
+            return this;
+        }
+
+        /**
+         * @param coreDumpConfig Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder coreDumpConfig(EndpointConfigurationProductionVariantCoreDumpConfigArgs coreDumpConfig) {
+            return coreDumpConfig(Output.of(coreDumpConfig));
         }
 
         /**
@@ -238,6 +345,27 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
+         * @param modelDataDownloadTimeoutInSeconds The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelDataDownloadTimeoutInSeconds(@Nullable Output<Integer> modelDataDownloadTimeoutInSeconds) {
+            $.modelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
+            return this;
+        }
+
+        /**
+         * @param modelDataDownloadTimeoutInSeconds The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelDataDownloadTimeoutInSeconds(Integer modelDataDownloadTimeoutInSeconds) {
+            return modelDataDownloadTimeoutInSeconds(Output.of(modelDataDownloadTimeoutInSeconds));
+        }
+
+        /**
          * @param modelName The name of the model to use.
          * 
          * @return builder
@@ -298,6 +426,27 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
          */
         public Builder variantName(String variantName) {
             return variantName(Output.of(variantName));
+        }
+
+        /**
+         * @param volumeSizeInGb The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeSizeInGb(@Nullable Output<Integer> volumeSizeInGb) {
+            $.volumeSizeInGb = volumeSizeInGb;
+            return this;
+        }
+
+        /**
+         * @param volumeSizeInGb The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeSizeInGb(Integer volumeSizeInGb) {
+            return volumeSizeInGb(Output.of(volumeSizeInGb));
         }
 
         public EndpointConfigurationProductionVariantArgs build() {

@@ -93,6 +93,7 @@ class _VpcConnectorState:
                  vpc_connector_revision: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering VpcConnector resources.
+        :param pulumi.Input[str] arn: ARN of VPC connector.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
         :param pulumi.Input[str] status: Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
@@ -121,6 +122,9 @@ class _VpcConnectorState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of VPC connector.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -360,6 +364,7 @@ class VpcConnector(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of VPC connector.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
         :param pulumi.Input[str] status: Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can't be used. Inactive connector revisions are permanently removed some time after they are deleted.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
@@ -385,6 +390,9 @@ class VpcConnector(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of VPC connector.
+        """
         return pulumi.get(self, "arn")
 
     @property

@@ -23,6 +23,7 @@ class DomainArgs:
                  vpc_id: pulumi.Input[str],
                  app_network_access_type: Optional[pulumi.Input[str]] = None,
                  app_security_group_management: Optional[pulumi.Input[str]] = None,
+                 default_space_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']] = None,
                  domain_settings: Optional[pulumi.Input['DomainDomainSettingsArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input['DomainRetentionPolicyArgs']] = None,
@@ -36,6 +37,7 @@ class DomainArgs:
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
         :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings. See Default Space Settings below.
         :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See Domain Settings below.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
@@ -50,6 +52,8 @@ class DomainArgs:
             pulumi.set(__self__, "app_network_access_type", app_network_access_type)
         if app_security_group_management is not None:
             pulumi.set(__self__, "app_security_group_management", app_security_group_management)
+        if default_space_settings is not None:
+            pulumi.set(__self__, "default_space_settings", default_space_settings)
         if domain_settings is not None:
             pulumi.set(__self__, "domain_settings", domain_settings)
         if kms_key_id is not None:
@@ -144,6 +148,18 @@ class DomainArgs:
         pulumi.set(self, "app_security_group_management", value)
 
     @property
+    @pulumi.getter(name="defaultSpaceSettings")
+    def default_space_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']]:
+        """
+        The default space settings. See Default Space Settings below.
+        """
+        return pulumi.get(self, "default_space_settings")
+
+    @default_space_settings.setter
+    def default_space_settings(self, value: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']]):
+        pulumi.set(self, "default_space_settings", value)
+
+    @property
     @pulumi.getter(name="domainSettings")
     def domain_settings(self) -> Optional[pulumi.Input['DomainDomainSettingsArgs']]:
         """
@@ -199,6 +215,7 @@ class _DomainState:
                  app_security_group_management: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  auth_mode: Optional[pulumi.Input[str]] = None,
+                 default_space_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']] = None,
                  default_user_settings: Optional[pulumi.Input['DomainDefaultUserSettingsArgs']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_settings: Optional[pulumi.Input['DomainDomainSettingsArgs']] = None,
@@ -218,6 +235,7 @@ class _DomainState:
         :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
+        :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings. See Default Space Settings below.
         :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.
         :param pulumi.Input[str] domain_name: The domain name.
         :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See Domain Settings below.
@@ -240,6 +258,8 @@ class _DomainState:
             pulumi.set(__self__, "arn", arn)
         if auth_mode is not None:
             pulumi.set(__self__, "auth_mode", auth_mode)
+        if default_space_settings is not None:
+            pulumi.set(__self__, "default_space_settings", default_space_settings)
         if default_user_settings is not None:
             pulumi.set(__self__, "default_user_settings", default_user_settings)
         if domain_name is not None:
@@ -314,6 +334,18 @@ class _DomainState:
     @auth_mode.setter
     def auth_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auth_mode", value)
+
+    @property
+    @pulumi.getter(name="defaultSpaceSettings")
+    def default_space_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']]:
+        """
+        The default space settings. See Default Space Settings below.
+        """
+        return pulumi.get(self, "default_space_settings")
+
+    @default_space_settings.setter
+    def default_space_settings(self, value: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']]):
+        pulumi.set(self, "default_space_settings", value)
 
     @property
     @pulumi.getter(name="defaultUserSettings")
@@ -480,6 +512,7 @@ class Domain(pulumi.CustomResource):
                  app_network_access_type: Optional[pulumi.Input[str]] = None,
                  app_security_group_management: Optional[pulumi.Input[str]] = None,
                  auth_mode: Optional[pulumi.Input[str]] = None,
+                 default_space_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']]] = None,
                  default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']]] = None,
@@ -555,7 +588,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Code Domains can be imported using the `id`, e.g.,
+        SageMaker Domains can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -566,6 +599,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
         :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
+        :param pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']] default_space_settings: The default space settings. See Default Space Settings below.
         :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See Default User Settings below.
         :param pulumi.Input[str] domain_name: The domain name.
         :param pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']] domain_settings: The domain settings. See Domain Settings below.
@@ -647,7 +681,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Code Domains can be imported using the `id`, e.g.,
+        SageMaker Domains can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -671,6 +705,7 @@ class Domain(pulumi.CustomResource):
                  app_network_access_type: Optional[pulumi.Input[str]] = None,
                  app_security_group_management: Optional[pulumi.Input[str]] = None,
                  auth_mode: Optional[pulumi.Input[str]] = None,
+                 default_space_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']]] = None,
                  default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']]] = None,
@@ -693,6 +728,7 @@ class Domain(pulumi.CustomResource):
             if auth_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_mode'")
             __props__.__dict__["auth_mode"] = auth_mode
+            __props__.__dict__["default_space_settings"] = default_space_settings
             if default_user_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'default_user_settings'")
             __props__.__dict__["default_user_settings"] = default_user_settings
@@ -729,6 +765,7 @@ class Domain(pulumi.CustomResource):
             app_security_group_management: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             auth_mode: Optional[pulumi.Input[str]] = None,
+            default_space_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']]] = None,
             default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']]] = None,
@@ -753,6 +790,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
+        :param pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']] default_space_settings: The default space settings. See Default Space Settings below.
         :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See Default User Settings below.
         :param pulumi.Input[str] domain_name: The domain name.
         :param pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']] domain_settings: The domain settings. See Domain Settings below.
@@ -775,6 +813,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["app_security_group_management"] = app_security_group_management
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auth_mode"] = auth_mode
+        __props__.__dict__["default_space_settings"] = default_space_settings
         __props__.__dict__["default_user_settings"] = default_user_settings
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["domain_settings"] = domain_settings
@@ -821,6 +860,14 @@ class Domain(pulumi.CustomResource):
         The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         """
         return pulumi.get(self, "auth_mode")
+
+    @property
+    @pulumi.getter(name="defaultSpaceSettings")
+    def default_space_settings(self) -> pulumi.Output[Optional['outputs.DomainDefaultSpaceSettings']]:
+        """
+        The default space settings. See Default Space Settings below.
+        """
+        return pulumi.get(self, "default_space_settings")
 
     @property
     @pulumi.getter(name="defaultUserSettings")

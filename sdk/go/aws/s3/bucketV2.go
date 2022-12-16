@@ -600,8 +600,9 @@ type BucketV2 struct {
 	// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_cors_configuration resource instead
-	CorsRules    BucketV2CorsRuleArrayOutput `pulumi:"corsRules"`
-	ForceDestroy pulumi.BoolPtrOutput        `pulumi:"forceDestroy"`
+	CorsRules BucketV2CorsRuleArrayOutput `pulumi:"corsRules"`
+	// A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`.
+	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_acl resource instead
@@ -733,8 +734,9 @@ type bucketV2State struct {
 	// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_cors_configuration resource instead
-	CorsRules    []BucketV2CorsRule `pulumi:"corsRules"`
-	ForceDestroy *bool              `pulumi:"forceDestroy"`
+	CorsRules []BucketV2CorsRule `pulumi:"corsRules"`
+	// A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_acl resource instead
@@ -832,7 +834,8 @@ type BucketV2State struct {
 	// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_cors_configuration resource instead
-	CorsRules    BucketV2CorsRuleArrayInput
+	CorsRules BucketV2CorsRuleArrayInput
+	// A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`.
 	ForceDestroy pulumi.BoolPtrInput
 	// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
 	//
@@ -929,8 +932,9 @@ type bucketV2Args struct {
 	// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_cors_configuration resource instead
-	CorsRules    []BucketV2CorsRule `pulumi:"corsRules"`
-	ForceDestroy *bool              `pulumi:"forceDestroy"`
+	CorsRules []BucketV2CorsRule `pulumi:"corsRules"`
+	// A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_acl resource instead
@@ -1009,7 +1013,8 @@ type BucketV2Args struct {
 	// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_cors_configuration resource instead
-	CorsRules    BucketV2CorsRuleArrayInput
+	CorsRules BucketV2CorsRuleArrayInput
+	// A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`.
 	ForceDestroy pulumi.BoolPtrInput
 	// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
 	//
@@ -1205,6 +1210,7 @@ func (o BucketV2Output) CorsRules() BucketV2CorsRuleArrayOutput {
 	return o.ApplyT(func(v *BucketV2) BucketV2CorsRuleArrayOutput { return v.CorsRules }).(BucketV2CorsRuleArrayOutput)
 }
 
+// A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`.
 func (o BucketV2Output) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BucketV2) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }

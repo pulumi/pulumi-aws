@@ -78,6 +78,10 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.networkfirewall.FirewallEncryptionConfiguration | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.
      */
     public readonly firewallPolicyArn!: pulumi.Output<string>;
@@ -134,6 +138,7 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["firewallPolicyArn"] = state ? state.firewallPolicyArn : undefined;
             resourceInputs["firewallPolicyChangeProtection"] = state ? state.firewallPolicyChangeProtection : undefined;
             resourceInputs["firewallStatuses"] = state ? state.firewallStatuses : undefined;
@@ -157,6 +162,7 @@ export class Firewall extends pulumi.CustomResource {
             }
             resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["firewallPolicyArn"] = args ? args.firewallPolicyArn : undefined;
             resourceInputs["firewallPolicyChangeProtection"] = args ? args.firewallPolicyChangeProtection : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -190,6 +196,10 @@ export interface FirewallState {
      * A friendly description of the firewall.
      */
     description?: pulumi.Input<string>;
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallEncryptionConfiguration>;
     /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.
      */
@@ -244,6 +254,10 @@ export interface FirewallArgs {
      * A friendly description of the firewall.
      */
     description?: pulumi.Input<string>;
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallEncryptionConfiguration>;
     /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.
      */

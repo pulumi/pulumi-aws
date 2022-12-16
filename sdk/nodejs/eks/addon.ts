@@ -41,6 +41,34 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## Example add-on usage with custom configurationValues
+ *
+ * Custom add-on configuration can be passed using `configurationValues` as a single JSON string while creating or updating the add-on.
+ *
+ * > **Note:** `configurationValues` is a single JSON string should match the valid JSON schema for each add-on with specific version.
+ *
+ * To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
+ * This below is an example for extracting the `configurationValues` schema for `coredns`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ *
+ * Example to create a `coredns` managed addon with custom `configurationValues`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.eks.Addon("example", {
+ *     addonName: "coredns",
+ *     addonVersion: "v1.8.7-eksbuild.3",
+ *     clusterName: "mycluster",
+ *     configurationValues: "{\"replicaCount\":4,\"resources\":{\"limits\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"}}}",
+ *     resolveConflicts: "OVERWRITE",
+ * });
+ * ```
+ *
  * ## Import
  *
  * EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,
@@ -96,6 +124,10 @@ export class Addon extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
+     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     */
+    public readonly configurationValues!: pulumi.Output<string>;
+    /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
@@ -148,6 +180,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["addonVersion"] = state ? state.addonVersion : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["configurationValues"] = state ? state.configurationValues : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
             resourceInputs["preserve"] = state ? state.preserve : undefined;
@@ -166,6 +199,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["addonName"] = args ? args.addonName : undefined;
             resourceInputs["addonVersion"] = args ? args.addonVersion : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["configurationValues"] = args ? args.configurationValues : undefined;
             resourceInputs["preserve"] = args ? args.preserve : undefined;
             resourceInputs["resolveConflicts"] = args ? args.resolveConflicts : undefined;
             resourceInputs["serviceAccountRoleArn"] = args ? args.serviceAccountRoleArn : undefined;
@@ -202,6 +236,10 @@ export interface AddonState {
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     clusterName?: pulumi.Input<string>;
+    /**
+     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     */
+    configurationValues?: pulumi.Input<string>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      */
@@ -257,6 +295,10 @@ export interface AddonArgs {
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     clusterName: pulumi.Input<string>;
+    /**
+     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     */
+    configurationValues?: pulumi.Input<string>;
     /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      */

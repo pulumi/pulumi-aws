@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.networkfirewall.FirewallArgs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallState;
+import com.pulumi.aws.networkfirewall.outputs.FirewallEncryptionConfiguration;
 import com.pulumi.aws.networkfirewall.outputs.FirewallFirewallStatus;
 import com.pulumi.aws.networkfirewall.outputs.FirewallSubnetMapping;
 import com.pulumi.core.Output;
@@ -113,6 +114,20 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     * 
+     */
+    @Export(name="encryptionConfiguration", refs={FirewallEncryptionConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ FirewallEncryptionConfiguration> encryptionConfiguration;
+
+    /**
+     * @return KMS encryption configuration settings. See Encryption Configuration below for details.
+     * 
+     */
+    public Output<Optional<FirewallEncryptionConfiguration>> encryptionConfiguration() {
+        return Codegen.optional(this.encryptionConfiguration);
     }
     /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.

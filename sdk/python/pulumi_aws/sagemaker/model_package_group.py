@@ -178,7 +178,7 @@ class ModelPackageGroup(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Code Model Package Groups can be imported using the `name`, e.g.,
+        SageMaker Model Package Groups can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
@@ -211,7 +211,7 @@ class ModelPackageGroup(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Code Model Package Groups can be imported using the `name`, e.g.,
+        SageMaker Model Package Groups can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo

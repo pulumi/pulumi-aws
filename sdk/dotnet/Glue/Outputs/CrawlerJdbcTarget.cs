@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string ConnectionName;
         /// <summary>
+        /// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+        /// </summary>
+        public readonly ImmutableArray<string> EnableAdditionalMetadatas;
+        /// <summary>
         /// A list of glob patterns used to exclude from the crawl.
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.Glue.Outputs
         private CrawlerJdbcTarget(
             string connectionName,
 
+            ImmutableArray<string> enableAdditionalMetadatas,
+
             ImmutableArray<string> exclusions,
 
             string path)
         {
             ConnectionName = connectionName;
+            EnableAdditionalMetadatas = enableAdditionalMetadatas;
             Exclusions = exclusions;
             Path = path;
         }

@@ -278,7 +278,7 @@ type Project struct {
 	EncryptionKey pulumi.StringOutput `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
 	Environment ProjectEnvironmentOutput `pulumi:"environment"`
-	// A set of file system locations to to mount inside the build. File system locations are documented below.
+	// A set of file system locations to mount inside the build. File system locations are documented below.
 	FileSystemLocations ProjectFileSystemLocationArrayOutput `pulumi:"fileSystemLocations"`
 	// Configuration block. Detailed below.
 	LogsConfig ProjectLogsConfigPtrOutput `pulumi:"logsConfig"`
@@ -375,7 +375,7 @@ type projectState struct {
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
 	Environment *ProjectEnvironment `pulumi:"environment"`
-	// A set of file system locations to to mount inside the build. File system locations are documented below.
+	// A set of file system locations to mount inside the build. File system locations are documented below.
 	FileSystemLocations []ProjectFileSystemLocation `pulumi:"fileSystemLocations"`
 	// Configuration block. Detailed below.
 	LogsConfig *ProjectLogsConfig `pulumi:"logsConfig"`
@@ -432,7 +432,7 @@ type ProjectState struct {
 	EncryptionKey pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	Environment ProjectEnvironmentPtrInput
-	// A set of file system locations to to mount inside the build. File system locations are documented below.
+	// A set of file system locations to mount inside the build. File system locations are documented below.
 	FileSystemLocations ProjectFileSystemLocationArrayInput
 	// Configuration block. Detailed below.
 	LogsConfig ProjectLogsConfigPtrInput
@@ -489,7 +489,7 @@ type projectArgs struct {
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
 	Environment ProjectEnvironment `pulumi:"environment"`
-	// A set of file system locations to to mount inside the build. File system locations are documented below.
+	// A set of file system locations to mount inside the build. File system locations are documented below.
 	FileSystemLocations []ProjectFileSystemLocation `pulumi:"fileSystemLocations"`
 	// Configuration block. Detailed below.
 	LogsConfig *ProjectLogsConfig `pulumi:"logsConfig"`
@@ -539,7 +539,7 @@ type ProjectArgs struct {
 	EncryptionKey pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	Environment ProjectEnvironmentInput
-	// A set of file system locations to to mount inside the build. File system locations are documented below.
+	// A set of file system locations to mount inside the build. File system locations are documented below.
 	FileSystemLocations ProjectFileSystemLocationArrayInput
 	// Configuration block. Detailed below.
 	LogsConfig ProjectLogsConfigPtrInput
@@ -711,7 +711,7 @@ func (o ProjectOutput) Environment() ProjectEnvironmentOutput {
 	return o.ApplyT(func(v *Project) ProjectEnvironmentOutput { return v.Environment }).(ProjectEnvironmentOutput)
 }
 
-// A set of file system locations to to mount inside the build. File system locations are documented below.
+// A set of file system locations to mount inside the build. File system locations are documented below.
 func (o ProjectOutput) FileSystemLocations() ProjectFileSystemLocationArrayOutput {
 	return o.ApplyT(func(v *Project) ProjectFileSystemLocationArrayOutput { return v.FileSystemLocations }).(ProjectFileSystemLocationArrayOutput)
 }

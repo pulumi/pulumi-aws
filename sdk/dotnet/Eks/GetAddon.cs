@@ -150,6 +150,10 @@ namespace Pulumi.Aws.Eks
         public readonly string Arn;
         public readonly string ClusterName;
         /// <summary>
+        /// Configuration values for the addon with a single JSON string.
+        /// </summary>
+        public readonly string ConfigurationValues;
+        /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         /// </summary>
         public readonly string CreatedAt;
@@ -178,6 +182,8 @@ namespace Pulumi.Aws.Eks
 
             string clusterName,
 
+            string configurationValues,
+
             string createdAt,
 
             string id,
@@ -192,6 +198,7 @@ namespace Pulumi.Aws.Eks
             AddonVersion = addonVersion;
             Arn = arn;
             ClusterName = clusterName;
+            ConfigurationValues = configurationValues;
             CreatedAt = createdAt;
             Id = id;
             ModifiedAt = modifiedAt;

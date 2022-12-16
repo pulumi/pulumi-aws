@@ -320,7 +320,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<Outputs.ProjectEnvironment> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// A set of file system locations to to mount inside the build. File system locations are documented below.
+        /// A set of file system locations to mount inside the build. File system locations are documented below.
         /// </summary>
         [Output("fileSystemLocations")]
         public Output<ImmutableArray<Outputs.ProjectFileSystemLocation>> FileSystemLocations { get; private set; } = null!;
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.ProjectFileSystemLocationArgs>? _fileSystemLocations;
 
         /// <summary>
-        /// A set of file system locations to to mount inside the build. File system locations are documented below.
+        /// A set of file system locations to mount inside the build. File system locations are documented below.
         /// </summary>
         public InputList<Inputs.ProjectFileSystemLocationArgs> FileSystemLocations
         {
@@ -707,7 +707,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.ProjectFileSystemLocationGetArgs>? _fileSystemLocations;
 
         /// <summary>
-        /// A set of file system locations to to mount inside the build. File system locations are documented below.
+        /// A set of file system locations to mount inside the build. File system locations are documented below.
         /// </summary>
         public InputList<Inputs.ProjectFileSystemLocationGetArgs> FileSystemLocations
         {

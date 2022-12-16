@@ -68,7 +68,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Import
     /// 
-    /// `aws_guardduty_invite_accepter` can be imported using the the member GuardDuty detector ID, e.g.,
+    /// `aws_guardduty_invite_accepter` can be imported using the member GuardDuty detector ID, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617

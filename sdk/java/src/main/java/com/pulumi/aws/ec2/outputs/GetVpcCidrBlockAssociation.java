@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetVpcCidrBlockAssociation {
     /**
-     * @return Association ID for the the IPv4 CIDR block.
+     * @return Association ID for the IPv4 CIDR block.
      * 
      */
     private String associationId;
@@ -28,7 +28,7 @@ public final class GetVpcCidrBlockAssociation {
 
     private GetVpcCidrBlockAssociation() {}
     /**
-     * @return Association ID for the the IPv4 CIDR block.
+     * @return Association ID for the IPv4 CIDR block.
      * 
      */
     public String associationId() {

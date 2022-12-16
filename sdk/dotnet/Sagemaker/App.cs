@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// SageMaker Code Apps can be imported using the `id`, e.g.,
+    /// SageMaker Apps can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> AppName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
         /// </summary>
         [Output("appType")]
         public Output<string> AppType { get; private set; } = null!;
@@ -75,6 +75,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.AppResourceSpec> ResourceSpec { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the space. At least on of `user_profile_name` or `space_name` required.
+        /// </summary>
+        [Output("spaceName")]
+        public Output<string?> SpaceName { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -87,10 +93,10 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The user profile name.
+        /// The user profile name. At least on of `user_profile_name` or `space_name` required.
         /// </summary>
         [Output("userProfileName")]
-        public Output<string> UserProfileName { get; private set; } = null!;
+        public Output<string?> UserProfileName { get; private set; } = null!;
 
 
         /// <summary>
@@ -145,7 +151,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> AppName { get; set; } = null!;
 
         /// <summary>
-        /// The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
         /// </summary>
         [Input("appType", required: true)]
         public Input<string> AppType { get; set; } = null!;
@@ -162,6 +168,12 @@ namespace Pulumi.Aws.Sagemaker
         [Input("resourceSpec")]
         public Input<Inputs.AppResourceSpecArgs>? ResourceSpec { get; set; }
 
+        /// <summary>
+        /// The name of the space. At least on of `user_profile_name` or `space_name` required.
+        /// </summary>
+        [Input("spaceName")]
+        public Input<string>? SpaceName { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -175,10 +187,10 @@ namespace Pulumi.Aws.Sagemaker
         }
 
         /// <summary>
-        /// The user profile name.
+        /// The user profile name. At least on of `user_profile_name` or `space_name` required.
         /// </summary>
-        [Input("userProfileName", required: true)]
-        public Input<string> UserProfileName { get; set; } = null!;
+        [Input("userProfileName")]
+        public Input<string>? UserProfileName { get; set; }
 
         public AppArgs()
         {
@@ -195,7 +207,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AppName { get; set; }
 
         /// <summary>
-        /// The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
+        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
         /// </summary>
         [Input("appType")]
         public Input<string>? AppType { get; set; }
@@ -217,6 +229,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("resourceSpec")]
         public Input<Inputs.AppResourceSpecGetArgs>? ResourceSpec { get; set; }
+
+        /// <summary>
+        /// The name of the space. At least on of `user_profile_name` or `space_name` required.
+        /// </summary>
+        [Input("spaceName")]
+        public Input<string>? SpaceName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -243,7 +261,7 @@ namespace Pulumi.Aws.Sagemaker
         }
 
         /// <summary>
-        /// The user profile name.
+        /// The user profile name. At least on of `user_profile_name` or `space_name` required.
         /// </summary>
         [Input("userProfileName")]
         public Input<string>? UserProfileName { get; set; }

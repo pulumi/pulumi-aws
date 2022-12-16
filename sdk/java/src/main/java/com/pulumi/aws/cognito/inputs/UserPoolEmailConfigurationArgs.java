@@ -76,14 +76,14 @@ public final class UserPoolEmailConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+     * ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
      * 
      */
     @Import(name="sourceArn")
     private @Nullable Output<String> sourceArn;
 
     /**
-     * @return ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+     * @return ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
      * 
      */
     public Optional<Output<String>> sourceArn() {
@@ -203,7 +203,7 @@ public final class UserPoolEmailConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sourceArn ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+         * @param sourceArn ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class UserPoolEmailConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sourceArn ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+         * @param sourceArn ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
          * 
          * @return builder
          * 

@@ -18,6 +18,18 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("connectionName", required: true)]
         public Input<string> ConnectionName { get; set; } = null!;
 
+        [Input("enableAdditionalMetadatas")]
+        private InputList<string>? _enableAdditionalMetadatas;
+
+        /// <summary>
+        /// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+        /// </summary>
+        public InputList<string> EnableAdditionalMetadatas
+        {
+            get => _enableAdditionalMetadatas ?? (_enableAdditionalMetadatas = new InputList<string>());
+            set => _enableAdditionalMetadatas = value;
+        }
+
         [Input("exclusions")]
         private InputList<string>? _exclusions;
 

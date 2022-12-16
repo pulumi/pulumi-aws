@@ -145,6 +145,8 @@ class InstanceArgs:
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+               Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+               See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
@@ -209,7 +211,7 @@ class InstanceArgs:
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
                default is `false` if not specified.
-        :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
                or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
@@ -715,6 +717,8 @@ class InstanceArgs:
         """
         The amount of provisioned IOPS. Setting this implies a
         storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+        Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+        See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         """
         return pulumi.get(self, "iops")
 
@@ -1076,7 +1080,7 @@ class InstanceArgs:
     @pulumi.getter(name="storageThroughput")
     def storage_throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         """
         return pulumi.get(self, "storage_throughput")
 
@@ -1301,6 +1305,8 @@ class _InstanceState:
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+               Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+               See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[str] latest_restorable_time: The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
@@ -1368,7 +1374,7 @@ class _InstanceState:
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
                default is `false` if not specified.
-        :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
                or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
@@ -1957,6 +1963,8 @@ class _InstanceState:
         """
         The amount of provisioned IOPS. Setting this implies a
         storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+        Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+        See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         """
         return pulumi.get(self, "iops")
 
@@ -2363,7 +2371,7 @@ class _InstanceState:
     @pulumi.getter(name="storageThroughput")
     def storage_throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         """
         return pulumi.get(self, "storage_throughput")
 
@@ -2663,6 +2671,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+               Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+               See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
@@ -2727,7 +2737,7 @@ class Instance(pulumi.CustomResource):
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
                default is `false` if not specified.
-        :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
                or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
@@ -3145,6 +3155,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+               Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+               See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[str] latest_restorable_time: The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
@@ -3212,7 +3224,7 @@ class Instance(pulumi.CustomResource):
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
                default is `false` if not specified.
-        :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
                or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
@@ -3333,7 +3345,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> pulumi.Output[bool]:
+    def apply_immediately(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether any database modifications
         are applied immediately, or during the next maintenance window. Default is
@@ -3605,6 +3617,8 @@ class Instance(pulumi.CustomResource):
         """
         The amount of provisioned IOPS. Setting this implies a
         storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+        Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+        See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         """
         return pulumi.get(self, "iops")
 
@@ -3887,7 +3901,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="storageThroughput")
     def storage_throughput(self) -> pulumi.Output[int]:
         """
-        The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`.
+        The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         """
         return pulumi.get(self, "storage_throughput")
 

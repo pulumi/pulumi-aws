@@ -173,14 +173,14 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+     * The port the load balancer uses when performing health checks on targets. Default is traffic-port.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+     * @return The port the load balancer uses when performing health checks on targets. Default is traffic-port.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -203,14 +203,14 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+     * Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+     * @return Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -608,7 +608,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+         * @param port The port the load balancer uses when performing health checks on targets. Default is traffic-port.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+         * @param port The port the load balancer uses when performing health checks on targets. Default is traffic-port.
          * 
          * @return builder
          * 
@@ -650,7 +650,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+         * @param protocol Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
          * 
          * @return builder
          * 
@@ -661,7 +661,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+         * @param protocol Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
          * 
          * @return builder
          * 

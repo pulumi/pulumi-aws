@@ -79,6 +79,31 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// });
     /// ```
+    /// ### With Code
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AppSync.Function("example", new()
+    ///     {
+    ///         ApiId = aws_appsync_graphql_api.Example.Id,
+    ///         DataSource = aws_appsync_datasource.Example.Name,
+    ///         Name = "example",
+    ///         Code = File.ReadAllText("some-code-dir"),
+    ///         Runtime = new Aws.AppSync.Inputs.FunctionRuntimeArgs
+    ///         {
+    ///             Name = "APPSYNC_JS",
+    ///             RuntimeVersion = "1.0.0",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -104,6 +129,12 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        /// </summary>
+        [Output("code")]
+        public Output<string?> Code { get; private set; } = null!;
+
+        /// <summary>
         /// Function data source name.
         /// </summary>
         [Output("dataSource")]
@@ -122,10 +153,10 @@ namespace Pulumi.Aws.AppSync
         public Output<string> FunctionId { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the request mapping template. Currently the supported value is `2018-05-29`.
+        /// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         /// </summary>
         [Output("functionVersion")]
-        public Output<string?> FunctionVersion { get; private set; } = null!;
+        public Output<string> FunctionVersion { get; private set; } = null!;
 
         /// <summary>
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
@@ -134,7 +165,7 @@ namespace Pulumi.Aws.AppSync
         public Output<int?> MaxBatchSize { get; private set; } = null!;
 
         /// <summary>
-        /// Function name. The function name does not have to be unique.
+        /// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -143,13 +174,19 @@ namespace Pulumi.Aws.AppSync
         /// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         /// </summary>
         [Output("requestMappingTemplate")]
-        public Output<string> RequestMappingTemplate { get; private set; } = null!;
+        public Output<string?> RequestMappingTemplate { get; private set; } = null!;
 
         /// <summary>
         /// Function response mapping template.
         /// </summary>
         [Output("responseMappingTemplate")]
-        public Output<string> ResponseMappingTemplate { get; private set; } = null!;
+        public Output<string?> ResponseMappingTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        /// </summary>
+        [Output("runtime")]
+        public Output<Outputs.FunctionRuntime?> Runtime { get; private set; } = null!;
 
         /// <summary>
         /// Describes a Sync configuration for a resolver. See Sync Config.
@@ -210,6 +247,12 @@ namespace Pulumi.Aws.AppSync
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
+        /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        /// </summary>
+        [Input("code")]
+        public Input<string>? Code { get; set; }
+
+        /// <summary>
         /// Function data source name.
         /// </summary>
         [Input("dataSource", required: true)]
@@ -222,7 +265,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Version of the request mapping template. Currently the supported value is `2018-05-29`.
+        /// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         /// </summary>
         [Input("functionVersion")]
         public Input<string>? FunctionVersion { get; set; }
@@ -234,7 +277,7 @@ namespace Pulumi.Aws.AppSync
         public Input<int>? MaxBatchSize { get; set; }
 
         /// <summary>
-        /// Function name. The function name does not have to be unique.
+        /// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -242,14 +285,20 @@ namespace Pulumi.Aws.AppSync
         /// <summary>
         /// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         /// </summary>
-        [Input("requestMappingTemplate", required: true)]
-        public Input<string> RequestMappingTemplate { get; set; } = null!;
+        [Input("requestMappingTemplate")]
+        public Input<string>? RequestMappingTemplate { get; set; }
 
         /// <summary>
         /// Function response mapping template.
         /// </summary>
-        [Input("responseMappingTemplate", required: true)]
-        public Input<string> ResponseMappingTemplate { get; set; } = null!;
+        [Input("responseMappingTemplate")]
+        public Input<string>? ResponseMappingTemplate { get; set; }
+
+        /// <summary>
+        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        /// </summary>
+        [Input("runtime")]
+        public Input<Inputs.FunctionRuntimeArgs>? Runtime { get; set; }
 
         /// <summary>
         /// Describes a Sync configuration for a resolver. See Sync Config.
@@ -278,6 +327,12 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        /// </summary>
+        [Input("code")]
+        public Input<string>? Code { get; set; }
+
+        /// <summary>
         /// Function data source name.
         /// </summary>
         [Input("dataSource")]
@@ -296,7 +351,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? FunctionId { get; set; }
 
         /// <summary>
-        /// Version of the request mapping template. Currently the supported value is `2018-05-29`.
+        /// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         /// </summary>
         [Input("functionVersion")]
         public Input<string>? FunctionVersion { get; set; }
@@ -308,7 +363,7 @@ namespace Pulumi.Aws.AppSync
         public Input<int>? MaxBatchSize { get; set; }
 
         /// <summary>
-        /// Function name. The function name does not have to be unique.
+        /// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -324,6 +379,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("responseMappingTemplate")]
         public Input<string>? ResponseMappingTemplate { get; set; }
+
+        /// <summary>
+        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        /// </summary>
+        [Input("runtime")]
+        public Input<Inputs.FunctionRuntimeGetArgs>? Runtime { get; set; }
 
         /// <summary>
         /// Describes a Sync configuration for a resolver. See Sync Config.

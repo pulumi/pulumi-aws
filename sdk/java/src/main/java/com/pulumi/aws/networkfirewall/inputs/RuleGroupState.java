@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall.inputs;
 
+import com.pulumi.aws.networkfirewall.inputs.RuleGroupEncryptionConfigurationArgs;
 import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -61,6 +62,21 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     * 
+     */
+    @Import(name="encryptionConfiguration")
+    private @Nullable Output<RuleGroupEncryptionConfigurationArgs> encryptionConfiguration;
+
+    /**
+     * @return KMS encryption configuration settings. See Encryption Configuration below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupEncryptionConfigurationArgs>> encryptionConfiguration() {
+        return Optional.ofNullable(this.encryptionConfiguration);
     }
 
     /**
@@ -139,14 +155,14 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+     * The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+     * @return The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -174,6 +190,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.capacity = $.capacity;
         this.description = $.description;
+        this.encryptionConfiguration = $.encryptionConfiguration;
         this.name = $.name;
         this.ruleGroup = $.ruleGroup;
         this.rules = $.rules;
@@ -262,6 +279,27 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param encryptionConfiguration KMS encryption configuration settings. See Encryption Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(@Nullable Output<RuleGroupEncryptionConfigurationArgs> encryptionConfiguration) {
+            $.encryptionConfiguration = encryptionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param encryptionConfiguration KMS encryption configuration settings. See Encryption Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(RuleGroupEncryptionConfigurationArgs encryptionConfiguration) {
+            return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
         /**
@@ -370,7 +408,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+         * @param type The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
          * 
          * @return builder
          * 
@@ -381,7 +419,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+         * @param type The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
          * 
          * @return builder
          * 

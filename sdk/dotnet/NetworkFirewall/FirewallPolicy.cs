@@ -76,6 +76,12 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// KMS encryption configuration settings. See Encryption Configuration below for details.
+        /// </summary>
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.FirewallPolicyEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         /// </summary>
         [Output("firewallPolicy")]
@@ -158,6 +164,12 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// KMS encryption configuration settings. See Encryption Configuration below for details.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.FirewallPolicyEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         /// </summary>
         [Input("firewallPolicy", required: true)]
@@ -200,6 +212,12 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// KMS encryption configuration settings. See Encryption Configuration below for details.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.FirewallPolicyEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
         /// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.

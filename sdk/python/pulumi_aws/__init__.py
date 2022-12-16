@@ -3962,6 +3962,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/vpcNetworkPerformanceMetricSubscription",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription": "VpcNetworkPerformanceMetricSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/vpcPeeringConnection",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -6802,6 +6810,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networkmanager/coreNetwork",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/coreNetwork:CoreNetwork": "CoreNetwork"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "networkmanager/customerGatewayAssociation",
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
@@ -7954,6 +7970,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "rum/metricsDestination",
+  "fqn": "pulumi_aws.rum",
+  "classes": {
+   "aws:rum/metricsDestination:MetricsDestination": "MetricsDestination"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/accessPoint",
   "fqn": "pulumi_aws.s3",
   "classes": {
@@ -8398,6 +8422,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus": "ServicecatalogPortfolioStatus"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/space",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/space:Space": "Space"
   }
  },
  {
@@ -9206,6 +9238,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {
    "aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy": "PermissionSetInlinePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/permissionsBoundaryAttachment",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment": "PermissionsBoundaryAttachment"
   }
  },
  {

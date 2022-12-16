@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.grafana;
 
+import com.pulumi.aws.grafana.inputs.WorkspaceVpcConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -197,6 +198,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+     * 
+     */
+    @Import(name="vpcConfiguration")
+    private @Nullable Output<WorkspaceVpcConfigurationArgs> vpcConfiguration;
+
+    /**
+     * @return The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+     * 
+     */
+    public Optional<Output<WorkspaceVpcConfigurationArgs>> vpcConfiguration() {
+        return Optional.ofNullable(this.vpcConfiguration);
+    }
+
     private WorkspaceArgs() {}
 
     private WorkspaceArgs(WorkspaceArgs $) {
@@ -212,6 +228,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         this.roleArn = $.roleArn;
         this.stackSetName = $.stackSetName;
         this.tags = $.tags;
+        this.vpcConfiguration = $.vpcConfiguration;
     }
 
     public static Builder builder() {
@@ -522,6 +539,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param vpcConfiguration The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcConfiguration(@Nullable Output<WorkspaceVpcConfigurationArgs> vpcConfiguration) {
+            $.vpcConfiguration = vpcConfiguration;
+            return this;
+        }
+
+        /**
+         * @param vpcConfiguration The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcConfiguration(WorkspaceVpcConfigurationArgs vpcConfiguration) {
+            return vpcConfiguration(Output.of(vpcConfiguration));
         }
 
         public WorkspaceArgs build() {

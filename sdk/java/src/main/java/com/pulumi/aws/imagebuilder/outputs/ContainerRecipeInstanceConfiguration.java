@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ContainerRecipeInstanceConfiguration {
     /**
-     * @return Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+     * @return Configuration block(s) with block device mappings for the container recipe. Detailed below.
      * 
      */
     private @Nullable List<ContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings;
@@ -26,7 +26,7 @@ public final class ContainerRecipeInstanceConfiguration {
 
     private ContainerRecipeInstanceConfiguration() {}
     /**
-     * @return Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+     * @return Configuration block(s) with block device mappings for the container recipe. Detailed below.
      * 
      */
     public List<ContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings() {

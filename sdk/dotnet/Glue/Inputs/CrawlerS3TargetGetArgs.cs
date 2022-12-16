@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
-        /// The ARN of the dead-letter SQS queue.
+        /// A valid Amazon SQS ARN.
         /// </summary>
         [Input("dlqEventQueueArn")]
         public Input<string>? DlqEventQueueArn { get; set; }
 
         /// <summary>
-        /// The ARN of the SQS queue to receive S3 notifications from.
+        /// A valid Amazon SQS ARN.
         /// </summary>
         [Input("eventQueueArn")]
         public Input<string>? EventQueueArn { get; set; }

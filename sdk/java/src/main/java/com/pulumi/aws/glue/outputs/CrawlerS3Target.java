@@ -19,12 +19,12 @@ public final class CrawlerS3Target {
      */
     private @Nullable String connectionName;
     /**
-     * @return The ARN of the dead-letter SQS queue.
+     * @return A valid Amazon SQS ARN.
      * 
      */
     private @Nullable String dlqEventQueueArn;
     /**
-     * @return The ARN of the SQS queue to receive S3 notifications from.
+     * @return A valid Amazon SQS ARN.
      * 
      */
     private @Nullable String eventQueueArn;
@@ -53,14 +53,14 @@ public final class CrawlerS3Target {
         return Optional.ofNullable(this.connectionName);
     }
     /**
-     * @return The ARN of the dead-letter SQS queue.
+     * @return A valid Amazon SQS ARN.
      * 
      */
     public Optional<String> dlqEventQueueArn() {
         return Optional.ofNullable(this.dlqEventQueueArn);
     }
     /**
-     * @return The ARN of the SQS queue to receive S3 notifications from.
+     * @return A valid Amazon SQS ARN.
      * 
      */
     public Optional<String> eventQueueArn() {

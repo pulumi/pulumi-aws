@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SageMaker Code Domains can be imported using the `id`, e.g.,
+ * SageMaker Domains can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -131,6 +131,10 @@ export class Domain extends pulumi.CustomResource {
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
      */
     public readonly authMode!: pulumi.Output<string>;
+    /**
+     * The default space settings. See Default Space Settings below.
+     */
+    public readonly defaultSpaceSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultSpaceSettings | undefined>;
     /**
      * The default user settings. See Default User Settings below.
      */
@@ -201,6 +205,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["appSecurityGroupManagement"] = state ? state.appSecurityGroupManagement : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authMode"] = state ? state.authMode : undefined;
+            resourceInputs["defaultSpaceSettings"] = state ? state.defaultSpaceSettings : undefined;
             resourceInputs["defaultUserSettings"] = state ? state.defaultUserSettings : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["domainSettings"] = state ? state.domainSettings : undefined;
@@ -234,6 +239,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
             resourceInputs["appSecurityGroupManagement"] = args ? args.appSecurityGroupManagement : undefined;
             resourceInputs["authMode"] = args ? args.authMode : undefined;
+            resourceInputs["defaultSpaceSettings"] = args ? args.defaultSpaceSettings : undefined;
             resourceInputs["defaultUserSettings"] = args ? args.defaultUserSettings : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["domainSettings"] = args ? args.domainSettings : undefined;
@@ -274,6 +280,10 @@ export interface DomainState {
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
      */
     authMode?: pulumi.Input<string>;
+    /**
+     * The default space settings. See Default Space Settings below.
+     */
+    defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings>;
     /**
      * The default user settings. See Default User Settings below.
      */
@@ -344,6 +354,10 @@ export interface DomainArgs {
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
      */
     authMode: pulumi.Input<string>;
+    /**
+     * The default space settings. See Default Space Settings below.
+     */
+    defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings>;
     /**
      * The default user settings. See Default User Settings below.
      */

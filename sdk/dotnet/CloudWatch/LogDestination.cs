@@ -48,19 +48,31 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the log destination
+        /// A name for the log destination.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+        /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the target Amazon Kinesis stream resource for the destination
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the target Amazon Kinesis stream resource for the destination.
         /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
@@ -112,19 +124,31 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class LogDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A name for the log destination
+        /// A name for the log destination.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+        /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
-        /// The ARN of the target Amazon Kinesis stream resource for the destination
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// The ARN of the target Amazon Kinesis stream resource for the destination.
         /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;
@@ -144,19 +168,43 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A name for the log destination
+        /// A name for the log destination.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+        /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
-        /// The ARN of the target Amazon Kinesis stream resource for the destination
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
+        /// <summary>
+        /// The ARN of the target Amazon Kinesis stream resource for the destination.
         /// </summary>
         [Input("targetArn")]
         public Input<string>? TargetArn { get; set; }

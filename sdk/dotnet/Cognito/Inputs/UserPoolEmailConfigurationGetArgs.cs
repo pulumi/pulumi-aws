@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? ReplyToEmailAddress { get; set; }
 
         /// <summary>
-        /// ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
+        /// ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
         /// </summary>
         [Input("sourceArn")]
         public Input<string>? SourceArn { get; set; }

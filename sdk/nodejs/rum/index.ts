@@ -10,6 +10,11 @@ export type AppMonitor = import("./appMonitor").AppMonitor;
 export const AppMonitor: typeof import("./appMonitor").AppMonitor = null as any;
 utilities.lazyLoad(exports, ["AppMonitor"], () => require("./appMonitor"));
 
+export { MetricsDestinationArgs, MetricsDestinationState } from "./metricsDestination";
+export type MetricsDestination = import("./metricsDestination").MetricsDestination;
+export const MetricsDestination: typeof import("./metricsDestination").MetricsDestination = null as any;
+utilities.lazyLoad(exports, ["MetricsDestination"], () => require("./metricsDestination"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "aws:rum/appMonitor:AppMonitor":
                 return new AppMonitor(name, <any>undefined, { urn })
+            case "aws:rum/metricsDestination:MetricsDestination":
+                return new MetricsDestination(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "rum/appMonitor", _module)
+pulumi.runtime.registerResourceModule("aws", "rum/metricsDestination", _module)

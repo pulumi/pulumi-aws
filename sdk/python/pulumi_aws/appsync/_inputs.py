@@ -19,6 +19,7 @@ __all__ = [
     'DataSourceLambdaConfigArgs',
     'DataSourceRelationalDatabaseConfigArgs',
     'DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs',
+    'FunctionRuntimeArgs',
     'FunctionSyncConfigArgs',
     'FunctionSyncConfigLambdaConflictHandlerConfigArgs',
     'GraphQLApiAdditionalAuthenticationProviderArgs',
@@ -451,6 +452,43 @@ class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs:
     @schema.setter
     def schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema", value)
+
+
+@pulumi.input_type
+class FunctionRuntimeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 runtime_version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        :param pulumi.Input[str] runtime_version: The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> pulumi.Input[str]:
+        """
+        The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "runtime_version", value)
 
 
 @pulumi.input_type

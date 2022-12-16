@@ -184,14 +184,14 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+     * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
      * 
      */
     @Import(name="compressionType")
     private @Nullable Output<String> compressionType;
 
     /**
-     * @return Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+     * @return Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
      * 
      */
     public Optional<Output<String>> compressionType() {
@@ -304,14 +304,14 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+     * Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
      * 
      */
     @Import(name="datePartitionEnabled")
     private @Nullable Output<Boolean> datePartitionEnabled;
 
     /**
-     * @return Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+     * @return Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
      * 
      */
     public Optional<Output<Boolean>> datePartitionEnabled() {
@@ -641,14 +641,14 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+     * When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
      * 
      */
     @Import(name="serverSideEncryptionKmsKeyId")
     private @Nullable Output<String> serverSideEncryptionKmsKeyId;
 
     /**
-     * @return When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+     * @return When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
      * 
      */
     public Optional<Output<String>> serverSideEncryptionKmsKeyId() {
@@ -1081,7 +1081,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param compressionType Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+         * @param compressionType Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
          * 
          * @return builder
          * 
@@ -1092,7 +1092,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param compressionType Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+         * @param compressionType Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
          * 
          * @return builder
          * 
@@ -1249,7 +1249,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datePartitionEnabled Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+         * @param datePartitionEnabled Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
          * 
          * @return builder
          * 
@@ -1260,7 +1260,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datePartitionEnabled Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+         * @param datePartitionEnabled Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
          * 
          * @return builder
          * 
@@ -1720,7 +1720,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryptionKmsKeyId When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+         * @param serverSideEncryptionKmsKeyId When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
          * 
          * @return builder
          * 
@@ -1731,7 +1731,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryptionKmsKeyId When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+         * @param serverSideEncryptionKmsKeyId When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
          * 
          * @return builder
          * 

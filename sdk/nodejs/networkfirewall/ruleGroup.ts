@@ -152,6 +152,10 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.networkfirewall.RuleGroupEncryptionConfiguration | undefined>;
+    /**
      * A friendly name of the rule group.
      */
     public readonly name!: pulumi.Output<string>;
@@ -172,7 +176,7 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+     * The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -196,6 +200,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ruleGroup"] = state ? state.ruleGroup : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
@@ -213,6 +218,7 @@ export class RuleGroup extends pulumi.CustomResource {
             }
             resourceInputs["capacity"] = args ? args.capacity : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ruleGroup"] = args ? args.ruleGroup : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
@@ -244,6 +250,10 @@ export interface RuleGroupState {
      */
     description?: pulumi.Input<string>;
     /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.RuleGroupEncryptionConfiguration>;
+    /**
      * A friendly name of the rule group.
      */
     name?: pulumi.Input<string>;
@@ -264,7 +274,7 @@ export interface RuleGroupState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+     * The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -286,6 +296,10 @@ export interface RuleGroupArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * KMS encryption configuration settings. See Encryption Configuration below for details.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.RuleGroupEncryptionConfiguration>;
+    /**
      * A friendly name of the rule group.
      */
     name?: pulumi.Input<string>;
@@ -302,7 +316,7 @@ export interface RuleGroupArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+     * The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
      */
     type: pulumi.Input<string>;
 }

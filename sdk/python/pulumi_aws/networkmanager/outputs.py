@@ -12,6 +12,8 @@ from . import outputs
 
 __all__ = [
     'ConnectAttachmentOptions',
+    'CoreNetworkEdge',
+    'CoreNetworkSegment',
     'DeviceAwsLocation',
     'DeviceLocation',
     'LinkBandwidth',
@@ -41,6 +43,130 @@ class ConnectAttachmentOptions(dict):
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class CoreNetworkEdge(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "edgeLocation":
+            suggest = "edge_location"
+        elif key == "insideCidrBlocks":
+            suggest = "inside_cidr_blocks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CoreNetworkEdge. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CoreNetworkEdge.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CoreNetworkEdge.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 asn: Optional[int] = None,
+                 edge_location: Optional[str] = None,
+                 inside_cidr_blocks: Optional[Sequence[str]] = None):
+        """
+        :param int asn: ASN of a core network edge.
+        :param str edge_location: Region where a core network edge is located.
+        :param Sequence[str] inside_cidr_blocks: Inside IP addresses used for core network edges.
+        """
+        if asn is not None:
+            pulumi.set(__self__, "asn", asn)
+        if edge_location is not None:
+            pulumi.set(__self__, "edge_location", edge_location)
+        if inside_cidr_blocks is not None:
+            pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> Optional[int]:
+        """
+        ASN of a core network edge.
+        """
+        return pulumi.get(self, "asn")
+
+    @property
+    @pulumi.getter(name="edgeLocation")
+    def edge_location(self) -> Optional[str]:
+        """
+        Region where a core network edge is located.
+        """
+        return pulumi.get(self, "edge_location")
+
+    @property
+    @pulumi.getter(name="insideCidrBlocks")
+    def inside_cidr_blocks(self) -> Optional[Sequence[str]]:
+        """
+        Inside IP addresses used for core network edges.
+        """
+        return pulumi.get(self, "inside_cidr_blocks")
+
+
+@pulumi.output_type
+class CoreNetworkSegment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "edgeLocations":
+            suggest = "edge_locations"
+        elif key == "sharedSegments":
+            suggest = "shared_segments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CoreNetworkSegment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CoreNetworkSegment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CoreNetworkSegment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 edge_locations: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 shared_segments: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] edge_locations: Regions where the edges are located.
+        :param str name: Name of a core network segment.
+        :param Sequence[str] shared_segments: Shared segments of a core network.
+        """
+        if edge_locations is not None:
+            pulumi.set(__self__, "edge_locations", edge_locations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if shared_segments is not None:
+            pulumi.set(__self__, "shared_segments", shared_segments)
+
+    @property
+    @pulumi.getter(name="edgeLocations")
+    def edge_locations(self) -> Optional[Sequence[str]]:
+        """
+        Regions where the edges are located.
+        """
+        return pulumi.get(self, "edge_locations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of a core network segment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sharedSegments")
+    def shared_segments(self) -> Optional[Sequence[str]]:
+        """
+        Shared segments of a core network.
+        """
+        return pulumi.get(self, "shared_segments")
 
 
 @pulumi.output_type

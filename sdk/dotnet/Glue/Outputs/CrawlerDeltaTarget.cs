@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// <summary>
         /// The name of the connection to use to connect to the Delta table target.
         /// </summary>
-        public readonly string ConnectionName;
+        public readonly string? ConnectionName;
         /// <summary>
         /// A list of the Amazon S3 paths to the Delta tables.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Glue.Outputs
 
         [OutputConstructor]
         private CrawlerDeltaTarget(
-            string connectionName,
+            string? connectionName,
 
             ImmutableArray<string> deltaTables,
 

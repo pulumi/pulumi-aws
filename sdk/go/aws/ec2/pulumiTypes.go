@@ -52239,7 +52239,7 @@ func (o GetTransitGatewayRouteTablesFilterArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetVpcCidrBlockAssociation struct {
-	// Association ID for the the IPv4 CIDR block.
+	// Association ID for the IPv4 CIDR block.
 	AssociationId string `pulumi:"associationId"`
 	// Cidr block of the desired VPC.
 	CidrBlock string `pulumi:"cidrBlock"`
@@ -52260,7 +52260,7 @@ type GetVpcCidrBlockAssociationInput interface {
 }
 
 type GetVpcCidrBlockAssociationArgs struct {
-	// Association ID for the the IPv4 CIDR block.
+	// Association ID for the IPv4 CIDR block.
 	AssociationId pulumi.StringInput `pulumi:"associationId"`
 	// Cidr block of the desired VPC.
 	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
@@ -52320,7 +52320,7 @@ func (o GetVpcCidrBlockAssociationOutput) ToGetVpcCidrBlockAssociationOutputWith
 	return o
 }
 
-// Association ID for the the IPv4 CIDR block.
+// Association ID for the IPv4 CIDR block.
 func (o GetVpcCidrBlockAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcCidrBlockAssociation) string { return v.AssociationId }).(pulumi.StringOutput)
 }

@@ -110,6 +110,11 @@ export type ServicecatalogPortfolioStatus = import("./servicecatalogPortfolioSta
 export const ServicecatalogPortfolioStatus: typeof import("./servicecatalogPortfolioStatus").ServicecatalogPortfolioStatus = null as any;
 utilities.lazyLoad(exports, ["ServicecatalogPortfolioStatus"], () => require("./servicecatalogPortfolioStatus"));
 
+export { SpaceArgs, SpaceState } from "./space";
+export type Space = import("./space").Space;
+export const Space: typeof import("./space").Space = null as any;
+utilities.lazyLoad(exports, ["Space"], () => require("./space"));
+
 export { StudioLifecycleConfigArgs, StudioLifecycleConfigState } from "./studioLifecycleConfig";
 export type StudioLifecycleConfig = import("./studioLifecycleConfig").StudioLifecycleConfig;
 export const StudioLifecycleConfig: typeof import("./studioLifecycleConfig").StudioLifecycleConfig = null as any;
@@ -175,6 +180,8 @@ const _module = {
                 return new Project(name, <any>undefined, { urn })
             case "aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus":
                 return new ServicecatalogPortfolioStatus(name, <any>undefined, { urn })
+            case "aws:sagemaker/space:Space":
+                return new Space(name, <any>undefined, { urn })
             case "aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig":
                 return new StudioLifecycleConfig(name, <any>undefined, { urn })
             case "aws:sagemaker/userProfile:UserProfile":
@@ -208,6 +215,7 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstance", _modu
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstanceLifecycleConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/project", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/servicecatalogPortfolioStatus", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/space", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/studioLifecycleConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/userProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/workforce", _module)

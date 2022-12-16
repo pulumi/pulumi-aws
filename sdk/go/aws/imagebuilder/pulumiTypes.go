@@ -223,7 +223,7 @@ func (o ContainerRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type ContainerRecipeInstanceConfiguration struct {
-	// Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+	// Configuration block(s) with block device mappings for the container recipe. Detailed below.
 	BlockDeviceMappings []ContainerRecipeInstanceConfigurationBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
 	Image *string `pulumi:"image"`
@@ -241,7 +241,7 @@ type ContainerRecipeInstanceConfigurationInput interface {
 }
 
 type ContainerRecipeInstanceConfigurationArgs struct {
-	// Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+	// Configuration block(s) with block device mappings for the container recipe. Detailed below.
 	BlockDeviceMappings ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
 	// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
 	Image pulumi.StringPtrInput `pulumi:"image"`
@@ -324,7 +324,7 @@ func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceCon
 	}).(ContainerRecipeInstanceConfigurationPtrOutput)
 }
 
-// Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+// Configuration block(s) with block device mappings for the container recipe. Detailed below.
 func (o ContainerRecipeInstanceConfigurationOutput) BlockDeviceMappings() ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfiguration) []ContainerRecipeInstanceConfigurationBlockDeviceMapping {
 		return v.BlockDeviceMappings
@@ -360,7 +360,7 @@ func (o ContainerRecipeInstanceConfigurationPtrOutput) Elem() ContainerRecipeIns
 	}).(ContainerRecipeInstanceConfigurationOutput)
 }
 
-// Configuration block(s) with block device mappings for the the container recipe. Detailed below.
+// Configuration block(s) with block device mappings for the container recipe. Detailed below.
 func (o ContainerRecipeInstanceConfigurationPtrOutput) BlockDeviceMappings() ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfiguration) []ContainerRecipeInstanceConfigurationBlockDeviceMapping {
 		if v == nil {

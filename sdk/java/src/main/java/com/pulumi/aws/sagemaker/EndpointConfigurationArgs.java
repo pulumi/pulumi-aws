@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationAsyncInferenceConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationDataCaptureConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantArgs;
+import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationShadowProductionVariantArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -81,18 +82,33 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Fields are documented below.
+     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      * 
      */
     @Import(name="productionVariants", required=true)
     private Output<List<EndpointConfigurationProductionVariantArgs>> productionVariants;
 
     /**
-     * @return Fields are documented below.
+     * @return An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      * 
      */
     public Output<List<EndpointConfigurationProductionVariantArgs>> productionVariants() {
         return this.productionVariants;
+    }
+
+    /**
+     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * 
+     */
+    @Import(name="shadowProductionVariants")
+    private @Nullable Output<List<EndpointConfigurationShadowProductionVariantArgs>> shadowProductionVariants;
+
+    /**
+     * @return Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * 
+     */
+    public Optional<Output<List<EndpointConfigurationShadowProductionVariantArgs>>> shadowProductionVariants() {
+        return Optional.ofNullable(this.shadowProductionVariants);
     }
 
     /**
@@ -118,6 +134,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         this.kmsKeyArn = $.kmsKeyArn;
         this.name = $.name;
         this.productionVariants = $.productionVariants;
+        this.shadowProductionVariants = $.shadowProductionVariants;
         this.tags = $.tags;
     }
 
@@ -224,7 +241,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param productionVariants Fields are documented below.
+         * @param productionVariants An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
          * 
          * @return builder
          * 
@@ -235,7 +252,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param productionVariants Fields are documented below.
+         * @param productionVariants An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
          * 
          * @return builder
          * 
@@ -245,13 +262,44 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param productionVariants Fields are documented below.
+         * @param productionVariants An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
          * 
          * @return builder
          * 
          */
         public Builder productionVariants(EndpointConfigurationProductionVariantArgs... productionVariants) {
             return productionVariants(List.of(productionVariants));
+        }
+
+        /**
+         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shadowProductionVariants(@Nullable Output<List<EndpointConfigurationShadowProductionVariantArgs>> shadowProductionVariants) {
+            $.shadowProductionVariants = shadowProductionVariants;
+            return this;
+        }
+
+        /**
+         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shadowProductionVariants(List<EndpointConfigurationShadowProductionVariantArgs> shadowProductionVariants) {
+            return shadowProductionVariants(Output.of(shadowProductionVariants));
+        }
+
+        /**
+         * @param shadowProductionVariants Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shadowProductionVariants(EndpointConfigurationShadowProductionVariantArgs... shadowProductionVariants) {
+            return shadowProductionVariants(List.of(shadowProductionVariants));
         }
 
         /**

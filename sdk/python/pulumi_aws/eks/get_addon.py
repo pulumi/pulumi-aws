@@ -21,7 +21,7 @@ class GetAddonResult:
     """
     A collection of values returned by getAddon.
     """
-    def __init__(__self__, addon_name=None, addon_version=None, arn=None, cluster_name=None, created_at=None, id=None, modified_at=None, service_account_role_arn=None, tags=None):
+    def __init__(__self__, addon_name=None, addon_version=None, arn=None, cluster_name=None, configuration_values=None, created_at=None, id=None, modified_at=None, service_account_role_arn=None, tags=None):
         if addon_name and not isinstance(addon_name, str):
             raise TypeError("Expected argument 'addon_name' to be a str")
         pulumi.set(__self__, "addon_name", addon_name)
@@ -34,6 +34,9 @@ class GetAddonResult:
         if cluster_name and not isinstance(cluster_name, str):
             raise TypeError("Expected argument 'cluster_name' to be a str")
         pulumi.set(__self__, "cluster_name", cluster_name)
+        if configuration_values and not isinstance(configuration_values, str):
+            raise TypeError("Expected argument 'configuration_values' to be a str")
+        pulumi.set(__self__, "configuration_values", configuration_values)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -75,6 +78,14 @@ class GetAddonResult:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> str:
         return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter(name="configurationValues")
+    def configuration_values(self) -> str:
+        """
+        Configuration values for the addon with a single JSON string.
+        """
+        return pulumi.get(self, "configuration_values")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -125,6 +136,7 @@ class AwaitableGetAddonResult(GetAddonResult):
             addon_version=self.addon_version,
             arn=self.arn,
             cluster_name=self.cluster_name,
+            configuration_values=self.configuration_values,
             created_at=self.created_at,
             id=self.id,
             modified_at=self.modified_at,
@@ -167,6 +179,7 @@ def get_addon(addon_name: Optional[str] = None,
         addon_version=__ret__.addon_version,
         arn=__ret__.arn,
         cluster_name=__ret__.cluster_name,
+        configuration_values=__ret__.configuration_values,
         created_at=__ret__.created_at,
         id=__ret__.id,
         modified_at=__ret__.modified_at,

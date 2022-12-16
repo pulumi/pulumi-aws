@@ -168,6 +168,12 @@ namespace Pulumi.Aws.Grafana
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+        /// </summary>
+        [Output("vpcConfiguration")]
+        public Output<Outputs.WorkspaceVpcConfiguration?> VpcConfiguration { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Workspace resource with the given unique name, arguments, and options.
@@ -316,6 +322,12 @@ namespace Pulumi.Aws.Grafana
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+        /// </summary>
+        [Input("vpcConfiguration")]
+        public Input<Inputs.WorkspaceVpcConfigurationArgs>? VpcConfiguration { get; set; }
+
         public WorkspaceArgs()
         {
         }
@@ -458,6 +470,12 @@ namespace Pulumi.Aws.Grafana
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+        /// </summary>
+        [Input("vpcConfiguration")]
+        public Input<Inputs.WorkspaceVpcConfigurationGetArgs>? VpcConfiguration { get; set; }
 
         public WorkspaceState()
         {

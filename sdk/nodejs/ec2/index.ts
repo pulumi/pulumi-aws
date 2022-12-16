@@ -714,6 +714,11 @@ export type VpcIpv6CidrBlockAssociation = import("./vpcIpv6CidrBlockAssociation"
 export const VpcIpv6CidrBlockAssociation: typeof import("./vpcIpv6CidrBlockAssociation").VpcIpv6CidrBlockAssociation = null as any;
 utilities.lazyLoad(exports, ["VpcIpv6CidrBlockAssociation"], () => require("./vpcIpv6CidrBlockAssociation"));
 
+export { VpcNetworkPerformanceMetricSubscriptionArgs, VpcNetworkPerformanceMetricSubscriptionState } from "./vpcNetworkPerformanceMetricSubscription";
+export type VpcNetworkPerformanceMetricSubscription = import("./vpcNetworkPerformanceMetricSubscription").VpcNetworkPerformanceMetricSubscription;
+export const VpcNetworkPerformanceMetricSubscription: typeof import("./vpcNetworkPerformanceMetricSubscription").VpcNetworkPerformanceMetricSubscription = null as any;
+utilities.lazyLoad(exports, ["VpcNetworkPerformanceMetricSubscription"], () => require("./vpcNetworkPerformanceMetricSubscription"));
+
 export { VpcPeeringConnectionArgs, VpcPeeringConnectionState } from "./vpcPeeringConnection";
 export type VpcPeeringConnection = import("./vpcPeeringConnection").VpcPeeringConnection;
 export const VpcPeeringConnection: typeof import("./vpcPeeringConnection").VpcPeeringConnection = null as any;
@@ -923,6 +928,8 @@ const _module = {
                 return new VpcIpv4CidrBlockAssociation(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation":
                 return new VpcIpv6CidrBlockAssociation(name, <any>undefined, { urn })
+            case "aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription":
+                return new VpcNetworkPerformanceMetricSubscription(name, <any>undefined, { urn })
             case "aws:ec2/vpcPeeringConnection:VpcPeeringConnection":
                 return new VpcPeeringConnection(name, <any>undefined, { urn })
             case "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter":
@@ -1025,6 +1032,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPreviewNextCidr", _modu
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamScope", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpv4CidrBlockAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpv6CidrBlockAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcNetworkPerformanceMetricSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcPeeringConnection", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcPeeringConnectionAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpnConnection", _module)

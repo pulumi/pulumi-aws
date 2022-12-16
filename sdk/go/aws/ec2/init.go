@@ -187,6 +187,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcIpv4CidrBlockAssociation{}
 	case "aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation":
 		r = &VpcIpv6CidrBlockAssociation{}
+	case "aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription":
+		r = &VpcNetworkPerformanceMetricSubscription{}
 	case "aws:ec2/vpcPeeringConnection:VpcPeeringConnection":
 		r = &VpcPeeringConnection{}
 	case "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter":
@@ -627,6 +629,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/vpcIpv6CidrBlockAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcNetworkPerformanceMetricSubscription",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

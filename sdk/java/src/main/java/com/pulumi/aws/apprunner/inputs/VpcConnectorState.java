@@ -18,9 +18,17 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
 
     public static final VpcConnectorState Empty = new VpcConnectorState();
 
+    /**
+     * ARN of VPC connector.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return ARN of VPC connector.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -161,11 +169,23 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
             $ = new VpcConnectorState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of VPC connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of VPC connector.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

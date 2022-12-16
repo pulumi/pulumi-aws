@@ -129,7 +129,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         public readonly string DbPassword;
         /// <summary>
-        /// A database user name that is authorized to log on to the database `db_name` using the password `db_password` . If the specified `db_user` exists in the database, the new user name has the same database privileges as the the user named in `db_user` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
+        /// A database user name that is authorized to log on to the database `db_name` using the password `db_password` . If the specified `db_user` exists in the database, the new user name has the same database privileges as the user named in `db_user` . By default, the user is added to PUBLIC. the user doesn't exist in the database.
         /// </summary>
         public readonly string DbUser;
         public readonly int? DurationSeconds;

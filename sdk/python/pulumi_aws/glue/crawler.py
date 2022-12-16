@@ -25,6 +25,7 @@ class CrawlerArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
+                 lake_formation_configuration: Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']] = None,
                  lineage_configuration: Optional[pulumi.Input['CrawlerLineageConfigurationArgs']] = None,
                  mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,7 @@ class CrawlerArgs:
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
+        :param pulumi.Input['CrawlerLakeFormationConfigurationArgs'] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input['CrawlerLineageConfigurationArgs'] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[str] name: Name of the crawler.
@@ -71,6 +73,8 @@ class CrawlerArgs:
             pulumi.set(__self__, "dynamodb_targets", dynamodb_targets)
         if jdbc_targets is not None:
             pulumi.set(__self__, "jdbc_targets", jdbc_targets)
+        if lake_formation_configuration is not None:
+            pulumi.set(__self__, "lake_formation_configuration", lake_formation_configuration)
         if lineage_configuration is not None:
             pulumi.set(__self__, "lineage_configuration", lineage_configuration)
         if mongodb_targets is not None:
@@ -193,6 +197,18 @@ class CrawlerArgs:
     @jdbc_targets.setter
     def jdbc_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]]):
         pulumi.set(self, "jdbc_targets", value)
+
+    @property
+    @pulumi.getter(name="lakeFormationConfiguration")
+    def lake_formation_configuration(self) -> Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']]:
+        """
+        Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+        """
+        return pulumi.get(self, "lake_formation_configuration")
+
+    @lake_formation_configuration.setter
+    def lake_formation_configuration(self, value: Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']]):
+        pulumi.set(self, "lake_formation_configuration", value)
 
     @property
     @pulumi.getter(name="lineageConfiguration")
@@ -327,6 +343,7 @@ class _CrawlerState:
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
+                 lake_formation_configuration: Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']] = None,
                  lineage_configuration: Optional[pulumi.Input['CrawlerLineageConfigurationArgs']] = None,
                  mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -348,6 +365,7 @@ class _CrawlerState:
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
+        :param pulumi.Input['CrawlerLakeFormationConfigurationArgs'] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input['CrawlerLineageConfigurationArgs'] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[str] name: Name of the crawler.
@@ -379,6 +397,8 @@ class _CrawlerState:
             pulumi.set(__self__, "dynamodb_targets", dynamodb_targets)
         if jdbc_targets is not None:
             pulumi.set(__self__, "jdbc_targets", jdbc_targets)
+        if lake_formation_configuration is not None:
+            pulumi.set(__self__, "lake_formation_configuration", lake_formation_configuration)
         if lineage_configuration is not None:
             pulumi.set(__self__, "lineage_configuration", lineage_configuration)
         if mongodb_targets is not None:
@@ -505,6 +525,18 @@ class _CrawlerState:
     @jdbc_targets.setter
     def jdbc_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]]):
         pulumi.set(self, "jdbc_targets", value)
+
+    @property
+    @pulumi.getter(name="lakeFormationConfiguration")
+    def lake_formation_configuration(self) -> Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']]:
+        """
+        Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+        """
+        return pulumi.get(self, "lake_formation_configuration")
+
+    @lake_formation_configuration.setter
+    def lake_formation_configuration(self, value: Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']]):
+        pulumi.set(self, "lake_formation_configuration", value)
 
     @property
     @pulumi.getter(name="lineageConfiguration")
@@ -664,6 +696,7 @@ class Crawler(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
+                 lake_formation_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']]] = None,
                  lineage_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']]] = None,
                  mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -802,6 +835,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
+        :param pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]] mongodb_targets: List nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[str] name: Name of the crawler.
@@ -961,6 +995,7 @@ class Crawler(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
                  jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
+                 lake_formation_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']]] = None,
                  lineage_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']]] = None,
                  mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -991,6 +1026,7 @@ class Crawler(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["dynamodb_targets"] = dynamodb_targets
             __props__.__dict__["jdbc_targets"] = jdbc_targets
+            __props__.__dict__["lake_formation_configuration"] = lake_formation_configuration
             __props__.__dict__["lineage_configuration"] = lineage_configuration
             __props__.__dict__["mongodb_targets"] = mongodb_targets
             __props__.__dict__["name"] = name
@@ -1025,6 +1061,7 @@ class Crawler(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]]] = None,
             jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]]] = None,
+            lake_formation_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']]] = None,
             lineage_configuration: Optional[pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']]] = None,
             mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1051,6 +1088,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
+        :param pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]] mongodb_targets: List nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[str] name: Name of the crawler.
@@ -1077,6 +1115,7 @@ class Crawler(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["dynamodb_targets"] = dynamodb_targets
         __props__.__dict__["jdbc_targets"] = jdbc_targets
+        __props__.__dict__["lake_formation_configuration"] = lake_formation_configuration
         __props__.__dict__["lineage_configuration"] = lineage_configuration
         __props__.__dict__["mongodb_targets"] = mongodb_targets
         __props__.__dict__["name"] = name
@@ -1156,6 +1195,14 @@ class Crawler(pulumi.CustomResource):
         List of nested JBDC target arguments. See JDBC Target below.
         """
         return pulumi.get(self, "jdbc_targets")
+
+    @property
+    @pulumi.getter(name="lakeFormationConfiguration")
+    def lake_formation_configuration(self) -> pulumi.Output[Optional['outputs.CrawlerLakeFormationConfiguration']]:
+        """
+        Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+        """
+        return pulumi.get(self, "lake_formation_configuration")
 
     @property
     @pulumi.getter(name="lineageConfiguration")

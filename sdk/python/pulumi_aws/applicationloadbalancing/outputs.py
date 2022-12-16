@@ -1836,14 +1836,14 @@ class TargetGroupHealthCheck(dict):
                  unhealthy_threshold: Optional[int] = None):
         """
         :param bool enabled: Boolean to enable / disable `stickiness`. Default is `true`.
-        :param int healthy_threshold: Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
-        :param int interval: Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+        :param int healthy_threshold: Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
+        :param int interval: Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
         :param str matcher: Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
         :param str path: Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
-        :param str port: Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
-        :param str protocol: Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
-        :param int timeout: Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 5 seconds for HTTP health checks.
-        :param int unhealthy_threshold: Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
+        :param str port: The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+        :param str protocol: Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+        :param int timeout: Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
+        :param int unhealthy_threshold: Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1876,7 +1876,7 @@ class TargetGroupHealthCheck(dict):
     @pulumi.getter(name="healthyThreshold")
     def healthy_threshold(self) -> Optional[int]:
         """
-        Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+        Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
         """
         return pulumi.get(self, "healthy_threshold")
 
@@ -1884,7 +1884,7 @@ class TargetGroupHealthCheck(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         """
-        Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+        Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
         """
         return pulumi.get(self, "interval")
 
@@ -1908,7 +1908,7 @@ class TargetGroupHealthCheck(dict):
     @pulumi.getter
     def port(self) -> Optional[str]:
         """
-        Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+        The port the load balancer uses when performing health checks on targets. Default is traffic-port.
         """
         return pulumi.get(self, "port")
 
@@ -1916,7 +1916,7 @@ class TargetGroupHealthCheck(dict):
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
-        Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+        Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
         """
         return pulumi.get(self, "protocol")
 
@@ -1924,7 +1924,7 @@ class TargetGroupHealthCheck(dict):
     @pulumi.getter
     def timeout(self) -> Optional[int]:
         """
-        Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 5 seconds for HTTP health checks.
+        Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
         """
         return pulumi.get(self, "timeout")
 
@@ -1932,7 +1932,7 @@ class TargetGroupHealthCheck(dict):
     @pulumi.getter(name="unhealthyThreshold")
     def unhealthy_threshold(self) -> Optional[int]:
         """
-        Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
+        Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
         """
         return pulumi.get(self, "unhealthy_threshold")
 

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class UserProfileUserSettingsJupyterServerAppSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UserProfileUserSettingsJupyterServerAppSettingsArgs Empty = new UserProfileUserSettingsJupyterServerAppSettingsArgs();
+
+    /**
+     * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * 
+     */
+    @Import(name="codeRepositories")
+    private @Nullable Output<List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs>> codeRepositories;
+
+    /**
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * 
+     */
+    public Optional<Output<List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs>>> codeRepositories() {
+        return Optional.ofNullable(this.codeRepositories);
+    }
 
     /**
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
@@ -50,6 +66,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsArgs extends c
     private UserProfileUserSettingsJupyterServerAppSettingsArgs() {}
 
     private UserProfileUserSettingsJupyterServerAppSettingsArgs(UserProfileUserSettingsJupyterServerAppSettingsArgs $) {
+        this.codeRepositories = $.codeRepositories;
         this.defaultResourceSpec = $.defaultResourceSpec;
         this.lifecycleConfigArns = $.lifecycleConfigArns;
     }
@@ -70,6 +87,37 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsArgs extends c
 
         public Builder(UserProfileUserSettingsJupyterServerAppSettingsArgs defaults) {
             $ = new UserProfileUserSettingsJupyterServerAppSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeRepositories(@Nullable Output<List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs>> codeRepositories) {
+            $.codeRepositories = codeRepositories;
+            return this;
+        }
+
+        /**
+         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeRepositories(List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs> codeRepositories) {
+            return codeRepositories(Output.of(codeRepositories));
+        }
+
+        /**
+         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeRepositories(UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs... codeRepositories) {
+            return codeRepositories(List.of(codeRepositories));
         }
 
         /**

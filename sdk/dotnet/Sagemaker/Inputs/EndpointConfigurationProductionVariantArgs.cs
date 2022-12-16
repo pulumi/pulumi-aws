@@ -19,6 +19,18 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? AcceleratorType { get; set; }
 
         /// <summary>
+        /// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        /// </summary>
+        [Input("containerStartupHealthCheckTimeoutInSeconds")]
+        public Input<int>? ContainerStartupHealthCheckTimeoutInSeconds { get; set; }
+
+        /// <summary>
+        /// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+        /// </summary>
+        [Input("coreDumpConfig")]
+        public Input<Inputs.EndpointConfigurationProductionVariantCoreDumpConfigArgs>? CoreDumpConfig { get; set; }
+
+        /// <summary>
         /// Initial number of instances used for auto-scaling.
         /// </summary>
         [Input("initialInstanceCount")]
@@ -37,6 +49,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
+        /// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+        /// </summary>
+        [Input("modelDataDownloadTimeoutInSeconds")]
+        public Input<int>? ModelDataDownloadTimeoutInSeconds { get; set; }
+
+        /// <summary>
         /// The name of the model to use.
         /// </summary>
         [Input("modelName", required: true)]
@@ -53,6 +71,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         /// </summary>
         [Input("variantName")]
         public Input<string>? VariantName { get; set; }
+
+        /// <summary>
+        /// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+        /// </summary>
+        [Input("volumeSizeInGb")]
+        public Input<int>? VolumeSizeInGb { get; set; }
 
         public EndpointConfigurationProductionVariantArgs()
         {

@@ -20,6 +20,7 @@ __all__ = [
     'DataSourceLambdaConfig',
     'DataSourceRelationalDatabaseConfig',
     'DataSourceRelationalDatabaseConfigHttpEndpointConfig',
+    'FunctionRuntime',
     'FunctionSyncConfig',
     'FunctionSyncConfigLambdaConflictHandlerConfig',
     'GraphQLApiAdditionalAuthenticationProvider',
@@ -510,6 +511,52 @@ class DataSourceRelationalDatabaseConfigHttpEndpointConfig(dict):
         Logical schema name.
         """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class FunctionRuntime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "runtimeVersion":
+            suggest = "runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionRuntime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionRuntime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionRuntime.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 runtime_version: str):
+        """
+        :param str name: The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        :param str runtime_version: The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> str:
+        """
+        The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        """
+        return pulumi.get(self, "runtime_version")
 
 
 @pulumi.output_type

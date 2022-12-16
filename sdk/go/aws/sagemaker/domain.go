@@ -144,7 +144,7 @@ import (
 //
 // ## Import
 //
-// SageMaker Code Domains can be imported using the `id`, e.g.,
+// SageMaker Domains can be imported using the `id`, e.g.,
 //
 // ```sh
 //
@@ -162,6 +162,8 @@ type Domain struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode pulumi.StringOutput `pulumi:"authMode"`
+	// The default space settings. See Default Space Settings below.
+	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrOutput `pulumi:"defaultSpaceSettings"`
 	// The default user settings. See Default User Settings below.
 	DefaultUserSettings DomainDefaultUserSettingsOutput `pulumi:"defaultUserSettings"`
 	// The domain name.
@@ -242,6 +244,8 @@ type domainState struct {
 	Arn *string `pulumi:"arn"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode *string `pulumi:"authMode"`
+	// The default space settings. See Default Space Settings below.
+	DefaultSpaceSettings *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
 	// The default user settings. See Default User Settings below.
 	DefaultUserSettings *DomainDefaultUserSettings `pulumi:"defaultUserSettings"`
 	// The domain name.
@@ -279,6 +283,8 @@ type DomainState struct {
 	Arn pulumi.StringPtrInput
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode pulumi.StringPtrInput
+	// The default space settings. See Default Space Settings below.
+	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrInput
 	// The default user settings. See Default User Settings below.
 	DefaultUserSettings DomainDefaultUserSettingsPtrInput
 	// The domain name.
@@ -318,6 +324,8 @@ type domainArgs struct {
 	AppSecurityGroupManagement *string `pulumi:"appSecurityGroupManagement"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode string `pulumi:"authMode"`
+	// The default space settings. See Default Space Settings below.
+	DefaultSpaceSettings *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
 	// The default user settings. See Default User Settings below.
 	DefaultUserSettings DomainDefaultUserSettings `pulumi:"defaultUserSettings"`
 	// The domain name.
@@ -344,6 +352,8 @@ type DomainArgs struct {
 	AppSecurityGroupManagement pulumi.StringPtrInput
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode pulumi.StringInput
+	// The default space settings. See Default Space Settings below.
+	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrInput
 	// The default user settings. See Default User Settings below.
 	DefaultUserSettings DomainDefaultUserSettingsInput
 	// The domain name.
@@ -467,6 +477,11 @@ func (o DomainOutput) Arn() pulumi.StringOutput {
 // The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 func (o DomainOutput) AuthMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.AuthMode }).(pulumi.StringOutput)
+}
+
+// The default space settings. See Default Space Settings below.
+func (o DomainOutput) DefaultSpaceSettings() DomainDefaultSpaceSettingsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainDefaultSpaceSettingsPtrOutput { return v.DefaultSpaceSettings }).(DomainDefaultSpaceSettingsPtrOutput)
 }
 
 // The default user settings. See Default User Settings below.

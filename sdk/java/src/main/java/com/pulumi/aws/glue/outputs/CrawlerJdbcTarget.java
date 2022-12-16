@@ -17,6 +17,11 @@ public final class CrawlerJdbcTarget {
      */
     private String connectionName;
     /**
+     * @return Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+     * 
+     */
+    private @Nullable List<String> enableAdditionalMetadatas;
+    /**
      * @return A list of glob patterns used to exclude from the crawl.
      * 
      */
@@ -34,6 +39,13 @@ public final class CrawlerJdbcTarget {
      */
     public String connectionName() {
         return this.connectionName;
+    }
+    /**
+     * @return Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+     * 
+     */
+    public List<String> enableAdditionalMetadatas() {
+        return this.enableAdditionalMetadatas == null ? List.of() : this.enableAdditionalMetadatas;
     }
     /**
      * @return A list of glob patterns used to exclude from the crawl.
@@ -60,12 +72,14 @@ public final class CrawlerJdbcTarget {
     @CustomType.Builder
     public static final class Builder {
         private String connectionName;
+        private @Nullable List<String> enableAdditionalMetadatas;
         private @Nullable List<String> exclusions;
         private String path;
         public Builder() {}
         public Builder(CrawlerJdbcTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionName = defaults.connectionName;
+    	      this.enableAdditionalMetadatas = defaults.enableAdditionalMetadatas;
     	      this.exclusions = defaults.exclusions;
     	      this.path = defaults.path;
         }
@@ -74,6 +88,14 @@ public final class CrawlerJdbcTarget {
         public Builder connectionName(String connectionName) {
             this.connectionName = Objects.requireNonNull(connectionName);
             return this;
+        }
+        @CustomType.Setter
+        public Builder enableAdditionalMetadatas(@Nullable List<String> enableAdditionalMetadatas) {
+            this.enableAdditionalMetadatas = enableAdditionalMetadatas;
+            return this;
+        }
+        public Builder enableAdditionalMetadatas(String... enableAdditionalMetadatas) {
+            return enableAdditionalMetadatas(List.of(enableAdditionalMetadatas));
         }
         @CustomType.Setter
         public Builder exclusions(@Nullable List<String> exclusions) {
@@ -91,6 +113,7 @@ public final class CrawlerJdbcTarget {
         public CrawlerJdbcTarget build() {
             final var o = new CrawlerJdbcTarget();
             o.connectionName = connectionName;
+            o.enableAdditionalMetadatas = enableAdditionalMetadatas;
             o.exclusions = exclusions;
             o.path = path;
             return o;

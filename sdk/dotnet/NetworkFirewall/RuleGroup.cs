@@ -183,6 +183,12 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// KMS encryption configuration settings. See Encryption Configuration below for details.
+        /// </summary>
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.RuleGroupEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// A friendly name of the rule group.
         /// </summary>
         [Output("name")]
@@ -213,7 +219,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        /// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -283,6 +289,12 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// KMS encryption configuration settings. See Encryption Configuration below for details.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.RuleGroupEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// A friendly name of the rule group.
         /// </summary>
         [Input("name")]
@@ -313,7 +325,7 @@ namespace Pulumi.Aws.NetworkFirewall
         }
 
         /// <summary>
-        /// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        /// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -343,6 +355,12 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// KMS encryption configuration settings. See Encryption Configuration below for details.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.RuleGroupEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
         /// A friendly name of the rule group.
@@ -387,7 +405,7 @@ namespace Pulumi.Aws.NetworkFirewall
         }
 
         /// <summary>
-        /// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
+        /// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

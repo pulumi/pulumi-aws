@@ -253,6 +253,12 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableArray<Outputs.CrawlerJdbcTarget>> JdbcTargets { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+        /// </summary>
+        [Output("lakeFormationConfiguration")]
+        public Output<Outputs.CrawlerLakeFormationConfiguration?> LakeFormationConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         /// </summary>
         [Output("lineageConfiguration")]
@@ -441,6 +447,12 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
+        /// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+        /// </summary>
+        [Input("lakeFormationConfiguration")]
+        public Input<Inputs.CrawlerLakeFormationConfigurationArgs>? LakeFormationConfiguration { get; set; }
+
+        /// <summary>
         /// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         /// </summary>
         [Input("lineageConfiguration")]
@@ -607,6 +619,12 @@ namespace Pulumi.Aws.Glue
             get => _jdbcTargets ?? (_jdbcTargets = new InputList<Inputs.CrawlerJdbcTargetGetArgs>());
             set => _jdbcTargets = value;
         }
+
+        /// <summary>
+        /// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+        /// </summary>
+        [Input("lakeFormationConfiguration")]
+        public Input<Inputs.CrawlerLakeFormationConfigurationGetArgs>? LakeFormationConfiguration { get; set; }
 
         /// <summary>
         /// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.

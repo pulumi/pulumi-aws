@@ -7,6 +7,7 @@ import com.pulumi.aws.glue.inputs.CrawlerCatalogTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerDeltaTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerDynamodbTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerJdbcTargetArgs;
+import com.pulumi.aws.glue.inputs.CrawlerLakeFormationConfigurationArgs;
 import com.pulumi.aws.glue.inputs.CrawlerLineageConfigurationArgs;
 import com.pulumi.aws.glue.inputs.CrawlerMongodbTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerRecrawlPolicyArgs;
@@ -143,6 +144,21 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<CrawlerJdbcTargetArgs>>> jdbcTargets() {
         return Optional.ofNullable(this.jdbcTargets);
+    }
+
+    /**
+     * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+     * 
+     */
+    @Import(name="lakeFormationConfiguration")
+    private @Nullable Output<CrawlerLakeFormationConfigurationArgs> lakeFormationConfiguration;
+
+    /**
+     * @return Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+     * 
+     */
+    public Optional<Output<CrawlerLakeFormationConfigurationArgs>> lakeFormationConfiguration() {
+        return Optional.ofNullable(this.lakeFormationConfiguration);
     }
 
     /**
@@ -337,6 +353,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.dynamodbTargets = $.dynamodbTargets;
         this.jdbcTargets = $.jdbcTargets;
+        this.lakeFormationConfiguration = $.lakeFormationConfiguration;
         this.lineageConfiguration = $.lineageConfiguration;
         this.mongodbTargets = $.mongodbTargets;
         this.name = $.name;
@@ -570,6 +587,27 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder jdbcTargets(CrawlerJdbcTargetArgs... jdbcTargets) {
             return jdbcTargets(List.of(jdbcTargets));
+        }
+
+        /**
+         * @param lakeFormationConfiguration Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lakeFormationConfiguration(@Nullable Output<CrawlerLakeFormationConfigurationArgs> lakeFormationConfiguration) {
+            $.lakeFormationConfiguration = lakeFormationConfiguration;
+            return this;
+        }
+
+        /**
+         * @param lakeFormationConfiguration Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lakeFormationConfiguration(CrawlerLakeFormationConfigurationArgs lakeFormationConfiguration) {
+            return lakeFormationConfiguration(Output.of(lakeFormationConfiguration));
         }
 
         /**

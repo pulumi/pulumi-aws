@@ -91,6 +91,71 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Example add-on usage with custom configuration_values
+ * 
+ * Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
+ * 
+ * &gt; **Note:** `configuration_values` is a single JSON string should match the valid JSON schema for each add-on with specific version.
+ * 
+ * To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
+ * This below is an example for extracting the `configuration_values` schema for `coredns`.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *     }
+ * }
+ * ```
+ * 
+ * Example to create a `coredns` managed addon with custom `configuration_values`.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.eks.Addon;
+ * import com.pulumi.aws.eks.AddonArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
+ *             .addonName(&#34;coredns&#34;)
+ *             .addonVersion(&#34;v1.8.7-eksbuild.3&#34;)
+ *             .clusterName(&#34;mycluster&#34;)
+ *             .configurationValues(&#34;{\&#34;replicaCount\&#34;:4,\&#34;resources\&#34;:{\&#34;limits\&#34;:{\&#34;cpu\&#34;:\&#34;100m\&#34;,\&#34;memory\&#34;:\&#34;150Mi\&#34;},\&#34;requests\&#34;:{\&#34;cpu\&#34;:\&#34;100m\&#34;,\&#34;memory\&#34;:\&#34;150Mi\&#34;}}}&#34;)
+ *             .resolveConflicts(&#34;OVERWRITE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,
@@ -161,6 +226,20 @@ public class Addon extends com.pulumi.resources.CustomResource {
      */
     public Output<String> clusterName() {
         return this.clusterName;
+    }
+    /**
+     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     * 
+     */
+    @Export(name="configurationValues", refs={String.class}, tree="[0]")
+    private Output<String> configurationValues;
+
+    /**
+     * @return custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     * 
+     */
+    public Output<String> configurationValues() {
+        return this.configurationValues;
     }
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.

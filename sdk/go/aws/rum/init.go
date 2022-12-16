@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:rum/appMonitor:AppMonitor":
 		r = &AppMonitor{}
+	case "aws:rum/metricsDestination:MetricsDestination":
+		r = &MetricsDestination{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rum/appMonitor",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rum/metricsDestination",
 		&module{version},
 	)
 }

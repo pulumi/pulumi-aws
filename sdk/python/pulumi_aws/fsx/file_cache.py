@@ -486,7 +486,7 @@ class FileCache(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS FSx File Cache.
+        Resource for managing an Amazon File Cache cache.
         See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
         ## Example Usage
 
@@ -526,7 +526,7 @@ class FileCache(pulumi.CustomResource):
 
         ## Import
 
-        FSx File Cache can be imported using the resource `id`.
+        Amazon File Cache cache can be imported using the resource `id`.
 
         ```sh
          $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
@@ -553,7 +553,7 @@ class FileCache(pulumi.CustomResource):
                  args: FileCacheArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS FSx File Cache.
+        Resource for managing an Amazon File Cache cache.
         See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
         ## Example Usage
 
@@ -593,7 +593,7 @@ class FileCache(pulumi.CustomResource):
 
         ## Import
 
-        FSx File Cache can be imported using the resource `id`.
+        Amazon File Cache cache can be imported using the resource `id`.
 
         ```sh
          $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589

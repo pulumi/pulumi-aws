@@ -828,6 +828,9 @@ namespace Pulumi.Aws.Inputs
         [Input("pinpointsmsvoice")]
         public Input<string>? Pinpointsmsvoice { get; set; }
 
+        [Input("pipes")]
+        public Input<string>? Pipes { get; set; }
+
         [Input("polly")]
         public Input<string>? Polly { get; set; }
 

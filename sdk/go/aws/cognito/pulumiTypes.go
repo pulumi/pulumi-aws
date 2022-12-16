@@ -1538,7 +1538,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEm
 	// The email HTML body.
 	HtmlBody string `pulumi:"htmlBody"`
 	// The email subject.
-	Subject  string `pulumi:"subject"`
+	Subject string `pulumi:"subject"`
+	// The email text body.
 	TextBody string `pulumi:"textBody"`
 }
 
@@ -1557,7 +1558,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEm
 	// The email HTML body.
 	HtmlBody pulumi.StringInput `pulumi:"htmlBody"`
 	// The email subject.
-	Subject  pulumi.StringInput `pulumi:"subject"`
+	Subject pulumi.StringInput `pulumi:"subject"`
+	// The email text body.
 	TextBody pulumi.StringInput `pulumi:"textBody"`
 }
 
@@ -1652,6 +1654,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBloc
 	}).(pulumi.StringOutput)
 }
 
+// The email text body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput) TextBody() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) string {
 		return v.TextBody
@@ -1702,6 +1705,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBloc
 	}).(pulumi.StringPtrOutput)
 }
 
+// The email text body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput) TextBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) *string {
 		if v == nil {
@@ -1715,7 +1719,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmai
 	// The email HTML body.
 	HtmlBody string `pulumi:"htmlBody"`
 	// The email subject.
-	Subject  string `pulumi:"subject"`
+	Subject string `pulumi:"subject"`
+	// The email text body.
 	TextBody string `pulumi:"textBody"`
 }
 
@@ -1734,7 +1739,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmai
 	// The email HTML body.
 	HtmlBody pulumi.StringInput `pulumi:"htmlBody"`
 	// The email subject.
-	Subject  pulumi.StringInput `pulumi:"subject"`
+	Subject pulumi.StringInput `pulumi:"subject"`
+	// The email text body.
 	TextBody pulumi.StringInput `pulumi:"textBody"`
 }
 
@@ -1829,6 +1835,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaE
 	}).(pulumi.StringOutput)
 }
 
+// The email text body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput) TextBody() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) string {
 		return v.TextBody
@@ -1879,6 +1886,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaE
 	}).(pulumi.StringPtrOutput)
 }
 
+// The email text body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput) TextBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) *string {
 		if v == nil {
@@ -1892,7 +1900,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActio
 	// The email HTML body.
 	HtmlBody string `pulumi:"htmlBody"`
 	// The email subject.
-	Subject  string `pulumi:"subject"`
+	Subject string `pulumi:"subject"`
+	// The email text body.
 	TextBody string `pulumi:"textBody"`
 }
 
@@ -1911,7 +1920,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActio
 	// The email HTML body.
 	HtmlBody pulumi.StringInput `pulumi:"htmlBody"`
 	// The email subject.
-	Subject  pulumi.StringInput `pulumi:"subject"`
+	Subject pulumi.StringInput `pulumi:"subject"`
+	// The email text body.
 	TextBody pulumi.StringInput `pulumi:"textBody"`
 }
 
@@ -2006,6 +2016,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoAc
 	}).(pulumi.StringOutput)
 }
 
+// The email text body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput) TextBody() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) string {
 		return v.TextBody
@@ -2056,6 +2067,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoAc
 	}).(pulumi.StringPtrOutput)
 }
 
+// The email text body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput) TextBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) *string {
 		if v == nil {
@@ -3647,7 +3659,7 @@ type UserPoolEmailConfiguration struct {
 	FromEmailAddress *string `pulumi:"fromEmailAddress"`
 	// REPLY-TO email address.
 	ReplyToEmailAddress *string `pulumi:"replyToEmailAddress"`
-	// ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
+	// ARN of the SES verified email identity to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
 	SourceArn *string `pulumi:"sourceArn"`
 }
 
@@ -3671,7 +3683,7 @@ type UserPoolEmailConfigurationArgs struct {
 	FromEmailAddress pulumi.StringPtrInput `pulumi:"fromEmailAddress"`
 	// REPLY-TO email address.
 	ReplyToEmailAddress pulumi.StringPtrInput `pulumi:"replyToEmailAddress"`
-	// ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
+	// ARN of the SES verified email identity to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
 	SourceArn pulumi.StringPtrInput `pulumi:"sourceArn"`
 }
 
@@ -3772,7 +3784,7 @@ func (o UserPoolEmailConfigurationOutput) ReplyToEmailAddress() pulumi.StringPtr
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.ReplyToEmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
+// ARN of the SES verified email identity to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
 func (o UserPoolEmailConfigurationOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.SourceArn }).(pulumi.StringPtrOutput)
 }
@@ -3841,7 +3853,7 @@ func (o UserPoolEmailConfigurationPtrOutput) ReplyToEmailAddress() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
+// ARN of the SES verified email identity to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
 func (o UserPoolEmailConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {

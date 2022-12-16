@@ -43,9 +43,17 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
         return this.subject;
     }
 
+    /**
+     * The email text body.
+     * 
+     */
     @Import(name="textBody", required=true)
     private Output<String> textBody;
 
+    /**
+     * @return The email text body.
+     * 
+     */
     public Output<String> textBody() {
         return this.textBody;
     }
@@ -118,11 +126,23 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
             return subject(Output.of(subject));
         }
 
+        /**
+         * @param textBody The email text body.
+         * 
+         * @return builder
+         * 
+         */
         public Builder textBody(Output<String> textBody) {
             $.textBody = textBody;
             return this;
         }
 
+        /**
+         * @param textBody The email text body.
+         * 
+         * @return builder
+         * 
+         */
         public Builder textBody(String textBody) {
             return textBody(Output.of(textBody));
         }

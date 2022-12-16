@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// SageMaker Code User Profiles can be imported using the `arn`, e.g.,
+// SageMaker User Profiles can be imported using the `arn`, e.g.,
 //
 // ```sh
 //

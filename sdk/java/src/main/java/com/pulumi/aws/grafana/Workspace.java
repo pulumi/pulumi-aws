@@ -6,6 +6,7 @@ package com.pulumi.aws.grafana;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.grafana.WorkspaceArgs;
 import com.pulumi.aws.grafana.inputs.WorkspaceState;
+import com.pulumi.aws.grafana.outputs.WorkspaceVpcConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -311,6 +312,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+     * 
+     */
+    @Export(name="vpcConfiguration", refs={WorkspaceVpcConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ WorkspaceVpcConfiguration> vpcConfiguration;
+
+    /**
+     * @return The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+     * 
+     */
+    public Output<Optional<WorkspaceVpcConfiguration>> vpcConfiguration() {
+        return Codegen.optional(this.vpcConfiguration);
     }
 
     /**

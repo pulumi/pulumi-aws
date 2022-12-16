@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Glue.Inputs
         /// <summary>
         /// The name of the connection to use to connect to the Delta table target.
         /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
+        [Input("connectionName")]
+        public Input<string>? ConnectionName { get; set; }
 
         [Input("deltaTables", required: true)]
         private InputList<string>? _deltaTables;

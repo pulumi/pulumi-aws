@@ -283,6 +283,7 @@ public final class Endpoints {
     private @Nullable String pinpoint;
     private @Nullable String pinpointemail;
     private @Nullable String pinpointsmsvoice;
+    private @Nullable String pipes;
     private @Nullable String polly;
     private @Nullable String pricing;
     private @Nullable String prometheus;
@@ -1202,6 +1203,9 @@ public final class Endpoints {
     public Optional<String> pinpointsmsvoice() {
         return Optional.ofNullable(this.pinpointsmsvoice);
     }
+    public Optional<String> pipes() {
+        return Optional.ofNullable(this.pipes);
+    }
     public Optional<String> polly() {
         return Optional.ofNullable(this.polly);
     }
@@ -1787,6 +1791,7 @@ public final class Endpoints {
         private @Nullable String pinpoint;
         private @Nullable String pinpointemail;
         private @Nullable String pinpointsmsvoice;
+        private @Nullable String pipes;
         private @Nullable String polly;
         private @Nullable String pricing;
         private @Nullable String prometheus;
@@ -2163,6 +2168,7 @@ public final class Endpoints {
     	      this.pinpoint = defaults.pinpoint;
     	      this.pinpointemail = defaults.pinpointemail;
     	      this.pinpointsmsvoice = defaults.pinpointsmsvoice;
+    	      this.pipes = defaults.pipes;
     	      this.polly = defaults.polly;
     	      this.pricing = defaults.pricing;
     	      this.prometheus = defaults.prometheus;
@@ -3627,6 +3633,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder pipes(@Nullable String pipes) {
+            this.pipes = pipes;
+            return this;
+        }
+        @CustomType.Setter
         public Builder polly(@Nullable String polly) {
             this.polly = polly;
             return this;
@@ -4405,6 +4416,7 @@ public final class Endpoints {
             o.pinpoint = pinpoint;
             o.pinpointemail = pinpointemail;
             o.pinpointsmsvoice = pinpointsmsvoice;
+            o.pipes = pipes;
             o.polly = polly;
             o.pricing = pricing;
             o.prometheus = prometheus;

@@ -10,6 +10,162 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FirewallEncryptionConfiguration struct {
+	// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+	KeyId *string `pulumi:"keyId"`
+	// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+	Type string `pulumi:"type"`
+}
+
+// FirewallEncryptionConfigurationInput is an input type that accepts FirewallEncryptionConfigurationArgs and FirewallEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `FirewallEncryptionConfigurationInput` via:
+//
+//	FirewallEncryptionConfigurationArgs{...}
+type FirewallEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToFirewallEncryptionConfigurationOutput() FirewallEncryptionConfigurationOutput
+	ToFirewallEncryptionConfigurationOutputWithContext(context.Context) FirewallEncryptionConfigurationOutput
+}
+
+type FirewallEncryptionConfigurationArgs struct {
+	// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
+	// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FirewallEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i FirewallEncryptionConfigurationArgs) ToFirewallEncryptionConfigurationOutput() FirewallEncryptionConfigurationOutput {
+	return i.ToFirewallEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirewallEncryptionConfigurationArgs) ToFirewallEncryptionConfigurationOutputWithContext(ctx context.Context) FirewallEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallEncryptionConfigurationOutput)
+}
+
+func (i FirewallEncryptionConfigurationArgs) ToFirewallEncryptionConfigurationPtrOutput() FirewallEncryptionConfigurationPtrOutput {
+	return i.ToFirewallEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallEncryptionConfigurationArgs) ToFirewallEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FirewallEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallEncryptionConfigurationOutput).ToFirewallEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirewallEncryptionConfigurationPtrInput is an input type that accepts FirewallEncryptionConfigurationArgs, FirewallEncryptionConfigurationPtr and FirewallEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirewallEncryptionConfigurationPtrInput` via:
+//
+//	        FirewallEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirewallEncryptionConfigurationPtrOutput() FirewallEncryptionConfigurationPtrOutput
+	ToFirewallEncryptionConfigurationPtrOutputWithContext(context.Context) FirewallEncryptionConfigurationPtrOutput
+}
+
+type firewallEncryptionConfigurationPtrType FirewallEncryptionConfigurationArgs
+
+func FirewallEncryptionConfigurationPtr(v *FirewallEncryptionConfigurationArgs) FirewallEncryptionConfigurationPtrInput {
+	return (*firewallEncryptionConfigurationPtrType)(v)
+}
+
+func (*firewallEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *firewallEncryptionConfigurationPtrType) ToFirewallEncryptionConfigurationPtrOutput() FirewallEncryptionConfigurationPtrOutput {
+	return i.ToFirewallEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallEncryptionConfigurationPtrType) ToFirewallEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FirewallEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallEncryptionConfigurationPtrOutput)
+}
+
+type FirewallEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirewallEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o FirewallEncryptionConfigurationOutput) ToFirewallEncryptionConfigurationOutput() FirewallEncryptionConfigurationOutput {
+	return o
+}
+
+func (o FirewallEncryptionConfigurationOutput) ToFirewallEncryptionConfigurationOutputWithContext(ctx context.Context) FirewallEncryptionConfigurationOutput {
+	return o
+}
+
+func (o FirewallEncryptionConfigurationOutput) ToFirewallEncryptionConfigurationPtrOutput() FirewallEncryptionConfigurationPtrOutput {
+	return o.ToFirewallEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallEncryptionConfigurationOutput) ToFirewallEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FirewallEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallEncryptionConfiguration) *FirewallEncryptionConfiguration {
+		return &v
+	}).(FirewallEncryptionConfigurationPtrOutput)
+}
+
+// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+func (o FirewallEncryptionConfigurationOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallEncryptionConfiguration) *string { return v.KeyId }).(pulumi.StringPtrOutput)
+}
+
+// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+func (o FirewallEncryptionConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallEncryptionConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FirewallEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o FirewallEncryptionConfigurationPtrOutput) ToFirewallEncryptionConfigurationPtrOutput() FirewallEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o FirewallEncryptionConfigurationPtrOutput) ToFirewallEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FirewallEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o FirewallEncryptionConfigurationPtrOutput) Elem() FirewallEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *FirewallEncryptionConfiguration) FirewallEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallEncryptionConfiguration
+		return ret
+	}).(FirewallEncryptionConfigurationOutput)
+}
+
+// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+func (o FirewallEncryptionConfigurationPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+func (o FirewallEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type FirewallFirewallStatus struct {
 	// Set of subnets configured for use by the firewall.
 	SyncStates []FirewallFirewallStatusSyncState `pulumi:"syncStates"`
@@ -319,6 +475,162 @@ func (o FirewallFirewallStatusSyncStateAttachmentArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallFirewallStatusSyncStateAttachment {
 		return vs[0].([]FirewallFirewallStatusSyncStateAttachment)[vs[1].(int)]
 	}).(FirewallFirewallStatusSyncStateAttachmentOutput)
+}
+
+type FirewallPolicyEncryptionConfiguration struct {
+	// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+	KeyId *string `pulumi:"keyId"`
+	// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+	Type string `pulumi:"type"`
+}
+
+// FirewallPolicyEncryptionConfigurationInput is an input type that accepts FirewallPolicyEncryptionConfigurationArgs and FirewallPolicyEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `FirewallPolicyEncryptionConfigurationInput` via:
+//
+//	FirewallPolicyEncryptionConfigurationArgs{...}
+type FirewallPolicyEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyEncryptionConfigurationOutput() FirewallPolicyEncryptionConfigurationOutput
+	ToFirewallPolicyEncryptionConfigurationOutputWithContext(context.Context) FirewallPolicyEncryptionConfigurationOutput
+}
+
+type FirewallPolicyEncryptionConfigurationArgs struct {
+	// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
+	// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FirewallPolicyEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i FirewallPolicyEncryptionConfigurationArgs) ToFirewallPolicyEncryptionConfigurationOutput() FirewallPolicyEncryptionConfigurationOutput {
+	return i.ToFirewallPolicyEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyEncryptionConfigurationArgs) ToFirewallPolicyEncryptionConfigurationOutputWithContext(ctx context.Context) FirewallPolicyEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyEncryptionConfigurationOutput)
+}
+
+func (i FirewallPolicyEncryptionConfigurationArgs) ToFirewallPolicyEncryptionConfigurationPtrOutput() FirewallPolicyEncryptionConfigurationPtrOutput {
+	return i.ToFirewallPolicyEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyEncryptionConfigurationArgs) ToFirewallPolicyEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FirewallPolicyEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyEncryptionConfigurationOutput).ToFirewallPolicyEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyEncryptionConfigurationPtrInput is an input type that accepts FirewallPolicyEncryptionConfigurationArgs, FirewallPolicyEncryptionConfigurationPtr and FirewallPolicyEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyEncryptionConfigurationPtrInput` via:
+//
+//	        FirewallPolicyEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallPolicyEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyEncryptionConfigurationPtrOutput() FirewallPolicyEncryptionConfigurationPtrOutput
+	ToFirewallPolicyEncryptionConfigurationPtrOutputWithContext(context.Context) FirewallPolicyEncryptionConfigurationPtrOutput
+}
+
+type firewallPolicyEncryptionConfigurationPtrType FirewallPolicyEncryptionConfigurationArgs
+
+func FirewallPolicyEncryptionConfigurationPtr(v *FirewallPolicyEncryptionConfigurationArgs) FirewallPolicyEncryptionConfigurationPtrInput {
+	return (*firewallPolicyEncryptionConfigurationPtrType)(v)
+}
+
+func (*firewallPolicyEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *firewallPolicyEncryptionConfigurationPtrType) ToFirewallPolicyEncryptionConfigurationPtrOutput() FirewallPolicyEncryptionConfigurationPtrOutput {
+	return i.ToFirewallPolicyEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyEncryptionConfigurationPtrType) ToFirewallPolicyEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FirewallPolicyEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyEncryptionConfigurationPtrOutput)
+}
+
+type FirewallPolicyEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o FirewallPolicyEncryptionConfigurationOutput) ToFirewallPolicyEncryptionConfigurationOutput() FirewallPolicyEncryptionConfigurationOutput {
+	return o
+}
+
+func (o FirewallPolicyEncryptionConfigurationOutput) ToFirewallPolicyEncryptionConfigurationOutputWithContext(ctx context.Context) FirewallPolicyEncryptionConfigurationOutput {
+	return o
+}
+
+func (o FirewallPolicyEncryptionConfigurationOutput) ToFirewallPolicyEncryptionConfigurationPtrOutput() FirewallPolicyEncryptionConfigurationPtrOutput {
+	return o.ToFirewallPolicyEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyEncryptionConfigurationOutput) ToFirewallPolicyEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FirewallPolicyEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyEncryptionConfiguration) *FirewallPolicyEncryptionConfiguration {
+		return &v
+	}).(FirewallPolicyEncryptionConfigurationPtrOutput)
+}
+
+// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+func (o FirewallPolicyEncryptionConfigurationOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyEncryptionConfiguration) *string { return v.KeyId }).(pulumi.StringPtrOutput)
+}
+
+// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+func (o FirewallPolicyEncryptionConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyEncryptionConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FirewallPolicyEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o FirewallPolicyEncryptionConfigurationPtrOutput) ToFirewallPolicyEncryptionConfigurationPtrOutput() FirewallPolicyEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyEncryptionConfigurationPtrOutput) ToFirewallPolicyEncryptionConfigurationPtrOutputWithContext(ctx context.Context) FirewallPolicyEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyEncryptionConfigurationPtrOutput) Elem() FirewallPolicyEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *FirewallPolicyEncryptionConfiguration) FirewallPolicyEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyEncryptionConfiguration
+		return ret
+	}).(FirewallPolicyEncryptionConfigurationOutput)
+}
+
+// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+func (o FirewallPolicyEncryptionConfigurationPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+func (o FirewallPolicyEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type FirewallPolicyFirewallPolicy struct {
@@ -1762,6 +2074,162 @@ func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoggingConfigurationLoggingConfigurationLogDestinationConfig {
 		return vs[0].([]LoggingConfigurationLoggingConfigurationLogDestinationConfig)[vs[1].(int)]
 	}).(LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput)
+}
+
+type RuleGroupEncryptionConfiguration struct {
+	// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+	KeyId *string `pulumi:"keyId"`
+	// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+	Type string `pulumi:"type"`
+}
+
+// RuleGroupEncryptionConfigurationInput is an input type that accepts RuleGroupEncryptionConfigurationArgs and RuleGroupEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `RuleGroupEncryptionConfigurationInput` via:
+//
+//	RuleGroupEncryptionConfigurationArgs{...}
+type RuleGroupEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRuleGroupEncryptionConfigurationOutput() RuleGroupEncryptionConfigurationOutput
+	ToRuleGroupEncryptionConfigurationOutputWithContext(context.Context) RuleGroupEncryptionConfigurationOutput
+}
+
+type RuleGroupEncryptionConfigurationArgs struct {
+	// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
+	// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RuleGroupEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RuleGroupEncryptionConfigurationArgs) ToRuleGroupEncryptionConfigurationOutput() RuleGroupEncryptionConfigurationOutput {
+	return i.ToRuleGroupEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuleGroupEncryptionConfigurationArgs) ToRuleGroupEncryptionConfigurationOutputWithContext(ctx context.Context) RuleGroupEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupEncryptionConfigurationOutput)
+}
+
+func (i RuleGroupEncryptionConfigurationArgs) ToRuleGroupEncryptionConfigurationPtrOutput() RuleGroupEncryptionConfigurationPtrOutput {
+	return i.ToRuleGroupEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupEncryptionConfigurationArgs) ToRuleGroupEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupEncryptionConfigurationOutput).ToRuleGroupEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuleGroupEncryptionConfigurationPtrInput is an input type that accepts RuleGroupEncryptionConfigurationArgs, RuleGroupEncryptionConfigurationPtr and RuleGroupEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuleGroupEncryptionConfigurationPtrInput` via:
+//
+//	        RuleGroupEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupEncryptionConfigurationPtrOutput() RuleGroupEncryptionConfigurationPtrOutput
+	ToRuleGroupEncryptionConfigurationPtrOutputWithContext(context.Context) RuleGroupEncryptionConfigurationPtrOutput
+}
+
+type ruleGroupEncryptionConfigurationPtrType RuleGroupEncryptionConfigurationArgs
+
+func RuleGroupEncryptionConfigurationPtr(v *RuleGroupEncryptionConfigurationArgs) RuleGroupEncryptionConfigurationPtrInput {
+	return (*ruleGroupEncryptionConfigurationPtrType)(v)
+}
+
+func (*ruleGroupEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *ruleGroupEncryptionConfigurationPtrType) ToRuleGroupEncryptionConfigurationPtrOutput() RuleGroupEncryptionConfigurationPtrOutput {
+	return i.ToRuleGroupEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupEncryptionConfigurationPtrType) ToRuleGroupEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupEncryptionConfigurationPtrOutput)
+}
+
+type RuleGroupEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RuleGroupEncryptionConfigurationOutput) ToRuleGroupEncryptionConfigurationOutput() RuleGroupEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RuleGroupEncryptionConfigurationOutput) ToRuleGroupEncryptionConfigurationOutputWithContext(ctx context.Context) RuleGroupEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RuleGroupEncryptionConfigurationOutput) ToRuleGroupEncryptionConfigurationPtrOutput() RuleGroupEncryptionConfigurationPtrOutput {
+	return o.ToRuleGroupEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupEncryptionConfigurationOutput) ToRuleGroupEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupEncryptionConfiguration) *RuleGroupEncryptionConfiguration {
+		return &v
+	}).(RuleGroupEncryptionConfigurationPtrOutput)
+}
+
+// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+func (o RuleGroupEncryptionConfigurationOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleGroupEncryptionConfiguration) *string { return v.KeyId }).(pulumi.StringPtrOutput)
+}
+
+// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+func (o RuleGroupEncryptionConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupEncryptionConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RuleGroupEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RuleGroupEncryptionConfigurationPtrOutput) ToRuleGroupEncryptionConfigurationPtrOutput() RuleGroupEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RuleGroupEncryptionConfigurationPtrOutput) ToRuleGroupEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RuleGroupEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RuleGroupEncryptionConfigurationPtrOutput) Elem() RuleGroupEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *RuleGroupEncryptionConfiguration) RuleGroupEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupEncryptionConfiguration
+		return ret
+	}).(RuleGroupEncryptionConfigurationOutput)
+}
+
+// The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+func (o RuleGroupEncryptionConfigurationPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+func (o RuleGroupEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type RuleGroupRuleGroup struct {
@@ -6229,12 +6697,16 @@ func (o GetFirewallSubnetMappingArrayOutput) Index(i pulumi.IntInput) GetFirewal
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEncryptionConfigurationInput)(nil)).Elem(), FirewallEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEncryptionConfigurationPtrInput)(nil)).Elem(), FirewallEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusInput)(nil)).Elem(), FirewallFirewallStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusArrayInput)(nil)).Elem(), FirewallFirewallStatusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusSyncStateInput)(nil)).Elem(), FirewallFirewallStatusSyncStateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusSyncStateArrayInput)(nil)).Elem(), FirewallFirewallStatusSyncStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusSyncStateAttachmentInput)(nil)).Elem(), FirewallFirewallStatusSyncStateAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusSyncStateAttachmentArrayInput)(nil)).Elem(), FirewallFirewallStatusSyncStateAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyEncryptionConfigurationInput)(nil)).Elem(), FirewallPolicyEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyEncryptionConfigurationPtrInput)(nil)).Elem(), FirewallPolicyEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyInput)(nil)).Elem(), FirewallPolicyFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{})
@@ -6257,6 +6729,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLoggingConfigurationPtrInput)(nil)).Elem(), LoggingConfigurationLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLoggingConfigurationLogDestinationConfigInput)(nil)).Elem(), LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayInput)(nil)).Elem(), LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupEncryptionConfigurationInput)(nil)).Elem(), RuleGroupEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupEncryptionConfigurationPtrInput)(nil)).Elem(), RuleGroupEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupInput)(nil)).Elem(), RuleGroupRuleGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupPtrInput)(nil)).Elem(), RuleGroupRuleGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupRuleVariablesInput)(nil)).Elem(), RuleGroupRuleGroupRuleVariablesArgs{})
@@ -6332,12 +6806,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallSubnetMappingInput)(nil)).Elem(), GetFirewallSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallSubnetMappingArrayInput)(nil)).Elem(), GetFirewallSubnetMappingArray{})
+	pulumi.RegisterOutputType(FirewallEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(FirewallEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusOutput{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusArrayOutput{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateOutput{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateArrayOutput{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateAttachmentOutput{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateAttachmentArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput{})
@@ -6360,6 +6838,8 @@ func init() {
 	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RuleGroupEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleGroupOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleGroupPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleGroupRuleVariablesOutput{})

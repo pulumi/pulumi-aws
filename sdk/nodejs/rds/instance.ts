@@ -133,7 +133,7 @@ export class Instance extends pulumi.CustomResource {
      * `false`. See [Amazon RDS Documentation for more
      * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */
-    public readonly applyImmediately!: pulumi.Output<boolean>;
+    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the RDS instance.
      */
@@ -282,6 +282,8 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+     * Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
+     * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      */
     public readonly iops!: pulumi.Output<number>;
     /**
@@ -442,7 +444,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
-     * The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+     * The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      */
     public readonly storageThroughput!: pulumi.Output<number>;
     /**
@@ -818,6 +820,8 @@ export interface InstanceState {
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+     * Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
+     * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      */
     iops?: pulumi.Input<number>;
     /**
@@ -978,7 +982,7 @@ export interface InstanceState {
      */
     storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+     * The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      */
     storageThroughput?: pulumi.Input<number>;
     /**
@@ -1168,6 +1172,8 @@ export interface InstanceArgs {
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+     * Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
+     * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      */
     iops?: pulumi.Input<number>;
     /**
@@ -1315,7 +1321,7 @@ export interface InstanceArgs {
      */
     storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`.
+     * The storage throughput value for the DB instance. Can only be set when `storageType` is `"gp3"`. Cannot be specified if the `allocatedStorage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      */
     storageThroughput?: pulumi.Input<number>;
     /**

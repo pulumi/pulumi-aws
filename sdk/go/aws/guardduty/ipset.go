@@ -78,7 +78,7 @@ import (
 //
 // ## Import
 //
-// GuardDuty IPSet can be imported using the the primary GuardDuty detector ID and IPSet ID, e.g.,
+// GuardDuty IPSet can be imported using the primary GuardDuty detector ID and IPSet ID, e.g.,
 //
 // ```sh
 //

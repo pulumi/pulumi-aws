@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> CertificateArn { get; private set; } = null!;
 
         /// <summary>
-        /// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+        /// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         /// </summary>
         [Output("compressionType")]
         public Output<string?> CompressionType { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> DatePartitionDelimiter { get; private set; } = null!;
 
         /// <summary>
-        /// Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+        /// Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
         [Output("datePartitionEnabled")]
         public Output<bool?> DatePartitionEnabled { get; private set; } = null!;
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Dms
         public Output<int?> RowGroupLength { get; private set; } = null!;
 
         /// <summary>
-        /// When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        /// When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         /// </summary>
         [Output("serverSideEncryptionKmsKeyId")]
         public Output<string?> ServerSideEncryptionKmsKeyId { get; private set; } = null!;
@@ -542,7 +542,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? CertificateArn { get; set; }
 
         /// <summary>
-        /// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+        /// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         /// </summary>
         [Input("compressionType")]
         public Input<string>? CompressionType { get; set; }
@@ -590,7 +590,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? DatePartitionDelimiter { get; set; }
 
         /// <summary>
-        /// Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+        /// Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
         [Input("datePartitionEnabled")]
         public Input<bool>? DatePartitionEnabled { get; set; }
@@ -707,7 +707,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? RowGroupLength { get; set; }
 
         /// <summary>
-        /// When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        /// When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         /// </summary>
         [Input("serverSideEncryptionKmsKeyId")]
         public Input<string>? ServerSideEncryptionKmsKeyId { get; set; }
@@ -829,7 +829,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? CertificateArn { get; set; }
 
         /// <summary>
-        /// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`.
+        /// Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         /// </summary>
         [Input("compressionType")]
         public Input<string>? CompressionType { get; set; }
@@ -877,7 +877,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? DatePartitionDelimiter { get; set; }
 
         /// <summary>
-        /// Partition S3 bucket folders based on transaction commit dates. Default is `false`.
+        /// Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
         [Input("datePartitionEnabled")]
         public Input<bool>? DatePartitionEnabled { get; set; }
@@ -1012,7 +1012,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? RowGroupLength { get; set; }
 
         /// <summary>
-        /// When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        /// When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         /// </summary>
         [Input("serverSideEncryptionKmsKeyId")]
         public Input<string>? ServerSideEncryptionKmsKeyId { get; set; }

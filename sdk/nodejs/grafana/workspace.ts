@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -134,6 +137,10 @@ export class Workspace extends pulumi.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+     */
+    public readonly vpcConfiguration!: pulumi.Output<outputs.grafana.WorkspaceVpcConfiguration | undefined>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -165,6 +172,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["stackSetName"] = state ? state.stackSetName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
             if ((!args || args.accountAccessType === undefined) && !opts.urn) {
@@ -188,6 +196,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["grafanaVersion"] = undefined /*out*/;
@@ -268,6 +277,10 @@ export interface WorkspaceState {
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+     */
+    vpcConfiguration?: pulumi.Input<inputs.grafana.WorkspaceVpcConfiguration>;
 }
 
 /**
@@ -322,4 +335,8 @@ export interface WorkspaceArgs {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+     */
+    vpcConfiguration?: pulumi.Input<inputs.grafana.WorkspaceVpcConfiguration>;
 }

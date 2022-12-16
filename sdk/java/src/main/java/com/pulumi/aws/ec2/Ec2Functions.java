@@ -5745,12 +5745,74 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
      * 
+     * ## Example Usage
+     * 
+     * The following shows outputing all Local Gateway Route Table Ids.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooLocalGatewayRouteTables = Ec2Functions.getLocalGatewayRouteTables();
+     * 
+     *         ctx.export(&#34;foo&#34;, fooLocalGatewayRouteTables.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetLocalGatewayRouteTablesResult> getLocalGatewayRouteTables() {
         return getLocalGatewayRouteTables(GetLocalGatewayRouteTablesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows outputing all Local Gateway Route Table Ids.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooLocalGatewayRouteTables = Ec2Functions.getLocalGatewayRouteTables();
+     * 
+     *         ctx.export(&#34;foo&#34;, fooLocalGatewayRouteTables.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetLocalGatewayRouteTablesResult> getLocalGatewayRouteTablesPlain() {
@@ -5759,12 +5821,74 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
      * 
+     * ## Example Usage
+     * 
+     * The following shows outputing all Local Gateway Route Table Ids.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooLocalGatewayRouteTables = Ec2Functions.getLocalGatewayRouteTables();
+     * 
+     *         ctx.export(&#34;foo&#34;, fooLocalGatewayRouteTables.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetLocalGatewayRouteTablesResult> getLocalGatewayRouteTables(GetLocalGatewayRouteTablesArgs args) {
         return getLocalGatewayRouteTables(args, InvokeOptions.Empty);
     }
     /**
      * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows outputing all Local Gateway Route Table Ids.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooLocalGatewayRouteTables = Ec2Functions.getLocalGatewayRouteTables();
+     * 
+     *         ctx.export(&#34;foo&#34;, fooLocalGatewayRouteTables.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetLocalGatewayRouteTablesResult> getLocalGatewayRouteTablesPlain(GetLocalGatewayRouteTablesPlainArgs args) {
@@ -5773,12 +5897,74 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
      * 
+     * ## Example Usage
+     * 
+     * The following shows outputing all Local Gateway Route Table Ids.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooLocalGatewayRouteTables = Ec2Functions.getLocalGatewayRouteTables();
+     * 
+     *         ctx.export(&#34;foo&#34;, fooLocalGatewayRouteTables.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetLocalGatewayRouteTablesResult> getLocalGatewayRouteTables(GetLocalGatewayRouteTablesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", TypeShape.of(GetLocalGatewayRouteTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows outputing all Local Gateway Route Table Ids.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fooLocalGatewayRouteTables = Ec2Functions.getLocalGatewayRouteTables();
+     * 
+     *         ctx.export(&#34;foo&#34;, fooLocalGatewayRouteTables.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetLocalGatewayRouteTablesResult> getLocalGatewayRouteTablesPlain(GetLocalGatewayRouteTablesPlainArgs args, InvokeOptions options) {

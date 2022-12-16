@@ -66,6 +66,24 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * ### With Code
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const example = new aws.appsync.Function("example", {
+ *     apiId: aws_appsync_graphql_api.example.id,
+ *     dataSource: aws_appsync_datasource.example.name,
+ *     name: "example",
+ *     code: fs.readFileSync("some-code-dir"),
+ *     runtime: {
+ *         name: "APPSYNC_JS",
+ *         runtimeVersion: "1.0.0",
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -112,6 +130,10 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     */
+    public readonly code!: pulumi.Output<string | undefined>;
+    /**
      * Function data source name.
      */
     public readonly dataSource!: pulumi.Output<string>;
@@ -124,25 +146,29 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly functionId!: pulumi.Output<string>;
     /**
-     * Version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      */
-    public readonly functionVersion!: pulumi.Output<string | undefined>;
+    public readonly functionVersion!: pulumi.Output<string>;
     /**
      * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      */
     public readonly maxBatchSize!: pulumi.Output<number | undefined>;
     /**
-     * Function name. The function name does not have to be unique.
+     * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
      * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      */
-    public readonly requestMappingTemplate!: pulumi.Output<string>;
+    public readonly requestMappingTemplate!: pulumi.Output<string | undefined>;
     /**
      * Function response mapping template.
      */
-    public readonly responseMappingTemplate!: pulumi.Output<string>;
+    public readonly responseMappingTemplate!: pulumi.Output<string | undefined>;
+    /**
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     */
+    public readonly runtime!: pulumi.Output<outputs.appsync.FunctionRuntime | undefined>;
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      */
@@ -163,6 +189,7 @@ export class Function extends pulumi.CustomResource {
             const state = argsOrState as FunctionState | undefined;
             resourceInputs["apiId"] = state ? state.apiId : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["code"] = state ? state.code : undefined;
             resourceInputs["dataSource"] = state ? state.dataSource : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["functionId"] = state ? state.functionId : undefined;
@@ -171,6 +198,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["requestMappingTemplate"] = state ? state.requestMappingTemplate : undefined;
             resourceInputs["responseMappingTemplate"] = state ? state.responseMappingTemplate : undefined;
+            resourceInputs["runtime"] = state ? state.runtime : undefined;
             resourceInputs["syncConfig"] = state ? state.syncConfig : undefined;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
@@ -180,13 +208,8 @@ export class Function extends pulumi.CustomResource {
             if ((!args || args.dataSource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            if ((!args || args.requestMappingTemplate === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'requestMappingTemplate'");
-            }
-            if ((!args || args.responseMappingTemplate === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'responseMappingTemplate'");
-            }
             resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["code"] = args ? args.code : undefined;
             resourceInputs["dataSource"] = args ? args.dataSource : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["functionVersion"] = args ? args.functionVersion : undefined;
@@ -194,6 +217,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
             resourceInputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
+            resourceInputs["runtime"] = args ? args.runtime : undefined;
             resourceInputs["syncConfig"] = args ? args.syncConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["functionId"] = undefined /*out*/;
@@ -216,6 +240,10 @@ export interface FunctionState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     */
+    code?: pulumi.Input<string>;
+    /**
      * Function data source name.
      */
     dataSource?: pulumi.Input<string>;
@@ -228,7 +256,7 @@ export interface FunctionState {
      */
     functionId?: pulumi.Input<string>;
     /**
-     * Version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      */
     functionVersion?: pulumi.Input<string>;
     /**
@@ -236,7 +264,7 @@ export interface FunctionState {
      */
     maxBatchSize?: pulumi.Input<number>;
     /**
-     * Function name. The function name does not have to be unique.
+     * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -247,6 +275,10 @@ export interface FunctionState {
      * Function response mapping template.
      */
     responseMappingTemplate?: pulumi.Input<string>;
+    /**
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     */
+    runtime?: pulumi.Input<inputs.appsync.FunctionRuntime>;
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      */
@@ -262,6 +294,10 @@ export interface FunctionArgs {
      */
     apiId: pulumi.Input<string>;
     /**
+     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     */
+    code?: pulumi.Input<string>;
+    /**
      * Function data source name.
      */
     dataSource: pulumi.Input<string>;
@@ -270,7 +306,7 @@ export interface FunctionArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Version of the request mapping template. Currently the supported value is `2018-05-29`.
+     * Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      */
     functionVersion?: pulumi.Input<string>;
     /**
@@ -278,17 +314,21 @@ export interface FunctionArgs {
      */
     maxBatchSize?: pulumi.Input<number>;
     /**
-     * Function name. The function name does not have to be unique.
+     * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
      */
     name?: pulumi.Input<string>;
     /**
      * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      */
-    requestMappingTemplate: pulumi.Input<string>;
+    requestMappingTemplate?: pulumi.Input<string>;
     /**
      * Function response mapping template.
      */
-    responseMappingTemplate: pulumi.Input<string>;
+    responseMappingTemplate?: pulumi.Input<string>;
+    /**
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     */
+    runtime?: pulumi.Input<inputs.appsync.FunctionRuntime>;
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      */

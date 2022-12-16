@@ -50,6 +50,9 @@ namespace Pulumi.Aws.AppRunner
     [AwsResourceType("aws:apprunner/vpcConnector:VpcConnector")]
     public partial class VpcConnector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of VPC connector.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -191,6 +194,9 @@ namespace Pulumi.Aws.AppRunner
 
     public sealed class VpcConnectorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of VPC connector.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

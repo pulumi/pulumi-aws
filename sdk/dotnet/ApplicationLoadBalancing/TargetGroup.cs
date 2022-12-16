@@ -171,7 +171,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Output<string> PreserveClientIp { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+        /// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? PreserveClientIp { get; set; }
 
         /// <summary>
-        /// Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+        /// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -483,7 +483,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -495,7 +495,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? PreserveClientIp { get; set; }
 
         /// <summary>
-        /// Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+        /// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
