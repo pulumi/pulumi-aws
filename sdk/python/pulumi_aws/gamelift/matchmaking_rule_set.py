@@ -19,6 +19,8 @@ class MatchmakingRuleSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a MatchmakingRuleSet resource.
+        :param pulumi.Input[str] rule_set_body: JSON encoded string containing rule set data.
+        :param pulumi.Input[str] name: Name of the matchmaking rule set.
         """
         pulumi.set(__self__, "rule_set_body", rule_set_body)
         if name is not None:
@@ -29,6 +31,9 @@ class MatchmakingRuleSetArgs:
     @property
     @pulumi.getter(name="ruleSetBody")
     def rule_set_body(self) -> pulumi.Input[str]:
+        """
+        JSON encoded string containing rule set data.
+        """
         return pulumi.get(self, "rule_set_body")
 
     @rule_set_body.setter
@@ -38,6 +43,9 @@ class MatchmakingRuleSetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the matchmaking rule set.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -64,6 +72,10 @@ class _MatchmakingRuleSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering MatchmakingRuleSet resources.
+        :param pulumi.Input[str] arn: Rule Set ARN.
+        :param pulumi.Input[str] name: Name of the matchmaking rule set.
+        :param pulumi.Input[str] rule_set_body: JSON encoded string containing rule set data.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -79,6 +91,9 @@ class _MatchmakingRuleSetState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Rule Set ARN.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -88,6 +103,9 @@ class _MatchmakingRuleSetState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the matchmaking rule set.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -97,6 +115,9 @@ class _MatchmakingRuleSetState:
     @property
     @pulumi.getter(name="ruleSetBody")
     def rule_set_body(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON encoded string containing rule set data.
+        """
         return pulumi.get(self, "rule_set_body")
 
     @rule_set_body.setter
@@ -115,6 +136,9 @@ class _MatchmakingRuleSetState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -132,9 +156,22 @@ class MatchmakingRuleSet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a MatchmakingRuleSet resource with the given unique name, props, and options.
+        Provides a GameLift Matchmaking Rule Set resources.
+
+        ## Import
+
+        GameLift Matchmaking Rule Sets
+
+        can be imported using the ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example <ruleset-id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: Name of the matchmaking rule set.
+        :param pulumi.Input[str] rule_set_body: JSON encoded string containing rule set data.
         """
         ...
     @overload
@@ -143,7 +180,18 @@ class MatchmakingRuleSet(pulumi.CustomResource):
                  args: MatchmakingRuleSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a MatchmakingRuleSet resource with the given unique name, props, and options.
+        Provides a GameLift Matchmaking Rule Set resources.
+
+        ## Import
+
+        GameLift Matchmaking Rule Sets
+
+        can be imported using the ID, e.g.,
+
+        ```sh
+         $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example <ruleset-id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param MatchmakingRuleSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,6 +248,10 @@ class MatchmakingRuleSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Rule Set ARN.
+        :param pulumi.Input[str] name: Name of the matchmaking rule set.
+        :param pulumi.Input[str] rule_set_body: JSON encoded string containing rule set data.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -215,16 +267,25 @@ class MatchmakingRuleSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Rule Set ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the matchmaking rule set.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ruleSetBody")
     def rule_set_body(self) -> pulumi.Output[str]:
+        """
+        JSON encoded string containing rule set data.
+        """
         return pulumi.get(self, "rule_set_body")
 
     @property
@@ -235,5 +296,8 @@ class MatchmakingRuleSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
