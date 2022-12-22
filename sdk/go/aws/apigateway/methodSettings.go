@@ -70,7 +70,7 @@ import (
 //			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
 //				RestApi: exampleRestApi.ID(),
 //				Triggers: pulumi.StringMap{
-//					"redeployment": exampleRestApi.Body.ApplyT(func(body string) (pulumi.String, error) {
+//					"redeployment": exampleRestApi.Body.ApplyT(func(body *string) (pulumi.String, error) {
 //						var _zero pulumi.String
 //						tmpJSON1, err := json.Marshal(body)
 //						if err != nil {

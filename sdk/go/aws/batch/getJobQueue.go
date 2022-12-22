@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = batch.LookupJobQueue(ctx, &batch.LookupJobQueueArgs{
+//			_, err := batch.LookupJobQueue(ctx, &batch.LookupJobQueueArgs{
 //				Name: "tf-test-batch-job-queue",
 //			}, nil)
 //			if err != nil {

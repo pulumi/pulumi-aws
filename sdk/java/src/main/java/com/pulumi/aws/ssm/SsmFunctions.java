@@ -328,7 +328,7 @@ public final class SsmFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -368,7 +368,7 @@ public final class SsmFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -408,7 +408,7 @@ public final class SsmFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -448,7 +448,7 @@ public final class SsmFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -488,7 +488,7 @@ public final class SsmFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -528,7 +528,7 @@ public final class SsmFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

@@ -376,7 +376,7 @@ public final class AutoscalingFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.autoscaling.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -390,7 +390,7 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = AutoscalingFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var foo = AutoscalingFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;foo&#34;)
      *             .build());
      * 
@@ -413,7 +413,7 @@ public final class AutoscalingFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.autoscaling.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -427,7 +427,7 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = AutoscalingFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var foo = AutoscalingFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;foo&#34;)
      *             .build());
      * 
@@ -450,7 +450,7 @@ public final class AutoscalingFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.autoscaling.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -464,7 +464,7 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = AutoscalingFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var foo = AutoscalingFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;foo&#34;)
      *             .build());
      * 
@@ -487,7 +487,7 @@ public final class AutoscalingFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.autoscaling.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -501,7 +501,7 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = AutoscalingFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var foo = AutoscalingFunctions.getGroup(GetGroupArgs.builder()
      *             .name(&#34;foo&#34;)
      *             .build());
      * 

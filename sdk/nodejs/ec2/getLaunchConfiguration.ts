@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", {
         "name": args.name,
     }, opts);
@@ -127,9 +124,22 @@ export interface GetLaunchConfigurationResult {
      */
     readonly vpcClassicLinkSecurityGroups: string[];
 }
-
+/**
+ * Provides information about a Launch Configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ubuntu = aws.ec2.getLaunchConfiguration({
+ *     name: "test-launch-config",
+ * });
+ * ```
+ */
 export function getLaunchConfigurationOutput(args: GetLaunchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchConfigurationResult> {
-    return pulumi.output(args).apply(a => getLaunchConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getLaunchConfiguration(a, opts))
 }
 
 /**

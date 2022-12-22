@@ -31,7 +31,7 @@ public final class GlueFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import com.pulumi.aws.glue.inputs.GetConnectionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -68,7 +68,7 @@ public final class GlueFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import com.pulumi.aws.glue.inputs.GetConnectionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -105,7 +105,7 @@ public final class GlueFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import com.pulumi.aws.glue.inputs.GetConnectionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -142,7 +142,7 @@ public final class GlueFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import com.pulumi.aws.glue.inputs.GetConnectionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = location.LookupMap(ctx, &location.LookupMapArgs{
+//			_, err := location.LookupMap(ctx, &location.LookupMapArgs{
 //				MapName: "example",
 //			}, nil)
 //			if err != nil {

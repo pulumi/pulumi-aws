@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getClusterCredentials(args: GetClusterCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterCredentialsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshift/getClusterCredentials:getClusterCredentials", {
         "autoCreate": args.autoCreate,
         "clusterIdentifier": args.clusterIdentifier,
@@ -88,9 +85,23 @@ export interface GetClusterCredentialsResult {
      */
     readonly id: string;
 }
-
+/**
+ * Provides redshift cluster temporary credentials.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.redshift.getClusterCredentials({
+ *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
+ *     dbUser: aws_redshift_cluster.example.master_username,
+ * });
+ * ```
+ */
 export function getClusterCredentialsOutput(args: GetClusterCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterCredentialsResult> {
-    return pulumi.output(args).apply(a => getClusterCredentials(a, opts))
+    return pulumi.output(args).apply((a: any) => getClusterCredentials(a, opts))
 }
 
 /**

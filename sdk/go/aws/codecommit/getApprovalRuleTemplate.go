@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = codecommit.LookupApprovalRuleTemplate(ctx, &codecommit.LookupApprovalRuleTemplateArgs{
+//			_, err := codecommit.LookupApprovalRuleTemplate(ctx, &codecommit.LookupApprovalRuleTemplateArgs{
 //				Name: "MyExampleApprovalRuleTemplate",
 //			}, nil)
 //			if err != nil {

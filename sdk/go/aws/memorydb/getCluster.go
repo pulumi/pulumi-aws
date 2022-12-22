@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = memorydb.LookupCluster(ctx, &memorydb.LookupClusterArgs{
+//			_, err := memorydb.LookupCluster(ctx, &memorydb.LookupClusterArgs{
 //				Name: "my-cluster",
 //			}, nil)
 //			if err != nil {

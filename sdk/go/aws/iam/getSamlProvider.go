@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = iam.LookupSamlProvider(ctx, &iam.LookupSamlProviderArgs{
+//			_, err := iam.LookupSamlProvider(ctx, &iam.LookupSamlProviderArgs{
 //				Arn: "arn:aws:iam::123456789:saml-provider/myprovider",
 //			}, nil)
 //			if err != nil {

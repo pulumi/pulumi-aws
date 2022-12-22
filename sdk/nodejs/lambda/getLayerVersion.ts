@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lambda/getLayerVersion:getLayerVersion", {
         "compatibleArchitecture": args.compatibleArchitecture,
         "compatibleRuntime": args.compatibleRuntime,
@@ -116,9 +113,24 @@ export interface GetLayerVersionResult {
      */
     readonly version: number;
 }
-
+/**
+ * Provides information about a Lambda Layer Version.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const layerName = config.require("layerName");
+ * const existing = aws.lambda.getLayerVersion({
+ *     layerName: layerName,
+ * });
+ * ```
+ */
 export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerVersionResult> {
-    return pulumi.output(args).apply(a => getLayerVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getLayerVersion(a, opts))
 }
 
 /**

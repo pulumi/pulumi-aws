@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ssm.GetParametersByPath(ctx, &ssm.GetParametersByPathArgs{
+//			_, err := ssm.GetParametersByPath(ctx, &ssm.GetParametersByPathArgs{
 //				Path: "/foo",
 //			}, nil)
 //			if err != nil {

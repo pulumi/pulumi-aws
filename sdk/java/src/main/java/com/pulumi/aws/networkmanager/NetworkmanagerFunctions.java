@@ -55,7 +55,7 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -93,7 +93,7 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -131,7 +131,7 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -169,7 +169,7 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

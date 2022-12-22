@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRegexPatternSet(args: GetRegexPatternSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRegexPatternSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafv2/getRegexPatternSet:getRegexPatternSet", {
         "name": args.name,
         "scope": args.scope,
@@ -71,9 +68,23 @@ export interface GetRegexPatternSetResult {
     readonly regularExpressions: outputs.wafv2.GetRegexPatternSetRegularExpression[];
     readonly scope: string;
 }
-
+/**
+ * Retrieves the summary of a WAFv2 Regex Pattern Set.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.wafv2.getRegexPatternSet({
+ *     name: "some-regex-pattern-set",
+ *     scope: "REGIONAL",
+ * });
+ * ```
+ */
 export function getRegexPatternSetOutput(args: GetRegexPatternSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegexPatternSetResult> {
-    return pulumi.output(args).apply(a => getRegexPatternSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegexPatternSet(a, opts))
 }
 
 /**

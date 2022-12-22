@@ -37,7 +37,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
@@ -98,7 +98,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
@@ -159,7 +159,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
@@ -220,7 +220,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
@@ -674,7 +674,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -747,7 +747,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -820,7 +820,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -893,7 +893,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -966,7 +966,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -1039,7 +1039,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -1111,7 +1111,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1148,7 +1148,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1185,7 +1185,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1222,7 +1222,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

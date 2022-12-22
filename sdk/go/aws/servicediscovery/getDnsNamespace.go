@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = servicediscovery.GetDnsNamespace(ctx, &servicediscovery.GetDnsNamespaceArgs{
+//			_, err := servicediscovery.GetDnsNamespace(ctx, &servicediscovery.GetDnsNamespaceArgs{
 //				Name: "example.service.local",
 //				Type: "DNS_PRIVATE",
 //			}, nil)

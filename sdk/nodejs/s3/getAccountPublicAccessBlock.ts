@@ -18,11 +18,8 @@ import * as utilities from "../utilities";
  */
 export function getAccountPublicAccessBlock(args?: GetAccountPublicAccessBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountPublicAccessBlockResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", {
         "accountId": args.accountId,
     }, opts);
@@ -64,9 +61,20 @@ export interface GetAccountPublicAccessBlockResult {
      */
     readonly restrictPublicBuckets: boolean;
 }
-
+/**
+ * The S3 account public access block data source returns account-level public access block configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.s3.getAccountPublicAccessBlock({});
+ * ```
+ */
 export function getAccountPublicAccessBlockOutput(args?: GetAccountPublicAccessBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountPublicAccessBlockResult> {
-    return pulumi.output(args).apply(a => getAccountPublicAccessBlock(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccountPublicAccessBlock(a, opts))
 }
 
 /**

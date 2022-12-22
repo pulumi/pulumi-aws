@@ -32,13 +32,13 @@ import (
 //			ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 //				MostRecent: pulumi.BoolRef(true),
 //				Filters: []ec2.GetAmiFilter{
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "name",
 //						Values: []string{
 //							"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
 //						},
 //					},
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "virtualization-type",
 //						Values: []string{
 //							"hvm",
@@ -53,7 +53,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
-//				ImageId:      pulumi.String(ubuntu.Id),
+//				ImageId:      *pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("t2.micro"),
 //			})
 //			if err != nil {
@@ -90,13 +90,13 @@ import (
 //			ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 //				MostRecent: pulumi.BoolRef(true),
 //				Filters: []ec2.GetAmiFilter{
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "name",
 //						Values: []string{
 //							"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
 //						},
 //					},
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "virtualization-type",
 //						Values: []string{
 //							"hvm",
@@ -112,7 +112,7 @@ import (
 //			}
 //			asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
 //				NamePrefix:   pulumi.String("lc-example-"),
-//				ImageId:      pulumi.String(ubuntu.Id),
+//				ImageId:      *pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("t2.micro"),
 //			})
 //			if err != nil {
@@ -161,13 +161,13 @@ import (
 //			ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 //				MostRecent: pulumi.BoolRef(true),
 //				Filters: []ec2.GetAmiFilter{
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "name",
 //						Values: []string{
 //							"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
 //						},
 //					},
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "virtualization-type",
 //						Values: []string{
 //							"hvm",
@@ -182,7 +182,7 @@ import (
 //				return err
 //			}
 //			asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
-//				ImageId:      pulumi.String(ubuntu.Id),
+//				ImageId:      *pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("m4.large"),
 //				SpotPrice:    pulumi.String("0.001"),
 //			})

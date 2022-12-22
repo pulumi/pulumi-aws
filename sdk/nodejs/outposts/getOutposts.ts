@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  */
 export function getOutposts(args?: GetOutpostsArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getOutposts:getOutposts", {
         "availabilityZone": args.availabilityZone,
         "availabilityZoneId": args.availabilityZoneId,
@@ -76,9 +73,22 @@ export interface GetOutpostsResult {
     readonly ownerId: string;
     readonly siteId: string;
 }
-
+/**
+ * Provides details about multiple Outposts.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.outposts.getOutposts({
+ *     siteId: data.aws_outposts_site.id,
+ * });
+ * ```
+ */
 export function getOutpostsOutput(args?: GetOutpostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostsResult> {
-    return pulumi.output(args).apply(a => getOutposts(a, opts))
+    return pulumi.output(args).apply((a: any) => getOutposts(a, opts))
 }
 
 /**

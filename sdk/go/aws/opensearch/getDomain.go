@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = opensearch.LookupDomain(ctx, &opensearch.LookupDomainArgs{
+//			_, err := opensearch.LookupDomain(ctx, &opensearch.LookupDomainArgs{
 //				DomainName: "my-domain-name",
 //			}, nil)
 //			if err != nil {

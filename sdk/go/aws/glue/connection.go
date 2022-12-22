@@ -69,7 +69,7 @@ import (
 //				PhysicalConnectionRequirements: &glue.ConnectionPhysicalConnectionRequirementsArgs{
 //					AvailabilityZone: pulumi.Any(aws_subnet.Example.Availability_zone),
 //					SecurityGroupIdLists: pulumi.StringArray{
-//						pulumi.Any(aws_security_group.Example.Id),
+//						aws_security_group.Example.Id,
 //					},
 //					SubnetId: pulumi.Any(aws_subnet.Example.Id),
 //				},
@@ -125,7 +125,7 @@ func NewConnection(ctx *pulumi.Context,
 	}
 
 	if args.ConnectionProperties != nil {
-		args.ConnectionProperties = pulumi.ToSecret(args.ConnectionProperties).(pulumi.StringMapOutput)
+		args.ConnectionProperties = pulumi.ToSecret(args.ConnectionProperties).(pulumi.StringMapInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"connectionProperties",

@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = connect.LookupInstance(ctx, &connect.LookupInstanceArgs{
+//			_, err := connect.LookupInstance(ctx, &connect.LookupInstanceArgs{
 //				InstanceAlias: pulumi.StringRef("foo"),
 //			}, nil)
 //			if err != nil {
@@ -54,7 +54,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = connect.LookupInstance(ctx, &connect.LookupInstanceArgs{
+//			_, err := connect.LookupInstance(ctx, &connect.LookupInstanceArgs{
 //				InstanceId: pulumi.StringRef("97afc98d-101a-ba98-ab97-ae114fc115ec"),
 //			}, nil)
 //			if err != nil {

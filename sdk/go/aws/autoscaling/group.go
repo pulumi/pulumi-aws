@@ -154,8 +154,8 @@ import (
 //				MaxSize:           pulumi.Int(15),
 //				MinSize:           pulumi.Int(12),
 //				VpcZoneIdentifiers: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Example1.Id),
-//					pulumi.Any(aws_subnet.Example2.Id),
+//					aws_subnet.Example1.Id,
+//					aws_subnet.Example2.Id,
 //				},
 //				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
 //					InstancesDistribution: &autoscaling.GroupMixedInstancesPolicyInstancesDistributionArgs{
@@ -337,7 +337,7 @@ import (
 //					"amazon",
 //				},
 //				Filters: []ec2.GetAmiFilter{
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "name",
 //						Values: []string{
 //							"amzn-ami-hvm-*-x86_64-gp2",
@@ -349,7 +349,7 @@ import (
 //				return err
 //			}
 //			exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
-//				ImageId:      pulumi.String(exampleAmi.Id),
+//				ImageId:      *pulumi.String(exampleAmi.Id),
 //				InstanceType: pulumi.String("t3.nano"),
 //			})
 //			if err != nil {

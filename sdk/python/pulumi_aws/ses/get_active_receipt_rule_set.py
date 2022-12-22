@@ -70,6 +70,15 @@ class AwaitableGetActiveReceiptRuleSetResult(GetActiveReceiptRuleSetResult):
 def get_active_receipt_rule_set(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActiveReceiptRuleSetResult:
     """
     Retrieve the active SES receipt rule set
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    main = aws.ses.get_active_receipt_rule_set()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

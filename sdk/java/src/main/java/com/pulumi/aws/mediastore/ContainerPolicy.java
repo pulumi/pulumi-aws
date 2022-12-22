@@ -16,6 +16,60 @@ import javax.annotation.Nullable;
 /**
  * Provides a MediaStore Container Policy.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.mediastore.Container;
+ * import com.pulumi.aws.mediastore.ContainerPolicy;
+ * import com.pulumi.aws.mediastore.ContainerPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var currentRegion = AwsFunctions.getRegion();
+ * 
+ *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ * 
+ *         var exampleContainer = new Container(&#34;exampleContainer&#34;);
+ * 
+ *         var exampleContainerPolicy = new ContainerPolicy(&#34;exampleContainerPolicy&#34;, ContainerPolicyArgs.builder()        
+ *             .containerName(exampleContainer.name())
+ *             .policy(exampleContainer.name().applyValue(name -&gt; &#34;&#34;&#34;
+ * {
+ * 	&#34;Version&#34;: &#34;2012-10-17&#34;,
+ * 	&#34;Statement&#34;: [{
+ * 		&#34;Sid&#34;: &#34;MediaStoreFullAccess&#34;,
+ * 		&#34;Action&#34;: [ &#34;mediastore:*&#34; ],
+ * 		&#34;Principal&#34;: {&#34;AWS&#34; : &#34;arn:aws:iam::%s:root&#34;},
+ * 		&#34;Effect&#34;: &#34;Allow&#34;,
+ * 		&#34;Resource&#34;: &#34;arn:aws:mediastore:%s:%s:container/%s/*&#34;,
+ * 		&#34;Condition&#34;: {
+ * 			&#34;Bool&#34;: { &#34;aws:SecureTransport&#34;: &#34;true&#34; }
+ * 		}
+ * 	}]
+ * }
+ * &#34;, currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),name)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.,

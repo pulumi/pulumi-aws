@@ -32,12 +32,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			dmsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Identifiers: []string{
 //									"dms.amazonaws.com",
 //								},
@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRole(ctx, "dms-access-for-endpoint", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
+//				AssumeRolePolicy: *pulumi.String(dmsAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -64,7 +64,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRole(ctx, "dms-cloudwatch-logs-role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
+//				AssumeRolePolicy: *pulumi.String(dmsAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -77,7 +77,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
+//				AssumeRolePolicy: *pulumi.String(dmsAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err

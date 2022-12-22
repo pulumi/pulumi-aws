@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", {
         "replicationGroupId": args.replicationGroupId,
     }, opts);
@@ -132,9 +129,22 @@ export interface GetReplicationGroupResult {
      */
     readonly snapshotWindow: string;
 }
-
+/**
+ * Use this data source to get information about an ElastiCache Replication Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const bar = aws.elasticache.getReplicationGroup({
+ *     replicationGroupId: "example",
+ * });
+ * ```
+ */
 export function getReplicationGroupOutput(args: GetReplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationGroupResult> {
-    return pulumi.output(args).apply(a => getReplicationGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplicationGroup(a, opts))
 }
 
 /**

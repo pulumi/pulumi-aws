@@ -163,7 +163,7 @@ func NewDatabase(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RelationalDatabaseName'")
 	}
 	if args.MasterPassword != nil {
-		args.MasterPassword = pulumi.ToSecret(args.MasterPassword).(pulumi.StringOutput)
+		args.MasterPassword = pulumi.ToSecret(args.MasterPassword).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"masterPassword",

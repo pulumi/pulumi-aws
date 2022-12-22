@@ -28,11 +28,8 @@ import * as utilities from "../utilities";
  */
 export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getInternetGateway:getInternetGateway", {
         "filters": args.filters,
         "internetGatewayId": args.internetGatewayId,
@@ -80,9 +77,27 @@ export interface GetInternetGatewayResult {
     readonly ownerId: string;
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const vpcId = config.requireObject("vpcId");
+ * const default = aws.ec2.getInternetGateway({
+ *     filters: [{
+ *         name: "attachment.vpc-id",
+ *         values: [vpcId],
+ *     }],
+ * });
+ * ```
+ */
 export function getInternetGatewayOutput(args?: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayResult> {
-    return pulumi.output(args).apply(a => getInternetGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getInternetGateway(a, opts))
 }
 
 /**

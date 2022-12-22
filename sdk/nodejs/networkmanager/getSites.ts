@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSites(args: GetSitesArgs, opts?: pulumi.InvokeOptions): Promise<GetSitesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getSites:getSites", {
         "globalNetworkId": args.globalNetworkId,
         "tags": args.tags,
@@ -62,9 +59,25 @@ export interface GetSitesResult {
     readonly ids: string[];
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Retrieve information about sites.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getSites({
+ *     globalNetworkId: _var.global_network_id,
+ *     tags: {
+ *         Env: "test",
+ *     },
+ * });
+ * ```
+ */
 export function getSitesOutput(args: GetSitesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSitesResult> {
-    return pulumi.output(args).apply(a => getSites(a, opts))
+    return pulumi.output(args).apply((a: any) => getSites(a, opts))
 }
 
 /**

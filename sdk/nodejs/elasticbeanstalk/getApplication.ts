@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticbeanstalk/getApplication:getApplication", {
         "name": args.name,
     }, opts);
@@ -63,9 +60,24 @@ export interface GetApplicationResult {
     readonly id: string;
     readonly name: string;
 }
-
+/**
+ * Retrieve information about an Elastic Beanstalk Application.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.elasticbeanstalk.getApplication({
+ *     name: "example",
+ * });
+ * export const arn = example.then(example => example.arn);
+ * export const description = example.then(example => example.description);
+ * ```
+ */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply(a => getApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 /**

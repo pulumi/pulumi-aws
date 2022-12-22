@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getImagePipeline(args: GetImagePipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getImagePipeline:getImagePipeline", {
         "arn": args.arn,
         "tags": args.tags,
@@ -121,9 +118,22 @@ export interface GetImagePipelineResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides details about an Image Builder Image Pipeline.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.imagebuilder.getImagePipeline({
+ *     arn: "arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example",
+ * });
+ * ```
+ */
 export function getImagePipelineOutput(args: GetImagePipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagePipelineResult> {
-    return pulumi.output(args).apply(a => getImagePipeline(a, opts))
+    return pulumi.output(args).apply((a: any) => getImagePipeline(a, opts))
 }
 
 /**

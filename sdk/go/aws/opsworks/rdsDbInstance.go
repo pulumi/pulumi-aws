@@ -74,7 +74,7 @@ func NewRdsDbInstance(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
 	if args.DbPassword != nil {
-		args.DbPassword = pulumi.ToSecret(args.DbPassword).(pulumi.StringOutput)
+		args.DbPassword = pulumi.ToSecret(args.DbPassword).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"dbPassword",

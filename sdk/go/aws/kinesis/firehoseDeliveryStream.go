@@ -25,7 +25,6 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
@@ -413,11 +412,11 @@ import (
 //				},
 //				VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
 //					SecurityGroupIds: pulumi.StringArray{
-//						pulumi.Any(aws_security_group.First.Id),
+//						aws_security_group.First.Id,
 //					},
 //					SubnetIds: pulumi.StringArray{
-//						pulumi.Any(aws_subnet.First.Id),
-//						pulumi.Any(aws_subnet.Second.Id),
+//						aws_subnet.First.Id,
+//						aws_subnet.Second.Id,
 //					},
 //				},
 //			})
@@ -481,11 +480,11 @@ import (
 //					TypeName:  pulumi.String("test"),
 //					VpcConfig: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs{
 //						SubnetIds: pulumi.StringArray{
-//							pulumi.Any(aws_subnet.First.Id),
-//							pulumi.Any(aws_subnet.Second.Id),
+//							aws_subnet.First.Id,
+//							aws_subnet.Second.Id,
 //						},
 //						SecurityGroupIds: pulumi.StringArray{
-//							pulumi.Any(aws_security_group.First.Id),
+//							aws_security_group.First.Id,
 //						},
 //						RoleArn: pulumi.Any(aws_iam_role.Firehose.Arn),
 //					},

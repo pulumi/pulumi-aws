@@ -34,11 +34,8 @@ import * as utilities from "../utilities";
  */
 export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getSecret:getSecret", {
         "arn": args.arn,
         "name": args.name,
@@ -107,9 +104,33 @@ export interface GetSecretResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
+ *
+ * ## Example Usage
+ * ### ARN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const by-arn = aws.secretsmanager.getSecret({
+ *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
+ * });
+ * ```
+ * ### Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const by-name = aws.secretsmanager.getSecret({
+ *     name: "example",
+ * });
+ * ```
+ */
 export function getSecretOutput(args?: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
-    return pulumi.output(args).apply(a => getSecret(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecret(a, opts))
 }
 
 /**

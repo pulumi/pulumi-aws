@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = storagegateway.NewUploadBuffer(ctx, "testUploadBuffer", &storagegateway.UploadBufferArgs{
-//				DiskPath:   pulumi.String(testLocalDisk.DiskPath),
+//				DiskPath:   *pulumi.String(testLocalDisk.DiskPath),
 //				GatewayArn: pulumi.Any(aws_storagegateway_gateway.Test.Arn),
 //			})
 //			if err != nil {
@@ -63,7 +63,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
+//			_, err := storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
 //				DiskNode:   pulumi.StringRef(aws_volume_attachment.Test.Device_name),
 //				GatewayArn: aws_storagegateway_gateway.Test.Arn,
 //			}, nil)

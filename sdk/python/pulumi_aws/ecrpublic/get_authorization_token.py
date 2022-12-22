@@ -94,6 +94,15 @@ class AwaitableGetAuthorizationTokenResult(GetAuthorizationTokenResult):
 def get_authorization_token(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationTokenResult:
     """
     The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name and password to be retrieved for a Public ECR repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    token = aws.ecrpublic.get_authorization_token()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = s3.LookupAccountPublicAccessBlock(ctx, nil, nil)
+//			_, err := s3.LookupAccountPublicAccessBlock(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}

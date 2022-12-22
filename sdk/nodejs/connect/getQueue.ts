@@ -37,11 +37,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getQueue:getQueue", {
         "instanceId": args.instanceId,
         "name": args.name,
@@ -115,9 +112,37 @@ export interface GetQueueResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides details about a specific Amazon Connect Queue.
+ *
+ * ## Example Usage
+ *
+ * By `name`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getQueue({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example",
+ * });
+ * ```
+ *
+ * By `queueId`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getQueue({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     queueId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
-    return pulumi.output(args).apply(a => getQueue(a, opts))
+    return pulumi.output(args).apply((a: any) => getQueue(a, opts))
 }
 
 /**

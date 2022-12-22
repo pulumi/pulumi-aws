@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLambdaFunctionAssociation(args: GetLambdaFunctionAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLambdaFunctionAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", {
         "functionArn": args.functionArn,
         "instanceId": args.instanceId,
@@ -56,9 +53,23 @@ export interface GetLambdaFunctionAssociationResult {
     readonly id: string;
     readonly instanceId: string;
 }
-
+/**
+ * Provides details about a specific Connect Lambda Function Association.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getLambdaFunctionAssociation({
+ *     functionArn: "arn:aws:lambda:us-west-2:123456789123:function:abcdefg",
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getLambdaFunctionAssociationOutput(args: GetLambdaFunctionAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLambdaFunctionAssociationResult> {
-    return pulumi.output(args).apply(a => getLambdaFunctionAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getLambdaFunctionAssociation(a, opts))
 }
 
 /**

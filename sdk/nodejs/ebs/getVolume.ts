@@ -34,11 +34,8 @@ import * as utilities from "../utilities";
  */
 export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ebs/getVolume:getVolume", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,
@@ -130,9 +127,33 @@ export interface GetVolumeResult {
      */
     readonly volumeType: string;
 }
-
+/**
+ * Use this data source to get information about an EBS volume for use in other
+ * resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ebsVolume = aws.ebs.getVolume({
+ *     filters: [
+ *         {
+ *             name: "volume-type",
+ *             values: ["gp2"],
+ *         },
+ *         {
+ *             name: "tag:Name",
+ *             values: ["Example"],
+ *         },
+ *     ],
+ *     mostRecent: true,
+ * });
+ * ```
+ */
 export function getVolumeOutput(args?: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    return pulumi.output(args).apply(a => getVolume(a, opts))
+    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
 }
 
 /**

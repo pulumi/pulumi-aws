@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getKey:getKey", {
         "id": args.id,
         "tags": args.tags,
@@ -82,9 +79,23 @@ export interface GetKeyResult {
      */
     readonly value: string;
 }
-
+/**
+ * Use this data source to get the name and value of a pre-existing API Key, for
+ * example to supply credentials for a dependency microservice.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myApiKey = aws.apigateway.getKey({
+ *     id: "ru3mpjgse6",
+ * });
+ * ```
+ */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
-    return pulumi.output(args).apply(a => getKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getKey(a, opts))
 }
 
 /**

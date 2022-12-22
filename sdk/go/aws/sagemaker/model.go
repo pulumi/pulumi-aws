@@ -32,12 +32,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Type: "Service",
 //								Identifiers: []string{
 //									"sagemaker.amazonaws.com",
@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -65,7 +65,7 @@ import (
 //			_, err = sagemaker.NewModel(ctx, "exampleModel", &sagemaker.ModelArgs{
 //				ExecutionRoleArn: exampleRole.Arn,
 //				PrimaryContainer: &sagemaker.ModelPrimaryContainerArgs{
-//					Image: pulumi.String(test.RegistryPath),
+//					Image: *pulumi.String(test.RegistryPath),
 //				},
 //			})
 //			if err != nil {

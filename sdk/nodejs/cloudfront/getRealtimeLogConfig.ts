@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRealtimeLogConfig(args: GetRealtimeLogConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetRealtimeLogConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", {
         "name": args.name,
     }, opts);
@@ -68,9 +65,22 @@ export interface GetRealtimeLogConfigResult {
      */
     readonly samplingRate: number;
 }
-
+/**
+ * Provides a CloudFront real-time log configuration resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.cloudfront.getRealtimeLogConfig({
+ *     name: "example",
+ * });
+ * ```
+ */
 export function getRealtimeLogConfigOutput(args: GetRealtimeLogConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRealtimeLogConfigResult> {
-    return pulumi.output(args).apply(a => getRealtimeLogConfig(a, opts))
+    return pulumi.output(args).apply((a: any) => getRealtimeLogConfig(a, opts))
 }
 
 /**

@@ -18,11 +18,8 @@ import * as utilities from "../utilities";
  */
 export function getAuthorizationToken(args?: GetAuthorizationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationTokenResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getAuthorizationToken:getAuthorizationToken", {
         "registryId": args.registryId,
     }, opts);
@@ -68,9 +65,20 @@ export interface GetAuthorizationTokenResult {
      */
     readonly userName: string;
 }
-
+/**
+ * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const token = aws.ecr.getAuthorizationToken({});
+ * ```
+ */
 export function getAuthorizationTokenOutput(args?: GetAuthorizationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationTokenResult> {
-    return pulumi.output(args).apply(a => getAuthorizationToken(a, opts))
+    return pulumi.output(args).apply((a: any) => getAuthorizationToken(a, opts))
 }
 
 /**

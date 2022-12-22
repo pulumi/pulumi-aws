@@ -27,11 +27,8 @@ import * as utilities from "../utilities";
  */
 export function getContainerRecipes(args?: GetContainerRecipesArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRecipesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getContainerRecipes:getContainerRecipes", {
         "filters": args.filters,
         "owner": args.owner,
@@ -71,9 +68,26 @@ export interface GetContainerRecipesResult {
     readonly names: string[];
     readonly owner?: string;
 }
-
+/**
+ * Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.imagebuilder.getContainerRecipes({
+ *     filters: [{
+ *         name: "platform",
+ *         values: ["Linux"],
+ *     }],
+ *     owner: "Self",
+ * });
+ * ```
+ */
 export function getContainerRecipesOutput(args?: GetContainerRecipesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRecipesResult> {
-    return pulumi.output(args).apply(a => getContainerRecipes(a, opts))
+    return pulumi.output(args).apply((a: any) => getContainerRecipes(a, opts))
 }
 
 /**

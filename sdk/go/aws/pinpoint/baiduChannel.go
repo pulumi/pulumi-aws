@@ -84,10 +84,10 @@ func NewBaiduChannel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SecretKey'")
 	}
 	if args.ApiKey != nil {
-		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringOutput)
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringInput)
 	}
 	if args.SecretKey != nil {
-		args.SecretKey = pulumi.ToSecret(args.SecretKey).(pulumi.StringOutput)
+		args.SecretKey = pulumi.ToSecret(args.SecretKey).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"apiKey",

@@ -35,13 +35,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
 //						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Identifiers: []string{
 //									"cloudformation.amazonaws.com",
 //								},
@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			aWSCloudFormationStackSetAdministrationRole, err := iam.NewRole(ctx, "aWSCloudFormationStackSetAdministrationRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Json),
+//				AssumeRolePolicy: *pulumi.String(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -108,9 +108,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", &iam.RolePolicyArgs{
-//				Policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.ApplyT(func(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
-//					return aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.Json, nil
-//				}).(pulumi.StringOutput),
+//				Policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.ApplyT(func(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //				Role: aWSCloudFormationStackSetAdministrationRole.Name,
 //			})
 //			if err != nil {

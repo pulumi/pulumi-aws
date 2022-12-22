@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRateBasedMod(args: GetRateBasedModArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedModResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", {
         "name": args.name,
     }, opts);
@@ -49,9 +46,22 @@ export interface GetRateBasedModResult {
     readonly id: string;
     readonly name: string;
 }
-
+/**
+ * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.wafregional.getRateBasedMod({
+ *     name: "tfWAFRegionalRateBasedRule",
+ * });
+ * ```
+ */
 export function getRateBasedModOutput(args: GetRateBasedModOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRateBasedModResult> {
-    return pulumi.output(args).apply(a => getRateBasedMod(a, opts))
+    return pulumi.output(args).apply((a: any) => getRateBasedMod(a, opts))
 }
 
 /**

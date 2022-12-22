@@ -27,9 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2clientvpn.LookupEndpoint(ctx, &ec2clientvpn.LookupEndpointArgs{
+//			_, err := ec2clientvpn.LookupEndpoint(ctx, &ec2clientvpn.LookupEndpointArgs{
 //				Filters: []ec2clientvpn.GetEndpointFilter{
-//					ec2clientvpn.GetEndpointFilter{
+//					{
 //						Name: "tag:Name",
 //						Values: []string{
 //							"ExampleVpn",
@@ -59,7 +59,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2clientvpn.LookupEndpoint(ctx, &ec2clientvpn.LookupEndpointArgs{
+//			_, err := ec2clientvpn.LookupEndpoint(ctx, &ec2clientvpn.LookupEndpointArgs{
 //				ClientVpnEndpointId: pulumi.StringRef("cvpn-endpoint-083cf50d6eb314f21"),
 //			}, nil)
 //			if err != nil {

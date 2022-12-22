@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPortfolio(args: GetPortfolioArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getPortfolio:getPortfolio", {
         "acceptLanguage": args.acceptLanguage,
         "id": args.id,
@@ -80,9 +77,22 @@ export interface GetPortfolioResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides information for a Service Catalog Portfolio.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const portfolio = aws.servicecatalog.getPortfolio({
+ *     id: "port-07052002",
+ * });
+ * ```
+ */
 export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioResult> {
-    return pulumi.output(args).apply(a => getPortfolio(a, opts))
+    return pulumi.output(args).apply((a: any) => getPortfolio(a, opts))
 }
 
 /**

@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  */
 export function getLocalGatewayRouteTables(args?: GetLocalGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTablesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", {
         "filters": args.filters,
         "tags": args.tags,
@@ -65,9 +62,23 @@ export interface GetLocalGatewayRouteTablesResult {
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
+ *
+ * ## Example Usage
+ *
+ * The following shows outputing all Local Gateway Route Table Ids.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fooLocalGatewayRouteTables = aws.ec2.getLocalGatewayRouteTables({});
+ * export const foo = fooLocalGatewayRouteTables.then(fooLocalGatewayRouteTables => fooLocalGatewayRouteTables.ids);
+ * ```
+ */
 export function getLocalGatewayRouteTablesOutput(args?: GetLocalGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteTablesResult> {
-    return pulumi.output(args).apply(a => getLocalGatewayRouteTables(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocalGatewayRouteTables(a, opts))
 }
 
 /**

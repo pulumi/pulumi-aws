@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserHierarchyStructure(args: GetUserHierarchyStructureArgs, opts?: pulumi.InvokeOptions): Promise<GetUserHierarchyStructureResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", {
         "instanceId": args.instanceId,
     }, opts);
@@ -56,9 +53,22 @@ export interface GetUserHierarchyStructureResult {
     readonly id: string;
     readonly instanceId: string;
 }
-
+/**
+ * Provides details about a specific Amazon Connect User Hierarchy Structure
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.connect.getUserHierarchyStructure({
+ *     instanceId: aws_connect_instance.test.id,
+ * });
+ * ```
+ */
 export function getUserHierarchyStructureOutput(args: GetUserHierarchyStructureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserHierarchyStructureResult> {
-    return pulumi.output(args).apply(a => getUserHierarchyStructure(a, opts))
+    return pulumi.output(args).apply((a: any) => getUserHierarchyStructure(a, opts))
 }
 
 /**

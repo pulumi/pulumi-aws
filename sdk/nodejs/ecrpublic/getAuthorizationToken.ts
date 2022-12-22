@@ -6,13 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name and password to be retrieved for a Public ECR repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const token = aws.ecrpublic.getAuthorizationToken({});
+ * ```
  */
 export function getAuthorizationToken(opts?: pulumi.InvokeOptions): Promise<GetAuthorizationTokenResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", {
     }, opts);
 }

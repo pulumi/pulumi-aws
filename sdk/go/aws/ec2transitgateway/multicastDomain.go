@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
+//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
 //				State: pulumi.StringRef("available"),
 //			}, nil)
 //			if err != nil {
@@ -41,13 +41,13 @@ import (
 //					"amazon",
 //				},
 //				Filters: []ec2.GetAmiFilter{
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "name",
 //						Values: []string{
 //							"amzn-ami-hvm-*-x86_64-gp2",
 //						},
 //					},
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "owner-alias",
 //						Values: []string{
 //							"amazon",
@@ -73,7 +73,7 @@ import (
 //			subnet1, err := ec2.NewSubnet(ctx, "subnet1", &ec2.SubnetArgs{
 //				VpcId:            vpc1.ID(),
 //				CidrBlock:        pulumi.String("10.0.1.0/24"),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
+//				AvailabilityZone: *pulumi.String(available.Names[0]),
 //			})
 //			if err != nil {
 //				return err
@@ -81,7 +81,7 @@ import (
 //			subnet2, err := ec2.NewSubnet(ctx, "subnet2", &ec2.SubnetArgs{
 //				VpcId:            vpc1.ID(),
 //				CidrBlock:        pulumi.String("10.0.2.0/24"),
-//				AvailabilityZone: pulumi.String(available.Names[1]),
+//				AvailabilityZone: *pulumi.String(available.Names[1]),
 //			})
 //			if err != nil {
 //				return err
@@ -89,13 +89,13 @@ import (
 //			subnet3, err := ec2.NewSubnet(ctx, "subnet3", &ec2.SubnetArgs{
 //				VpcId:            vpc2.ID(),
 //				CidrBlock:        pulumi.String("10.1.1.0/24"),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
+//				AvailabilityZone: *pulumi.String(available.Names[0]),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			instance1, err := ec2.NewInstance(ctx, "instance1", &ec2.InstanceArgs{
-//				Ami:          pulumi.String(amazonLinux.Id),
+//				Ami:          *pulumi.String(amazonLinux.Id),
 //				InstanceType: pulumi.String("t2.micro"),
 //				SubnetId:     subnet1.ID(),
 //			})
@@ -103,7 +103,7 @@ import (
 //				return err
 //			}
 //			instance2, err := ec2.NewInstance(ctx, "instance2", &ec2.InstanceArgs{
-//				Ami:          pulumi.String(amazonLinux.Id),
+//				Ami:          *pulumi.String(amazonLinux.Id),
 //				InstanceType: pulumi.String("t2.micro"),
 //				SubnetId:     subnet2.ID(),
 //			})
@@ -111,7 +111,7 @@ import (
 //				return err
 //			}
 //			instance3, err := ec2.NewInstance(ctx, "instance3", &ec2.InstanceArgs{
-//				Ami:          pulumi.String(amazonLinux.Id),
+//				Ami:          *pulumi.String(amazonLinux.Id),
 //				InstanceType: pulumi.String("t2.micro"),
 //				SubnetId:     subnet3.ID(),
 //			})

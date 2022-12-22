@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLocation(args: GetLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getLocation:getLocation", {
         "locationCode": args.locationCode,
     }, opts);
@@ -68,9 +65,25 @@ export interface GetLocationResult {
      */
     readonly locationName: string;
 }
-
+/**
+ * Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
+ * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
+ *
+ * > **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.directconnect.getLocation({
+ *     locationCode: "CS32A-24FL",
+ * });
+ * ```
+ */
 export function getLocationOutput(args: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
-    return pulumi.output(args).apply(a => getLocation(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocation(a, opts))
 }
 
 /**

@@ -115,6 +115,45 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// });
     /// ```
+    /// ### Example IAM Role for GameLift Game Server Group
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetPartition.Invoke();
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": [
+    ///           ""autoscaling.amazonaws.com"",
+    ///           ""gamelift.amazonaws.com""
+    ///         ]
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     {
+    ///         PolicyArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::aws:policy/GameLiftGameServerGroupPolicy",
+    ///         Role = exampleRole.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

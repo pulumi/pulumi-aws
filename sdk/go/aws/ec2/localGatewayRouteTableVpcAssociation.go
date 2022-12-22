@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewLocalGatewayRouteTableVpcAssociation(ctx, "exampleLocalGatewayRouteTableVpcAssociation", &ec2.LocalGatewayRouteTableVpcAssociationArgs{
-//				LocalGatewayRouteTableId: pulumi.String(exampleLocalGatewayRouteTable.Id),
+//				LocalGatewayRouteTableId: *pulumi.String(exampleLocalGatewayRouteTable.Id),
 //				VpcId:                    exampleVpc.ID(),
 //			})
 //			if err != nil {

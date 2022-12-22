@@ -46,11 +46,8 @@ import * as utilities from "../utilities";
  */
 export function getResolverRules(args?: GetResolverRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRulesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverRules:getResolverRules", {
         "nameRegex": args.nameRegex,
         "ownerId": args.ownerId,
@@ -106,9 +103,48 @@ export interface GetResolverRulesResult {
     readonly ruleType?: string;
     readonly shareStatus?: string;
 }
-
+/**
+ * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
+ *
+ * ## Example Usage
+ * ### Retrieving the default resolver rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.route53.getResolverRules({
+ *     ownerId: "Route 53 Resolver",
+ *     ruleType: "RECURSIVE",
+ *     shareStatus: "NOT_SHARED",
+ * });
+ * ```
+ * ### Retrieving forward rules shared with me
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.route53.getResolverRules({
+ *     ruleType: "FORWARD",
+ *     shareStatus: "SHARED_WITH_ME",
+ * });
+ * ```
+ * ### Retrieving rules by name regex
+ *
+ * Resolver rules whose name contains `abc`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.route53.getResolverRules({
+ *     nameRegex: ".*abc.*",
+ * });
+ * ```
+ */
 export function getResolverRulesOutput(args?: GetResolverRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRulesResult> {
-    return pulumi.output(args).apply(a => getResolverRules(a, opts))
+    return pulumi.output(args).apply((a: any) => getResolverRules(a, opts))
 }
 
 /**

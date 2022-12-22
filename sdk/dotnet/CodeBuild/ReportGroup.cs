@@ -12,6 +12,61 @@ namespace Pulumi.Aws.CodeBuild
     /// <summary>
     /// Provides a CodeBuild Report Groups Resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     {
+    ///         Description = "my test kms key",
+    ///         DeletionWindowInDays = 7,
+    ///         Policy = @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Id"": ""kms-tf-1"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Sid"": ""Enable IAM User Permissions"",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {{
+    ///         ""AWS"": ""arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root""
+    ///       }},
+    ///       ""Action"": ""kms:*"",
+    ///       ""Resource"": ""*""
+    ///     }}
+    ///   ]
+    /// }}
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// 
+    ///     var exampleReportGroup = new Aws.CodeBuild.ReportGroup("exampleReportGroup", new()
+    ///     {
+    ///         Type = "TEST",
+    ///         ExportConfig = new Aws.CodeBuild.Inputs.ReportGroupExportConfigArgs
+    ///         {
+    ///             Type = "S3",
+    ///             S3Destination = new Aws.CodeBuild.Inputs.ReportGroupExportConfigS3DestinationArgs
+    ///             {
+    ///                 Bucket = exampleBucketV2.Id,
+    ///                 EncryptionDisabled = false,
+    ///                 EncryptionKey = exampleKey.Arn,
+    ///                 Packaging = "NONE",
+    ///                 Path = "/some",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// CodeBuild Report Group can be imported using the CodeBuild Report Group arn, e.g.,

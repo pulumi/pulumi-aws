@@ -85,10 +85,10 @@ func NewAdmChannel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ClientSecret'")
 	}
 	if args.ClientId != nil {
-		args.ClientId = pulumi.ToSecret(args.ClientId).(pulumi.StringOutput)
+		args.ClientId = pulumi.ToSecret(args.ClientId).(pulumi.StringInput)
 	}
 	if args.ClientSecret != nil {
-		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringOutput)
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"clientId",

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = cloudcontrol.LookupResource(ctx, &cloudcontrol.LookupResourceArgs{
+//			_, err := cloudcontrol.LookupResource(ctx, &cloudcontrol.LookupResourceArgs{
 //				Identifier: "example",
 //				TypeName:   "AWS::ECS::Cluster",
 //			}, nil)

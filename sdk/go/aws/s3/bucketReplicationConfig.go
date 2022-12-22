@@ -306,7 +306,7 @@ func NewBucketReplicationConfig(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
 	if args.Token != nil {
-		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringPtrOutput)
+		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"token",

@@ -26,10 +26,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.GetSpotPrice(ctx, &ec2.GetSpotPriceArgs{
+//			_, err := ec2.GetSpotPrice(ctx, &ec2.GetSpotPriceArgs{
 //				AvailabilityZone: pulumi.StringRef("us-west-2a"),
 //				Filters: []ec2.GetSpotPriceFilter{
-//					ec2.GetSpotPriceFilter{
+//					{
 //						Name: "product-description",
 //						Values: []string{
 //							"Linux/UNIX",

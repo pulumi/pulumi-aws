@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getConnection:getConnection", {
         "connectionId": args.connectionId,
         "globalNetworkId": args.globalNetworkId,
@@ -89,9 +86,23 @@ export interface GetConnectionResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Retrieve information about a connection.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getConnection({
+ *     globalNetworkId: _var.global_network_id,
+ *     connectionId: _var.connection_id,
+ * });
+ * ```
+ */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
-    return pulumi.output(args).apply(a => getConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnection(a, opts))
 }
 
 /**

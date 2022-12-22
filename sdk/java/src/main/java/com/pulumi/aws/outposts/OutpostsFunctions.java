@@ -1085,7 +1085,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1122,7 +1122,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1159,7 +1159,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1196,7 +1196,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1233,7 +1233,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1270,7 +1270,7 @@ public final class OutpostsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1299,12 +1299,66 @@ public final class OutpostsFunctions {
     /**
      * Provides details about multiple Outposts Sites.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OutpostsFunctions.getSites();
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetSitesResult> getSites() {
         return getSites(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides details about multiple Outposts Sites.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OutpostsFunctions.getSites();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetSitesResult> getSitesPlain() {
@@ -1313,12 +1367,66 @@ public final class OutpostsFunctions {
     /**
      * Provides details about multiple Outposts Sites.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OutpostsFunctions.getSites();
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetSitesResult> getSites(InvokeArgs args) {
         return getSites(args, InvokeOptions.Empty);
     }
     /**
      * Provides details about multiple Outposts Sites.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OutpostsFunctions.getSites();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetSitesResult> getSitesPlain(InvokeArgs args) {
@@ -1327,12 +1435,66 @@ public final class OutpostsFunctions {
     /**
      * Provides details about multiple Outposts Sites.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OutpostsFunctions.getSites();
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetSitesResult> getSites(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:outposts/getSites:getSites", TypeShape.of(GetSitesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about multiple Outposts Sites.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OutpostsFunctions.getSites();
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetSitesResult> getSitesPlain(InvokeArgs args, InvokeOptions options) {

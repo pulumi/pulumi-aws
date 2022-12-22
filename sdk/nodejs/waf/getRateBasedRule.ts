@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRateBasedRule(args: GetRateBasedRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:waf/getRateBasedRule:getRateBasedRule", {
         "name": args.name,
     }, opts);
@@ -49,9 +46,22 @@ export interface GetRateBasedRuleResult {
     readonly id: string;
     readonly name: string;
 }
-
+/**
+ * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.waf.getRateBasedRule({
+ *     name: "tfWAFRateBasedRule",
+ * });
+ * ```
+ */
 export function getRateBasedRuleOutput(args: GetRateBasedRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRateBasedRuleResult> {
-    return pulumi.output(args).apply(a => getRateBasedRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getRateBasedRule(a, opts))
 }
 
 /**

@@ -65,7 +65,7 @@ import (
 //			_, err = ecs.NewService(ctx, "mongoService", &ecs.ServiceArgs{
 //				Cluster:        foo.ID(),
 //				DesiredCount:   pulumi.Int(2),
-//				TaskDefinition: pulumi.String(mongoTaskDefinition.Arn),
+//				TaskDefinition: *pulumi.String(mongoTaskDefinition.Arn),
 //			})
 //			if err != nil {
 //				return err

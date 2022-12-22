@@ -27,9 +27,9 @@ import * as utilities from "./utilities";
  * const available = aws.getAvailabilityZones({
  *     state: "available",
  * });
- * const primary = new aws.ec2.Subnet("primary", {availabilityZone: available.then(available => available.names?[0])});
+ * const primary = new aws.ec2.Subnet("primary", {availabilityZone: available.then(available => available.names?.[0])});
  * // ...
- * const secondary = new aws.ec2.Subnet("secondary", {availabilityZone: available.then(available => available.names?[1])});
+ * const secondary = new aws.ec2.Subnet("secondary", {availabilityZone: available.then(available => available.names?.[1])});
  * // ...
  * ```
  * ### By Filter
@@ -68,11 +68,8 @@ import * as utilities from "./utilities";
  */
 export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZonesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getAvailabilityZones:getAvailabilityZones", {
         "allAvailabilityZones": args.allAvailabilityZones,
         "excludeNames": args.excludeNames,
@@ -134,9 +131,67 @@ export interface GetAvailabilityZonesResult {
      */
     readonly zoneIds: string[];
 }
-
+/**
+ * The Availability Zones data source allows access to the list of AWS
+ * Availability Zones which can be accessed by an AWS account within the region
+ * configured in the provider.
+ *
+ * This is different from the `aws.getAvailabilityZone` (singular) data source,
+ * which provides some details about a specific availability zone.
+ *
+ * > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
+ *
+ * ## Example Usage
+ * ### By State
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const available = aws.getAvailabilityZones({
+ *     state: "available",
+ * });
+ * const primary = new aws.ec2.Subnet("primary", {availabilityZone: available.then(available => available.names?.[0])});
+ * // ...
+ * const secondary = new aws.ec2.Subnet("secondary", {availabilityZone: available.then(available => available.names?.[1])});
+ * // ...
+ * ```
+ * ### By Filter
+ *
+ * All Local Zones (regardless of opt-in status):
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.getAvailabilityZones({
+ *     allAvailabilityZones: true,
+ *     filters: [{
+ *         name: "opt-in-status",
+ *         values: [
+ *             "not-opted-in",
+ *             "opted-in",
+ *         ],
+ *     }],
+ * });
+ * ```
+ *
+ * Only Availability Zones (no Local Zones):
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.getAvailabilityZones({
+ *     filters: [{
+ *         name: "opt-in-status",
+ *         values: ["opt-in-not-required"],
+ *     }],
+ * });
+ * ```
+ */
 export function getAvailabilityZonesOutput(args?: GetAvailabilityZonesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityZonesResult> {
-    return pulumi.output(args).apply(a => getAvailabilityZones(a, opts))
+    return pulumi.output(args).apply((a: any) => getAvailabilityZones(a, opts))
 }
 
 /**

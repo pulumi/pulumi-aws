@@ -28,11 +28,8 @@ import * as utilities from "../utilities";
  */
 export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lb/getHostedZoneId:getHostedZoneId", {
         "loadBalancerType": args.loadBalancerType,
         "region": args.region,
@@ -65,9 +62,30 @@ export interface GetHostedZoneIdResult {
     readonly loadBalancerType?: string;
     readonly region?: string;
 }
-
+/**
+ * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = aws.lb.getHostedZoneId({});
+ * const www = new aws.route53.Record("www", {
+ *     zoneId: aws_route53_zone.primary.zone_id,
+ *     name: "example.com",
+ *     type: "A",
+ *     aliases: [{
+ *         name: aws_lb.main.dns_name,
+ *         zoneId: main.then(main => main.id),
+ *         evaluateTargetHealth: true,
+ *     }],
+ * });
+ * ```
+ */
 export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneIdResult> {
-    return pulumi.output(args).apply(a => getHostedZoneId(a, opts))
+    return pulumi.output(args).apply((a: any) => getHostedZoneId(a, opts))
 }
 
 /**

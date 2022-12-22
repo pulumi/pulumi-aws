@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
 /** @deprecated aws.cloudtrail.getFunction has been deprecated in favor of aws.cloudfront.getFunction */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
     pulumi.log.warn("getFunction is deprecated: aws.cloudtrail.getFunction has been deprecated in favor of aws.cloudfront.getFunction")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudtrail/getFunction:getFunction", {
         "name": args.name,
         "stage": args.stage,
@@ -87,9 +84,25 @@ export interface GetFunctionResult {
      */
     readonly status: string;
 }
-
+/**
+ * Provides information about a CloudFront Function.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const functionName = config.require("functionName");
+ * const existing = aws.cloudfront.getFunction({
+ *     name: functionName,
+ * });
+ * ```
+ */
+/** @deprecated aws.cloudtrail.getFunction has been deprecated in favor of aws.cloudfront.getFunction */
 export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
-    return pulumi.output(args).apply(a => getFunction(a, opts))
+    return pulumi.output(args).apply((a: any) => getFunction(a, opts))
 }
 
 /**

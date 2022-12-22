@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetJobQueueResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:batch/getJobQueue:getJobQueue", {
         "name": args.name,
         "tags": args.tags,
@@ -95,9 +92,23 @@ export interface GetJobQueueResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * The Batch Job Queue data source allows access to details of a specific
+ * job queue within AWS Batch.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test-queue = aws.batch.getJobQueue({
+ *     name: "tf-test-batch-job-queue",
+ * });
+ * ```
+ */
 export function getJobQueueOutput(args: GetJobQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobQueueResult> {
-    return pulumi.output(args).apply(a => getJobQueue(a, opts))
+    return pulumi.output(args).apply((a: any) => getJobQueue(a, opts))
 }
 
 /**

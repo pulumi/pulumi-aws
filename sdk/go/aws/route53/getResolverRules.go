@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = route53.GetResolverRules(ctx, &route53.GetResolverRulesArgs{
+//			_, err := route53.GetResolverRules(ctx, &route53.GetResolverRulesArgs{
 //				OwnerId:     pulumi.StringRef("Route 53 Resolver"),
 //				RuleType:    pulumi.StringRef("RECURSIVE"),
 //				ShareStatus: pulumi.StringRef("NOT_SHARED"),
@@ -54,7 +54,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = route53.GetResolverRules(ctx, &route53.GetResolverRulesArgs{
+//			_, err := route53.GetResolverRules(ctx, &route53.GetResolverRulesArgs{
 //				RuleType:    pulumi.StringRef("FORWARD"),
 //				ShareStatus: pulumi.StringRef("SHARED_WITH_ME"),
 //			}, nil)
@@ -82,7 +82,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = route53.GetResolverRules(ctx, &route53.GetResolverRulesArgs{
+//			_, err := route53.GetResolverRules(ctx, &route53.GetResolverRulesArgs{
 //				NameRegex: pulumi.StringRef(".*abc.*"),
 //			}, nil)
 //			if err != nil {

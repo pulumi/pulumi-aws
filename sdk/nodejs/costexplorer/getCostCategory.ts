@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCostCategory(args: GetCostCategoryArgs, opts?: pulumi.InvokeOptions): Promise<GetCostCategoryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:costexplorer/getCostCategory:getCostCategory", {
         "costCategoryArn": args.costCategoryArn,
         "tags": args.tags,
@@ -82,9 +79,22 @@ export interface GetCostCategoryResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides details about a specific CostExplorer Cost Category.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.costexplorer.getCostCategory({
+ *     costCategoryArn: "costCategoryARN",
+ * });
+ * ```
+ */
 export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostCategoryResult> {
-    return pulumi.output(args).apply(a => getCostCategory(a, opts))
+    return pulumi.output(args).apply((a: any) => getCostCategory(a, opts))
 }
 
 /**

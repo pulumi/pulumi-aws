@@ -26,27 +26,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.GetInstanceTypes(ctx, &ec2.GetInstanceTypesArgs{
+//			_, err := ec2.GetInstanceTypes(ctx, &ec2.GetInstanceTypesArgs{
 //				Filters: []ec2.GetInstanceTypesFilter{
-//					ec2.GetInstanceTypesFilter{
+//					{
 //						Name: "auto-recovery-supported",
 //						Values: []string{
 //							"true",
 //						},
 //					},
-//					ec2.GetInstanceTypesFilter{
+//					{
 //						Name: "network-info.encryption-in-transit-supported",
 //						Values: []string{
 //							"true",
 //						},
 //					},
-//					ec2.GetInstanceTypesFilter{
+//					{
 //						Name: "instance-storage-supported",
 //						Values: []string{
 //							"true",
 //						},
 //					},
-//					ec2.GetInstanceTypesFilter{
+//					{
 //						Name: "instance-type",
 //						Values: []string{
 //							"g5.2xlarge",

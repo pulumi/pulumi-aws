@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = servicecatalog.GetLaunchPaths(ctx, &servicecatalog.GetLaunchPathsArgs{
+//			_, err := servicecatalog.GetLaunchPaths(ctx, &servicecatalog.GetLaunchPathsArgs{
 //				ProductId: "prod-yakog5pdriver",
 //			}, nil)
 //			if err != nil {

@@ -33,6 +33,56 @@ import * as utilities from "../utilities";
  *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
  * });
  * ```
+ * ### Create a user pool client with pinpoint analytics
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const testUserPool = new aws.cognito.UserPool("testUserPool", {});
+ * const testApp = new aws.pinpoint.App("testApp", {});
+ * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "cognito-idp.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `});
+ * const testRolePolicy = new aws.iam.RolePolicy("testRolePolicy", {
+ *     role: testRole.id,
+ *     policy: pulumi.all([current, testApp.applicationId]).apply(([current, applicationId]) => `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "mobiletargeting:UpdateEndpoint",
+ *         "mobiletargeting:PutItems"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "arn:aws:mobiletargeting:*:${current.accountId}:apps/${applicationId}*"
+ *     }
+ *   ]
+ * }
+ * `),
+ * });
+ * const testUserPoolClient = new aws.cognito.UserPoolClient("testUserPoolClient", {
+ *     userPoolId: testUserPool.id,
+ *     analyticsConfiguration: {
+ *         applicationId: testApp.applicationId,
+ *         externalId: "some_id",
+ *         roleArn: testRole.arn,
+ *         userDataShared: true,
+ *     },
+ * });
+ * ```
  * ### Create a user pool client with Cognito as the identity provider
  *
  * ```typescript

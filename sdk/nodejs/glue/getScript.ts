@@ -199,11 +199,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:glue/getScript:getScript", {
         "dagEdges": args.dagEdges,
         "dagNodes": args.dagNodes,
@@ -249,9 +246,199 @@ export interface GetScriptResult {
      */
     readonly scalaCode: string;
 }
-
+/**
+ * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
+ *
+ * ## Example Usage
+ * ### Generate Python Script
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.glue.getScript({
+ *     language: "PYTHON",
+ *     dagEdges: [
+ *         {
+ *             source: "datasource0",
+ *             target: "applymapping1",
+ *         },
+ *         {
+ *             source: "applymapping1",
+ *             target: "selectfields2",
+ *         },
+ *         {
+ *             source: "selectfields2",
+ *             target: "resolvechoice3",
+ *         },
+ *         {
+ *             source: "resolvechoice3",
+ *             target: "datasink4",
+ *         },
+ *     ],
+ *     dagNodes: [
+ *         {
+ *             id: "datasource0",
+ *             nodeType: "DataSource",
+ *             args: [
+ *                 {
+ *                     name: "database",
+ *                     value: `"${aws_glue_catalog_database.source.name}"`,
+ *                 },
+ *                 {
+ *                     name: "table_name",
+ *                     value: `"${aws_glue_catalog_table.source.name}"`,
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             id: "applymapping1",
+ *             nodeType: "ApplyMapping",
+ *             args: [{
+ *                 name: "mapping",
+ *                 value: "[(\"column1\", \"string\", \"column1\", \"string\")]",
+ *             }],
+ *         },
+ *         {
+ *             id: "selectfields2",
+ *             nodeType: "SelectFields",
+ *             args: [{
+ *                 name: "paths",
+ *                 value: "[\"column1\"]",
+ *             }],
+ *         },
+ *         {
+ *             id: "resolvechoice3",
+ *             nodeType: "ResolveChoice",
+ *             args: [
+ *                 {
+ *                     name: "choice",
+ *                     value: "\"MATCH_CATALOG\"",
+ *                 },
+ *                 {
+ *                     name: "database",
+ *                     value: `"${aws_glue_catalog_database.destination.name}"`,
+ *                 },
+ *                 {
+ *                     name: "table_name",
+ *                     value: `"${aws_glue_catalog_table.destination.name}"`,
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             id: "datasink4",
+ *             nodeType: "DataSink",
+ *             args: [
+ *                 {
+ *                     name: "database",
+ *                     value: `"${aws_glue_catalog_database.destination.name}"`,
+ *                 },
+ *                 {
+ *                     name: "table_name",
+ *                     value: `"${aws_glue_catalog_table.destination.name}"`,
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ * });
+ * export const pythonScript = example.then(example => example.pythonScript);
+ * ```
+ * ### Generate Scala Code
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.glue.getScript({
+ *     language: "SCALA",
+ *     dagEdges: [
+ *         {
+ *             source: "datasource0",
+ *             target: "applymapping1",
+ *         },
+ *         {
+ *             source: "applymapping1",
+ *             target: "selectfields2",
+ *         },
+ *         {
+ *             source: "selectfields2",
+ *             target: "resolvechoice3",
+ *         },
+ *         {
+ *             source: "resolvechoice3",
+ *             target: "datasink4",
+ *         },
+ *     ],
+ *     dagNodes: [
+ *         {
+ *             id: "datasource0",
+ *             nodeType: "DataSource",
+ *             args: [
+ *                 {
+ *                     name: "database",
+ *                     value: `"${aws_glue_catalog_database.source.name}"`,
+ *                 },
+ *                 {
+ *                     name: "table_name",
+ *                     value: `"${aws_glue_catalog_table.source.name}"`,
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             id: "applymapping1",
+ *             nodeType: "ApplyMapping",
+ *             args: [{
+ *                 name: "mappings",
+ *                 value: "[(\"column1\", \"string\", \"column1\", \"string\")]",
+ *             }],
+ *         },
+ *         {
+ *             id: "selectfields2",
+ *             nodeType: "SelectFields",
+ *             args: [{
+ *                 name: "paths",
+ *                 value: "[\"column1\"]",
+ *             }],
+ *         },
+ *         {
+ *             id: "resolvechoice3",
+ *             nodeType: "ResolveChoice",
+ *             args: [
+ *                 {
+ *                     name: "choice",
+ *                     value: "\"MATCH_CATALOG\"",
+ *                 },
+ *                 {
+ *                     name: "database",
+ *                     value: `"${aws_glue_catalog_database.destination.name}"`,
+ *                 },
+ *                 {
+ *                     name: "table_name",
+ *                     value: `"${aws_glue_catalog_table.destination.name}"`,
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             id: "datasink4",
+ *             nodeType: "DataSink",
+ *             args: [
+ *                 {
+ *                     name: "database",
+ *                     value: `"${aws_glue_catalog_database.destination.name}"`,
+ *                 },
+ *                 {
+ *                     name: "table_name",
+ *                     value: `"${aws_glue_catalog_table.destination.name}"`,
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ * });
+ * export const scalaCode = example.then(example => example.scalaCode);
+ * ```
+ */
 export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
-    return pulumi.output(args).apply(a => getScript(a, opts))
+    return pulumi.output(args).apply((a: any) => getScript(a, opts))
 }
 
 /**

@@ -36,7 +36,7 @@ import (
 //					"amazon",
 //				},
 //				Filters: []ec2.GetAmiFilter{
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "name",
 //						Values: []string{
 //							"amzn-ami-vpc-nat*",
@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			exampleInstance, err := ec2.NewInstance(ctx, "exampleInstance", &ec2.InstanceArgs{
-//				Ami:          pulumi.String(exampleAmi.Id),
+//				Ami:          *pulumi.String(exampleAmi.Id),
 //				InstanceType: pulumi.String("t2.micro"),
 //			})
 //			if err != nil {

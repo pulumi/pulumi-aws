@@ -41,7 +41,7 @@ import (
 //						InstanceProtocol: pulumi.String("https"),
 //						LbPort:           pulumi.Int(443),
 //						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: pulumi.String(my_domain.Arn),
+//						SslCertificateId: *pulumi.String(my_domain.Arn),
 //					},
 //				},
 //			})

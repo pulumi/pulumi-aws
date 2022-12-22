@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:memorydb/getCluster:getCluster", {
         "name": args.name,
         "tags": args.tags,
@@ -153,9 +150,22 @@ export interface GetClusterResult {
      */
     readonly tlsEnabled: boolean;
 }
-
+/**
+ * Provides information about a MemoryDB Cluster.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.memorydb.getCluster({
+ *     name: "my-cluster",
+ * });
+ * ```
+ */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply(a => getCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 /**

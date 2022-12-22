@@ -33,8 +33,8 @@ import (
 //				return err
 //			}
 //			_, err = serverlessrepository.NewCloudFormationStack(ctx, "exampleCloudFormationStack", &serverlessrepository.CloudFormationStackArgs{
-//				ApplicationId:   pulumi.String(exampleApplication.ApplicationId),
-//				SemanticVersion: pulumi.String(exampleApplication.SemanticVersion),
+//				ApplicationId:   *pulumi.String(exampleApplication.ApplicationId),
+//				SemanticVersion: *pulumi.String(exampleApplication.SemanticVersion),
 //				Capabilities:    interface{}(exampleApplication.RequiredCapabilities),
 //			})
 //			if err != nil {

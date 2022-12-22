@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = memorydb.LookupSubnetGroup(ctx, &memorydb.LookupSubnetGroupArgs{
+//			_, err := memorydb.LookupSubnetGroup(ctx, &memorydb.LookupSubnetGroupArgs{
 //				Name: "my-subnet-group",
 //			}, nil)
 //			if err != nil {

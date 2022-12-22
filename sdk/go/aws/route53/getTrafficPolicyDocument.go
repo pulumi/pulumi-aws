@@ -38,12 +38,12 @@ import (
 //				RecordType: pulumi.StringRef("A"),
 //				StartRule:  pulumi.StringRef("site_switch"),
 //				Endpoints: []route53.GetTrafficPolicyDocumentEndpoint{
-//					route53.GetTrafficPolicyDocumentEndpoint{
+//					{
 //						Id:    "my_elb",
 //						Type:  pulumi.StringRef("elastic-load-balancer"),
 //						Value: pulumi.StringRef(fmt.Sprintf("elb-111111.%v.elb.amazonaws.com", current.Name)),
 //					},
-//					route53.GetTrafficPolicyDocumentEndpoint{
+//					{
 //						Id:     "site_down_banner",
 //						Type:   pulumi.StringRef("s3-website"),
 //						Region: pulumi.StringRef(current.Name),
@@ -51,13 +51,13 @@ import (
 //					},
 //				},
 //				Rules: []route53.GetTrafficPolicyDocumentRule{
-//					route53.GetTrafficPolicyDocumentRule{
+//					{
 //						Id:   "site_switch",
 //						Type: pulumi.StringRef("failover"),
-//						Primary: route53.GetTrafficPolicyDocumentRulePrimary{
+//						Primary: {
 //							EndpointReference: pulumi.StringRef("my_elb"),
 //						},
-//						Secondary: route53.GetTrafficPolicyDocumentRuleSecondary{
+//						Secondary: {
 //							EndpointReference: pulumi.StringRef("site_down_banner"),
 //						},
 //					},
@@ -68,7 +68,7 @@ import (
 //			}
 //			_, err = route53.NewTrafficPolicy(ctx, "exampleTrafficPolicy", &route53.TrafficPolicyArgs{
 //				Comment:  pulumi.String("example comment"),
-//				Document: pulumi.String(exampleTrafficPolicyDocument.Json),
+//				Document: *pulumi.String(exampleTrafficPolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -98,22 +98,22 @@ import (
 //				RecordType: pulumi.StringRef("A"),
 //				StartRule:  pulumi.StringRef("geoproximity_rule"),
 //				Endpoints: []route53.GetTrafficPolicyDocumentEndpoint{
-//					route53.GetTrafficPolicyDocumentEndpoint{
+//					{
 //						Id:    "na_endpoint_a",
 //						Type:  pulumi.StringRef("elastic-load-balancer"),
 //						Value: pulumi.StringRef("elb-111111.us-west-1.elb.amazonaws.com"),
 //					},
-//					route53.GetTrafficPolicyDocumentEndpoint{
+//					{
 //						Id:    "na_endpoint_b",
 //						Type:  pulumi.StringRef("elastic-load-balancer"),
 //						Value: pulumi.StringRef("elb-222222.us-west-1.elb.amazonaws.com"),
 //					},
-//					route53.GetTrafficPolicyDocumentEndpoint{
+//					{
 //						Id:    "eu_endpoint",
 //						Type:  pulumi.StringRef("elastic-load-balancer"),
 //						Value: pulumi.StringRef("elb-333333.eu-west-1.elb.amazonaws.com"),
 //					},
-//					route53.GetTrafficPolicyDocumentEndpoint{
+//					{
 //						Id:    "ap_endpoint",
 //						Type:  pulumi.StringRef("elastic-load-balancer"),
 //						Value: pulumi.StringRef("elb-444444.ap-northeast-2.elb.amazonaws.com"),
@@ -134,19 +134,19 @@ import (
 //						Id:   "geoproximity_rule",
 //						Type: pulumi.StringRef("geoproximity"),
 //						GeoProximityLocations: []route53.GetTrafficPolicyDocumentRuleGeoProximityLocation{
-//							route53.GetTrafficPolicyDocumentRuleGeoProximityLocation{
+//							{
 //								Region:               pulumi.StringRef("aws:route53:us-west-1"),
 //								Bias:                 pulumi.StringRef("10"),
 //								EvaluateTargetHealth: pulumi.BoolRef(true),
 //								RuleReference:        pulumi.StringRef("na_rule"),
 //							},
-//							route53.GetTrafficPolicyDocumentRuleGeoProximityLocation{
+//							{
 //								Region:               pulumi.StringRef("aws:route53:eu-west-1"),
 //								Bias:                 pulumi.StringRef("10"),
 //								EvaluateTargetHealth: pulumi.BoolRef(true),
 //								EndpointReference:    pulumi.StringRef("eu_endpoint"),
 //							},
-//							route53.GetTrafficPolicyDocumentRuleGeoProximityLocation{
+//							{
 //								Region:               pulumi.StringRef("aws:route53:ap-northeast-2"),
 //								Bias:                 pulumi.StringRef("0"),
 //								EvaluateTargetHealth: pulumi.BoolRef(true),
@@ -161,7 +161,7 @@ import (
 //			}
 //			_, err = route53.NewTrafficPolicy(ctx, "exampleTrafficPolicy", &route53.TrafficPolicyArgs{
 //				Comment:  pulumi.String("example comment"),
-//				Document: pulumi.String(exampleTrafficPolicyDocument.Json),
+//				Document: *pulumi.String(exampleTrafficPolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

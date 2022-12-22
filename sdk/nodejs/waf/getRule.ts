@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:waf/getRule:getRule", {
         "name": args.name,
     }, opts);
@@ -49,9 +46,22 @@ export interface GetRuleResult {
     readonly id: string;
     readonly name: string;
 }
-
+/**
+ * `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.waf.getRule({
+ *     name: "tfWAFRule",
+ * });
+ * ```
+ */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
-    return pulumi.output(args).apply(a => getRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getRule(a, opts))
 }
 
 /**

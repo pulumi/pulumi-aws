@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSelection(args: GetSelectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSelectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:backup/getSelection:getSelection", {
         "planId": args.planId,
         "selectionId": args.selectionId,
@@ -68,9 +65,23 @@ export interface GetSelectionResult {
     readonly resources: string[];
     readonly selectionId: string;
 }
-
+/**
+ * Use this data source to get information on an existing backup selection.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.backup.getSelection({
+ *     planId: data.aws_backup_plan.example.id,
+ *     selectionId: "selection-id-example",
+ * });
+ * ```
+ */
 export function getSelectionOutput(args: GetSelectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSelectionResult> {
-    return pulumi.output(args).apply(a => getSelection(a, opts))
+    return pulumi.output(args).apply((a: any) => getSelection(a, opts))
 }
 
 /**

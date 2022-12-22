@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = apigatewayv2.GetExport(ctx, &apigatewayv2.GetExportArgs{
+//			_, err := apigatewayv2.GetExport(ctx, &apigatewayv2.GetExportArgs{
 //				ApiId:         aws_apigatewayv2_route.Test.Api_id,
 //				Specification: "OAS30",
 //				OutputType:    "JSON",

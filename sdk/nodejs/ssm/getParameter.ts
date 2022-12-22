@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getParameter:getParameter", {
         "name": args.name,
         "withDecryption": args.withDecryption,
@@ -59,9 +56,22 @@ export interface GetParameterResult {
     readonly version: number;
     readonly withDecryption?: boolean;
 }
-
+/**
+ * Provides an SSM Parameter data source.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = aws.ssm.getParameter({
+ *     name: "foo",
+ * });
+ * ```
+ */
 export function getParameterOutput(args: GetParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterResult> {
-    return pulumi.output(args).apply(a => getParameter(a, opts))
+    return pulumi.output(args).apply((a: any) => getParameter(a, opts))
 }
 
 /**

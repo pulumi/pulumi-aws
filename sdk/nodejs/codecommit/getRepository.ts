@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codecommit/getRepository:getRepository", {
         "repositoryName": args.repositoryName,
     }, opts);
@@ -65,9 +62,22 @@ export interface GetRepositoryResult {
     readonly repositoryId: string;
     readonly repositoryName: string;
 }
-
+/**
+ * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.codecommit.getRepository({
+ *     repositoryName: "MyTestRepository",
+ * });
+ * ```
+ */
 export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
-    return pulumi.output(args).apply(a => getRepository(a, opts))
+    return pulumi.output(args).apply((a: any) => getRepository(a, opts))
 }
 
 /**

@@ -102,7 +102,7 @@ func NewHsmConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'HsmServerPublicCertificate'")
 	}
 	if args.HsmPartitionPassword != nil {
-		args.HsmPartitionPassword = pulumi.ToSecret(args.HsmPartitionPassword).(pulumi.StringOutput)
+		args.HsmPartitionPassword = pulumi.ToSecret(args.HsmPartitionPassword).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"hsmPartitionPassword",

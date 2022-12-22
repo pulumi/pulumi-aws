@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = location.GetTrackerAssociations(ctx, &location.GetTrackerAssociationsArgs{
+//			_, err := location.GetTrackerAssociations(ctx, &location.GetTrackerAssociationsArgs{
 //				TrackerName: "example",
 //			}, nil)
 //			if err != nil {

@@ -59,6 +59,34 @@ public final class IamFunctions {
      * The IAM Account Alias data source allows access to the account alias
      * for the effective account in which this provider is working.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = IamFunctions.getAccountAlias();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetAccountAliasResult> getAccountAlias() {
         return getAccountAlias(InvokeArgs.Empty, InvokeOptions.Empty);
@@ -66,6 +94,34 @@ public final class IamFunctions {
     /**
      * The IAM Account Alias data source allows access to the account alias
      * for the effective account in which this provider is working.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = IamFunctions.getAccountAlias();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetAccountAliasResult> getAccountAliasPlain() {
@@ -75,6 +131,34 @@ public final class IamFunctions {
      * The IAM Account Alias data source allows access to the account alias
      * for the effective account in which this provider is working.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = IamFunctions.getAccountAlias();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetAccountAliasResult> getAccountAlias(InvokeArgs args) {
         return getAccountAlias(args, InvokeOptions.Empty);
@@ -82,6 +166,34 @@ public final class IamFunctions {
     /**
      * The IAM Account Alias data source allows access to the account alias
      * for the effective account in which this provider is working.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = IamFunctions.getAccountAlias();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetAccountAliasResult> getAccountAliasPlain(InvokeArgs args) {
@@ -91,6 +203,34 @@ public final class IamFunctions {
      * The IAM Account Alias data source allows access to the account alias
      * for the effective account in which this provider is working.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = IamFunctions.getAccountAlias();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetAccountAliasResult> getAccountAlias(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:iam/getAccountAlias:getAccountAlias", TypeShape.of(GetAccountAliasResult.class), args, Utilities.withVersion(options));
@@ -98,6 +238,34 @@ public final class IamFunctions {
     /**
      * The IAM Account Alias data source allows access to the account alias
      * for the effective account in which this provider is working.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = IamFunctions.getAccountAlias();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetAccountAliasResult> getAccountAliasPlain(InvokeArgs args, InvokeOptions options) {
@@ -116,7 +284,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.iam.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -130,7 +298,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var example = IamFunctions.getGroup(GetGroupArgs.builder()
      *             .groupName(&#34;an_example_group_name&#34;)
      *             .build());
      * 
@@ -155,7 +323,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.iam.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -169,7 +337,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var example = IamFunctions.getGroup(GetGroupArgs.builder()
      *             .groupName(&#34;an_example_group_name&#34;)
      *             .build());
      * 
@@ -194,7 +362,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.iam.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -208,7 +376,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var example = IamFunctions.getGroup(GetGroupArgs.builder()
      *             .groupName(&#34;an_example_group_name&#34;)
      *             .build());
      * 
@@ -233,7 +401,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.iam.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -247,7 +415,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var example = IamFunctions.getGroup(GetGroupArgs.builder()
      *             .groupName(&#34;an_example_group_name&#34;)
      *             .build());
      * 
@@ -6546,6 +6714,40 @@ public final class IamFunctions {
      *     }
      * }
      * ```
+     * ### Find the Provider&#39;s Source Role
+     * 
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+     *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetSessionContextResult> getSessionContext(GetSessionContextArgs args) {
@@ -6581,6 +6783,40 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
      *             .arn(&#34;arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ### Find the Provider&#39;s Source Role
+     * 
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+     *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
      *             .build());
      * 
      *     }
@@ -6626,6 +6862,40 @@ public final class IamFunctions {
      *     }
      * }
      * ```
+     * ### Find the Provider&#39;s Source Role
+     * 
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+     *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetSessionContextResult> getSessionContext(GetSessionContextArgs args, InvokeOptions options) {
@@ -6666,6 +6936,40 @@ public final class IamFunctions {
      *     }
      * }
      * ```
+     * ### Find the Provider&#39;s Source Role
+     * 
+     * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+     *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetSessionContextResult> getSessionContextPlain(GetSessionContextPlainArgs args, InvokeOptions options) {
@@ -6684,7 +6988,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import com.pulumi.aws.iam.inputs.GetUserArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6723,7 +7027,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import com.pulumi.aws.iam.inputs.GetUserArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6762,7 +7066,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import com.pulumi.aws.iam.inputs.GetUserArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6801,7 +7105,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import com.pulumi.aws.iam.inputs.GetUserArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

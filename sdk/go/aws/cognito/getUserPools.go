@@ -41,7 +41,7 @@ import (
 //			}
 //			_, err = apigateway.NewAuthorizer(ctx, "cognito", &apigateway.AuthorizerArgs{
 //				Type:         pulumi.String("COGNITO_USER_POOLS"),
-//				RestApi:      pulumi.String(selectedRestApi.Id),
+//				RestApi:      *pulumi.String(selectedRestApi.Id),
 //				ProviderArns: interface{}(selectedUserPools.Arns),
 //			})
 //			if err != nil {

@@ -27,11 +27,8 @@ import * as utilities from "../utilities";
  */
 export function getAccelerator(args?: GetAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAcceleratorResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:globalaccelerator/getAccelerator:getAccelerator", {
         "arn": args.arn,
         "name": args.name,
@@ -72,9 +69,26 @@ export interface GetAcceleratorResult {
     readonly name: string;
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides information about a Global Accelerator accelerator.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const acceleratorArn = config.get("acceleratorArn") || "";
+ * const acceleratorName = config.get("acceleratorName") || "";
+ * const example = aws.globalaccelerator.getAccelerator({
+ *     arn: acceleratorArn,
+ *     name: acceleratorName,
+ * });
+ * ```
+ */
 export function getAcceleratorOutput(args?: GetAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcceleratorResult> {
-    return pulumi.output(args).apply(a => getAccelerator(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccelerator(a, opts))
 }
 
 /**

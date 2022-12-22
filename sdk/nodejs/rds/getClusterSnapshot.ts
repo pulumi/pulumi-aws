@@ -36,11 +36,8 @@ import * as utilities from "../utilities";
  */
 export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", {
         "dbClusterIdentifier": args.dbClusterIdentifier,
         "dbClusterSnapshotIdentifier": args.dbClusterSnapshotIdentifier,
@@ -162,9 +159,38 @@ export interface GetClusterSnapshotResult {
      */
     readonly vpcId: string;
 }
-
+/**
+ * Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
+ *
+ * > **NOTE:** This data source does not apply to snapshots created on DB Instances.
+ * See the `aws.rds.Snapshot` data source for DB Instance snapshots.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const developmentFinalSnapshot = aws.rds.getClusterSnapshot({
+ *     dbClusterIdentifier: "development_cluster",
+ *     mostRecent: true,
+ * });
+ * // Use the last snapshot of the dev database before it was destroyed to create
+ * // a new dev database.
+ * const auroraCluster = new aws.rds.Cluster("auroraCluster", {
+ *     clusterIdentifier: "development_cluster",
+ *     snapshotIdentifier: developmentFinalSnapshot.then(developmentFinalSnapshot => developmentFinalSnapshot.id),
+ *     dbSubnetGroupName: "my_db_subnet_group",
+ * });
+ * const auroraClusterInstance = new aws.rds.ClusterInstance("auroraClusterInstance", {
+ *     clusterIdentifier: auroraCluster.id,
+ *     instanceClass: "db.t2.small",
+ *     dbSubnetGroupName: "my_db_subnet_group",
+ * });
+ * ```
+ */
 export function getClusterSnapshotOutput(args?: GetClusterSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSnapshotResult> {
-    return pulumi.output(args).apply(a => getClusterSnapshot(a, opts))
+    return pulumi.output(args).apply((a: any) => getClusterSnapshot(a, opts))
 }
 
 /**

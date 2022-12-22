@@ -35,8 +35,8 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -92,8 +92,8 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -149,8 +149,8 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -206,8 +206,8 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -263,8 +263,8 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -320,8 +320,8 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -379,7 +379,7 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -430,7 +430,7 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -481,7 +481,7 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -532,7 +532,7 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -583,7 +583,7 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -634,7 +634,7 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -685,7 +685,7 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -736,7 +736,7 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -787,7 +787,7 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -838,7 +838,7 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -889,7 +889,7 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -940,7 +940,7 @@ public final class Elasticloadbalancingv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

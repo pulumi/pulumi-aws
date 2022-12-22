@@ -27,24 +27,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//			_, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 //				ExecutableUsers: []string{
 //					"self",
 //				},
 //				Filters: []ec2.GetAmiFilter{
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "name",
 //						Values: []string{
 //							"myami-*",
 //						},
 //					},
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "root-device-type",
 //						Values: []string{
 //							"ebs",
 //						},
 //					},
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "virtualization-type",
 //						Values: []string{
 //							"hvm",

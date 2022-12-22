@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = wafv2.LookupRuleGroup(ctx, &wafv2.LookupRuleGroupArgs{
+//			_, err := wafv2.LookupRuleGroup(ctx, &wafv2.LookupRuleGroupArgs{
 //				Name:  "some-rule-group",
 //				Scope: "REGIONAL",
 //			}, nil)

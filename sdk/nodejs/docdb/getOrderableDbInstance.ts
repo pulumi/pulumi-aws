@@ -27,11 +27,8 @@ import * as utilities from "../utilities";
  */
 export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", {
         "engine": args.engine,
         "engineVersion": args.engineVersion,
@@ -91,9 +88,29 @@ export interface GetOrderableDbInstanceResult {
     readonly preferredInstanceClasses?: string[];
     readonly vpc: boolean;
 }
-
+/**
+ * Information about DocumentDB orderable DB instances.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.docdb.getOrderableDbInstance({
+ *     engine: "docdb",
+ *     engineVersion: "3.6.0",
+ *     licenseModel: "na",
+ *     preferredInstanceClasses: [
+ *         "db.r5.large",
+ *         "db.r4.large",
+ *         "db.t3.medium",
+ *     ],
+ * });
+ * ```
+ */
 export function getOrderableDbInstanceOutput(args?: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableDbInstanceResult> {
-    return pulumi.output(args).apply(a => getOrderableDbInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getOrderableDbInstance(a, opts))
 }
 
 /**

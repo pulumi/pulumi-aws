@@ -386,7 +386,7 @@ func NewCluster(ctx *pulumi.Context,
 	}
 
 	if args.MasterPassword != nil {
-		args.MasterPassword = pulumi.ToSecret(args.MasterPassword).(pulumi.StringPtrOutput)
+		args.MasterPassword = pulumi.ToSecret(args.MasterPassword).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"masterPassword",

@@ -56,11 +56,8 @@ import * as utilities from "../utilities";
  */
 export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
         "filters": args.filters,
         "service": args.service,
@@ -153,9 +150,55 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly vpcEndpointPolicySupported: boolean;
 }
-
+/**
+ * The VPC Endpoint Service data source details about a specific service that
+ * can be specified when creating a VPC endpoint within the region configured in the provider.
+ *
+ * ## Example Usage
+ * ### AWS Service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const s3 = aws.ec2.getVpcEndpointService({
+ *     service: "s3",
+ *     serviceType: "Gateway",
+ * });
+ * // Create a VPC
+ * const foo = new aws.ec2.Vpc("foo", {cidrBlock: "10.0.0.0/16"});
+ * // Create a VPC endpoint
+ * const ep = new aws.ec2.VpcEndpoint("ep", {
+ *     vpcId: foo.id,
+ *     serviceName: s3.then(s3 => s3.serviceName),
+ * });
+ * ```
+ * ### Non-AWS Service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const custome = aws.ec2.getVpcEndpointService({
+ *     serviceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
+ * });
+ * ```
+ * ### Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.ec2.getVpcEndpointService({
+ *     filters: [{
+ *         name: "service-name",
+ *         values: ["some-service"],
+ *     }],
+ * });
+ * ```
+ */
 export function getVpcEndpointServiceOutput(args?: GetVpcEndpointServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointServiceResult> {
-    return pulumi.output(args).apply(a => getVpcEndpointService(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpcEndpointService(a, opts))
 }
 
 /**

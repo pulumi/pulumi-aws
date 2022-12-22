@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = amp.LookupWorkspace(ctx, &amp.LookupWorkspaceArgs{
+//			_, err := amp.LookupWorkspace(ctx, &amp.LookupWorkspaceArgs{
 //				WorkspaceId: "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
 //			}, nil)
 //			if err != nil {

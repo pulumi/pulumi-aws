@@ -184,7 +184,7 @@ public final class MskFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -223,7 +223,7 @@ public final class MskFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -262,7 +262,7 @@ public final class MskFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -301,7 +301,7 @@ public final class MskFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

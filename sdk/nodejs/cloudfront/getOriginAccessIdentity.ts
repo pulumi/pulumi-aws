@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getOriginAccessIdentity(args: GetOriginAccessIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginAccessIdentityResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", {
         "id": args.id,
     }, opts);
@@ -78,9 +75,24 @@ export interface GetOriginAccessIdentityResult {
      */
     readonly s3CanonicalUserId: string;
 }
-
+/**
+ * Use this data source to retrieve information for an Amazon CloudFront origin access identity.
+ *
+ * ## Example Usage
+ *
+ * The following example below creates a CloudFront origin access identity.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.cloudfront.getOriginAccessIdentity({
+ *     id: "EDFDVBD632BHDS5",
+ * });
+ * ```
+ */
 export function getOriginAccessIdentityOutput(args: GetOriginAccessIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginAccessIdentityResult> {
-    return pulumi.output(args).apply(a => getOriginAccessIdentity(a, opts))
+    return pulumi.output(args).apply((a: any) => getOriginAccessIdentity(a, opts))
 }
 
 /**

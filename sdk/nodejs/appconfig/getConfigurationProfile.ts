@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appconfig/getConfigurationProfile:getConfigurationProfile", {
         "applicationId": args.applicationId,
         "configurationProfileId": args.configurationProfileId,
@@ -97,9 +94,24 @@ export interface GetConfigurationProfileResult {
      */
     readonly validators: outputs.appconfig.GetConfigurationProfileValidator[];
 }
-
+/**
+ * Provides access to an AppConfig Configuration Profile.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.appconfig.getConfigurationProfile({
+ *     applicationId: "b5d5gpj",
+ *     configurationProfileId: "qrbb1c1",
+ * });
+ * ```
+ */
 export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
-    return pulumi.output(args).apply(a => getConfigurationProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationProfile(a, opts))
 }
 
 /**

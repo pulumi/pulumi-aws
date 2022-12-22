@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+ * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import com.pulumi.aws.ec2.NetworkInterfaceSecurityGroupAttachment;

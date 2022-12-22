@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appconfig/getEnvironment:getEnvironment", {
         "applicationId": args.applicationId,
         "environmentId": args.environmentId,
@@ -90,9 +87,24 @@ export interface GetEnvironmentResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides access to an AppConfig Environment.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.appconfig.getEnvironment({
+ *     applicationId: "b5d5gpj",
+ *     environmentId: "qrbb1c1",
+ * });
+ * ```
+ */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    return pulumi.output(args).apply(a => getEnvironment(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
 }
 
 /**

@@ -399,6 +399,90 @@ public final class OrganizationsFunctions {
      * Get information about the organization that the user&#39;s account belongs to
      * 
      * ## Example Usage
+     * ### List all account IDs for the organization
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         ctx.export(&#34;accountIds&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+     *     }
+     * }
+     * ```
+     * ### SNS topic that can be interacted by the organization only
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.sns.TopicPolicy;
+     * import com.pulumi.aws.sns.TopicPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         var snsTopic = new Topic(&#34;snsTopic&#34;);
+     * 
+     *         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect(&#34;Allow&#34;)
+     *                 .actions(                
+     *                     &#34;SNS:Subscribe&#34;,
+     *                     &#34;SNS:Publish&#34;)
+     *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+     *                     .test(&#34;StringEquals&#34;)
+     *                     .variable(&#34;aws:PrincipalOrgID&#34;)
+     *                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+     *                     .build())
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type(&#34;AWS&#34;)
+     *                     .identifiers(&#34;*&#34;)
+     *                     .build())
+     *                 .resources(snsTopic.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
+     *             .arn(snsTopic.arn())
+     *             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetOrganizationResult> getOrganization() {
@@ -408,6 +492,90 @@ public final class OrganizationsFunctions {
      * Get information about the organization that the user&#39;s account belongs to
      * 
      * ## Example Usage
+     * ### List all account IDs for the organization
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         ctx.export(&#34;accountIds&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+     *     }
+     * }
+     * ```
+     * ### SNS topic that can be interacted by the organization only
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.sns.TopicPolicy;
+     * import com.pulumi.aws.sns.TopicPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         var snsTopic = new Topic(&#34;snsTopic&#34;);
+     * 
+     *         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect(&#34;Allow&#34;)
+     *                 .actions(                
+     *                     &#34;SNS:Subscribe&#34;,
+     *                     &#34;SNS:Publish&#34;)
+     *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+     *                     .test(&#34;StringEquals&#34;)
+     *                     .variable(&#34;aws:PrincipalOrgID&#34;)
+     *                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+     *                     .build())
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type(&#34;AWS&#34;)
+     *                     .identifiers(&#34;*&#34;)
+     *                     .build())
+     *                 .resources(snsTopic.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
+     *             .arn(snsTopic.arn())
+     *             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain() {
@@ -417,6 +585,90 @@ public final class OrganizationsFunctions {
      * Get information about the organization that the user&#39;s account belongs to
      * 
      * ## Example Usage
+     * ### List all account IDs for the organization
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         ctx.export(&#34;accountIds&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+     *     }
+     * }
+     * ```
+     * ### SNS topic that can be interacted by the organization only
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.sns.TopicPolicy;
+     * import com.pulumi.aws.sns.TopicPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         var snsTopic = new Topic(&#34;snsTopic&#34;);
+     * 
+     *         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect(&#34;Allow&#34;)
+     *                 .actions(                
+     *                     &#34;SNS:Subscribe&#34;,
+     *                     &#34;SNS:Publish&#34;)
+     *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+     *                     .test(&#34;StringEquals&#34;)
+     *                     .variable(&#34;aws:PrincipalOrgID&#34;)
+     *                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+     *                     .build())
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type(&#34;AWS&#34;)
+     *                     .identifiers(&#34;*&#34;)
+     *                     .build())
+     *                 .resources(snsTopic.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
+     *             .arn(snsTopic.arn())
+     *             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetOrganizationResult> getOrganization(InvokeArgs args) {
@@ -426,6 +678,90 @@ public final class OrganizationsFunctions {
      * Get information about the organization that the user&#39;s account belongs to
      * 
      * ## Example Usage
+     * ### List all account IDs for the organization
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         ctx.export(&#34;accountIds&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+     *     }
+     * }
+     * ```
+     * ### SNS topic that can be interacted by the organization only
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.sns.TopicPolicy;
+     * import com.pulumi.aws.sns.TopicPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         var snsTopic = new Topic(&#34;snsTopic&#34;);
+     * 
+     *         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect(&#34;Allow&#34;)
+     *                 .actions(                
+     *                     &#34;SNS:Subscribe&#34;,
+     *                     &#34;SNS:Publish&#34;)
+     *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+     *                     .test(&#34;StringEquals&#34;)
+     *                     .variable(&#34;aws:PrincipalOrgID&#34;)
+     *                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+     *                     .build())
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type(&#34;AWS&#34;)
+     *                     .identifiers(&#34;*&#34;)
+     *                     .build())
+     *                 .resources(snsTopic.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
+     *             .arn(snsTopic.arn())
+     *             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(InvokeArgs args) {
@@ -435,6 +771,90 @@ public final class OrganizationsFunctions {
      * Get information about the organization that the user&#39;s account belongs to
      * 
      * ## Example Usage
+     * ### List all account IDs for the organization
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         ctx.export(&#34;accountIds&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+     *     }
+     * }
+     * ```
+     * ### SNS topic that can be interacted by the organization only
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.sns.TopicPolicy;
+     * import com.pulumi.aws.sns.TopicPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         var snsTopic = new Topic(&#34;snsTopic&#34;);
+     * 
+     *         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect(&#34;Allow&#34;)
+     *                 .actions(                
+     *                     &#34;SNS:Subscribe&#34;,
+     *                     &#34;SNS:Publish&#34;)
+     *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+     *                     .test(&#34;StringEquals&#34;)
+     *                     .variable(&#34;aws:PrincipalOrgID&#34;)
+     *                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+     *                     .build())
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type(&#34;AWS&#34;)
+     *                     .identifiers(&#34;*&#34;)
+     *                     .build())
+     *                 .resources(snsTopic.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
+     *             .arn(snsTopic.arn())
+     *             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetOrganizationResult> getOrganization(InvokeArgs args, InvokeOptions options) {
@@ -444,6 +864,90 @@ public final class OrganizationsFunctions {
      * Get information about the organization that the user&#39;s account belongs to
      * 
      * ## Example Usage
+     * ### List all account IDs for the organization
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         ctx.export(&#34;accountIds&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+     *     }
+     * }
+     * ```
+     * ### SNS topic that can be interacted by the organization only
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.sns.TopicPolicy;
+     * import com.pulumi.aws.sns.TopicPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         var snsTopic = new Topic(&#34;snsTopic&#34;);
+     * 
+     *         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect(&#34;Allow&#34;)
+     *                 .actions(                
+     *                     &#34;SNS:Subscribe&#34;,
+     *                     &#34;SNS:Publish&#34;)
+     *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+     *                     .test(&#34;StringEquals&#34;)
+     *                     .variable(&#34;aws:PrincipalOrgID&#34;)
+     *                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+     *                     .build())
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type(&#34;AWS&#34;)
+     *                     .identifiers(&#34;*&#34;)
+     *                     .build())
+     *                 .resources(snsTopic.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
+     *             .arn(snsTopic.arn())
+     *             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(InvokeArgs args, InvokeOptions options) {
@@ -452,12 +956,76 @@ public final class OrganizationsFunctions {
     /**
      * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetOrganizationalUnitsResult> getOrganizationalUnits(GetOrganizationalUnitsArgs args) {
         return getOrganizationalUnits(args, InvokeOptions.Empty);
     }
     /**
      * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOrganizationalUnitsResult> getOrganizationalUnitsPlain(GetOrganizationalUnitsPlainArgs args) {
@@ -466,12 +1034,76 @@ public final class OrganizationsFunctions {
     /**
      * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetOrganizationalUnitsResult> getOrganizationalUnits(GetOrganizationalUnitsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", TypeShape.of(GetOrganizationalUnitsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOrganizationalUnitsResult> getOrganizationalUnitsPlain(GetOrganizationalUnitsPlainArgs args, InvokeOptions options) {

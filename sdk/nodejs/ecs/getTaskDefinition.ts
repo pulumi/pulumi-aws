@@ -44,11 +44,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getTaskDefinition:getTaskDefinition", {
         "taskDefinition": args.taskDefinition,
     }, opts);
@@ -98,9 +95,47 @@ export interface GetTaskDefinitionResult {
      */
     readonly taskRoleArn: string;
 }
-
+/**
+ * The ECS task definition data source allows access to details of
+ * a specific AWS ECS task definition.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const mongoTaskDefinition = aws.ecs.getTaskDefinition({
+ *     taskDefinition: mongoEcs / taskDefinitionTaskDefinition.family,
+ * });
+ * const foo = new aws.ecs.Cluster("foo", {});
+ * const mongoEcs_taskDefinitionTaskDefinition = new aws.ecs.TaskDefinition("mongoEcs/taskDefinitionTaskDefinition", {
+ *     family: "mongodb",
+ *     containerDefinitions: `[
+ *   {
+ *     "cpu": 128,
+ *     "environment": [{
+ *       "name": "SECRET",
+ *       "value": "KEY"
+ *     }],
+ *     "essential": true,
+ *     "image": "mongo:latest",
+ *     "memory": 128,
+ *     "memoryReservation": 64,
+ *     "name": "mongodb"
+ *   }
+ * ]
+ * `,
+ * });
+ * const mongoService = new aws.ecs.Service("mongoService", {
+ *     cluster: foo.id,
+ *     desiredCount: 2,
+ *     taskDefinition: mongoTaskDefinition.then(mongoTaskDefinition => mongoTaskDefinition.arn),
+ * });
+ * ```
+ */
 export function getTaskDefinitionOutput(args: GetTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskDefinitionResult> {
-    return pulumi.output(args).apply(a => getTaskDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getTaskDefinition(a, opts))
 }
 
 /**

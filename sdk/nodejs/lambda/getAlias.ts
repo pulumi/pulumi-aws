@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lambda/getAlias:getAlias", {
         "functionName": args.functionName,
         "name": args.name,
@@ -72,9 +69,23 @@ export interface GetAliasResult {
     readonly invokeArn: string;
     readonly name: string;
 }
-
+/**
+ * Provides information about a Lambda Alias.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const production = aws.lambda.getAlias({
+ *     functionName: "my-lambda-func",
+ *     name: "production",
+ * });
+ * ```
+ */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
-    return pulumi.output(args).apply(a => getAlias(a, opts))
+    return pulumi.output(args).apply((a: any) => getAlias(a, opts))
 }
 
 /**

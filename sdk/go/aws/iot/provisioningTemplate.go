@@ -32,12 +32,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			iotAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Type: "Service",
 //								Identifiers: []string{
 //									"iot.amazonaws.com",
@@ -52,7 +52,7 @@ import (
 //			}
 //			iotFleetProvisioning, err := iam.NewRole(ctx, "iotFleetProvisioning", &iam.RoleArgs{
 //				Path:             pulumi.String("/service-role/"),
-//				AssumeRolePolicy: pulumi.String(iotAssumeRolePolicy.Json),
+//				AssumeRolePolicy: *pulumi.String(iotAssumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -66,7 +66,7 @@ import (
 //			}
 //			devicePolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"iot:Subscribe",
 //						},
@@ -80,7 +80,7 @@ import (
 //				return err
 //			}
 //			devicePolicyPolicy, err := iot.NewPolicy(ctx, "devicePolicyPolicy", &iot.PolicyArgs{
-//				Policy: pulumi.String(devicePolicyPolicyDocument.Json),
+//				Policy: *pulumi.String(devicePolicyPolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

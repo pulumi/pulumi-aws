@@ -88,10 +88,10 @@ func NewNamespace(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'NamespaceName'")
 	}
 	if args.AdminUserPassword != nil {
-		args.AdminUserPassword = pulumi.ToSecret(args.AdminUserPassword).(pulumi.StringPtrOutput)
+		args.AdminUserPassword = pulumi.ToSecret(args.AdminUserPassword).(pulumi.StringPtrInput)
 	}
 	if args.AdminUsername != nil {
-		args.AdminUsername = pulumi.ToSecret(args.AdminUsername).(pulumi.StringPtrOutput)
+		args.AdminUsername = pulumi.ToSecret(args.AdminUsername).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"adminUserPassword",

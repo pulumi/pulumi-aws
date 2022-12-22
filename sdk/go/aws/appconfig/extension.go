@@ -35,12 +35,12 @@ import (
 //			}
 //			testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Type: "Service",
 //								Identifiers: []string{
 //									"appconfig.amazonaws.com",
@@ -54,7 +54,7 @@ import (
 //				return err
 //			}
 //			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(testPolicyDocument.Json),
+//				AssumeRolePolicy: *pulumi.String(testPolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

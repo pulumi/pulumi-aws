@@ -91,7 +91,7 @@ import (
 //					pulumi.String("push"),
 //				},
 //				Repository: pulumi.Any(github_repository.Example.Name),
-//				Configuration: &RepositoryWebhookConfigurationArgs{
+//				Configuration: &github.RepositoryWebhookConfigurationArgs{
 //					Url:         exampleWebhook.PayloadUrl,
 //					Secret:      exampleWebhook.Secret,
 //					ContentType: pulumi.String("json"),

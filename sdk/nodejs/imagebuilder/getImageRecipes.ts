@@ -27,11 +27,8 @@ import * as utilities from "../utilities";
  */
 export function getImageRecipes(args?: GetImageRecipesArgs, opts?: pulumi.InvokeOptions): Promise<GetImageRecipesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getImageRecipes:getImageRecipes", {
         "filters": args.filters,
         "owner": args.owner,
@@ -71,9 +68,26 @@ export interface GetImageRecipesResult {
     readonly names: string[];
     readonly owner?: string;
 }
-
+/**
+ * Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.imagebuilder.getImageRecipes({
+ *     filters: [{
+ *         name: "platform",
+ *         values: ["Linux"],
+ *     }],
+ *     owner: "Self",
+ * });
+ * ```
+ */
 export function getImageRecipesOutput(args?: GetImageRecipesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageRecipesResult> {
-    return pulumi.output(args).apply(a => getImageRecipes(a, opts))
+    return pulumi.output(args).apply((a: any) => getImageRecipes(a, opts))
 }
 
 /**

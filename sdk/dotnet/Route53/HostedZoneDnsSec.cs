@@ -14,6 +14,115 @@ namespace Pulumi.Aws.Route53
     /// 
     /// !&gt; **WARNING:** If you disable DNSSEC signing for your hosted zone before the DNS changes have propagated, your domain could become unavailable on the internet. When you remove the DS records, you must wait until the longest TTL for the DS records that you remove has expired before you complete the step to disable DNSSEC signing. Please refer to the [Route 53 Developer Guide - Disable DNSSEC](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-disable.html) for a detailed breakdown on the steps required to disable DNSSEC safely for a hosted zone.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     {
+    ///         CustomerMasterKeySpec = "ECC_NIST_P256",
+    ///         DeletionWindowInDays = 7,
+    ///         KeyUsage = "SIGN_VERIFY",
+    ///         Policy = Output.Tuple(current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult)).Apply(values =&gt;
+    ///         {
+    ///             var current = values.Item1;
+    ///             var current1 = values.Item2;
+    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["Statement"] = new[]
+    ///                 {
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Action"] = new[]
+    ///                         {
+    ///                             "kms:DescribeKey",
+    ///                             "kms:GetPublicKey",
+    ///                             "kms:Sign",
+    ///                         },
+    ///                         ["Effect"] = "Allow",
+    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["Service"] = "dnssec-route53.amazonaws.com",
+    ///                         },
+    ///                         ["Sid"] = "Allow Route 53 DNSSEC Service",
+    ///                         ["Resource"] = "*",
+    ///                         ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["StringEquals"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["aws:SourceAccount"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                             },
+    ///                             ["ArnLike"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["aws:SourceArn"] = "arn:aws:route53:::hostedzone/*",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Action"] = "kms:CreateGrant",
+    ///                         ["Effect"] = "Allow",
+    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["Service"] = "dnssec-route53.amazonaws.com",
+    ///                         },
+    ///                         ["Sid"] = "Allow Route 53 DNSSEC Service to CreateGrant",
+    ///                         ["Resource"] = "*",
+    ///                         ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["Bool"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["kms:GrantIsForAWSResource"] = "true",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Action"] = "kms:*",
+    ///                         ["Effect"] = "Allow",
+    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["AWS"] = $"arn:aws:iam::{current1.AccountId}:root",
+    ///                         },
+    ///                         ["Resource"] = "*",
+    ///                         ["Sid"] = "Enable IAM User Permissions",
+    ///                     },
+    ///                 },
+    ///                 ["Version"] = "2012-10-17",
+    ///             });
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleZone = new Aws.Route53.Zone("exampleZone");
+    /// 
+    ///     var exampleKeySigningKey = new Aws.Route53.KeySigningKey("exampleKeySigningKey", new()
+    ///     {
+    ///         HostedZoneId = exampleZone.Id,
+    ///         KeyManagementServiceArn = exampleKey.Arn,
+    ///     });
+    /// 
+    ///     var exampleHostedZoneDnsSec = new Aws.Route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", new()
+    ///     {
+    ///         HostedZoneId = exampleKeySigningKey.HostedZoneId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleKeySigningKey,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.,

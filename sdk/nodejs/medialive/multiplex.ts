@@ -22,8 +22,8 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.medialive.Multiplex("example", {
  *     availabilityZones: [
- *         available.then(available => available.names?[0]),
- *         available.then(available => available.names?[1]),
+ *         available.then(available => available.names?.[0]),
+ *         available.then(available => available.names?.[1]),
  *     ],
  *     multiplexSettings: {
  *         transportStreamBitrate: 1000000,

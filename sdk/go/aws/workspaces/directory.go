@@ -34,12 +34,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			workspaces, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Type: "Service",
 //								Identifiers: []string{
 //									"workspaces.amazonaws.com",
@@ -53,7 +53,7 @@ import (
 //				return err
 //			}
 //			workspacesDefault, err := iam.NewRole(ctx, "workspacesDefault", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(workspaces.Json),
+//				AssumeRolePolicy: *pulumi.String(workspaces.Json),
 //			})
 //			if err != nil {
 //				return err

@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  */
 export function getLocalGatewayVirtualInterfaceGroup(args?: GetLocalGatewayVirtualInterfaceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayVirtualInterfaceGroupResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLocalGatewayVirtualInterfaceGroup:getLocalGatewayVirtualInterfaceGroup", {
         "filters": args.filters,
         "id": args.id,
@@ -71,9 +68,22 @@ export interface GetLocalGatewayVirtualInterfaceGroupResult {
     readonly localGatewayVirtualInterfaceIds: string[];
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getLocalGatewayVirtualInterfaceGroup({
+ *     localGatewayId: data.aws_ec2_local_gateway.example.id,
+ * });
+ * ```
+ */
 export function getLocalGatewayVirtualInterfaceGroupOutput(args?: GetLocalGatewayVirtualInterfaceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceGroupResult> {
-    return pulumi.output(args).apply(a => getLocalGatewayVirtualInterfaceGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocalGatewayVirtualInterfaceGroup(a, opts))
 }
 
 /**

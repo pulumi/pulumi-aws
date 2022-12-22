@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTrackerAssociations(args: GetTrackerAssociationsArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerAssociationsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getTrackerAssociations:getTrackerAssociations", {
         "trackerName": args.trackerName,
     }, opts);
@@ -54,9 +51,23 @@ export interface GetTrackerAssociationsResult {
     readonly id: string;
     readonly trackerName: string;
 }
-
+/**
+ * Retrieve information about Location Service Tracker Associations.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.location.getTrackerAssociations({
+ *     trackerName: "example",
+ * });
+ * ```
+ */
 export function getTrackerAssociationsOutput(args: GetTrackerAssociationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerAssociationsResult> {
-    return pulumi.output(args).apply(a => getTrackerAssociations(a, opts))
+    return pulumi.output(args).apply((a: any) => getTrackerAssociations(a, opts))
 }
 
 /**

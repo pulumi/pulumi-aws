@@ -50,7 +50,7 @@ import (
 //			}
 //			route53_query_logging_policyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"logs:CreateLogStream",
 //							"logs:PutLogEvents",
@@ -59,7 +59,7 @@ import (
 //							"arn:aws:logs:*:*:log-group:/aws/route53/*",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Identifiers: []string{
 //									"route53.amazonaws.com",
 //								},
@@ -73,7 +73,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: pulumi.String(route53_query_logging_policyPolicyDocument.Json),
+//				PolicyDocument: *pulumi.String(route53_query_logging_policyPolicyDocument.Json),
 //				PolicyName:     pulumi.String("route53-query-logging-policy"),
 //			}, pulumi.Provider(aws.UsEast1))
 //			if err != nil {

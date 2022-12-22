@@ -40,11 +40,8 @@ import * as utilities from "../utilities";
  */
 export function getVpnAttachment(args?: GetVpnAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnAttachmentResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", {
         "filters": args.filters,
         "tags": args.tags,
@@ -91,9 +88,39 @@ export interface GetVpnAttachmentResult {
     readonly transitGatewayId?: string;
     readonly vpnConnectionId?: string;
 }
-
+/**
+ * Get information on an EC2 Transit Gateway VPN Attachment.
+ *
+ * > EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transitGatewayAttachmentId` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
+ *
+ * ## Example Usage
+ * ### By Transit Gateway and VPN Connection Identifiers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2transitgateway.getVpnAttachment({
+ *     transitGatewayId: aws_ec2_transit_gateway.example.id,
+ *     vpnConnectionId: aws_vpn_connection.example.id,
+ * });
+ * ```
+ * ### Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.ec2transitgateway.getVpnAttachment({
+ *     filters: [{
+ *         name: "resource-id",
+ *         values: ["some-resource"],
+ *     }],
+ * });
+ * ```
+ */
 export function getVpnAttachmentOutput(args?: GetVpnAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnAttachmentResult> {
-    return pulumi.output(args).apply(a => getVpnAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpnAttachment(a, opts))
 }
 
 /**

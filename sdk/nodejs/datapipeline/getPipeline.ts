@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:datapipeline/getPipeline:getPipeline", {
         "pipelineId": args.pipelineId,
         "tags": args.tags,
@@ -66,9 +63,22 @@ export interface GetPipelineResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides details about a specific DataPipeline Pipeline.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.datapipeline.getPipeline({
+ *     pipelineId: "pipelineID",
+ * });
+ * ```
+ */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
-    return pulumi.output(args).apply(a => getPipeline(a, opts))
+    return pulumi.output(args).apply((a: any) => getPipeline(a, opts))
 }
 
 /**

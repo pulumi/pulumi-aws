@@ -85,7 +85,7 @@ func NewResource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TypeName'")
 	}
 	if args.Schema != nil {
-		args.Schema = pulumi.ToSecret(args.Schema).(pulumi.StringPtrOutput)
+		args.Schema = pulumi.ToSecret(args.Schema).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"schema",

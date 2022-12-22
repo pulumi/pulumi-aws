@@ -60,9 +60,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.LookupManagedPrefixList(ctx, &ec2.LookupManagedPrefixListArgs{
+//			_, err := ec2.LookupManagedPrefixList(ctx, &ec2.LookupManagedPrefixListArgs{
 //				Filters: []ec2.GetManagedPrefixListFilter{
-//					ec2.GetManagedPrefixListFilter{
+//					{
 //						Name: "prefix-list-name",
 //						Values: []string{
 //							"my-prefix-list",

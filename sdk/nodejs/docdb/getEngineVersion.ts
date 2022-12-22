@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  */
 export function getEngineVersion(args?: GetEngineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEngineVersionResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:docdb/getEngineVersion:getEngineVersion", {
         "engine": args.engine,
         "parameterGroupFamily": args.parameterGroupFamily,
@@ -88,9 +85,22 @@ export interface GetEngineVersionResult {
      */
     readonly versionDescription: string;
 }
-
+/**
+ * Information about a DocumentDB engine version.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.docdb.getEngineVersion({
+ *     version: "3.6.0",
+ * });
+ * ```
+ */
 export function getEngineVersionOutput(args?: GetEngineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEngineVersionResult> {
-    return pulumi.output(args).apply(a => getEngineVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getEngineVersion(a, opts))
 }
 
 /**

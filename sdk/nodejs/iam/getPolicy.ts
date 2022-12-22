@@ -32,11 +32,8 @@ import * as utilities from "../utilities";
  */
 export function getPolicy(args?: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getPolicy:getPolicy", {
         "arn": args.arn,
         "name": args.name,
@@ -106,9 +103,34 @@ export interface GetPolicyResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * This data source can be used to fetch information about a specific
+ * IAM policy.
+ *
+ * ## Example Usage
+ * ### By ARN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.iam.getPolicy({
+ *     arn: "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
+ * });
+ * ```
+ * ### By Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.iam.getPolicy({
+ *     name: "test_policy",
+ * });
+ * ```
+ */
 export function getPolicyOutput(args?: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply(a => getPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
 }
 
 /**

@@ -61,9 +61,9 @@ import (
 //			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "allowAccessFromAnotherAccountBucketPolicy", &s3.BucketPolicyArgs{
 //				Bucket: example.ID(),
-//				Policy: allowAccessFromAnotherAccountPolicyDocument.ApplyT(func(allowAccessFromAnotherAccountPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
-//					return allowAccessFromAnotherAccountPolicyDocument.Json, nil
-//				}).(pulumi.StringOutput),
+//				Policy: allowAccessFromAnotherAccountPolicyDocument.ApplyT(func(allowAccessFromAnotherAccountPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &allowAccessFromAnotherAccountPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

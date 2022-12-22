@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lakeformation/getResource:getResource", {
         "arn": args.arn,
     }, opts);
@@ -57,9 +54,22 @@ export interface GetResourceResult {
      */
     readonly roleArn: string;
 }
-
+/**
+ * Provides details about a Lake Formation resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.lakeformation.getResource({
+ *     arn: "arn:aws:s3:::tf-acc-test-9151654063908211878",
+ * });
+ * ```
+ */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
-    return pulumi.output(args).apply(a => getResource(a, opts))
+    return pulumi.output(args).apply((a: any) => getResource(a, opts))
 }
 
 /**

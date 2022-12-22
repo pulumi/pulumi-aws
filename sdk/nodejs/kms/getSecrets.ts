@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Decrypt multiple secrets from data encrypted with the AWS KMS service.
  */
 export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kms/getSecrets:getSecrets", {
         "secrets": args.secrets,
     }, opts);
@@ -45,9 +42,11 @@ export interface GetSecretsResult {
     readonly plaintext: {[key: string]: string};
     readonly secrets: outputs.kms.GetSecretsSecret[];
 }
-
+/**
+ * Decrypt multiple secrets from data encrypted with the AWS KMS service.
+ */
 export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretsResult> {
-    return pulumi.output(args).apply(a => getSecrets(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecrets(a, opts))
 }
 
 /**

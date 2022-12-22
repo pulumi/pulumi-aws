@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = workspaces.LookupWorkspace(ctx, &workspaces.LookupWorkspaceArgs{
+//			_, err := workspaces.LookupWorkspace(ctx, &workspaces.LookupWorkspaceArgs{
 //				WorkspaceId: pulumi.StringRef("ws-cj5xcxsz5"),
 //			}, nil)
 //			if err != nil {
@@ -52,7 +52,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = workspaces.LookupWorkspace(ctx, &workspaces.LookupWorkspaceArgs{
+//			_, err := workspaces.LookupWorkspace(ctx, &workspaces.LookupWorkspaceArgs{
 //				DirectoryId: pulumi.StringRef("d-9967252f57"),
 //				UserName:    pulumi.StringRef("Example"),
 //			}, nil)

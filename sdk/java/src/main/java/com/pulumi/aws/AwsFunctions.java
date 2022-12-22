@@ -414,7 +414,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -459,7 +459,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -504,7 +504,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -549,7 +549,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1958,12 +1958,162 @@ public final class AwsFunctions {
     /**
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = AwsFunctions.getBillingServiceAccount();
+     * 
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     * 
+     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *             .bucket(billingLogs.id())
+     *             .acl(&#34;private&#34;)
+     *             .build());
+     * 
+     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(billingLogs.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     *   &#34;Id&#34;: &#34;Policy&#34;,
+     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+     *   &#34;Statement&#34;: [
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     },
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:PutObject&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     }
+     *   ]
+     * }
+     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount() {
         return getBillingServiceAccount(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = AwsFunctions.getBillingServiceAccount();
+     * 
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     * 
+     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *             .bucket(billingLogs.id())
+     *             .acl(&#34;private&#34;)
+     *             .build());
+     * 
+     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(billingLogs.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     *   &#34;Id&#34;: &#34;Policy&#34;,
+     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+     *   &#34;Statement&#34;: [
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     },
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:PutObject&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     }
+     *   ]
+     * }
+     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain() {
@@ -1972,12 +2122,162 @@ public final class AwsFunctions {
     /**
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = AwsFunctions.getBillingServiceAccount();
+     * 
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     * 
+     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *             .bucket(billingLogs.id())
+     *             .acl(&#34;private&#34;)
+     *             .build());
+     * 
+     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(billingLogs.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     *   &#34;Id&#34;: &#34;Policy&#34;,
+     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+     *   &#34;Statement&#34;: [
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     },
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:PutObject&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     }
+     *   ]
+     * }
+     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount(InvokeArgs args) {
         return getBillingServiceAccount(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = AwsFunctions.getBillingServiceAccount();
+     * 
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     * 
+     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *             .bucket(billingLogs.id())
+     *             .acl(&#34;private&#34;)
+     *             .build());
+     * 
+     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(billingLogs.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     *   &#34;Id&#34;: &#34;Policy&#34;,
+     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+     *   &#34;Statement&#34;: [
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     },
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:PutObject&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     }
+     *   ]
+     * }
+     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain(InvokeArgs args) {
@@ -1986,12 +2286,162 @@ public final class AwsFunctions {
     /**
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = AwsFunctions.getBillingServiceAccount();
+     * 
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     * 
+     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *             .bucket(billingLogs.id())
+     *             .acl(&#34;private&#34;)
+     *             .build());
+     * 
+     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(billingLogs.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     *   &#34;Id&#34;: &#34;Policy&#34;,
+     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+     *   &#34;Statement&#34;: [
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     },
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:PutObject&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     }
+     *   ]
+     * }
+     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getBillingServiceAccount:getBillingServiceAccount", TypeShape.of(GetBillingServiceAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = AwsFunctions.getBillingServiceAccount();
+     * 
+     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
+     * 
+     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
+     *             .bucket(billingLogs.id())
+     *             .acl(&#34;private&#34;)
+     *             .build());
+     * 
+     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *             .bucket(billingLogs.id())
+     *             .policy(&#34;&#34;&#34;
+     * {
+     *   &#34;Id&#34;: &#34;Policy&#34;,
+     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+     *   &#34;Statement&#34;: [
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     },
+     *     {
+     *       &#34;Action&#34;: [
+     *         &#34;s3:PutObject&#34;
+     *       ],
+     *       &#34;Effect&#34;: &#34;Allow&#34;,
+     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
+     *       &#34;Principal&#34;: {
+     *         &#34;AWS&#34;: [
+     *           &#34;%s&#34;
+     *         ]
+     *       }
+     *     }
+     *   ]
+     * }
+     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain(InvokeArgs args, InvokeOptions options) {
@@ -2001,6 +2451,36 @@ public final class AwsFunctions {
      * Use this data source to get the access to the effective Account ID, User ID, and ARN in
      * which this provider is authorized.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
+     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetCallerIdentityResult> getCallerIdentity() {
         return getCallerIdentity(InvokeArgs.Empty, InvokeOptions.Empty);
@@ -2008,6 +2488,36 @@ public final class AwsFunctions {
     /**
      * Use this data source to get the access to the effective Account ID, User ID, and ARN in
      * which this provider is authorized.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
+     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain() {
@@ -2017,6 +2527,36 @@ public final class AwsFunctions {
      * Use this data source to get the access to the effective Account ID, User ID, and ARN in
      * which this provider is authorized.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
+     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetCallerIdentityResult> getCallerIdentity(InvokeArgs args) {
         return getCallerIdentity(args, InvokeOptions.Empty);
@@ -2024,6 +2564,36 @@ public final class AwsFunctions {
     /**
      * Use this data source to get the access to the effective Account ID, User ID, and ARN in
      * which this provider is authorized.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
+     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain(InvokeArgs args) {
@@ -2033,6 +2603,36 @@ public final class AwsFunctions {
      * Use this data source to get the access to the effective Account ID, User ID, and ARN in
      * which this provider is authorized.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
+     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetCallerIdentityResult> getCallerIdentity(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getCallerIdentity:getCallerIdentity", TypeShape.of(GetCallerIdentityResult.class), args, Utilities.withVersion(options));
@@ -2040,6 +2640,36 @@ public final class AwsFunctions {
     /**
      * Use this data source to get the access to the effective Account ID, User ID, and ARN in
      * which this provider is authorized.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         ctx.export(&#34;accountId&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
+     *         ctx.export(&#34;callerArn&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
+     *         ctx.export(&#34;callerUser&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain(InvokeArgs args, InvokeOptions options) {
@@ -2050,6 +2680,34 @@ public final class AwsFunctions {
      * for the effective account in which this provider is working.
      * 
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
+     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -2065,6 +2723,34 @@ public final class AwsFunctions {
      * 
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
+     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *     }
+     * }
+     * ```
+     * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
      * 
@@ -2078,6 +2764,34 @@ public final class AwsFunctions {
      * for the effective account in which this provider is working.
      * 
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
+     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -2093,6 +2807,34 @@ public final class AwsFunctions {
      * 
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
+     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *     }
+     * }
+     * ```
+     * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
      * 
@@ -2107,6 +2849,34 @@ public final class AwsFunctions {
      * 
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
+     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *     }
+     * }
+     * ```
+     * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
      * 
@@ -2120,6 +2890,34 @@ public final class AwsFunctions {
      * for the effective account in which this provider is working.
      * 
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
+     *         ctx.export(&#34;canonicalUserId&#34;, current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -3585,6 +4383,43 @@ public final class AwsFunctions {
      * Use this data source to lookup information about the current AWS partition in
      * which the provider is working.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getPartition();
+     * 
+     *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(&#34;s3:ListBucket&#34;)
+     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid(&#34;1&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetPartitionResult> getPartition() {
         return getPartition(InvokeArgs.Empty, InvokeOptions.Empty);
@@ -3592,6 +4427,43 @@ public final class AwsFunctions {
     /**
      * Use this data source to lookup information about the current AWS partition in
      * which the provider is working.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getPartition();
+     * 
+     *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(&#34;s3:ListBucket&#34;)
+     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid(&#34;1&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain() {
@@ -3601,6 +4473,43 @@ public final class AwsFunctions {
      * Use this data source to lookup information about the current AWS partition in
      * which the provider is working.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getPartition();
+     * 
+     *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(&#34;s3:ListBucket&#34;)
+     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid(&#34;1&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetPartitionResult> getPartition(InvokeArgs args) {
         return getPartition(args, InvokeOptions.Empty);
@@ -3608,6 +4517,43 @@ public final class AwsFunctions {
     /**
      * Use this data source to lookup information about the current AWS partition in
      * which the provider is working.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getPartition();
+     * 
+     *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(&#34;s3:ListBucket&#34;)
+     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid(&#34;1&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain(InvokeArgs args) {
@@ -3617,6 +4563,43 @@ public final class AwsFunctions {
      * Use this data source to lookup information about the current AWS partition in
      * which the provider is working.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getPartition();
+     * 
+     *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(&#34;s3:ListBucket&#34;)
+     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid(&#34;1&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetPartitionResult> getPartition(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getPartition:getPartition", TypeShape.of(GetPartitionResult.class), args, Utilities.withVersion(options));
@@ -3624,6 +4607,43 @@ public final class AwsFunctions {
     /**
      * Use this data source to lookup information about the current AWS partition in
      * which the provider is working.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getPartition();
+     * 
+     *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(&#34;s3:ListBucket&#34;)
+     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+     *                 .sid(&#34;1&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain(InvokeArgs args, InvokeOptions options) {
@@ -5148,7 +6168,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5180,7 +6200,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5209,7 +6229,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5248,7 +6268,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5280,7 +6300,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5309,7 +6329,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5348,7 +6368,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5380,7 +6400,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5409,7 +6429,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5448,7 +6468,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5480,7 +6500,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5509,7 +6529,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5548,7 +6568,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5580,7 +6600,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5609,7 +6629,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5648,7 +6668,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5680,7 +6700,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5709,7 +6729,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

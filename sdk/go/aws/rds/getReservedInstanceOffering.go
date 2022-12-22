@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = rds.GetReservedInstanceOffering(ctx, &rds.GetReservedInstanceOfferingArgs{
+//			_, err := rds.GetReservedInstanceOffering(ctx, &rds.GetReservedInstanceOfferingArgs{
 //				DbInstanceClass:    "db.t2.micro",
 //				Duration:           31536000,
 //				MultiAz:            false,

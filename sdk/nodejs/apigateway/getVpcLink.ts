@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getVpcLink:getVpcLink", {
         "name": args.name,
         "tags": args.tags,
@@ -78,9 +75,25 @@ export interface GetVpcLinkResult {
      */
     readonly targetArns: string[];
 }
-
+/**
+ * Use this data source to get the id of a VPC Link in
+ * API Gateway. To fetch the VPC Link you must provide a name to match against.
+ * As there is no unique name constraint on API Gateway VPC Links this data source will
+ * error if there is more than one match.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myApiGatewayVpcLink = aws.apigateway.getVpcLink({
+ *     name: "my-vpc-link",
+ * });
+ * ```
+ */
 export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
-    return pulumi.output(args).apply(a => getVpcLink(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpcLink(a, opts))
 }
 
 /**

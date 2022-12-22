@@ -26,11 +26,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceQuotaResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicequotas/getServiceQuota:getServiceQuota", {
         "quotaCode": args.quotaCode,
         "quotaName": args.quotaName,
@@ -92,9 +89,29 @@ export interface GetServiceQuotaResult {
      */
     readonly value: number;
 }
-
+/**
+ * Retrieve information about a Service Quota.
+ *
+ * > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const byQuotaCode = aws.servicequotas.getServiceQuota({
+ *     quotaCode: "L-F678F1CE",
+ *     serviceCode: "vpc",
+ * });
+ * const byQuotaName = aws.servicequotas.getServiceQuota({
+ *     quotaName: "VPCs per Region",
+ *     serviceCode: "vpc",
+ * });
+ * ```
+ */
 export function getServiceQuotaOutput(args: GetServiceQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceQuotaResult> {
-    return pulumi.output(args).apply(a => getServiceQuota(a, opts))
+    return pulumi.output(args).apply((a: any) => getServiceQuota(a, opts))
 }
 
 /**

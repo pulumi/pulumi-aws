@@ -39,7 +39,7 @@ import (
 //			}
 //			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "testVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
 //				IpamPoolId: pulumi.Any(aws_vpc_ipam_pool.Test.Id),
-//				Cidr:       pulumi.String(testIpamPreviewNextCidr.Cidr),
+//				Cidr:       *pulumi.String(testIpamPreviewNextCidr.Cidr),
 //			})
 //			if err != nil {
 //				return err

@@ -741,7 +741,7 @@ public final class LakeformationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetResourceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -778,7 +778,7 @@ public final class LakeformationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetResourceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -815,7 +815,7 @@ public final class LakeformationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetResourceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -852,7 +852,7 @@ public final class LakeformationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetResourceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

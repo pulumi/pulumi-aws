@@ -123,7 +123,7 @@ func NewBranch(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'BranchName'")
 	}
 	if args.BasicAuthCredentials != nil {
-		args.BasicAuthCredentials = pulumi.ToSecret(args.BasicAuthCredentials).(pulumi.StringPtrOutput)
+		args.BasicAuthCredentials = pulumi.ToSecret(args.BasicAuthCredentials).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"basicAuthCredentials",

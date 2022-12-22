@@ -160,16 +160,16 @@ func NewObjectCopy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
 	if args.CustomerKey != nil {
-		args.CustomerKey = pulumi.ToSecret(args.CustomerKey).(pulumi.StringPtrOutput)
+		args.CustomerKey = pulumi.ToSecret(args.CustomerKey).(pulumi.StringPtrInput)
 	}
 	if args.KmsEncryptionContext != nil {
-		args.KmsEncryptionContext = pulumi.ToSecret(args.KmsEncryptionContext).(pulumi.StringPtrOutput)
+		args.KmsEncryptionContext = pulumi.ToSecret(args.KmsEncryptionContext).(pulumi.StringPtrInput)
 	}
 	if args.KmsKeyId != nil {
-		args.KmsKeyId = pulumi.ToSecret(args.KmsKeyId).(pulumi.StringPtrOutput)
+		args.KmsKeyId = pulumi.ToSecret(args.KmsKeyId).(pulumi.StringPtrInput)
 	}
 	if args.SourceCustomerKey != nil {
-		args.SourceCustomerKey = pulumi.ToSecret(args.SourceCustomerKey).(pulumi.StringPtrOutput)
+		args.SourceCustomerKey = pulumi.ToSecret(args.SourceCustomerKey).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"customerKey",

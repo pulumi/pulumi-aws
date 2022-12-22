@@ -48,11 +48,8 @@ import * as utilities from "../utilities";
  */
 export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:resourcegroupstaggingapi/getResources:getResources", {
         "excludeCompliantResources": args.excludeCompliantResources,
         "includeComplianceDetails": args.includeComplianceDetails,
@@ -106,9 +103,47 @@ export interface GetResourcesResult {
     readonly resourceTypeFilters?: string[];
     readonly tagFilters?: outputs.resourcegroupstaggingapi.GetResourcesTagFilter[];
 }
-
+/**
+ * Provides details about resource tagging.
+ *
+ * ## Example Usage
+ * ### Get All Resource Tag Mappings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.resourcegroupstaggingapi.getResources({});
+ * ```
+ * ### Filter By Tag Key and Value
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.resourcegroupstaggingapi.getResources({
+ *     tagFilters: [{
+ *         key: "tag-key",
+ *         values: [
+ *             "tag-value-1",
+ *             "tag-value-2",
+ *         ],
+ *     }],
+ * });
+ * ```
+ * ### Filter By Resource Type
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.resourcegroupstaggingapi.getResources({
+ *     resourceTypeFilters: ["ec2:instance"],
+ * });
+ * ```
+ */
 export function getResourcesOutput(args?: GetResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcesResult> {
-    return pulumi.output(args).apply(a => getResources(a, opts))
+    return pulumi.output(args).apply((a: any) => getResources(a, opts))
 }
 
 /**

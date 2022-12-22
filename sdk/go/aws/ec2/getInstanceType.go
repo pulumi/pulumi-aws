@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.GetInstanceType(ctx, &ec2.GetInstanceTypeArgs{
+//			_, err := ec2.GetInstanceType(ctx, &ec2.GetInstanceTypeArgs{
 //				InstanceType: "t2.micro",
 //			}, nil)
 //			if err != nil {

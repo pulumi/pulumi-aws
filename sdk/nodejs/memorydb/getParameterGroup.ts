@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getParameterGroup(args: GetParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:memorydb/getParameterGroup:getParameterGroup", {
         "name": args.name,
         "tags": args.tags,
@@ -80,9 +77,22 @@ export interface GetParameterGroupResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides information about a MemoryDB Parameter Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.memorydb.getParameterGroup({
+ *     name: "my-parameter-group",
+ * });
+ * ```
+ */
 export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterGroupResult> {
-    return pulumi.output(args).apply(a => getParameterGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getParameterGroup(a, opts))
 }
 
 /**

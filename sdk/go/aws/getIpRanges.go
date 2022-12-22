@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			europeanEc2, err := aws.GetIpRanges(ctx, &GetIpRangesArgs{
+//			europeanEc2, err := aws.GetIpRanges(ctx, &aws.GetIpRangesArgs{
 //				Regions: []string{
 //					"eu-west-1",
 //					"eu-central-1",
@@ -50,8 +50,8 @@ import (
 //					},
 //				},
 //				Tags: pulumi.StringMap{
-//					"CreateDate": pulumi.String(europeanEc2.CreateDate),
-//					"SyncToken":  pulumi.Int(europeanEc2.SyncToken),
+//					"CreateDate": *pulumi.String(europeanEc2.CreateDate),
+//					"SyncToken":  *pulumi.Int(europeanEc2.SyncToken),
 //				},
 //			})
 //			if err != nil {

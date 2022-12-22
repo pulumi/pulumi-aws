@@ -30,11 +30,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elb/getLoadBalancer:getLoadBalancer", {
         "name": args.name,
         "tags": args.tags,
@@ -81,9 +78,30 @@ export interface GetLoadBalancerResult {
     readonly tags: {[key: string]: string};
     readonly zoneId: string;
 }
-
+/**
+ * Provides information about a "classic" Elastic Load Balancer (ELB).
+ * See LB Data Source if you are looking for "v2"
+ * Application Load Balancer (ALB) or Network Load Balancer (NLB).
+ *
+ * This data source can prove useful when a module accepts an LB as an input
+ * variable and needs to, for example, determine the security groups associated
+ * with it, etc.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const lbName = config.get("lbName") || "";
+ * const test = aws.elb.getLoadBalancer({
+ *     name: lbName,
+ * });
+ * ```
+ */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
-    return pulumi.output(args).apply(a => getLoadBalancer(a, opts))
+    return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
 }
 
 /**

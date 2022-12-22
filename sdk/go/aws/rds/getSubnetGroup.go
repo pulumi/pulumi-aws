@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = rds.LookupSubnetGroup(ctx, &rds.LookupSubnetGroupArgs{
+//			_, err := rds.LookupSubnetGroup(ctx, &rds.LookupSubnetGroupArgs{
 //				Name: "my-test-database-subnet-group",
 //			}, nil)
 //			if err != nil {

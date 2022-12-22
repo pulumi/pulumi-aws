@@ -81,7 +81,7 @@ func NewApiKey(ctx *pulumi.Context,
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	if args.Value != nil {
-		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringPtrOutput)
+		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"value",

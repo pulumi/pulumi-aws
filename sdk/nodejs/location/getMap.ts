@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<GetMapResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getMap:getMap", {
         "mapName": args.mapName,
         "tags": args.tags,
@@ -81,9 +78,22 @@ export interface GetMapResult {
      */
     readonly updateTime: string;
 }
-
+/**
+ * Retrieve information about a Location Service Map.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.location.getMap({
+ *     mapName: "example",
+ * });
+ * ```
+ */
 export function getMapOutput(args: GetMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMapResult> {
-    return pulumi.output(args).apply(a => getMap(a, opts))
+    return pulumi.output(args).apply((a: any) => getMap(a, opts))
 }
 
 /**

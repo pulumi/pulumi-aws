@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = organizations.GetDelegatedServices(ctx, &organizations.GetDelegatedServicesArgs{
+//			_, err := organizations.GetDelegatedServices(ctx, &organizations.GetDelegatedServicesArgs{
 //				AccountId: "AWS ACCOUNT ID",
 //			}, nil)
 //			if err != nil {

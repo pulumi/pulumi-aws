@@ -46,9 +46,9 @@ import (
 //				}, nil), nil
 //			}).(storagegateway.GetLocalDiskResultOutput)
 //			_, err = storagegateway.NewCache(ctx, "testCache", &storagegateway.CacheArgs{
-//				DiskId: testLocalDisk.ApplyT(func(testLocalDisk storagegateway.GetLocalDiskResult) (string, error) {
-//					return testLocalDisk.DiskId, nil
-//				}).(pulumi.StringOutput),
+//				DiskId: testLocalDisk.ApplyT(func(testLocalDisk storagegateway.GetLocalDiskResult) (*string, error) {
+//					return &testLocalDisk.DiskId, nil
+//				}).(pulumi.StringPtrOutput),
 //				GatewayArn: pulumi.Any(aws_storagegateway_gateway.Test.Arn),
 //			})
 //			if err != nil {
@@ -297,7 +297,7 @@ func NewGateway(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'GatewayTimezone'")
 	}
 	if args.SmbGuestPassword != nil {
-		args.SmbGuestPassword = pulumi.ToSecret(args.SmbGuestPassword).(pulumi.StringPtrOutput)
+		args.SmbGuestPassword = pulumi.ToSecret(args.SmbGuestPassword).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"smbGuestPassword",

@@ -31,11 +31,8 @@ import * as utilities from "../utilities";
  */
 export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codestarconnections/getConnection:getConnection", {
         "arn": args.arn,
         "name": args.name,
@@ -91,9 +88,33 @@ export interface GetConnectionResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides details about CodeStar Connection.
+ *
+ * ## Example Usage
+ * ### By ARN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.codestarconnections.getConnection({
+ *     arn: aws_codestarconnections_connection.example.arn,
+ * });
+ * ```
+ * ### By Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.codestarconnections.getConnection({
+ *     name: aws_codestarconnections_connection.example.name,
+ * });
+ * ```
+ */
 export function getConnectionOutput(args?: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
-    return pulumi.output(args).apply(a => getConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnection(a, opts))
 }
 
 /**

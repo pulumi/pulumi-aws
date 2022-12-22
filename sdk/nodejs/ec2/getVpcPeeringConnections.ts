@@ -16,11 +16,8 @@ import * as utilities from "../utilities";
  */
 export function getVpcPeeringConnections(args?: GetVpcPeeringConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", {
         "filters": args.filters,
         "tags": args.tags,
@@ -57,9 +54,15 @@ export interface GetVpcPeeringConnectionsResult {
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to get IDs of Amazon VPC peering connections
+ * To get more details on each connection, use the data resource aws.ec2.VpcPeeringConnection
+ *
+ * Note: To use this data source in a count, the resources should exist before trying to access
+ * the data source.
+ */
 export function getVpcPeeringConnectionsOutput(args?: GetVpcPeeringConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcPeeringConnectionsResult> {
-    return pulumi.output(args).apply(a => getVpcPeeringConnections(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpcPeeringConnections(a, opts))
 }
 
 /**

@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  */
 export function getOutpost(args?: GetOutpostArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getOutpost:getOutpost", {
         "arn": args.arn,
         "id": args.id,
@@ -80,9 +77,22 @@ export interface GetOutpostResult {
      */
     readonly siteId: string;
 }
-
+/**
+ * Provides details about an Outposts Outpost.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.outposts.getOutpost({
+ *     name: "example",
+ * });
+ * ```
+ */
 export function getOutpostOutput(args?: GetOutpostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostResult> {
-    return pulumi.output(args).apply(a => getOutpost(a, opts))
+    return pulumi.output(args).apply((a: any) => getOutpost(a, opts))
 }
 
 /**

@@ -56,9 +56,9 @@ import (
 //				Egress:       pulumi.Bool(false),
 //				Protocol:     pulumi.String("tcp"),
 //				RuleAction:   pulumi.String("allow"),
-//				CidrBlock: privateS3PrefixList.ApplyT(func(privateS3PrefixList ec2.GetPrefixListResult) (string, error) {
-//					return privateS3PrefixList.CidrBlocks[0], nil
-//				}).(pulumi.StringOutput),
+//				CidrBlock: privateS3PrefixList.ApplyT(func(privateS3PrefixList ec2.GetPrefixListResult) (*string, error) {
+//					return &privateS3PrefixList.CidrBlocks[0], nil
+//				}).(pulumi.StringPtrOutput),
 //				FromPort: pulumi.Int(443),
 //				ToPort:   pulumi.Int(443),
 //			})
@@ -84,9 +84,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.GetPrefixList(ctx, &ec2.GetPrefixListArgs{
+//			_, err := ec2.GetPrefixList(ctx, &ec2.GetPrefixListArgs{
 //				Filters: []ec2.GetPrefixListFilter{
-//					ec2.GetPrefixListFilter{
+//					{
 //						Name: "prefix-list-id",
 //						Values: []string{
 //							"pl-68a54001",

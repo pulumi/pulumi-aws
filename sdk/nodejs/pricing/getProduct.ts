@@ -72,11 +72,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:pricing/getProduct:getProduct", {
         "filters": args.filters,
         "serviceCode": args.serviceCode,
@@ -112,9 +109,72 @@ export interface GetProductResult {
     readonly result: string;
     readonly serviceCode: string;
 }
-
+/**
+ * Use this data source to get the pricing information of all products in AWS.
+ * This data source is only available in a us-east-1 or ap-south-1 provider.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.pricing.getProduct({
+ *     filters: [
+ *         {
+ *             field: "instanceType",
+ *             value: "c5.xlarge",
+ *         },
+ *         {
+ *             field: "operatingSystem",
+ *             value: "Linux",
+ *         },
+ *         {
+ *             field: "location",
+ *             value: "US East (N. Virginia)",
+ *         },
+ *         {
+ *             field: "preInstalledSw",
+ *             value: "NA",
+ *         },
+ *         {
+ *             field: "licenseModel",
+ *             value: "No License required",
+ *         },
+ *         {
+ *             field: "tenancy",
+ *             value: "Shared",
+ *         },
+ *         {
+ *             field: "capacitystatus",
+ *             value: "Used",
+ *         },
+ *     ],
+ *     serviceCode: "AmazonEC2",
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.pricing.getProduct({
+ *     filters: [
+ *         {
+ *             field: "instanceType",
+ *             value: "ds1.xlarge",
+ *         },
+ *         {
+ *             field: "location",
+ *             value: "US East (N. Virginia)",
+ *         },
+ *     ],
+ *     serviceCode: "AmazonRedshift",
+ * });
+ * ```
+ */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
-    return pulumi.output(args).apply(a => getProduct(a, opts))
+    return pulumi.output(args).apply((a: any) => getProduct(a, opts))
 }
 
 /**

@@ -31,8 +31,8 @@ import (
 //			_, err := fsx.NewOntapFileSystem(ctx, "test", &fsx.OntapFileSystemArgs{
 //				StorageCapacity: pulumi.Int(1024),
 //				SubnetIds: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Test1.Id),
-//					pulumi.Any(aws_subnet.Test2.Id),
+//					aws_subnet.Test1.Id,
+//					aws_subnet.Test2.Id,
 //				},
 //				DeploymentType:     pulumi.String("MULTI_AZ_1"),
 //				ThroughputCapacity: pulumi.Int(512),
@@ -141,7 +141,7 @@ func NewOntapFileSystem(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ThroughputCapacity'")
 	}
 	if args.FsxAdminPassword != nil {
-		args.FsxAdminPassword = pulumi.ToSecret(args.FsxAdminPassword).(pulumi.StringPtrOutput)
+		args.FsxAdminPassword = pulumi.ToSecret(args.FsxAdminPassword).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"fsxAdminPassword",

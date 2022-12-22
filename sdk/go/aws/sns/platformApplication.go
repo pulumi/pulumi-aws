@@ -153,10 +153,10 @@ func NewPlatformApplication(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PlatformCredential'")
 	}
 	if args.PlatformCredential != nil {
-		args.PlatformCredential = pulumi.ToSecret(args.PlatformCredential).(pulumi.StringOutput)
+		args.PlatformCredential = pulumi.ToSecret(args.PlatformCredential).(pulumi.StringInput)
 	}
 	if args.PlatformPrincipal != nil {
-		args.PlatformPrincipal = pulumi.ToSecret(args.PlatformPrincipal).(pulumi.StringPtrOutput)
+		args.PlatformPrincipal = pulumi.ToSecret(args.PlatformPrincipal).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"platformCredential",

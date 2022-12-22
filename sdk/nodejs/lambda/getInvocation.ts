@@ -10,11 +10,8 @@ import * as utilities from "../utilities";
  * invocation type.
  */
 export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvocationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lambda/getInvocation:getInvocation", {
         "functionName": args.functionName,
         "input": args.input,
@@ -57,9 +54,13 @@ export interface GetInvocationResult {
      */
     readonly result: string;
 }
-
+/**
+ * Use this data source to invoke custom lambda functions as data source.
+ * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
+ * invocation type.
+ */
 export function getInvocationOutput(args: GetInvocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvocationResult> {
-    return pulumi.output(args).apply(a => getInvocation(a, opts))
+    return pulumi.output(args).apply((a: any) => getInvocation(a, opts))
 }
 
 /**

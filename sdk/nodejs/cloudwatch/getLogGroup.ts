@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getLogGroup:getLogGroup", {
         "name": args.name,
         "tags": args.tags,
@@ -74,9 +71,22 @@ export interface GetLogGroupResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to get information about an AWS Cloudwatch Log Group
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.cloudwatch.getLogGroup({
+ *     name: "MyImportantLogs",
+ * });
+ * ```
+ */
 export function getLogGroupOutput(args: GetLogGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupResult> {
-    return pulumi.output(args).apply(a => getLogGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getLogGroup(a, opts))
 }
 
 /**

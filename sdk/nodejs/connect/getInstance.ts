@@ -33,11 +33,8 @@ import * as utilities from "../utilities";
  */
 export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getInstance:getInstance", {
         "instanceAlias": args.instanceAlias,
         "instanceId": args.instanceId,
@@ -114,9 +111,35 @@ export interface GetInstanceResult {
      */
     readonly status: string;
 }
-
+/**
+ * Provides details about a specific Amazon Connect Instance.
+ *
+ * ## Example Usage
+ *
+ * By instanceAlias
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = aws.connect.getInstance({
+ *     instanceAlias: "foo",
+ * });
+ * ```
+ *
+ * By instanceId
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = aws.connect.getInstance({
+ *     instanceId: "97afc98d-101a-ba98-ab97-ae114fc115ec",
+ * });
+ * ```
+ */
 export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
-    return pulumi.output(args).apply(a => getInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getInstance(a, opts))
 }
 
 /**

@@ -14,11 +14,8 @@ import * as utilities from "../utilities";
  */
 export function getEbsVolumes(args?: GetEbsVolumesArgs, opts?: pulumi.InvokeOptions): Promise<GetEbsVolumesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ebs/getEbsVolumes:getEbsVolumes", {
         "filters": args.filters,
         "tags": args.tags,
@@ -56,9 +53,13 @@ export interface GetEbsVolumesResult {
     readonly ids: string[];
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
+ *
+ * This data source can be useful for getting a list of volume IDs with (for example) matching tags.
+ */
 export function getEbsVolumesOutput(args?: GetEbsVolumesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEbsVolumesResult> {
-    return pulumi.output(args).apply(a => getEbsVolumes(a, opts))
+    return pulumi.output(args).apply((a: any) => getEbsVolumes(a, opts))
 }
 
 /**

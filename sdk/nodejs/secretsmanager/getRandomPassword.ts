@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  */
 export function getRandomPassword(args?: GetRandomPasswordArgs, opts?: pulumi.InvokeOptions): Promise<GetRandomPasswordResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getRandomPassword:getRandomPassword", {
         "excludeCharacters": args.excludeCharacters,
         "excludeLowercase": args.excludeLowercase,
@@ -102,9 +99,23 @@ export interface GetRandomPasswordResult {
     readonly randomPassword: string;
     readonly requireEachIncludedType?: boolean;
 }
-
+/**
+ * Generate a random password.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.secretsmanager.getRandomPassword({
+ *     excludeNumbers: true,
+ *     passwordLength: 50,
+ * });
+ * ```
+ */
 export function getRandomPasswordOutput(args?: GetRandomPasswordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRandomPasswordResult> {
-    return pulumi.output(args).apply(a => getRandomPassword(a, opts))
+    return pulumi.output(args).apply((a: any) => getRandomPassword(a, opts))
 }
 
 /**

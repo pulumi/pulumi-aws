@@ -88,7 +88,7 @@ import (
 //			fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
 //				VpcId:            fooVpc.ID(),
 //				CidrBlock:        pulumi.String("10.1.1.0/24"),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
+//				AvailabilityZone: *pulumi.String(available.Names[0]),
 //			})
 //			if err != nil {
 //				return err
@@ -96,7 +96,7 @@ import (
 //			bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
 //				VpcId:            fooVpc.ID(),
 //				CidrBlock:        pulumi.String("10.1.2.0/24"),
-//				AvailabilityZone: pulumi.String(available.Names[1]),
+//				AvailabilityZone: *pulumi.String(available.Names[1]),
 //			})
 //			if err != nil {
 //				return err
@@ -221,7 +221,7 @@ import (
 //			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
 //				RestApi: exampleRestApi.ID(),
 //				Triggers: pulumi.StringMap{
-//					"redeployment": exampleRestApi.Body.ApplyT(func(body string) (pulumi.String, error) {
+//					"redeployment": exampleRestApi.Body.ApplyT(func(body *string) (pulumi.String, error) {
 //						var _zero pulumi.String
 //						tmpJSON1, err := json.Marshal(body)
 //						if err != nil {

@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
+//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
 //				State: pulumi.StringRef("available"),
 //			}, nil)
 //			if err != nil {
@@ -37,8 +37,8 @@ import (
 //			}
 //			_, err = medialive.NewMultiplex(ctx, "example", &medialive.MultiplexArgs{
 //				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String(available.Names[0]),
-//					pulumi.String(available.Names[1]),
+//					*pulumi.String(available.Names[0]),
+//					*pulumi.String(available.Names[1]),
 //				},
 //				MultiplexSettings: &medialive.MultiplexMultiplexSettingsArgs{
 //					TransportStreamBitrate:              pulumi.Int(1000000),

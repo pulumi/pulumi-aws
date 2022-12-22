@@ -28,11 +28,8 @@ import * as utilities from "../utilities";
  */
 export function getOpenZfsSnapshot(args?: GetOpenZfsSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenZfsSnapshotResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,
@@ -105,9 +102,27 @@ export interface GetOpenZfsSnapshotResult {
      */
     readonly volumeId: string;
 }
-
+/**
+ * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
+ *
+ * ## Example Usage
+ * ### Root volume Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.fsx.getOpenZfsSnapshot({
+ *     filters: [{
+ *         name: "volume-id",
+ *         values: ["fsvol-073a32b6098a73feb"],
+ *     }],
+ *     mostRecent: true,
+ * });
+ * ```
+ */
 export function getOpenZfsSnapshotOutput(args?: GetOpenZfsSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenZfsSnapshotResult> {
-    return pulumi.output(args).apply(a => getOpenZfsSnapshot(a, opts))
+    return pulumi.output(args).apply((a: any) => getOpenZfsSnapshot(a, opts))
 }
 
 /**

@@ -80,12 +80,12 @@ import (
 //				ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
-//						Name: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (string, error) {
-//							return domainNameConfiguration.TargetDomainName, nil
-//						}).(pulumi.StringOutput),
-//						ZoneId: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (string, error) {
-//							return domainNameConfiguration.HostedZoneId, nil
-//						}).(pulumi.StringOutput),
+//						Name: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
+//							return &domainNameConfiguration.TargetDomainName, nil
+//						}).(pulumi.StringPtrOutput),
+//						ZoneId: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
+//							return &domainNameConfiguration.HostedZoneId, nil
+//						}).(pulumi.StringPtrOutput),
 //						EvaluateTargetHealth: pulumi.Bool(false),
 //					},
 //				},

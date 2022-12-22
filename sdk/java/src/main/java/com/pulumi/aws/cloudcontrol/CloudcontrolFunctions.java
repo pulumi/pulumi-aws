@@ -25,7 +25,7 @@ public final class CloudcontrolFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudcontrol.CloudcontrolFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
+     * import com.pulumi.aws.cloudcontrol.inputs.GetResourceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -63,7 +63,7 @@ public final class CloudcontrolFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudcontrol.CloudcontrolFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
+     * import com.pulumi.aws.cloudcontrol.inputs.GetResourceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -101,7 +101,7 @@ public final class CloudcontrolFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudcontrol.CloudcontrolFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
+     * import com.pulumi.aws.cloudcontrol.inputs.GetResourceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -139,7 +139,7 @@ public final class CloudcontrolFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudcontrol.CloudcontrolFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
+     * import com.pulumi.aws.cloudcontrol.inputs.GetResourceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

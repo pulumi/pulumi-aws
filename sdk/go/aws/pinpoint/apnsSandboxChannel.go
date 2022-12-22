@@ -101,22 +101,22 @@ func NewApnsSandboxChannel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
 	if args.BundleId != nil {
-		args.BundleId = pulumi.ToSecret(args.BundleId).(pulumi.StringPtrOutput)
+		args.BundleId = pulumi.ToSecret(args.BundleId).(pulumi.StringPtrInput)
 	}
 	if args.Certificate != nil {
-		args.Certificate = pulumi.ToSecret(args.Certificate).(pulumi.StringPtrOutput)
+		args.Certificate = pulumi.ToSecret(args.Certificate).(pulumi.StringPtrInput)
 	}
 	if args.PrivateKey != nil {
-		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringPtrOutput)
+		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringPtrInput)
 	}
 	if args.TeamId != nil {
-		args.TeamId = pulumi.ToSecret(args.TeamId).(pulumi.StringPtrOutput)
+		args.TeamId = pulumi.ToSecret(args.TeamId).(pulumi.StringPtrInput)
 	}
 	if args.TokenKey != nil {
-		args.TokenKey = pulumi.ToSecret(args.TokenKey).(pulumi.StringPtrOutput)
+		args.TokenKey = pulumi.ToSecret(args.TokenKey).(pulumi.StringPtrInput)
 	}
 	if args.TokenKeyId != nil {
-		args.TokenKeyId = pulumi.ToSecret(args.TokenKeyId).(pulumi.StringPtrOutput)
+		args.TokenKeyId = pulumi.ToSecret(args.TokenKeyId).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"bundleId",

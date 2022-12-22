@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = route53.LookupResolverFirewallConfig(ctx, &route53.LookupResolverFirewallConfigArgs{
+//			_, err := route53.LookupResolverFirewallConfig(ctx, &route53.LookupResolverFirewallConfigArgs{
 //				ResourceId: "vpc-exampleid",
 //			}, nil)
 //			if err != nil {

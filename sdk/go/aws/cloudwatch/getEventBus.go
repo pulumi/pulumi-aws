@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = cloudwatch.LookupEventBus(ctx, &cloudwatch.LookupEventBusArgs{
+//			_, err := cloudwatch.LookupEventBus(ctx, &cloudwatch.LookupEventBusArgs{
 //				Name: "example-bus-name",
 //			}, nil)
 //			if err != nil {

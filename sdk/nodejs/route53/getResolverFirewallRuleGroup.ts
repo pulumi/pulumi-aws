@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResolverFirewallRuleGroup(args: GetResolverFirewallRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallRuleGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", {
         "firewallRuleGroupId": args.firewallRuleGroupId,
     }, opts);
@@ -63,9 +60,26 @@ export interface GetResolverFirewallRuleGroupResult {
     readonly status: string;
     readonly statusMessage: string;
 }
-
+/**
+ * `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
+ *
+ * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how to get a firewall rule group from its ID.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.route53.getResolverFirewallRuleGroup({
+ *     firewallRuleGroupId: "rslvr-frg-example",
+ * });
+ * ```
+ */
 export function getResolverFirewallRuleGroupOutput(args: GetResolverFirewallRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallRuleGroupResult> {
-    return pulumi.output(args).apply(a => getResolverFirewallRuleGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getResolverFirewallRuleGroup(a, opts))
 }
 
 /**

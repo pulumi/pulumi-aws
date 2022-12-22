@@ -25,11 +25,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kinesis/getStream:getStream", {
         "name": args.name,
         "tags": args.tags,
@@ -99,9 +96,25 @@ export interface GetStreamResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to get information about a Kinesis Stream for use in other
+ * resources.
+ *
+ * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const stream = aws.kinesis.getStream({
+ *     name: "stream-name",
+ * });
+ * ```
+ */
 export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamResult> {
-    return pulumi.output(args).apply(a => getStream(a, opts))
+    return pulumi.output(args).apply((a: any) => getStream(a, opts))
 }
 
 /**

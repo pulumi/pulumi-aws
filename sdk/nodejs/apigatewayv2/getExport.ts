@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigatewayv2/getExport:getExport", {
         "apiId": args.apiId,
         "exportVersion": args.exportVersion,
@@ -85,9 +82,24 @@ export interface GetExportResult {
     readonly specification: string;
     readonly stageName?: string;
 }
-
+/**
+ * Exports a definition of an API in a particular output format and specification.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.apigatewayv2.getExport({
+ *     apiId: aws_apigatewayv2_route.test.api_id,
+ *     specification: "OAS30",
+ *     outputType: "JSON",
+ * });
+ * ```
+ */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
-    return pulumi.output(args).apply(a => getExport(a, opts))
+    return pulumi.output(args).apply((a: any) => getExport(a, opts))
 }
 
 /**

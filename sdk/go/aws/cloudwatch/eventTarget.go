@@ -94,7 +94,6 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
@@ -106,12 +105,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ssmLifecycleTrust, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Type: "Service",
 //								Identifiers: []string{
 //									"events.amazonaws.com",
@@ -182,15 +181,15 @@ import (
 //				},
 //			}, nil)
 //			ssmLifecycleRole, err := iam.NewRole(ctx, "ssmLifecycleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(ssmLifecycleTrust.Json),
+//				AssumeRolePolicy: *pulumi.String(ssmLifecycleTrust.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			ssmLifecyclePolicy, err := iam.NewPolicy(ctx, "ssmLifecyclePolicy", &iam.PolicyArgs{
-//				Policy: ssmLifecyclePolicyDocument.ApplyT(func(ssmLifecyclePolicyDocument iam.GetPolicyDocumentResult) (string, error) {
-//					return ssmLifecyclePolicyDocument.Json, nil
-//				}).(pulumi.StringOutput),
+//				Policy: ssmLifecyclePolicyDocument.ApplyT(func(ssmLifecyclePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &ssmLifecyclePolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -340,7 +339,6 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -371,7 +369,7 @@ import (
 //			}
 //			eventBusInvokeRemoteEventBusPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"events:PutEvents",
@@ -386,7 +384,7 @@ import (
 //				return err
 //			}
 //			eventBusInvokeRemoteEventBusPolicy, err := iam.NewPolicy(ctx, "eventBusInvokeRemoteEventBusPolicy", &iam.PolicyArgs{
-//				Policy: pulumi.String(eventBusInvokeRemoteEventBusPolicyDocument.Json),
+//				Policy: *pulumi.String(eventBusInvokeRemoteEventBusPolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -573,9 +571,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: exampleLogPolicy.ApplyT(func(exampleLogPolicy iam.GetPolicyDocumentResult) (string, error) {
-//					return exampleLogPolicy.Json, nil
-//				}).(pulumi.StringOutput),
+//				PolicyDocument: exampleLogPolicy.ApplyT(func(exampleLogPolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &exampleLogPolicy.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //				PolicyName: pulumi.String("guardduty-log-publishing-policy"),
 //			})
 //			if err != nil {

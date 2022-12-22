@@ -1238,7 +1238,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1276,7 +1276,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1314,7 +1314,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1352,7 +1352,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

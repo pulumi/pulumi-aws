@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPrebuiltEcrImage(args: GetPrebuiltEcrImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPrebuiltEcrImageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", {
         "dnsSuffix": args.dnsSuffix,
         "imageTag": args.imageTag,
@@ -80,9 +77,27 @@ export interface GetPrebuiltEcrImageResult {
     readonly registryPath: string;
     readonly repositoryName: string;
 }
-
+/**
+ * Get information about prebuilt Amazon SageMaker Docker images.
+ *
+ * > **NOTE:** The AWS provider creates a validly constructed `registryPath` but does not verify that the `registryPath` corresponds to an existing image. For example, using a `registryPath` containing an `imageTag` that does not correspond to a Docker image in the ECR repository, will result in an error.
+ *
+ * ## Example Usage
+ *
+ * Basic usage:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.sagemaker.getPrebuiltEcrImage({
+ *     imageTag: "2.2-1.0.11.0",
+ *     repositoryName: "sagemaker-scikit-learn",
+ * });
+ * ```
+ */
 export function getPrebuiltEcrImageOutput(args: GetPrebuiltEcrImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrebuiltEcrImageResult> {
-    return pulumi.output(args).apply(a => getPrebuiltEcrImage(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrebuiltEcrImage(a, opts))
 }
 
 /**

@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getImage:getImage", {
         "arn": args.arn,
         "tags": args.tags,
@@ -114,9 +111,23 @@ export interface GetImageResult {
      */
     readonly version: string;
 }
-
+/**
+ * Provides details about an Image Builder Image.
+ *
+ * ## Example Usage
+ * ### Latest
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.imagebuilder.getImage({
+ *     arn: "arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x",
+ * });
+ * ```
+ */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
-    return pulumi.output(args).apply(a => getImage(a, opts))
+    return pulumi.output(args).apply((a: any) => getImage(a, opts))
 }
 
 /**

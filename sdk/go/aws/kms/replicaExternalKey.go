@@ -119,7 +119,7 @@ func NewReplicaExternalKey(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PrimaryKeyArn'")
 	}
 	if args.KeyMaterialBase64 != nil {
-		args.KeyMaterialBase64 = pulumi.ToSecret(args.KeyMaterialBase64).(pulumi.StringPtrOutput)
+		args.KeyMaterialBase64 = pulumi.ToSecret(args.KeyMaterialBase64).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"keyMaterialBase64",

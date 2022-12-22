@@ -37,11 +37,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getHoursOfOperation(args: GetHoursOfOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetHoursOfOperationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getHoursOfOperation:getHoursOfOperation", {
         "hoursOfOperationId": args.hoursOfOperationId,
         "instanceId": args.instanceId,
@@ -119,9 +116,37 @@ export interface GetHoursOfOperationResult {
      */
     readonly timeZone: string;
 }
-
+/**
+ * Provides details about a specific Amazon Connect Hours of Operation.
+ *
+ * ## Example Usage
+ *
+ * By `name`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.connect.getHoursOfOperation({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Test",
+ * });
+ * ```
+ *
+ * By `hoursOfOperationId`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.connect.getHoursOfOperation({
+ *     hoursOfOperationId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getHoursOfOperationOutput(args: GetHoursOfOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHoursOfOperationResult> {
-    return pulumi.output(args).apply(a => getHoursOfOperation(a, opts))
+    return pulumi.output(args).apply((a: any) => getHoursOfOperation(a, opts))
 }
 
 /**

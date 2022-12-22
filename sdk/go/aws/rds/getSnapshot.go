@@ -50,9 +50,9 @@ import (
 //			_, err = rds.NewInstance(ctx, "dev", &rds.InstanceArgs{
 //				InstanceClass: pulumi.String("db.t2.micro"),
 //				Name:          pulumi.String("mydbdev"),
-//				SnapshotIdentifier: latestProdSnapshot.ApplyT(func(latestProdSnapshot rds.GetSnapshotResult) (string, error) {
-//					return latestProdSnapshot.Id, nil
-//				}).(pulumi.StringOutput),
+//				SnapshotIdentifier: latestProdSnapshot.ApplyT(func(latestProdSnapshot rds.GetSnapshotResult) (*string, error) {
+//					return &latestProdSnapshot.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

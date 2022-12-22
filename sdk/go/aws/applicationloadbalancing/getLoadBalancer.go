@@ -42,7 +42,7 @@ import (
 //			if param := cfg.Get("lbName"); param != "" {
 //				lbName = param
 //			}
-//			_, err = lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
+//			_, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
 //				Arn:  pulumi.StringRef(lbArn),
 //				Name: pulumi.StringRef(lbName),
 //			}, nil)

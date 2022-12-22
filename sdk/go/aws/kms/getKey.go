@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = kms.LookupKey(ctx, &kms.LookupKeyArgs{
+//			_, err := kms.LookupKey(ctx, &kms.LookupKeyArgs{
 //				KeyId: "alias/my-key",
 //			}, nil)
 //			if err != nil {

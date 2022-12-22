@@ -32,7 +32,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.elb.inputs.GetHostedZoneIdArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
@@ -82,7 +82,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.elb.inputs.GetHostedZoneIdArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
@@ -132,7 +132,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.elb.inputs.GetHostedZoneIdArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
@@ -182,7 +182,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.elb.inputs.GetHostedZoneIdArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
@@ -232,7 +232,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.elb.inputs.GetHostedZoneIdArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
@@ -282,7 +282,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.elb.inputs.GetHostedZoneIdArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
@@ -337,7 +337,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -382,7 +382,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -427,7 +427,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -472,7 +472,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -512,7 +512,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
@@ -602,7 +602,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
@@ -692,7 +692,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
@@ -782,7 +782,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
@@ -872,7 +872,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
@@ -962,7 +962,7 @@ public final class ElbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;

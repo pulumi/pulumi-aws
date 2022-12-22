@@ -32,8 +32,8 @@ import (
 //				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
-//						pulumi.Any(aws_subnet.Example1.Id),
-//						pulumi.Any(aws_subnet.Example2.Id),
+//						aws_subnet.Example1.Id,
+//						aws_subnet.Example2.Id,
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -44,9 +44,9 @@ import (
 //				return err
 //			}
 //			ctx.Export("endpoint", example.Endpoint)
-//			ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthority.ApplyT(func(certificateAuthority eks.ClusterCertificateAuthority) (string, error) {
-//				return certificateAuthority.Data, nil
-//			}).(pulumi.StringOutput))
+//			ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthority.ApplyT(func(certificateAuthority eks.ClusterCertificateAuthority) (*string, error) {
+//				return &certificateAuthority.Data, nil
+//			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})
 //	}
@@ -186,7 +186,7 @@ import (
 //				OutpostConfig: &eks.ClusterOutpostConfigArgs{
 //					ControlPlaneInstanceType: pulumi.String("m5d.large"),
 //					OutpostArns: pulumi.StringArray{
-//						pulumi.Any(data.Aws_outposts_outpost.Example.Arn),
+//						data.Aws_outposts_outpost.Example.Arn,
 //					},
 //				},
 //			})

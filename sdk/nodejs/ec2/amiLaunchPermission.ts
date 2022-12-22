@@ -30,6 +30,18 @@ import * as utilities from "../utilities";
  *     imageId: "ami-12345678",
  * });
  * ```
+ * ### Organization Access
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.organizations.getOrganization({});
+ * const example = new aws.ec2.AmiLaunchPermission("example", {
+ *     imageId: "ami-12345678",
+ *     organizationArn: current.then(current => current.arn),
+ * });
+ * ```
  *
  * ## Import
  *

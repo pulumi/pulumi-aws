@@ -13,6 +13,51 @@ import (
 
 // Deploys an Application CloudFormation Stack from the Serverless Application Repository.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/serverlessrepository"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = serverlessrepository.NewCloudFormationStack(ctx, "postgres-rotator", &serverlessrepository.CloudFormationStackArgs{
+//				ApplicationId: pulumi.String("arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser"),
+//				Capabilities: pulumi.StringArray{
+//					pulumi.String("CAPABILITY_IAM"),
+//					pulumi.String("CAPABILITY_RESOURCE_POLICY"),
+//				},
+//				Parameters: pulumi.StringMap{
+//					"endpoint":     pulumi.String(fmt.Sprintf("secretsmanager.%v.%v", currentRegion.Name, currentPartition.DnsSuffix)),
+//					"functionName": pulumi.String("func-postgres-rotator"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Serverless Application Repository Stack can be imported using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID, e.g.,

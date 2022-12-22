@@ -37,11 +37,8 @@ import * as utilities from "../utilities";
  */
 export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getTransitGateway:getTransitGateway", {
         "filters": args.filters,
         "id": args.id,
@@ -133,9 +130,36 @@ export interface GetTransitGatewayResult {
      */
     readonly vpnEcmpSupport: string;
 }
-
+/**
+ * Get information on an EC2 Transit Gateway.
+ *
+ * ## Example Usage
+ * ### By Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2transitgateway.getTransitGateway({
+ *     filters: [{
+ *         name: "options.amazon-side-asn",
+ *         values: ["64512"],
+ *     }],
+ * });
+ * ```
+ * ### By Identifier
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2transitgateway.getTransitGateway({
+ *     id: "tgw-12345678",
+ * });
+ * ```
+ */
 export function getTransitGatewayOutput(args?: GetTransitGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayResult> {
-    return pulumi.output(args).apply(a => getTransitGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getTransitGateway(a, opts))
 }
 
 /**

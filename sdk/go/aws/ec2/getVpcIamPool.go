@@ -36,13 +36,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testVpcIamPool, err := ec2.GetVpcIamPool(ctx, &ec2.GetVpcIamPoolArgs{
 //				Filters: []ec2.GetVpcIamPoolFilter{
-//					ec2.GetVpcIamPoolFilter{
+//					{
 //						Name: "description",
 //						Values: []string{
 //							"*test*",
 //						},
 //					},
-//					ec2.GetVpcIamPoolFilter{
+//					{
 //						Name: "address-family",
 //						Values: []string{
 //							"ipv4",
@@ -54,7 +54,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
-//				Ipv4IpamPoolId:    pulumi.String(testVpcIamPool.Id),
+//				Ipv4IpamPoolId:    *pulumi.String(testVpcIamPool.Id),
 //				Ipv4NetmaskLength: pulumi.Int(28),
 //			})
 //			if err != nil {

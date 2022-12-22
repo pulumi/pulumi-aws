@@ -31,8 +31,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
 //				Admins: pulumi.StringArray{
-//					pulumi.Any(aws_iam_user.Test.Arn),
-//					pulumi.Any(aws_iam_role.Test.Arn),
+//					aws_iam_user.Test.Arn,
+//					aws_iam_role.Test.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -59,8 +59,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
 //				Admins: pulumi.StringArray{
-//					pulumi.Any(aws_iam_user.Test.Arn),
-//					pulumi.Any(aws_iam_role.Test.Arn),
+//					aws_iam_user.Test.Arn,
+//					aws_iam_role.Test.Arn,
 //				},
 //				CreateDatabaseDefaultPermissions: lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArray{
 //					&lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs{

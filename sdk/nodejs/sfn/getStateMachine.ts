@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sfn/getStateMachine:getStateMachine", {
         "name": args.name,
     }, opts);
@@ -71,9 +68,24 @@ export interface GetStateMachineResult {
      */
     readonly status: string;
 }
-
+/**
+ * Use this data source to get the ARN of a State Machine in AWS Step
+ * Function (SFN). By using this data source, you can reference a
+ * state machine without having to hard code the ARNs as input.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.sfn.getStateMachine({
+ *     name: "an_example_sfn_name",
+ * });
+ * ```
+ */
 export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineResult> {
-    return pulumi.output(args).apply(a => getStateMachine(a, opts))
+    return pulumi.output(args).apply((a: any) => getStateMachine(a, opts))
 }
 
 /**

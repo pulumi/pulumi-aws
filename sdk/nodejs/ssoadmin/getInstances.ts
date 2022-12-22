@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
  */
 export function getInstances(opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssoadmin/getInstances:getInstances", {
     }, opts);
 }

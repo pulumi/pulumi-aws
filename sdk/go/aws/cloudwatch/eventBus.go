@@ -57,7 +57,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewEventBus(ctx, "examplepartnerEventBus", &cloudwatch.EventBusArgs{
-//				EventSourceName: pulumi.String(examplepartnerEventSource.Name),
+//				EventSourceName: *pulumi.String(examplepartnerEventSource.Name),
 //			})
 //			if err != nil {
 //				return err

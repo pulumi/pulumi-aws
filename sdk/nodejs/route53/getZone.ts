@@ -32,11 +32,8 @@ import * as utilities from "../utilities";
  */
 export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getZone:getZone", {
         "name": args.name,
         "privateZone": args.privateZone,
@@ -123,9 +120,34 @@ export interface GetZoneResult {
     readonly vpcId: string;
     readonly zoneId: string;
 }
-
+/**
+ * `aws.route53.Zone` provides details about a specific Route 53 Hosted Zone.
+ *
+ * This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const selected = aws.route53.getZone({
+ *     name: "test.com.",
+ *     privateZone: true,
+ * });
+ * const www = new aws.route53.Record("www", {
+ *     zoneId: selected.then(selected => selected.zoneId),
+ *     name: selected.then(selected => `www.${selected.name}`),
+ *     type: "A",
+ *     ttl: 300,
+ *     records: ["10.0.0.1"],
+ * });
+ * ```
+ */
 export function getZoneOutput(args?: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
-    return pulumi.output(args).apply(a => getZone(a, opts))
+    return pulumi.output(args).apply((a: any) => getZone(a, opts))
 }
 
 /**

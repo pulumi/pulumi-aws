@@ -262,7 +262,7 @@ public final class CloudformationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import java.util.List;
@@ -310,7 +310,7 @@ public final class CloudformationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import java.util.List;
@@ -358,7 +358,7 @@ public final class CloudformationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import java.util.List;
@@ -406,7 +406,7 @@ public final class CloudformationFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import java.util.List;

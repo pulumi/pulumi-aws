@@ -37,7 +37,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetIpsetArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetIpsetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -74,7 +74,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetIpsetArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetIpsetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -111,7 +111,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetIpsetArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetIpsetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -148,7 +148,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetIpsetArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetIpsetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -333,7 +333,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetRuleArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetRuleArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -370,7 +370,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetRuleArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetRuleArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -407,7 +407,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetRuleArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetRuleArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -444,7 +444,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetRuleArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetRuleArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -481,7 +481,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetSubscribedRuleGroupArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetSubscribedRuleGroupArgs;
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
@@ -539,7 +539,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetSubscribedRuleGroupArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetSubscribedRuleGroupArgs;
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
@@ -597,7 +597,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetSubscribedRuleGroupArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetSubscribedRuleGroupArgs;
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
@@ -655,7 +655,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetSubscribedRuleGroupArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetSubscribedRuleGroupArgs;
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
@@ -713,7 +713,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetSubscribedRuleGroupArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetSubscribedRuleGroupArgs;
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
@@ -771,7 +771,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetSubscribedRuleGroupArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetSubscribedRuleGroupArgs;
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
@@ -829,7 +829,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetWebAclArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -866,7 +866,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetWebAclArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -903,7 +903,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetWebAclArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -940,7 +940,7 @@ public final class WafregionalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
-     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import com.pulumi.aws.wafregional.inputs.GetWebAclArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

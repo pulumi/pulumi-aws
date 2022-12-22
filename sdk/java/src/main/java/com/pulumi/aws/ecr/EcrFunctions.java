@@ -34,7 +34,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
+     * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -69,7 +69,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
+     * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -104,7 +104,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
+     * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -139,7 +139,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
+     * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -174,7 +174,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
+     * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -209,7 +209,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
+     * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -408,7 +408,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.codecommit.inputs.GetRepositoryArgs;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -445,7 +445,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.codecommit.inputs.GetRepositoryArgs;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -482,7 +482,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.codecommit.inputs.GetRepositoryArgs;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -519,7 +519,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.codecommit.inputs.GetRepositoryArgs;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

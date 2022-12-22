@@ -78,7 +78,7 @@ func NewGcmChannel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
 	if args.ApiKey != nil {
-		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringOutput)
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"apiKey",

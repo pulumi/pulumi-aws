@@ -33,7 +33,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
 //			listenerArn := cfg.Require("listenerArn")
-//			_, err = lb.LookupListener(ctx, &lb.LookupListenerArgs{
+//			_, err := lb.LookupListener(ctx, &lb.LookupListenerArgs{
 //				Arn: pulumi.StringRef(listenerArn),
 //			}, nil)
 //			if err != nil {

@@ -9,6 +9,35 @@ import * as utilities from "../utilities";
  * See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
  *
  * ## Example Usage
+ * ### Root volume Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleOpenZfsFileSystem = new aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", {
+ *     storageCapacity: 64,
+ *     subnetIds: [aws_subnet.example.id],
+ *     deploymentType: "SINGLE_AZ_1",
+ *     throughputCapacity: 64,
+ * });
+ * const exampleOpenZfsSnapshot = new aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", {volumeId: exampleOpenZfsFileSystem.rootVolumeId});
+ * ```
+ * ### Child volume Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleOpenZfsFileSystem = new aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", {
+ *     storageCapacity: 64,
+ *     subnetIds: [aws_subnet.example.id],
+ *     deploymentType: "SINGLE_AZ_1",
+ *     throughputCapacity: 64,
+ * });
+ * const exampleOpenZfsVolume = new aws.fsx.OpenZfsVolume("exampleOpenZfsVolume", {parentVolumeId: exampleOpenZfsFileSystem.rootVolumeId});
+ * const exampleOpenZfsSnapshot = new aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", {volumeId: exampleOpenZfsVolume.id});
+ * ```
  *
  * ## Import
  *

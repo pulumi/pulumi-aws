@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProxy(args: GetProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetProxyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getProxy:getProxy", {
         "name": args.name,
     }, opts);
@@ -96,9 +93,22 @@ export interface GetProxyResult {
      */
     readonly vpcSubnetIds: string[];
 }
-
+/**
+ * Use this data source to get information about a DB Proxy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const proxy = aws.rds.getProxy({
+ *     name: "my-test-db-proxy",
+ * });
+ * ```
+ */
 export function getProxyOutput(args: GetProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProxyResult> {
-    return pulumi.output(args).apply(a => getProxy(a, opts))
+    return pulumi.output(args).apply((a: any) => getProxy(a, opts))
 }
 
 /**

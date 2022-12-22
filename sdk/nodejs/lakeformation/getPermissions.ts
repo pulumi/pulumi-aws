@@ -68,11 +68,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPermissions(args: GetPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lakeformation/getPermissions:getPermissions", {
         "catalogId": args.catalogId,
         "catalogResource": args.catalogResource,
@@ -154,9 +151,68 @@ export interface GetPermissionsResult {
     readonly table: outputs.lakeformation.GetPermissionsTable;
     readonly tableWithColumns: outputs.lakeformation.GetPermissionsTableWithColumns;
 }
-
+/**
+ * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+ *
+ * > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
+ *
+ * ## Example Usage
+ * ### Permissions For A Lake Formation S3 Resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.lakeformation.getPermissions({
+ *     principal: aws_iam_role.workflow_role.arn,
+ *     dataLocation: {
+ *         arn: aws_lakeformation_resource.test.arn,
+ *     },
+ * });
+ * ```
+ * ### Permissions For A Glue Catalog Database
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.lakeformation.getPermissions({
+ *     principal: aws_iam_role.workflow_role.arn,
+ *     database: {
+ *         name: aws_glue_catalog_database.test.name,
+ *         catalogId: "110376042874",
+ *     },
+ * });
+ * ```
+ * ### Permissions For Tag-Based Access Control
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.lakeformation.getPermissions({
+ *     principal: aws_iam_role.workflow_role.arn,
+ *     lfTagPolicy: {
+ *         resourceType: "DATABASE",
+ *         expressions: [
+ *             {
+ *                 key: "Team",
+ *                 values: ["Sales"],
+ *             },
+ *             {
+ *                 key: "Environment",
+ *                 values: [
+ *                     "Dev",
+ *                     "Production",
+ *                 ],
+ *             },
+ *         ],
+ *     },
+ * });
+ * ```
+ */
 export function getPermissionsOutput(args: GetPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionsResult> {
-    return pulumi.output(args).apply(a => getPermissions(a, opts))
+    return pulumi.output(args).apply((a: any) => getPermissions(a, opts))
 }
 
 /**

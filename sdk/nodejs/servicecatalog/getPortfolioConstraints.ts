@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPortfolioConstraints(args: GetPortfolioConstraintsArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioConstraintsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", {
         "acceptLanguage": args.acceptLanguage,
         "portfolioId": args.portfolioId,
@@ -75,9 +72,23 @@ export interface GetPortfolioConstraintsResult {
      */
     readonly productId?: string;
 }
-
+/**
+ * Provides information on Service Catalog Portfolio Constraints.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.servicecatalog.getPortfolioConstraints({
+ *     portfolioId: "port-3lli3b3an",
+ * });
+ * ```
+ */
 export function getPortfolioConstraintsOutput(args: GetPortfolioConstraintsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioConstraintsResult> {
-    return pulumi.output(args).apply(a => getPortfolioConstraints(a, opts))
+    return pulumi.output(args).apply((a: any) => getPortfolioConstraints(a, opts))
 }
 
 /**

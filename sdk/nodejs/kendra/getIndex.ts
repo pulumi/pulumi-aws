@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetIndexResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kendra/getIndex:getIndex", {
         "id": args.id,
         "tags": args.tags,
@@ -125,9 +122,22 @@ export interface GetIndexResult {
      */
     readonly userTokenConfigurations: outputs.kendra.GetIndexUserTokenConfiguration[];
 }
-
+/**
+ * Provides details about a specific Amazon Kendra Index.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.kendra.getIndex({
+ *     id: "12345678-1234-1234-1234-123456789123",
+ * });
+ * ```
+ */
 export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIndexResult> {
-    return pulumi.output(args).apply(a => getIndex(a, opts))
+    return pulumi.output(args).apply((a: any) => getIndex(a, opts))
 }
 
 /**

@@ -46,6 +46,60 @@ import (
 //	}
 //
 // ```
+// ### With Grants
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := s3.GetCanonicalUserId(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				AccessControlPolicy: &s3.BucketAclV2AccessControlPolicyArgs{
+//					Grants: s3.BucketAclV2AccessControlPolicyGrantArray{
+//						&s3.BucketAclV2AccessControlPolicyGrantArgs{
+//							Grantee: &s3.BucketAclV2AccessControlPolicyGrantGranteeArgs{
+//								Id:   *pulumi.String(current.Id),
+//								Type: pulumi.String("CanonicalUser"),
+//							},
+//							Permission: pulumi.String("READ"),
+//						},
+//						&s3.BucketAclV2AccessControlPolicyGrantArgs{
+//							Grantee: &s3.BucketAclV2AccessControlPolicyGrantGranteeArgs{
+//								Type: pulumi.String("Group"),
+//								Uri:  pulumi.String("http://acs.amazonaws.com/groups/s3/LogDelivery"),
+//							},
+//							Permission: pulumi.String("READ_ACP"),
+//						},
+//					},
+//					Owner: &s3.BucketAclV2AccessControlPolicyOwnerArgs{
+//						Id: *pulumi.String(current.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

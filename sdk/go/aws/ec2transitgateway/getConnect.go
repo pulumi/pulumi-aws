@@ -27,9 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2transitgateway.LookupConnect(ctx, &ec2transitgateway.LookupConnectArgs{
+//			_, err := ec2transitgateway.LookupConnect(ctx, &ec2transitgateway.LookupConnectArgs{
 //				Filters: []ec2transitgateway.GetConnectFilter{
-//					ec2transitgateway.GetConnectFilter{
+//					{
 //						Name: "transport-transit-gateway-attachment-id",
 //						Values: []string{
 //							"tgw-attach-12345678",
@@ -59,7 +59,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2transitgateway.LookupConnect(ctx, &ec2transitgateway.LookupConnectArgs{
+//			_, err := ec2transitgateway.LookupConnect(ctx, &ec2transitgateway.LookupConnectArgs{
 //				TransitGatewayConnectId: pulumi.StringRef("tgw-attach-12345678"),
 //			}, nil)
 //			if err != nil {

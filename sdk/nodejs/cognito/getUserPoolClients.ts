@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserPoolClients(args: GetUserPoolClientsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolClientsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getUserPoolClients:getUserPoolClients", {
         "userPoolId": args.userPoolId,
     }, opts);
@@ -57,9 +54,22 @@ export interface GetUserPoolClientsResult {
     readonly id: string;
     readonly userPoolId: string;
 }
-
+/**
+ * Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = aws.cognito.getUserPoolClients({
+ *     userPoolId: aws_cognito_user_pool.main.id,
+ * });
+ * ```
+ */
 export function getUserPoolClientsOutput(args: GetUserPoolClientsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolClientsResult> {
-    return pulumi.output(args).apply(a => getUserPoolClients(a, opts))
+    return pulumi.output(args).apply((a: any) => getUserPoolClients(a, opts))
 }
 
 /**

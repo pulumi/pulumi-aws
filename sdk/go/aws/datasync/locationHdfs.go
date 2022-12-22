@@ -31,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewLocationHdfs(ctx, "example", &datasync.LocationHdfsArgs{
 //				AgentArns: pulumi.StringArray{
-//					pulumi.Any(aws_datasync_agent.Example.Arn),
+//					aws_datasync_agent.Example.Arn,
 //				},
 //				AuthenticationType: pulumi.String("SIMPLE"),
 //				SimpleUser:         pulumi.String("example"),

@@ -17,6 +17,38 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Inspector V2 Delegated Admin Account.
  * 
  * ## Example Usage
+ * ### Basic Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inspector2.DelegatedAdminAccount;
+ * import com.pulumi.aws.inspector2.DelegatedAdminAccountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         var example = new DelegatedAdminAccount(&#34;example&#34;, DelegatedAdminAccountArgs.builder()        
+ *             .accountId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

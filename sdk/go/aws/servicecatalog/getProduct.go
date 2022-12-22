@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = servicecatalog.LookupProduct(ctx, &servicecatalog.LookupProductArgs{
+//			_, err := servicecatalog.LookupProduct(ctx, &servicecatalog.LookupProductArgs{
 //				Id: "prod-dnigbtea24ste",
 //			}, nil)
 //			if err != nil {

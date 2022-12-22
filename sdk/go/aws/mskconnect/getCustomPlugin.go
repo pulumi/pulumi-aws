@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = mskconnect.LookupCustomPlugin(ctx, &mskconnect.LookupCustomPluginArgs{
+//			_, err := mskconnect.LookupCustomPlugin(ctx, &mskconnect.LookupCustomPluginArgs{
 //				Name: "example-debezium-1",
 //			}, nil)
 //			if err != nil {

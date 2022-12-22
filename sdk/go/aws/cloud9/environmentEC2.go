@@ -115,9 +115,9 @@ import (
 //				},
 //			}, nil)
 //			cloud9Eip, err := ec2.NewEip(ctx, "cloud9Eip", &ec2.EipArgs{
-//				Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (string, error) {
-//					return cloud9Instance.Id, nil
-//				}).(pulumi.StringOutput),
+//				Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (*string, error) {
+//					return &cloud9Instance.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Vpc: pulumi.Bool(true),
 //			})
 //			if err != nil {

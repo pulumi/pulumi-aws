@@ -35,11 +35,8 @@ import * as utilities from "../utilities";
  */
 export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", {
         "engineType": args.engineType,
         "hostInstanceType": args.hostInstanceType,
@@ -90,9 +87,34 @@ export interface GetInstanceTypeOfferingsResult {
      */
     readonly storageType?: string;
 }
-
+/**
+ * Provides information about a MQ Broker Instance Offerings.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const empty = aws.mq.getInstanceTypeOfferings({});
+ * const engine = aws.mq.getInstanceTypeOfferings({
+ *     engineType: "ACTIVEMQ",
+ * });
+ * const storage = aws.mq.getInstanceTypeOfferings({
+ *     storageType: "EBS",
+ * });
+ * const instance = aws.mq.getInstanceTypeOfferings({
+ *     hostInstanceType: "mq.m5.large",
+ * });
+ * const all = aws.mq.getInstanceTypeOfferings({
+ *     engineType: "ACTIVEMQ",
+ *     hostInstanceType: "mq.m5.large",
+ *     storageType: "EBS",
+ * });
+ * ```
+ */
 export function getInstanceTypeOfferingsOutput(args?: GetInstanceTypeOfferingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingsResult> {
-    return pulumi.output(args).apply(a => getInstanceTypeOfferings(a, opts))
+    return pulumi.output(args).apply((a: any) => getInstanceTypeOfferings(a, opts))
 }
 
 /**

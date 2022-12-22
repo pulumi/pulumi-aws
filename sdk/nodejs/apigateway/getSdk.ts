@@ -25,11 +25,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSdk(args: GetSdkArgs, opts?: pulumi.InvokeOptions): Promise<GetSdkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getSdk:getSdk", {
         "parameters": args.parameters,
         "restApiId": args.restApiId,
@@ -85,9 +82,28 @@ export interface GetSdkResult {
     readonly sdkType: string;
     readonly stageName: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.apigateway.getSdk({
+ *     restApiId: aws_api_gateway_stage.example.rest_api_id,
+ *     stageName: aws_api_gateway_stage.example.stage_name,
+ *     sdkType: "android",
+ *     parameters: {
+ *         groupId: "example",
+ *         artifactId: "example",
+ *         artifactVersion: "example",
+ *         invokerPackage: "example",
+ *     },
+ * });
+ * ```
+ */
 export function getSdkOutput(args: GetSdkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSdkResult> {
-    return pulumi.output(args).apply(a => getSdk(a, opts))
+    return pulumi.output(args).apply((a: any) => getSdk(a, opts))
 }
 
 /**

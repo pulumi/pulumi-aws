@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getProduct:getProduct", {
         "acceptLanguage": args.acceptLanguage,
         "id": args.id,
@@ -111,9 +108,25 @@ export interface GetProductResult {
      */
     readonly type: string;
 }
-
+/**
+ * Provides information on a Service Catalog Product.
+ *
+ * > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.servicecatalog.getProduct({
+ *     id: "prod-dnigbtea24ste",
+ * });
+ * ```
+ */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
-    return pulumi.output(args).apply(a => getProduct(a, opts))
+    return pulumi.output(args).apply((a: any) => getProduct(a, opts))
 }
 
 /**

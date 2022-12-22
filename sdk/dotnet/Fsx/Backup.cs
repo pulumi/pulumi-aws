@@ -12,6 +12,34 @@ namespace Pulumi.Aws.Fsx
     /// <summary>
     /// Provides a FSx Backup resource.
     /// 
+    /// ## Lustre Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleLustreFileSystem = new Aws.Fsx.LustreFileSystem("exampleLustreFileSystem", new()
+    ///     {
+    ///         StorageCapacity = 1200,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         DeploymentType = "PERSISTENT_1",
+    ///         PerUnitStorageThroughput = 50,
+    ///     });
+    /// 
+    ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
+    ///     {
+    ///         FileSystemId = exampleLustreFileSystem.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Windows Example
     /// 
     /// ```csharp
@@ -61,6 +89,34 @@ namespace Pulumi.Aws.Fsx
     ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
     ///     {
     ///         VolumeId = exampleOntapVolume.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## OpenZFS Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
+    ///     {
+    ///         StorageCapacity = 64,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         DeploymentType = "SINGLE_AZ_1",
+    ///         ThroughputCapacity = 64,
+    ///     });
+    /// 
+    ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
+    ///     {
+    ///         FileSystemId = exampleOpenZfsFileSystem.Id,
     ///     });
     /// 
     /// });

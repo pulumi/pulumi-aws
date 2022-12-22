@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGeofenceCollection(args: GetGeofenceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGeofenceCollectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getGeofenceCollection:getGeofenceCollection", {
         "collectionName": args.collectionName,
         "kmsKeyId": args.kmsKeyId,
@@ -84,9 +81,23 @@ export interface GetGeofenceCollectionResult {
      */
     readonly updateTime: string;
 }
-
+/**
+ * Retrieve information about a Location Service Geofence Collection.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.location.getGeofenceCollection({
+ *     collectionName: "example",
+ * });
+ * ```
+ */
 export function getGeofenceCollectionOutput(args: GetGeofenceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeofenceCollectionResult> {
-    return pulumi.output(args).apply(a => getGeofenceCollection(a, opts))
+    return pulumi.output(args).apply((a: any) => getGeofenceCollection(a, opts))
 }
 
 /**

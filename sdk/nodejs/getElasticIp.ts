@@ -61,11 +61,8 @@ import * as utilities from "./utilities";
 export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
     pulumi.log.warn("getElasticIp is deprecated: aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp")
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getElasticIp:getElasticIp", {
         "filters": args.filters,
         "id": args.id,
@@ -162,9 +159,59 @@ export interface GetElasticIpResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * `aws.ec2.Eip` provides details about a specific Elastic IP.
+ *
+ * ## Example Usage
+ * ### Search By Allocation ID (VPC only)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const byAllocationId = aws.ec2.getElasticIp({
+ *     id: "eipalloc-12345678",
+ * });
+ * ```
+ * ### Search By Filters (EC2-Classic or VPC)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const byFilter = aws.ec2.getElasticIp({
+ *     filters: [{
+ *         name: "tag:Name",
+ *         values: ["exampleNameTagValue"],
+ *     }],
+ * });
+ * ```
+ * ### Search By Public IP (EC2-Classic or VPC)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const byPublicIp = aws.ec2.getElasticIp({
+ *     publicIp: "1.2.3.4",
+ * });
+ * ```
+ * ### Search By Tags (EC2-Classic or VPC)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const byTags = aws.ec2.getElasticIp({
+ *     tags: {
+ *         Name: "exampleNameTagValue",
+ *     },
+ * });
+ * ```
+ */
+/** @deprecated aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp */
 export function getElasticIpOutput(args?: GetElasticIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticIpResult> {
-    return pulumi.output(args).apply(a => getElasticIp(a, opts))
+    return pulumi.output(args).apply((a: any) => getElasticIp(a, opts))
 }
 
 /**
