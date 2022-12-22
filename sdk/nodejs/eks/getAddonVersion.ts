@@ -38,11 +38,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAddonVersion(args: GetAddonVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getAddonVersion:getAddonVersion", {
         "addonName": args.addonName,
         "kubernetesVersion": args.kubernetesVersion,
@@ -85,9 +82,41 @@ export interface GetAddonVersionResult {
      */
     readonly version: string;
 }
-
+/**
+ * Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const defaultAddonVersion = await aws.eks.getAddonVersion({
+ *         addonName: "vpc-cni",
+ *         kubernetesVersion: aws_eks_cluster.example.version,
+ *     });
+ *     const latestAddonVersion = await aws.eks.getAddonVersion({
+ *         addonName: "vpc-cni",
+ *         kubernetesVersion: aws_eks_cluster.example.version,
+ *         mostRecent: true,
+ *     });
+ *     const vpcCni = new aws.eks.Addon("vpcCni", {
+ *         clusterName: aws_eks_cluster.example.name,
+ *         addonName: "vpc-cni",
+ *         addonVersion: latestAddonVersion.version,
+ *     });
+ *     const _default = defaultAddonVersion.version;
+ *     const latest = latestAddonVersion.version;
+ *     return {
+ *         "default": _default,
+ *         latest: latest,
+ *     };
+ * }
+ * ```
+ */
 export function getAddonVersionOutput(args: GetAddonVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonVersionResult> {
-    return pulumi.output(args).apply(a => getAddonVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getAddonVersion(a, opts))
 }
 
 /**

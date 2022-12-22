@@ -55,11 +55,8 @@ import * as utilities from "../utilities";
  */
 export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getNetworkAcls:getNetworkAcls", {
         "filters": args.filters,
         "tags": args.tags,
@@ -102,9 +99,54 @@ export interface GetNetworkAclsResult {
     readonly tags: {[key: string]: string};
     readonly vpcId?: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * The following shows outputing all network ACL ids in a vpc.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleNetworkAcls = aws.ec2.getNetworkAcls({
+ *     vpcId: _var.vpc_id,
+ * });
+ * export const example = exampleNetworkAcls.then(exampleNetworkAcls => exampleNetworkAcls.ids);
+ * ```
+ *
+ * The following example retrieves a list of all network ACL ids in a VPC with a custom
+ * tag of `Tier` set to a value of "Private".
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getNetworkAcls({
+ *     vpcId: _var.vpc_id,
+ *     tags: {
+ *         Tier: "Private",
+ *     },
+ * });
+ * ```
+ *
+ * The following example retrieves a network ACL id in a VPC which associated
+ * with specific subnet.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getNetworkAcls({
+ *     vpcId: _var.vpc_id,
+ *     filters: [{
+ *         name: "association.subnet-id",
+ *         values: [aws_subnet.test.id],
+ *     }],
+ * });
+ * ```
+ */
 export function getNetworkAclsOutput(args?: GetNetworkAclsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAclsResult> {
-    return pulumi.output(args).apply(a => getNetworkAcls(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkAcls(a, opts))
 }
 
 /**

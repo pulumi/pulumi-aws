@@ -26,15 +26,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ebs.LookupSnapshot(ctx, &ebs.LookupSnapshotArgs{
+//			_, err := ebs.LookupSnapshot(ctx, &ebs.LookupSnapshotArgs{
 //				Filters: []ebs.GetSnapshotFilter{
-//					ebs.GetSnapshotFilter{
+//					{
 //						Name: "volume-size",
 //						Values: []string{
 //							"40",
 //						},
 //					},
-//					ebs.GetSnapshotFilter{
+//					{
 //						Name: "tag:Name",
 //						Values: []string{
 //							"Example",

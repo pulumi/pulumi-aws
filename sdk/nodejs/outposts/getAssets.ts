@@ -42,11 +42,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAssets(args: GetAssetsArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getAssets:getAssets", {
         "arn": args.arn,
         "hostIdFilters": args.hostIdFilters,
@@ -88,9 +85,45 @@ export interface GetAssetsResult {
     readonly id: string;
     readonly statusIdFilters?: string[];
 }
-
+/**
+ * Information about hardware assets in an Outpost.
+ *
+ * ## Example Usage
+ * ### Basic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.outposts.getAssets({
+ *     arn: data.aws_outposts_outpost.example.arn,
+ * });
+ * ```
+ * ### With Host ID Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.outposts.getAssets({
+ *     arn: data.aws_outposts_outpost.example.arn,
+ *     hostIdFilters: ["h-x38g5n0yd2a0ueb61"],
+ * });
+ * ```
+ * ### With Status ID Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.outposts.getAssets({
+ *     arn: data.aws_outposts_outpost.example.arn,
+ *     statusIdFilters: ["ACTIVE"],
+ * });
+ * ```
+ */
 export function getAssetsOutput(args: GetAssetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetsResult> {
-    return pulumi.output(args).apply(a => getAssets(a, opts))
+    return pulumi.output(args).apply((a: any) => getAssets(a, opts))
 }
 
 /**

@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  */
 export function getNetworkInsightsPath(args?: GetNetworkInsightsPathArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInsightsPathResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", {
         "filters": args.filters,
         "networkInsightsPathId": args.networkInsightsPathId,
@@ -96,9 +93,22 @@ export interface GetNetworkInsightsPathResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getNetworkInsightsPath({
+ *     networkInsightsPathId: aws_ec2_network_insights_path.example.id,
+ * });
+ * ```
+ */
 export function getNetworkInsightsPathOutput(args?: GetNetworkInsightsPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsPathResult> {
-    return pulumi.output(args).apply(a => getNetworkInsightsPath(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkInsightsPath(a, opts))
 }
 
 /**

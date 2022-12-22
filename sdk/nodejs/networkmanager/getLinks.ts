@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLinks(args: GetLinksArgs, opts?: pulumi.InvokeOptions): Promise<GetLinksResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getLinks:getLinks", {
         "globalNetworkId": args.globalNetworkId,
         "providerName": args.providerName,
@@ -80,9 +77,25 @@ export interface GetLinksResult {
     readonly tags?: {[key: string]: string};
     readonly type?: string;
 }
-
+/**
+ * Retrieve information about link.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getLinks({
+ *     globalNetworkId: _var.global_network_id,
+ *     tags: {
+ *         Env: "test",
+ *     },
+ * });
+ * ```
+ */
 export function getLinksOutput(args: GetLinksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinksResult> {
-    return pulumi.output(args).apply(a => getLinks(a, opts))
+    return pulumi.output(args).apply((a: any) => getLinks(a, opts))
 }
 
 /**

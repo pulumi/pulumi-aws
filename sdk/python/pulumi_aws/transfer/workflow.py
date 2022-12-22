@@ -211,7 +211,7 @@ class Workflow(pulumi.CustomResource):
         example = aws.transfer.Workflow("example", steps=[aws.transfer.WorkflowStepArgs(
             delete_step_details=aws.transfer.WorkflowStepDeleteStepDetailsArgs(
                 name="example",
-                source_file_location=original["file"],
+                source_file_location="${original.file}",
             ),
             type="DELETE",
         )])
@@ -226,7 +226,7 @@ class Workflow(pulumi.CustomResource):
             aws.transfer.WorkflowStepArgs(
                 custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
                     name="example",
-                    source_file_location=original["file"],
+                    source_file_location="${original.file}",
                     target=aws_lambda_function["example"]["arn"],
                     timeout_seconds=60,
                 ),
@@ -235,7 +235,7 @@ class Workflow(pulumi.CustomResource):
             aws.transfer.WorkflowStepArgs(
                 tag_step_details=aws.transfer.WorkflowStepTagStepDetailsArgs(
                     name="example",
-                    source_file_location=original["file"],
+                    source_file_location="${original.file}",
                     tags=[aws.transfer.WorkflowStepTagStepDetailsTagArgs(
                         key="Name",
                         value="Hello World",
@@ -280,7 +280,7 @@ class Workflow(pulumi.CustomResource):
         example = aws.transfer.Workflow("example", steps=[aws.transfer.WorkflowStepArgs(
             delete_step_details=aws.transfer.WorkflowStepDeleteStepDetailsArgs(
                 name="example",
-                source_file_location=original["file"],
+                source_file_location="${original.file}",
             ),
             type="DELETE",
         )])
@@ -295,7 +295,7 @@ class Workflow(pulumi.CustomResource):
             aws.transfer.WorkflowStepArgs(
                 custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
                     name="example",
-                    source_file_location=original["file"],
+                    source_file_location="${original.file}",
                     target=aws_lambda_function["example"]["arn"],
                     timeout_seconds=60,
                 ),
@@ -304,7 +304,7 @@ class Workflow(pulumi.CustomResource):
             aws.transfer.WorkflowStepArgs(
                 tag_step_details=aws.transfer.WorkflowStepTagStepDetailsArgs(
                     name="example",
-                    source_file_location=original["file"],
+                    source_file_location="${original.file}",
                     tags=[aws.transfer.WorkflowStepTagStepDetailsTagArgs(
                         key="Name",
                         value="Hello World",

@@ -188,7 +188,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -225,7 +225,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -262,7 +262,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -299,7 +299,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -484,7 +484,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -521,7 +521,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -558,7 +558,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -595,7 +595,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -632,7 +632,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -669,7 +669,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -706,7 +706,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -743,7 +743,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -780,7 +780,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetUserArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -817,7 +817,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetUserArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -854,7 +854,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetUserArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -891,7 +891,7 @@ public final class MemorydbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import com.pulumi.aws.memorydb.inputs.GetUserArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

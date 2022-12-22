@@ -81,12 +81,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			instance_assume_role_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Type: "Service",
 //								Identifiers: []string{
 //									"ec2.amazonaws.com",
@@ -101,7 +101,7 @@ import (
 //			}
 //			_, err = iam.NewRole(ctx, "instance", &iam.RoleArgs{
 //				Path:             pulumi.String("/system/"),
-//				AssumeRolePolicy: pulumi.String(instance_assume_role_policy.Json),
+//				AssumeRolePolicy: *pulumi.String(instance_assume_role_policy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -131,7 +131,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			inlinePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"ec2:DescribeAccountAttributes",
 //						},
@@ -169,7 +169,7 @@ import (
 //					},
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("policy-8675309"),
-//						Policy: pulumi.String(inlinePolicy.Json),
+//						Policy: *pulumi.String(inlinePolicy.Json),
 //					},
 //				},
 //			})

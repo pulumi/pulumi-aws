@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = directconnect.GetLocation(ctx, &directconnect.GetLocationArgs{
+//			_, err := directconnect.GetLocation(ctx, &directconnect.GetLocationArgs{
 //				LocationCode: "CS32A-24FL",
 //			}, nil)
 //			if err != nil {

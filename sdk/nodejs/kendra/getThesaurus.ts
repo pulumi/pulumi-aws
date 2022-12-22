@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getThesaurus(args: GetThesaurusArgs, opts?: pulumi.InvokeOptions): Promise<GetThesaurusResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kendra/getThesaurus:getThesaurus", {
         "indexId": args.indexId,
         "tags": args.tags,
@@ -116,9 +113,23 @@ export interface GetThesaurusResult {
      */
     readonly updatedAt: string;
 }
-
+/**
+ * Provides details about a specific Amazon Kendra Thesaurus.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.kendra.getThesaurus({
+ *     indexId: "12345678-1234-1234-1234-123456789123",
+ *     thesaurusId: "87654321-1234-4321-4321-321987654321",
+ * });
+ * ```
+ */
 export function getThesaurusOutput(args: GetThesaurusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThesaurusResult> {
-    return pulumi.output(args).apply(a => getThesaurus(a, opts))
+    return pulumi.output(args).apply((a: any) => getThesaurus(a, opts))
 }
 
 /**

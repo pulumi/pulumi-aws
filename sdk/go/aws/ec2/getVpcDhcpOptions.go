@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.LookupVpcDhcpOptions(ctx, &ec2.LookupVpcDhcpOptionsArgs{
+//			_, err := ec2.LookupVpcDhcpOptions(ctx, &ec2.LookupVpcDhcpOptionsArgs{
 //				DhcpOptionsId: pulumi.StringRef("dopts-12345678"),
 //			}, nil)
 //			if err != nil {
@@ -52,15 +52,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.LookupVpcDhcpOptions(ctx, &ec2.LookupVpcDhcpOptionsArgs{
+//			_, err := ec2.LookupVpcDhcpOptions(ctx, &ec2.LookupVpcDhcpOptionsArgs{
 //				Filters: []ec2.GetVpcDhcpOptionsFilter{
-//					ec2.GetVpcDhcpOptionsFilter{
+//					{
 //						Name: "key",
 //						Values: []string{
 //							"domain-name",
 //						},
 //					},
-//					ec2.GetVpcDhcpOptionsFilter{
+//					{
 //						Name: "value",
 //						Values: []string{
 //							"example.com",

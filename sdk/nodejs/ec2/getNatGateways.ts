@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  */
 export function getNatGateways(args?: GetNatGatewaysArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewaysResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getNatGateways:getNatGateways", {
         "filters": args.filters,
         "tags": args.tags,
@@ -59,9 +56,11 @@ export interface GetNatGatewaysResult {
     readonly tags: {[key: string]: string};
     readonly vpcId?: string;
 }
-
+/**
+ * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+ */
 export function getNatGatewaysOutput(args?: GetNatGatewaysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewaysResult> {
-    return pulumi.output(args).apply(a => getNatGateways(a, opts))
+    return pulumi.output(args).apply((a: any) => getNatGateways(a, opts))
 }
 
 /**

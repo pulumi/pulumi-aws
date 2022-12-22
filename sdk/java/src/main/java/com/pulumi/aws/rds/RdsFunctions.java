@@ -58,7 +58,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -95,7 +95,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -132,7 +132,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -169,7 +169,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -206,7 +206,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -243,7 +243,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -280,7 +280,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.rds.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -317,7 +317,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.rds.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -354,7 +354,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.rds.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -391,7 +391,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.rds.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -771,6 +771,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -784,7 +785,12 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = RdsFunctions.getClusters(GetClustersArgs.builder()
+     *             .filters(GetClustersFilterArgs.builder()
+     *                 .name(&#34;engine&#34;)
+     *                 .values(&#34;aurora-postgresql&#34;)
+     *                 .build())
+     *             .build());
      * 
      *     }
      * }
@@ -806,6 +812,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -819,7 +826,12 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = RdsFunctions.getClusters(GetClustersArgs.builder()
+     *             .filters(GetClustersFilterArgs.builder()
+     *                 .name(&#34;engine&#34;)
+     *                 .values(&#34;aurora-postgresql&#34;)
+     *                 .build())
+     *             .build());
      * 
      *     }
      * }
@@ -841,6 +853,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -854,7 +867,12 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = RdsFunctions.getClusters(GetClustersArgs.builder()
+     *             .filters(GetClustersFilterArgs.builder()
+     *                 .name(&#34;engine&#34;)
+     *                 .values(&#34;aurora-postgresql&#34;)
+     *                 .build())
+     *             .build());
      * 
      *     }
      * }
@@ -876,6 +894,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -889,7 +908,12 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = RdsFunctions.getClusters(GetClustersArgs.builder()
+     *             .filters(GetClustersFilterArgs.builder()
+     *                 .name(&#34;engine&#34;)
+     *                 .values(&#34;aurora-postgresql&#34;)
+     *                 .build())
+     *             .build());
      * 
      *     }
      * }
@@ -911,6 +935,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -924,7 +949,12 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = RdsFunctions.getClusters(GetClustersArgs.builder()
+     *             .filters(GetClustersFilterArgs.builder()
+     *                 .name(&#34;engine&#34;)
+     *                 .values(&#34;aurora-postgresql&#34;)
+     *                 .build())
+     *             .build());
      * 
      *     }
      * }
@@ -946,6 +976,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -959,7 +990,12 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = RdsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = RdsFunctions.getClusters(GetClustersArgs.builder()
+     *             .filters(GetClustersFilterArgs.builder()
+     *                 .name(&#34;engine&#34;)
+     *                 .values(&#34;aurora-postgresql&#34;)
+     *                 .build())
+     *             .build());
      * 
      *     }
      * }
@@ -981,7 +1017,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1013,7 +1049,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1029,7 +1065,10 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;aurora-postgresql&#34;)
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .filters(GetEngineVersionFilterArgs.builder()
+     *                 .name(&#34;engine-mode&#34;)
+     *                 .values(&#34;serverless&#34;)
+     *                 .build())
      *             .includeAll(true)
      *             .version(&#34;10.14&#34;)
      *             .build());
@@ -1054,7 +1093,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1086,7 +1125,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1102,7 +1141,10 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;aurora-postgresql&#34;)
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .filters(GetEngineVersionFilterArgs.builder()
+     *                 .name(&#34;engine-mode&#34;)
+     *                 .values(&#34;serverless&#34;)
+     *                 .build())
      *             .includeAll(true)
      *             .version(&#34;10.14&#34;)
      *             .build());
@@ -1127,7 +1169,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1159,7 +1201,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1175,7 +1217,10 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;aurora-postgresql&#34;)
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .filters(GetEngineVersionFilterArgs.builder()
+     *                 .name(&#34;engine-mode&#34;)
+     *                 .values(&#34;serverless&#34;)
+     *                 .build())
      *             .includeAll(true)
      *             .version(&#34;10.14&#34;)
      *             .build());
@@ -1200,7 +1245,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1232,7 +1277,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1248,7 +1293,10 @@ public final class RdsFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;aurora-postgresql&#34;)
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .filters(GetEngineVersionFilterArgs.builder()
+     *                 .name(&#34;engine-mode&#34;)
+     *                 .values(&#34;serverless&#34;)
+     *                 .build())
      *             .includeAll(true)
      *             .version(&#34;10.14&#34;)
      *             .build());
@@ -1674,7 +1722,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1711,7 +1759,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1748,7 +1796,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1785,7 +1833,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1822,7 +1870,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1859,7 +1907,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1905,7 +1953,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1942,7 +1990,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1988,7 +2036,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2025,7 +2073,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2071,7 +2119,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2108,7 +2156,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2471,7 +2519,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.Instance;
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2532,7 +2580,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.Instance;
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2593,7 +2641,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.Instance;
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2654,7 +2702,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.Instance;
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2715,7 +2763,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.Instance;
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2776,7 +2824,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.Instance;
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2832,7 +2880,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.rds.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2869,7 +2917,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.rds.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2906,7 +2954,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.rds.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2943,7 +2991,7 @@ public final class RdsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
+     * import com.pulumi.aws.rds.inputs.GetSubnetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

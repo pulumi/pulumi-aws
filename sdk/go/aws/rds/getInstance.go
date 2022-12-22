@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = rds.LookupInstance(ctx, &rds.LookupInstanceArgs{
+//			_, err := rds.LookupInstance(ctx, &rds.LookupInstanceArgs{
 //				DbInstanceIdentifier: "my-test-database",
 //			}, nil)
 //			if err != nil {

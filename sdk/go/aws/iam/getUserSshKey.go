@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = iam.GetUserSshKey(ctx, &iam.GetUserSshKeyArgs{
+//			_, err := iam.GetUserSshKey(ctx, &iam.GetUserSshKeyArgs{
 //				Encoding:       "SSH",
 //				SshPublicKeyId: "APKARUZ32GUTKIGARLXE",
 //				Username:       "test-user",

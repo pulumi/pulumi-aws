@@ -81,6 +81,34 @@ import * as utilities from "../utilities";
  *     dependsOn: [aws_iam_role_policy_attachment.example],
  * });
  * ```
+ * ### Example IAM Role for GameLift Game Server Group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getPartition({});
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": [
+ *           "autoscaling.amazonaws.com",
+ *           "gamelift.amazonaws.com"
+ *         ]
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `});
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
+ *     policyArn: current.then(current => `arn:${current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy`),
+ *     role: exampleRole.name,
+ * });
+ * ```
  *
  * ## Import
  *

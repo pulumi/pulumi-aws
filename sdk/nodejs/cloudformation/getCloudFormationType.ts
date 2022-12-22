@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  */
 export function getCloudFormationType(args?: GetCloudFormationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationTypeResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudformation/getCloudFormationType:getCloudFormationType", {
         "arn": args.arn,
         "type": args.type,
@@ -117,9 +114,23 @@ export interface GetCloudFormationTypeResult {
      */
     readonly visibility: string;
 }
-
+/**
+ * Provides details about a CloudFormation Type.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.cloudformation.getCloudFormationType({
+ *     type: "RESOURCE",
+ *     typeName: "AWS::Athena::WorkGroup",
+ * });
+ * ```
+ */
 export function getCloudFormationTypeOutput(args?: GetCloudFormationTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFormationTypeResult> {
-    return pulumi.output(args).apply(a => getCloudFormationType(a, opts))
+    return pulumi.output(args).apply((a: any) => getCloudFormationType(a, opts))
 }
 
 /**

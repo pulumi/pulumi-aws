@@ -93,12 +93,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			assumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Type: "Service",
 //								Identifiers: []string{
 //									"ecs-tasks.amazonaws.com",
@@ -112,7 +112,7 @@ import (
 //				return err
 //			}
 //			ecsTaskExecutionRole, err := iam.NewRole(ctx, "ecsTaskExecutionRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(assumeRolePolicy.Json),
+//				AssumeRolePolicy: *pulumi.String(assumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err

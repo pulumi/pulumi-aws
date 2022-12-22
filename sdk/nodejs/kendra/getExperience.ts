@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getExperience(args: GetExperienceArgs, opts?: pulumi.InvokeOptions): Promise<GetExperienceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kendra/getExperience:getExperience", {
         "experienceId": args.experienceId,
         "indexId": args.indexId,
@@ -99,9 +96,23 @@ export interface GetExperienceResult {
      */
     readonly updatedAt: string;
 }
-
+/**
+ * Provides details about a specific Amazon Kendra Experience.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.kendra.getExperience({
+ *     experienceId: "87654321-1234-4321-4321-321987654321",
+ *     indexId: "12345678-1234-1234-1234-123456789123",
+ * });
+ * ```
+ */
 export function getExperienceOutput(args: GetExperienceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperienceResult> {
-    return pulumi.output(args).apply(a => getExperience(a, opts))
+    return pulumi.output(args).apply((a: any) => getExperience(a, opts))
 }
 
 /**

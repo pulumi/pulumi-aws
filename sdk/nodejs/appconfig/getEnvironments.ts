@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEnvironments(args: GetEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appconfig/getEnvironments:getEnvironments", {
         "applicationId": args.applicationId,
     }, opts);
@@ -55,9 +52,24 @@ export interface GetEnvironmentsResult {
      */
     readonly id: string;
 }
-
+/**
+ * Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
+ * resource.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.appconfig.getEnvironments({
+ *     applicationId: "a1d3rpe",
+ * });
+ * ```
+ */
 export function getEnvironmentsOutput(args: GetEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentsResult> {
-    return pulumi.output(args).apply(a => getEnvironments(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnvironments(a, opts))
 }
 
 /**

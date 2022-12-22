@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResourceTags(args: GetResourceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTagsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getResourceTags:getResourceTags", {
         "resourceId": args.resourceId,
         "tags": args.tags,
@@ -58,9 +55,22 @@ export interface GetResourceTagsResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Get tags attached to the specified AWS Organizations resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const account = aws.organizations.getResourceTags({
+ *     resourceId: "123456123846",
+ * });
+ * ```
+ */
 export function getResourceTagsOutput(args: GetResourceTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceTagsResult> {
-    return pulumi.output(args).apply(a => getResourceTags(a, opts))
+    return pulumi.output(args).apply((a: any) => getResourceTags(a, opts))
 }
 
 /**

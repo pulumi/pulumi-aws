@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:backup/getVault:getVault", {
         "name": args.name,
         "tags": args.tags,
@@ -70,9 +67,22 @@ export interface GetVaultResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to get information on an existing backup vault.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.backup.getVault({
+ *     name: "example_backup_vault",
+ * });
+ * ```
+ */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
-    return pulumi.output(args).apply(a => getVault(a, opts))
+    return pulumi.output(args).apply((a: any) => getVault(a, opts))
 }
 
 /**

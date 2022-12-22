@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = connect.LookupHoursOfOperation(ctx, &connect.LookupHoursOfOperationArgs{
+//			_, err := connect.LookupHoursOfOperation(ctx, &connect.LookupHoursOfOperationArgs{
 //				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
 //				Name:       pulumi.StringRef("Test"),
 //			}, nil)
@@ -55,7 +55,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = connect.LookupHoursOfOperation(ctx, &connect.LookupHoursOfOperationArgs{
+//			_, err := connect.LookupHoursOfOperation(ctx, &connect.LookupHoursOfOperationArgs{
 //				HoursOfOperationId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
 //				InstanceId:         "aaaaaaaa-bbbb-cccc-dddd-111111111111",
 //			}, nil)

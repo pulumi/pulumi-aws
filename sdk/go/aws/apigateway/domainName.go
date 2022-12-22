@@ -203,7 +203,7 @@ func NewDomainName(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
 	if args.CertificatePrivateKey != nil {
-		args.CertificatePrivateKey = pulumi.ToSecret(args.CertificatePrivateKey).(pulumi.StringPtrOutput)
+		args.CertificatePrivateKey = pulumi.ToSecret(args.CertificatePrivateKey).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"certificatePrivateKey",

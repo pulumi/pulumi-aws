@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAcl(args: GetAclArgs, opts?: pulumi.InvokeOptions): Promise<GetAclResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:memorydb/getAcl:getAcl", {
         "name": args.name,
         "tags": args.tags,
@@ -70,9 +67,22 @@ export interface GetAclResult {
      */
     readonly userNames: string[];
 }
-
+/**
+ * Provides information about a MemoryDB ACL.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.memorydb.getAcl({
+ *     name: "my-acl",
+ * });
+ * ```
+ */
 export function getAclOutput(args: GetAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAclResult> {
-    return pulumi.output(args).apply(a => getAcl(a, opts))
+    return pulumi.output(args).apply((a: any) => getAcl(a, opts))
 }
 
 /**

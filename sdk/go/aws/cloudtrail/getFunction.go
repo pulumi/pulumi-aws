@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
 //			functionName := cfg.Require("functionName")
-//			_, err = cloudfront.LookupFunction(ctx, &cloudfront.LookupFunctionArgs{
+//			_, err := cloudfront.LookupFunction(ctx, &cloudfront.LookupFunctionArgs{
 //				Name: functionName,
 //			}, nil)
 //			if err != nil {

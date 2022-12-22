@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lex/getBot:getBot", {
         "name": args.name,
         "version": args.version,
@@ -118,9 +115,23 @@ export interface GetBotResult {
      */
     readonly voiceId: string;
 }
-
+/**
+ * Provides details about a specific Amazon Lex Bot.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const orderFlowersBot = aws.lex.getBot({
+ *     name: "OrderFlowers",
+ *     version: `$LATEST`,
+ * });
+ * ```
+ */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
-    return pulumi.output(args).apply(a => getBot(a, opts))
+    return pulumi.output(args).apply((a: any) => getBot(a, opts))
 }
 
 /**

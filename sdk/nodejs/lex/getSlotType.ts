@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSlotType(args: GetSlotTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSlotTypeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lex/getSlotType:getSlotType", {
         "name": args.name,
         "version": args.version,
@@ -95,9 +92,23 @@ export interface GetSlotTypeResult {
      */
     readonly version?: string;
 }
-
+/**
+ * Provides details about a specific Amazon Lex Slot Type.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const flowerTypes = aws.lex.getSlotType({
+ *     name: "FlowerTypes",
+ *     version: "1",
+ * });
+ * ```
+ */
 export function getSlotTypeOutput(args: GetSlotTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSlotTypeResult> {
-    return pulumi.output(args).apply(a => getSlotType(a, opts))
+    return pulumi.output(args).apply((a: any) => getSlotType(a, opts))
 }
 
 /**

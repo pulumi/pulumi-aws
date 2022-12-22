@@ -17,11 +17,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getHttpNamespace(args: GetHttpNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetHttpNamespaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicediscovery/getHttpNamespace:getHttpNamespace", {
         "name": args.name,
         "tags": args.tags,
@@ -68,9 +65,20 @@ export interface GetHttpNamespaceResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.servicediscovery.getHttpNamespace({
+ *     name: "development",
+ * });
+ * ```
+ */
 export function getHttpNamespaceOutput(args: GetHttpNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHttpNamespaceResult> {
-    return pulumi.output(args).apply(a => getHttpNamespace(a, opts))
+    return pulumi.output(args).apply((a: any) => getHttpNamespace(a, opts))
 }
 
 /**

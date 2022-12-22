@@ -113,7 +113,7 @@ func NewSourceCredential(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Token'")
 	}
 	if args.Token != nil {
-		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringOutput)
+		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"token",

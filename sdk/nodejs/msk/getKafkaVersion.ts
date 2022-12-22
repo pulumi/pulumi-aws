@@ -27,11 +27,8 @@ import * as utilities from "../utilities";
  */
 export function getKafkaVersion(args?: GetKafkaVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaVersionResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getKafkaVersion:getKafkaVersion", {
         "preferredVersions": args.preferredVersions,
         "version": args.version,
@@ -67,9 +64,29 @@ export interface GetKafkaVersionResult {
     readonly status: string;
     readonly version: string;
 }
-
+/**
+ * Get information on a Amazon MSK Kafka Version
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const preferred = aws.msk.getKafkaVersion({
+ *     preferredVersions: [
+ *         "2.4.1.1",
+ *         "2.4.1",
+ *         "2.2.1",
+ *     ],
+ * });
+ * const example = aws.msk.getKafkaVersion({
+ *     version: "2.8.0",
+ * });
+ * ```
+ */
 export function getKafkaVersionOutput(args?: GetKafkaVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaVersionResult> {
-    return pulumi.output(args).apply(a => getKafkaVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getKafkaVersion(a, opts))
 }
 
 /**

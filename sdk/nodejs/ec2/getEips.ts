@@ -29,11 +29,8 @@ import * as utilities from "../utilities";
  */
 export function getEips(args?: GetEipsArgs, opts?: pulumi.InvokeOptions): Promise<GetEipsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getEips:getEips", {
         "filters": args.filters,
         "tags": args.tags,
@@ -73,9 +70,28 @@ export interface GetEipsResult {
     readonly publicIps: string[];
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides a list of Elastic IPs in a region.
+ *
+ * ## Example Usage
+ *
+ * The following shows outputing all Elastic IPs with the a specific tag value.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getEips({
+ *     tags: {
+ *         Env: "dev",
+ *     },
+ * });
+ * export const allocationIds = example.then(example => example.allocationIds);
+ * export const publicIps = example.then(example => example.publicIps);
+ * ```
+ */
 export function getEipsOutput(args?: GetEipsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEipsResult> {
-    return pulumi.output(args).apply(a => getEips(a, opts))
+    return pulumi.output(args).apply((a: any) => getEips(a, opts))
 }
 
 /**

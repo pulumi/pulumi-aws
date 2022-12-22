@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = elasticache.LookupUser(ctx, &elasticache.LookupUserArgs{
+//			_, err := elasticache.LookupUser(ctx, &elasticache.LookupUserArgs{
 //				UserId: "example",
 //			}, nil)
 //			if err != nil {

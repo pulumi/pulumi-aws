@@ -28,11 +28,8 @@ import * as utilities from "./utilities";
 /** @deprecated aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds */
 export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
     pulumi.log.warn("getAmiIds is deprecated: aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getAmiIds:getAmiIds", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
@@ -90,9 +87,27 @@ export interface GetAmiIdsResult {
     readonly owners: string[];
     readonly sortAscending?: boolean;
 }
-
+/**
+ * Use this data source to get a list of AMI IDs matching the specified criteria.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ubuntu = aws.ec2.getAmiIds({
+ *     filters: [{
+ *         name: "name",
+ *         values: ["ubuntu/images/ubuntu-*-*-amd64-server-*"],
+ *     }],
+ *     owners: ["099720109477"],
+ * });
+ * ```
+ */
+/** @deprecated aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds */
 export function getAmiIdsOutput(args: GetAmiIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiIdsResult> {
-    return pulumi.output(args).apply(a => getAmiIds(a, opts))
+    return pulumi.output(args).apply((a: any) => getAmiIds(a, opts))
 }
 
 /**

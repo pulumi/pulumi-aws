@@ -26,9 +26,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = imagebuilder.GetContainerRecipes(ctx, &imagebuilder.GetContainerRecipesArgs{
+//			_, err := imagebuilder.GetContainerRecipes(ctx, &imagebuilder.GetContainerRecipesArgs{
 //				Filters: []imagebuilder.GetContainerRecipesFilter{
-//					imagebuilder.GetContainerRecipesFilter{
+//					{
 //						Name: "platform",
 //						Values: []string{
 //							"Linux",

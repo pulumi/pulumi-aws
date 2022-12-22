@@ -25,7 +25,7 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetCredentialsArgs;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -62,7 +62,7 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetCredentialsArgs;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -99,7 +99,7 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetCredentialsArgs;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -136,7 +136,7 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetCredentialsArgs;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

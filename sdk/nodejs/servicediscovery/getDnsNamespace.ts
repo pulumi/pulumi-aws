@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDnsNamespace(args: GetDnsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsNamespaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicediscovery/getDnsNamespace:getDnsNamespace", {
         "name": args.name,
         "tags": args.tags,
@@ -77,9 +74,23 @@ export interface GetDnsNamespaceResult {
     readonly tags: {[key: string]: string};
     readonly type: string;
 }
-
+/**
+ * Retrieves information about a Service Discovery private or public DNS namespace.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.servicediscovery.getDnsNamespace({
+ *     name: "example.service.local",
+ *     type: "DNS_PRIVATE",
+ * });
+ * ```
+ */
 export function getDnsNamespaceOutput(args: GetDnsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsNamespaceResult> {
-    return pulumi.output(args).apply(a => getDnsNamespace(a, opts))
+    return pulumi.output(args).apply((a: any) => getDnsNamespace(a, opts))
 }
 
 /**

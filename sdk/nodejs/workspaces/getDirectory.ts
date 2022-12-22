@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:workspaces/getDirectory:getDirectory", {
         "directoryId": args.directoryId,
         "tags": args.tags,
@@ -113,9 +110,22 @@ export interface GetDirectoryResult {
      */
     readonly workspaceSecurityGroupId: string;
 }
-
+/**
+ * Retrieve information about an AWS WorkSpaces directory.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.workspaces.getDirectory({
+ *     directoryId: "d-9067783251",
+ * });
+ * ```
+ */
 export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryResult> {
-    return pulumi.output(args).apply(a => getDirectory(a, opts))
+    return pulumi.output(args).apply((a: any) => getDirectory(a, opts))
 }
 
 /**

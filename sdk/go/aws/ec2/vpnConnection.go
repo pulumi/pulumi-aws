@@ -167,9 +167,9 @@ import (
 //				CustomerGatewayId:    exampleCustomerGateway.ID(),
 //				OutsideIpAddressType: pulumi.String("PrivateIpv4"),
 //				TransitGatewayId:     exampleTransitGateway.ID(),
-//				TransportTransitGatewayAttachmentId: exampleDirectConnectGatewayAttachment.ApplyT(func(exampleDirectConnectGatewayAttachment ec2transitgateway.GetDirectConnectGatewayAttachmentResult) (string, error) {
-//					return exampleDirectConnectGatewayAttachment.Id, nil
-//				}).(pulumi.StringOutput),
+//				TransportTransitGatewayAttachmentId: exampleDirectConnectGatewayAttachment.ApplyT(func(exampleDirectConnectGatewayAttachment ec2transitgateway.GetDirectConnectGatewayAttachmentResult) (*string, error) {
+//					return &exampleDirectConnectGatewayAttachment.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Type: pulumi.String("ipsec.1"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example_ipsec_vpn_example"),
@@ -352,10 +352,10 @@ func NewVpnConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	if args.Tunnel1PresharedKey != nil {
-		args.Tunnel1PresharedKey = pulumi.ToSecret(args.Tunnel1PresharedKey).(pulumi.StringPtrOutput)
+		args.Tunnel1PresharedKey = pulumi.ToSecret(args.Tunnel1PresharedKey).(pulumi.StringPtrInput)
 	}
 	if args.Tunnel2PresharedKey != nil {
-		args.Tunnel2PresharedKey = pulumi.ToSecret(args.Tunnel2PresharedKey).(pulumi.StringPtrOutput)
+		args.Tunnel2PresharedKey = pulumi.ToSecret(args.Tunnel2PresharedKey).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"customerGatewayConfiguration",

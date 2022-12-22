@@ -586,6 +586,51 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Using ACL policy grants
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.S3Functions;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.inputs.BucketV2GrantArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var currentUser = S3Functions.getCanonicalUserId();
+ * 
+ *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+ *             .grants(            
+ *                 BucketV2GrantArgs.builder()
+ *                     .id(currentUser.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
+ *                     .type(&#34;CanonicalUser&#34;)
+ *                     .permissions(&#34;FULL_CONTROL&#34;)
+ *                     .build(),
+ *                 BucketV2GrantArgs.builder()
+ *                     .type(&#34;Group&#34;)
+ *                     .permissions(                    
+ *                         &#34;READ_ACP&#34;,
+ *                         &#34;WRITE&#34;)
+ *                     .uri(&#34;http://acs.amazonaws.com/groups/s3/LogDelivery&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

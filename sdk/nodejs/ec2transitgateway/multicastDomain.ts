@@ -35,17 +35,17 @@ import * as utilities from "../utilities";
  * const subnet1 = new aws.ec2.Subnet("subnet1", {
  *     vpcId: vpc1.id,
  *     cidrBlock: "10.0.1.0/24",
- *     availabilityZone: available.then(available => available.names?[0]),
+ *     availabilityZone: available.then(available => available.names?.[0]),
  * });
  * const subnet2 = new aws.ec2.Subnet("subnet2", {
  *     vpcId: vpc1.id,
  *     cidrBlock: "10.0.2.0/24",
- *     availabilityZone: available.then(available => available.names?[1]),
+ *     availabilityZone: available.then(available => available.names?.[1]),
  * });
  * const subnet3 = new aws.ec2.Subnet("subnet3", {
  *     vpcId: vpc2.id,
  *     cidrBlock: "10.1.1.0/24",
- *     availabilityZone: available.then(available => available.names?[0]),
+ *     availabilityZone: available.then(available => available.names?.[0]),
  * });
  * const instance1 = new aws.ec2.Instance("instance1", {
  *     ami: amazonLinux.then(amazonLinux => amazonLinux.id),

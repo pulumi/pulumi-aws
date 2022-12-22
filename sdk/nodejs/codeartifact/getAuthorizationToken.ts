@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAuthorizationToken(args: GetAuthorizationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationTokenResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", {
         "domain": args.domain,
         "domainOwner": args.domainOwner,
@@ -69,9 +66,22 @@ export interface GetAuthorizationTokenResult {
      */
     readonly id: string;
 }
-
+/**
+ * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.codeartifact.getAuthorizationToken({
+ *     domain: aws_codeartifact_domain.test.domain,
+ * });
+ * ```
+ */
 export function getAuthorizationTokenOutput(args: GetAuthorizationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationTokenResult> {
-    return pulumi.output(args).apply(a => getAuthorizationToken(a, opts))
+    return pulumi.output(args).apply((a: any) => getAuthorizationToken(a, opts))
 }
 
 /**

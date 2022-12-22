@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafregional/getIpset:getIpset", {
         "name": args.name,
     }, opts);
@@ -49,9 +46,22 @@ export interface GetIpsetResult {
     readonly id: string;
     readonly name: string;
 }
-
+/**
+ * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.wafregional.getIpset({
+ *     name: "tfWAFRegionalIPSet",
+ * });
+ * ```
+ */
 export function getIpsetOutput(args: GetIpsetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpsetResult> {
-    return pulumi.output(args).apply(a => getIpset(a, opts))
+    return pulumi.output(args).apply((a: any) => getIpset(a, opts))
 }
 
 /**

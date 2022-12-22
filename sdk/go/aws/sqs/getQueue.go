@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = sqs.LookupQueue(ctx, &sqs.LookupQueueArgs{
+//			_, err := sqs.LookupQueue(ctx, &sqs.LookupQueueArgs{
 //				Name: "queue",
 //			}, nil)
 //			if err != nil {

@@ -116,7 +116,7 @@ import * as utilities from "../utilities";
  *     name: dvo.resourceRecordName,
  *     record: dvo.resourceRecordValue,
  *     type: dvo.resourceRecordType,
- * } })).map(([k, v]) => {key: k, value: v})) {
+ * } })).map(([k, v]) => ({key: k, value: v}))) {
  *     example.push(new aws.route53.Record(`example-${range.key}`, {
  *         allowOverwrite: true,
  *         name: range.value.name,

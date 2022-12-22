@@ -16,11 +16,8 @@ import * as utilities from "../utilities";
  */
 export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpc:getVpc", {
         "cidrBlock": args.cidrBlock,
         "default": args.default,
@@ -125,9 +122,15 @@ export interface GetVpcResult {
     readonly state: string;
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * `aws.ec2.Vpc` provides details about a specific VPC.
+ *
+ * This resource can prove useful when a module accepts a vpc id as
+ * an input variable and needs to, for example, determine the CIDR block of that
+ * VPC.
+ */
 export function getVpcOutput(args?: GetVpcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcResult> {
-    return pulumi.output(args).apply(a => getVpc(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpc(a, opts))
 }
 
 /**

@@ -266,7 +266,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -295,7 +295,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -333,7 +333,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -362,7 +362,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -400,7 +400,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -429,7 +429,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -467,7 +467,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -496,7 +496,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -534,7 +534,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -563,7 +563,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -601,7 +601,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -630,7 +630,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1099,7 +1099,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1114,7 +1114,10 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .filters(GetSecretsFilterArgs.builder()
+     *                 .name(&#34;name&#34;)
+     *                 .values(&#34;example&#34;)
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -1136,7 +1139,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1151,7 +1154,10 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .filters(GetSecretsFilterArgs.builder()
+     *                 .name(&#34;name&#34;)
+     *                 .values(&#34;example&#34;)
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -1173,7 +1179,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1188,7 +1194,10 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .filters(GetSecretsFilterArgs.builder()
+     *                 .name(&#34;name&#34;)
+     *                 .values(&#34;example&#34;)
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -1210,7 +1219,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1225,7 +1234,10 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .filters(GetSecretsFilterArgs.builder()
+     *                 .name(&#34;name&#34;)
+     *                 .values(&#34;example&#34;)
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -1247,7 +1259,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1262,7 +1274,10 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .filters(GetSecretsFilterArgs.builder()
+     *                 .name(&#34;name&#34;)
+     *                 .values(&#34;example&#34;)
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -1284,7 +1299,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.kms.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1299,7 +1314,10 @@ public final class SecretsmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .filters(GetSecretsFilterArgs.builder()
+     *                 .name(&#34;name&#34;)
+     *                 .values(&#34;example&#34;)
+     *                 .build())
      *             .build());
      * 
      *     }

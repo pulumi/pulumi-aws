@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigatewayv2/getApi:getApi", {
         "apiId": args.apiId,
         "tags": args.tags,
@@ -109,9 +106,22 @@ export interface GetApiResult {
      */
     readonly version: string;
 }
-
+/**
+ * Provides details about a specific Amazon API Gateway Version 2 API.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.apigatewayv2.getApi({
+ *     apiId: "aabbccddee",
+ * });
+ * ```
+ */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
-    return pulumi.output(args).apply(a => getApi(a, opts))
+    return pulumi.output(args).apply((a: any) => getApi(a, opts))
 }
 
 /**

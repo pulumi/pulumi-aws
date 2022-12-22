@@ -51,7 +51,7 @@ func NewSharedDirectory(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Target'")
 	}
 	if args.Notes != nil {
-		args.Notes = pulumi.ToSecret(args.Notes).(pulumi.StringPtrOutput)
+		args.Notes = pulumi.ToSecret(args.Notes).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"notes",

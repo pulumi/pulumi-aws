@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafv2/getWebAcl:getWebAcl", {
         "name": args.name,
         "scope": args.scope,
@@ -64,9 +61,23 @@ export interface GetWebAclResult {
     readonly name: string;
     readonly scope: string;
 }
-
+/**
+ * Retrieves the summary of a WAFv2 Web ACL.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.wafv2.getWebAcl({
+ *     name: "some-web-acl",
+ *     scope: "REGIONAL",
+ * });
+ * ```
+ */
 export function getWebAclOutput(args: GetWebAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAclResult> {
-    return pulumi.output(args).apply(a => getWebAcl(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebAcl(a, opts))
 }
 
 /**

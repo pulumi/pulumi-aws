@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTrackerAssociation(args: GetTrackerAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getTrackerAssociation:getTrackerAssociation", {
         "consumerArn": args.consumerArn,
         "trackerName": args.trackerName,
@@ -57,9 +54,24 @@ export interface GetTrackerAssociationResult {
     readonly id: string;
     readonly trackerName: string;
 }
-
+/**
+ * Retrieve information about a Location Service Tracker Association.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.location.getTrackerAssociation({
+ *     consumerArn: "arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer",
+ *     trackerName: "example",
+ * });
+ * ```
+ */
 export function getTrackerAssociationOutput(args: GetTrackerAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerAssociationResult> {
-    return pulumi.output(args).apply(a => getTrackerAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getTrackerAssociation(a, opts))
 }
 
 /**

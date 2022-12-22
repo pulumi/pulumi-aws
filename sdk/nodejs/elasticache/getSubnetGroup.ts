@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticache/getSubnetGroup:getSubnetGroup", {
         "name": args.name,
         "tags": args.tags,
@@ -70,9 +67,22 @@ export interface GetSubnetGroupResult {
      */
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Provides information about a ElastiCache Subnet Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.elasticache.getSubnetGroup({
+ *     name: "my-subnet-group",
+ * });
+ * ```
+ */
 export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
-    return pulumi.output(args).apply(a => getSubnetGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getSubnetGroup(a, opts))
 }
 
 /**

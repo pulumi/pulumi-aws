@@ -25,7 +25,7 @@ public final class ServerlessrepositoryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.serverlessrepository.ServerlessrepositoryFunctions;
-     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import com.pulumi.aws.serverlessrepository.inputs.GetApplicationArgs;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
      * import java.util.List;
@@ -70,7 +70,7 @@ public final class ServerlessrepositoryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.serverlessrepository.ServerlessrepositoryFunctions;
-     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import com.pulumi.aws.serverlessrepository.inputs.GetApplicationArgs;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
      * import java.util.List;
@@ -115,7 +115,7 @@ public final class ServerlessrepositoryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.serverlessrepository.ServerlessrepositoryFunctions;
-     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import com.pulumi.aws.serverlessrepository.inputs.GetApplicationArgs;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
      * import java.util.List;
@@ -160,7 +160,7 @@ public final class ServerlessrepositoryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.serverlessrepository.ServerlessrepositoryFunctions;
-     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import com.pulumi.aws.serverlessrepository.inputs.GetApplicationArgs;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
      * import java.util.List;

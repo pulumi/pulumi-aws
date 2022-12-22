@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getDistribution:getDistribution", {
         "id": args.id,
         "tags": args.tags,
@@ -91,9 +88,22 @@ export interface GetDistributionResult {
     readonly status: string;
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Use this data source to retrieve information about a CloudFront distribution.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.cloudfront.getDistribution({
+ *     id: "EDFDVBD632BHDS5",
+ * });
+ * ```
+ */
 export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionResult> {
-    return pulumi.output(args).apply(a => getDistribution(a, opts))
+    return pulumi.output(args).apply((a: any) => getDistribution(a, opts))
 }
 
 /**

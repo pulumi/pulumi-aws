@@ -42,7 +42,7 @@ import (
 //					Grants: s3.BucketAclV2AccessControlPolicyGrantArray{
 //						&s3.BucketAclV2AccessControlPolicyGrantArgs{
 //							Grantee: &s3.BucketAclV2AccessControlPolicyGrantGranteeArgs{
-//								Id:   pulumi.String(exampleLogDeliveryCanonicalUserId.Id),
+//								Id:   *pulumi.String(exampleLogDeliveryCanonicalUserId.Id),
 //								Type: pulumi.String("CanonicalUser"),
 //							},
 //							Permission: pulumi.String("FULL_CONTROL"),

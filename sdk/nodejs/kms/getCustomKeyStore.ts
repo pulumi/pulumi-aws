@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  */
 export function getCustomKeyStore(args?: GetCustomKeyStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomKeyStoreResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kms/getCustomKeyStore:getCustomKeyStore", {
         "customKeyStoreId": args.customKeyStoreId,
         "customKeyStoreName": args.customKeyStoreName,
@@ -71,9 +68,24 @@ export interface GetCustomKeyStoreResult {
      */
     readonly trustAnchorCertificate: string;
 }
-
+/**
+ * Use this data source to get the metadata KMS custom key store.
+ * By using this data source, you can reference KMS custom key store
+ * without having to hard code the ID as input.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const keystore = aws.kms.getCustomKeyStore({
+ *     customKeyStoreName: "my_cloudhsm",
+ * });
+ * ```
+ */
 export function getCustomKeyStoreOutput(args?: GetCustomKeyStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomKeyStoreResult> {
-    return pulumi.output(args).apply(a => getCustomKeyStore(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomKeyStore(a, opts))
 }
 
 /**

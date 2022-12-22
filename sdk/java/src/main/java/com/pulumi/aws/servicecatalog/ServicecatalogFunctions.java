@@ -648,7 +648,7 @@ public final class ServicecatalogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
-     * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.servicecatalog.inputs.GetProductArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -688,7 +688,7 @@ public final class ServicecatalogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
-     * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.servicecatalog.inputs.GetProductArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -728,7 +728,7 @@ public final class ServicecatalogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
-     * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.servicecatalog.inputs.GetProductArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -768,7 +768,7 @@ public final class ServicecatalogFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
-     * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.servicecatalog.inputs.GetProductArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

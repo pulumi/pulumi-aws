@@ -39,7 +39,7 @@ import (
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						Name:                 pulumi.Any(aws_elb.Main.Dns_name),
-//						ZoneId:               pulumi.String(main.Id),
+//						ZoneId:               *pulumi.String(main.Id),
 //						EvaluateTargetHealth: pulumi.Bool(true),
 //					},
 //				},

@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSamlProvider(args: GetSamlProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlProviderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getSamlProvider:getSamlProvider", {
         "arn": args.arn,
         "tags": args.tags,
@@ -76,9 +73,24 @@ export interface GetSamlProviderResult {
      */
     readonly validUntil: string;
 }
-
+/**
+ * This data source can be used to fetch information about a specific
+ * IAM SAML provider. This will allow you to easily retrieve the metadata
+ * document of an existing SAML provider.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.iam.getSamlProvider({
+ *     arn: "arn:aws:iam::123456789:saml-provider/myprovider",
+ * });
+ * ```
+ */
 export function getSamlProviderOutput(args: GetSamlProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlProviderResult> {
-    return pulumi.output(args).apply(a => getSamlProvider(a, opts))
+    return pulumi.output(args).apply((a: any) => getSamlProvider(a, opts))
 }
 
 /**

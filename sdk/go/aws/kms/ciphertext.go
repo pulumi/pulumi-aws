@@ -78,7 +78,7 @@ func NewCiphertext(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Plaintext'")
 	}
 	if args.Plaintext != nil {
-		args.Plaintext = pulumi.ToSecret(args.Plaintext).(pulumi.StringOutput)
+		args.Plaintext = pulumi.ToSecret(args.Plaintext).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"plaintext",

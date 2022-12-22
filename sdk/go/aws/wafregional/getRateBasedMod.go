@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = wafregional.GetRateBasedMod(ctx, &wafregional.GetRateBasedModArgs{
+//			_, err := wafregional.GetRateBasedMod(ctx, &wafregional.GetRateBasedModArgs{
 //				Name: "tfWAFRegionalRateBasedRule",
 //			}, nil)
 //			if err != nil {

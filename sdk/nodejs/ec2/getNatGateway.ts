@@ -37,11 +37,8 @@ import * as utilities from "../utilities";
  */
 export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getNatGateway:getNatGateway", {
         "filters": args.filters,
         "id": args.id,
@@ -114,9 +111,36 @@ export interface GetNatGatewayResult {
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }
-
+/**
+ * Provides details about a specific Nat Gateway.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const default = aws.ec2.getNatGateway({
+ *     subnetId: aws_subnet["public"].id,
+ * });
+ * ```
+ *
+ * Usage with tags:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const default = aws.ec2.getNatGateway({
+ *     subnetId: aws_subnet["public"].id,
+ *     tags: {
+ *         Name: "gw NAT",
+ *     },
+ * });
+ * ```
+ */
 export function getNatGatewayOutput(args?: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
-    return pulumi.output(args).apply(a => getNatGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getNatGateway(a, opts))
 }
 
 /**

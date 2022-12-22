@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Transfer
     ///                 DeleteStepDetails = new Aws.Transfer.Inputs.WorkflowStepDeleteStepDetailsArgs
     ///                 {
     ///                     Name = "example",
-    ///                     SourceFileLocation = original.File,
+    ///                     SourceFileLocation = "${original.file}",
     ///                 },
     ///                 Type = "DELETE",
     ///             },
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Transfer
     ///                 CustomStepDetails = new Aws.Transfer.Inputs.WorkflowStepCustomStepDetailsArgs
     ///                 {
     ///                     Name = "example",
-    ///                     SourceFileLocation = original.File,
+    ///                     SourceFileLocation = "${original.file}",
     ///                     Target = aws_lambda_function.Example.Arn,
     ///                     TimeoutSeconds = 60,
     ///                 },
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Transfer
     ///                 TagStepDetails = new Aws.Transfer.Inputs.WorkflowStepTagStepDetailsArgs
     ///                 {
     ///                     Name = "example",
-    ///                     SourceFileLocation = original.File,
+    ///                     SourceFileLocation = "${original.file}",
     ///                     Tags = new[]
     ///                     {
     ///                         new Aws.Transfer.Inputs.WorkflowStepTagStepDetailsTagArgs

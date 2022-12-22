@@ -37,11 +37,8 @@ import * as utilities from "../utilities";
  */
 export function getConnect(args?: GetConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getConnect:getConnect", {
         "filters": args.filters,
         "tags": args.tags,
@@ -94,9 +91,36 @@ export interface GetConnectResult {
      */
     readonly transportAttachmentId: string;
 }
-
+/**
+ * Get information on an EC2 Transit Gateway Connect.
+ *
+ * ## Example Usage
+ * ### By Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2transitgateway.getConnect({
+ *     filters: [{
+ *         name: "transport-transit-gateway-attachment-id",
+ *         values: ["tgw-attach-12345678"],
+ *     }],
+ * });
+ * ```
+ * ### By Identifier
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2transitgateway.getConnect({
+ *     transitGatewayConnectId: "tgw-attach-12345678",
+ * });
+ * ```
+ */
 export function getConnectOutput(args?: GetConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectResult> {
-    return pulumi.output(args).apply(a => getConnect(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnect(a, opts))
 }
 
 /**

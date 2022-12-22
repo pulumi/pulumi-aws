@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  */
 export function getOrderableCluster(args?: GetOrderableClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableClusterResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshift/getOrderableCluster:getOrderableCluster", {
         "clusterType": args.clusterType,
         "clusterVersion": args.clusterVersion,
@@ -76,9 +73,26 @@ export interface GetOrderableClusterResult {
     readonly nodeType: string;
     readonly preferredNodeTypes?: string[];
 }
-
+/**
+ * Information about Redshift Orderable Clusters and valid parameter combinations.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.redshift.getOrderableCluster({
+ *     clusterType: "multi-node",
+ *     preferredNodeTypes: [
+ *         "dc2.large",
+ *         "ds2.xlarge",
+ *     ],
+ * });
+ * ```
+ */
 export function getOrderableClusterOutput(args?: GetOrderableClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableClusterResult> {
-    return pulumi.output(args).apply(a => getOrderableCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getOrderableCluster(a, opts))
 }
 
 /**

@@ -648,7 +648,7 @@ public final class KmsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetKeyArgs;
+     * import com.pulumi.aws.kms.inputs.GetKeyArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -700,7 +700,7 @@ public final class KmsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetKeyArgs;
+     * import com.pulumi.aws.kms.inputs.GetKeyArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -752,7 +752,7 @@ public final class KmsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetKeyArgs;
+     * import com.pulumi.aws.kms.inputs.GetKeyArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -804,7 +804,7 @@ public final class KmsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetKeyArgs;
+     * import com.pulumi.aws.kms.inputs.GetKeyArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

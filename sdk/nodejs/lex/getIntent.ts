@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIntent(args: GetIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetIntentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lex/getIntent:getIntent", {
         "name": args.name,
         "version": args.version,
@@ -90,9 +87,23 @@ export interface GetIntentResult {
      */
     readonly version?: string;
 }
-
+/**
+ * Provides details about a specific Amazon Lex Intent.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const orderFlowers = aws.lex.getIntent({
+ *     name: "OrderFlowers",
+ *     version: `$LATEST`,
+ * });
+ * ```
+ */
 export function getIntentOutput(args: GetIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntentResult> {
-    return pulumi.output(args).apply(a => getIntent(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntent(a, opts))
 }
 
 /**

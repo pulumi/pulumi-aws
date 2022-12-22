@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = grafana.LookupWorkspace(ctx, &grafana.LookupWorkspaceArgs{
+//			_, err := grafana.LookupWorkspace(ctx, &grafana.LookupWorkspaceArgs{
 //				WorkspaceId: "g-2054c75a02",
 //			}, nil)
 //			if err != nil {

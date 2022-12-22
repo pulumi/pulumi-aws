@@ -35,7 +35,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Sid:    pulumi.StringRef("DevAccountAccess"),
 //						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
@@ -45,7 +45,7 @@ import (
 //							"arn:aws:events:eu-west-1:123456789012:event-bus/default",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Type: "AWS",
 //								Identifiers: []string{
 //									"123456789012",
@@ -59,7 +59,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
-//				Policy:       pulumi.String(testPolicyDocument.Json),
+//				Policy:       *pulumi.String(testPolicyDocument.Json),
 //				EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
 //			})
 //			if err != nil {

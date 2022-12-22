@@ -80,10 +80,10 @@ func NewSecretVersion(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SecretId'")
 	}
 	if args.SecretBinary != nil {
-		args.SecretBinary = pulumi.ToSecret(args.SecretBinary).(pulumi.StringPtrOutput)
+		args.SecretBinary = pulumi.ToSecret(args.SecretBinary).(pulumi.StringPtrInput)
 	}
 	if args.SecretString != nil {
-		args.SecretString = pulumi.ToSecret(args.SecretString).(pulumi.StringPtrOutput)
+		args.SecretString = pulumi.ToSecret(args.SecretString).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"secretBinary",

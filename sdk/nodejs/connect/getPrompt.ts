@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPrompt(args: GetPromptArgs, opts?: pulumi.InvokeOptions): Promise<GetPromptResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getPrompt:getPrompt", {
         "instanceId": args.instanceId,
         "name": args.name,
@@ -66,9 +63,25 @@ export interface GetPromptResult {
      */
     readonly promptId: string;
 }
-
+/**
+ * Provides details about a specific Amazon Connect Prompt.
+ *
+ * ## Example Usage
+ *
+ * By `name`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getPrompt({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Beep.wav",
+ * });
+ * ```
+ */
 export function getPromptOutput(args: GetPromptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPromptResult> {
-    return pulumi.output(args).apply(a => getPrompt(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrompt(a, opts))
 }
 
 /**

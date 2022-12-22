@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const example = new aws.transfer.Workflow("example", {steps: [{
  *     deleteStepDetails: {
  *         name: "example",
- *         sourceFileLocation: original.file,
+ *         sourceFileLocation: `${original.file}`,
  *     },
  *     type: "DELETE",
  * }]});
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     {
  *         customStepDetails: {
  *             name: "example",
- *             sourceFileLocation: original.file,
+ *             sourceFileLocation: `${original.file}`,
  *             target: aws_lambda_function.example.arn,
  *             timeoutSeconds: 60,
  *         },
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     {
  *         tagStepDetails: {
  *             name: "example",
- *             sourceFileLocation: original.file,
+ *             sourceFileLocation: `${original.file}`,
  *             tags: [{
  *                 key: "Name",
  *                 value: "Hello World",

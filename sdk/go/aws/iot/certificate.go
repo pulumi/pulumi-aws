@@ -149,10 +149,10 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Active'")
 	}
 	if args.CaPem != nil {
-		args.CaPem = pulumi.ToSecret(args.CaPem).(pulumi.StringPtrOutput)
+		args.CaPem = pulumi.ToSecret(args.CaPem).(pulumi.StringPtrInput)
 	}
 	if args.CertificatePem != nil {
-		args.CertificatePem = pulumi.ToSecret(args.CertificatePem).(pulumi.StringPtrOutput)
+		args.CertificatePem = pulumi.ToSecret(args.CertificatePem).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"caPem",

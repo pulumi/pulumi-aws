@@ -34,7 +34,7 @@ import (
 //				NodeType:  pulumi.String("db.t4g.small"),
 //				NumShards: pulumi.Int(2),
 //				SecurityGroupIds: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Example.Id),
+//					aws_security_group.Example.Id,
 //				},
 //				SnapshotRetentionLimit: pulumi.Int(7),
 //				SubnetGroupName:        pulumi.Any(aws_memorydb_subnet_group.Example.Id),

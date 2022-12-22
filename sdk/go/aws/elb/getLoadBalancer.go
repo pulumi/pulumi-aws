@@ -38,7 +38,7 @@ import (
 //			if param := cfg.Get("lbName"); param != "" {
 //				lbName = param
 //			}
-//			_, err = elb.LookupLoadBalancer(ctx, &elb.LookupLoadBalancerArgs{
+//			_, err := elb.LookupLoadBalancer(ctx, &elb.LookupLoadBalancerArgs{
 //				Name: lbName,
 //			}, nil)
 //			if err != nil {

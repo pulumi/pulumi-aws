@@ -30,11 +30,8 @@ import * as utilities from "../utilities";
  */
 export function getLocalGatewayRouteTable(args?: GetLocalGatewayRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTableResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", {
         "filters": args.filters,
         "localGatewayId": args.localGatewayId,
@@ -88,9 +85,29 @@ export interface GetLocalGatewayRouteTableResult {
     readonly state: string;
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides details about an EC2 Local Gateway Route Table.
+ *
+ * This data source can prove useful when a module accepts a local gateway route table id as
+ * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
+ *
+ * ## Example Usage
+ *
+ * The following example returns a specific local gateway route table ID
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const awsEc2LocalGatewayRouteTable = config.requireObject("awsEc2LocalGatewayRouteTable");
+ * const selected = aws.ec2.getLocalGatewayRouteTable({
+ *     localGatewayRouteTableId: awsEc2LocalGatewayRouteTable,
+ * });
+ * ```
+ */
 export function getLocalGatewayRouteTableOutput(args?: GetLocalGatewayRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteTableResult> {
-    return pulumi.output(args).apply(a => getLocalGatewayRouteTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocalGatewayRouteTable(a, opts))
 }
 
 /**

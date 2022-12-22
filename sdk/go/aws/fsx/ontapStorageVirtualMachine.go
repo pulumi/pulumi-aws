@@ -140,7 +140,7 @@ func NewOntapStorageVirtualMachine(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'FileSystemId'")
 	}
 	if args.SvmAdminPassword != nil {
-		args.SvmAdminPassword = pulumi.ToSecret(args.SvmAdminPassword).(pulumi.StringPtrOutput)
+		args.SvmAdminPassword = pulumi.ToSecret(args.SvmAdminPassword).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"svmAdminPassword",

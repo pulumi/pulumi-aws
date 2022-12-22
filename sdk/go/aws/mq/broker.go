@@ -43,7 +43,7 @@ import (
 //				EngineVersion:    pulumi.String("5.15.9"),
 //				HostInstanceType: pulumi.String("mq.t2.micro"),
 //				SecurityGroups: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Test.Id),
+//					aws_security_group.Test.Id,
 //				},
 //				Users: mq.BrokerUserArray{
 //					&mq.BrokerUserArgs{
@@ -86,7 +86,7 @@ import (
 //				StorageType:      pulumi.String("ebs"),
 //				HostInstanceType: pulumi.String("mq.m5.large"),
 //				SecurityGroups: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Test.Id),
+//					aws_security_group.Test.Id,
 //				},
 //				Users: mq.BrokerUserArray{
 //					&mq.BrokerUserArgs{

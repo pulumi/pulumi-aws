@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticsearch/getDomain:getDomain", {
         "domainName": args.domainName,
         "tags": args.tags,
@@ -139,9 +136,22 @@ export interface GetDomainResult {
      */
     readonly vpcOptions: outputs.elasticsearch.GetDomainVpcOption[];
 }
-
+/**
+ * Use this data source to get information about an Elasticsearch Domain
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const myDomain = aws.elasticsearch.getDomain({
+ *     domainName: "my-domain-name",
+ * });
+ * ```
+ */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply(a => getDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
 }
 
 /**

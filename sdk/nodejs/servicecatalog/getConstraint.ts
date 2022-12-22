@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConstraint(args: GetConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetConstraintResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getConstraint:getConstraint", {
         "acceptLanguage": args.acceptLanguage,
         "description": args.description,
@@ -86,9 +83,24 @@ export interface GetConstraintResult {
      */
     readonly type: string;
 }
-
+/**
+ * Provides information on a Service Catalog Constraint.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.servicecatalog.getConstraint({
+ *     acceptLanguage: "en",
+ *     id: "cons-hrvy0335",
+ * });
+ * ```
+ */
 export function getConstraintOutput(args: GetConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConstraintResult> {
-    return pulumi.output(args).apply(a => getConstraint(a, opts))
+    return pulumi.output(args).apply((a: any) => getConstraint(a, opts))
 }
 
 /**

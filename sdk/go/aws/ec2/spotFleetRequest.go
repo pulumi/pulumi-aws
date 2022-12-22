@@ -135,7 +135,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
+//			_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
 //				VpcId: _var.Vpc_id,
 //			}, nil)
 //			if err != nil {

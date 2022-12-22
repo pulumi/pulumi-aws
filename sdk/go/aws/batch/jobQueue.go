@@ -32,8 +32,8 @@ import (
 //				State:    pulumi.String("ENABLED"),
 //				Priority: pulumi.Int(1),
 //				ComputeEnvironments: pulumi.StringArray{
-//					pulumi.Any(aws_batch_compute_environment.Test_environment_1.Arn),
-//					pulumi.Any(aws_batch_compute_environment.Test_environment_2.Arn),
+//					aws_batch_compute_environment.Test_environment_1.Arn,
+//					aws_batch_compute_environment.Test_environment_2.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -78,8 +78,8 @@ import (
 //				State:               pulumi.String("ENABLED"),
 //				Priority:            pulumi.Int(1),
 //				ComputeEnvironments: pulumi.StringArray{
-//					pulumi.Any(aws_batch_compute_environment.Test_environment_1.Arn),
-//					pulumi.Any(aws_batch_compute_environment.Test_environment_2.Arn),
+//					aws_batch_compute_environment.Test_environment_1.Arn,
+//					aws_batch_compute_environment.Test_environment_2.Arn,
 //				},
 //			})
 //			if err != nil {

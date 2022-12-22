@@ -30,11 +30,8 @@ import * as utilities from "../utilities";
  */
 export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:efs/getFileSystem:getFileSystem", {
         "creationToken": args.creationToken,
         "fileSystemId": args.fileSystemId,
@@ -117,9 +114,29 @@ export interface GetFileSystemResult {
      */
     readonly throughputMode: string;
 }
-
+/**
+ * Provides information about an Elastic File System (EFS) File System.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const fileSystemId = config.get("fileSystemId") || "";
+ * const byId = aws.efs.getFileSystem({
+ *     fileSystemId: fileSystemId,
+ * });
+ * const byTag = aws.efs.getFileSystem({
+ *     tags: {
+ *         Environment: "dev",
+ *     },
+ * });
+ * ```
+ */
 export function getFileSystemOutput(args?: GetFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileSystemResult> {
-    return pulumi.output(args).apply(a => getFileSystem(a, opts))
+    return pulumi.output(args).apply((a: any) => getFileSystem(a, opts))
 }
 
 /**

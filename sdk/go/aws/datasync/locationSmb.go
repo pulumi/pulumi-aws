@@ -35,7 +35,7 @@ import (
 //				User:           pulumi.String("Guest"),
 //				Password:       pulumi.String("ANotGreatPassword"),
 //				AgentArns: pulumi.StringArray{
-//					pulumi.Any(aws_datasync_agent.Example.Arn),
+//					aws_datasync_agent.Example.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -105,7 +105,7 @@ func NewLocationSmb(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
 	if args.Password != nil {
-		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringOutput)
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",

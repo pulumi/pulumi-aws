@@ -157,10 +157,10 @@ func NewUser(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	if args.Password != nil {
-		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrOutput)
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
 	if args.TemporaryPassword != nil {
-		args.TemporaryPassword = pulumi.ToSecret(args.TemporaryPassword).(pulumi.StringPtrOutput)
+		args.TemporaryPassword = pulumi.ToSecret(args.TemporaryPassword).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",

@@ -33,11 +33,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", {
         "secretId": args.secretId,
         "versionId": args.versionId,
@@ -91,9 +88,36 @@ export interface GetSecretVersionResult {
     readonly versionStage?: string;
     readonly versionStages: string[];
 }
-
+/**
+ * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
+ *
+ * ## Example Usage
+ * ### Retrieve Current Secret Version
+ *
+ * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const secret-version = aws.secretsmanager.getSecretVersion({
+ *     secretId: data.aws_secretsmanager_secret.example.id,
+ * });
+ * ```
+ * ### Retrieve Specific Secret Version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const by-version-stage = aws.secretsmanager.getSecretVersion({
+ *     secretId: data.aws_secretsmanager_secret.example.id,
+ *     versionStage: "example",
+ * });
+ * ```
+ */
 export function getSecretVersionOutput(args: GetSecretVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretVersionResult> {
-    return pulumi.output(args).apply(a => getSecretVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecretVersion(a, opts))
 }
 
 /**

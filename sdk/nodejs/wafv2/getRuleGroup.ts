@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRuleGroup(args: GetRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafv2/getRuleGroup:getRuleGroup", {
         "name": args.name,
         "scope": args.scope,
@@ -64,9 +61,23 @@ export interface GetRuleGroupResult {
     readonly name: string;
     readonly scope: string;
 }
-
+/**
+ * Retrieves the summary of a WAFv2 Rule Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.wafv2.getRuleGroup({
+ *     name: "some-rule-group",
+ *     scope: "REGIONAL",
+ * });
+ * ```
+ */
 export function getRuleGroupOutput(args: GetRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleGroupResult> {
-    return pulumi.output(args).apply(a => getRuleGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getRuleGroup(a, opts))
 }
 
 /**

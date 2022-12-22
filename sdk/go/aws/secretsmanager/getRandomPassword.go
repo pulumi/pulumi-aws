@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = secretsmanager.GetRandomPassword(ctx, &secretsmanager.GetRandomPasswordArgs{
+//			_, err := secretsmanager.GetRandomPassword(ctx, &secretsmanager.GetRandomPasswordArgs{
 //				ExcludeNumbers: pulumi.BoolRef(true),
 //				PasswordLength: pulumi.IntRef(50),
 //			}, nil)

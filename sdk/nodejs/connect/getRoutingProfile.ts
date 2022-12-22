@@ -37,11 +37,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRoutingProfile(args: GetRoutingProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getRoutingProfile:getRoutingProfile", {
         "instanceId": args.instanceId,
         "name": args.name,
@@ -108,9 +105,37 @@ export interface GetRoutingProfileResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides details about a specific Amazon Connect Routing Profile.
+ *
+ * ## Example Usage
+ *
+ * By `name`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getRoutingProfile({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example",
+ * });
+ * ```
+ *
+ * By `routingProfileId`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getRoutingProfile({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     routingProfileId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getRoutingProfileOutput(args: GetRoutingProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingProfileResult> {
-    return pulumi.output(args).apply(a => getRoutingProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getRoutingProfile(a, opts))
 }
 
 /**

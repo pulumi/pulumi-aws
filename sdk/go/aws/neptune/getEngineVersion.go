@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = neptune.GetEngineVersion(ctx, &neptune.GetEngineVersionArgs{
+//			_, err := neptune.GetEngineVersion(ctx, &neptune.GetEngineVersionArgs{
 //				PreferredVersions: []string{
 //					"1.0.3.0",
 //					"1.0.2.2",

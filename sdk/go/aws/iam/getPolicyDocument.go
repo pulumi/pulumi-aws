@@ -51,7 +51,7 @@ import (
 //							fmt.Sprintf("arn:aws:s3:::%v", _var.S3_bucket_name),
 //						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							iam.GetPolicyDocumentStatementCondition{
+//							{
 //								Test:     "StringLike",
 //								Variable: "s3:prefix",
 //								Values: []string{
@@ -78,7 +78,7 @@ import (
 //			}
 //			_, err = iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
 //				Path:   pulumi.String("/"),
-//				Policy: pulumi.String(examplePolicyDocument.Json),
+//				Policy: *pulumi.String(examplePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -104,29 +104,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			_, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"kms:Decrypt",
 //							"kms:GenerateDataKey",
 //						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							iam.GetPolicyDocumentStatementCondition{
+//							{
 //								Test: "ForAnyValue:StringEquals",
 //								Values: []string{
 //									"pi",
 //								},
 //								Variable: "kms:EncryptionContext:service",
 //							},
-//							iam.GetPolicyDocumentStatementCondition{
+//							{
 //								Test: "ForAnyValue:StringEquals",
 //								Values: []string{
 //									"rds",
 //								},
 //								Variable: "kms:EncryptionContext:aws:pi:service",
 //							},
-//							iam.GetPolicyDocumentStatementCondition{
+//							{
 //								Test: "ForAnyValue:StringEquals",
 //								Values: []string{
 //									"db-AAAAABBBBBCCCCCDDDDDEEEEE",

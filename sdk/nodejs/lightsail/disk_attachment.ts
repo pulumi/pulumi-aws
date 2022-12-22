@@ -22,10 +22,10 @@ import * as utilities from "../utilities";
  * });
  * const testDisk = new aws.lightsail.Disk("testDisk", {
  *     sizeInGb: 8,
- *     availabilityZone: available.then(available => available.names?[0]),
+ *     availabilityZone: available.then(available => available.names?.[0]),
  * });
  * const testInstance = new aws.lightsail.Instance("testInstance", {
- *     availabilityZone: available.then(available => available.names?[0]),
+ *     availabilityZone: available.then(available => available.names?.[0]),
  *     blueprintId: "amazon_linux",
  *     bundleId: "nano_1_0",
  * });

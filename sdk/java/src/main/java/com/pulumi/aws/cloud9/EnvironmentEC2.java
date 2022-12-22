@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloud9.EnvironmentEC2;
  * import com.pulumi.aws.cloud9.EnvironmentEC2Args;
  * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+ * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -80,7 +80,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var cloud9Instance = Ec2Functions.getInstance(GetInstanceArgs.builder()
- *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .filters(GetInstanceFilterArgs.builder()
+ *                 .name(&#34;tag:aws:cloud9:environment&#34;)
+ *                 .values(example.id())
+ *                 .build())
  *             .build());
  * 
  *         ctx.export(&#34;cloud9Url&#34;, example.id().applyValue(id -&gt; String.format(&#34;https://%s.console.aws.amazon.com/cloud9/ide/%s&#34;, var_.region(),id)));
@@ -98,7 +101,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloud9.EnvironmentEC2;
  * import com.pulumi.aws.cloud9.EnvironmentEC2Args;
  * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+ * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
  * import com.pulumi.aws.ec2.Eip;
  * import com.pulumi.aws.ec2.EipArgs;
  * import java.util.List;
@@ -119,7 +122,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var cloud9Instance = Ec2Functions.getInstance(GetInstanceArgs.builder()
- *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .filters(GetInstanceFilterArgs.builder()
+ *                 .name(&#34;tag:aws:cloud9:environment&#34;)
+ *                 .values(example.id())
+ *                 .build())
  *             .build());
  * 
  *         var cloud9Eip = new Eip(&#34;cloud9Eip&#34;, EipArgs.builder()        

@@ -32,7 +32,7 @@ import (
 //				User:             pulumi.String("SomeUser"),
 //				Password:         pulumi.String("SuperSecretPassw0rd"),
 //				SecurityGroupArns: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Example.Arn),
+//					aws_security_group.Example.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -100,7 +100,7 @@ func NewLocationFsxWindows(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
 	if args.Password != nil {
-		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringOutput)
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",

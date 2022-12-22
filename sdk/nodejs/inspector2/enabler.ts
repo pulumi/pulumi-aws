@@ -21,6 +21,21 @@ import * as utilities from "../utilities";
  *     resourceTypes: ["EC2"],
  * });
  * ```
+ * ### For the Calling Account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const test = new aws.inspector2.Enabler("test", {
+ *     accountIds: [current.then(current => current.accountId)],
+ *     resourceTypes: [
+ *         "ECR",
+ *         "EC2",
+ *     ],
+ * });
+ * ```
  */
 export class Enabler extends pulumi.CustomResource {
     /**

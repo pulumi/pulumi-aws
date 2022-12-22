@@ -239,13 +239,13 @@ func NewApp(ctx *pulumi.Context,
 	}
 
 	if args.AccessToken != nil {
-		args.AccessToken = pulumi.ToSecret(args.AccessToken).(pulumi.StringPtrOutput)
+		args.AccessToken = pulumi.ToSecret(args.AccessToken).(pulumi.StringPtrInput)
 	}
 	if args.BasicAuthCredentials != nil {
-		args.BasicAuthCredentials = pulumi.ToSecret(args.BasicAuthCredentials).(pulumi.StringPtrOutput)
+		args.BasicAuthCredentials = pulumi.ToSecret(args.BasicAuthCredentials).(pulumi.StringPtrInput)
 	}
 	if args.OauthToken != nil {
-		args.OauthToken = pulumi.ToSecret(args.OauthToken).(pulumi.StringPtrOutput)
+		args.OauthToken = pulumi.ToSecret(args.OauthToken).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"accessToken",

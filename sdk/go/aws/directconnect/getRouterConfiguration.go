@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = directconnect.GetRouterConfiguration(ctx, &directconnect.GetRouterConfigurationArgs{
+//			_, err := directconnect.GetRouterConfiguration(ctx, &directconnect.GetRouterConfigurationArgs{
 //				RouterTypeIdentifier: "CiscoSystemsInc-2900SeriesRouters-IOS124",
 //				VirtualInterfaceId:   "dxvif-abcde123",
 //			}, nil)

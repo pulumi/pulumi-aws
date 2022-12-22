@@ -45,14 +45,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			azs, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
+//			azs, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
 //				State: pulumi.StringRef("available"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			subnetAz1, err := ec2.NewSubnet(ctx, "subnetAz1", &ec2.SubnetArgs{
-//				AvailabilityZone: pulumi.String(azs.Names[0]),
+//				AvailabilityZone: *pulumi.String(azs.Names[0]),
 //				CidrBlock:        pulumi.String("192.168.0.0/24"),
 //				VpcId:            vpc.ID(),
 //			})
@@ -60,7 +60,7 @@ import (
 //				return err
 //			}
 //			subnetAz2, err := ec2.NewSubnet(ctx, "subnetAz2", &ec2.SubnetArgs{
-//				AvailabilityZone: pulumi.String(azs.Names[1]),
+//				AvailabilityZone: *pulumi.String(azs.Names[1]),
 //				CidrBlock:        pulumi.String("192.168.1.0/24"),
 //				VpcId:            vpc.ID(),
 //			})
@@ -68,7 +68,7 @@ import (
 //				return err
 //			}
 //			subnetAz3, err := ec2.NewSubnet(ctx, "subnetAz3", &ec2.SubnetArgs{
-//				AvailabilityZone: pulumi.String(azs.Names[2]),
+//				AvailabilityZone: *pulumi.String(azs.Names[2]),
 //				CidrBlock:        pulumi.String("192.168.2.0/24"),
 //				VpcId:            vpc.ID(),
 //			})
@@ -221,9 +221,9 @@ import (
 //				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
 //					InstanceType: pulumi.String("kafka.m5.4xlarge"),
 //					ClientSubnets: pulumi.StringArray{
-//						pulumi.Any(aws_subnet.Subnet_az1.Id),
-//						pulumi.Any(aws_subnet.Subnet_az2.Id),
-//						pulumi.Any(aws_subnet.Subnet_az3.Id),
+//						aws_subnet.Subnet_az1.Id,
+//						aws_subnet.Subnet_az2.Id,
+//						aws_subnet.Subnet_az3.Id,
 //					},
 //					StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
 //						EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
@@ -235,7 +235,7 @@ import (
 //						},
 //					},
 //					SecurityGroups: pulumi.StringArray{
-//						pulumi.Any(aws_security_group.Sg.Id),
+//						aws_security_group.Sg.Id,
 //					},
 //				},
 //			})

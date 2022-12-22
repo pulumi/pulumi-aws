@@ -36,11 +36,8 @@ import * as utilities from "../utilities";
  */
 export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", {
         "filters": args.filters,
         "locationType": args.locationType,
@@ -84,9 +81,35 @@ export interface GetInstanceTypeOfferingsResult {
      */
     readonly locations: string[];
 }
-
+/**
+ * Information about EC2 Instance Type Offerings.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getInstanceTypeOfferings({
+ *     filters: [
+ *         {
+ *             name: "instance-type",
+ *             values: [
+ *                 "t2.micro",
+ *                 "t3.micro",
+ *             ],
+ *         },
+ *         {
+ *             name: "location",
+ *             values: ["usw2-az4"],
+ *         },
+ *     ],
+ *     locationType: "availability-zone-id",
+ * });
+ * ```
+ */
 export function getInstanceTypeOfferingsOutput(args?: GetInstanceTypeOfferingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingsResult> {
-    return pulumi.output(args).apply(a => getInstanceTypeOfferings(a, opts))
+    return pulumi.output(args).apply((a: any) => getInstanceTypeOfferings(a, opts))
 }
 
 /**

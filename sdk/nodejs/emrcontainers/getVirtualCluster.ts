@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualCluster(args: GetVirtualClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:emrcontainers/getVirtualCluster:getVirtualCluster", {
         "tags": args.tags,
         "virtualClusterId": args.virtualClusterId,
@@ -83,9 +80,24 @@ export interface GetVirtualClusterResult {
     readonly tags: {[key: string]: string};
     readonly virtualClusterId: string;
 }
-
+/**
+ * Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.emrcontainers.getVirtualCluster({
+ *     virtualClusterId: "example id",
+ * });
+ * export const name = example.then(example => example.name);
+ * export const arn = example.then(example => example.arn);
+ * ```
+ */
 export function getVirtualClusterOutput(args: GetVirtualClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualClusterResult> {
-    return pulumi.output(args).apply(a => getVirtualCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualCluster(a, opts))
 }
 
 /**

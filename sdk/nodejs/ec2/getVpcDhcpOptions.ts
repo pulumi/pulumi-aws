@@ -43,11 +43,8 @@ import * as utilities from "../utilities";
  */
 export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcDhcpOptionsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {
         "dhcpOptionsId": args.dhcpOptionsId,
         "filters": args.filters,
@@ -119,9 +116,42 @@ export interface GetVpcDhcpOptionsResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Retrieve information about an EC2 DHCP Options configuration.
+ *
+ * ## Example Usage
+ * ### Lookup by DHCP Options ID
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getVpcDhcpOptions({
+ *     dhcpOptionsId: "dopts-12345678",
+ * });
+ * ```
+ * ### Lookup by Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getVpcDhcpOptions({
+ *     filters: [
+ *         {
+ *             name: "key",
+ *             values: ["domain-name"],
+ *         },
+ *         {
+ *             name: "value",
+ *             values: ["example.com"],
+ *         },
+ *     ],
+ * });
+ * ```
+ */
 export function getVpcDhcpOptionsOutput(args?: GetVpcDhcpOptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcDhcpOptionsResult> {
-    return pulumi.output(args).apply(a => getVpcDhcpOptions(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpcDhcpOptions(a, opts))
 }
 
 /**

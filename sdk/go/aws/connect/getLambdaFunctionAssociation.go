@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = connect.LookupLambdaFunctionAssociation(ctx, &connect.LookupLambdaFunctionAssociationArgs{
+//			_, err := connect.LookupLambdaFunctionAssociation(ctx, &connect.LookupLambdaFunctionAssociationArgs{
 //				FunctionArn: "arn:aws:lambda:us-west-2:123456789123:function:abcdefg",
 //				InstanceId:  "aaaaaaaa-bbbb-cccc-dddd-111111111111",
 //			}, nil)

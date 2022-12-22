@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:grafana/getWorkspace:getWorkspace", {
         "tags": args.tags,
         "workspaceId": args.workspaceId,
@@ -128,9 +125,23 @@ export interface GetWorkspaceResult {
     readonly tags: {[key: string]: string};
     readonly workspaceId: string;
 }
-
+/**
+ * Provides an Amazon Managed Grafana workspace data source.
+ *
+ * ## Example Usage
+ * ### Basic configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.grafana.getWorkspace({
+ *     workspaceId: "g-2054c75a02",
+ * });
+ * ```
+ */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
-    return pulumi.output(args).apply(a => getWorkspace(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }
 
 /**

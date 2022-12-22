@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getRepository:getRepository", {
         "name": args.name,
         "registryId": args.registryId,
@@ -87,9 +84,22 @@ export interface GetRepositoryResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const service = aws.ecr.getRepository({
+ *     name: "ecr-repository",
+ * });
+ * ```
+ */
 export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
-    return pulumi.output(args).apply(a => getRepository(a, opts))
+    return pulumi.output(args).apply((a: any) => getRepository(a, opts))
 }
 
 /**

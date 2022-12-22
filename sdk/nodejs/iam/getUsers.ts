@@ -41,11 +41,8 @@ import * as utilities from "../utilities";
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getUsers:getUsers", {
         "nameRegex": args.nameRegex,
         "pathPrefix": args.pathPrefix,
@@ -85,9 +82,43 @@ export interface GetUsersResult {
     readonly names: string[];
     readonly pathPrefix?: string;
 }
-
+/**
+ * Use this data source to get the ARNs and Names of IAM Users.
+ *
+ * ## Example Usage
+ * ### All users in an account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const users = aws.iam.getUsers({});
+ * ```
+ * ### Users filtered by name regex
+ *
+ * Users whose username contains `abc`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const users = aws.iam.getUsers({
+ *     nameRegex: ".*abc.*",
+ * });
+ * ```
+ * ### Users filtered by path prefix
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const users = aws.iam.getUsers({
+ *     pathPrefix: "/custom-path",
+ * });
+ * ```
+ */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
-    return pulumi.output(args).apply(a => getUsers(a, opts))
+    return pulumi.output(args).apply((a: any) => getUsers(a, opts))
 }
 
 /**

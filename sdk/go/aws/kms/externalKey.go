@@ -89,7 +89,7 @@ func NewExternalKey(ctx *pulumi.Context,
 	}
 
 	if args.KeyMaterialBase64 != nil {
-		args.KeyMaterialBase64 = pulumi.ToSecret(args.KeyMaterialBase64).(pulumi.StringPtrOutput)
+		args.KeyMaterialBase64 = pulumi.ToSecret(args.KeyMaterialBase64).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"keyMaterialBase64",

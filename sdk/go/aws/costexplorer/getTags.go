@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = costexplorer.GetTags(ctx, &costexplorer.GetTagsArgs{
+//			_, err := costexplorer.GetTags(ctx, &costexplorer.GetTagsArgs{
 //				TimePeriod: costexplorer.GetTagsTimePeriod{
 //					End:   "2022-12-01",
 //					Start: "2021-01-01",

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.LookupLaunchTemplate(ctx, &ec2.LookupLaunchTemplateArgs{
+//			_, err := ec2.LookupLaunchTemplate(ctx, &ec2.LookupLaunchTemplateArgs{
 //				Name: pulumi.StringRef("my-launch-template"),
 //			}, nil)
 //			if err != nil {
@@ -51,9 +51,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.LookupLaunchTemplate(ctx, &ec2.LookupLaunchTemplateArgs{
+//			_, err := ec2.LookupLaunchTemplate(ctx, &ec2.LookupLaunchTemplateArgs{
 //				Filters: []ec2.GetLaunchTemplateFilter{
-//					ec2.GetLaunchTemplateFilter{
+//					{
 //						Name: "launch-template-name",
 //						Values: []string{
 //							"some-template",

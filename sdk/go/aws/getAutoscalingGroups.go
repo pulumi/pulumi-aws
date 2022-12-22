@@ -29,13 +29,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			groups, err := autoscaling.GetAmiIds(ctx, &autoscaling.GetAmiIdsArgs{
 //				Filters: []autoscaling.GetAmiIdsFilter{
-//					autoscaling.GetAmiIdsFilter{
+//					{
 //						Name: "tag:Team",
 //						Values: []string{
 //							"Pets",
 //						},
 //					},
-//					autoscaling.GetAmiIdsFilter{
+//					{
 //						Name: "tag-key",
 //						Values: []string{
 //							"Environment",

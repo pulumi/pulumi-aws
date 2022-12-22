@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCustomPlugin(args: GetCustomPluginArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomPluginResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getCustomPlugin:getCustomPlugin", {
         "name": args.name,
     }, opts);
@@ -65,9 +62,22 @@ export interface GetCustomPluginResult {
      */
     readonly state: string;
 }
-
+/**
+ * Get information on an Amazon MSK Connect custom plugin.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.mskconnect.getCustomPlugin({
+ *     name: "example-debezium-1",
+ * });
+ * ```
+ */
 export function getCustomPluginOutput(args: GetCustomPluginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomPluginResult> {
-    return pulumi.output(args).apply(a => getCustomPlugin(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomPlugin(a, opts))
 }
 
 /**

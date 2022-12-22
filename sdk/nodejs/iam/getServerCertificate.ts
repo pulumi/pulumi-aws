@@ -28,11 +28,8 @@ import * as utilities from "../utilities";
  */
 export function getServerCertificate(args?: GetServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCertificateResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getServerCertificate:getServerCertificate", {
         "latest": args.latest,
         "name": args.name,
@@ -82,9 +79,30 @@ export interface GetServerCertificateResult {
     readonly pathPrefix?: string;
     readonly uploadDate: string;
 }
-
+/**
+ * Use this data source to lookup information about IAM Server Certificates.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const my-domain = aws.iam.getServerCertificate({
+ *     namePrefix: "my-domain.org",
+ *     latest: true,
+ * });
+ * const elb = new aws.elb.LoadBalancer("elb", {listeners: [{
+ *     instancePort: 8000,
+ *     instanceProtocol: "https",
+ *     lbPort: 443,
+ *     lbProtocol: "https",
+ *     sslCertificateId: my_domain.then(my_domain => my_domain.arn),
+ * }]});
+ * ```
+ */
 export function getServerCertificateOutput(args?: GetServerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCertificateResult> {
-    return pulumi.output(args).apply(a => getServerCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getServerCertificate(a, opts))
 }
 
 /**

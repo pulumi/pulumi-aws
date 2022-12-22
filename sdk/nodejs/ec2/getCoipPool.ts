@@ -16,11 +16,8 @@ import * as utilities from "../utilities";
  */
 export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetCoipPoolResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getCoipPool:getCoipPool", {
         "filters": args.filters,
         "localGatewayRouteTableId": args.localGatewayRouteTableId,
@@ -70,9 +67,15 @@ export interface GetCoipPoolResult {
     readonly poolId: string;
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides details about a specific EC2 Customer-Owned IP Pool.
+ *
+ * This data source can prove useful when a module accepts a coip pool id as
+ * an input variable and needs to, for example, determine the CIDR block of that
+ * COIP Pool.
+ */
 export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoipPoolResult> {
-    return pulumi.output(args).apply(a => getCoipPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getCoipPool(a, opts))
 }
 
 /**

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = rds.GetCertificate(ctx, &rds.GetCertificateArgs{
+//			_, err := rds.GetCertificate(ctx, &rds.GetCertificateArgs{
 //				LatestValidTill: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {

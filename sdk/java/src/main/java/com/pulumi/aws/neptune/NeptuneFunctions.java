@@ -28,7 +28,7 @@ public final class NeptuneFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.neptune.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -68,7 +68,7 @@ public final class NeptuneFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.neptune.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -108,7 +108,7 @@ public final class NeptuneFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.neptune.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -148,7 +148,7 @@ public final class NeptuneFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.neptune.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -188,7 +188,7 @@ public final class NeptuneFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.neptune.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -228,7 +228,7 @@ public final class NeptuneFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.neptune.inputs.GetEngineVersionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -268,7 +268,7 @@ public final class NeptuneFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.neptune.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -309,7 +309,7 @@ public final class NeptuneFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.neptune.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -350,7 +350,7 @@ public final class NeptuneFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.neptune.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -391,7 +391,7 @@ public final class NeptuneFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.neptune.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -432,7 +432,7 @@ public final class NeptuneFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.neptune.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -473,7 +473,7 @@ public final class NeptuneFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import com.pulumi.aws.neptune.inputs.GetOrderableDbInstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

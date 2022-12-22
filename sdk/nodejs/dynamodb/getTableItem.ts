@@ -28,11 +28,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTableItem(args: GetTableItemArgs, opts?: pulumi.InvokeOptions): Promise<GetTableItemResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dynamodb/getTableItem:getTableItem", {
         "expressionAttributeNames": args.expressionAttributeNames,
         "key": args.key,
@@ -79,9 +76,31 @@ export interface GetTableItemResult {
     readonly projectionExpression?: string;
     readonly tableName: string;
 }
-
+/**
+ * Data source for retrieving a value from an AWS DynamoDB table.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.dynamodb.getTableItem({
+ *     tableName: aws_dynamodb_table.example.name,
+ *     expressionAttributeNames: {
+ *         "#P": "Percentile",
+ *     },
+ *     projectionExpression: "#P",
+ *     key: `{
+ * 	"hashKey": {"S": "example"}
+ * }
+ * `,
+ * });
+ * ```
+ */
 export function getTableItemOutput(args: GetTableItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableItemResult> {
-    return pulumi.output(args).apply(a => getTableItem(a, opts))
+    return pulumi.output(args).apply((a: any) => getTableItem(a, opts))
 }
 
 /**

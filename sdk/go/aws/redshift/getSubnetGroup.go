@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = redshift.LookupSubnetGroup(ctx, &redshift.LookupSubnetGroupArgs{
+//			_, err := redshift.LookupSubnetGroup(ctx, &redshift.LookupSubnetGroupArgs{
 //				Name: aws_redshift_subnet_group.Example.Name,
 //			}, nil)
 //			if err != nil {

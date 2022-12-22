@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDiskResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:storagegateway/getLocalDisk:getLocalDisk", {
         "diskNode": args.diskNode,
         "diskPath": args.diskPath,
@@ -66,9 +63,23 @@ export interface GetLocalDiskResult {
      */
     readonly id: string;
 }
-
+/**
+ * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.storagegateway.getLocalDisk({
+ *     diskPath: aws_volume_attachment.test.device_name,
+ *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ * });
+ * ```
+ */
 export function getLocalDiskOutput(args: GetLocalDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDiskResult> {
-    return pulumi.output(args).apply(a => getLocalDisk(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocalDisk(a, opts))
 }
 
 /**

@@ -111,7 +111,7 @@ func NewRadiusSettings(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SharedSecret'")
 	}
 	if args.SharedSecret != nil {
-		args.SharedSecret = pulumi.ToSecret(args.SharedSecret).(pulumi.StringOutput)
+		args.SharedSecret = pulumi.ToSecret(args.SharedSecret).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"sharedSecret",

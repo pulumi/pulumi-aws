@@ -29,7 +29,6 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -120,7 +119,6 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -196,7 +194,7 @@ import (
 //				FileSystemId: efsForLambda.ID(),
 //				SubnetId:     pulumi.Any(aws_subnet.Subnet_for_lambda.Id),
 //				SecurityGroups: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Sg_for_lambda.Id),
+//					aws_security_group.Sg_for_lambda.Id,
 //				},
 //			})
 //			if err != nil {
@@ -227,10 +225,10 @@ import (
 //				},
 //				VpcConfig: &lambda.FunctionVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
-//						pulumi.Any(aws_subnet.Subnet_for_lambda.Id),
+//						aws_subnet.Subnet_for_lambda.Id,
 //					},
 //					SecurityGroupIds: pulumi.StringArray{
-//						pulumi.Any(aws_security_group.Sg_for_lambda.Id),
+//						aws_security_group.Sg_for_lambda.Id,
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -258,7 +256,6 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"

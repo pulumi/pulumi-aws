@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = signer.LookupSigningProfile(ctx, &signer.LookupSigningProfileArgs{
+//			_, err := signer.LookupSigningProfile(ctx, &signer.LookupSigningProfileArgs{
 //				Name: "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
 //			}, nil)
 //			if err != nil {

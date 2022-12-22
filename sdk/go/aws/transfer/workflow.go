@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -33,7 +35,7 @@ import (
 //					&transfer.WorkflowStepArgs{
 //						DeleteStepDetails: &transfer.WorkflowStepDeleteStepDetailsArgs{
 //							Name:               pulumi.String("example"),
-//							SourceFileLocation: pulumi.Any(original.File),
+//							SourceFileLocation: pulumi.String(fmt.Sprintf("${original.file}")),
 //						},
 //						Type: pulumi.String("DELETE"),
 //					},
@@ -54,6 +56,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -66,7 +70,7 @@ import (
 //					&transfer.WorkflowStepArgs{
 //						CustomStepDetails: &transfer.WorkflowStepCustomStepDetailsArgs{
 //							Name:               pulumi.String("example"),
-//							SourceFileLocation: pulumi.Any(original.File),
+//							SourceFileLocation: pulumi.String(fmt.Sprintf("${original.file}")),
 //							Target:             pulumi.Any(aws_lambda_function.Example.Arn),
 //							TimeoutSeconds:     pulumi.Int(60),
 //						},
@@ -75,7 +79,7 @@ import (
 //					&transfer.WorkflowStepArgs{
 //						TagStepDetails: &transfer.WorkflowStepTagStepDetailsArgs{
 //							Name:               pulumi.String("example"),
-//							SourceFileLocation: pulumi.Any(original.File),
+//							SourceFileLocation: pulumi.String(fmt.Sprintf("${original.file}")),
 //							Tags: transfer.WorkflowStepTagStepDetailsTagArray{
 //								&transfer.WorkflowStepTagStepDetailsTagArgs{
 //									Key:   pulumi.String("Name"),

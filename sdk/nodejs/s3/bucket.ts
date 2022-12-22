@@ -284,6 +284,29 @@ import {RoutingRule} from "./index";
  *     },
  * }});
  * ```
+ * ### Using ACL policy grants
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const currentUser = aws.s3.getCanonicalUserId({});
+ * const bucket = new aws.s3.Bucket("bucket", {grants: [
+ *     {
+ *         id: currentUser.then(currentUser => currentUser.id),
+ *         type: "CanonicalUser",
+ *         permissions: ["FULL_CONTROL"],
+ *     },
+ *     {
+ *         type: "Group",
+ *         permissions: [
+ *             "READ_ACP",
+ *             "WRITE",
+ *         ],
+ *         uri: "http://acs.amazonaws.com/groups/s3/LogDelivery",
+ *     },
+ * ]});
+ * ```
  *
  * ## Import
  *

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = kendra.LookupExperience(ctx, &kendra.LookupExperienceArgs{
+//			_, err := kendra.LookupExperience(ctx, &kendra.LookupExperienceArgs{
 //				ExperienceId: "87654321-1234-4321-4321-321987654321",
 //				IndexId:      "12345678-1234-1234-1234-123456789123",
 //			}, nil)

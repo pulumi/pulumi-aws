@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = kms.LookupCustomKeyStore(ctx, &kms.LookupCustomKeyStoreArgs{
+//			_, err := kms.LookupCustomKeyStore(ctx, &kms.LookupCustomKeyStoreArgs{
 //				CustomKeyStoreName: pulumi.StringRef("my_cloudhsm"),
 //			}, nil)
 //			if err != nil {

@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRouterConfiguration(args: GetRouterConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRouterConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getRouterConfiguration:getRouterConfiguration", {
         "routerTypeIdentifier": args.routerTypeIdentifier,
         "virtualInterfaceId": args.virtualInterfaceId,
@@ -72,9 +69,24 @@ export interface GetRouterConfigurationResult {
     readonly virtualInterfaceId: string;
     readonly virtualInterfaceName: string;
 }
-
+/**
+ * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.directconnect.getRouterConfiguration({
+ *     routerTypeIdentifier: "CiscoSystemsInc-2900SeriesRouters-IOS124",
+ *     virtualInterfaceId: "dxvif-abcde123",
+ * });
+ * ```
+ */
 export function getRouterConfigurationOutput(args: GetRouterConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouterConfigurationResult> {
-    return pulumi.output(args).apply(a => getRouterConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getRouterConfiguration(a, opts))
 }
 
 /**

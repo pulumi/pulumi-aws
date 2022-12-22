@@ -37,11 +37,8 @@ import * as utilities from "../utilities";
  */
 export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2clientvpn/getEndpoint:getEndpoint", {
         "clientVpnEndpointId": args.clientVpnEndpointId,
         "filters": args.filters,
@@ -147,9 +144,36 @@ export interface GetEndpointResult {
      */
     readonly vpnPort: number;
 }
-
+/**
+ * Get information on an EC2 Client VPN endpoint.
+ *
+ * ## Example Usage
+ * ### By Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2clientvpn.getEndpoint({
+ *     filters: [{
+ *         name: "tag:Name",
+ *         values: ["ExampleVpn"],
+ *     }],
+ * });
+ * ```
+ * ### By Identifier
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2clientvpn.getEndpoint({
+ *     clientVpnEndpointId: "cvpn-endpoint-083cf50d6eb314f21",
+ * });
+ * ```
+ */
 export function getEndpointOutput(args?: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
-    return pulumi.output(args).apply(a => getEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
 }
 
 /**

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * List of Control Tower controls applied to an OU.
  */
 export function getControls(args: GetControlsArgs, opts?: pulumi.InvokeOptions): Promise<GetControlsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:controltower/getControls:getControls", {
         "targetIdentifier": args.targetIdentifier,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetControlsResult {
     readonly id: string;
     readonly targetIdentifier: string;
 }
-
+/**
+ * List of Control Tower controls applied to an OU.
+ */
 export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControlsResult> {
-    return pulumi.output(args).apply(a => getControls(a, opts))
+    return pulumi.output(args).apply((a: any) => getControls(a, opts))
 }
 
 /**

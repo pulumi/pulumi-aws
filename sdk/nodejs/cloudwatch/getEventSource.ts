@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  */
 export function getEventSource(args?: GetEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSourceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getEventSource:getEventSource", {
         "namePrefix": args.namePrefix,
     }, opts);
@@ -68,9 +65,24 @@ export interface GetEventSourceResult {
      */
     readonly state: string;
 }
-
+/**
+ * Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.
+ *
+ * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const examplepartner = aws.cloudwatch.getEventSource({
+ *     namePrefix: "aws.partner/examplepartner.com",
+ * });
+ * ```
+ */
 export function getEventSourceOutput(args?: GetEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSourceResult> {
-    return pulumi.output(args).apply(a => getEventSource(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventSource(a, opts))
 }
 
 /**

@@ -80,10 +80,10 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'CertificateId'")
 	}
 	if args.CertificatePem != nil {
-		args.CertificatePem = pulumi.ToSecret(args.CertificatePem).(pulumi.StringPtrOutput)
+		args.CertificatePem = pulumi.ToSecret(args.CertificatePem).(pulumi.StringPtrInput)
 	}
 	if args.CertificateWallet != nil {
-		args.CertificateWallet = pulumi.ToSecret(args.CertificateWallet).(pulumi.StringPtrOutput)
+		args.CertificateWallet = pulumi.ToSecret(args.CertificateWallet).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"certificatePem",

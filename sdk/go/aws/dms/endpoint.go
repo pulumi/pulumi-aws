@@ -133,7 +133,7 @@ func NewEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'EngineName'")
 	}
 	if args.Password != nil {
-		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrOutput)
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",

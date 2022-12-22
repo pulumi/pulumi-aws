@@ -32,7 +32,7 @@ import (
 //			if param := cfg.Get("mountTargetId"); param != "" {
 //				mountTargetId = param
 //			}
-//			_, err = efs.LookupMountTarget(ctx, &efs.LookupMountTargetArgs{
+//			_, err := efs.LookupMountTarget(ctx, &efs.LookupMountTargetArgs{
 //				MountTargetId: pulumi.StringRef(mountTargetId),
 //			}, nil)
 //			if err != nil {

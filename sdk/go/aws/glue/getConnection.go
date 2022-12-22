@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = glue.LookupConnection(ctx, &glue.LookupConnectionArgs{
+//			_, err := glue.LookupConnection(ctx, &glue.LookupConnectionArgs{
 //				Id: "123456789123:connection",
 //			}, nil)
 //			if err != nil {

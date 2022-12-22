@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDedicatedIpPool(args: GetDedicatedIpPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedIpPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", {
         "poolName": args.poolName,
         "tags": args.tags,
@@ -74,9 +71,23 @@ export interface GetDedicatedIpPoolResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.sesv2.getDedicatedIpPool({
+ *     poolName: "my-pool",
+ * });
+ * ```
+ */
 export function getDedicatedIpPoolOutput(args: GetDedicatedIpPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedIpPoolResult> {
-    return pulumi.output(args).apply(a => getDedicatedIpPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getDedicatedIpPool(a, opts))
 }
 
 /**

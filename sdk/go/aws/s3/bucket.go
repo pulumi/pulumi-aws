@@ -478,6 +478,51 @@ import (
 //	}
 //
 // ```
+// ### Using ACL policy grants
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentUser, err := s3.GetCanonicalUserId(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
+//				Grants: s3.BucketGrantArray{
+//					&s3.BucketGrantArgs{
+//						Id:   *pulumi.String(currentUser.Id),
+//						Type: pulumi.String("CanonicalUser"),
+//						Permissions: pulumi.StringArray{
+//							pulumi.String("FULL_CONTROL"),
+//						},
+//					},
+//					&s3.BucketGrantArgs{
+//						Type: pulumi.String("Group"),
+//						Permissions: pulumi.StringArray{
+//							pulumi.String("READ_ACP"),
+//							pulumi.String("WRITE"),
+//						},
+//						Uri: pulumi.String("http://acs.amazonaws.com/groups/s3/LogDelivery"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

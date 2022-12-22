@@ -2240,7 +2240,7 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2277,7 +2277,7 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2315,7 +2315,7 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2352,7 +2352,7 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2390,7 +2390,7 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2427,7 +2427,7 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2465,7 +2465,7 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2502,7 +2502,7 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2540,7 +2540,7 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2577,7 +2577,7 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2615,7 +2615,7 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2652,7 +2652,7 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

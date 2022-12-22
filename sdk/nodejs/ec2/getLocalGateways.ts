@@ -28,11 +28,8 @@ import * as utilities from "../utilities";
  */
 export function getLocalGateways(args?: GetLocalGatewaysArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewaysResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLocalGateways:getLocalGateways", {
         "filters": args.filters,
         "tags": args.tags,
@@ -69,9 +66,27 @@ export interface GetLocalGatewaysResult {
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides information for multiple EC2 Local Gateways, such as their identifiers.
+ *
+ * ## Example Usage
+ *
+ * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fooLocalGateways = aws.ec2.getLocalGateways({
+ *     tags: {
+ *         service: "production",
+ *     },
+ * });
+ * export const foo = fooLocalGateways.then(fooLocalGateways => fooLocalGateways.ids);
+ * ```
+ */
 export function getLocalGatewaysOutput(args?: GetLocalGatewaysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewaysResult> {
-    return pulumi.output(args).apply(a => getLocalGateways(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocalGateways(a, opts))
 }
 
 /**

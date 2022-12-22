@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = backup.LookupReportPlan(ctx, &backup.LookupReportPlanArgs{
+//			_, err := backup.LookupReportPlan(ctx, &backup.LookupReportPlanArgs{
 //				Name: "my_example_backup_report_plan_name",
 //			}, nil)
 //			if err != nil {

@@ -26,11 +26,8 @@ import * as utilities from "./utilities";
  */
 export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getRegion:getRegion", {
         "endpoint": args.endpoint,
         "name": args.name,
@@ -72,9 +69,28 @@ export interface GetRegionResult {
      */
     readonly name: string;
 }
-
+/**
+ * `aws.getRegion` provides details about a specific AWS region.
+ *
+ * As well as validating a given region name this resource can be used to
+ * discover the name of the region configured within the provider. The latter
+ * can be useful in a child module which is inheriting an AWS provider
+ * configuration from its parent module.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how the resource might be used to obtain
+ * the name of the AWS region configured on the provider.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * ```
+ */
 export function getRegionOutput(args?: GetRegionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegionResult> {
-    return pulumi.output(args).apply(a => getRegion(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegion(a, opts))
 }
 
 /**

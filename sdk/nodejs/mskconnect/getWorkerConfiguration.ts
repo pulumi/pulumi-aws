@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWorkerConfiguration(args: GetWorkerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkerConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", {
         "name": args.name,
     }, opts);
@@ -65,9 +62,22 @@ export interface GetWorkerConfigurationResult {
      */
     readonly propertiesFileContent: string;
 }
-
+/**
+ * Get information on an Amazon MSK Connect Worker Configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.mskconnect.getWorkerConfiguration({
+ *     name: "example",
+ * });
+ * ```
+ */
 export function getWorkerConfigurationOutput(args: GetWorkerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkerConfigurationResult> {
-    return pulumi.output(args).apply(a => getWorkerConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkerConfiguration(a, opts))
 }
 
 /**

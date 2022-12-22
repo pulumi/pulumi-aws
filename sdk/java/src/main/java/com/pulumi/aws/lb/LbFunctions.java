@@ -34,7 +34,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
@@ -83,7 +83,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
@@ -132,7 +132,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
@@ -181,7 +181,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
@@ -230,7 +230,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
@@ -279,7 +279,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
@@ -332,8 +332,8 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -385,8 +385,8 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -438,8 +438,8 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -491,8 +491,8 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -544,8 +544,8 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -597,8 +597,8 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -652,7 +652,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -699,7 +699,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -746,7 +746,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -793,7 +793,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -840,7 +840,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -887,7 +887,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -934,7 +934,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -981,7 +981,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1028,7 +1028,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1075,7 +1075,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1122,7 +1122,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1169,7 +1169,7 @@ public final class LbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

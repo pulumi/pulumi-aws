@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  */
 export function getQueues(args?: GetQueuesArgs, opts?: pulumi.InvokeOptions): Promise<GetQueuesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sqs/getQueues:getQueues", {
         "queueNamePrefix": args.queueNamePrefix,
     }, opts);
@@ -55,9 +52,23 @@ export interface GetQueuesResult {
      */
     readonly queueUrls: string[];
 }
-
+/**
+ * Data source for managing an AWS SQS (Simple Queue) Queues.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.sqs.getQueues({
+ *     queueNamePrefix: "example",
+ * });
+ * ```
+ */
 export function getQueuesOutput(args?: GetQueuesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueuesResult> {
-    return pulumi.output(args).apply(a => getQueues(a, opts))
+    return pulumi.output(args).apply((a: any) => getQueues(a, opts))
 }
 
 /**

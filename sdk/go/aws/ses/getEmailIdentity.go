@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ses.LookupEmailIdentity(ctx, &ses.LookupEmailIdentityArgs{
+//			_, err := ses.LookupEmailIdentity(ctx, &ses.LookupEmailIdentityArgs{
 //				Email: "awesome@example.com",
 //			}, nil)
 //			if err != nil {

@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:qldb/getLedger:getLedger", {
         "name": args.name,
         "tags": args.tags,
@@ -56,9 +53,22 @@ export interface GetLedgerResult {
     readonly permissionsMode: string;
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to fetch information about a Quantum Ledger Database.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.qldb.getLedger({
+ *     name: "an_example_ledger",
+ * });
+ * ```
+ */
 export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
-    return pulumi.output(args).apply(a => getLedger(a, opts))
+    return pulumi.output(args).apply((a: any) => getLedger(a, opts))
 }
 
 /**

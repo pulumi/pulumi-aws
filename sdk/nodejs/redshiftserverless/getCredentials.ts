@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshiftserverless/getCredentials:getCredentials", {
         "dbName": args.dbName,
         "durationSeconds": args.durationSeconds,
@@ -73,9 +70,22 @@ export interface GetCredentialsResult {
     readonly id: string;
     readonly workgroupName: string;
 }
-
+/**
+ * Provides redshift serverless temporary credentials for a workgroup.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.redshiftserverless.getCredentials({
+ *     workgroupName: aws_redshiftserverless_workgroup.example.workgroup_name,
+ * });
+ * ```
+ */
 export function getCredentialsOutput(args: GetCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialsResult> {
-    return pulumi.output(args).apply(a => getCredentials(a, opts))
+    return pulumi.output(args).apply((a: any) => getCredentials(a, opts))
 }
 
 /**

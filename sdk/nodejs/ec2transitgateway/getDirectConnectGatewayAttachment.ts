@@ -25,11 +25,8 @@ import * as utilities from "../utilities";
  */
 export function getDirectConnectGatewayAttachment(args?: GetDirectConnectGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectConnectGatewayAttachmentResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", {
         "dxGatewayId": args.dxGatewayId,
         "filters": args.filters,
@@ -76,9 +73,24 @@ export interface GetDirectConnectGatewayAttachmentResult {
     readonly tags: {[key: string]: string};
     readonly transitGatewayId?: string;
 }
-
+/**
+ * Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
+ *
+ * ## Example Usage
+ * ### By Transit Gateway and Direct Connect Gateway Identifiers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2transitgateway.getDirectConnectGatewayAttachment({
+ *     transitGatewayId: aws_ec2_transit_gateway.example.id,
+ *     dxGatewayId: aws_dx_gateway.example.id,
+ * });
+ * ```
+ */
 export function getDirectConnectGatewayAttachmentOutput(args?: GetDirectConnectGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectConnectGatewayAttachmentResult> {
-    return pulumi.output(args).apply(a => getDirectConnectGatewayAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getDirectConnectGatewayAttachment(a, opts))
 }
 
 /**

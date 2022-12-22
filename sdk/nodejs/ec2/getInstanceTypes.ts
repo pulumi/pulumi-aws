@@ -43,11 +43,8 @@ import * as utilities from "../utilities";
  */
 export function getInstanceTypes(args?: GetInstanceTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getInstanceTypes:getInstanceTypes", {
         "filters": args.filters,
     }, opts);
@@ -77,9 +74,42 @@ export interface GetInstanceTypesResult {
      */
     readonly instanceTypes: string[];
 }
-
+/**
+ * Information about EC2 Instance Types.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.ec2.getInstanceTypes({
+ *     filters: [
+ *         {
+ *             name: "auto-recovery-supported",
+ *             values: ["true"],
+ *         },
+ *         {
+ *             name: "network-info.encryption-in-transit-supported",
+ *             values: ["true"],
+ *         },
+ *         {
+ *             name: "instance-storage-supported",
+ *             values: ["true"],
+ *         },
+ *         {
+ *             name: "instance-type",
+ *             values: [
+ *                 "g5.2xlarge",
+ *                 "g5.4xlarge",
+ *             ],
+ *         },
+ *     ],
+ * });
+ * ```
+ */
 export function getInstanceTypesOutput(args?: GetInstanceTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypesResult> {
-    return pulumi.output(args).apply(a => getInstanceTypes(a, opts))
+    return pulumi.output(args).apply((a: any) => getInstanceTypes(a, opts))
 }
 
 /**

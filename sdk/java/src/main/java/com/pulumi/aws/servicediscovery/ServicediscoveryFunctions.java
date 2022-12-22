@@ -323,7 +323,7 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -361,7 +361,7 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -399,7 +399,7 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -437,7 +437,7 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

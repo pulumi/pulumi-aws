@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:backup/getPlan:getPlan", {
         "planId": args.planId,
         "tags": args.tags,
@@ -70,9 +67,22 @@ export interface GetPlanResult {
      */
     readonly version: string;
 }
-
+/**
+ * Use this data source to get information on an existing backup plan.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.backup.getPlan({
+ *     planId: "my_example_backup_plan_id",
+ * });
+ * ```
+ */
 export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
-    return pulumi.output(args).apply(a => getPlan(a, opts))
+    return pulumi.output(args).apply((a: any) => getPlan(a, opts))
 }
 
 /**

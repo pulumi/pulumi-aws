@@ -35,11 +35,8 @@ import * as utilities from "../utilities";
  */
 export function getBundle(args?: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:workspaces/getBundle:getBundle", {
         "bundleId": args.bundleId,
         "name": args.name,
@@ -102,9 +99,34 @@ export interface GetBundleResult {
      */
     readonly userStorages: outputs.workspaces.GetBundleUserStorage[];
 }
-
+/**
+ * Retrieve information about an AWS WorkSpaces bundle.
+ *
+ * ## Example Usage
+ * ### By ID
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.workspaces.getBundle({
+ *     bundleId: "wsb-b0s22j3d7",
+ * });
+ * ```
+ * ### By Owner & Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.workspaces.getBundle({
+ *     name: "Value with Windows 10 and Office 2016",
+ *     owner: "AMAZON",
+ * });
+ * ```
+ */
 export function getBundleOutput(args?: GetBundleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBundleResult> {
-    return pulumi.output(args).apply(a => getBundle(a, opts))
+    return pulumi.output(args).apply((a: any) => getBundle(a, opts))
 }
 
 /**

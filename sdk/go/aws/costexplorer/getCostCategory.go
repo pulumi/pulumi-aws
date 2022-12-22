@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = costexplorer.LookupCostCategory(ctx, &costexplorer.LookupCostCategoryArgs{
+//			_, err := costexplorer.LookupCostCategory(ctx, &costexplorer.LookupCostCategoryArgs{
 //				CostCategoryArn: "costCategoryARN",
 //			}, nil)
 //			if err != nil {

@@ -375,7 +375,7 @@ func NewReplicationGroup(ctx *pulumi.Context,
 	}
 
 	if args.AuthToken != nil {
-		args.AuthToken = pulumi.ToSecret(args.AuthToken).(pulumi.StringPtrOutput)
+		args.AuthToken = pulumi.ToSecret(args.AuthToken).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"authToken",

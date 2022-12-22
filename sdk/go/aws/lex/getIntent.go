@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = lex.LookupIntent(ctx, &lex.LookupIntentArgs{
+//			_, err := lex.LookupIntent(ctx, &lex.LookupIntentArgs{
 //				Name:    "OrderFlowers",
 //				Version: pulumi.StringRef(fmt.Sprintf("$LATEST")),
 //			}, nil)

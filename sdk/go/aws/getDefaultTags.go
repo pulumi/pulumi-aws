@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = aws.GetDefaultTags(ctx, nil, nil)
+//			_, err := aws.GetDefaultTags(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}

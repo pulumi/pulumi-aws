@@ -31,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			elasticsearch_log_publishing_policyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"logs:CreateLogStream",
 //							"logs:PutLogEvents",
@@ -41,7 +41,7 @@ import (
 //							"arn:aws:logs:*",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Identifiers: []string{
 //									"es.amazonaws.com",
 //								},
@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "elasticsearch-log-publishing-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: pulumi.String(elasticsearch_log_publishing_policyPolicyDocument.Json),
+//				PolicyDocument: *pulumi.String(elasticsearch_log_publishing_policyPolicyDocument.Json),
 //				PolicyName:     pulumi.String("elasticsearch-log-publishing-policy"),
 //			})
 //			if err != nil {
@@ -83,7 +83,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			route53_query_logging_policyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"logs:CreateLogStream",
 //							"logs:PutLogEvents",
@@ -92,7 +92,7 @@ import (
 //							"arn:aws:logs:*:*:log-group:/aws/route53/*",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Identifiers: []string{
 //									"route53.amazonaws.com",
 //								},
@@ -106,7 +106,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: pulumi.String(route53_query_logging_policyPolicyDocument.Json),
+//				PolicyDocument: *pulumi.String(route53_query_logging_policyPolicyDocument.Json),
 //				PolicyName:     pulumi.String("route53-query-logging-policy"),
 //			})
 //			if err != nil {

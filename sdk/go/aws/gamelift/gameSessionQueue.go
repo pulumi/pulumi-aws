@@ -28,8 +28,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := gamelift.NewGameSessionQueue(ctx, "test", &gamelift.GameSessionQueueArgs{
 //				Destinations: pulumi.StringArray{
-//					pulumi.Any(aws_gamelift_fleet.Us_west_2_fleet.Arn),
-//					pulumi.Any(aws_gamelift_fleet.Eu_central_1_fleet.Arn),
+//					aws_gamelift_fleet.Us_west_2_fleet.Arn,
+//					aws_gamelift_fleet.Eu_central_1_fleet.Arn,
 //				},
 //				NotificationTarget: pulumi.Any(aws_sns_topic.Game_session_queue_notifications.Arn),
 //				PlayerLatencyPolicies: gamelift.GameSessionQueuePlayerLatencyPolicyArray{

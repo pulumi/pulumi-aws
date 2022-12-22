@@ -27,9 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2transitgateway.LookupTransitGateway(ctx, &ec2transitgateway.LookupTransitGatewayArgs{
+//			_, err := ec2transitgateway.LookupTransitGateway(ctx, &ec2transitgateway.LookupTransitGatewayArgs{
 //				Filters: []ec2transitgateway.GetTransitGatewayFilter{
-//					ec2transitgateway.GetTransitGatewayFilter{
+//					{
 //						Name: "options.amazon-side-asn",
 //						Values: []string{
 //							"64512",
@@ -59,7 +59,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2transitgateway.LookupTransitGateway(ctx, &ec2transitgateway.LookupTransitGatewayArgs{
+//			_, err := ec2transitgateway.LookupTransitGateway(ctx, &ec2transitgateway.LookupTransitGatewayArgs{
 //				Id: pulumi.StringRef("tgw-12345678"),
 //			}, nil)
 //			if err != nil {

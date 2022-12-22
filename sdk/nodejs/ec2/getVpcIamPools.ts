@@ -36,11 +36,8 @@ import * as utilities from "../utilities";
  */
 export function getVpcIamPools(args?: GetVpcIamPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcIamPools:getVpcIamPools", {
         "filters": args.filters,
     }, opts);
@@ -70,9 +67,35 @@ export interface GetVpcIamPoolsResult {
      */
     readonly ipamPools: outputs.ec2.GetVpcIamPoolsIpamPool[];
 }
-
+/**
+ * `aws.ec2.getVpcIamPools` provides details about IPAM pools.
+ *
+ * This resource can prove useful when IPAM pools are created in another root
+ * module and you need the pool ids as input variables. For example, pools
+ * can be shared via RAM and used to create vpcs with CIDRs from that pool.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.ec2.getVpcIamPools({
+ *     filters: [
+ *         {
+ *             name: "description",
+ *             values: ["*test*"],
+ *         },
+ *         {
+ *             name: "address-family",
+ *             values: ["ipv4"],
+ *         },
+ *     ],
+ * });
+ * ```
+ */
 export function getVpcIamPoolsOutput(args?: GetVpcIamPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolsResult> {
-    return pulumi.output(args).apply(a => getVpcIamPools(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpcIamPools(a, opts))
 }
 
 /**

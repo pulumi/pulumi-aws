@@ -96,7 +96,7 @@ func NewAuthorizer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AuthorizerFunctionArn'")
 	}
 	if args.TokenSigningPublicKeys != nil {
-		args.TokenSigningPublicKeys = pulumi.ToSecret(args.TokenSigningPublicKeys).(pulumi.StringMapOutput)
+		args.TokenSigningPublicKeys = pulumi.ToSecret(args.TokenSigningPublicKeys).(pulumi.StringMapInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"tokenSigningPublicKeys",

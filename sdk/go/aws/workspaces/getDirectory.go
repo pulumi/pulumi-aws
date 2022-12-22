@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = workspaces.LookupDirectory(ctx, &workspaces.LookupDirectoryArgs{
+//			_, err := workspaces.LookupDirectory(ctx, &workspaces.LookupDirectoryArgs{
 //				DirectoryId: "d-9067783251",
 //			}, nil)
 //			if err != nil {

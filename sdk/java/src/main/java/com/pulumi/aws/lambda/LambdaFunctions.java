@@ -40,7 +40,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -78,7 +78,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -116,7 +116,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -154,7 +154,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -348,7 +348,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -387,7 +387,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -426,7 +426,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -465,7 +465,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
-     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

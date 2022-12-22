@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = imagebuilder.LookupComponent(ctx, &imagebuilder.LookupComponentArgs{
+//			_, err := imagebuilder.LookupComponent(ctx, &imagebuilder.LookupComponentArgs{
 //				Arn: "arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0",
 //			}, nil)
 //			if err != nil {

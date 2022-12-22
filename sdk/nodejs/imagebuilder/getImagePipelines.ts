@@ -26,11 +26,8 @@ import * as utilities from "../utilities";
  */
 export function getImagePipelines(args?: GetImagePipelinesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelinesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getImagePipelines:getImagePipelines", {
         "filters": args.filters,
     }, opts);
@@ -64,9 +61,25 @@ export interface GetImagePipelinesResult {
      */
     readonly names: string[];
 }
-
+/**
+ * Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.imagebuilder.getImagePipelines({
+ *     filters: [{
+ *         name: "name",
+ *         values: ["example"],
+ *     }],
+ * });
+ * ```
+ */
 export function getImagePipelinesOutput(args?: GetImagePipelinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagePipelinesResult> {
-    return pulumi.output(args).apply(a => getImagePipelines(a, opts))
+    return pulumi.output(args).apply((a: any) => getImagePipelines(a, opts))
 }
 
 /**

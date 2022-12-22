@@ -32,7 +32,7 @@ import (
 //				KeyName:          pulumi.StringRef("test"),
 //				IncludePublicKey: pulumi.BoolRef(true),
 //				Filters: []ec2.GetKeyPairFilter{
-//					ec2.GetKeyPairFilter{
+//					{
 //						Name: "tag:Component",
 //						Values: []string{
 //							"web",

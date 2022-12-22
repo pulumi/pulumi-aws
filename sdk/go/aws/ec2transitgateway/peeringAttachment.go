@@ -63,7 +63,7 @@ import (
 //			}
 //			_, err = ec2transitgateway.NewPeeringAttachment(ctx, "example", &ec2transitgateway.PeeringAttachmentArgs{
 //				PeerAccountId:        peerTransitGateway.OwnerId,
-//				PeerRegion:           pulumi.String(peerRegion.Name),
+//				PeerRegion:           *pulumi.String(peerRegion.Name),
 //				PeerTransitGatewayId: peerTransitGateway.ID(),
 //				TransitGatewayId:     localTransitGateway.ID(),
 //				Tags: pulumi.StringMap{

@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDistributionConfiguration(args: GetDistributionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", {
         "arn": args.arn,
         "tags": args.tags,
@@ -81,9 +78,22 @@ export interface GetDistributionConfigurationResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides details about an Image Builder Distribution Configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.imagebuilder.getDistributionConfiguration({
+ *     arn: "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
+ * });
+ * ```
+ */
 export function getDistributionConfigurationOutput(args: GetDistributionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionConfigurationResult> {
-    return pulumi.output(args).apply(a => getDistributionConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getDistributionConfiguration(a, opts))
 }
 
 /**

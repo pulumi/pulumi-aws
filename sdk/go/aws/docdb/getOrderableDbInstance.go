@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = docdb.GetOrderableDbInstance(ctx, &docdb.GetOrderableDbInstanceArgs{
+//			_, err := docdb.GetOrderableDbInstance(ctx, &docdb.GetOrderableDbInstanceArgs{
 //				Engine:        pulumi.StringRef("docdb"),
 //				EngineVersion: pulumi.StringRef("3.6.0"),
 //				LicenseModel:  pulumi.StringRef("na"),

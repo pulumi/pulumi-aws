@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getAddon:getAddon", {
         "addonName": args.addonName,
         "clusterName": args.clusterName,
@@ -86,9 +83,24 @@ export interface GetAddonResult {
     readonly serviceAccountRoleArn: string;
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Retrieve information about an EKS add-on.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.eks.getAddon({
+ *     addonName: "vpc-cni",
+ *     clusterName: aws_eks_cluster.example.name,
+ * });
+ * export const eksAddonOutputs = aws_eks_addon.example;
+ * ```
+ */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
-    return pulumi.output(args).apply(a => getAddon(a, opts))
+    return pulumi.output(args).apply((a: any) => getAddon(a, opts))
 }
 
 /**

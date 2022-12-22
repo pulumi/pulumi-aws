@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getDomainName:getDomainName", {
         "domainName": args.domainName,
         "tags": args.tags,
@@ -109,9 +106,22 @@ export interface GetDomainNameResult {
      */
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Use this data source to get the custom domain name for use with AWS API Gateway.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.apigateway.getDomainName({
+ *     domainName: "api.example.com",
+ * });
+ * ```
+ */
 export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
-    return pulumi.output(args).apply(a => getDomainName(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomainName(a, opts))
 }
 
 /**

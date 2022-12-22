@@ -70,7 +70,7 @@ import (
 //					Interval:           pulumi.Int(30),
 //				},
 //				Instances: pulumi.StringArray{
-//					pulumi.Any(aws_instance.Foo.Id),
+//					aws_instance.Foo.Id,
 //				},
 //				CrossZoneLoadBalancing:    pulumi.Bool(true),
 //				IdleTimeout:               pulumi.Int(400),

@@ -19,11 +19,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getArn:getArn", {
         "arn": args.arn,
     }, opts);
@@ -71,9 +68,22 @@ export interface GetArnResult {
      */
     readonly service: string;
 }
-
+/**
+ * Parses an ARN into its constituent parts.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const dbInstance = aws.getArn({
+ *     arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
+ * });
+ * ```
+ */
 export function getArnOutput(args: GetArnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArnResult> {
-    return pulumi.output(args).apply(a => getArn(a, opts))
+    return pulumi.output(args).apply((a: any) => getArn(a, opts))
 }
 
 /**

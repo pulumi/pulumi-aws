@@ -26,7 +26,7 @@ public final class GrafanaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.grafana.GrafanaFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -64,7 +64,7 @@ public final class GrafanaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.grafana.GrafanaFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -102,7 +102,7 @@ public final class GrafanaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.grafana.GrafanaFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -140,7 +140,7 @@ public final class GrafanaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.grafana.GrafanaFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

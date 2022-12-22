@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = signer.LookupSigningJob(ctx, &signer.LookupSigningJobArgs{
+//			_, err := signer.LookupSigningJob(ctx, &signer.LookupSigningJobArgs{
 //				JobId: "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
 //			}, nil)
 //			if err != nil {

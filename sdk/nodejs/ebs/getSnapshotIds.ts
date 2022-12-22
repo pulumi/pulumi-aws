@@ -34,11 +34,8 @@ import * as utilities from "../utilities";
  */
 export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ebs/getSnapshotIds:getSnapshotIds", {
         "filters": args.filters,
         "owners": args.owners,
@@ -82,9 +79,33 @@ export interface GetSnapshotIdsResult {
     readonly owners?: string[];
     readonly restorableByUserIds?: string[];
 }
-
+/**
+ * Use this data source to get a list of EBS Snapshot IDs matching the specified
+ * criteria.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ebsVolumes = aws.ebs.getSnapshotIds({
+ *     filters: [
+ *         {
+ *             name: "volume-size",
+ *             values: ["40"],
+ *         },
+ *         {
+ *             name: "tag:Name",
+ *             values: ["Example"],
+ *         },
+ *     ],
+ *     owners: ["self"],
+ * });
+ * ```
+ */
 export function getSnapshotIdsOutput(args?: GetSnapshotIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotIdsResult> {
-    return pulumi.output(args).apply(a => getSnapshotIds(a, opts))
+    return pulumi.output(args).apply((a: any) => getSnapshotIds(a, opts))
 }
 
 /**

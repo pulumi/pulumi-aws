@@ -76,7 +76,7 @@ import (
 //						Location: codepipelineBucket.Bucket,
 //						Type:     pulumi.String("S3"),
 //						EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
-//							Id:   pulumi.String(s3kmskey.Arn),
+//							Id:   *pulumi.String(s3kmskey.Arn),
 //							Type: pulumi.String("KMS"),
 //						},
 //					},

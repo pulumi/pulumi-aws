@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:efs/getAccessPoint:getAccessPoint", {
         "accessPointId": args.accessPointId,
         "tags": args.tags,
@@ -79,9 +76,22 @@ export interface GetAccessPointResult {
      */
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Provides information about an Elastic File System (EFS) Access Point.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.efs.getAccessPoint({
+ *     accessPointId: "fsap-12345678",
+ * });
+ * ```
+ */
 export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
-    return pulumi.output(args).apply(a => getAccessPoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccessPoint(a, opts))
 }
 
 /**

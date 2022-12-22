@@ -14,11 +14,8 @@ import * as utilities from "../utilities";
  */
 export function getVpcAttachments(args?: GetVpcAttachmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", {
         "filters": args.filters,
     }, opts);
@@ -45,9 +42,13 @@ export interface GetVpcAttachmentsResult {
     readonly id: string;
     readonly ids: string[];
 }
-
+/**
+ * Get information on EC2 Transit Gateway VPC Attachments.
+ *
+ * ## Example Usage
+ */
 export function getVpcAttachmentsOutput(args?: GetVpcAttachmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcAttachmentsResult> {
-    return pulumi.output(args).apply(a => getVpcAttachments(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpcAttachments(a, opts))
 }
 
 /**

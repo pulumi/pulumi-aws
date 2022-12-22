@@ -6,13 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about multiple Outposts Sites.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const all = aws.outposts.getSites({});
+ * ```
  */
 export function getSites(opts?: pulumi.InvokeOptions): Promise<GetSitesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getSites:getSites", {
     }, opts);
 }

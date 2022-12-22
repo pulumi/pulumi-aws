@@ -41,11 +41,8 @@ import * as utilities from "../utilities";
  */
 export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getAmi:getAmi", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
@@ -257,9 +254,40 @@ export interface GetAmiResult {
      */
     readonly virtualizationType: string;
 }
-
+/**
+ * Use this data source to get the ID of a registered AMI for use in other
+ * resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getAmi({
+ *     executableUsers: ["self"],
+ *     filters: [
+ *         {
+ *             name: "name",
+ *             values: ["myami-*"],
+ *         },
+ *         {
+ *             name: "root-device-type",
+ *             values: ["ebs"],
+ *         },
+ *         {
+ *             name: "virtualization-type",
+ *             values: ["hvm"],
+ *         },
+ *     ],
+ *     mostRecent: true,
+ *     nameRegex: "^myami-\\d{3}",
+ *     owners: ["self"],
+ * });
+ * ```
+ */
 export function getAmiOutput(args?: GetAmiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiResult> {
-    return pulumi.output(args).apply(a => getAmi(a, opts))
+    return pulumi.output(args).apply((a: any) => getAmi(a, opts))
 }
 
 /**

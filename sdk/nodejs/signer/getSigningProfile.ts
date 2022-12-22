@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSigningProfile(args: GetSigningProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:signer/getSigningProfile:getSigningProfile", {
         "name": args.name,
         "tags": args.tags,
@@ -93,9 +90,22 @@ export interface GetSigningProfileResult {
      */
     readonly versionArn: string;
 }
-
+/**
+ * Provides information about a Signer Signing Profile.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const productionSigningProfile = aws.signer.getSigningProfile({
+ *     name: "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
+ * });
+ * ```
+ */
 export function getSigningProfileOutput(args: GetSigningProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSigningProfileResult> {
-    return pulumi.output(args).apply(a => getSigningProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getSigningProfile(a, opts))
 }
 
 /**

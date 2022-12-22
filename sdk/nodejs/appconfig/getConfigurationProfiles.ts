@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * ## Example Usage
  */
 export function getConfigurationProfiles(args: GetConfigurationProfilesArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfilesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", {
         "applicationId": args.applicationId,
     }, opts);
@@ -45,9 +42,14 @@ export interface GetConfigurationProfilesResult {
      */
     readonly id: string;
 }
-
+/**
+ * Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
+ * Profile IDs to another resource.
+ *
+ * ## Example Usage
+ */
 export function getConfigurationProfilesOutput(args: GetConfigurationProfilesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilesResult> {
-    return pulumi.output(args).apply(a => getConfigurationProfiles(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationProfiles(a, opts))
 }
 
 /**

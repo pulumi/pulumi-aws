@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getOutpostInstanceTypes(args: GetOutpostInstanceTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostInstanceTypesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", {
         "arn": args.arn,
     }, opts);
@@ -53,9 +50,22 @@ export interface GetOutpostInstanceTypesResult {
      */
     readonly instanceTypes: string[];
 }
-
+/**
+ * Information about Outposts Instance Types.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.outposts.getOutpostInstanceTypes({
+ *     arn: data.aws_outposts_outpost.example.arn,
+ * });
+ * ```
+ */
 export function getOutpostInstanceTypesOutput(args: GetOutpostInstanceTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostInstanceTypesResult> {
-    return pulumi.output(args).apply(a => getOutpostInstanceTypes(a, opts))
+    return pulumi.output(args).apply((a: any) => getOutpostInstanceTypes(a, opts))
 }
 
 /**

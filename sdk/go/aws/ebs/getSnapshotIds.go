@@ -27,15 +27,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ebs.GetSnapshotIds(ctx, &ebs.GetSnapshotIdsArgs{
+//			_, err := ebs.GetSnapshotIds(ctx, &ebs.GetSnapshotIdsArgs{
 //				Filters: []ebs.GetSnapshotIdsFilter{
-//					ebs.GetSnapshotIdsFilter{
+//					{
 //						Name: "volume-size",
 //						Values: []string{
 //							"40",
 //						},
 //					},
-//					ebs.GetSnapshotIdsFilter{
+//					{
 //						Name: "tag:Name",
 //						Values: []string{
 //							"Example",

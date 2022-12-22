@@ -490,7 +490,7 @@ public final class Wafv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -528,7 +528,7 @@ public final class Wafv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -566,7 +566,7 @@ public final class Wafv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -604,7 +604,7 @@ public final class Wafv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

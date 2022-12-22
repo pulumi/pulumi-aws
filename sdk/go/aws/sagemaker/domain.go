@@ -34,7 +34,7 @@ import (
 //				AuthMode:   pulumi.String("IAM"),
 //				VpcId:      pulumi.Any(aws_vpc.Test.Id),
 //				SubnetIds: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Test.Id),
+//					aws_subnet.Test.Id,
 //				},
 //				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
 //					ExecutionRole: pulumi.Any(aws_iam_role.Test.Arn),
@@ -45,12 +45,12 @@ import (
 //			}
 //			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Type: "Service",
 //								Identifiers: []string{
 //									"sagemaker.amazonaws.com",
@@ -65,7 +65,7 @@ import (
 //			}
 //			_, err = iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
 //				Path:             pulumi.String("/"),
-//				AssumeRolePolicy: pulumi.String(examplePolicyDocument.Json),
+//				AssumeRolePolicy: *pulumi.String(examplePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -119,7 +119,7 @@ import (
 //				AuthMode:   pulumi.String("IAM"),
 //				VpcId:      pulumi.Any(aws_vpc.Test.Id),
 //				SubnetIds: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Test.Id),
+//					aws_subnet.Test.Id,
 //				},
 //				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
 //					ExecutionRole: pulumi.Any(aws_iam_role.Test.Arn),

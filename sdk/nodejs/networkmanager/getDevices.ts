@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDevices(args: GetDevicesArgs, opts?: pulumi.InvokeOptions): Promise<GetDevicesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getDevices:getDevices", {
         "globalNetworkId": args.globalNetworkId,
         "siteId": args.siteId,
@@ -68,9 +65,25 @@ export interface GetDevicesResult {
     readonly siteId?: string;
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Retrieve information about devices.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getDevices({
+ *     globalNetworkId: _var.global_network_id,
+ *     tags: {
+ *         Env: "test",
+ *     },
+ * });
+ * ```
+ */
 export function getDevicesOutput(args: GetDevicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevicesResult> {
-    return pulumi.output(args).apply(a => getDevices(a, opts))
+    return pulumi.output(args).apply((a: any) => getDevices(a, opts))
 }
 
 /**

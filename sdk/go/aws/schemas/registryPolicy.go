@@ -31,11 +31,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
-//					iam.GetPolicyDocumentStatement{
+//					{
 //						Sid:    pulumi.StringRef("example"),
 //						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							iam.GetPolicyDocumentStatementPrincipal{
+//							{
 //								Type: "AWS",
 //								Identifiers: []string{
 //									"109876543210",
@@ -57,7 +57,7 @@ import (
 //			}
 //			_, err = schemas.NewRegistryPolicy(ctx, "exampleRegistryPolicy", &schemas.RegistryPolicyArgs{
 //				RegistryName: pulumi.String("example"),
-//				Policy:       pulumi.String(examplePolicyDocument.Json),
+//				Policy:       *pulumi.String(examplePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

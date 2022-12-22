@@ -26,11 +26,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getAmiIds:getAmiIds", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
@@ -88,9 +85,26 @@ export interface GetAmiIdsResult {
     readonly owners: string[];
     readonly sortAscending?: boolean;
 }
-
+/**
+ * Use this data source to get a list of AMI IDs matching the specified criteria.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ubuntu = aws.ec2.getAmiIds({
+ *     filters: [{
+ *         name: "name",
+ *         values: ["ubuntu/images/ubuntu-*-*-amd64-server-*"],
+ *     }],
+ *     owners: ["099720109477"],
+ * });
+ * ```
+ */
 export function getAmiIdsOutput(args: GetAmiIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiIdsResult> {
-    return pulumi.output(args).apply(a => getAmiIds(a, opts))
+    return pulumi.output(args).apply((a: any) => getAmiIds(a, opts))
 }
 
 /**

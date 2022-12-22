@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getRole:getRole", {
         "name": args.name,
         "tags": args.tags,
@@ -92,9 +89,24 @@ export interface GetRoleResult {
      */
     readonly uniqueId: string;
 }
-
+/**
+ * This data source can be used to fetch information about a specific
+ * IAM role. By using this data source, you can reference IAM role
+ * properties without having to hard code ARNs as input.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.iam.getRole({
+ *     name: "an_example_role_name",
+ * });
+ * ```
+ */
 export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {
-    return pulumi.output(args).apply(a => getRole(a, opts))
+    return pulumi.output(args).apply((a: any) => getRole(a, opts))
 }
 
 /**

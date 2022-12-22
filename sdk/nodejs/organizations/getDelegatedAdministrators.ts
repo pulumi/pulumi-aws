@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  */
 export function getDelegatedAdministrators(args?: GetDelegatedAdministratorsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedAdministratorsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", {
         "servicePrincipal": args.servicePrincipal,
     }, opts);
@@ -57,9 +54,22 @@ export interface GetDelegatedAdministratorsResult {
     readonly id: string;
     readonly servicePrincipal?: string;
 }
-
+/**
+ * Get a list the AWS accounts that are designated as delegated administrators in this organization
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.organizations.getDelegatedAdministrators({
+ *     servicePrincipal: "SERVICE PRINCIPAL",
+ * });
+ * ```
+ */
 export function getDelegatedAdministratorsOutput(args?: GetDelegatedAdministratorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedAdministratorsResult> {
-    return pulumi.output(args).apply(a => getDelegatedAdministrators(a, opts))
+    return pulumi.output(args).apply((a: any) => getDelegatedAdministrators(a, opts))
 }
 
 /**

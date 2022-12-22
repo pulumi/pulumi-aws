@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
+//			_, err := ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
 //				Id: pulumi.StringRef("eipalloc-12345678"),
 //			}, nil)
 //			if err != nil {
@@ -52,9 +52,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
+//			_, err := ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
 //				Filters: []ec2.GetElasticIpFilter{
-//					ec2.GetElasticIpFilter{
+//					{
 //						Name: "tag:Name",
 //						Values: []string{
 //							"exampleNameTagValue",
@@ -84,7 +84,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
+//			_, err := ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
 //				PublicIp: pulumi.StringRef("1.2.3.4"),
 //			}, nil)
 //			if err != nil {
@@ -109,7 +109,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
+//			_, err := ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
 //				Tags: map[string]interface{}{
 //					"Name": "exampleNameTagValue",
 //				},

@@ -7,6 +7,28 @@ import * as utilities from "../utilities";
 /**
  * Provides a Glue resource policy. Only one can exist per region.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentPartition = aws.getPartition({});
+ * const currentRegion = aws.getRegion({});
+ * const glue-example-policy = Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["glue:CreateTable"],
+ *         resources: [`arn:${currentPartition.partition}:glue:${currentRegion.name}:${currentCallerIdentity.accountId}:*`],
+ *         principals: [{
+ *             identifiers: ["*"],
+ *             type: "AWS",
+ *         }],
+ *     }],
+ * }));
+ * const example = new aws.glue.ResourcePolicy("example", {policy: glue_example_policy.then(glue_example_policy => glue_example_policy.json)});
+ * ```
+ *
  * ## Import
  *
  * Glue Resource Policy can be imported using the account ID

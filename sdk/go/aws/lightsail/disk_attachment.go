@@ -28,10 +28,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
+//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
 //				State: pulumi.StringRef("available"),
-//				Filters: []GetAvailabilityZonesFilter{
-//					GetAvailabilityZonesFilter{
+//				Filters: []aws.GetAvailabilityZonesFilter{
+//					{
 //						Name: "opt-in-status",
 //						Values: []string{
 //							"opt-in-not-required",
@@ -44,13 +44,13 @@ import (
 //			}
 //			testDisk, err := lightsail.NewDisk(ctx, "testDisk", &lightsail.DiskArgs{
 //				SizeInGb:         pulumi.Int(8),
-//				AvailabilityZone: pulumi.String(available.Names[0]),
+//				AvailabilityZone: *pulumi.String(available.Names[0]),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-//				AvailabilityZone: pulumi.String(available.Names[0]),
+//				AvailabilityZone: *pulumi.String(available.Names[0]),
 //				BlueprintId:      pulumi.String("amazon_linux"),
 //				BundleId:         pulumi.String("nano_1_0"),
 //			})

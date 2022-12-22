@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = memorydb.LookupParameterGroup(ctx, &memorydb.LookupParameterGroupArgs{
+//			_, err := memorydb.LookupParameterGroup(ctx, &memorydb.LookupParameterGroupArgs{
 //				Name: "my-parameter-group",
 //			}, nil)
 //			if err != nil {

@@ -34,10 +34,10 @@ import (
 //				RequireTls:        pulumi.Bool(true),
 //				RoleArn:           pulumi.Any(aws_iam_role.Example.Arn),
 //				VpcSecurityGroupIds: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Example.Id),
+//					aws_security_group.Example.Id,
 //				},
 //				VpcSubnetIds: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Example.Id),
+//					aws_subnet.Example.Id,
 //				},
 //				Auths: rds.ProxyAuthArray{
 //					&rds.ProxyAuthArgs{

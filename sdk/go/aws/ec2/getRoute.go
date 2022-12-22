@@ -33,7 +33,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
 //			subnetId := cfg.RequireObject("subnetId")
-//			_, err = ec2.LookupRouteTable(ctx, &ec2.LookupRouteTableArgs{
+//			_, err := ec2.LookupRouteTable(ctx, &ec2.LookupRouteTableArgs{
 //				SubnetId: pulumi.StringRef(subnetId),
 //			}, nil)
 //			if err != nil {

@@ -37,11 +37,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getQuickConnect(args: GetQuickConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetQuickConnectResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getQuickConnect:getQuickConnect", {
         "instanceId": args.instanceId,
         "name": args.name,
@@ -103,9 +100,37 @@ export interface GetQuickConnectResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Provides details about a specific Amazon Connect Quick Connect.
+ *
+ * ## Example Usage
+ *
+ * By `name`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getQuickConnect({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example",
+ * });
+ * ```
+ *
+ * By `quickConnectId`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.connect.getQuickConnect({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     quickConnectId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getQuickConnectOutput(args: GetQuickConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuickConnectResult> {
-    return pulumi.output(args).apply(a => getQuickConnect(a, opts))
+    return pulumi.output(args).apply((a: any) => getQuickConnect(a, opts))
 }
 
 /**

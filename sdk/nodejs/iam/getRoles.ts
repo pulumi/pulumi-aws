@@ -65,11 +65,8 @@ import * as utilities from "../utilities";
  */
 export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetRolesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getRoles:getRoles", {
         "nameRegex": args.nameRegex,
         "pathPrefix": args.pathPrefix,
@@ -109,9 +106,67 @@ export interface GetRolesResult {
     readonly names: string[];
     readonly pathPrefix?: string;
 }
-
+/**
+ * Use this data source to get the ARNs and Names of IAM Roles.
+ *
+ * ## Example Usage
+ * ### All roles in an account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const roles = aws.iam.getRoles({});
+ * ```
+ * ### Roles filtered by name regex
+ *
+ * Roles whose role-name contains `project`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const roles = aws.iam.getRoles({
+ *     nameRegex: ".*project.*",
+ * });
+ * ```
+ * ### Roles filtered by path prefix
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const roles = aws.iam.getRoles({
+ *     pathPrefix: "/custom-path",
+ * });
+ * ```
+ * ### Roles provisioned by AWS SSO
+ *
+ * Roles in the account filtered by path prefix
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const roles = aws.iam.getRoles({
+ *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
+ * });
+ * ```
+ *
+ * Specific role in the account filtered by name regex and path prefix
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const roles = aws.iam.getRoles({
+ *     nameRegex: "AWSReservedSSO_permission_set_name_.*",
+ *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
+ * });
+ * ```
+ */
 export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolesResult> {
-    return pulumi.output(args).apply(a => getRoles(a, opts))
+    return pulumi.output(args).apply((a: any) => getRoles(a, opts))
 }
 
 /**

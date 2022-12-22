@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFaq(args: GetFaqArgs, opts?: pulumi.InvokeOptions): Promise<GetFaqResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kendra/getFaq:getFaq", {
         "faqId": args.faqId,
         "indexId": args.indexId,
@@ -112,9 +109,23 @@ export interface GetFaqResult {
      */
     readonly updatedAt: string;
 }
-
+/**
+ * Provides details about a specific Amazon Kendra Faq.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.kendra.getFaq({
+ *     faqId: "87654321-1234-4321-4321-321987654321",
+ *     indexId: "12345678-1234-1234-1234-123456789123",
+ * });
+ * ```
+ */
 export function getFaqOutput(args: GetFaqOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFaqResult> {
-    return pulumi.output(args).apply(a => getFaq(a, opts))
+    return pulumi.output(args).apply((a: any) => getFaq(a, opts))
 }
 
 /**

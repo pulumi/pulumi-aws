@@ -62,7 +62,7 @@ import (
 //					},
 //				},
 //				SubnetIds: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Test1.Id),
+//					aws_subnet.Test1.Id,
 //				},
 //				StorageCapacity: pulumi.Int(1200),
 //			})

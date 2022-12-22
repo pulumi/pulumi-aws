@@ -30,7 +30,7 @@ public final class SqsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
-     * import com.pulumi.aws.connect.inputs.GetQueueArgs;
+     * import com.pulumi.aws.sqs.inputs.GetQueueArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -69,7 +69,7 @@ public final class SqsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
-     * import com.pulumi.aws.connect.inputs.GetQueueArgs;
+     * import com.pulumi.aws.sqs.inputs.GetQueueArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -108,7 +108,7 @@ public final class SqsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
-     * import com.pulumi.aws.connect.inputs.GetQueueArgs;
+     * import com.pulumi.aws.sqs.inputs.GetQueueArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -147,7 +147,7 @@ public final class SqsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
-     * import com.pulumi.aws.connect.inputs.GetQueueArgs;
+     * import com.pulumi.aws.sqs.inputs.GetQueueArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

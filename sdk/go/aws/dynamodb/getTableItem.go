@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = dynamodb.LookupTableItem(ctx, &dynamodb.LookupTableItemArgs{
+//			_, err := dynamodb.LookupTableItem(ctx, &dynamodb.LookupTableItemArgs{
 //				TableName: aws_dynamodb_table.Example.Name,
 //				ExpressionAttributeNames: map[string]interface{}{
 //					"#P": "Percentile",

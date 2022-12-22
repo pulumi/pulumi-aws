@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = ivs.GetStreamKey(ctx, &ivs.GetStreamKeyArgs{
+//			_, err := ivs.GetStreamKey(ctx, &ivs.GetStreamKeyArgs{
 //				ChannelArn: "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5",
 //			}, nil)
 //			if err != nil {

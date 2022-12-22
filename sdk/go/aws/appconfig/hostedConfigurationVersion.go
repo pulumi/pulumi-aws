@@ -180,7 +180,7 @@ func NewHostedConfigurationVersion(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ContentType'")
 	}
 	if args.Content != nil {
-		args.Content = pulumi.ToSecret(args.Content).(pulumi.StringOutput)
+		args.Content = pulumi.ToSecret(args.Content).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"content",

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = rds.LookupProxy(ctx, &rds.LookupProxyArgs{
+//			_, err := rds.LookupProxy(ctx, &rds.LookupProxyArgs{
 //				Name: "my-test-db-proxy",
 //			}, nil)
 //			if err != nil {

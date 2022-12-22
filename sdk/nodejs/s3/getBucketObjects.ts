@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
  */
 export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getBucketObjects:getBucketObjects", {
         "bucket": args.bucket,
         "delimiter": args.delimiter,
@@ -95,9 +92,15 @@ export interface GetBucketObjectsResult {
     readonly prefix?: string;
     readonly startAfter?: string;
 }
-
+/**
+ * > **NOTE:** The `aws.s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.getObjects` instead, where new features and fixes will be added.
+ *
+ * > **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
+ *
+ * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+ */
 export function getBucketObjectsOutput(args: GetBucketObjectsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketObjectsResult> {
-    return pulumi.output(args).apply(a => getBucketObjects(a, opts))
+    return pulumi.output(args).apply((a: any) => getBucketObjects(a, opts))
 }
 
 /**

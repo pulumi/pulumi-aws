@@ -30,13 +30,13 @@ import (
 //			ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
 //				MostRecent: pulumi.BoolRef(true),
 //				Filters: []ec2.GetAmiFilter{
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "name",
 //						Values: []string{
 //							"ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
 //						},
 //					},
-//					ec2.GetAmiFilter{
+//					{
 //						Name: "virtualization-type",
 //						Values: []string{
 //							"hvm",
@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
-//				Ami:          pulumi.String(ubuntu.Id),
+//				Ami:          *pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("t3.micro"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld"),

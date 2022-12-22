@@ -12,11 +12,8 @@ import * as utilities from "../utilities";
  */
 export function getManagedPrefixLists(args?: GetManagedPrefixListsArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrefixListsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", {
         "filters": args.filters,
         "tags": args.tags,
@@ -53,9 +50,11 @@ export interface GetManagedPrefixListsResult {
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+ */
 export function getManagedPrefixListsOutput(args?: GetManagedPrefixListsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrefixListsResult> {
-    return pulumi.output(args).apply(a => getManagedPrefixLists(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedPrefixLists(a, opts))
 }
 
 /**

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Information about a specific hardware asset in an Outpost.
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getAsset:getAsset", {
         "arn": args.arn,
         "assetId": args.assetId,
@@ -60,9 +57,11 @@ export interface GetAssetResult {
      */
     readonly rackId: string;
 }
-
+/**
+ * Information about a specific hardware asset in an Outpost.
+ */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
-    return pulumi.output(args).apply(a => getAsset(a, opts))
+    return pulumi.output(args).apply((a: any) => getAsset(a, opts))
 }
 
 /**

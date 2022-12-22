@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLaunchPaths(args: GetLaunchPathsArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchPathsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getLaunchPaths:getLaunchPaths", {
         "acceptLanguage": args.acceptLanguage,
         "productId": args.productId,
@@ -63,9 +60,23 @@ export interface GetLaunchPathsResult {
      */
     readonly summaries: outputs.servicecatalog.GetLaunchPathsSummary[];
 }
-
+/**
+ * Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.servicecatalog.getLaunchPaths({
+ *     productId: "prod-yakog5pdriver",
+ * });
+ * ```
+ */
 export function getLaunchPathsOutput(args: GetLaunchPathsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchPathsResult> {
-    return pulumi.output(args).apply(a => getLaunchPaths(a, opts))
+    return pulumi.output(args).apply((a: any) => getLaunchPaths(a, opts))
 }
 
 /**

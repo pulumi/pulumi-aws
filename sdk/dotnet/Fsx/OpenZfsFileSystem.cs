@@ -13,6 +13,29 @@ namespace Pulumi.Aws.Fsx
     /// Manages an Amazon FSx for OpenZFS file system.
     /// See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Fsx.OpenZfsFileSystem("test", new()
+    ///     {
+    ///         StorageCapacity = 64,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Test1.Id,
+    ///         },
+    ///         DeploymentType = "SINGLE_AZ_1",
+    ///         ThroughputCapacity = 64,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// FSx File Systems can be imported using the `id`, e.g.,

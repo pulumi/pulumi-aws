@@ -87,10 +87,10 @@ import (
 //				EndpointType: pulumi.String("VPC"),
 //				EndpointDetails: &transfer.ServerEndpointDetailsArgs{
 //					AddressAllocationIds: pulumi.StringArray{
-//						pulumi.Any(aws_eip.Example.Id),
+//						aws_eip.Example.Id,
 //					},
 //					SubnetIds: pulumi.StringArray{
-//						pulumi.Any(aws_subnet.Example.Id),
+//						aws_subnet.Example.Id,
 //					},
 //					VpcId: pulumi.Any(aws_vpc.Example.Id),
 //				},
@@ -175,7 +175,7 @@ import (
 //				EndpointType: pulumi.String("VPC"),
 //				EndpointDetails: &transfer.ServerEndpointDetailsArgs{
 //					SubnetIds: pulumi.StringArray{
-//						pulumi.Any(aws_subnet.Example.Id),
+//						aws_subnet.Example.Id,
 //					},
 //					VpcId: pulumi.Any(aws_vpc.Example.Id),
 //				},
@@ -268,13 +268,13 @@ func NewServer(ctx *pulumi.Context,
 	}
 
 	if args.HostKey != nil {
-		args.HostKey = pulumi.ToSecret(args.HostKey).(pulumi.StringPtrOutput)
+		args.HostKey = pulumi.ToSecret(args.HostKey).(pulumi.StringPtrInput)
 	}
 	if args.PostAuthenticationLoginBanner != nil {
-		args.PostAuthenticationLoginBanner = pulumi.ToSecret(args.PostAuthenticationLoginBanner).(pulumi.StringPtrOutput)
+		args.PostAuthenticationLoginBanner = pulumi.ToSecret(args.PostAuthenticationLoginBanner).(pulumi.StringPtrInput)
 	}
 	if args.PreAuthenticationLoginBanner != nil {
-		args.PreAuthenticationLoginBanner = pulumi.ToSecret(args.PreAuthenticationLoginBanner).(pulumi.StringPtrOutput)
+		args.PreAuthenticationLoginBanner = pulumi.ToSecret(args.PreAuthenticationLoginBanner).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"hostKey",

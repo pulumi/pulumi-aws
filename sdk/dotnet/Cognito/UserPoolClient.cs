@@ -54,6 +54,77 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// ### Create a user pool client with pinpoint analytics
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var testUserPool = new Aws.Cognito.UserPool("testUserPool");
+    /// 
+    ///     var testApp = new Aws.Pinpoint.App("testApp");
+    /// 
+    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""cognito-idp.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new()
+    ///     {
+    ///         Role = testRole.Id,
+    ///         Policy = Output.Tuple(current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), testApp.ApplicationId).Apply(values =&gt;
+    ///         {
+    ///             var current = values.Item1;
+    ///             var applicationId = values.Item2;
+    ///             return @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Action"": [
+    ///         ""mobiletargeting:UpdateEndpoint"",
+    ///         ""mobiletargeting:PutItems""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""arn:aws:mobiletargeting:*:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:apps/{applicationId}*""
+    ///     }}
+    ///   ]
+    /// }}
+    /// ";
+    ///         }),
+    ///     });
+    /// 
+    ///     var testUserPoolClient = new Aws.Cognito.UserPoolClient("testUserPoolClient", new()
+    ///     {
+    ///         UserPoolId = testUserPool.Id,
+    ///         AnalyticsConfiguration = new Aws.Cognito.Inputs.UserPoolClientAnalyticsConfigurationArgs
+    ///         {
+    ///             ApplicationId = testApp.ApplicationId,
+    ///             ExternalId = "some_id",
+    ///             RoleArn = testRole.Arn,
+    ///             UserDataShared = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Create a user pool client with Cognito as the identity provider
     /// 
     /// ```csharp

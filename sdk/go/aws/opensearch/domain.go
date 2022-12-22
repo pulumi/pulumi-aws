@@ -61,6 +61,66 @@ import (
 //	}
 //
 // ```
+// ### Access Policy
+//
+// > See also: `opensearch.DomainPolicy` resource
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			domain := "tf-test"
+//			if param := cfg.Get("domain"); param != "" {
+//				domain = param
+//			}
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
+//				AccessPolicies: pulumi.String(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "es:*",
+//	      "Principal": "*",
+//	      "Effect": "Allow",
+//	      "Resource": "arn:aws:es:%v:%v:domain/%v/*",
+//	      "Condition": {
+//	        "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
+//	      }
+//	    }
+//	  ]
+//	}
+//
+// `, currentRegion.Name, currentCallerIdentity.AccountId, domain)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Log publishing to CloudWatch Logs
 //
 // ```go

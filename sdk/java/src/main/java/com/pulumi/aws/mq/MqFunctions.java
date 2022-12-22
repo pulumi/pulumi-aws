@@ -292,7 +292,7 @@ public final class MqFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.mq.inputs.GetInstanceTypeOfferingsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -345,7 +345,7 @@ public final class MqFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.mq.inputs.GetInstanceTypeOfferingsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -398,7 +398,7 @@ public final class MqFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.mq.inputs.GetInstanceTypeOfferingsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -451,7 +451,7 @@ public final class MqFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.mq.inputs.GetInstanceTypeOfferingsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -504,7 +504,7 @@ public final class MqFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.mq.inputs.GetInstanceTypeOfferingsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -557,7 +557,7 @@ public final class MqFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.mq.inputs.GetInstanceTypeOfferingsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

@@ -36,11 +36,8 @@ import * as utilities from "../utilities";
  */
 export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
         "filters": args.filters,
         "id": args.id,
@@ -118,9 +115,35 @@ export interface GetLaunchTemplateResult {
     readonly userData: string;
     readonly vpcSecurityGroupIds: string[];
 }
-
+/**
+ * Provides information about a Launch Template.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const default = aws.ec2.getLaunchTemplate({
+ *     name: "my-launch-template",
+ * });
+ * ```
+ * ### Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.ec2.getLaunchTemplate({
+ *     filters: [{
+ *         name: "launch-template-name",
+ *         values: ["some-template"],
+ *     }],
+ * });
+ * ```
+ */
 export function getLaunchTemplateOutput(args?: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateResult> {
-    return pulumi.output(args).apply(a => getLaunchTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getLaunchTemplate(a, opts))
 }
 
 /**

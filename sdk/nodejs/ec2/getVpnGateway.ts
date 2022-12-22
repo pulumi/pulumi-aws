@@ -28,11 +28,8 @@ import * as utilities from "../utilities";
  */
 export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpnGateway:getVpnGateway", {
         "amazonSideAsn": args.amazonSideAsn,
         "attachedVpcId": args.attachedVpcId,
@@ -92,9 +89,27 @@ export interface GetVpnGatewayResult {
     readonly state: string;
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * The VPN Gateway data source provides details about
+ * a specific VPN gateway.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const selected = aws.ec2.getVpnGateway({
+ *     filters: [{
+ *         name: "tag:Name",
+ *         values: ["vpn-gw"],
+ *     }],
+ * });
+ * export const vpnGatewayId = selected.then(selected => selected.id);
+ * ```
+ */
 export function getVpnGatewayOutput(args?: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
-    return pulumi.output(args).apply(a => getVpnGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpnGateway(a, opts))
 }
 
 /**

@@ -105,7 +105,7 @@ func NewEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SourceBucketArn'")
 	}
 	if args.AirflowConfigurationOptions != nil {
-		args.AirflowConfigurationOptions = pulumi.ToSecret(args.AirflowConfigurationOptions).(pulumi.StringMapOutput)
+		args.AirflowConfigurationOptions = pulumi.ToSecret(args.AirflowConfigurationOptions).(pulumi.StringMapInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"airflowConfigurationOptions",

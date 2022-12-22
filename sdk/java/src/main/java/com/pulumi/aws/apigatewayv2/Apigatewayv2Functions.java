@@ -401,7 +401,7 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
-     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetExportArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -440,7 +440,7 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
-     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetExportArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -479,7 +479,7 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
-     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetExportArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -518,7 +518,7 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
-     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetExportArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

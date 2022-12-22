@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  */
 export function getApis(args?: GetApisArgs, opts?: pulumi.InvokeOptions): Promise<GetApisResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigatewayv2/getApis:getApis", {
         "name": args.name,
         "protocolType": args.protocolType,
@@ -67,9 +64,22 @@ export interface GetApisResult {
     readonly protocolType?: string;
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Provides details about multiple Amazon API Gateway Version 2 APIs.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.apigatewayv2.getApis({
+ *     protocolType: "HTTP",
+ * });
+ * ```
+ */
 export function getApisOutput(args?: GetApisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApisResult> {
-    return pulumi.output(args).apply(a => getApis(a, opts))
+    return pulumi.output(args).apply((a: any) => getApis(a, opts))
 }
 
 /**

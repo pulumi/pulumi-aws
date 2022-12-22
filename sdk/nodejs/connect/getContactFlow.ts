@@ -34,11 +34,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getContactFlow(args: GetContactFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetContactFlowResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getContactFlow:getContactFlow", {
         "contactFlowId": args.contactFlowId,
         "instanceId": args.instanceId,
@@ -106,9 +103,37 @@ export interface GetContactFlowResult {
      */
     readonly type?: string;
 }
-
+/**
+ * Provides details about a specific Amazon Connect Contact Flow.
+ *
+ * ## Example Usage
+ *
+ * By name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.connect.getContactFlow({
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Test",
+ * });
+ * ```
+ *
+ * By contactFlowId
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.connect.getContactFlow({
+ *     contactFlowId: "cccccccc-bbbb-cccc-dddd-111111111111",
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ * });
+ * ```
+ */
 export function getContactFlowOutput(args: GetContactFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactFlowResult> {
-    return pulumi.output(args).apply(a => getContactFlow(a, opts))
+    return pulumi.output(args).apply((a: any) => getContactFlow(a, opts))
 }
 
 /**

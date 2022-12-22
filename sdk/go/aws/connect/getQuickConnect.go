@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = connect.LookupQuickConnect(ctx, &connect.LookupQuickConnectArgs{
+//			_, err := connect.LookupQuickConnect(ctx, &connect.LookupQuickConnectArgs{
 //				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
 //				Name:       pulumi.StringRef("Example"),
 //			}, nil)
@@ -55,7 +55,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = connect.LookupQuickConnect(ctx, &connect.LookupQuickConnectArgs{
+//			_, err := connect.LookupQuickConnect(ctx, &connect.LookupQuickConnectArgs{
 //				InstanceId:     "aaaaaaaa-bbbb-cccc-dddd-111111111111",
 //				QuickConnectId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
 //			}, nil)

@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTracker(args: GetTrackerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getTracker:getTracker", {
         "tags": args.tags,
         "trackerName": args.trackerName,
@@ -82,9 +79,22 @@ export interface GetTrackerResult {
      */
     readonly updateTime: string;
 }
-
+/**
+ * Retrieve information about a Location Service Tracker.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.location.getTracker({
+ *     trackerName: "example",
+ * });
+ * ```
+ */
 export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerResult> {
-    return pulumi.output(args).apply(a => getTracker(a, opts))
+    return pulumi.output(args).apply((a: any) => getTracker(a, opts))
 }
 
 /**

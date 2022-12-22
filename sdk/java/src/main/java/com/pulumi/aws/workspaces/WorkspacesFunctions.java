@@ -442,7 +442,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.directoryservice.inputs.GetDirectoryArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -479,7 +479,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.directoryservice.inputs.GetDirectoryArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -516,7 +516,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.directoryservice.inputs.GetDirectoryArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -553,7 +553,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.directoryservice.inputs.GetDirectoryArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -590,7 +590,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -627,7 +627,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -664,7 +664,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -701,7 +701,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -739,7 +739,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -768,7 +768,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -807,7 +807,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -836,7 +836,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -875,7 +875,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -904,7 +904,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -943,7 +943,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -972,7 +972,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1011,7 +1011,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1040,7 +1040,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1079,7 +1079,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1108,7 +1108,7 @@ public final class WorkspacesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
+     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

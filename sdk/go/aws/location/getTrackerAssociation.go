@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = location.LookupTrackerAssociation(ctx, &location.LookupTrackerAssociationArgs{
+//			_, err := location.LookupTrackerAssociation(ctx, &location.LookupTrackerAssociationArgs{
 //				ConsumerArn: "arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer",
 //				TrackerName: "example",
 //			}, nil)

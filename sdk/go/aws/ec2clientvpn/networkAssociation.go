@@ -61,8 +61,8 @@ import (
 //				ClientVpnEndpointId: pulumi.Any(aws_ec2_client_vpn_endpoint.Example.Id),
 //				SubnetId:            pulumi.Any(aws_subnet.Example.Id),
 //				SecurityGroups: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Example1.Id),
-//					pulumi.Any(aws_security_group.Example2.Id),
+//					aws_security_group.Example1.Id,
+//					aws_security_group.Example2.Id,
 //				},
 //			})
 //			if err != nil {

@@ -30,7 +30,7 @@ import (
 //			_, err := datasync.NewFsxOpenZfsFileSystem(ctx, "example", &datasync.FsxOpenZfsFileSystemArgs{
 //				FsxFilesystemArn: pulumi.Any(aws_fsx_openzfs_file_system.Example.Arn),
 //				SecurityGroupArns: pulumi.StringArray{
-//					pulumi.Any(aws_security_group.Example.Arn),
+//					aws_security_group.Example.Arn,
 //				},
 //				Protocol: &datasync.FsxOpenZfsFileSystemProtocolArgs{
 //					Nfs: &datasync.FsxOpenZfsFileSystemProtocolNfsArgs{

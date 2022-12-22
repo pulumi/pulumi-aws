@@ -34,11 +34,8 @@ import * as utilities from "../utilities";
  */
 export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getRouteTable:getRouteTable", {
         "filters": args.filters,
         "gatewayId": args.gatewayId,
@@ -119,9 +116,33 @@ export interface GetRouteTableResult {
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }
-
+/**
+ * `aws.ec2.RouteTable` provides details about a specific Route Table.
+ *
+ * This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
+ *
+ * ## Example Usage
+ *
+ * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const subnetId = config.requireObject("subnetId");
+ * const selected = aws.ec2.getRouteTable({
+ *     subnetId: subnetId,
+ * });
+ * const route = new aws.ec2.Route("route", {
+ *     routeTableId: selected.then(selected => selected.id),
+ *     destinationCidrBlock: "10.0.1.0/22",
+ *     vpcPeeringConnectionId: "pcx-45ff3dc1",
+ * });
+ * ```
+ */
 export function getRouteTableOutput(args?: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
-    return pulumi.output(args).apply(a => getRouteTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))
 }
 
 /**

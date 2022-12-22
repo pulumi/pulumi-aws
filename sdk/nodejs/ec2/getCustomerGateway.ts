@@ -36,11 +36,8 @@ import * as utilities from "../utilities";
  */
 export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getCustomerGateway:getCustomerGateway", {
         "filters": args.filters,
         "id": args.id,
@@ -101,9 +98,35 @@ export interface GetCustomerGatewayResult {
      */
     readonly type: string;
 }
-
+/**
+ * Get an existing AWS Customer Gateway.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = aws.ec2.getCustomerGateway({
+ *     filters: [{
+ *         name: "tag:Name",
+ *         values: ["foo-prod"],
+ *     }],
+ * });
+ * const main = new aws.ec2.VpnGateway("main", {
+ *     vpcId: aws_vpc.main.id,
+ *     amazonSideAsn: "7224",
+ * });
+ * const transit = new aws.ec2.VpnConnection("transit", {
+ *     vpnGatewayId: main.id,
+ *     customerGatewayId: foo.then(foo => foo.id),
+ *     type: foo.then(foo => foo.type),
+ *     staticRoutesOnly: false,
+ * });
+ * ```
+ */
 export function getCustomerGatewayOutput(args?: GetCustomerGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerGatewayResult> {
-    return pulumi.output(args).apply(a => getCustomerGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomerGateway(a, opts))
 }
 
 /**

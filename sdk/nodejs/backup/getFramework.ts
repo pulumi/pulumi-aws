@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions): Promise<GetFrameworkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:backup/getFramework:getFramework", {
         "name": args.name,
         "tags": args.tags,
@@ -88,9 +85,22 @@ export interface GetFrameworkResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to get information on an existing backup framework.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.backup.getFramework({
+ *     name: "my_example_backup_framework_name",
+ * });
+ * ```
+ */
 export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrameworkResult> {
-    return pulumi.output(args).apply(a => getFramework(a, opts))
+    return pulumi.output(args).apply((a: any) => getFramework(a, opts))
 }
 
 /**

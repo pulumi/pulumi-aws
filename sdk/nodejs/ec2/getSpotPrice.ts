@@ -28,11 +28,8 @@ import * as utilities from "../utilities";
  */
 export function getSpotPrice(args?: GetSpotPriceArgs, opts?: pulumi.InvokeOptions): Promise<GetSpotPriceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getSpotPrice:getSpotPrice", {
         "availabilityZone": args.availabilityZone,
         "filters": args.filters,
@@ -78,9 +75,27 @@ export interface GetSpotPriceResult {
      */
     readonly spotPriceTimestamp: string;
 }
-
+/**
+ * Information about most recent Spot Price for a given EC2 instance.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2.getSpotPrice({
+ *     availabilityZone: "us-west-2a",
+ *     filters: [{
+ *         name: "product-description",
+ *         values: ["Linux/UNIX"],
+ *     }],
+ *     instanceType: "t3.medium",
+ * });
+ * ```
+ */
 export function getSpotPriceOutput(args?: GetSpotPriceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpotPriceResult> {
-    return pulumi.output(args).apply(a => getSpotPrice(a, opts))
+    return pulumi.output(args).apply((a: any) => getSpotPrice(a, opts))
 }
 
 /**

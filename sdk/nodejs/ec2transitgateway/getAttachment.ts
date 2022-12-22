@@ -32,11 +32,8 @@ import * as utilities from "../utilities";
  */
 export function getAttachment(args?: GetAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachmentResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getAttachment:getAttachment", {
         "filters": args.filters,
         "tags": args.tags,
@@ -105,9 +102,31 @@ export interface GetAttachmentResult {
      */
     readonly transitGatewayOwnerId: string;
 }
-
+/**
+ * Get information on an EC2 Transit Gateway's attachment to a resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ec2transitgateway.getAttachment({
+ *     filters: [
+ *         {
+ *             name: "transit-gateway-id",
+ *             values: [aws_ec2_transit_gateway.example.id],
+ *         },
+ *         {
+ *             name: "resource-type",
+ *             values: ["peering"],
+ *         },
+ *     ],
+ * });
+ * ```
+ */
 export function getAttachmentOutput(args?: GetAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachmentResult> {
-    return pulumi.output(args).apply(a => getAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getAttachment(a, opts))
 }
 
 /**

@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGlobalNetwork(args: GetGlobalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalNetworkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", {
         "globalNetworkId": args.globalNetworkId,
         "tags": args.tags,
@@ -66,9 +63,22 @@ export interface GetGlobalNetworkResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Retrieve information about a global network.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getGlobalNetwork({
+ *     globalNetworkId: _var.global_network_id,
+ * });
+ * ```
+ */
 export function getGlobalNetworkOutput(args: GetGlobalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalNetworkResult> {
-    return pulumi.output(args).apply(a => getGlobalNetwork(a, opts))
+    return pulumi.output(args).apply((a: any) => getGlobalNetwork(a, opts))
 }
 
 /**

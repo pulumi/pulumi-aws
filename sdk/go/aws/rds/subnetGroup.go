@@ -29,8 +29,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewSubnetGroup(ctx, "default", &rds.SubnetGroupArgs{
 //				SubnetIds: pulumi.StringArray{
-//					pulumi.Any(aws_subnet.Frontend.Id),
-//					pulumi.Any(aws_subnet.Backend.Id),
+//					aws_subnet.Frontend.Id,
+//					aws_subnet.Backend.Id,
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("My DB subnet group"),

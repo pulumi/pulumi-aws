@@ -26,11 +26,8 @@ import * as utilities from "../utilities";
  */
 export function getSecrets(args?: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getSecrets:getSecrets", {
         "filters": args.filters,
     }, opts);
@@ -64,9 +61,25 @@ export interface GetSecretsResult {
      */
     readonly names: string[];
 }
-
+/**
+ * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.secretsmanager.getSecrets({
+ *     filters: [{
+ *         name: "name",
+ *         values: ["example"],
+ *     }],
+ * });
+ * ```
+ */
 export function getSecretsOutput(args?: GetSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretsResult> {
-    return pulumi.output(args).apply(a => getSecrets(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecrets(a, opts))
 }
 
 /**

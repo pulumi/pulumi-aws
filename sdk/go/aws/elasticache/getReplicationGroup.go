@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err = elasticache.LookupReplicationGroup(ctx, &elasticache.LookupReplicationGroupArgs{
+//			_, err := elasticache.LookupReplicationGroup(ctx, &elasticache.LookupReplicationGroupArgs{
 //				ReplicationGroupId: "example",
 //			}, nil)
 //			if err != nil {

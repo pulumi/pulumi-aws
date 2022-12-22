@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInfrastructureConfiguration(args: GetInfrastructureConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", {
         "arn": args.arn,
         "resourceTags": args.resourceTags,
@@ -119,9 +116,22 @@ export interface GetInfrastructureConfigurationResult {
      */
     readonly terminateInstanceOnFailure: boolean;
 }
-
+/**
+ * Provides details about an Image Builder Infrastructure Configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.imagebuilder.getInfrastructureConfiguration({
+ *     arn: "arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example",
+ * });
+ * ```
+ */
 export function getInfrastructureConfigurationOutput(args: GetInfrastructureConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfrastructureConfigurationResult> {
-    return pulumi.output(args).apply(a => getInfrastructureConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getInfrastructureConfiguration(a, opts))
 }
 
 /**

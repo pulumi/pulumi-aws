@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "exampleVpcEndpoint", &ec2.VpcEndpointArgs{
-//				ServiceName: pulumi.String(exampleVpcEndpointService.ServiceName),
+//				ServiceName: *pulumi.String(exampleVpcEndpointService.ServiceName),
 //				VpcId:       exampleVpc.ID(),
 //			})
 //			if err != nil {

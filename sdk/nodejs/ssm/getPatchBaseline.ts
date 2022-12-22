@@ -40,11 +40,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getPatchBaseline:getPatchBaseline", {
         "defaultBaseline": args.defaultBaseline,
         "namePrefix": args.namePrefix,
@@ -128,9 +125,40 @@ export interface GetPatchBaselineResult {
      */
     readonly sources: outputs.ssm.GetPatchBaselineSource[];
 }
-
+/**
+ * Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
+ *
+ * ## Example Usage
+ *
+ * To retrieve a baseline provided by AWS:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const centos = aws.ssm.getPatchBaseline({
+ *     namePrefix: "AWS-",
+ *     operatingSystem: "CENTOS",
+ *     owner: "AWS",
+ * });
+ * ```
+ *
+ * To retrieve a baseline on your account:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const defaultCustom = aws.ssm.getPatchBaseline({
+ *     defaultBaseline: true,
+ *     namePrefix: "MyCustomBaseline",
+ *     operatingSystem: "WINDOWS",
+ *     owner: "Self",
+ * });
+ * ```
+ */
 export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselineResult> {
-    return pulumi.output(args).apply(a => getPatchBaseline(a, opts))
+    return pulumi.output(args).apply((a: any) => getPatchBaseline(a, opts))
 }
 
 /**

@@ -85,6 +85,15 @@ class DelegatedAdminAccount(pulumi.CustomResource):
         Resource for managing an AWS Inspector V2 Delegated Admin Account.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.inspector2.DelegatedAdminAccount("example", account_id=current.account_id)
+        ```
 
         ## Import
 
@@ -108,6 +117,15 @@ class DelegatedAdminAccount(pulumi.CustomResource):
         Resource for managing an AWS Inspector V2 Delegated Admin Account.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.inspector2.DelegatedAdminAccount("example", account_id=current.account_id)
+        ```
 
         ## Import
 

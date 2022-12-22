@@ -10,11 +10,8 @@ import * as utilities from "../utilities";
  * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
  */
 export function getObjects(args: GetObjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getObjects:getObjects", {
         "bucket": args.bucket,
         "delimiter": args.delimiter,
@@ -88,9 +85,13 @@ export interface GetObjectsResult {
     readonly prefix?: string;
     readonly startAfter?: string;
 }
-
+/**
+ * > **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+ *
+ * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+ */
 export function getObjectsOutput(args: GetObjectsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectsResult> {
-    return pulumi.output(args).apply(a => getObjects(a, opts))
+    return pulumi.output(args).apply((a: any) => getObjects(a, opts))
 }
 
 /**

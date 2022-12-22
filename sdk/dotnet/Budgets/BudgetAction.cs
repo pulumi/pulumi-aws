@@ -12,6 +12,101 @@ namespace Pulumi.Aws.Budgets
     /// <summary>
     /// Provides a budget action resource. Budget actions are cost savings controls that run either automatically on your behalf or by using a workflow approval process.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplePolicy = new Aws.Iam.Policy("examplePolicy", new()
+    ///     {
+    ///         Description = "My example policy",
+    ///         PolicyDocument = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [
+    ///         ""ec2:Describe*""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///     });
+    /// 
+    ///     var current = Aws.GetPartition.Invoke();
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {{
+    ///         ""Service"": [
+    ///           ""budgets.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}""
+    ///         ]
+    ///       }},
+    ///       ""Action"": [
+    ///         ""sts:AssumeRole""
+    ///       ]
+    ///     }}
+    ///   ]
+    /// }}
+    /// ",
+    ///     });
+    /// 
+    ///     var exampleBudget = new Aws.Budgets.Budget("exampleBudget", new()
+    ///     {
+    ///         BudgetType = "USAGE",
+    ///         LimitAmount = "10.0",
+    ///         LimitUnit = "dollars",
+    ///         TimePeriodStart = "2006-01-02_15:04",
+    ///         TimeUnit = "MONTHLY",
+    ///     });
+    /// 
+    ///     var exampleBudgetAction = new Aws.Budgets.BudgetAction("exampleBudgetAction", new()
+    ///     {
+    ///         BudgetName = exampleBudget.Name,
+    ///         ActionType = "APPLY_IAM_POLICY",
+    ///         ApprovalModel = "AUTOMATIC",
+    ///         NotificationType = "ACTUAL",
+    ///         ExecutionRoleArn = exampleRole.Arn,
+    ///         ActionThreshold = new Aws.Budgets.Inputs.BudgetActionActionThresholdArgs
+    ///         {
+    ///             ActionThresholdType = "ABSOLUTE_VALUE",
+    ///             ActionThresholdValue = 100,
+    ///         },
+    ///         Definition = new Aws.Budgets.Inputs.BudgetActionDefinitionArgs
+    ///         {
+    ///             IamActionDefinition = new Aws.Budgets.Inputs.BudgetActionDefinitionIamActionDefinitionArgs
+    ///             {
+    ///                 PolicyArn = examplePolicy.Arn,
+    ///                 Roles = new[]
+    ///                 {
+    ///                     exampleRole.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Subscribers = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetActionSubscriberArgs
+    ///             {
+    ///                 Address = "example@example.example",
+    ///                 SubscriptionType = "EMAIL",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Budgets can be imported using `AccountID:ActionID:BudgetName`, e.g.,
