@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -29,6 +30,21 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> bandwidth() {
         return this.bandwidth;
+    }
+
+    /**
+     * The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+     * 
+     */
+    @Import(name="encryptionMode")
+    private @Nullable Output<String> encryptionMode;
+
+    /**
+     * @return The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+     * 
+     */
+    public Optional<Output<String>> encryptionMode() {
+        return Optional.ofNullable(this.encryptionMode);
     }
 
     /**
@@ -77,6 +93,36 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+     * 
+     */
+    @Import(name="requestMacsec")
+    private @Nullable Output<Boolean> requestMacsec;
+
+    /**
+     * @return Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> requestMacsec() {
+        return Optional.ofNullable(this.requestMacsec);
+    }
+
+    /**
+     * Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
+     * 
+     */
+    @Import(name="skipDestroy")
+    private @Nullable Output<Boolean> skipDestroy;
+
+    /**
+     * @return Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
+     * 
+     */
+    public Optional<Output<Boolean>> skipDestroy() {
+        return Optional.ofNullable(this.skipDestroy);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -95,9 +141,12 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
 
     private ConnectionArgs(ConnectionArgs $) {
         this.bandwidth = $.bandwidth;
+        this.encryptionMode = $.encryptionMode;
         this.location = $.location;
         this.name = $.name;
         this.providerName = $.providerName;
+        this.requestMacsec = $.requestMacsec;
+        this.skipDestroy = $.skipDestroy;
         this.tags = $.tags;
     }
 
@@ -138,6 +187,27 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bandwidth(String bandwidth) {
             return bandwidth(Output.of(bandwidth));
+        }
+
+        /**
+         * @param encryptionMode The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionMode(@Nullable Output<String> encryptionMode) {
+            $.encryptionMode = encryptionMode;
+            return this;
+        }
+
+        /**
+         * @param encryptionMode The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionMode(String encryptionMode) {
+            return encryptionMode(Output.of(encryptionMode));
         }
 
         /**
@@ -201,6 +271,48 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder providerName(String providerName) {
             return providerName(Output.of(providerName));
+        }
+
+        /**
+         * @param requestMacsec Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestMacsec(@Nullable Output<Boolean> requestMacsec) {
+            $.requestMacsec = requestMacsec;
+            return this;
+        }
+
+        /**
+         * @param requestMacsec Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestMacsec(Boolean requestMacsec) {
+            return requestMacsec(Output.of(requestMacsec));
+        }
+
+        /**
+         * @param skipDestroy Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
+            $.skipDestroy = skipDestroy;
+            return this;
+        }
+
+        /**
+         * @param skipDestroy Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(Boolean skipDestroy) {
+            return skipDestroy(Output.of(skipDestroy));
         }
 
         /**

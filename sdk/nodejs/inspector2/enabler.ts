@@ -70,7 +70,7 @@ export class Enabler extends pulumi.CustomResource {
      */
     public readonly accountIds!: pulumi.Output<string[]>;
     /**
-     * Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     * Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
      */
     public readonly resourceTypes!: pulumi.Output<string[]>;
 
@@ -114,7 +114,7 @@ export interface EnablerState {
      */
     accountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     * Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
      */
     resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -128,7 +128,7 @@ export interface EnablerArgs {
      */
     accountIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     * Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
      */
     resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
 }

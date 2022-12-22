@@ -304,6 +304,61 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### IP Set References to the Rule Group
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkfirewall.RuleGroup;
+ * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceRulesSourceListArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupReferenceSetsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
+ *             .capacity(100)
+ *             .type(&#34;STATEFUL&#34;)
+ *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
+ *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
+ *                     .rulesSourceList(RuleGroupRuleGroupRulesSourceRulesSourceListArgs.builder()
+ *                         .generatedRulesType(&#34;DENYLIST&#34;)
+ *                         .targetTypes(&#34;HTTP_HOST&#34;)
+ *                         .targets(&#34;test.example.com&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .referenceSets(RuleGroupRuleGroupReferenceSetsArgs.builder()
+ *                     .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs.builder()
+ *                         .key(&#34;example&#34;)
+ *                         .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs.builder()
+ *                             .referenceArn(aws_ec2_managed_prefix_list.this().arn())
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
+ *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

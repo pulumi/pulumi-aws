@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.ResourceArgs {
@@ -14,23 +16,39 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
     public static final VpcAttachmentOptionsArgs Empty = new VpcAttachmentOptionsArgs();
 
     /**
+     * Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+     * 
+     */
+    @Import(name="applianceModeSupport")
+    private @Nullable Output<Boolean> applianceModeSupport;
+
+    /**
+     * @return Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+     * 
+     */
+    public Optional<Output<Boolean>> applianceModeSupport() {
+        return Optional.ofNullable(this.applianceModeSupport);
+    }
+
+    /**
      * Indicates whether IPv6 is supported.
      * 
      */
-    @Import(name="ipv6Support", required=true)
-    private Output<Boolean> ipv6Support;
+    @Import(name="ipv6Support")
+    private @Nullable Output<Boolean> ipv6Support;
 
     /**
      * @return Indicates whether IPv6 is supported.
      * 
      */
-    public Output<Boolean> ipv6Support() {
-        return this.ipv6Support;
+    public Optional<Output<Boolean>> ipv6Support() {
+        return Optional.ofNullable(this.ipv6Support);
     }
 
     private VpcAttachmentOptionsArgs() {}
 
     private VpcAttachmentOptionsArgs(VpcAttachmentOptionsArgs $) {
+        this.applianceModeSupport = $.applianceModeSupport;
         this.ipv6Support = $.ipv6Support;
     }
 
@@ -53,12 +71,33 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
+         * @param applianceModeSupport Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applianceModeSupport(@Nullable Output<Boolean> applianceModeSupport) {
+            $.applianceModeSupport = applianceModeSupport;
+            return this;
+        }
+
+        /**
+         * @param applianceModeSupport Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applianceModeSupport(Boolean applianceModeSupport) {
+            return applianceModeSupport(Output.of(applianceModeSupport));
+        }
+
+        /**
          * @param ipv6Support Indicates whether IPv6 is supported.
          * 
          * @return builder
          * 
          */
-        public Builder ipv6Support(Output<Boolean> ipv6Support) {
+        public Builder ipv6Support(@Nullable Output<Boolean> ipv6Support) {
             $.ipv6Support = ipv6Support;
             return this;
         }
@@ -74,7 +113,6 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
         }
 
         public VpcAttachmentOptionsArgs build() {
-            $.ipv6Support = Objects.requireNonNull($.ipv6Support, "expected parameter 'ipv6Support' to be non-null");
             return $;
         }
     }

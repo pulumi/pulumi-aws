@@ -345,22 +345,39 @@ class SiteLocationArgs:
 @pulumi.input_type
 class VpcAttachmentOptionsArgs:
     def __init__(__self__, *,
-                 ipv6_support: pulumi.Input[bool]):
+                 appliance_mode_support: Optional[pulumi.Input[bool]] = None,
+                 ipv6_support: Optional[pulumi.Input[bool]] = None):
         """
+        :param pulumi.Input[bool] appliance_mode_support: Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
         :param pulumi.Input[bool] ipv6_support: Indicates whether IPv6 is supported.
         """
-        pulumi.set(__self__, "ipv6_support", ipv6_support)
+        if appliance_mode_support is not None:
+            pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
+        if ipv6_support is not None:
+            pulumi.set(__self__, "ipv6_support", ipv6_support)
+
+    @property
+    @pulumi.getter(name="applianceModeSupport")
+    def appliance_mode_support(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+        """
+        return pulumi.get(self, "appliance_mode_support")
+
+    @appliance_mode_support.setter
+    def appliance_mode_support(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "appliance_mode_support", value)
 
     @property
     @pulumi.getter(name="ipv6Support")
-    def ipv6_support(self) -> pulumi.Input[bool]:
+    def ipv6_support(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicates whether IPv6 is supported.
         """
         return pulumi.get(self, "ipv6_support")
 
     @ipv6_support.setter
-    def ipv6_support(self, value: pulumi.Input[bool]):
+    def ipv6_support(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ipv6_support", value)
 
 

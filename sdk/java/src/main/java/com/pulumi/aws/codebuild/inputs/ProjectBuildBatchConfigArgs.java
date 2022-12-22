@@ -34,14 +34,14 @@ public final class ProjectBuildBatchConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the restrictions for the batch build.
+     * Configuration block specifying the restrictions for the batch build. Detailed below.
      * 
      */
     @Import(name="restrictions")
     private @Nullable Output<ProjectBuildBatchConfigRestrictionsArgs> restrictions;
 
     /**
-     * @return Specifies the restrictions for the batch build.
+     * @return Configuration block specifying the restrictions for the batch build. Detailed below.
      * 
      */
     public Optional<Output<ProjectBuildBatchConfigRestrictionsArgs>> restrictions() {
@@ -127,7 +127,7 @@ public final class ProjectBuildBatchConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param restrictions Specifies the restrictions for the batch build.
+         * @param restrictions Configuration block specifying the restrictions for the batch build. Detailed below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class ProjectBuildBatchConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param restrictions Specifies the restrictions for the batch build.
+         * @param restrictions Configuration block specifying the restrictions for the batch build. Detailed below.
          * 
          * @return builder
          * 

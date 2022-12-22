@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HostedTransitVirtualInterfaceAcceptor{}
 	case "aws:directconnect/linkAggregationGroup:LinkAggregationGroup":
 		r = &LinkAggregationGroup{}
+	case "aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation":
+		r = &MacsecKeyAssociation{}
 	case "aws:directconnect/privateVirtualInterface:PrivateVirtualInterface":
 		r = &PrivateVirtualInterface{}
 	case "aws:directconnect/publicVirtualInterface:PublicVirtualInterface":
@@ -143,6 +145,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"directconnect/linkAggregationGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"directconnect/macsecKeyAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

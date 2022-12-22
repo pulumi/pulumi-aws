@@ -270,6 +270,7 @@ public final class Endpoints {
     private @Nullable String nimble;
     private @Nullable String nimblestudio;
     private @Nullable String opensearch;
+    private @Nullable String opensearchserverless;
     private @Nullable String opensearchservice;
     private @Nullable String opsworks;
     private @Nullable String opsworkscm;
@@ -1164,6 +1165,9 @@ public final class Endpoints {
     public Optional<String> opensearch() {
         return Optional.ofNullable(this.opensearch);
     }
+    public Optional<String> opensearchserverless() {
+        return Optional.ofNullable(this.opensearchserverless);
+    }
     public Optional<String> opensearchservice() {
         return Optional.ofNullable(this.opensearchservice);
     }
@@ -1778,6 +1782,7 @@ public final class Endpoints {
         private @Nullable String nimble;
         private @Nullable String nimblestudio;
         private @Nullable String opensearch;
+        private @Nullable String opensearchserverless;
         private @Nullable String opensearchservice;
         private @Nullable String opsworks;
         private @Nullable String opsworkscm;
@@ -2155,6 +2160,7 @@ public final class Endpoints {
     	      this.nimble = defaults.nimble;
     	      this.nimblestudio = defaults.nimblestudio;
     	      this.opensearch = defaults.opensearch;
+    	      this.opensearchserverless = defaults.opensearchserverless;
     	      this.opensearchservice = defaults.opensearchservice;
     	      this.opsworks = defaults.opsworks;
     	      this.opsworkscm = defaults.opsworkscm;
@@ -3568,6 +3574,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder opensearchserverless(@Nullable String opensearchserverless) {
+            this.opensearchserverless = opensearchserverless;
+            return this;
+        }
+        @CustomType.Setter
         public Builder opensearchservice(@Nullable String opensearchservice) {
             this.opensearchservice = opensearchservice;
             return this;
@@ -4403,6 +4414,7 @@ public final class Endpoints {
             o.nimble = nimble;
             o.nimblestudio = nimblestudio;
             o.opensearch = opensearch;
+            o.opensearchserverless = opensearchserverless;
             o.opensearchservice = opensearchservice;
             o.opsworks = opsworks;
             o.opsworkscm = opsworkscm;

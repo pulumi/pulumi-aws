@@ -25,6 +25,7 @@ from .hosted_public_virtual_interface_accepter import *
 from .hosted_transit_virtual_interface import *
 from .hosted_transit_virtual_interface_acceptor import *
 from .link_aggregation_group import *
+from .macsec_key_association import *
 from .private_virtual_interface import *
 from .public_virtual_interface import *
 from .transit_virtual_interface import *

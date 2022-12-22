@@ -30,14 +30,14 @@ public final class EnablerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     * Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
      * 
      */
     @Import(name="resourceTypes", required=true)
     private Output<List<String>> resourceTypes;
 
     /**
-     * @return Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+     * @return Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
      * 
      */
     public Output<List<String>> resourceTypes() {
@@ -101,7 +101,7 @@ public final class EnablerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTypes Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+         * @param resourceTypes Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class EnablerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTypes Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+         * @param resourceTypes Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class EnablerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTypes Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+         * @param resourceTypes Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
          * 
          * @return builder
          * 

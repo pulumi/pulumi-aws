@@ -1036,8 +1036,10 @@ func (o SiteLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 }
 
 type VpcAttachmentOptions struct {
+	// Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+	ApplianceModeSupport *bool `pulumi:"applianceModeSupport"`
 	// Indicates whether IPv6 is supported.
-	Ipv6Support bool `pulumi:"ipv6Support"`
+	Ipv6Support *bool `pulumi:"ipv6Support"`
 }
 
 // VpcAttachmentOptionsInput is an input type that accepts VpcAttachmentOptionsArgs and VpcAttachmentOptionsOutput values.
@@ -1052,8 +1054,10 @@ type VpcAttachmentOptionsInput interface {
 }
 
 type VpcAttachmentOptionsArgs struct {
+	// Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+	ApplianceModeSupport pulumi.BoolPtrInput `pulumi:"applianceModeSupport"`
 	// Indicates whether IPv6 is supported.
-	Ipv6Support pulumi.BoolInput `pulumi:"ipv6Support"`
+	Ipv6Support pulumi.BoolPtrInput `pulumi:"ipv6Support"`
 }
 
 func (VpcAttachmentOptionsArgs) ElementType() reflect.Type {
@@ -1133,9 +1137,14 @@ func (o VpcAttachmentOptionsOutput) ToVpcAttachmentOptionsPtrOutputWithContext(c
 	}).(VpcAttachmentOptionsPtrOutput)
 }
 
+// Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+func (o VpcAttachmentOptionsOutput) ApplianceModeSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcAttachmentOptions) *bool { return v.ApplianceModeSupport }).(pulumi.BoolPtrOutput)
+}
+
 // Indicates whether IPv6 is supported.
-func (o VpcAttachmentOptionsOutput) Ipv6Support() pulumi.BoolOutput {
-	return o.ApplyT(func(v VpcAttachmentOptions) bool { return v.Ipv6Support }).(pulumi.BoolOutput)
+func (o VpcAttachmentOptionsOutput) Ipv6Support() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcAttachmentOptions) *bool { return v.Ipv6Support }).(pulumi.BoolPtrOutput)
 }
 
 type VpcAttachmentOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -1162,13 +1171,23 @@ func (o VpcAttachmentOptionsPtrOutput) Elem() VpcAttachmentOptionsOutput {
 	}).(VpcAttachmentOptionsOutput)
 }
 
+// Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+func (o VpcAttachmentOptionsPtrOutput) ApplianceModeSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ApplianceModeSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Indicates whether IPv6 is supported.
 func (o VpcAttachmentOptionsPtrOutput) Ipv6Support() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcAttachmentOptions) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.Ipv6Support
+		return v.Ipv6Support
 	}).(pulumi.BoolPtrOutput)
 }
 

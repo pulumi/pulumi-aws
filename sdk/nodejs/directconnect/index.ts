@@ -104,6 +104,11 @@ export type LinkAggregationGroup = import("./linkAggregationGroup").LinkAggregat
 export const LinkAggregationGroup: typeof import("./linkAggregationGroup").LinkAggregationGroup = null as any;
 utilities.lazyLoad(exports, ["LinkAggregationGroup"], () => require("./linkAggregationGroup"));
 
+export { MacsecKeyAssociationArgs, MacsecKeyAssociationState } from "./macsecKeyAssociation";
+export type MacsecKeyAssociation = import("./macsecKeyAssociation").MacsecKeyAssociation;
+export const MacsecKeyAssociation: typeof import("./macsecKeyAssociation").MacsecKeyAssociation = null as any;
+utilities.lazyLoad(exports, ["MacsecKeyAssociation"], () => require("./macsecKeyAssociation"));
+
 export { PrivateVirtualInterfaceArgs, PrivateVirtualInterfaceState } from "./privateVirtualInterface";
 export type PrivateVirtualInterface = import("./privateVirtualInterface").PrivateVirtualInterface;
 export const PrivateVirtualInterface: typeof import("./privateVirtualInterface").PrivateVirtualInterface = null as any;
@@ -154,6 +159,8 @@ const _module = {
                 return new HostedTransitVirtualInterfaceAcceptor(name, <any>undefined, { urn })
             case "aws:directconnect/linkAggregationGroup:LinkAggregationGroup":
                 return new LinkAggregationGroup(name, <any>undefined, { urn })
+            case "aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation":
+                return new MacsecKeyAssociation(name, <any>undefined, { urn })
             case "aws:directconnect/privateVirtualInterface:PrivateVirtualInterface":
                 return new PrivateVirtualInterface(name, <any>undefined, { urn })
             case "aws:directconnect/publicVirtualInterface:PublicVirtualInterface":
@@ -180,6 +187,7 @@ pulumi.runtime.registerResourceModule("aws", "directconnect/hostedPublicVirtualI
 pulumi.runtime.registerResourceModule("aws", "directconnect/hostedTransitVirtualInterface", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/hostedTransitVirtualInterfaceAcceptor", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/linkAggregationGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "directconnect/macsecKeyAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/privateVirtualInterface", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/publicVirtualInterface", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/transitVirtualInterface", _module)

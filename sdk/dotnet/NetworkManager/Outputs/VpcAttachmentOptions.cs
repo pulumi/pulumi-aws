@@ -14,13 +14,21 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class VpcAttachmentOptions
     {
         /// <summary>
+        /// Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+        /// </summary>
+        public readonly bool? ApplianceModeSupport;
+        /// <summary>
         /// Indicates whether IPv6 is supported.
         /// </summary>
-        public readonly bool Ipv6Support;
+        public readonly bool? Ipv6Support;
 
         [OutputConstructor]
-        private VpcAttachmentOptions(bool ipv6Support)
+        private VpcAttachmentOptions(
+            bool? applianceModeSupport,
+
+            bool? ipv6Support)
         {
+            ApplianceModeSupport = applianceModeSupport;
             Ipv6Support = ipv6Support;
         }
     }

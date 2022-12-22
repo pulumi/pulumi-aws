@@ -63,6 +63,21 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+     * 
+     */
+    @Import(name="encryptionMode")
+    private @Nullable Output<String> encryptionMode;
+
+    /**
+     * @return The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+     * 
+     */
+    public Optional<Output<String>> encryptionMode() {
+        return Optional.ofNullable(this.encryptionMode);
+    }
+
+    /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
@@ -108,6 +123,21 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Boolean value indicating whether the connection supports MAC Security (MACsec).
+     * 
+     */
+    @Import(name="macsecCapable")
+    private @Nullable Output<Boolean> macsecCapable;
+
+    /**
+     * @return Boolean value indicating whether the connection supports MAC Security (MACsec).
+     * 
+     */
+    public Optional<Output<Boolean>> macsecCapable() {
+        return Optional.ofNullable(this.macsecCapable);
+    }
+
+    /**
      * The name of the connection.
      * 
      */
@@ -138,6 +168,21 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The MAC Security (MACsec) port link status of the connection.
+     * 
+     */
+    @Import(name="portEncryptionStatus")
+    private @Nullable Output<String> portEncryptionStatus;
+
+    /**
+     * @return The MAC Security (MACsec) port link status of the connection.
+     * 
+     */
+    public Optional<Output<String>> portEncryptionStatus() {
+        return Optional.ofNullable(this.portEncryptionStatus);
+    }
+
+    /**
      * The name of the service provider associated with the connection.
      * 
      */
@@ -150,6 +195,36 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> providerName() {
         return Optional.ofNullable(this.providerName);
+    }
+
+    /**
+     * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+     * 
+     */
+    @Import(name="requestMacsec")
+    private @Nullable Output<Boolean> requestMacsec;
+
+    /**
+     * @return Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> requestMacsec() {
+        return Optional.ofNullable(this.requestMacsec);
+    }
+
+    /**
+     * Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
+     * 
+     */
+    @Import(name="skipDestroy")
+    private @Nullable Output<Boolean> skipDestroy;
+
+    /**
+     * @return Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
+     * 
+     */
+    public Optional<Output<Boolean>> skipDestroy() {
+        return Optional.ofNullable(this.skipDestroy);
     }
 
     /**
@@ -203,12 +278,17 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.awsDevice = $.awsDevice;
         this.bandwidth = $.bandwidth;
+        this.encryptionMode = $.encryptionMode;
         this.hasLogicalRedundancy = $.hasLogicalRedundancy;
         this.jumboFrameCapable = $.jumboFrameCapable;
         this.location = $.location;
+        this.macsecCapable = $.macsecCapable;
         this.name = $.name;
         this.ownerAccountId = $.ownerAccountId;
+        this.portEncryptionStatus = $.portEncryptionStatus;
         this.providerName = $.providerName;
+        this.requestMacsec = $.requestMacsec;
+        this.skipDestroy = $.skipDestroy;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.vlanId = $.vlanId;
@@ -296,6 +376,27 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param encryptionMode The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionMode(@Nullable Output<String> encryptionMode) {
+            $.encryptionMode = encryptionMode;
+            return this;
+        }
+
+        /**
+         * @param encryptionMode The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionMode(String encryptionMode) {
+            return encryptionMode(Output.of(encryptionMode));
+        }
+
+        /**
          * @param hasLogicalRedundancy Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
          * 
          * @return builder
@@ -359,6 +460,27 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param macsecCapable Boolean value indicating whether the connection supports MAC Security (MACsec).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder macsecCapable(@Nullable Output<Boolean> macsecCapable) {
+            $.macsecCapable = macsecCapable;
+            return this;
+        }
+
+        /**
+         * @param macsecCapable Boolean value indicating whether the connection supports MAC Security (MACsec).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder macsecCapable(Boolean macsecCapable) {
+            return macsecCapable(Output.of(macsecCapable));
+        }
+
+        /**
          * @param name The name of the connection.
          * 
          * @return builder
@@ -401,6 +523,27 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param portEncryptionStatus The MAC Security (MACsec) port link status of the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder portEncryptionStatus(@Nullable Output<String> portEncryptionStatus) {
+            $.portEncryptionStatus = portEncryptionStatus;
+            return this;
+        }
+
+        /**
+         * @param portEncryptionStatus The MAC Security (MACsec) port link status of the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder portEncryptionStatus(String portEncryptionStatus) {
+            return portEncryptionStatus(Output.of(portEncryptionStatus));
+        }
+
+        /**
          * @param providerName The name of the service provider associated with the connection.
          * 
          * @return builder
@@ -419,6 +562,48 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder providerName(String providerName) {
             return providerName(Output.of(providerName));
+        }
+
+        /**
+         * @param requestMacsec Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestMacsec(@Nullable Output<Boolean> requestMacsec) {
+            $.requestMacsec = requestMacsec;
+            return this;
+        }
+
+        /**
+         * @param requestMacsec Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestMacsec(Boolean requestMacsec) {
+            return requestMacsec(Output.of(requestMacsec));
+        }
+
+        /**
+         * @param skipDestroy Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
+            $.skipDestroy = skipDestroy;
+            return this;
+        }
+
+        /**
+         * @param skipDestroy Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(Boolean skipDestroy) {
+            return skipDestroy(Output.of(skipDestroy));
         }
 
         /**

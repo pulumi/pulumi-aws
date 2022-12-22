@@ -13,10 +13,16 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     public sealed class VpcAttachmentOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+        /// </summary>
+        [Input("applianceModeSupport")]
+        public Input<bool>? ApplianceModeSupport { get; set; }
+
+        /// <summary>
         /// Indicates whether IPv6 is supported.
         /// </summary>
-        [Input("ipv6Support", required: true)]
-        public Input<bool> Ipv6Support { get; set; } = null!;
+        [Input("ipv6Support")]
+        public Input<bool>? Ipv6Support { get; set; }
 
         public VpcAttachmentOptionsGetArgs()
         {

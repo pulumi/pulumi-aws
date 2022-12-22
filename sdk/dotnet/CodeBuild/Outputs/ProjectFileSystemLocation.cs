@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? Identifier;
         /// <summary>
-        /// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+        /// Location of the source code from git or s3.
         /// </summary>
         public readonly string? Location;
         /// <summary>

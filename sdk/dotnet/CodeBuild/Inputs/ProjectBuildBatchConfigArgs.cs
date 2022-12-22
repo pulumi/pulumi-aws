@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<bool>? CombineArtifacts { get; set; }
 
         /// <summary>
-        /// Specifies the restrictions for the batch build.
+        /// Configuration block specifying the restrictions for the batch build. Detailed below.
         /// </summary>
         [Input("restrictions")]
         public Input<Inputs.ProjectBuildBatchConfigRestrictionsArgs>? Restrictions { get; set; }

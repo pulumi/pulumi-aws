@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly bool? CombineArtifacts;
         /// <summary>
-        /// Specifies the restrictions for the batch build.
+        /// Configuration block specifying the restrictions for the batch build. Detailed below.
         /// </summary>
         public readonly Outputs.ProjectBuildBatchConfigRestrictions? Restrictions;
         /// <summary>

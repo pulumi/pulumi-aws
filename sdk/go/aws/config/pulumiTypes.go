@@ -510,6 +510,7 @@ type Endpoints struct {
 	Nimble                              *string `pulumi:"nimble"`
 	Nimblestudio                        *string `pulumi:"nimblestudio"`
 	Opensearch                          *string `pulumi:"opensearch"`
+	Opensearchserverless                *string `pulumi:"opensearchserverless"`
 	Opensearchservice                   *string `pulumi:"opensearchservice"`
 	Opsworks                            *string `pulumi:"opsworks"`
 	Opsworkscm                          *string `pulumi:"opsworkscm"`
@@ -898,6 +899,7 @@ type EndpointsArgs struct {
 	Nimble                              pulumi.StringPtrInput `pulumi:"nimble"`
 	Nimblestudio                        pulumi.StringPtrInput `pulumi:"nimblestudio"`
 	Opensearch                          pulumi.StringPtrInput `pulumi:"opensearch"`
+	Opensearchserverless                pulumi.StringPtrInput `pulumi:"opensearchserverless"`
 	Opensearchservice                   pulumi.StringPtrInput `pulumi:"opensearchservice"`
 	Opsworks                            pulumi.StringPtrInput `pulumi:"opsworks"`
 	Opsworkscm                          pulumi.StringPtrInput `pulumi:"opsworkscm"`
@@ -2100,6 +2102,10 @@ func (o EndpointsOutput) Nimblestudio() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Opensearch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Opensearch }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Opensearchserverless() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Opensearchserverless }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Opensearchservice() pulumi.StringPtrOutput {

@@ -2994,6 +2994,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "directconnect/macsecKeyAssociation",
+  "fqn": "pulumi_aws.directconnect",
+  "classes": {
+   "aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation": "MacsecKeyAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "directconnect/privateVirtualInterface",
   "fqn": "pulumi_aws.directconnect",
   "classes": {
@@ -4990,6 +4998,22 @@ _utilities.register(
   "fqn": "pulumi_aws.gamelift",
   "classes": {
    "aws:gamelift/gameSessionQueue:GameSessionQueue": "GameSessionQueue"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "gamelift/matchmakingConfiguration",
+  "fqn": "pulumi_aws.gamelift",
+  "classes": {
+   "aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration": "MatchmakingConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "gamelift/matchmakingRuleSet",
+  "fqn": "pulumi_aws.gamelift",
+  "classes": {
+   "aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet": "MatchmakingRuleSet"
   }
  },
  {

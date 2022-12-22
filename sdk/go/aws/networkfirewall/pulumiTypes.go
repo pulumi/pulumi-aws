@@ -2233,6 +2233,8 @@ func (o RuleGroupEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput
 }
 
 type RuleGroupRuleGroup struct {
+	// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+	ReferenceSets *RuleGroupRuleGroupReferenceSets `pulumi:"referenceSets"`
 	// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
 	RuleVariables *RuleGroupRuleGroupRuleVariables `pulumi:"ruleVariables"`
 	// A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
@@ -2253,6 +2255,8 @@ type RuleGroupRuleGroupInput interface {
 }
 
 type RuleGroupRuleGroupArgs struct {
+	// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+	ReferenceSets RuleGroupRuleGroupReferenceSetsPtrInput `pulumi:"referenceSets"`
 	// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
 	RuleVariables RuleGroupRuleGroupRuleVariablesPtrInput `pulumi:"ruleVariables"`
 	// A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
@@ -2338,6 +2342,11 @@ func (o RuleGroupRuleGroupOutput) ToRuleGroupRuleGroupPtrOutputWithContext(ctx c
 	}).(RuleGroupRuleGroupPtrOutput)
 }
 
+// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+func (o RuleGroupRuleGroupOutput) ReferenceSets() RuleGroupRuleGroupReferenceSetsPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleGroup) *RuleGroupRuleGroupReferenceSets { return v.ReferenceSets }).(RuleGroupRuleGroupReferenceSetsPtrOutput)
+}
+
 // A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
 func (o RuleGroupRuleGroupOutput) RuleVariables() RuleGroupRuleGroupRuleVariablesPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroup) *RuleGroupRuleGroupRuleVariables { return v.RuleVariables }).(RuleGroupRuleGroupRuleVariablesPtrOutput)
@@ -2377,6 +2386,16 @@ func (o RuleGroupRuleGroupPtrOutput) Elem() RuleGroupRuleGroupOutput {
 	}).(RuleGroupRuleGroupOutput)
 }
 
+// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+func (o RuleGroupRuleGroupPtrOutput) ReferenceSets() RuleGroupRuleGroupReferenceSetsPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleGroup) *RuleGroupRuleGroupReferenceSets {
+		if v == nil {
+			return nil
+		}
+		return v.ReferenceSets
+	}).(RuleGroupRuleGroupReferenceSetsPtrOutput)
+}
+
 // A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
 func (o RuleGroupRuleGroupPtrOutput) RuleVariables() RuleGroupRuleGroupRuleVariablesPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleGroup) *RuleGroupRuleGroupRuleVariables {
@@ -2405,6 +2424,346 @@ func (o RuleGroupRuleGroupPtrOutput) StatefulRuleOptions() RuleGroupRuleGroupSta
 		}
 		return v.StatefulRuleOptions
 	}).(RuleGroupRuleGroupStatefulRuleOptionsPtrOutput)
+}
+
+type RuleGroupRuleGroupReferenceSets struct {
+	IpSetReferences []RuleGroupRuleGroupReferenceSetsIpSetReference `pulumi:"ipSetReferences"`
+}
+
+// RuleGroupRuleGroupReferenceSetsInput is an input type that accepts RuleGroupRuleGroupReferenceSetsArgs and RuleGroupRuleGroupReferenceSetsOutput values.
+// You can construct a concrete instance of `RuleGroupRuleGroupReferenceSetsInput` via:
+//
+//	RuleGroupRuleGroupReferenceSetsArgs{...}
+type RuleGroupRuleGroupReferenceSetsInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleGroupReferenceSetsOutput() RuleGroupRuleGroupReferenceSetsOutput
+	ToRuleGroupRuleGroupReferenceSetsOutputWithContext(context.Context) RuleGroupRuleGroupReferenceSetsOutput
+}
+
+type RuleGroupRuleGroupReferenceSetsArgs struct {
+	IpSetReferences RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayInput `pulumi:"ipSetReferences"`
+}
+
+func (RuleGroupRuleGroupReferenceSetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleGroupReferenceSets)(nil)).Elem()
+}
+
+func (i RuleGroupRuleGroupReferenceSetsArgs) ToRuleGroupRuleGroupReferenceSetsOutput() RuleGroupRuleGroupReferenceSetsOutput {
+	return i.ToRuleGroupRuleGroupReferenceSetsOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleGroupReferenceSetsArgs) ToRuleGroupRuleGroupReferenceSetsOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsOutput)
+}
+
+func (i RuleGroupRuleGroupReferenceSetsArgs) ToRuleGroupRuleGroupReferenceSetsPtrOutput() RuleGroupRuleGroupReferenceSetsPtrOutput {
+	return i.ToRuleGroupRuleGroupReferenceSetsPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleGroupReferenceSetsArgs) ToRuleGroupRuleGroupReferenceSetsPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsOutput).ToRuleGroupRuleGroupReferenceSetsPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRuleGroupReferenceSetsPtrInput is an input type that accepts RuleGroupRuleGroupReferenceSetsArgs, RuleGroupRuleGroupReferenceSetsPtr and RuleGroupRuleGroupReferenceSetsPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRuleGroupReferenceSetsPtrInput` via:
+//
+//	        RuleGroupRuleGroupReferenceSetsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRuleGroupReferenceSetsPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleGroupReferenceSetsPtrOutput() RuleGroupRuleGroupReferenceSetsPtrOutput
+	ToRuleGroupRuleGroupReferenceSetsPtrOutputWithContext(context.Context) RuleGroupRuleGroupReferenceSetsPtrOutput
+}
+
+type ruleGroupRuleGroupReferenceSetsPtrType RuleGroupRuleGroupReferenceSetsArgs
+
+func RuleGroupRuleGroupReferenceSetsPtr(v *RuleGroupRuleGroupReferenceSetsArgs) RuleGroupRuleGroupReferenceSetsPtrInput {
+	return (*ruleGroupRuleGroupReferenceSetsPtrType)(v)
+}
+
+func (*ruleGroupRuleGroupReferenceSetsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleGroupReferenceSets)(nil)).Elem()
+}
+
+func (i *ruleGroupRuleGroupReferenceSetsPtrType) ToRuleGroupRuleGroupReferenceSetsPtrOutput() RuleGroupRuleGroupReferenceSetsPtrOutput {
+	return i.ToRuleGroupRuleGroupReferenceSetsPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRuleGroupReferenceSetsPtrType) ToRuleGroupRuleGroupReferenceSetsPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsPtrOutput)
+}
+
+type RuleGroupRuleGroupReferenceSetsOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleGroupReferenceSetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleGroupReferenceSets)(nil)).Elem()
+}
+
+func (o RuleGroupRuleGroupReferenceSetsOutput) ToRuleGroupRuleGroupReferenceSetsOutput() RuleGroupRuleGroupReferenceSetsOutput {
+	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsOutput) ToRuleGroupRuleGroupReferenceSetsOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsOutput {
+	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsOutput) ToRuleGroupRuleGroupReferenceSetsPtrOutput() RuleGroupRuleGroupReferenceSetsPtrOutput {
+	return o.ToRuleGroupRuleGroupReferenceSetsPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRuleGroupReferenceSetsOutput) ToRuleGroupRuleGroupReferenceSetsPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleGroupReferenceSets) *RuleGroupRuleGroupReferenceSets {
+		return &v
+	}).(RuleGroupRuleGroupReferenceSetsPtrOutput)
+}
+
+func (o RuleGroupRuleGroupReferenceSetsOutput) IpSetReferences() RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput {
+	return o.ApplyT(func(v RuleGroupRuleGroupReferenceSets) []RuleGroupRuleGroupReferenceSetsIpSetReference {
+		return v.IpSetReferences
+	}).(RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput)
+}
+
+type RuleGroupRuleGroupReferenceSetsPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleGroupReferenceSetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleGroupReferenceSets)(nil)).Elem()
+}
+
+func (o RuleGroupRuleGroupReferenceSetsPtrOutput) ToRuleGroupRuleGroupReferenceSetsPtrOutput() RuleGroupRuleGroupReferenceSetsPtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsPtrOutput) ToRuleGroupRuleGroupReferenceSetsPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsPtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsPtrOutput) Elem() RuleGroupRuleGroupReferenceSetsOutput {
+	return o.ApplyT(func(v *RuleGroupRuleGroupReferenceSets) RuleGroupRuleGroupReferenceSets {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRuleGroupReferenceSets
+		return ret
+	}).(RuleGroupRuleGroupReferenceSetsOutput)
+}
+
+func (o RuleGroupRuleGroupReferenceSetsPtrOutput) IpSetReferences() RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput {
+	return o.ApplyT(func(v *RuleGroupRuleGroupReferenceSets) []RuleGroupRuleGroupReferenceSetsIpSetReference {
+		if v == nil {
+			return nil
+		}
+		return v.IpSetReferences
+	}).(RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput)
+}
+
+type RuleGroupRuleGroupReferenceSetsIpSetReference struct {
+	// Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+	IpSetReferences []RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference `pulumi:"ipSetReferences"`
+	// A unique alphanumeric string to identify the `ipSet`.
+	Key string `pulumi:"key"`
+}
+
+// RuleGroupRuleGroupReferenceSetsIpSetReferenceInput is an input type that accepts RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs and RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput values.
+// You can construct a concrete instance of `RuleGroupRuleGroupReferenceSetsIpSetReferenceInput` via:
+//
+//	RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs{...}
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleGroupReferenceSetsIpSetReferenceOutput() RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput
+	ToRuleGroupRuleGroupReferenceSetsIpSetReferenceOutputWithContext(context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput
+}
+
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs struct {
+	// Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+	IpSetReferences RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayInput `pulumi:"ipSetReferences"`
+	// A unique alphanumeric string to identify the `ipSet`.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleGroupReferenceSetsIpSetReference)(nil)).Elem()
+}
+
+func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceOutput() RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput {
+	return i.ToRuleGroupRuleGroupReferenceSetsIpSetReferenceOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput)
+}
+
+// RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayInput is an input type that accepts RuleGroupRuleGroupReferenceSetsIpSetReferenceArray and RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput values.
+// You can construct a concrete instance of `RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayInput` via:
+//
+//	RuleGroupRuleGroupReferenceSetsIpSetReferenceArray{ RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs{...} }
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput() RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput
+	ToRuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutputWithContext(context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput
+}
+
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceArray []RuleGroupRuleGroupReferenceSetsIpSetReferenceInput
+
+func (RuleGroupRuleGroupReferenceSetsIpSetReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupRuleGroupReferenceSetsIpSetReference)(nil)).Elem()
+}
+
+func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceArray) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput() RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput {
+	return i.ToRuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceArray) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput)
+}
+
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleGroupReferenceSetsIpSetReference)(nil)).Elem()
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceOutput() RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput {
+	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput {
+	return o
+}
+
+// Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) IpSetReferences() RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput {
+	return o.ApplyT(func(v RuleGroupRuleGroupReferenceSetsIpSetReference) []RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference {
+		return v.IpSetReferences
+	}).(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput)
+}
+
+// A unique alphanumeric string to identify the `ipSet`.
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRuleGroupReferenceSetsIpSetReference) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupRuleGroupReferenceSetsIpSetReference)(nil)).Elem()
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput() RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput {
+	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput {
+	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupRuleGroupReferenceSetsIpSetReference {
+		return vs[0].([]RuleGroupRuleGroupReferenceSetsIpSetReference)[vs[1].(int)]
+	}).(RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput)
+}
+
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference struct {
+	// Set of Managed Prefix IP ARN(s)
+	ReferenceArn string `pulumi:"referenceArn"`
+}
+
+// RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceInput is an input type that accepts RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs and RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput values.
+// You can construct a concrete instance of `RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceInput` via:
+//
+//	RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs{...}
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput() RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput
+	ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutputWithContext(context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput
+}
+
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs struct {
+	// Set of Managed Prefix IP ARN(s)
+	ReferenceArn pulumi.StringInput `pulumi:"referenceArn"`
+}
+
+func (RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference)(nil)).Elem()
+}
+
+func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput() RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput {
+	return i.ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput)
+}
+
+// RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayInput is an input type that accepts RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray and RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput values.
+// You can construct a concrete instance of `RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayInput` via:
+//
+//	RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray{ RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs{...} }
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput() RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput
+	ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutputWithContext(context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput
+}
+
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray []RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceInput
+
+func (RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference)(nil)).Elem()
+}
+
+func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput() RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput {
+	return i.ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput)
+}
+
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference)(nil)).Elem()
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput() RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput {
+	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput {
+	return o
+}
+
+// Set of Managed Prefix IP ARN(s)
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput) ReferenceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference) string { return v.ReferenceArn }).(pulumi.StringOutput)
+}
+
+type RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference)(nil)).Elem()
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput() RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput {
+	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput) ToRuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutputWithContext(ctx context.Context) RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput {
+	return o
+}
+
+func (o RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference {
+		return vs[0].([]RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference)[vs[1].(int)]
+	}).(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput)
 }
 
 type RuleGroupRuleGroupRuleVariables struct {
@@ -6733,6 +7092,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupEncryptionConfigurationPtrInput)(nil)).Elem(), RuleGroupEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupInput)(nil)).Elem(), RuleGroupRuleGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupPtrInput)(nil)).Elem(), RuleGroupRuleGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupReferenceSetsInput)(nil)).Elem(), RuleGroupRuleGroupReferenceSetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupReferenceSetsPtrInput)(nil)).Elem(), RuleGroupRuleGroupReferenceSetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupReferenceSetsIpSetReferenceInput)(nil)).Elem(), RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayInput)(nil)).Elem(), RuleGroupRuleGroupReferenceSetsIpSetReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceInput)(nil)).Elem(), RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayInput)(nil)).Elem(), RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupRuleVariablesInput)(nil)).Elem(), RuleGroupRuleGroupRuleVariablesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupRuleVariablesPtrInput)(nil)).Elem(), RuleGroupRuleGroupRuleVariablesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupRuleVariablesIpSetInput)(nil)).Elem(), RuleGroupRuleGroupRuleVariablesIpSetArgs{})
@@ -6842,6 +7207,12 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleGroupOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleGroupPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleGroupReferenceSetsOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleGroupReferenceSetsPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleGroupReferenceSetsIpSetReferenceOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleGroupReferenceSetsIpSetReferenceArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleGroupRuleVariablesOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleGroupRuleVariablesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleGroupRuleVariablesIpSetOutput{})

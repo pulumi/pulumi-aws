@@ -31,14 +31,14 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+     * Location of the source code from git or s3.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+     * @return Location of the source code from git or s3.
      * 
      */
     public Optional<Output<String>> location() {
@@ -140,7 +140,7 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param location A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+         * @param location Location of the source code from git or s3.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param location A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+         * @param location Location of the source code from git or s3.
          * 
          * @return builder
          * 
