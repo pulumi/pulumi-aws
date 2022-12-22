@@ -102,6 +102,38 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### IP Set References to the Rule Group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkfirewall.RuleGroup("example", {
+ *     capacity: 100,
+ *     type: "STATEFUL",
+ *     ruleGroup: {
+ *         rulesSource: {
+ *             rulesSourceList: {
+ *                 generatedRulesType: "DENYLIST",
+ *                 targetTypes: ["HTTP_HOST"],
+ *                 targets: ["test.example.com"],
+ *             },
+ *         },
+ *         referenceSets: {
+ *             ipSetReferences: [{
+ *                 key: "example",
+ *                 ipSetReferences: [{
+ *                     referenceArn: aws_ec2_managed_prefix_list["this"].arn,
+ *                 }],
+ *             }],
+ *         },
+ *     },
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

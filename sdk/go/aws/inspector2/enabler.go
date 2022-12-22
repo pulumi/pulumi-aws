@@ -87,7 +87,7 @@ type Enabler struct {
 
 	// Set of account IDs.
 	AccountIds pulumi.StringArrayOutput `pulumi:"accountIds"`
-	// Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+	// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
 	ResourceTypes pulumi.StringArrayOutput `pulumi:"resourceTypes"`
 }
 
@@ -128,14 +128,14 @@ func GetEnabler(ctx *pulumi.Context,
 type enablerState struct {
 	// Set of account IDs.
 	AccountIds []string `pulumi:"accountIds"`
-	// Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+	// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
 type EnablerState struct {
 	// Set of account IDs.
 	AccountIds pulumi.StringArrayInput
-	// Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+	// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
 	ResourceTypes pulumi.StringArrayInput
 }
 
@@ -146,7 +146,7 @@ func (EnablerState) ElementType() reflect.Type {
 type enablerArgs struct {
 	// Set of account IDs.
 	AccountIds []string `pulumi:"accountIds"`
-	// Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+	// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
@@ -154,7 +154,7 @@ type enablerArgs struct {
 type EnablerArgs struct {
 	// Set of account IDs.
 	AccountIds pulumi.StringArrayInput
-	// Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+	// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
 	ResourceTypes pulumi.StringArrayInput
 }
 
@@ -250,7 +250,7 @@ func (o EnablerOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Enabler) pulumi.StringArrayOutput { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
-// Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
 func (o EnablerOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Enabler) pulumi.StringArrayOutput { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }

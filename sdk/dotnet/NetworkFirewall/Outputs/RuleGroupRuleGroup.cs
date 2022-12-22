@@ -14,6 +14,10 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class RuleGroupRuleGroup
     {
         /// <summary>
+        /// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleGroupReferenceSets? ReferenceSets;
+        /// <summary>
         /// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleGroupRuleVariables? RuleVariables;
@@ -28,12 +32,15 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private RuleGroupRuleGroup(
+            Outputs.RuleGroupRuleGroupReferenceSets? referenceSets,
+
             Outputs.RuleGroupRuleGroupRuleVariables? ruleVariables,
 
             Outputs.RuleGroupRuleGroupRulesSource rulesSource,
 
             Outputs.RuleGroupRuleGroupStatefulRuleOptions? statefulRuleOptions)
         {
+            ReferenceSets = referenceSets;
             RuleVariables = ruleVariables;
             RulesSource = rulesSource;
             StatefulRuleOptions = statefulRuleOptions;

@@ -435,6 +435,37 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        ### IP Set References to the Rule Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.RuleGroup("example",
+            capacity=100,
+            type="STATEFUL",
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
+                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
+                        generated_rules_type="DENYLIST",
+                        target_types=["HTTP_HOST"],
+                        targets=["test.example.com"],
+                    ),
+                ),
+                reference_sets=aws.networkfirewall.RuleGroupRuleGroupReferenceSetsArgs(
+                    ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(
+                        key="example",
+                        ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(
+                            reference_arn=aws_ec2_managed_prefix_list["this"]["arn"],
+                        )],
+                    )],
+                ),
+            ),
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
+        ```
 
         ## Import
 
@@ -544,6 +575,37 @@ class RuleGroup(pulumi.CustomResource):
                 ),
                 rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
                     rules_string=(lambda path: open(path).read())("suricata_rules_file"),
+                ),
+            ),
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
+        ```
+        ### IP Set References to the Rule Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.RuleGroup("example",
+            capacity=100,
+            type="STATEFUL",
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
+                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
+                        generated_rules_type="DENYLIST",
+                        target_types=["HTTP_HOST"],
+                        targets=["test.example.com"],
+                    ),
+                ),
+                reference_sets=aws.networkfirewall.RuleGroupRuleGroupReferenceSetsArgs(
+                    ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(
+                        key="example",
+                        ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(
+                            reference_arn=aws_ec2_managed_prefix_list["this"]["arn"],
+                        )],
+                    )],
                 ),
             ),
             tags={

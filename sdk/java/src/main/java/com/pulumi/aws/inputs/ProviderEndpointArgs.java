@@ -1828,6 +1828,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.opensearch);
     }
 
+    @Import(name="opensearchserverless")
+    private @Nullable Output<String> opensearchserverless;
+
+    public Optional<Output<String>> opensearchserverless() {
+        return Optional.ofNullable(this.opensearchserverless);
+    }
+
     @Import(name="opensearchservice")
     private @Nullable Output<String> opensearchservice;
 
@@ -2895,6 +2902,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.nimble = $.nimble;
         this.nimblestudio = $.nimblestudio;
         this.opensearch = $.opensearch;
+        this.opensearchserverless = $.opensearchserverless;
         this.opensearchservice = $.opensearchservice;
         this.opsworks = $.opsworks;
         this.opsworkscm = $.opsworkscm;
@@ -5359,6 +5367,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder opensearch(String opensearch) {
             return opensearch(Output.of(opensearch));
+        }
+
+        public Builder opensearchserverless(@Nullable Output<String> opensearchserverless) {
+            $.opensearchserverless = opensearchserverless;
+            return this;
+        }
+
+        public Builder opensearchserverless(String opensearchserverless) {
+            return opensearchserverless(Output.of(opensearchserverless));
         }
 
         public Builder opensearchservice(@Nullable Output<String> opensearchservice) {

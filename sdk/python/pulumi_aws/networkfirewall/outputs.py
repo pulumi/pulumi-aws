@@ -30,6 +30,9 @@ __all__ = [
     'LoggingConfigurationLoggingConfigurationLogDestinationConfig',
     'RuleGroupEncryptionConfiguration',
     'RuleGroupRuleGroup',
+    'RuleGroupRuleGroupReferenceSets',
+    'RuleGroupRuleGroupReferenceSetsIpSetReference',
+    'RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference',
     'RuleGroupRuleGroupRuleVariables',
     'RuleGroupRuleGroupRuleVariablesIpSet',
     'RuleGroupRuleGroupRuleVariablesIpSetIpSet',
@@ -891,6 +894,8 @@ class RuleGroupRuleGroup(dict):
         suggest = None
         if key == "rulesSource":
             suggest = "rules_source"
+        elif key == "referenceSets":
+            suggest = "reference_sets"
         elif key == "ruleVariables":
             suggest = "rule_variables"
         elif key == "statefulRuleOptions":
@@ -909,14 +914,18 @@ class RuleGroupRuleGroup(dict):
 
     def __init__(__self__, *,
                  rules_source: 'outputs.RuleGroupRuleGroupRulesSource',
+                 reference_sets: Optional['outputs.RuleGroupRuleGroupReferenceSets'] = None,
                  rule_variables: Optional['outputs.RuleGroupRuleGroupRuleVariables'] = None,
                  stateful_rule_options: Optional['outputs.RuleGroupRuleGroupStatefulRuleOptions'] = None):
         """
         :param 'RuleGroupRuleGroupRulesSourceArgs' rules_source: A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
+        :param 'RuleGroupRuleGroupReferenceSetsArgs' reference_sets: A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
         :param 'RuleGroupRuleGroupRuleVariablesArgs' rule_variables: A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
         :param 'RuleGroupRuleGroupStatefulRuleOptionsArgs' stateful_rule_options: A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
         """
         pulumi.set(__self__, "rules_source", rules_source)
+        if reference_sets is not None:
+            pulumi.set(__self__, "reference_sets", reference_sets)
         if rule_variables is not None:
             pulumi.set(__self__, "rule_variables", rule_variables)
         if stateful_rule_options is not None:
@@ -929,6 +938,14 @@ class RuleGroupRuleGroup(dict):
         A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
         """
         return pulumi.get(self, "rules_source")
+
+    @property
+    @pulumi.getter(name="referenceSets")
+    def reference_sets(self) -> Optional['outputs.RuleGroupRuleGroupReferenceSets']:
+        """
+        A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+        """
+        return pulumi.get(self, "reference_sets")
 
     @property
     @pulumi.getter(name="ruleVariables")
@@ -945,6 +962,117 @@ class RuleGroupRuleGroup(dict):
         A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
         """
         return pulumi.get(self, "stateful_rule_options")
+
+
+@pulumi.output_type
+class RuleGroupRuleGroupReferenceSets(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipSetReferences":
+            suggest = "ip_set_references"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupReferenceSets. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupReferenceSets.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupReferenceSets.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_set_references: Optional[Sequence['outputs.RuleGroupRuleGroupReferenceSetsIpSetReference']] = None):
+        if ip_set_references is not None:
+            pulumi.set(__self__, "ip_set_references", ip_set_references)
+
+    @property
+    @pulumi.getter(name="ipSetReferences")
+    def ip_set_references(self) -> Optional[Sequence['outputs.RuleGroupRuleGroupReferenceSetsIpSetReference']]:
+        return pulumi.get(self, "ip_set_references")
+
+
+@pulumi.output_type
+class RuleGroupRuleGroupReferenceSetsIpSetReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipSetReferences":
+            suggest = "ip_set_references"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupReferenceSetsIpSetReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupReferenceSetsIpSetReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupReferenceSetsIpSetReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_set_references: Sequence['outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference'],
+                 key: str):
+        """
+        :param Sequence['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs'] ip_set_references: Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+        :param str key: A unique alphanumeric string to identify the `ip_set`.
+        """
+        pulumi.set(__self__, "ip_set_references", ip_set_references)
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="ipSetReferences")
+    def ip_set_references(self) -> Sequence['outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference']:
+        """
+        Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+        """
+        return pulumi.get(self, "ip_set_references")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        A unique alphanumeric string to identify the `ip_set`.
+        """
+        return pulumi.get(self, "key")
+
+
+@pulumi.output_type
+class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceArn":
+            suggest = "reference_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reference_arn: str):
+        """
+        :param str reference_arn: Set of Managed Prefix IP ARN(s)
+        """
+        pulumi.set(__self__, "reference_arn", reference_arn)
+
+    @property
+    @pulumi.getter(name="referenceArn")
+    def reference_arn(self) -> str:
+        """
+        Set of Managed Prefix IP ARN(s)
+        """
+        return pulumi.get(self, "reference_arn")
 
 
 @pulumi.output_type

@@ -17,7 +17,7 @@ public final class ProjectFileSystemLocation {
      */
     private @Nullable String identifier;
     /**
-     * @return A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+     * @return Location of the source code from git or s3.
      * 
      */
     private @Nullable String location;
@@ -46,7 +46,7 @@ public final class ProjectFileSystemLocation {
         return Optional.ofNullable(this.identifier);
     }
     /**
-     * @return A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+     * @return Location of the source code from git or s3.
      * 
      */
     public Optional<String> location() {

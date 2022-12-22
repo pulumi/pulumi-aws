@@ -438,6 +438,7 @@ class Endpoints(dict):
                  nimble: Optional[str] = None,
                  nimblestudio: Optional[str] = None,
                  opensearch: Optional[str] = None,
+                 opensearchserverless: Optional[str] = None,
                  opensearchservice: Optional[str] = None,
                  opsworks: Optional[str] = None,
                  opsworkscm: Optional[str] = None,
@@ -1071,6 +1072,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "nimblestudio", nimblestudio)
         if opensearch is not None:
             pulumi.set(__self__, "opensearch", opensearch)
+        if opensearchserverless is not None:
+            pulumi.set(__self__, "opensearchserverless", opensearchserverless)
         if opensearchservice is not None:
             pulumi.set(__self__, "opensearchservice", opensearchservice)
         if opsworks is not None:
@@ -2596,6 +2599,11 @@ class Endpoints(dict):
     @pulumi.getter
     def opensearch(self) -> Optional[str]:
         return pulumi.get(self, "opensearch")
+
+    @property
+    @pulumi.getter
+    def opensearchserverless(self) -> Optional[str]:
+        return pulumi.get(self, "opensearchserverless")
 
     @property
     @pulumi.getter

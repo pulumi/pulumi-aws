@@ -176,6 +176,61 @@ import (
 //	}
 //
 // ```
+// ### IP Set References to the Rule Group
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//				Capacity: pulumi.Int(100),
+//				Type:     pulumi.String("STATEFUL"),
+//				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+//					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+//						RulesSourceList: &networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs{
+//							GeneratedRulesType: pulumi.String("DENYLIST"),
+//							TargetTypes: pulumi.StringArray{
+//								pulumi.String("HTTP_HOST"),
+//							},
+//							Targets: pulumi.StringArray{
+//								pulumi.String("test.example.com"),
+//							},
+//						},
+//					},
+//					ReferenceSets: &networkfirewall.RuleGroupRuleGroupReferenceSetsArgs{
+//						IpSetReferences: networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArray{
+//							&networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs{
+//								Key: pulumi.String("example"),
+//								IpSetReferences: networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArray{
+//									&networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs{
+//										ReferenceArn: pulumi.Any(aws_ec2_managed_prefix_list.This.Arn),
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

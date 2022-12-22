@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall.inputs;
 
+import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupReferenceSetsArgs;
 import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRuleVariablesArgs;
 import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
 import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupStatefulRuleOptionsArgs;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class RuleGroupRuleGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RuleGroupRuleGroupArgs Empty = new RuleGroupRuleGroupArgs();
+
+    /**
+     * A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+     * 
+     */
+    @Import(name="referenceSets")
+    private @Nullable Output<RuleGroupRuleGroupReferenceSetsArgs> referenceSets;
+
+    /**
+     * @return A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleGroupReferenceSetsArgs>> referenceSets() {
+        return Optional.ofNullable(this.referenceSets);
+    }
 
     /**
      * A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
@@ -65,6 +81,7 @@ public final class RuleGroupRuleGroupArgs extends com.pulumi.resources.ResourceA
     private RuleGroupRuleGroupArgs() {}
 
     private RuleGroupRuleGroupArgs(RuleGroupRuleGroupArgs $) {
+        this.referenceSets = $.referenceSets;
         this.ruleVariables = $.ruleVariables;
         this.rulesSource = $.rulesSource;
         this.statefulRuleOptions = $.statefulRuleOptions;
@@ -86,6 +103,27 @@ public final class RuleGroupRuleGroupArgs extends com.pulumi.resources.ResourceA
 
         public Builder(RuleGroupRuleGroupArgs defaults) {
             $ = new RuleGroupRuleGroupArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param referenceSets A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder referenceSets(@Nullable Output<RuleGroupRuleGroupReferenceSetsArgs> referenceSets) {
+            $.referenceSets = referenceSets;
+            return this;
+        }
+
+        /**
+         * @param referenceSets A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder referenceSets(RuleGroupRuleGroupReferenceSetsArgs referenceSets) {
+            return referenceSets(Output.of(referenceSets));
         }
 
         /**

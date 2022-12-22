@@ -789,6 +789,9 @@ namespace Pulumi.Aws.Inputs
         [Input("opensearch")]
         public Input<string>? Opensearch { get; set; }
 
+        [Input("opensearchserverless")]
+        public Input<string>? Opensearchserverless { get; set; }
+
         [Input("opensearchservice")]
         public Input<string>? Opensearchservice { get; set; }
 

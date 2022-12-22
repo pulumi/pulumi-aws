@@ -44,14 +44,14 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+     * Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
      * 
      */
     @Import(name="buildStatusConfig")
     private @Nullable Output<ProjectSecondarySourceBuildStatusConfigArgs> buildStatusConfig;
 
     /**
-     * @return Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+     * @return Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
      * 
      */
     public Optional<Output<ProjectSecondarySourceBuildStatusConfigArgs>> buildStatusConfig() {
@@ -164,14 +164,14 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+     * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
      * 
      */
     public Output<String> type() {
@@ -241,7 +241,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param buildStatusConfig Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+         * @param buildStatusConfig Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param buildStatusConfig Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+         * @param buildStatusConfig Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
          * 
          * @return builder
          * 

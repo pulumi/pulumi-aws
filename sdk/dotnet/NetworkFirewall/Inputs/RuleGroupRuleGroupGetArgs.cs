@@ -13,6 +13,12 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     public sealed class RuleGroupRuleGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+        /// </summary>
+        [Input("referenceSets")]
+        public Input<Inputs.RuleGroupRuleGroupReferenceSetsGetArgs>? ReferenceSets { get; set; }
+
+        /// <summary>
         /// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
         /// </summary>
         [Input("ruleVariables")]

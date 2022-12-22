@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall.outputs;
 
+import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupReferenceSets;
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupRuleVariables;
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupRulesSource;
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupStatefulRuleOptions;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleGroup {
+    /**
+     * @return A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleGroupReferenceSets referenceSets;
     /**
      * @return A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
      * 
@@ -30,6 +36,13 @@ public final class RuleGroupRuleGroup {
     private @Nullable RuleGroupRuleGroupStatefulRuleOptions statefulRuleOptions;
 
     private RuleGroupRuleGroup() {}
+    /**
+     * @return A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleGroupReferenceSets> referenceSets() {
+        return Optional.ofNullable(this.referenceSets);
+    }
     /**
      * @return A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
      * 
@@ -61,17 +74,24 @@ public final class RuleGroupRuleGroup {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable RuleGroupRuleGroupReferenceSets referenceSets;
         private @Nullable RuleGroupRuleGroupRuleVariables ruleVariables;
         private RuleGroupRuleGroupRulesSource rulesSource;
         private @Nullable RuleGroupRuleGroupStatefulRuleOptions statefulRuleOptions;
         public Builder() {}
         public Builder(RuleGroupRuleGroup defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.referenceSets = defaults.referenceSets;
     	      this.ruleVariables = defaults.ruleVariables;
     	      this.rulesSource = defaults.rulesSource;
     	      this.statefulRuleOptions = defaults.statefulRuleOptions;
         }
 
+        @CustomType.Setter
+        public Builder referenceSets(@Nullable RuleGroupRuleGroupReferenceSets referenceSets) {
+            this.referenceSets = referenceSets;
+            return this;
+        }
         @CustomType.Setter
         public Builder ruleVariables(@Nullable RuleGroupRuleGroupRuleVariables ruleVariables) {
             this.ruleVariables = ruleVariables;
@@ -89,6 +109,7 @@ public final class RuleGroupRuleGroup {
         }
         public RuleGroupRuleGroup build() {
             final var o = new RuleGroupRuleGroup();
+            o.referenceSets = referenceSets;
             o.ruleVariables = ruleVariables;
             o.rulesSource = rulesSource;
             o.statefulRuleOptions = statefulRuleOptions;

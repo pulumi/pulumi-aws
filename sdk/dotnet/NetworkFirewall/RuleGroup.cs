@@ -152,6 +152,63 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// ### IP Set References to the Rule Group
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkFirewall.RuleGroup("example", new()
+    ///     {
+    ///         Capacity = 100,
+    ///         Type = "STATEFUL",
+    ///         RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
+    ///         {
+    ///             RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
+    ///             {
+    ///                 RulesSourceList = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceRulesSourceListArgs
+    ///                 {
+    ///                     GeneratedRulesType = "DENYLIST",
+    ///                     TargetTypes = new[]
+    ///                     {
+    ///                         "HTTP_HOST",
+    ///                     },
+    ///                     Targets = new[]
+    ///                     {
+    ///                         "test.example.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ReferenceSets = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupReferenceSetsArgs
+    ///             {
+    ///                 IpSetReferences = new[]
+    ///                 {
+    ///                     new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs
+    ///                     {
+    ///                         Key = "example",
+    ///                         IpSetReferences = new[]
+    ///                         {
+    ///                             new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs
+    ///                             {
+    ///                                 ReferenceArn = aws_ec2_managed_prefix_list.This.Arn,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

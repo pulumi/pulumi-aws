@@ -21,7 +21,7 @@ public final class ProjectSourceAuth {
     @Deprecated /* Use the aws_codebuild_source_credential resource instead */
     private @Nullable String resource;
     /**
-     * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
      * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
@@ -43,7 +43,7 @@ public final class ProjectSourceAuth {
         return Optional.ofNullable(this.resource);
     }
     /**
-     * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
      * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead

@@ -29,7 +29,7 @@ type ProjectArtifacts struct {
 	Packaging *string `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact.
 	Path *string `pulumi:"path"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type string `pulumi:"type"`
 }
 
@@ -63,7 +63,7 @@ type ProjectArtifactsArgs struct {
 	Packaging pulumi.StringPtrInput `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -189,7 +189,7 @@ func (o ProjectArtifactsOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectArtifacts) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectArtifactsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectArtifacts) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -308,7 +308,7 @@ func (o ProjectArtifactsPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectArtifactsPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectArtifacts) *string {
 		if v == nil {
@@ -321,7 +321,7 @@ func (o ProjectArtifactsPtrOutput) Type() pulumi.StringPtrOutput {
 type ProjectBuildBatchConfig struct {
 	// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
 	CombineArtifacts *bool `pulumi:"combineArtifacts"`
-	// Specifies the restrictions for the batch build.
+	// Configuration block specifying the restrictions for the batch build. Detailed below.
 	Restrictions *ProjectBuildBatchConfigRestrictions `pulumi:"restrictions"`
 	// Specifies the service role ARN for the batch build project.
 	ServiceRole string `pulumi:"serviceRole"`
@@ -343,7 +343,7 @@ type ProjectBuildBatchConfigInput interface {
 type ProjectBuildBatchConfigArgs struct {
 	// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
 	CombineArtifacts pulumi.BoolPtrInput `pulumi:"combineArtifacts"`
-	// Specifies the restrictions for the batch build.
+	// Configuration block specifying the restrictions for the batch build. Detailed below.
 	Restrictions ProjectBuildBatchConfigRestrictionsPtrInput `pulumi:"restrictions"`
 	// Specifies the service role ARN for the batch build project.
 	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
@@ -433,7 +433,7 @@ func (o ProjectBuildBatchConfigOutput) CombineArtifacts() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectBuildBatchConfig) *bool { return v.CombineArtifacts }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the restrictions for the batch build.
+// Configuration block specifying the restrictions for the batch build. Detailed below.
 func (o ProjectBuildBatchConfigOutput) Restrictions() ProjectBuildBatchConfigRestrictionsPtrOutput {
 	return o.ApplyT(func(v ProjectBuildBatchConfig) *ProjectBuildBatchConfigRestrictions { return v.Restrictions }).(ProjectBuildBatchConfigRestrictionsPtrOutput)
 }
@@ -482,7 +482,7 @@ func (o ProjectBuildBatchConfigPtrOutput) CombineArtifacts() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the restrictions for the batch build.
+// Configuration block specifying the restrictions for the batch build. Detailed below.
 func (o ProjectBuildBatchConfigPtrOutput) Restrictions() ProjectBuildBatchConfigRestrictionsPtrOutput {
 	return o.ApplyT(func(v *ProjectBuildBatchConfig) *ProjectBuildBatchConfigRestrictions {
 		if v == nil {
@@ -673,7 +673,7 @@ type ProjectCache struct {
 	Location *string `pulumi:"location"`
 	// Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
 	Modes []string `pulumi:"modes"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type *string `pulumi:"type"`
 }
 
@@ -693,7 +693,7 @@ type ProjectCacheArgs struct {
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
 	Modes pulumi.StringArrayInput `pulumi:"modes"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -784,7 +784,7 @@ func (o ProjectCacheOutput) Modes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProjectCache) []string { return v.Modes }).(pulumi.StringArrayOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectCacheOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectCache) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -833,7 +833,7 @@ func (o ProjectCachePtrOutput) Modes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectCachePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectCache) *string {
 		if v == nil {
@@ -858,7 +858,7 @@ type ProjectEnvironment struct {
 	PrivilegedMode *bool `pulumi:"privilegedMode"`
 	// Configuration block. Detailed below.
 	RegistryCredential *ProjectEnvironmentRegistryCredential `pulumi:"registryCredential"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type string `pulumi:"type"`
 }
 
@@ -888,7 +888,7 @@ type ProjectEnvironmentArgs struct {
 	PrivilegedMode pulumi.BoolPtrInput `pulumi:"privilegedMode"`
 	// Configuration block. Detailed below.
 	RegistryCredential ProjectEnvironmentRegistryCredentialPtrInput `pulumi:"registryCredential"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1004,7 +1004,7 @@ func (o ProjectEnvironmentOutput) RegistryCredential() ProjectEnvironmentRegistr
 	return o.ApplyT(func(v ProjectEnvironment) *ProjectEnvironmentRegistryCredential { return v.RegistryCredential }).(ProjectEnvironmentRegistryCredentialPtrOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectEnvironmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1103,7 +1103,7 @@ func (o ProjectEnvironmentPtrOutput) RegistryCredential() ProjectEnvironmentRegi
 	}).(ProjectEnvironmentRegistryCredentialPtrOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectEnvironment) *string {
 		if v == nil {
@@ -1116,7 +1116,7 @@ func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
 type ProjectEnvironmentEnvironmentVariable struct {
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name string `pulumi:"name"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type *string `pulumi:"type"`
 	// Environment variable's value.
 	Value string `pulumi:"value"`
@@ -1136,7 +1136,7 @@ type ProjectEnvironmentEnvironmentVariableInput interface {
 type ProjectEnvironmentEnvironmentVariableArgs struct {
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name pulumi.StringInput `pulumi:"name"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Environment variable's value.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -1198,7 +1198,7 @@ func (o ProjectEnvironmentEnvironmentVariableOutput) Name() pulumi.StringOutput 
 	return o.ApplyT(func(v ProjectEnvironmentEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectEnvironmentEnvironmentVariableOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironmentEnvironmentVariable) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1387,7 +1387,7 @@ func (o ProjectEnvironmentRegistryCredentialPtrOutput) CredentialProvider() pulu
 type ProjectFileSystemLocation struct {
 	// The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
 	Identifier *string `pulumi:"identifier"`
-	// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+	// Location of the source code from git or s3.
 	Location *string `pulumi:"location"`
 	// The mount options for a file system created by AWS EFS.
 	MountOptions *string `pulumi:"mountOptions"`
@@ -1411,7 +1411,7 @@ type ProjectFileSystemLocationInput interface {
 type ProjectFileSystemLocationArgs struct {
 	// The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
 	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
-	// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+	// Location of the source code from git or s3.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The mount options for a file system created by AWS EFS.
 	MountOptions pulumi.StringPtrInput `pulumi:"mountOptions"`
@@ -1477,7 +1477,7 @@ func (o ProjectFileSystemLocationOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.Identifier }).(pulumi.StringPtrOutput)
 }
 
-// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+// Location of the source code from git or s3.
 func (o ProjectFileSystemLocationOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -2061,7 +2061,7 @@ type ProjectSecondaryArtifact struct {
 	Packaging *string `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact.
 	Path *string `pulumi:"path"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type string `pulumi:"type"`
 }
 
@@ -2095,7 +2095,7 @@ type ProjectSecondaryArtifactArgs struct {
 	Packaging pulumi.StringPtrInput `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2195,7 +2195,7 @@ func (o ProjectSecondaryArtifactOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectSecondaryArtifactOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2225,7 +2225,7 @@ type ProjectSecondarySource struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Auth *ProjectSecondarySourceAuth `pulumi:"auth"`
-	// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig *ProjectSecondarySourceBuildStatusConfig `pulumi:"buildStatusConfig"`
 	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
 	Buildspec *string `pulumi:"buildspec"`
@@ -2241,7 +2241,7 @@ type ProjectSecondarySource struct {
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
 	// An identifier for a source in the build project.
 	SourceIdentifier string `pulumi:"sourceIdentifier"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type string `pulumi:"type"`
 }
 
@@ -2261,7 +2261,7 @@ type ProjectSecondarySourceArgs struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Auth ProjectSecondarySourceAuthPtrInput `pulumi:"auth"`
-	// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig ProjectSecondarySourceBuildStatusConfigPtrInput `pulumi:"buildStatusConfig"`
 	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
@@ -2277,7 +2277,7 @@ type ProjectSecondarySourceArgs struct {
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
 	// An identifier for a source in the build project.
 	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2339,7 +2339,7 @@ func (o ProjectSecondarySourceOutput) Auth() ProjectSecondarySourceAuthPtrOutput
 	return o.ApplyT(func(v ProjectSecondarySource) *ProjectSecondarySourceAuth { return v.Auth }).(ProjectSecondarySourceAuthPtrOutput)
 }
 
-// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 func (o ProjectSecondarySourceOutput) BuildStatusConfig() ProjectSecondarySourceBuildStatusConfigPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) *ProjectSecondarySourceBuildStatusConfig { return v.BuildStatusConfig }).(ProjectSecondarySourceBuildStatusConfigPtrOutput)
 }
@@ -2381,7 +2381,7 @@ func (o ProjectSecondarySourceOutput) SourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectSecondarySourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2411,7 +2411,7 @@ type ProjectSecondarySourceAuth struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Resource *string `pulumi:"resource"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Type string `pulumi:"type"`
@@ -2433,7 +2433,7 @@ type ProjectSecondarySourceAuthArgs struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Resource pulumi.StringPtrInput `pulumi:"resource"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2523,7 +2523,7 @@ func (o ProjectSecondarySourceAuthOutput) Resource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySourceAuth) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 //
 // Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSecondarySourceAuthOutput) Type() pulumi.StringOutput {
@@ -2566,7 +2566,7 @@ func (o ProjectSecondarySourceAuthPtrOutput) Resource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 //
 // Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSecondarySourceAuthPtrOutput) Type() pulumi.StringPtrOutput {
@@ -2982,7 +2982,7 @@ type ProjectSource struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Auth *ProjectSourceAuth `pulumi:"auth"`
-	// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig *ProjectSourceBuildStatusConfig `pulumi:"buildStatusConfig"`
 	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
 	Buildspec *string `pulumi:"buildspec"`
@@ -2996,7 +2996,7 @@ type ProjectSource struct {
 	Location *string `pulumi:"location"`
 	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type string `pulumi:"type"`
 }
 
@@ -3016,7 +3016,7 @@ type ProjectSourceArgs struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Auth ProjectSourceAuthPtrInput `pulumi:"auth"`
-	// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig ProjectSourceBuildStatusConfigPtrInput `pulumi:"buildStatusConfig"`
 	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
@@ -3030,7 +3030,7 @@ type ProjectSourceArgs struct {
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3118,7 +3118,7 @@ func (o ProjectSourceOutput) Auth() ProjectSourceAuthPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *ProjectSourceAuth { return v.Auth }).(ProjectSourceAuthPtrOutput)
 }
 
-// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 func (o ProjectSourceOutput) BuildStatusConfig() ProjectSourceBuildStatusConfigPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *ProjectSourceBuildStatusConfig { return v.BuildStatusConfig }).(ProjectSourceBuildStatusConfigPtrOutput)
 }
@@ -3153,7 +3153,7 @@ func (o ProjectSourceOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *bool { return v.ReportBuildStatus }).(pulumi.BoolPtrOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSource) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3194,7 +3194,7 @@ func (o ProjectSourcePtrOutput) Auth() ProjectSourceAuthPtrOutput {
 	}).(ProjectSourceAuthPtrOutput)
 }
 
-// Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 func (o ProjectSourcePtrOutput) BuildStatusConfig() ProjectSourceBuildStatusConfigPtrOutput {
 	return o.ApplyT(func(v *ProjectSource) *ProjectSourceBuildStatusConfig {
 		if v == nil {
@@ -3264,7 +3264,7 @@ func (o ProjectSourcePtrOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 func (o ProjectSourcePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectSource) *string {
 		if v == nil {
@@ -3279,7 +3279,7 @@ type ProjectSourceAuth struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Resource *string `pulumi:"resource"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Type string `pulumi:"type"`
@@ -3301,7 +3301,7 @@ type ProjectSourceAuthArgs struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Resource pulumi.StringPtrInput `pulumi:"resource"`
-	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Type pulumi.StringInput `pulumi:"type"`
@@ -3391,7 +3391,7 @@ func (o ProjectSourceAuthOutput) Resource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSourceAuth) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 //
 // Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSourceAuthOutput) Type() pulumi.StringOutput {
@@ -3434,7 +3434,7 @@ func (o ProjectSourceAuthPtrOutput) Resource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 //
 // Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSourceAuthPtrOutput) Type() pulumi.StringPtrOutput {

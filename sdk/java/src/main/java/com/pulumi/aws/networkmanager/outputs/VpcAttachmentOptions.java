@@ -6,22 +6,36 @@ package com.pulumi.aws.networkmanager.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class VpcAttachmentOptions {
     /**
-     * @return Indicates whether IPv6 is supported.
+     * @return Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
      * 
      */
-    private Boolean ipv6Support;
-
-    private VpcAttachmentOptions() {}
+    private @Nullable Boolean applianceModeSupport;
     /**
      * @return Indicates whether IPv6 is supported.
      * 
      */
-    public Boolean ipv6Support() {
-        return this.ipv6Support;
+    private @Nullable Boolean ipv6Support;
+
+    private VpcAttachmentOptions() {}
+    /**
+     * @return Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
+     * 
+     */
+    public Optional<Boolean> applianceModeSupport() {
+        return Optional.ofNullable(this.applianceModeSupport);
+    }
+    /**
+     * @return Indicates whether IPv6 is supported.
+     * 
+     */
+    public Optional<Boolean> ipv6Support() {
+        return Optional.ofNullable(this.ipv6Support);
     }
 
     public static Builder builder() {
@@ -33,20 +47,28 @@ public final class VpcAttachmentOptions {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean ipv6Support;
+        private @Nullable Boolean applianceModeSupport;
+        private @Nullable Boolean ipv6Support;
         public Builder() {}
         public Builder(VpcAttachmentOptions defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.applianceModeSupport = defaults.applianceModeSupport;
     	      this.ipv6Support = defaults.ipv6Support;
         }
 
         @CustomType.Setter
-        public Builder ipv6Support(Boolean ipv6Support) {
-            this.ipv6Support = Objects.requireNonNull(ipv6Support);
+        public Builder applianceModeSupport(@Nullable Boolean applianceModeSupport) {
+            this.applianceModeSupport = applianceModeSupport;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ipv6Support(@Nullable Boolean ipv6Support) {
+            this.ipv6Support = ipv6Support;
             return this;
         }
         public VpcAttachmentOptions build() {
             final var o = new VpcAttachmentOptions();
+            o.applianceModeSupport = applianceModeSupport;
             o.ipv6Support = ipv6Support;
             return o;
         }

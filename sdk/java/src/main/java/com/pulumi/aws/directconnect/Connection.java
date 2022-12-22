@@ -20,6 +20,7 @@ import javax.annotation.Nullable;
  * Provides a Connection of Direct Connect.
  * 
  * ## Example Usage
+ * ### Create a connection
  * ```java
  * package generated_program;
  * 
@@ -44,6 +45,70 @@ import javax.annotation.Nullable;
  *         var hoge = new Connection(&#34;hoge&#34;, ConnectionArgs.builder()        
  *             .bandwidth(&#34;1Gbps&#34;)
  *             .location(&#34;EqDC2&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Request a MACsec-capable connection
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.directconnect.Connection;
+ * import com.pulumi.aws.directconnect.ConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
+ *             .bandwidth(&#34;10Gbps&#34;)
+ *             .location(&#34;EqDA2&#34;)
+ *             .requestMacsec(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Configure encryption mode for MACsec-capable connections
+ * &gt; **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.directconnect.Connection;
+ * import com.pulumi.aws.directconnect.ConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
+ *             .bandwidth(&#34;10Gbps&#34;)
+ *             .encryptionMode(&#34;must_encrypt&#34;)
+ *             .location(&#34;EqDC2&#34;)
+ *             .requestMacsec(true)
  *             .build());
  * 
  *     }
@@ -104,6 +169,20 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.bandwidth;
     }
     /**
+     * The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+     * 
+     */
+    @Export(name="encryptionMode", refs={String.class}, tree="[0]")
+    private Output<String> encryptionMode;
+
+    /**
+     * @return The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+     * 
+     */
+    public Output<String> encryptionMode() {
+        return this.encryptionMode;
+    }
+    /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
@@ -146,6 +225,20 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
+     * Boolean value indicating whether the connection supports MAC Security (MACsec).
+     * 
+     */
+    @Export(name="macsecCapable", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> macsecCapable;
+
+    /**
+     * @return Boolean value indicating whether the connection supports MAC Security (MACsec).
+     * 
+     */
+    public Output<Boolean> macsecCapable() {
+        return this.macsecCapable;
+    }
+    /**
      * The name of the connection.
      * 
      */
@@ -174,6 +267,20 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.ownerAccountId;
     }
     /**
+     * The MAC Security (MACsec) port link status of the connection.
+     * 
+     */
+    @Export(name="portEncryptionStatus", refs={String.class}, tree="[0]")
+    private Output<String> portEncryptionStatus;
+
+    /**
+     * @return The MAC Security (MACsec) port link status of the connection.
+     * 
+     */
+    public Output<String> portEncryptionStatus() {
+        return this.portEncryptionStatus;
+    }
+    /**
      * The name of the service provider associated with the connection.
      * 
      */
@@ -186,6 +293,34 @@ public class Connection extends com.pulumi.resources.CustomResource {
      */
     public Output<String> providerName() {
         return this.providerName;
+    }
+    /**
+     * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+     * 
+     */
+    @Export(name="requestMacsec", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> requestMacsec;
+
+    /**
+     * @return Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> requestMacsec() {
+        return Codegen.optional(this.requestMacsec);
+    }
+    /**
+     * Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
+     * 
+     */
+    @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipDestroy;
+
+    /**
+     * @return Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
+     * 
+     */
+    public Output<Optional<Boolean>> skipDestroy() {
+        return Codegen.optional(this.skipDestroy);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

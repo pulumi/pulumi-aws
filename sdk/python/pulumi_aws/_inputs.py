@@ -522,6 +522,7 @@ class ProviderEndpointArgs:
                  nimble: Optional[pulumi.Input[str]] = None,
                  nimblestudio: Optional[pulumi.Input[str]] = None,
                  opensearch: Optional[pulumi.Input[str]] = None,
+                 opensearchserverless: Optional[pulumi.Input[str]] = None,
                  opensearchservice: Optional[pulumi.Input[str]] = None,
                  opsworks: Optional[pulumi.Input[str]] = None,
                  opsworkscm: Optional[pulumi.Input[str]] = None,
@@ -1155,6 +1156,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "nimblestudio", nimblestudio)
         if opensearch is not None:
             pulumi.set(__self__, "opensearch", opensearch)
+        if opensearchserverless is not None:
+            pulumi.set(__self__, "opensearchserverless", opensearchserverless)
         if opensearchservice is not None:
             pulumi.set(__self__, "opensearchservice", opensearchservice)
         if opsworks is not None:
@@ -3716,6 +3719,15 @@ class ProviderEndpointArgs:
     @opensearch.setter
     def opensearch(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "opensearch", value)
+
+    @property
+    @pulumi.getter
+    def opensearchserverless(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "opensearchserverless")
+
+    @opensearchserverless.setter
+    def opensearchserverless(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "opensearchserverless", value)
 
     @property
     @pulumi.getter

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? Identifier { get; set; }
 
         /// <summary>
-        /// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+        /// Location of the source code from git or s3.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

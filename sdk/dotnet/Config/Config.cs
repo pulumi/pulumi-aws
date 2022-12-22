@@ -631,6 +631,7 @@ namespace Pulumi.Aws
                 public string? Nimble { get; set; } = null!;
                 public string? Nimblestudio { get; set; } = null!;
                 public string? Opensearch { get; set; } = null!;
+                public string? Opensearchserverless { get; set; } = null!;
                 public string? Opensearchservice { get; set; } = null!;
                 public string? Opsworks { get; set; } = null!;
                 public string? Opsworkscm { get; set; } = null!;

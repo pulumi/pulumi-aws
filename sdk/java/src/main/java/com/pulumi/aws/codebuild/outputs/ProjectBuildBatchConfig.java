@@ -20,7 +20,7 @@ public final class ProjectBuildBatchConfig {
      */
     private @Nullable Boolean combineArtifacts;
     /**
-     * @return Specifies the restrictions for the batch build.
+     * @return Configuration block specifying the restrictions for the batch build. Detailed below.
      * 
      */
     private @Nullable ProjectBuildBatchConfigRestrictions restrictions;
@@ -44,7 +44,7 @@ public final class ProjectBuildBatchConfig {
         return Optional.ofNullable(this.combineArtifacts);
     }
     /**
-     * @return Specifies the restrictions for the batch build.
+     * @return Configuration block specifying the restrictions for the batch build. Detailed below.
      * 
      */
     public Optional<ProjectBuildBatchConfigRestrictions> restrictions() {

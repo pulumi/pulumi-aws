@@ -19,7 +19,7 @@ class EnablerArgs:
         """
         The set of arguments for constructing a Enabler resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: Set of account IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         """
         pulumi.set(__self__, "account_ids", account_ids)
         pulumi.set(__self__, "resource_types", resource_types)
@@ -40,7 +40,7 @@ class EnablerArgs:
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         """
         return pulumi.get(self, "resource_types")
 
@@ -57,7 +57,7 @@ class _EnablerState:
         """
         Input properties used for looking up and filtering Enabler resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: Set of account IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         """
         if account_ids is not None:
             pulumi.set(__self__, "account_ids", account_ids)
@@ -80,7 +80,7 @@ class _EnablerState:
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         """
         return pulumi.get(self, "resource_types")
 
@@ -131,7 +131,7 @@ class Enabler(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: Set of account IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         """
         ...
     @overload
@@ -222,7 +222,7 @@ class Enabler(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: Set of account IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -244,7 +244,7 @@ class Enabler(pulumi.CustomResource):
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> pulumi.Output[Sequence[str]]:
         """
-        Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         """
         return pulumi.get(self, "resource_types")
 

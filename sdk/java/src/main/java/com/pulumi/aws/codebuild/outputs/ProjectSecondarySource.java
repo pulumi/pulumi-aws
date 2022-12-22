@@ -26,7 +26,7 @@ public final class ProjectSecondarySource {
     @Deprecated /* Use the aws_codebuild_source_credential resource instead */
     private @Nullable ProjectSecondarySourceAuth auth;
     /**
-     * @return Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+     * @return Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
      * 
      */
     private @Nullable ProjectSecondarySourceBuildStatusConfig buildStatusConfig;
@@ -66,7 +66,7 @@ public final class ProjectSecondarySource {
      */
     private String sourceIdentifier;
     /**
-     * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
      * 
      */
     private String type;
@@ -84,7 +84,7 @@ public final class ProjectSecondarySource {
         return Optional.ofNullable(this.auth);
     }
     /**
-     * @return Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
+     * @return Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
      * 
      */
     public Optional<ProjectSecondarySourceBuildStatusConfig> buildStatusConfig() {
@@ -140,7 +140,7 @@ public final class ProjectSecondarySource {
         return this.sourceIdentifier;
     }
     /**
-     * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
      * 
      */
     public String type() {

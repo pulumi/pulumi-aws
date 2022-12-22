@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Inspector2
         public Output<ImmutableArray<string>> AccountIds { get; private set; } = null!;
 
         /// <summary>
-        /// Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        /// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         /// </summary>
         [Output("resourceTypes")]
         public Output<ImmutableArray<string>> ResourceTypes { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Inspector2
         private InputList<string>? _resourceTypes;
 
         /// <summary>
-        /// Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        /// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         /// </summary>
         public InputList<string> ResourceTypes
         {
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Inspector2
         private InputList<string>? _resourceTypes;
 
         /// <summary>
-        /// Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type.
+        /// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         /// </summary>
         public InputList<string> ResourceTypes
         {
