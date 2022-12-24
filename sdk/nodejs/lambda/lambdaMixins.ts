@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi";
+import * as awslambda from "aws-lambda";
 
 import * as arn from "../arn";
 import * as iam from "../iam";
@@ -22,113 +23,8 @@ import { Function as LambdaFunction, FunctionArgs } from "./function";
 import * as permission from "./permission";
 import { Runtime } from ".";
 
-/**
- * Context is the shape of the context object passed to a Function callback.  For more information,
- * see: https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html
- */
-export interface Context {
-    /**
-     * The default value is true. This property is useful only to modify the default behavior of the
-     * callback. By default, the callback will wait until the event loop is empty before freezing
-     * the process and returning the results to the caller. You can set this property to false to
-     * request AWS Lambda to freeze the process soon after the callback is called, even if there are
-     * events in the event loop. AWS Lambda will freeze the process, any state data and the events
-     * in the event loop (any remaining events in the event loop processed when the Lambda function
-     * is called next and if AWS Lambda chooses to use the frozen process).
-     */
-    callbackWaitsForEmptyEventLoop: boolean;
-
-    /**
-     * Name of the Lambda function that is executing.
-     */
-    readonly functionName: string;
-
-    /**
-     * The Lambda function version that is executing. If an alias is used to invoke the function,
-     * then function_version will be the version the alias points to.
-     */
-    readonly functionVersion: string;
-
-    /**
-     * The ARN used to invoke this function. It can be a function ARN or an alias ARN. An
-     * unqualified ARN executes the $LATEST version and aliases execute the function version it is
-     * pointing to.
-     */
-    readonly invokedFunctionArn: string;
-
-    /**
-     * Memory limit, in MB, you configured for the Lambda function. You set the memory limit at the
-     * time you create a Lambda function and you can change it later.
-     */
-    readonly memoryLimitInMB: string;
-
-    /**
-     * AWS request ID associated with the request. This is the ID returned to the client that called
-     * the invoke method.
-     *
-     * If AWS Lambda retries the invocation (for example, in a situation where the Lambda function
-     * that is processing Kinesis records throws an exception), the request ID remains the same.
-     */
-    readonly awsRequestId: string;
-
-    /**
-     * The name of the CloudWatch log group where you can find logs written by your Lambda function.
-     */
-    readonly logGroupName: string;
-
-    /**
-     * The name of the CloudWatch log group where you can find logs written by your Lambda function.
-     * The log stream may or may not change for each invocation of the Lambda function.
-     *
-     * The value is null if your Lambda function is unable to create a log stream, which can happen
-     * if the execution role that grants necessary permissions to the Lambda function does not
-     * include permissions for the CloudWatch actions.
-     */
-    readonly logStreamName: string;
-
-    /**
-     * Information about the Amazon Cognito identity provider when invoked through the AWS Mobile
-     * SDK. It can be null.
-     */
-    readonly identity: any;
-
-    /**
-     * Information about the client application and device when invoked through the AWS Mobile SDK.
-     * It can be null.
-     */
-    readonly clientContext: any;
-
-    /**
-     * Returns the approximate remaining execution time (before timeout occurs) of the Lambda
-     * function that is currently executing. The timeout is one of the Lambda function
-     * configuration. When the timeout reaches, AWS Lambda terminates your Lambda function.
-     *
-     * You can use this method to check the remaining time during your function execution and take
-     * appropriate corrective action at run time.
-     */
-    getRemainingTimeInMillis(): string;
-}
-
-/**
- * Callback is the signature for an AWS Lambda function entrypoint.
- *
- * [event] is the data passed in by specific services calling the Lambda (like s3, or kinesis).  The
- * shape of it will be specific to individual services.
- *
- * [context] AWS Lambda uses this parameter to provide details of your Lambda function's execution.
- * For more information, see
- * https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html
- *
- * [callback] See https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html#nodejs-prog-model-handler-callback
- * for details.
- *
- * This function can be synchronous or asynchronous function, though async is only supported with an
- * AWS Lambda runtime of 8.10 or higher.  On those runtimes a Promise can be returned, 'callback'
- * parameter can be ignored, and AWS will appropriately handle things. For AWS lambda pre-8.10, a
- * synchronous function must be provided.  The synchronous function should return nothing, and
- * should instead invoke 'callback' when complete.
- */
-export type Callback<E, R> = (event: E, context: Context, callback: (error?: any, result?: R) => void) => Promise<R> | void;
+export type Context = awslambda.Context;
+export type Callback<E, R> = awslambda.Handler<E, R>;
 
 /**
  * CallbackFactory is the signature for a function that will be called once to produce the
