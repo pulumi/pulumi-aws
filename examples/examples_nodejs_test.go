@@ -108,8 +108,7 @@ func TestAccQueue(t *testing.T) {
 func TestAccEventBus(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "eventbus"),
-			RunUpdateTest: true,
+			Dir: filepath.Join(getCwd(t), "eventbus"),
 		})
 
 	integration.ProgramTest(t, &test)
