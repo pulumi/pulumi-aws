@@ -3,6 +3,7 @@ module github.com/pulumi/pulumi-aws/examples/v5
 go 1.18
 
 require (
+	github.com/aws/aws-sdk-go v1.38.35
 	github.com/pulumi/pulumi/pkg/v3 v3.31.1
 	github.com/stretchr/testify v1.7.1
 )
@@ -27,7 +28,6 @@ require (
 	github.com/Azure/go-autorest/tracing v0.6.0 // indirect
 	github.com/agext/levenshtein v1.2.1 // indirect
 	github.com/apparentlymart/go-textseg v1.0.0 // indirect
-	github.com/aws/aws-sdk-go v1.38.35 // indirect
 	github.com/blang/semver v3.5.1+incompatible // indirect
 	github.com/cheggaaa/pb v1.0.18 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect

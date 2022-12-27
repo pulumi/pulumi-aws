@@ -10,8 +10,12 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 /* see https://github.com/pulumi/pulumi-aws/issues/1264
@@ -147,6 +151,41 @@ func TestAccSecretCapture(t *testing.T) {
 			},
 		})
 
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccCallbackFunction(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "callbackfunction"),
+			ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
+				sess := getAwsSession(t)
+				lambdaClient := lambda.New(sess)
+				arns := info.Outputs["arns"].([]interface{})
+				results := make(chan bool, len(arns))
+				for i := range arns {
+					functionArn := arns[i].(string)
+					go func() {
+						defer func() { results <- true }()
+						res, err := lambdaClient.Invoke(&lambda.InvokeInput{
+							FunctionName: aws.String(functionArn),
+							Payload:      []byte("{}"),
+						})
+						assert.NoError(t, err)
+						assert.Nil(t, res.FunctionError)
+						var payload struct {
+							Success bool `json:"success"`
+						}
+						err = json.Unmarshal(res.Payload, &payload)
+						assert.NoError(t, err)
+						assert.True(t, payload.Success)
+					}()
+				}
+				for range arns {
+					<-results
+				}
+			},
+		})
 	integration.ProgramTest(t, &test)
 }
 
@@ -415,4 +454,17 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	})
 
 	return baseJS
+}
+
+func getAwsSession(t *testing.T) *session.Session {
+	region := getEnvRegion(t)
+	sess, err := session.NewSessionWithOptions(session.Options{
+		SharedConfigState: session.SharedConfigEnable,
+		Config: aws.Config{
+			Region:                        aws.String(region),
+			CredentialsChainVerboseErrors: aws.Bool(true),
+		},
+	})
+	require.NoError(t, err)
+	return sess
 }
