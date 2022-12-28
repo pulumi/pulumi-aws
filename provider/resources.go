@@ -4546,6 +4546,7 @@ func Provider() tfbridge.ProviderInfo {
 				Enum: []schema.EnumValueSpec{
 					{Value: "dotnetcore2.1", Name: "DotnetCore2d1", DeprecationMessage: "This runtime is now deprecated"},
 					{Value: "dotnetcore3.1", Name: "DotnetCore3d1"},
+					{Value: "dotnet5.0", Name: "Dotnet5d0"},
 					{Value: "dotnet6", Name: "Dotnet6"},
 					{Value: "go1.x", Name: "Go1dx"},
 					{Value: "java8", Name: "Java8"},
@@ -4557,8 +4558,9 @@ func Provider() tfbridge.ProviderInfo {
 					{Value: "nodejs12.x", Name: "NodeJS12dX"},
 					{Value: "nodejs14.x", Name: "NodeJS14dX"},
 					{Value: "nodejs16.x", Name: "NodeJS16dX"},
+					{Value: "nodejs18.x", Name: "NodeJS18dX"},
 					{Value: "python2.7", Name: "Python2d7", DeprecationMessage: "This runtime is now deprecated"},
-					{Value: "python3.6", Name: "Python3d6"},
+					{Value: "python3.6", Name: "Python3d6", DeprecationMessage: "This runtime is now deprecated"},
 					{Value: "python3.7", Name: "Python3d7"},
 					{Value: "python3.8", Name: "Python3d8"},
 					{Value: "python3.9", Name: "Python3d9"},

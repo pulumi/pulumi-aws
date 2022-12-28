@@ -21,6 +21,7 @@ import java.util.StringJoiner;
         @Deprecated /* This runtime is now deprecated */
         DotnetCore2d1("dotnetcore2.1"),
         DotnetCore3d1("dotnetcore3.1"),
+        Dotnet5d0("dotnet5.0"),
         Dotnet6("dotnet6"),
         Go1dx("go1.x"),
         Java8("java8"),
@@ -42,12 +43,18 @@ import java.util.StringJoiner;
         NodeJS12dX("nodejs12.x"),
         NodeJS14dX("nodejs14.x"),
         NodeJS16dX("nodejs16.x"),
+        NodeJS18dX("nodejs18.x"),
         /**
          * @deprecated
          * This runtime is now deprecated
          */
         @Deprecated /* This runtime is now deprecated */
         Python2d7("python2.7"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
         Python3d6("python3.6"),
         Python3d7("python3.7"),
         Python3d8("python3.8"),

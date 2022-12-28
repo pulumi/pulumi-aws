@@ -17,6 +17,7 @@ const (
 	// Deprecated: This runtime is now deprecated
 	RuntimeDotnetCore2d1 = Runtime("dotnetcore2.1")
 	RuntimeDotnetCore3d1 = Runtime("dotnetcore3.1")
+	RuntimeDotnet5d0     = Runtime("dotnet5.0")
 	RuntimeDotnet6       = Runtime("dotnet6")
 	RuntimeGo1dx         = Runtime("go1.x")
 	RuntimeJava8         = Runtime("java8")
@@ -30,8 +31,10 @@ const (
 	RuntimeNodeJS12dX = Runtime("nodejs12.x")
 	RuntimeNodeJS14dX = Runtime("nodejs14.x")
 	RuntimeNodeJS16dX = Runtime("nodejs16.x")
+	RuntimeNodeJS18dX = Runtime("nodejs18.x")
 	// Deprecated: This runtime is now deprecated
 	RuntimePython2d7 = Runtime("python2.7")
+	// Deprecated: This runtime is now deprecated
 	RuntimePython3d6 = Runtime("python3.6")
 	RuntimePython3d7 = Runtime("python3.7")
 	RuntimePython3d8 = Runtime("python3.8")
