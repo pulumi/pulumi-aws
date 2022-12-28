@@ -41,26 +41,26 @@ export interface Context {
     /**
      * Name of the Lambda function that is executing.
      */
-    readonly functionName: string;
+    functionName: string;
 
     /**
      * The Lambda function version that is executing. If an alias is used to invoke the function,
      * then function_version will be the version the alias points to.
      */
-    readonly functionVersion: string;
+    functionVersion: string;
 
     /**
      * The ARN used to invoke this function. It can be a function ARN or an alias ARN. An
      * unqualified ARN executes the $LATEST version and aliases execute the function version it is
      * pointing to.
      */
-    readonly invokedFunctionArn: string;
+    invokedFunctionArn: string;
 
     /**
      * Memory limit, in MB, you configured for the Lambda function. You set the memory limit at the
      * time you create a Lambda function and you can change it later.
      */
-    readonly memoryLimitInMB: string;
+    memoryLimitInMB: string;
 
     /**
      * AWS request ID associated with the request. This is the ID returned to the client that called
@@ -69,12 +69,12 @@ export interface Context {
      * If AWS Lambda retries the invocation (for example, in a situation where the Lambda function
      * that is processing Kinesis records throws an exception), the request ID remains the same.
      */
-    readonly awsRequestId: string;
+    awsRequestId: string;
 
     /**
      * The name of the CloudWatch log group where you can find logs written by your Lambda function.
      */
-    readonly logGroupName: string;
+    logGroupName: string;
 
     /**
      * The name of the CloudWatch log group where you can find logs written by your Lambda function.
@@ -84,19 +84,19 @@ export interface Context {
      * if the execution role that grants necessary permissions to the Lambda function does not
      * include permissions for the CloudWatch actions.
      */
-    readonly logStreamName: string;
+    logStreamName: string;
 
     /**
      * Information about the Amazon Cognito identity provider when invoked through the AWS Mobile
      * SDK. It can be null.
      */
-    readonly identity: any;
+    identity?: any;
 
     /**
      * Information about the client application and device when invoked through the AWS Mobile SDK.
      * It can be null.
      */
-    readonly clientContext: any;
+    clientContext?: any;
 
     /**
      * Returns the approximate remaining execution time (before timeout occurs) of the Lambda
@@ -106,7 +106,22 @@ export interface Context {
      * You can use this method to check the remaining time during your function execution and take
      * appropriate corrective action at run time.
      */
-    getRemainingTimeInMillis(): string;
+    getRemainingTimeInMillis(): number;
+
+    // Functions for compatibility with earlier Node.js Runtime v0.10.42
+    // No longer documented, so they are deprecated, but they still work
+    // as of the 12.x runtime, so they are not removed from the types.
+
+    /** @deprecated Use handler callback or promise result */
+    done(error?: Error, result?: any): void;
+    /** @deprecated Use handler callback with first argument or reject a promise result */
+    fail(error: Error | string): void;
+    /** @deprecated Use handler callback with second argument or resolve a promise result */
+    succeed(messageOrObject: any): void;
+    // Unclear what behavior this is supposed to have, I couldn't find any still extant reference,
+    // and it behaves like the above, ignoring the object parameter.
+    /** @deprecated Use handler callback or promise result */
+    succeed(message: string, object: any): void;
 }
 
 /**
@@ -128,7 +143,7 @@ export interface Context {
  * synchronous function must be provided.  The synchronous function should return nothing, and
  * should instead invoke 'callback' when complete.
  */
-export type Callback<E, R> = (event: E, context: Context, callback: (error?: any, result?: R) => void) => Promise<R> | void;
+export type Callback<E, R> = (event: E, context: Context, callback: (error?: Error | string | null, result?: R) => void) => Promise<R> | void;
 
 /**
  * CallbackFactory is the signature for a function that will be called once to produce the
