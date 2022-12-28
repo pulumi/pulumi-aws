@@ -5398,7 +5398,6 @@ func Provider() tfbridge.ProviderInfo {
 			Dependencies: map[string]string{
 				"@pulumi/pulumi":    "^3.0.0",
 				"aws-sdk":           "^2.0.0",
-				"@types/aws-lambda": "^8.0.0",
 				"mime":              "^2.0.0",
 				"builtin-modules":   "3.0.0",
 				"read-package-tree": "^5.2.1",
