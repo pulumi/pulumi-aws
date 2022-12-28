@@ -105,6 +105,15 @@ func TestAccQueue(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccEventBus(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "eventbus"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccStream(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{

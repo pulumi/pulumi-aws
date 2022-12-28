@@ -107,6 +107,7 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
             rule: this.eventRule.name,
             arn: this.func.arn,
             targetId: name,
+            eventBusName: this.eventRule.eventBusName.apply(x => x!),
         }, parentOpts);
 
         this.registerOutputs();
