@@ -23,6 +23,7 @@ namespace Pulumi.Aws.Lambda
         [Obsolete(@"This runtime is now deprecated")]
         public static Runtime DotnetCore2d1 { get; } = new Runtime("dotnetcore2.1");
         public static Runtime DotnetCore3d1 { get; } = new Runtime("dotnetcore3.1");
+        public static Runtime Dotnet5d0 { get; } = new Runtime("dotnet5.0");
         public static Runtime Dotnet6 { get; } = new Runtime("dotnet6");
         public static Runtime Go1dx { get; } = new Runtime("go1.x");
         public static Runtime Java8 { get; } = new Runtime("java8");
@@ -36,8 +37,10 @@ namespace Pulumi.Aws.Lambda
         public static Runtime NodeJS12dX { get; } = new Runtime("nodejs12.x");
         public static Runtime NodeJS14dX { get; } = new Runtime("nodejs14.x");
         public static Runtime NodeJS16dX { get; } = new Runtime("nodejs16.x");
+        public static Runtime NodeJS18dX { get; } = new Runtime("nodejs18.x");
         [Obsolete(@"This runtime is now deprecated")]
         public static Runtime Python2d7 { get; } = new Runtime("python2.7");
+        [Obsolete(@"This runtime is now deprecated")]
         public static Runtime Python3d6 { get; } = new Runtime("python3.6");
         public static Runtime Python3d7 { get; } = new Runtime("python3.7");
         public static Runtime Python3d8 { get; } = new Runtime("python3.8");
