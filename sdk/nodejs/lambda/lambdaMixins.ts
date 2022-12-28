@@ -374,7 +374,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             code: code,
             handler: serializedFileNameNoExtension + "." + handlerName,
             runtime: args.runtime || Runtime.NodeJS16dX,
-            role: role instanceof iam.Role ? role.arn : role,
+            role: iam.Role.isInstance(role) ? role.arn : role,
             timeout: args.timeout === undefined ? 180 : args.timeout,
         };
 
@@ -387,7 +387,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
         }
 
         super(name, functionArgs, opts);
-        if (role instanceof iam.Role) {
+        if (iam.Role.isInstance(role)) {
             this.roleInstance = role;
         }
     }
