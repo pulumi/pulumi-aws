@@ -352,7 +352,17 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             closure, serializedFileNameNoExtension, args.codePathOptions);
 
         const code = pulumi.output(new pulumi.asset.AssetArchive(codePaths));
-        (<any>code).isSecret = closure.then(c => c.containsSecrets);
+        (<any>code).isSecret = closure.then(c => {
+            if (c.containsSecrets) {
+                pulumi.log.warn(`A secret value was captured and serialized into the body of the Lambda Function '${name}'. ` +
+                                `This value will be stored as an encrypted Pulumi secret, but may be available in plain text ` +
+                                `inside the AWS deployment package. You can use 'pulumi.unsecret' to convert the value to a non-secret ` +
+                                `value if this is not a sensitive value, or else use Secrets Manager or environment variables to pass the ` +
+                                `sensitive data to your function.`, this);
+                return true;
+            }
+            return false;
+        });
 
         // Copy over all option values into the function args.  Then overwrite anything we care
         // about with our own values.  This ensures that clients can pass future supported
