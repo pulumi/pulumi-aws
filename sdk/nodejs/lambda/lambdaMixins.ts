@@ -185,7 +185,7 @@ export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
     /**
      * A pre-created role to use for the Function. If not provided, [policies] will be used.
      */
-    role?: iam.Role;
+    role?: iam.Role | pulumi.Input<arn.ARN>;
 
     /**
      * A list of IAM policy ARNs to attach to the Function.  Will be used if [role] is not provide.
@@ -296,7 +296,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             throw new Error("One of [callback] or [callbackFactory] must be provided.");
         }
 
-        let role: iam.Role;
+        let role: iam.Role | pulumi.Input<arn.ARN>;
         if (args.role) {
             role = args.role;
         } else {
@@ -374,7 +374,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             code: code,
             handler: serializedFileNameNoExtension + "." + handlerName,
             runtime: args.runtime || Runtime.NodeJS16dX,
-            role: role.arn,
+            role: iam.Role.isInstance(role) ? role.arn : role,
             timeout: args.timeout === undefined ? 180 : args.timeout,
         };
 
@@ -387,7 +387,9 @@ export class CallbackFunction<E, R> extends LambdaFunction {
         }
 
         super(name, functionArgs, opts);
-        this.roleInstance = role;
+        if (iam.Role.isInstance(role)) {
+            this.roleInstance = role;
+        }
     }
 }
 

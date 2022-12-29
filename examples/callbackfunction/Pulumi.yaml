@@ -1,0 +1,3 @@
+name: callbackfunction
+runtime: nodejs
+description: Test capturing secrets in callback functions.
