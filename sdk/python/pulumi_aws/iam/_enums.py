@@ -43,6 +43,7 @@ class ManagedPolicy(str, Enum):
     AWS_CODE_PIPELINE_READ_ONLY_ACCESS = "arn:aws:iam::aws:policy/AWSCodePipelineReadOnlyAccess"
     AWS_CODE_STAR_FULL_ACCESS = "arn:aws:iam::aws:policy/AWSCodeStarFullAccess"
     AWS_CODE_STAR_SERVICE_ROLE = "arn:aws:iam::aws:policy/service-role/AWSCodeStarServiceRole"
+    AW_S_CONFIG_ROLE = "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"
     AWS_CONFIG_ROLE = "arn:aws:iam::aws:policy/service-role/AWSConfigRole"
     AWS_CONFIG_RULES_EXECUTION_ROLE = "arn:aws:iam::aws:policy/service-role/AWSConfigRulesExecutionRole"
     AWS_CONFIG_USER_ACCESS = "arn:aws:iam::aws:policy/AWSConfigUserAccess"
