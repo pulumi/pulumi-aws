@@ -4277,7 +4277,12 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "AWSCodePipelineReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCodePipelineReadOnlyAccess"},
 					{Name: "AWSCodeStarFullAccess", Value: "arn:aws:iam::aws:policy/AWSCodeStarFullAccess"},
 					{Name: "AWSCodeStarServiceRole", Value: "arn:aws:iam::aws:policy/service-role/AWSCodeStarServiceRole"},
-					{Name: "AWSConfigRole", Value: "arn:aws:iam::aws:policy/service-role/AWSConfigRole"},
+					{Name: "AWS_ConfigRole", Value: "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"},
+					{
+						Name:               "AWSConfigRole",
+						Value:              "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
+						DeprecationMessage: "This has been deprecated in favour of `AWS_ConfigRole`",
+					},
 					{Name: "AWSConfigRulesExecutionRole", Value: "arn:aws:iam::aws:policy/service-role/AWSConfigRulesExecutionRole"},
 					{Name: "AWSConfigUserAccess", Value: "arn:aws:iam::aws:policy/AWSConfigUserAccess"},
 					{Name: "AWSConnector", Value: "arn:aws:iam::aws:policy/AWSConnector"},

@@ -43,6 +43,12 @@ import java.util.StringJoiner;
         AWSCodePipelineReadOnlyAccess("arn:aws:iam::aws:policy/AWSCodePipelineReadOnlyAccess"),
         AWSCodeStarFullAccess("arn:aws:iam::aws:policy/AWSCodeStarFullAccess"),
         AWSCodeStarServiceRole("arn:aws:iam::aws:policy/service-role/AWSCodeStarServiceRole"),
+        AWS_ConfigRole("arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"),
+        /**
+         * @deprecated
+         * This has been deprecated in favour of `AWS_ConfigRole`
+         */
+        @Deprecated /* This has been deprecated in favour of `AWS_ConfigRole` */
         AWSConfigRole("arn:aws:iam::aws:policy/service-role/AWSConfigRole"),
         AWSConfigRulesExecutionRole("arn:aws:iam::aws:policy/service-role/AWSConfigRulesExecutionRole"),
         AWSConfigUserAccess("arn:aws:iam::aws:policy/AWSConfigUserAccess"),
