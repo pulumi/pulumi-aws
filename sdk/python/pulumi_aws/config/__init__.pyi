@@ -119,7 +119,7 @@ Skip the credentials validation via STS API. Used for AWS API implementations th
 available/implemented.
 """
 
-skipGetEc2Platforms: bool
+skipGetEc2Platforms: Optional[bool]
 """
 Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
 """

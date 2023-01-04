@@ -172,11 +172,11 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('skipCredentialsValidation') or False
 
     @property
-    def skip_get_ec2_platforms(self) -> bool:
+    def skip_get_ec2_platforms(self) -> Optional[bool]:
         """
         Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
         """
-        return __config__.get_bool('skipGetEc2Platforms') or True
+        return __config__.get_bool('skipGetEc2Platforms')
 
     @property
     def skip_metadata_api_check(self) -> bool:

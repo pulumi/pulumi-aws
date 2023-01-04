@@ -262,10 +262,10 @@ Object.defineProperty(exports, "skipCredentialsValidation", {
 /**
  * Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
  */
-export declare const skipGetEc2Platforms: boolean;
+export declare const skipGetEc2Platforms: boolean | undefined;
 Object.defineProperty(exports, "skipGetEc2Platforms", {
     get() {
-        return __config.getObject<boolean>("skipGetEc2Platforms") ?? true;
+        return __config.getObject<boolean>("skipGetEc2Platforms");
     },
     enumerable: true,
 });

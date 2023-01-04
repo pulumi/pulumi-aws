@@ -441,9 +441,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"skip_get_ec2_platforms": {
-				Default: &tfbridge.DefaultInfo{
-					Value: true,
-				},
+				// We don't want a default here because this setting is deprecated upstream,
+				// so setting it triggers a warning on all provider operations. #2292
 			},
 			"skip_region_validation": {
 				Default: &tfbridge.DefaultInfo{
