@@ -34,6 +34,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/ryboe/q"
 )
 
 // all of the AWS token components used below.
@@ -438,11 +439,6 @@ func Provider() tfbridge.ProviderInfo {
 				Type: awsTypeDefaultFile(awsMod, "Region"),
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
-				},
-			},
-			"skip_get_ec2_platforms": {
-				Default: &tfbridge.DefaultInfo{
-					Value: true,
 				},
 			},
 			"skip_region_validation": {
@@ -5733,6 +5729,8 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
 	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
+
+	q.Q(prov.Config)
 
 	return prov
 }
