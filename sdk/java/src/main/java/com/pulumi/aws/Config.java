@@ -174,7 +174,7 @@ public final class Config {
  * 
  */
     public Optional<Boolean> skipGetEc2Platforms() {
-        return Codegen.booleanProp("skipGetEc2Platforms").config(config).def(true).get();
+        return Codegen.booleanProp("skipGetEc2Platforms").config(config).get();
     }
 /**
  * Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
