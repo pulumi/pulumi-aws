@@ -440,6 +440,10 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
 				},
 			},
+			"skip_get_ec2_platforms": {
+				// We don't want a default here because this setting is deprecated upstream,
+				// so setting it triggers a warning on all provider operations. #2292
+			},
 			"skip_region_validation": {
 				Default: &tfbridge.DefaultInfo{
 					Value: true,
