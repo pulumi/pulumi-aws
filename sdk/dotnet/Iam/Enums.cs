@@ -50,6 +50,8 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSCodePipelineReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCodePipelineReadOnlyAccess");
         public static ManagedPolicy AWSCodeStarFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCodeStarFullAccess");
         public static ManagedPolicy AWSCodeStarServiceRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSCodeStarServiceRole");
+        public static ManagedPolicy AWS_ConfigRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWS_ConfigRole");
+        [Obsolete(@"This has been deprecated in favour of `AWS_ConfigRole`")]
         public static ManagedPolicy AWSConfigRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSConfigRole");
         public static ManagedPolicy AWSConfigRulesExecutionRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSConfigRulesExecutionRole");
         public static ManagedPolicy AWSConfigUserAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSConfigUserAccess");
