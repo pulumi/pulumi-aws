@@ -60,9 +60,6 @@ func NewProvider(ctx *pulumi.Context,
 	if isZero(args.SkipCredentialsValidation) {
 		args.SkipCredentialsValidation = pulumi.BoolPtr(false)
 	}
-	if isZero(args.SkipGetEc2Platforms) {
-		args.SkipGetEc2Platforms = pulumi.BoolPtr(true)
-	}
 	if isZero(args.SkipMetadataApiCheck) {
 		args.SkipMetadataApiCheck = pulumi.BoolPtr(true)
 	}

@@ -256,7 +256,7 @@ namespace Pulumi.Aws
             set => _skipCredentialsValidation.Set(value);
         }
 
-        private static readonly __Value<bool?> _skipGetEc2Platforms = new __Value<bool?>(() => __config.GetBoolean("skipGetEc2Platforms") ?? true);
+        private static readonly __Value<bool?> _skipGetEc2Platforms = new __Value<bool?>(() => __config.GetBoolean("skipGetEc2Platforms"));
         /// <summary>
         /// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
         /// </summary>

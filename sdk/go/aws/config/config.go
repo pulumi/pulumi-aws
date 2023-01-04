@@ -138,11 +138,7 @@ func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 //
 // Deprecated: With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
 func GetSkipGetEc2Platforms(ctx *pulumi.Context) bool {
-	v, err := config.TryBool(ctx, "aws:skipGetEc2Platforms")
-	if err == nil {
-		return v
-	}
-	return true
+	return config.GetBool(ctx, "aws:skipGetEc2Platforms")
 }
 
 // Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
