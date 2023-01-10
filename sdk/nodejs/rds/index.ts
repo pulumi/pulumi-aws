@@ -82,6 +82,11 @@ export const getInstance: typeof import("./getInstance").getInstance = null as a
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
 
+export { GetInstancesArgs, GetInstancesResult, GetInstancesOutputArgs } from "./getInstances";
+export const getInstances: typeof import("./getInstances").getInstances = null as any;
+export const getInstancesOutput: typeof import("./getInstances").getInstancesOutput = null as any;
+utilities.lazyLoad(exports, ["getInstances","getInstancesOutput"], () => require("./getInstances"));
+
 export { GetOrderableDbInstanceArgs, GetOrderableDbInstanceResult, GetOrderableDbInstanceOutputArgs } from "./getOrderableDbInstance";
 export const getOrderableDbInstance: typeof import("./getOrderableDbInstance").getOrderableDbInstance = null as any;
 export const getOrderableDbInstanceOutput: typeof import("./getOrderableDbInstance").getOrderableDbInstanceOutput = null as any;

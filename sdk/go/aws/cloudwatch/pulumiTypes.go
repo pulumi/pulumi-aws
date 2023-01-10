@@ -5311,6 +5311,1182 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricArrayOutput) Index(i pul
 	}).(MetricStreamStatisticsConfigurationIncludeMetricOutput)
 }
 
+type GetLogDataProtectionPolicyDocumentStatement struct {
+	// Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
+	DataIdentifiers []string `pulumi:"dataIdentifiers"`
+	// Configures the data protection operation applied by this statement.
+	Operation GetLogDataProtectionPolicyDocumentStatementOperation `pulumi:"operation"`
+	// Name of this statement.
+	Sid *string `pulumi:"sid"`
+}
+
+// GetLogDataProtectionPolicyDocumentStatementInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementArgs and GetLogDataProtectionPolicyDocumentStatementOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementInput` via:
+//
+//	GetLogDataProtectionPolicyDocumentStatementArgs{...}
+type GetLogDataProtectionPolicyDocumentStatementInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOutput() GetLogDataProtectionPolicyDocumentStatementOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOutput
+}
+
+type GetLogDataProtectionPolicyDocumentStatementArgs struct {
+	// Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
+	DataIdentifiers pulumi.StringArrayInput `pulumi:"dataIdentifiers"`
+	// Configures the data protection operation applied by this statement.
+	Operation GetLogDataProtectionPolicyDocumentStatementOperationInput `pulumi:"operation"`
+	// Name of this statement.
+	Sid pulumi.StringPtrInput `pulumi:"sid"`
+}
+
+func (GetLogDataProtectionPolicyDocumentStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatement)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementArgs) ToGetLogDataProtectionPolicyDocumentStatementOutput() GetLogDataProtectionPolicyDocumentStatementOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementArgs) ToGetLogDataProtectionPolicyDocumentStatementOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOutput)
+}
+
+// GetLogDataProtectionPolicyDocumentStatementArrayInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementArray and GetLogDataProtectionPolicyDocumentStatementArrayOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementArrayInput` via:
+//
+//	GetLogDataProtectionPolicyDocumentStatementArray{ GetLogDataProtectionPolicyDocumentStatementArgs{...} }
+type GetLogDataProtectionPolicyDocumentStatementArrayInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementArrayOutput() GetLogDataProtectionPolicyDocumentStatementArrayOutput
+	ToGetLogDataProtectionPolicyDocumentStatementArrayOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementArrayOutput
+}
+
+type GetLogDataProtectionPolicyDocumentStatementArray []GetLogDataProtectionPolicyDocumentStatementInput
+
+func (GetLogDataProtectionPolicyDocumentStatementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogDataProtectionPolicyDocumentStatement)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementArray) ToGetLogDataProtectionPolicyDocumentStatementArrayOutput() GetLogDataProtectionPolicyDocumentStatementArrayOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementArrayOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementArray) ToGetLogDataProtectionPolicyDocumentStatementArrayOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementArrayOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatement)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOutput) ToGetLogDataProtectionPolicyDocumentStatementOutput() GetLogDataProtectionPolicyDocumentStatementOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOutput) ToGetLogDataProtectionPolicyDocumentStatementOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOutput {
+	return o
+}
+
+// Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
+func (o GetLogDataProtectionPolicyDocumentStatementOutput) DataIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatement) []string { return v.DataIdentifiers }).(pulumi.StringArrayOutput)
+}
+
+// Configures the data protection operation applied by this statement.
+func (o GetLogDataProtectionPolicyDocumentStatementOutput) Operation() GetLogDataProtectionPolicyDocumentStatementOperationOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatement) GetLogDataProtectionPolicyDocumentStatementOperation {
+		return v.Operation
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationOutput)
+}
+
+// Name of this statement.
+func (o GetLogDataProtectionPolicyDocumentStatementOutput) Sid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatement) *string { return v.Sid }).(pulumi.StringPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogDataProtectionPolicyDocumentStatement)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementArrayOutput) ToGetLogDataProtectionPolicyDocumentStatementArrayOutput() GetLogDataProtectionPolicyDocumentStatementArrayOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementArrayOutput) ToGetLogDataProtectionPolicyDocumentStatementArrayOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementArrayOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementArrayOutput) Index(i pulumi.IntInput) GetLogDataProtectionPolicyDocumentStatementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLogDataProtectionPolicyDocumentStatement {
+		return vs[0].([]GetLogDataProtectionPolicyDocumentStatement)[vs[1].(int)]
+	}).(GetLogDataProtectionPolicyDocumentStatementOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperation struct {
+	// Configures the detection of sensitive data.
+	Audit *GetLogDataProtectionPolicyDocumentStatementOperationAudit `pulumi:"audit"`
+	// Configures the masking of sensitive data.
+	Deidentify *GetLogDataProtectionPolicyDocumentStatementOperationDeidentify `pulumi:"deidentify"`
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationArgs and GetLogDataProtectionPolicyDocumentStatementOperationOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationInput` via:
+//
+//	GetLogDataProtectionPolicyDocumentStatementOperationArgs{...}
+type GetLogDataProtectionPolicyDocumentStatementOperationInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationOutput() GetLogDataProtectionPolicyDocumentStatementOperationOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationOutput
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationArgs struct {
+	// Configures the detection of sensitive data.
+	Audit GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrInput `pulumi:"audit"`
+	// Configures the masking of sensitive data.
+	Deidentify GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrInput `pulumi:"deidentify"`
+}
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperation)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationOutput() GetLogDataProtectionPolicyDocumentStatementOperationOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperation)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationOutput() GetLogDataProtectionPolicyDocumentStatementOperationOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationOutput {
+	return o
+}
+
+// Configures the detection of sensitive data.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) Audit() GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperation) *GetLogDataProtectionPolicyDocumentStatementOperationAudit {
+		return v.Audit
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput)
+}
+
+// Configures the masking of sensitive data.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) Deidentify() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperation) *GetLogDataProtectionPolicyDocumentStatementOperationDeidentify {
+		return v.Deidentify
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAudit struct {
+	// Configures destinations to send audit findings to.
+	FindingsDestination GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination `pulumi:"findingsDestination"`
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationAuditInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs and GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationAuditInput` via:
+//
+//	GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs{...}
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs struct {
+	// Configures destinations to send audit findings to.
+	FindingsDestination GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationInput `pulumi:"findingsDestination"`
+}
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAudit)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput)
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput).ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutputWithContext(ctx)
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs, GetLogDataProtectionPolicyDocumentStatementOperationAuditPtr and GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrInput` via:
+//
+//	        GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput
+}
+
+type getLogDataProtectionPolicyDocumentStatementOperationAuditPtrType GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs
+
+func GetLogDataProtectionPolicyDocumentStatementOperationAuditPtr(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs) GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrInput {
+	return (*getLogDataProtectionPolicyDocumentStatementOperationAuditPtrType)(v)
+}
+
+func (*getLogDataProtectionPolicyDocumentStatementOperationAuditPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationAudit)(nil)).Elem()
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditPtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutputWithContext(context.Background())
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditPtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAudit)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput {
+	return o.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutputWithContext(context.Background())
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLogDataProtectionPolicyDocumentStatementOperationAudit) *GetLogDataProtectionPolicyDocumentStatementOperationAudit {
+		return &v
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput)
+}
+
+// Configures destinations to send audit findings to.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput) FindingsDestination() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAudit) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination {
+		return v.FindingsDestination
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationAudit)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAudit) GetLogDataProtectionPolicyDocumentStatementOperationAudit {
+		if v != nil {
+			return *v
+		}
+		var ret GetLogDataProtectionPolicyDocumentStatementOperationAudit
+		return ret
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput)
+}
+
+// Configures destinations to send audit findings to.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput) FindingsDestination() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAudit) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination {
+		if v == nil {
+			return nil
+		}
+		return &v.FindingsDestination
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination struct {
+	// Configures CloudWatch Logs as a findings destination.
+	CloudwatchLogs *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs `pulumi:"cloudwatchLogs"`
+	// Configures Kinesis Firehose as a findings destination.
+	Firehose *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose `pulumi:"firehose"`
+	// Configures S3 as a findings destination.
+	S3 *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 `pulumi:"s3"`
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs and GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationInput` via:
+//
+//	GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs{...}
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs struct {
+	// Configures CloudWatch Logs as a findings destination.
+	CloudwatchLogs GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
+	// Configures Kinesis Firehose as a findings destination.
+	Firehose GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrInput `pulumi:"firehose"`
+	// Configures S3 as a findings destination.
+	S3 GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrInput `pulumi:"s3"`
+}
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput)
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput).ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutputWithContext(ctx)
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs, GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtr and GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrInput` via:
+//
+//	        GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput
+}
+
+type getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrType GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs
+
+func GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtr(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrInput {
+	return (*getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrType)(v)
+}
+
+func (*getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination)(nil)).Elem()
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput {
+	return o.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination {
+		return &v
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput)
+}
+
+// Configures CloudWatch Logs as a findings destination.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) CloudwatchLogs() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs {
+		return v.CloudwatchLogs
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput)
+}
+
+// Configures Kinesis Firehose as a findings destination.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) Firehose() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose {
+		return v.Firehose
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput)
+}
+
+// Configures S3 as a findings destination.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) S3() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 {
+		return v.S3
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination {
+		if v != nil {
+			return *v
+		}
+		var ret GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination
+		return ret
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput)
+}
+
+// Configures CloudWatch Logs as a findings destination.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) CloudwatchLogs() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogs
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput)
+}
+
+// Configures Kinesis Firehose as a findings destination.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) Firehose() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose {
+		if v == nil {
+			return nil
+		}
+		return v.Firehose
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput)
+}
+
+// Configures S3 as a findings destination.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) S3() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs struct {
+	// Name of the CloudWatch Log Group to send findings to.
+	LogGroup string `pulumi:"logGroup"`
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs and GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsInput` via:
+//
+//	GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs{...}
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs struct {
+	// Name of the CloudWatch Log Group to send findings to.
+	LogGroup pulumi.StringInput `pulumi:"logGroup"`
+}
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput)
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput).ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutputWithContext(ctx)
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs, GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtr and GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrInput` via:
+//
+//	        GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput
+}
+
+type getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrType GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs
+
+func GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtr(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrInput {
+	return (*getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrType)(v)
+}
+
+func (*getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs)(nil)).Elem()
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
+	return o.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs {
+		return &v
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput)
+}
+
+// Name of the CloudWatch Log Group to send findings to.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput) LogGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs) string {
+		return v.LogGroup
+	}).(pulumi.StringOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs {
+		if v != nil {
+			return *v
+		}
+		var ret GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs
+		return ret
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput)
+}
+
+// Name of the CloudWatch Log Group to send findings to.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose struct {
+	// Name of the Kinesis Firehose Delivery Stream to send findings to.
+	DeliveryStream string `pulumi:"deliveryStream"`
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs and GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInput` via:
+//
+//	GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs{...}
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs struct {
+	// Name of the Kinesis Firehose Delivery Stream to send findings to.
+	DeliveryStream pulumi.StringInput `pulumi:"deliveryStream"`
+}
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput)
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput).ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutputWithContext(ctx)
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs, GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtr and GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrInput` via:
+//
+//	        GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput
+}
+
+type getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrType GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs
+
+func GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtr(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrInput {
+	return (*getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrType)(v)
+}
+
+func (*getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose)(nil)).Elem()
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutputWithContext(context.Background())
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
+	return o.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutputWithContext(context.Background())
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose {
+		return &v
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput)
+}
+
+// Name of the Kinesis Firehose Delivery Stream to send findings to.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput) DeliveryStream() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose) string {
+		return v.DeliveryStream
+	}).(pulumi.StringOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose {
+		if v != nil {
+			return *v
+		}
+		var ret GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose
+		return ret
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput)
+}
+
+// Name of the Kinesis Firehose Delivery Stream to send findings to.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeliveryStream
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 struct {
+	// Name of the S3 Bucket to send findings to.
+	Bucket string `pulumi:"bucket"`
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Input is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args and GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Input` via:
+//
+//	GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args{...}
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Input interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3OutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args struct {
+	// Name of the S3 Bucket to send findings to.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+}
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3OutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3OutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output)
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output).ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutputWithContext(ctx)
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args, GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Ptr and GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrInput` via:
+//
+//	        GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args{...}
+//
+//	or:
+//
+//	        nil
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput
+}
+
+type getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrType GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args
+
+func GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Ptr(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrInput {
+	return (*getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrType)(v)
+}
+
+func (*getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3)(nil)).Elem()
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutputWithContext(context.Background())
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3OutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
+	return o.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutputWithContext(context.Background())
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 {
+		return &v
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput)
+}
+
+// Name of the S3 Bucket to send findings to.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3) string {
+		return v.Bucket
+	}).(pulumi.StringOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 {
+		if v != nil {
+			return *v
+		}
+		var ret GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3
+		return ret
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output)
+}
+
+// Name of the S3 Bucket to send findings to.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationDeidentify struct {
+	// An empty object that configures masking.
+	MaskConfig GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig `pulumi:"maskConfig"`
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs and GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInput` via:
+//
+//	GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs{...}
+type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs struct {
+	// An empty object that configures masking.
+	MaskConfig GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigInput `pulumi:"maskConfig"`
+}
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentify)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput)
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput).ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutputWithContext(ctx)
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs, GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtr and GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrInput` via:
+//
+//	        GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput
+}
+
+type getLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrType GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs
+
+func GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtr(v *GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrInput {
+	return (*getLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrType)(v)
+}
+
+func (*getLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationDeidentify)(nil)).Elem()
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutputWithContext(context.Background())
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentify)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
+	return o.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutputWithContext(context.Background())
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLogDataProtectionPolicyDocumentStatementOperationDeidentify) *GetLogDataProtectionPolicyDocumentStatementOperationDeidentify {
+		return &v
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput)
+}
+
+// An empty object that configures masking.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput) MaskConfig() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationDeidentify) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig {
+		return v.MaskConfig
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationDeidentify)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationDeidentify) GetLogDataProtectionPolicyDocumentStatementOperationDeidentify {
+		if v != nil {
+			return *v
+		}
+		var ret GetLogDataProtectionPolicyDocumentStatementOperationDeidentify
+		return ret
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput)
+}
+
+// An empty object that configures masking.
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput) MaskConfig() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationDeidentify) *GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.MaskConfig
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig struct {
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs and GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigInput` via:
+//
+//	GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs{...}
+type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs struct {
+}
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput)
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput).ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutputWithContext(ctx)
+}
+
+// GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs, GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtr and GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrInput` via:
+//
+//	        GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput
+	ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput
+}
+
+type getLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrType GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs
+
+func GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtr(v *GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrInput {
+	return (*getLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrType)(v)
+}
+
+func (*getLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig)(nil)).Elem()
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *getLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrType) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput {
+	return o.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig) *GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig {
+		return &v
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig
+		return ret
+	}).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersInput)(nil)).Elem(), EventConnectionAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersPtrInput)(nil)).Elem(), EventConnectionAuthParametersArgs{})
@@ -5380,6 +6556,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationIncludeMetricInput)(nil)).Elem(), MetricStreamStatisticsConfigurationIncludeMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationIncludeMetricArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationIncludeMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementArrayInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Input)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersApiKeyOutput{})
@@ -5448,4 +6641,21 @@ func init() {
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationIncludeMetricOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationIncludeMetricArrayOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementArrayOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput{})
 }

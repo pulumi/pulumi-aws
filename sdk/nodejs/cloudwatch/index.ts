@@ -72,6 +72,11 @@ export const getEventSource: typeof import("./getEventSource").getEventSource = 
 export const getEventSourceOutput: typeof import("./getEventSource").getEventSourceOutput = null as any;
 utilities.lazyLoad(exports, ["getEventSource","getEventSourceOutput"], () => require("./getEventSource"));
 
+export { GetLogDataProtectionPolicyDocumentArgs, GetLogDataProtectionPolicyDocumentResult, GetLogDataProtectionPolicyDocumentOutputArgs } from "./getLogDataProtectionPolicyDocument";
+export const getLogDataProtectionPolicyDocument: typeof import("./getLogDataProtectionPolicyDocument").getLogDataProtectionPolicyDocument = null as any;
+export const getLogDataProtectionPolicyDocumentOutput: typeof import("./getLogDataProtectionPolicyDocument").getLogDataProtectionPolicyDocumentOutput = null as any;
+utilities.lazyLoad(exports, ["getLogDataProtectionPolicyDocument","getLogDataProtectionPolicyDocumentOutput"], () => require("./getLogDataProtectionPolicyDocument"));
+
 export { GetLogGroupArgs, GetLogGroupResult, GetLogGroupOutputArgs } from "./getLogGroup";
 export const getLogGroup: typeof import("./getLogGroup").getLogGroup = null as any;
 export const getLogGroupOutput: typeof import("./getLogGroup").getLogGroupOutput = null as any;

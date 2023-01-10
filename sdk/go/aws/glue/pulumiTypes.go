@@ -8383,6 +8383,1255 @@ func (o UserDefinedFunctionResourceUriArrayOutput) Index(i pulumi.IntInput) User
 	}).(UserDefinedFunctionResourceUriOutput)
 }
 
+type GetCatalogTablePartitionIndex struct {
+	// Name of the partition index.
+	IndexName   string `pulumi:"indexName"`
+	IndexStatus string `pulumi:"indexStatus"`
+	// Keys for the partition index.
+	Keys []string `pulumi:"keys"`
+}
+
+// GetCatalogTablePartitionIndexInput is an input type that accepts GetCatalogTablePartitionIndexArgs and GetCatalogTablePartitionIndexOutput values.
+// You can construct a concrete instance of `GetCatalogTablePartitionIndexInput` via:
+//
+//	GetCatalogTablePartitionIndexArgs{...}
+type GetCatalogTablePartitionIndexInput interface {
+	pulumi.Input
+
+	ToGetCatalogTablePartitionIndexOutput() GetCatalogTablePartitionIndexOutput
+	ToGetCatalogTablePartitionIndexOutputWithContext(context.Context) GetCatalogTablePartitionIndexOutput
+}
+
+type GetCatalogTablePartitionIndexArgs struct {
+	// Name of the partition index.
+	IndexName   pulumi.StringInput `pulumi:"indexName"`
+	IndexStatus pulumi.StringInput `pulumi:"indexStatus"`
+	// Keys for the partition index.
+	Keys pulumi.StringArrayInput `pulumi:"keys"`
+}
+
+func (GetCatalogTablePartitionIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTablePartitionIndex)(nil)).Elem()
+}
+
+func (i GetCatalogTablePartitionIndexArgs) ToGetCatalogTablePartitionIndexOutput() GetCatalogTablePartitionIndexOutput {
+	return i.ToGetCatalogTablePartitionIndexOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTablePartitionIndexArgs) ToGetCatalogTablePartitionIndexOutputWithContext(ctx context.Context) GetCatalogTablePartitionIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTablePartitionIndexOutput)
+}
+
+// GetCatalogTablePartitionIndexArrayInput is an input type that accepts GetCatalogTablePartitionIndexArray and GetCatalogTablePartitionIndexArrayOutput values.
+// You can construct a concrete instance of `GetCatalogTablePartitionIndexArrayInput` via:
+//
+//	GetCatalogTablePartitionIndexArray{ GetCatalogTablePartitionIndexArgs{...} }
+type GetCatalogTablePartitionIndexArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogTablePartitionIndexArrayOutput() GetCatalogTablePartitionIndexArrayOutput
+	ToGetCatalogTablePartitionIndexArrayOutputWithContext(context.Context) GetCatalogTablePartitionIndexArrayOutput
+}
+
+type GetCatalogTablePartitionIndexArray []GetCatalogTablePartitionIndexInput
+
+func (GetCatalogTablePartitionIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTablePartitionIndex)(nil)).Elem()
+}
+
+func (i GetCatalogTablePartitionIndexArray) ToGetCatalogTablePartitionIndexArrayOutput() GetCatalogTablePartitionIndexArrayOutput {
+	return i.ToGetCatalogTablePartitionIndexArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTablePartitionIndexArray) ToGetCatalogTablePartitionIndexArrayOutputWithContext(ctx context.Context) GetCatalogTablePartitionIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTablePartitionIndexArrayOutput)
+}
+
+type GetCatalogTablePartitionIndexOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTablePartitionIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTablePartitionIndex)(nil)).Elem()
+}
+
+func (o GetCatalogTablePartitionIndexOutput) ToGetCatalogTablePartitionIndexOutput() GetCatalogTablePartitionIndexOutput {
+	return o
+}
+
+func (o GetCatalogTablePartitionIndexOutput) ToGetCatalogTablePartitionIndexOutputWithContext(ctx context.Context) GetCatalogTablePartitionIndexOutput {
+	return o
+}
+
+// Name of the partition index.
+func (o GetCatalogTablePartitionIndexOutput) IndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTablePartitionIndex) string { return v.IndexName }).(pulumi.StringOutput)
+}
+
+func (o GetCatalogTablePartitionIndexOutput) IndexStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTablePartitionIndex) string { return v.IndexStatus }).(pulumi.StringOutput)
+}
+
+// Keys for the partition index.
+func (o GetCatalogTablePartitionIndexOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCatalogTablePartitionIndex) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+type GetCatalogTablePartitionIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTablePartitionIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTablePartitionIndex)(nil)).Elem()
+}
+
+func (o GetCatalogTablePartitionIndexArrayOutput) ToGetCatalogTablePartitionIndexArrayOutput() GetCatalogTablePartitionIndexArrayOutput {
+	return o
+}
+
+func (o GetCatalogTablePartitionIndexArrayOutput) ToGetCatalogTablePartitionIndexArrayOutputWithContext(ctx context.Context) GetCatalogTablePartitionIndexArrayOutput {
+	return o
+}
+
+func (o GetCatalogTablePartitionIndexArrayOutput) Index(i pulumi.IntInput) GetCatalogTablePartitionIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogTablePartitionIndex {
+		return vs[0].([]GetCatalogTablePartitionIndex)[vs[1].(int)]
+	}).(GetCatalogTablePartitionIndexOutput)
+}
+
+type GetCatalogTablePartitionKey struct {
+	// Free-form text comment.
+	Comment string `pulumi:"comment"`
+	// Name of the table.
+	Name string `pulumi:"name"`
+	// Datatype of data in the Column.
+	Type string `pulumi:"type"`
+}
+
+// GetCatalogTablePartitionKeyInput is an input type that accepts GetCatalogTablePartitionKeyArgs and GetCatalogTablePartitionKeyOutput values.
+// You can construct a concrete instance of `GetCatalogTablePartitionKeyInput` via:
+//
+//	GetCatalogTablePartitionKeyArgs{...}
+type GetCatalogTablePartitionKeyInput interface {
+	pulumi.Input
+
+	ToGetCatalogTablePartitionKeyOutput() GetCatalogTablePartitionKeyOutput
+	ToGetCatalogTablePartitionKeyOutputWithContext(context.Context) GetCatalogTablePartitionKeyOutput
+}
+
+type GetCatalogTablePartitionKeyArgs struct {
+	// Free-form text comment.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// Name of the table.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Datatype of data in the Column.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetCatalogTablePartitionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTablePartitionKey)(nil)).Elem()
+}
+
+func (i GetCatalogTablePartitionKeyArgs) ToGetCatalogTablePartitionKeyOutput() GetCatalogTablePartitionKeyOutput {
+	return i.ToGetCatalogTablePartitionKeyOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTablePartitionKeyArgs) ToGetCatalogTablePartitionKeyOutputWithContext(ctx context.Context) GetCatalogTablePartitionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTablePartitionKeyOutput)
+}
+
+// GetCatalogTablePartitionKeyArrayInput is an input type that accepts GetCatalogTablePartitionKeyArray and GetCatalogTablePartitionKeyArrayOutput values.
+// You can construct a concrete instance of `GetCatalogTablePartitionKeyArrayInput` via:
+//
+//	GetCatalogTablePartitionKeyArray{ GetCatalogTablePartitionKeyArgs{...} }
+type GetCatalogTablePartitionKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogTablePartitionKeyArrayOutput() GetCatalogTablePartitionKeyArrayOutput
+	ToGetCatalogTablePartitionKeyArrayOutputWithContext(context.Context) GetCatalogTablePartitionKeyArrayOutput
+}
+
+type GetCatalogTablePartitionKeyArray []GetCatalogTablePartitionKeyInput
+
+func (GetCatalogTablePartitionKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTablePartitionKey)(nil)).Elem()
+}
+
+func (i GetCatalogTablePartitionKeyArray) ToGetCatalogTablePartitionKeyArrayOutput() GetCatalogTablePartitionKeyArrayOutput {
+	return i.ToGetCatalogTablePartitionKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTablePartitionKeyArray) ToGetCatalogTablePartitionKeyArrayOutputWithContext(ctx context.Context) GetCatalogTablePartitionKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTablePartitionKeyArrayOutput)
+}
+
+type GetCatalogTablePartitionKeyOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTablePartitionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTablePartitionKey)(nil)).Elem()
+}
+
+func (o GetCatalogTablePartitionKeyOutput) ToGetCatalogTablePartitionKeyOutput() GetCatalogTablePartitionKeyOutput {
+	return o
+}
+
+func (o GetCatalogTablePartitionKeyOutput) ToGetCatalogTablePartitionKeyOutputWithContext(ctx context.Context) GetCatalogTablePartitionKeyOutput {
+	return o
+}
+
+// Free-form text comment.
+func (o GetCatalogTablePartitionKeyOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTablePartitionKey) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+// Name of the table.
+func (o GetCatalogTablePartitionKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTablePartitionKey) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Datatype of data in the Column.
+func (o GetCatalogTablePartitionKeyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTablePartitionKey) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetCatalogTablePartitionKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTablePartitionKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTablePartitionKey)(nil)).Elem()
+}
+
+func (o GetCatalogTablePartitionKeyArrayOutput) ToGetCatalogTablePartitionKeyArrayOutput() GetCatalogTablePartitionKeyArrayOutput {
+	return o
+}
+
+func (o GetCatalogTablePartitionKeyArrayOutput) ToGetCatalogTablePartitionKeyArrayOutputWithContext(ctx context.Context) GetCatalogTablePartitionKeyArrayOutput {
+	return o
+}
+
+func (o GetCatalogTablePartitionKeyArrayOutput) Index(i pulumi.IntInput) GetCatalogTablePartitionKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogTablePartitionKey {
+		return vs[0].([]GetCatalogTablePartitionKey)[vs[1].(int)]
+	}).(GetCatalogTablePartitionKeyOutput)
+}
+
+type GetCatalogTableStorageDescriptor struct {
+	// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	BucketColumns []string `pulumi:"bucketColumns"`
+	// Configuration block for columns in the table. See `columns` below.
+	Columns []GetCatalogTableStorageDescriptorColumn `pulumi:"columns"`
+	// Whether the data in the table is compressed.
+	Compressed bool `pulumi:"compressed"`
+	// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	InputFormat string `pulumi:"inputFormat"`
+	// Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	Location string `pulumi:"location"`
+	// Is if the table contains any dimension columns.
+	NumberOfBuckets int `pulumi:"numberOfBuckets"`
+	// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	OutputFormat string `pulumi:"outputFormat"`
+	// Map of initialization parameters for the SerDe, in key-value form.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Object that references a schema stored in the AWS Glue Schema Registry. See `schemaReference` below.
+	SchemaReferences []GetCatalogTableStorageDescriptorSchemaReference `pulumi:"schemaReferences"`
+	// Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
+	SerDeInfos []GetCatalogTableStorageDescriptorSerDeInfo `pulumi:"serDeInfos"`
+	// Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
+	SkewedInfos []GetCatalogTableStorageDescriptorSkewedInfo `pulumi:"skewedInfos"`
+	// Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
+	SortColumns []GetCatalogTableStorageDescriptorSortColumn `pulumi:"sortColumns"`
+	// Whether the table data is stored in subdirectories.
+	StoredAsSubDirectories bool `pulumi:"storedAsSubDirectories"`
+}
+
+// GetCatalogTableStorageDescriptorInput is an input type that accepts GetCatalogTableStorageDescriptorArgs and GetCatalogTableStorageDescriptorOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorInput` via:
+//
+//	GetCatalogTableStorageDescriptorArgs{...}
+type GetCatalogTableStorageDescriptorInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorOutput() GetCatalogTableStorageDescriptorOutput
+	ToGetCatalogTableStorageDescriptorOutputWithContext(context.Context) GetCatalogTableStorageDescriptorOutput
+}
+
+type GetCatalogTableStorageDescriptorArgs struct {
+	// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	BucketColumns pulumi.StringArrayInput `pulumi:"bucketColumns"`
+	// Configuration block for columns in the table. See `columns` below.
+	Columns GetCatalogTableStorageDescriptorColumnArrayInput `pulumi:"columns"`
+	// Whether the data in the table is compressed.
+	Compressed pulumi.BoolInput `pulumi:"compressed"`
+	// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	InputFormat pulumi.StringInput `pulumi:"inputFormat"`
+	// Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Is if the table contains any dimension columns.
+	NumberOfBuckets pulumi.IntInput `pulumi:"numberOfBuckets"`
+	// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	OutputFormat pulumi.StringInput `pulumi:"outputFormat"`
+	// Map of initialization parameters for the SerDe, in key-value form.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Object that references a schema stored in the AWS Glue Schema Registry. See `schemaReference` below.
+	SchemaReferences GetCatalogTableStorageDescriptorSchemaReferenceArrayInput `pulumi:"schemaReferences"`
+	// Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
+	SerDeInfos GetCatalogTableStorageDescriptorSerDeInfoArrayInput `pulumi:"serDeInfos"`
+	// Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
+	SkewedInfos GetCatalogTableStorageDescriptorSkewedInfoArrayInput `pulumi:"skewedInfos"`
+	// Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
+	SortColumns GetCatalogTableStorageDescriptorSortColumnArrayInput `pulumi:"sortColumns"`
+	// Whether the table data is stored in subdirectories.
+	StoredAsSubDirectories pulumi.BoolInput `pulumi:"storedAsSubDirectories"`
+}
+
+func (GetCatalogTableStorageDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptor)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorArgs) ToGetCatalogTableStorageDescriptorOutput() GetCatalogTableStorageDescriptorOutput {
+	return i.ToGetCatalogTableStorageDescriptorOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorArgs) ToGetCatalogTableStorageDescriptorOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorOutput)
+}
+
+// GetCatalogTableStorageDescriptorArrayInput is an input type that accepts GetCatalogTableStorageDescriptorArray and GetCatalogTableStorageDescriptorArrayOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorArrayInput` via:
+//
+//	GetCatalogTableStorageDescriptorArray{ GetCatalogTableStorageDescriptorArgs{...} }
+type GetCatalogTableStorageDescriptorArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorArrayOutput() GetCatalogTableStorageDescriptorArrayOutput
+	ToGetCatalogTableStorageDescriptorArrayOutputWithContext(context.Context) GetCatalogTableStorageDescriptorArrayOutput
+}
+
+type GetCatalogTableStorageDescriptorArray []GetCatalogTableStorageDescriptorInput
+
+func (GetCatalogTableStorageDescriptorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptor)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorArray) ToGetCatalogTableStorageDescriptorArrayOutput() GetCatalogTableStorageDescriptorArrayOutput {
+	return i.ToGetCatalogTableStorageDescriptorArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorArray) ToGetCatalogTableStorageDescriptorArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorArrayOutput)
+}
+
+type GetCatalogTableStorageDescriptorOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptor)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorOutput) ToGetCatalogTableStorageDescriptorOutput() GetCatalogTableStorageDescriptorOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorOutput) ToGetCatalogTableStorageDescriptorOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorOutput {
+	return o
+}
+
+// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
+func (o GetCatalogTableStorageDescriptorOutput) BucketColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
+}
+
+// Configuration block for columns in the table. See `columns` below.
+func (o GetCatalogTableStorageDescriptorOutput) Columns() GetCatalogTableStorageDescriptorColumnArrayOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) []GetCatalogTableStorageDescriptorColumn { return v.Columns }).(GetCatalogTableStorageDescriptorColumnArrayOutput)
+}
+
+// Whether the data in the table is compressed.
+func (o GetCatalogTableStorageDescriptorOutput) Compressed() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) bool { return v.Compressed }).(pulumi.BoolOutput)
+}
+
+// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+func (o GetCatalogTableStorageDescriptorOutput) InputFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) string { return v.InputFormat }).(pulumi.StringOutput)
+}
+
+// Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+func (o GetCatalogTableStorageDescriptorOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Is if the table contains any dimension columns.
+func (o GetCatalogTableStorageDescriptorOutput) NumberOfBuckets() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) int { return v.NumberOfBuckets }).(pulumi.IntOutput)
+}
+
+// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+func (o GetCatalogTableStorageDescriptorOutput) OutputFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) string { return v.OutputFormat }).(pulumi.StringOutput)
+}
+
+// Map of initialization parameters for the SerDe, in key-value form.
+func (o GetCatalogTableStorageDescriptorOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Object that references a schema stored in the AWS Glue Schema Registry. See `schemaReference` below.
+func (o GetCatalogTableStorageDescriptorOutput) SchemaReferences() GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) []GetCatalogTableStorageDescriptorSchemaReference {
+		return v.SchemaReferences
+	}).(GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput)
+}
+
+// Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
+func (o GetCatalogTableStorageDescriptorOutput) SerDeInfos() GetCatalogTableStorageDescriptorSerDeInfoArrayOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) []GetCatalogTableStorageDescriptorSerDeInfo {
+		return v.SerDeInfos
+	}).(GetCatalogTableStorageDescriptorSerDeInfoArrayOutput)
+}
+
+// Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
+func (o GetCatalogTableStorageDescriptorOutput) SkewedInfos() GetCatalogTableStorageDescriptorSkewedInfoArrayOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) []GetCatalogTableStorageDescriptorSkewedInfo {
+		return v.SkewedInfos
+	}).(GetCatalogTableStorageDescriptorSkewedInfoArrayOutput)
+}
+
+// Configuration block for the sort order of each bucket in the table. See `sortColumns` below.
+func (o GetCatalogTableStorageDescriptorOutput) SortColumns() GetCatalogTableStorageDescriptorSortColumnArrayOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) []GetCatalogTableStorageDescriptorSortColumn {
+		return v.SortColumns
+	}).(GetCatalogTableStorageDescriptorSortColumnArrayOutput)
+}
+
+// Whether the table data is stored in subdirectories.
+func (o GetCatalogTableStorageDescriptorOutput) StoredAsSubDirectories() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) bool { return v.StoredAsSubDirectories }).(pulumi.BoolOutput)
+}
+
+type GetCatalogTableStorageDescriptorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptor)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorArrayOutput) ToGetCatalogTableStorageDescriptorArrayOutput() GetCatalogTableStorageDescriptorArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorArrayOutput) ToGetCatalogTableStorageDescriptorArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorArrayOutput) Index(i pulumi.IntInput) GetCatalogTableStorageDescriptorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogTableStorageDescriptor {
+		return vs[0].([]GetCatalogTableStorageDescriptor)[vs[1].(int)]
+	}).(GetCatalogTableStorageDescriptorOutput)
+}
+
+type GetCatalogTableStorageDescriptorColumn struct {
+	// Free-form text comment.
+	Comment string `pulumi:"comment"`
+	// Name of the table.
+	Name string `pulumi:"name"`
+	// Map of initialization parameters for the SerDe, in key-value form.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Datatype of data in the Column.
+	Type string `pulumi:"type"`
+}
+
+// GetCatalogTableStorageDescriptorColumnInput is an input type that accepts GetCatalogTableStorageDescriptorColumnArgs and GetCatalogTableStorageDescriptorColumnOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorColumnInput` via:
+//
+//	GetCatalogTableStorageDescriptorColumnArgs{...}
+type GetCatalogTableStorageDescriptorColumnInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorColumnOutput() GetCatalogTableStorageDescriptorColumnOutput
+	ToGetCatalogTableStorageDescriptorColumnOutputWithContext(context.Context) GetCatalogTableStorageDescriptorColumnOutput
+}
+
+type GetCatalogTableStorageDescriptorColumnArgs struct {
+	// Free-form text comment.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// Name of the table.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Map of initialization parameters for the SerDe, in key-value form.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Datatype of data in the Column.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetCatalogTableStorageDescriptorColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptorColumn)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorColumnArgs) ToGetCatalogTableStorageDescriptorColumnOutput() GetCatalogTableStorageDescriptorColumnOutput {
+	return i.ToGetCatalogTableStorageDescriptorColumnOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorColumnArgs) ToGetCatalogTableStorageDescriptorColumnOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorColumnOutput)
+}
+
+// GetCatalogTableStorageDescriptorColumnArrayInput is an input type that accepts GetCatalogTableStorageDescriptorColumnArray and GetCatalogTableStorageDescriptorColumnArrayOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorColumnArrayInput` via:
+//
+//	GetCatalogTableStorageDescriptorColumnArray{ GetCatalogTableStorageDescriptorColumnArgs{...} }
+type GetCatalogTableStorageDescriptorColumnArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorColumnArrayOutput() GetCatalogTableStorageDescriptorColumnArrayOutput
+	ToGetCatalogTableStorageDescriptorColumnArrayOutputWithContext(context.Context) GetCatalogTableStorageDescriptorColumnArrayOutput
+}
+
+type GetCatalogTableStorageDescriptorColumnArray []GetCatalogTableStorageDescriptorColumnInput
+
+func (GetCatalogTableStorageDescriptorColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptorColumn)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorColumnArray) ToGetCatalogTableStorageDescriptorColumnArrayOutput() GetCatalogTableStorageDescriptorColumnArrayOutput {
+	return i.ToGetCatalogTableStorageDescriptorColumnArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorColumnArray) ToGetCatalogTableStorageDescriptorColumnArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorColumnArrayOutput)
+}
+
+type GetCatalogTableStorageDescriptorColumnOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptorColumn)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorColumnOutput) ToGetCatalogTableStorageDescriptorColumnOutput() GetCatalogTableStorageDescriptorColumnOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorColumnOutput) ToGetCatalogTableStorageDescriptorColumnOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorColumnOutput {
+	return o
+}
+
+// Free-form text comment.
+func (o GetCatalogTableStorageDescriptorColumnOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorColumn) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+// Name of the table.
+func (o GetCatalogTableStorageDescriptorColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Map of initialization parameters for the SerDe, in key-value form.
+func (o GetCatalogTableStorageDescriptorColumnOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorColumn) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Datatype of data in the Column.
+func (o GetCatalogTableStorageDescriptorColumnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorColumn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetCatalogTableStorageDescriptorColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptorColumn)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorColumnArrayOutput) ToGetCatalogTableStorageDescriptorColumnArrayOutput() GetCatalogTableStorageDescriptorColumnArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorColumnArrayOutput) ToGetCatalogTableStorageDescriptorColumnArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorColumnArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorColumnArrayOutput) Index(i pulumi.IntInput) GetCatalogTableStorageDescriptorColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogTableStorageDescriptorColumn {
+		return vs[0].([]GetCatalogTableStorageDescriptorColumn)[vs[1].(int)]
+	}).(GetCatalogTableStorageDescriptorColumnOutput)
+}
+
+type GetCatalogTableStorageDescriptorSchemaReference struct {
+	// Configuration block that contains schema identity fields. See `schemaId` below.
+	SchemaIds []GetCatalogTableStorageDescriptorSchemaReferenceSchemaId `pulumi:"schemaIds"`
+	// Unique ID assigned to a version of the schema.
+	SchemaVersionId string `pulumi:"schemaVersionId"`
+	// Version number of the schema.
+	SchemaVersionNumber int `pulumi:"schemaVersionNumber"`
+}
+
+// GetCatalogTableStorageDescriptorSchemaReferenceInput is an input type that accepts GetCatalogTableStorageDescriptorSchemaReferenceArgs and GetCatalogTableStorageDescriptorSchemaReferenceOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorSchemaReferenceInput` via:
+//
+//	GetCatalogTableStorageDescriptorSchemaReferenceArgs{...}
+type GetCatalogTableStorageDescriptorSchemaReferenceInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorSchemaReferenceOutput() GetCatalogTableStorageDescriptorSchemaReferenceOutput
+	ToGetCatalogTableStorageDescriptorSchemaReferenceOutputWithContext(context.Context) GetCatalogTableStorageDescriptorSchemaReferenceOutput
+}
+
+type GetCatalogTableStorageDescriptorSchemaReferenceArgs struct {
+	// Configuration block that contains schema identity fields. See `schemaId` below.
+	SchemaIds GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayInput `pulumi:"schemaIds"`
+	// Unique ID assigned to a version of the schema.
+	SchemaVersionId pulumi.StringInput `pulumi:"schemaVersionId"`
+	// Version number of the schema.
+	SchemaVersionNumber pulumi.IntInput `pulumi:"schemaVersionNumber"`
+}
+
+func (GetCatalogTableStorageDescriptorSchemaReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptorSchemaReference)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorSchemaReferenceArgs) ToGetCatalogTableStorageDescriptorSchemaReferenceOutput() GetCatalogTableStorageDescriptorSchemaReferenceOutput {
+	return i.ToGetCatalogTableStorageDescriptorSchemaReferenceOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorSchemaReferenceArgs) ToGetCatalogTableStorageDescriptorSchemaReferenceOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSchemaReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorSchemaReferenceOutput)
+}
+
+// GetCatalogTableStorageDescriptorSchemaReferenceArrayInput is an input type that accepts GetCatalogTableStorageDescriptorSchemaReferenceArray and GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorSchemaReferenceArrayInput` via:
+//
+//	GetCatalogTableStorageDescriptorSchemaReferenceArray{ GetCatalogTableStorageDescriptorSchemaReferenceArgs{...} }
+type GetCatalogTableStorageDescriptorSchemaReferenceArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorSchemaReferenceArrayOutput() GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput
+	ToGetCatalogTableStorageDescriptorSchemaReferenceArrayOutputWithContext(context.Context) GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput
+}
+
+type GetCatalogTableStorageDescriptorSchemaReferenceArray []GetCatalogTableStorageDescriptorSchemaReferenceInput
+
+func (GetCatalogTableStorageDescriptorSchemaReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptorSchemaReference)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorSchemaReferenceArray) ToGetCatalogTableStorageDescriptorSchemaReferenceArrayOutput() GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput {
+	return i.ToGetCatalogTableStorageDescriptorSchemaReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorSchemaReferenceArray) ToGetCatalogTableStorageDescriptorSchemaReferenceArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput)
+}
+
+type GetCatalogTableStorageDescriptorSchemaReferenceOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorSchemaReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptorSchemaReference)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorSchemaReferenceOutput) ToGetCatalogTableStorageDescriptorSchemaReferenceOutput() GetCatalogTableStorageDescriptorSchemaReferenceOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSchemaReferenceOutput) ToGetCatalogTableStorageDescriptorSchemaReferenceOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSchemaReferenceOutput {
+	return o
+}
+
+// Configuration block that contains schema identity fields. See `schemaId` below.
+func (o GetCatalogTableStorageDescriptorSchemaReferenceOutput) SchemaIds() GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReference) []GetCatalogTableStorageDescriptorSchemaReferenceSchemaId {
+		return v.SchemaIds
+	}).(GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput)
+}
+
+// Unique ID assigned to a version of the schema.
+func (o GetCatalogTableStorageDescriptorSchemaReferenceOutput) SchemaVersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReference) string { return v.SchemaVersionId }).(pulumi.StringOutput)
+}
+
+// Version number of the schema.
+func (o GetCatalogTableStorageDescriptorSchemaReferenceOutput) SchemaVersionNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReference) int { return v.SchemaVersionNumber }).(pulumi.IntOutput)
+}
+
+type GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptorSchemaReference)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput) ToGetCatalogTableStorageDescriptorSchemaReferenceArrayOutput() GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput) ToGetCatalogTableStorageDescriptorSchemaReferenceArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput) Index(i pulumi.IntInput) GetCatalogTableStorageDescriptorSchemaReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogTableStorageDescriptorSchemaReference {
+		return vs[0].([]GetCatalogTableStorageDescriptorSchemaReference)[vs[1].(int)]
+	}).(GetCatalogTableStorageDescriptorSchemaReferenceOutput)
+}
+
+type GetCatalogTableStorageDescriptorSchemaReferenceSchemaId struct {
+	// Name of the schema registry that contains the schema.
+	RegistryName string `pulumi:"registryName"`
+	// ARN of the schema.
+	SchemaArn string `pulumi:"schemaArn"`
+	// Name of the schema.
+	SchemaName string `pulumi:"schemaName"`
+}
+
+// GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdInput is an input type that accepts GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs and GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdInput` via:
+//
+//	GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs{...}
+type GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput() GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput
+	ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputWithContext(context.Context) GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput
+}
+
+type GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs struct {
+	// Name of the schema registry that contains the schema.
+	RegistryName pulumi.StringInput `pulumi:"registryName"`
+	// ARN of the schema.
+	SchemaArn pulumi.StringInput `pulumi:"schemaArn"`
+	// Name of the schema.
+	SchemaName pulumi.StringInput `pulumi:"schemaName"`
+}
+
+func (GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptorSchemaReferenceSchemaId)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs) ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput() GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput {
+	return i.ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs) ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput)
+}
+
+// GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayInput is an input type that accepts GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArray and GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayInput` via:
+//
+//	GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArray{ GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs{...} }
+type GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput() GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput
+	ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutputWithContext(context.Context) GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput
+}
+
+type GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArray []GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdInput
+
+func (GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptorSchemaReferenceSchemaId)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArray) ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput() GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput {
+	return i.ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArray) ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput)
+}
+
+type GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptorSchemaReferenceSchemaId)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput() GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput {
+	return o
+}
+
+// Name of the schema registry that contains the schema.
+func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) RegistryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReferenceSchemaId) string { return v.RegistryName }).(pulumi.StringOutput)
+}
+
+// ARN of the schema.
+func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) SchemaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReferenceSchemaId) string { return v.SchemaArn }).(pulumi.StringOutput)
+}
+
+// Name of the schema.
+func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSchemaReferenceSchemaId) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+type GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptorSchemaReferenceSchemaId)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput) ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput() GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput) ToGetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput) Index(i pulumi.IntInput) GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogTableStorageDescriptorSchemaReferenceSchemaId {
+		return vs[0].([]GetCatalogTableStorageDescriptorSchemaReferenceSchemaId)[vs[1].(int)]
+	}).(GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput)
+}
+
+type GetCatalogTableStorageDescriptorSerDeInfo struct {
+	// Name of the table.
+	Name string `pulumi:"name"`
+	// Map of initialization parameters for the SerDe, in key-value form.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
+	SerializationLibrary string `pulumi:"serializationLibrary"`
+}
+
+// GetCatalogTableStorageDescriptorSerDeInfoInput is an input type that accepts GetCatalogTableStorageDescriptorSerDeInfoArgs and GetCatalogTableStorageDescriptorSerDeInfoOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorSerDeInfoInput` via:
+//
+//	GetCatalogTableStorageDescriptorSerDeInfoArgs{...}
+type GetCatalogTableStorageDescriptorSerDeInfoInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorSerDeInfoOutput() GetCatalogTableStorageDescriptorSerDeInfoOutput
+	ToGetCatalogTableStorageDescriptorSerDeInfoOutputWithContext(context.Context) GetCatalogTableStorageDescriptorSerDeInfoOutput
+}
+
+type GetCatalogTableStorageDescriptorSerDeInfoArgs struct {
+	// Name of the table.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Map of initialization parameters for the SerDe, in key-value form.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
+	SerializationLibrary pulumi.StringInput `pulumi:"serializationLibrary"`
+}
+
+func (GetCatalogTableStorageDescriptorSerDeInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptorSerDeInfo)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorSerDeInfoArgs) ToGetCatalogTableStorageDescriptorSerDeInfoOutput() GetCatalogTableStorageDescriptorSerDeInfoOutput {
+	return i.ToGetCatalogTableStorageDescriptorSerDeInfoOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorSerDeInfoArgs) ToGetCatalogTableStorageDescriptorSerDeInfoOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSerDeInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorSerDeInfoOutput)
+}
+
+// GetCatalogTableStorageDescriptorSerDeInfoArrayInput is an input type that accepts GetCatalogTableStorageDescriptorSerDeInfoArray and GetCatalogTableStorageDescriptorSerDeInfoArrayOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorSerDeInfoArrayInput` via:
+//
+//	GetCatalogTableStorageDescriptorSerDeInfoArray{ GetCatalogTableStorageDescriptorSerDeInfoArgs{...} }
+type GetCatalogTableStorageDescriptorSerDeInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorSerDeInfoArrayOutput() GetCatalogTableStorageDescriptorSerDeInfoArrayOutput
+	ToGetCatalogTableStorageDescriptorSerDeInfoArrayOutputWithContext(context.Context) GetCatalogTableStorageDescriptorSerDeInfoArrayOutput
+}
+
+type GetCatalogTableStorageDescriptorSerDeInfoArray []GetCatalogTableStorageDescriptorSerDeInfoInput
+
+func (GetCatalogTableStorageDescriptorSerDeInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptorSerDeInfo)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorSerDeInfoArray) ToGetCatalogTableStorageDescriptorSerDeInfoArrayOutput() GetCatalogTableStorageDescriptorSerDeInfoArrayOutput {
+	return i.ToGetCatalogTableStorageDescriptorSerDeInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorSerDeInfoArray) ToGetCatalogTableStorageDescriptorSerDeInfoArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSerDeInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorSerDeInfoArrayOutput)
+}
+
+type GetCatalogTableStorageDescriptorSerDeInfoOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorSerDeInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptorSerDeInfo)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorSerDeInfoOutput) ToGetCatalogTableStorageDescriptorSerDeInfoOutput() GetCatalogTableStorageDescriptorSerDeInfoOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSerDeInfoOutput) ToGetCatalogTableStorageDescriptorSerDeInfoOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSerDeInfoOutput {
+	return o
+}
+
+// Name of the table.
+func (o GetCatalogTableStorageDescriptorSerDeInfoOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSerDeInfo) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Map of initialization parameters for the SerDe, in key-value form.
+func (o GetCatalogTableStorageDescriptorSerDeInfoOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSerDeInfo) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
+func (o GetCatalogTableStorageDescriptorSerDeInfoOutput) SerializationLibrary() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSerDeInfo) string { return v.SerializationLibrary }).(pulumi.StringOutput)
+}
+
+type GetCatalogTableStorageDescriptorSerDeInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorSerDeInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptorSerDeInfo)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorSerDeInfoArrayOutput) ToGetCatalogTableStorageDescriptorSerDeInfoArrayOutput() GetCatalogTableStorageDescriptorSerDeInfoArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSerDeInfoArrayOutput) ToGetCatalogTableStorageDescriptorSerDeInfoArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSerDeInfoArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSerDeInfoArrayOutput) Index(i pulumi.IntInput) GetCatalogTableStorageDescriptorSerDeInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogTableStorageDescriptorSerDeInfo {
+		return vs[0].([]GetCatalogTableStorageDescriptorSerDeInfo)[vs[1].(int)]
+	}).(GetCatalogTableStorageDescriptorSerDeInfoOutput)
+}
+
+type GetCatalogTableStorageDescriptorSkewedInfo struct {
+	// List of names of columns that contain skewed values.
+	SkewedColumnNames []string `pulumi:"skewedColumnNames"`
+	// List of values that appear so frequently as to be considered skewed.
+	SkewedColumnValueLocationMaps map[string]string `pulumi:"skewedColumnValueLocationMaps"`
+	// Map of skewed values to the columns that contain them.
+	SkewedColumnValues []string `pulumi:"skewedColumnValues"`
+}
+
+// GetCatalogTableStorageDescriptorSkewedInfoInput is an input type that accepts GetCatalogTableStorageDescriptorSkewedInfoArgs and GetCatalogTableStorageDescriptorSkewedInfoOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorSkewedInfoInput` via:
+//
+//	GetCatalogTableStorageDescriptorSkewedInfoArgs{...}
+type GetCatalogTableStorageDescriptorSkewedInfoInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorSkewedInfoOutput() GetCatalogTableStorageDescriptorSkewedInfoOutput
+	ToGetCatalogTableStorageDescriptorSkewedInfoOutputWithContext(context.Context) GetCatalogTableStorageDescriptorSkewedInfoOutput
+}
+
+type GetCatalogTableStorageDescriptorSkewedInfoArgs struct {
+	// List of names of columns that contain skewed values.
+	SkewedColumnNames pulumi.StringArrayInput `pulumi:"skewedColumnNames"`
+	// List of values that appear so frequently as to be considered skewed.
+	SkewedColumnValueLocationMaps pulumi.StringMapInput `pulumi:"skewedColumnValueLocationMaps"`
+	// Map of skewed values to the columns that contain them.
+	SkewedColumnValues pulumi.StringArrayInput `pulumi:"skewedColumnValues"`
+}
+
+func (GetCatalogTableStorageDescriptorSkewedInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptorSkewedInfo)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorSkewedInfoArgs) ToGetCatalogTableStorageDescriptorSkewedInfoOutput() GetCatalogTableStorageDescriptorSkewedInfoOutput {
+	return i.ToGetCatalogTableStorageDescriptorSkewedInfoOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorSkewedInfoArgs) ToGetCatalogTableStorageDescriptorSkewedInfoOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSkewedInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorSkewedInfoOutput)
+}
+
+// GetCatalogTableStorageDescriptorSkewedInfoArrayInput is an input type that accepts GetCatalogTableStorageDescriptorSkewedInfoArray and GetCatalogTableStorageDescriptorSkewedInfoArrayOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorSkewedInfoArrayInput` via:
+//
+//	GetCatalogTableStorageDescriptorSkewedInfoArray{ GetCatalogTableStorageDescriptorSkewedInfoArgs{...} }
+type GetCatalogTableStorageDescriptorSkewedInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorSkewedInfoArrayOutput() GetCatalogTableStorageDescriptorSkewedInfoArrayOutput
+	ToGetCatalogTableStorageDescriptorSkewedInfoArrayOutputWithContext(context.Context) GetCatalogTableStorageDescriptorSkewedInfoArrayOutput
+}
+
+type GetCatalogTableStorageDescriptorSkewedInfoArray []GetCatalogTableStorageDescriptorSkewedInfoInput
+
+func (GetCatalogTableStorageDescriptorSkewedInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptorSkewedInfo)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorSkewedInfoArray) ToGetCatalogTableStorageDescriptorSkewedInfoArrayOutput() GetCatalogTableStorageDescriptorSkewedInfoArrayOutput {
+	return i.ToGetCatalogTableStorageDescriptorSkewedInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorSkewedInfoArray) ToGetCatalogTableStorageDescriptorSkewedInfoArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSkewedInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorSkewedInfoArrayOutput)
+}
+
+type GetCatalogTableStorageDescriptorSkewedInfoOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorSkewedInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptorSkewedInfo)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorSkewedInfoOutput) ToGetCatalogTableStorageDescriptorSkewedInfoOutput() GetCatalogTableStorageDescriptorSkewedInfoOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSkewedInfoOutput) ToGetCatalogTableStorageDescriptorSkewedInfoOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSkewedInfoOutput {
+	return o
+}
+
+// List of names of columns that contain skewed values.
+func (o GetCatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnNames }).(pulumi.StringArrayOutput)
+}
+
+// List of values that appear so frequently as to be considered skewed.
+func (o GetCatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnValueLocationMaps() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSkewedInfo) map[string]string {
+		return v.SkewedColumnValueLocationMaps
+	}).(pulumi.StringMapOutput)
+}
+
+// Map of skewed values to the columns that contain them.
+func (o GetCatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
+}
+
+type GetCatalogTableStorageDescriptorSkewedInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorSkewedInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptorSkewedInfo)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorSkewedInfoArrayOutput) ToGetCatalogTableStorageDescriptorSkewedInfoArrayOutput() GetCatalogTableStorageDescriptorSkewedInfoArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSkewedInfoArrayOutput) ToGetCatalogTableStorageDescriptorSkewedInfoArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSkewedInfoArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSkewedInfoArrayOutput) Index(i pulumi.IntInput) GetCatalogTableStorageDescriptorSkewedInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogTableStorageDescriptorSkewedInfo {
+		return vs[0].([]GetCatalogTableStorageDescriptorSkewedInfo)[vs[1].(int)]
+	}).(GetCatalogTableStorageDescriptorSkewedInfoOutput)
+}
+
+type GetCatalogTableStorageDescriptorSortColumn struct {
+	// Name of the column.
+	Column string `pulumi:"column"`
+	// Whether the column is sorted in ascending (`1`) or descending order (`0`).
+	SortOrder int `pulumi:"sortOrder"`
+}
+
+// GetCatalogTableStorageDescriptorSortColumnInput is an input type that accepts GetCatalogTableStorageDescriptorSortColumnArgs and GetCatalogTableStorageDescriptorSortColumnOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorSortColumnInput` via:
+//
+//	GetCatalogTableStorageDescriptorSortColumnArgs{...}
+type GetCatalogTableStorageDescriptorSortColumnInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorSortColumnOutput() GetCatalogTableStorageDescriptorSortColumnOutput
+	ToGetCatalogTableStorageDescriptorSortColumnOutputWithContext(context.Context) GetCatalogTableStorageDescriptorSortColumnOutput
+}
+
+type GetCatalogTableStorageDescriptorSortColumnArgs struct {
+	// Name of the column.
+	Column pulumi.StringInput `pulumi:"column"`
+	// Whether the column is sorted in ascending (`1`) or descending order (`0`).
+	SortOrder pulumi.IntInput `pulumi:"sortOrder"`
+}
+
+func (GetCatalogTableStorageDescriptorSortColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptorSortColumn)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorSortColumnArgs) ToGetCatalogTableStorageDescriptorSortColumnOutput() GetCatalogTableStorageDescriptorSortColumnOutput {
+	return i.ToGetCatalogTableStorageDescriptorSortColumnOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorSortColumnArgs) ToGetCatalogTableStorageDescriptorSortColumnOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSortColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorSortColumnOutput)
+}
+
+// GetCatalogTableStorageDescriptorSortColumnArrayInput is an input type that accepts GetCatalogTableStorageDescriptorSortColumnArray and GetCatalogTableStorageDescriptorSortColumnArrayOutput values.
+// You can construct a concrete instance of `GetCatalogTableStorageDescriptorSortColumnArrayInput` via:
+//
+//	GetCatalogTableStorageDescriptorSortColumnArray{ GetCatalogTableStorageDescriptorSortColumnArgs{...} }
+type GetCatalogTableStorageDescriptorSortColumnArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableStorageDescriptorSortColumnArrayOutput() GetCatalogTableStorageDescriptorSortColumnArrayOutput
+	ToGetCatalogTableStorageDescriptorSortColumnArrayOutputWithContext(context.Context) GetCatalogTableStorageDescriptorSortColumnArrayOutput
+}
+
+type GetCatalogTableStorageDescriptorSortColumnArray []GetCatalogTableStorageDescriptorSortColumnInput
+
+func (GetCatalogTableStorageDescriptorSortColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptorSortColumn)(nil)).Elem()
+}
+
+func (i GetCatalogTableStorageDescriptorSortColumnArray) ToGetCatalogTableStorageDescriptorSortColumnArrayOutput() GetCatalogTableStorageDescriptorSortColumnArrayOutput {
+	return i.ToGetCatalogTableStorageDescriptorSortColumnArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableStorageDescriptorSortColumnArray) ToGetCatalogTableStorageDescriptorSortColumnArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSortColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableStorageDescriptorSortColumnArrayOutput)
+}
+
+type GetCatalogTableStorageDescriptorSortColumnOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorSortColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableStorageDescriptorSortColumn)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorSortColumnOutput) ToGetCatalogTableStorageDescriptorSortColumnOutput() GetCatalogTableStorageDescriptorSortColumnOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSortColumnOutput) ToGetCatalogTableStorageDescriptorSortColumnOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSortColumnOutput {
+	return o
+}
+
+// Name of the column.
+func (o GetCatalogTableStorageDescriptorSortColumnOutput) Column() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSortColumn) string { return v.Column }).(pulumi.StringOutput)
+}
+
+// Whether the column is sorted in ascending (`1`) or descending order (`0`).
+func (o GetCatalogTableStorageDescriptorSortColumnOutput) SortOrder() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptorSortColumn) int { return v.SortOrder }).(pulumi.IntOutput)
+}
+
+type GetCatalogTableStorageDescriptorSortColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableStorageDescriptorSortColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableStorageDescriptorSortColumn)(nil)).Elem()
+}
+
+func (o GetCatalogTableStorageDescriptorSortColumnArrayOutput) ToGetCatalogTableStorageDescriptorSortColumnArrayOutput() GetCatalogTableStorageDescriptorSortColumnArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSortColumnArrayOutput) ToGetCatalogTableStorageDescriptorSortColumnArrayOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorSortColumnArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableStorageDescriptorSortColumnArrayOutput) Index(i pulumi.IntInput) GetCatalogTableStorageDescriptorSortColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogTableStorageDescriptorSortColumn {
+		return vs[0].([]GetCatalogTableStorageDescriptorSortColumn)[vs[1].(int)]
+	}).(GetCatalogTableStorageDescriptorSortColumnOutput)
+}
+
+type GetCatalogTableTargetTable struct {
+	// ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
+	CatalogId string `pulumi:"catalogId"`
+	// Name of the metadata database where the table metadata resides.
+	DatabaseName string `pulumi:"databaseName"`
+	// Name of the table.
+	Name string `pulumi:"name"`
+}
+
+// GetCatalogTableTargetTableInput is an input type that accepts GetCatalogTableTargetTableArgs and GetCatalogTableTargetTableOutput values.
+// You can construct a concrete instance of `GetCatalogTableTargetTableInput` via:
+//
+//	GetCatalogTableTargetTableArgs{...}
+type GetCatalogTableTargetTableInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableTargetTableOutput() GetCatalogTableTargetTableOutput
+	ToGetCatalogTableTargetTableOutputWithContext(context.Context) GetCatalogTableTargetTableOutput
+}
+
+type GetCatalogTableTargetTableArgs struct {
+	// ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// Name of the metadata database where the table metadata resides.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Name of the table.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetCatalogTableTargetTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableTargetTable)(nil)).Elem()
+}
+
+func (i GetCatalogTableTargetTableArgs) ToGetCatalogTableTargetTableOutput() GetCatalogTableTargetTableOutput {
+	return i.ToGetCatalogTableTargetTableOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableTargetTableArgs) ToGetCatalogTableTargetTableOutputWithContext(ctx context.Context) GetCatalogTableTargetTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableTargetTableOutput)
+}
+
+// GetCatalogTableTargetTableArrayInput is an input type that accepts GetCatalogTableTargetTableArray and GetCatalogTableTargetTableArrayOutput values.
+// You can construct a concrete instance of `GetCatalogTableTargetTableArrayInput` via:
+//
+//	GetCatalogTableTargetTableArray{ GetCatalogTableTargetTableArgs{...} }
+type GetCatalogTableTargetTableArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogTableTargetTableArrayOutput() GetCatalogTableTargetTableArrayOutput
+	ToGetCatalogTableTargetTableArrayOutputWithContext(context.Context) GetCatalogTableTargetTableArrayOutput
+}
+
+type GetCatalogTableTargetTableArray []GetCatalogTableTargetTableInput
+
+func (GetCatalogTableTargetTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableTargetTable)(nil)).Elem()
+}
+
+func (i GetCatalogTableTargetTableArray) ToGetCatalogTableTargetTableArrayOutput() GetCatalogTableTargetTableArrayOutput {
+	return i.ToGetCatalogTableTargetTableArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTableTargetTableArray) ToGetCatalogTableTargetTableArrayOutputWithContext(ctx context.Context) GetCatalogTableTargetTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTableTargetTableArrayOutput)
+}
+
+type GetCatalogTableTargetTableOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableTargetTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTableTargetTable)(nil)).Elem()
+}
+
+func (o GetCatalogTableTargetTableOutput) ToGetCatalogTableTargetTableOutput() GetCatalogTableTargetTableOutput {
+	return o
+}
+
+func (o GetCatalogTableTargetTableOutput) ToGetCatalogTableTargetTableOutputWithContext(ctx context.Context) GetCatalogTableTargetTableOutput {
+	return o
+}
+
+// ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
+func (o GetCatalogTableTargetTableOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableTargetTable) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+// Name of the metadata database where the table metadata resides.
+func (o GetCatalogTableTargetTableOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableTargetTable) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Name of the table.
+func (o GetCatalogTableTargetTableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableTargetTable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetCatalogTableTargetTableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTableTargetTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTableTargetTable)(nil)).Elem()
+}
+
+func (o GetCatalogTableTargetTableArrayOutput) ToGetCatalogTableTargetTableArrayOutput() GetCatalogTableTargetTableArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableTargetTableArrayOutput) ToGetCatalogTableTargetTableArrayOutputWithContext(ctx context.Context) GetCatalogTableTargetTableArrayOutput {
+	return o
+}
+
+func (o GetCatalogTableTargetTableArrayOutput) Index(i pulumi.IntInput) GetCatalogTableTargetTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogTableTargetTable {
+		return vs[0].([]GetCatalogTableTargetTable)[vs[1].(int)]
+	}).(GetCatalogTableTargetTableOutput)
+}
+
 type GetConnectionPhysicalConnectionRequirement struct {
 	AvailabilityZone     string   `pulumi:"availabilityZone"`
 	SecurityGroupIdLists []string `pulumi:"securityGroupIdLists"`
@@ -9282,6 +10531,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicateConditionArrayInput)(nil)).Elem(), TriggerPredicateConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriInput)(nil)).Elem(), UserDefinedFunctionResourceUriArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriArrayInput)(nil)).Elem(), UserDefinedFunctionResourceUriArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTablePartitionIndexInput)(nil)).Elem(), GetCatalogTablePartitionIndexArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTablePartitionIndexArrayInput)(nil)).Elem(), GetCatalogTablePartitionIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTablePartitionKeyInput)(nil)).Elem(), GetCatalogTablePartitionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTablePartitionKeyArrayInput)(nil)).Elem(), GetCatalogTablePartitionKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorInput)(nil)).Elem(), GetCatalogTableStorageDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorArrayInput)(nil)).Elem(), GetCatalogTableStorageDescriptorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorColumnInput)(nil)).Elem(), GetCatalogTableStorageDescriptorColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorColumnArrayInput)(nil)).Elem(), GetCatalogTableStorageDescriptorColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorSchemaReferenceInput)(nil)).Elem(), GetCatalogTableStorageDescriptorSchemaReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorSchemaReferenceArrayInput)(nil)).Elem(), GetCatalogTableStorageDescriptorSchemaReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdInput)(nil)).Elem(), GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayInput)(nil)).Elem(), GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorSerDeInfoInput)(nil)).Elem(), GetCatalogTableStorageDescriptorSerDeInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorSerDeInfoArrayInput)(nil)).Elem(), GetCatalogTableStorageDescriptorSerDeInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorSkewedInfoInput)(nil)).Elem(), GetCatalogTableStorageDescriptorSkewedInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorSkewedInfoArrayInput)(nil)).Elem(), GetCatalogTableStorageDescriptorSkewedInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorSortColumnInput)(nil)).Elem(), GetCatalogTableStorageDescriptorSortColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorSortColumnArrayInput)(nil)).Elem(), GetCatalogTableStorageDescriptorSortColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableTargetTableInput)(nil)).Elem(), GetCatalogTableTargetTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableTargetTableArrayInput)(nil)).Elem(), GetCatalogTableTargetTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionPhysicalConnectionRequirementInput)(nil)).Elem(), GetConnectionPhysicalConnectionRequirementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionPhysicalConnectionRequirementArrayInput)(nil)).Elem(), GetConnectionPhysicalConnectionRequirementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput)(nil)).Elem(), GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs{})
@@ -9404,6 +10673,26 @@ func init() {
 	pulumi.RegisterOutputType(TriggerPredicateConditionArrayOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogTablePartitionIndexOutput{})
+	pulumi.RegisterOutputType(GetCatalogTablePartitionIndexArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogTablePartitionKeyOutput{})
+	pulumi.RegisterOutputType(GetCatalogTablePartitionKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorColumnOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorColumnArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorSchemaReferenceOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorSchemaReferenceArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorSerDeInfoOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorSerDeInfoArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorSkewedInfoOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorSkewedInfoArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorSortColumnOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorSortColumnArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableTargetTableOutput{})
+	pulumi.RegisterOutputType(GetCatalogTableTargetTableArrayOutput{})
 	pulumi.RegisterOutputType(GetConnectionPhysicalConnectionRequirementOutput{})
 	pulumi.RegisterOutputType(GetConnectionPhysicalConnectionRequirementArrayOutput{})
 	pulumi.RegisterOutputType(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput{})
