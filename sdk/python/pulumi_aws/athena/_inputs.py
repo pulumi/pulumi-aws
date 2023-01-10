@@ -85,6 +85,7 @@ class WorkgroupConfigurationArgs:
                  bytes_scanned_cutoff_per_query: Optional[pulumi.Input[int]] = None,
                  enforce_workgroup_configuration: Optional[pulumi.Input[bool]] = None,
                  engine_version: Optional[pulumi.Input['WorkgroupConfigurationEngineVersionArgs']] = None,
+                 execution_role: Optional[pulumi.Input[str]] = None,
                  publish_cloudwatch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  requester_pays_enabled: Optional[pulumi.Input[bool]] = None,
                  result_configuration: Optional[pulumi.Input['WorkgroupConfigurationResultConfigurationArgs']] = None):
@@ -92,6 +93,7 @@ class WorkgroupConfigurationArgs:
         :param pulumi.Input[int] bytes_scanned_cutoff_per_query: Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
         :param pulumi.Input[bool] enforce_workgroup_configuration: Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
         :param pulumi.Input['WorkgroupConfigurationEngineVersionArgs'] engine_version: Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
+        :param pulumi.Input[str] execution_role: Role used in a notebook session for accessing the user's resources.
         :param pulumi.Input[bool] publish_cloudwatch_metrics_enabled: Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         :param pulumi.Input[bool] requester_pays_enabled: If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         :param pulumi.Input['WorkgroupConfigurationResultConfigurationArgs'] result_configuration: Configuration block with result settings. See Result Configuration below.
@@ -102,6 +104,8 @@ class WorkgroupConfigurationArgs:
             pulumi.set(__self__, "enforce_workgroup_configuration", enforce_workgroup_configuration)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if execution_role is not None:
+            pulumi.set(__self__, "execution_role", execution_role)
         if publish_cloudwatch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloudwatch_metrics_enabled", publish_cloudwatch_metrics_enabled)
         if requester_pays_enabled is not None:
@@ -144,6 +148,18 @@ class WorkgroupConfigurationArgs:
     @engine_version.setter
     def engine_version(self, value: Optional[pulumi.Input['WorkgroupConfigurationEngineVersionArgs']]):
         pulumi.set(self, "engine_version", value)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        Role used in a notebook session for accessing the user's resources.
+        """
+        return pulumi.get(self, "execution_role")
+
+    @execution_role.setter
+    def execution_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_role", value)
 
     @property
     @pulumi.getter(name="publishCloudwatchMetricsEnabled")

@@ -293,7 +293,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.backupWindow;
     }
     /**
-     * Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+     * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
      * See blue_green_update below
      * 
      */
@@ -301,7 +301,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ InstanceBlueGreenUpdate> blueGreenUpdate;
 
     /**
-     * @return Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+     * @return Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
      * See blue_green_update below
      * 
      */

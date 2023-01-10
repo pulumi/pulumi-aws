@@ -141,9 +141,6 @@ func NewDatabase(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AvailabilityZone == nil {
-		return nil, errors.New("invalid value for required argument 'AvailabilityZone'")
-	}
 	if args.BlueprintId == nil {
 		return nil, errors.New("invalid value for required argument 'BlueprintId'")
 	}
@@ -314,7 +311,7 @@ type databaseArgs struct {
 	// When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
-	AvailabilityZone string `pulumi:"availabilityZone"`
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
 	BackupRetentionEnabled *bool `pulumi:"backupRetentionEnabled"`
 	// The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
@@ -347,7 +344,7 @@ type DatabaseArgs struct {
 	// When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
 	ApplyImmediately pulumi.BoolPtrInput
 	// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
-	AvailabilityZone pulumi.StringInput
+	AvailabilityZone pulumi.StringPtrInput
 	// When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
 	BackupRetentionEnabled pulumi.BoolPtrInput
 	// The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`

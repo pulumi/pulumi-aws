@@ -6711,7 +6711,7 @@ type BucketReplicationConfigRuleDestination struct {
 	AccessControlTranslation *BucketReplicationConfigRuleDestinationAccessControlTranslation `pulumi:"accessControlTranslation"`
 	// The Account ID to specify the replica ownership. Must be used in conjunction with `accessControlTranslation` override configuration.
 	Account *string `pulumi:"account"`
-	// The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+	// The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
 	Bucket string `pulumi:"bucket"`
 	// A configuration block that provides information about encryption documented below. If `sourceSelectionCriteria` is specified, you must specify this element.
 	EncryptionConfiguration *BucketReplicationConfigRuleDestinationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
@@ -6739,7 +6739,7 @@ type BucketReplicationConfigRuleDestinationArgs struct {
 	AccessControlTranslation BucketReplicationConfigRuleDestinationAccessControlTranslationPtrInput `pulumi:"accessControlTranslation"`
 	// The Account ID to specify the replica ownership. Must be used in conjunction with `accessControlTranslation` override configuration.
 	Account pulumi.StringPtrInput `pulumi:"account"`
-	// The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+	// The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// A configuration block that provides information about encryption documented below. If `sourceSelectionCriteria` is specified, you must specify this element.
 	EncryptionConfiguration BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
@@ -6789,7 +6789,7 @@ func (o BucketReplicationConfigRuleDestinationOutput) Account() pulumi.StringPtr
 	return o.ApplyT(func(v BucketReplicationConfigRuleDestination) *string { return v.Account }).(pulumi.StringPtrOutput)
 }
 
-// The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+// The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
 func (o BucketReplicationConfigRuleDestinationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleDestination) string { return v.Bucket }).(pulumi.StringOutput)
 }

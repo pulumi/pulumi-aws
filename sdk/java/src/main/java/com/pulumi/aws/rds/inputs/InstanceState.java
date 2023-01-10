@@ -187,7 +187,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+     * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
      * See blue_green_update below
      * 
      */
@@ -195,7 +195,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<InstanceBlueGreenUpdateArgs> blueGreenUpdate;
 
     /**
-     * @return Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+     * @return Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
      * See blue_green_update below
      * 
      */
@@ -1560,7 +1560,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param blueGreenUpdate Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+         * @param blueGreenUpdate Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
          * See blue_green_update below
          * 
          * @return builder
@@ -1572,7 +1572,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param blueGreenUpdate Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+         * @param blueGreenUpdate Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
          * See blue_green_update below
          * 
          * @return builder

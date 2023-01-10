@@ -18,14 +18,14 @@ public final class EventTargetEcsTargetNetworkConfigurationArgs extends com.pulu
     public static final EventTargetEcsTargetNetworkConfigurationArgs Empty = new EventTargetEcsTargetNetworkConfigurationArgs();
 
     /**
-     * Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+     * Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
      * 
      */
     @Import(name="assignPublicIp")
     private @Nullable Output<Boolean> assignPublicIp;
 
     /**
-     * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+     * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> assignPublicIp() {
@@ -89,7 +89,7 @@ public final class EventTargetEcsTargetNetworkConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param assignPublicIp Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+         * @param assignPublicIp Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class EventTargetEcsTargetNetworkConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param assignPublicIp Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+         * @param assignPublicIp Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
          * 
          * @return builder
          * 

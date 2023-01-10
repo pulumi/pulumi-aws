@@ -118,7 +118,7 @@ type OntapStorageVirtualMachine struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrOutput `pulumi:"rootVolumeSecurityStyle"`
-	// Deprecated: this trait has been removed from the API
+	// Describes the SVM's subtype, e.g. `DEFAULT`
 	Subtype          pulumi.StringOutput    `pulumi:"subtype"`
 	SvmAdminPassword pulumi.StringPtrOutput `pulumi:"svmAdminPassword"`
 	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -180,7 +180,7 @@ type ontapStorageVirtualMachineState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle *string `pulumi:"rootVolumeSecurityStyle"`
-	// Deprecated: this trait has been removed from the API
+	// Describes the SVM's subtype, e.g. `DEFAULT`
 	Subtype          *string `pulumi:"subtype"`
 	SvmAdminPassword *string `pulumi:"svmAdminPassword"`
 	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -204,7 +204,7 @@ type OntapStorageVirtualMachineState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrInput
-	// Deprecated: this trait has been removed from the API
+	// Describes the SVM's subtype, e.g. `DEFAULT`
 	Subtype          pulumi.StringPtrInput
 	SvmAdminPassword pulumi.StringPtrInput
 	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -367,7 +367,7 @@ func (o OntapStorageVirtualMachineOutput) RootVolumeSecurityStyle() pulumi.Strin
 	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringPtrOutput { return v.RootVolumeSecurityStyle }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: this trait has been removed from the API
+// Describes the SVM's subtype, e.g. `DEFAULT`
 func (o OntapStorageVirtualMachineOutput) Subtype() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringOutput { return v.Subtype }).(pulumi.StringOutput)
 }

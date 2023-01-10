@@ -717,44 +717,6 @@ class Trail(pulumi.CustomResource):
             read_write_type="All",
         )])
         ```
-        ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        not_important_bucket_1 = aws.s3.get_bucket(bucket="not-important-bucket-1")
-        not_important_bucket_2 = aws.s3.get_bucket(bucket="not-important-bucket-2")
-        example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
-            aws.cloudtrail.TrailAdvancedEventSelectorArgs(
-                field_selectors=[
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        equals=["Data"],
-                        field="eventCategory",
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.ARN",
-                        not_equals=[
-                            f"{not_important_bucket_1.arn}/",
-                            f"{not_important_bucket_2.arn}/",
-                        ],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        equals=["AWS::S3::Object"],
-                        field="resources.type",
-                    ),
-                ],
-                name="Log all S3 objects events except for two S3 buckets",
-            ),
-            aws.cloudtrail.TrailAdvancedEventSelectorArgs(
-                field_selectors=[aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                    equals=["Management"],
-                    field="eventCategory",
-                )],
-                name="Log readOnly and writeOnly management events",
-            ),
-        ])
-        ```
         ### Sending Events to CloudWatch Logs
 
         ```python
@@ -905,44 +867,6 @@ class Trail(pulumi.CustomResource):
             include_management_events=True,
             read_write_type="All",
         )])
-        ```
-        ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        not_important_bucket_1 = aws.s3.get_bucket(bucket="not-important-bucket-1")
-        not_important_bucket_2 = aws.s3.get_bucket(bucket="not-important-bucket-2")
-        example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
-            aws.cloudtrail.TrailAdvancedEventSelectorArgs(
-                field_selectors=[
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        equals=["Data"],
-                        field="eventCategory",
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.ARN",
-                        not_equals=[
-                            f"{not_important_bucket_1.arn}/",
-                            f"{not_important_bucket_2.arn}/",
-                        ],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        equals=["AWS::S3::Object"],
-                        field="resources.type",
-                    ),
-                ],
-                name="Log all S3 objects events except for two S3 buckets",
-            ),
-            aws.cloudtrail.TrailAdvancedEventSelectorArgs(
-                field_selectors=[aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                    equals=["Management"],
-                    field="eventCategory",
-                )],
-                name="Log readOnly and writeOnly management events",
-            ),
-        ])
         ```
         ### Sending Events to CloudWatch Logs
 

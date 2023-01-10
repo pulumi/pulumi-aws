@@ -61,6 +61,8 @@ type LookupGroupResult struct {
 	DefaultCooldown   int      `pulumi:"defaultCooldown"`
 	// Desired size of the group.
 	DesiredCapacity int `pulumi:"desiredCapacity"`
+	// The unit of measurement for the value returned for `desiredCapacity`.
+	DesiredCapacityType string `pulumi:"desiredCapacityType"`
 	// List of metrics enabled for collection.
 	EnabledMetrics []string `pulumi:"enabledMetrics"`
 	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
@@ -150,6 +152,11 @@ func (o LookupGroupResultOutput) DefaultCooldown() pulumi.IntOutput {
 // Desired size of the group.
 func (o LookupGroupResultOutput) DesiredCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupGroupResult) int { return v.DesiredCapacity }).(pulumi.IntOutput)
+}
+
+// The unit of measurement for the value returned for `desiredCapacity`.
+func (o LookupGroupResultOutput) DesiredCapacityType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.DesiredCapacityType }).(pulumi.StringOutput)
 }
 
 // List of metrics enabled for collection.

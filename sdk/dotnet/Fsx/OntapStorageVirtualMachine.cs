@@ -125,6 +125,9 @@ namespace Pulumi.Aws.Fsx
         [Output("rootVolumeSecurityStyle")]
         public Output<string?> RootVolumeSecurityStyle { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the SVM's subtype, e.g. `DEFAULT`
+        /// </summary>
         [Output("subtype")]
         public Output<string> Subtype { get; private set; } = null!;
 
@@ -297,6 +300,9 @@ namespace Pulumi.Aws.Fsx
         [Input("rootVolumeSecurityStyle")]
         public Input<string>? RootVolumeSecurityStyle { get; set; }
 
+        /// <summary>
+        /// Describes the SVM's subtype, e.g. `DEFAULT`
+        /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
 

@@ -106,7 +106,7 @@ type Canary struct {
 	Timelines CanaryTimelineArrayOutput `pulumi:"timelines"`
 	// Configuration block. Detailed below.
 	VpcConfig CanaryVpcConfigPtrOutput `pulumi:"vpcConfig"`
-	// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
+	// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
 	ZipFile pulumi.StringPtrOutput `pulumi:"zipFile"`
 }
 
@@ -200,7 +200,7 @@ type canaryState struct {
 	Timelines []CanaryTimeline `pulumi:"timelines"`
 	// Configuration block. Detailed below.
 	VpcConfig *CanaryVpcConfig `pulumi:"vpcConfig"`
-	// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
+	// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
 	ZipFile *string `pulumi:"zipFile"`
 }
 
@@ -251,7 +251,7 @@ type CanaryState struct {
 	Timelines CanaryTimelineArrayInput
 	// Configuration block. Detailed below.
 	VpcConfig CanaryVpcConfigPtrInput
-	// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
+	// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
 	ZipFile pulumi.StringPtrInput
 }
 
@@ -294,7 +294,7 @@ type canaryArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block. Detailed below.
 	VpcConfig *CanaryVpcConfig `pulumi:"vpcConfig"`
-	// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
+	// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
 	ZipFile *string `pulumi:"zipFile"`
 }
 
@@ -334,7 +334,7 @@ type CanaryArgs struct {
 	Tags pulumi.StringMapInput
 	// Configuration block. Detailed below.
 	VpcConfig CanaryVpcConfigPtrInput
-	// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
+	// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
 	ZipFile pulumi.StringPtrInput
 }
 
@@ -540,7 +540,7 @@ func (o CanaryOutput) VpcConfig() CanaryVpcConfigPtrOutput {
 	return o.ApplyT(func(v *Canary) CanaryVpcConfigPtrOutput { return v.VpcConfig }).(CanaryVpcConfigPtrOutput)
 }
 
-// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
+// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
 func (o CanaryOutput) ZipFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringPtrOutput { return v.ZipFile }).(pulumi.StringPtrOutput)
 }

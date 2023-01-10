@@ -159,7 +159,7 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly vpcConfig!: pulumi.Output<outputs.synthetics.CanaryVpcConfig | undefined>;
     /**
-     * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
+     * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
      */
     public readonly zipFile!: pulumi.Output<string | undefined>;
 
@@ -344,7 +344,7 @@ export interface CanaryState {
      */
     vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVpcConfig>;
     /**
-     * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
+     * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
      */
     zipFile?: pulumi.Input<string>;
 }
@@ -422,7 +422,7 @@ export interface CanaryArgs {
      */
     vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVpcConfig>;
     /**
-     * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
+     * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
      */
     zipFile?: pulumi.Input<string>;
 }

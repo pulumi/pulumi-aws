@@ -299,8 +299,8 @@ namespace Pulumi.Aws.LightSail
         /// <summary>
         /// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
         /// </summary>
-        [Input("availabilityZone", required: true)]
-        public Input<string> AvailabilityZone { get; set; } = null!;
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
         /// When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.

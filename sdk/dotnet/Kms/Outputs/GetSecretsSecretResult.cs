@@ -18,9 +18,17 @@ namespace Pulumi.Aws.Kms.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Context;
         /// <summary>
+        /// The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+        /// </summary>
+        public readonly string? EncryptionAlgorithm;
+        /// <summary>
         /// An optional list of Grant Tokens for the secret.
         /// </summary>
         public readonly ImmutableArray<string> GrantTokens;
+        /// <summary>
+        /// Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+        /// </summary>
+        public readonly string? KeyId;
         /// <summary>
         /// Name to export this secret under in the attributes.
         /// </summary>
@@ -34,14 +42,20 @@ namespace Pulumi.Aws.Kms.Outputs
         private GetSecretsSecretResult(
             ImmutableDictionary<string, string>? context,
 
+            string? encryptionAlgorithm,
+
             ImmutableArray<string> grantTokens,
+
+            string? keyId,
 
             string name,
 
             string payload)
         {
             Context = context;
+            EncryptionAlgorithm = encryptionAlgorithm;
             GrantTokens = grantTokens;
+            KeyId = keyId;
             Name = name;
             Payload = payload;
         }

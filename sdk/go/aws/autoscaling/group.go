@@ -528,6 +528,8 @@ type Group struct {
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
 	DesiredCapacity pulumi.IntOutput `pulumi:"desiredCapacity"`
+	// The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+	DesiredCapacityType pulumi.StringPtrOutput `pulumi:"desiredCapacityType"`
 	// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics pulumi.StringArrayOutput `pulumi:"enabledMetrics"`
 	// Allows deleting the Auto Scaling Group without waiting
@@ -673,6 +675,8 @@ type groupState struct {
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
 	DesiredCapacity *int `pulumi:"desiredCapacity"`
+	// The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+	DesiredCapacityType *string `pulumi:"desiredCapacityType"`
 	// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics []string `pulumi:"enabledMetrics"`
 	// Allows deleting the Auto Scaling Group without waiting
@@ -784,6 +788,8 @@ type GroupState struct {
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
 	DesiredCapacity pulumi.IntPtrInput
+	// The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+	DesiredCapacityType pulumi.StringPtrInput
 	// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics pulumi.StringArrayInput
 	// Allows deleting the Auto Scaling Group without waiting
@@ -897,6 +903,8 @@ type groupArgs struct {
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
 	DesiredCapacity *int `pulumi:"desiredCapacity"`
+	// The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+	DesiredCapacityType *string `pulumi:"desiredCapacityType"`
 	// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics []string `pulumi:"enabledMetrics"`
 	// Allows deleting the Auto Scaling Group without waiting
@@ -1007,6 +1015,8 @@ type GroupArgs struct {
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
 	DesiredCapacity pulumi.IntPtrInput
+	// The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+	DesiredCapacityType pulumi.StringPtrInput
 	// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics pulumi.StringArrayInput
 	// Allows deleting the Auto Scaling Group without waiting
@@ -1223,6 +1233,11 @@ func (o GroupOutput) DefaultInstanceWarmup() pulumi.IntPtrOutput {
 // Capacity below.)
 func (o GroupOutput) DesiredCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Group) pulumi.IntOutput { return v.DesiredCapacity }).(pulumi.IntOutput)
+}
+
+// The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+func (o GroupOutput) DesiredCapacityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.DesiredCapacityType }).(pulumi.StringPtrOutput)
 }
 
 // List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).

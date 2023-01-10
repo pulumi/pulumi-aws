@@ -26,8 +26,10 @@ namespace Pulumi.Aws.Batch
     ///         ContainerProperties = @"{
     /// 	""command"": [""ls"", ""-la""],
     /// 	""image"": ""busybox"",
-    /// 	""memory"": 1024,
-    /// 	""vcpus"": 1,
+    /// 	""resourceRequirements"": [
+    ///     {""type"": ""VCPU"", ""value"": ""0.25""},
+    ///     {""type"": ""MEMORY"", ""value"": ""512""}
+    ///   ],
     /// 	""volumes"": [
     ///       {
     ///         ""host"": {
@@ -211,7 +213,7 @@ namespace Pulumi.Aws.Batch
         public Output<Outputs.JobDefinitionTimeout?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// The type of job definition.  Must be `container`.
+        /// The type of job definition. Must be `container`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -331,7 +333,7 @@ namespace Pulumi.Aws.Batch
         public Input<Inputs.JobDefinitionTimeoutArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of job definition.  Must be `container`.
+        /// The type of job definition. Must be `container`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -437,7 +439,7 @@ namespace Pulumi.Aws.Batch
         public Input<Inputs.JobDefinitionTimeoutGetArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of job definition.  Must be `container`.
+        /// The type of job definition. Must be `container`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

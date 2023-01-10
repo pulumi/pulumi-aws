@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GraphQLApi{}
 	case "aws:appsync/resolver:Resolver":
 		r = &Resolver{}
+	case "aws:appsync/type:Type":
+		r = &Type{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -88,6 +90,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"appsync/resolver",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"appsync/type",
 		&module{version},
 	)
 }

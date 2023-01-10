@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResolverPipelineConfig {
     /**
-     * @return List of Function ID.
+     * @return A list of Function objects.
      * 
      */
     private @Nullable List<String> functions;
 
     private ResolverPipelineConfig() {}
     /**
-     * @return List of Function ID.
+     * @return A list of Function objects.
      * 
      */
     public List<String> functions() {

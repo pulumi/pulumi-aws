@@ -153,7 +153,7 @@ type S3Endpoint struct {
 	CdcInsertsOnly pulumi.BoolPtrOutput `pulumi:"cdcInsertsOnly"`
 	// Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
 	CdcMaxBatchInterval pulumi.IntPtrOutput `pulumi:"cdcMaxBatchInterval"`
-	// Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+	// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
 	CdcMinFileSize pulumi.IntPtrOutput `pulumi:"cdcMinFileSize"`
 	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
 	CdcPath pulumi.StringPtrOutput `pulumi:"cdcPath"`
@@ -203,7 +203,8 @@ type S3Endpoint struct {
 	ExternalId pulumi.StringOutput `pulumi:"externalId"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrOutput `pulumi:"externalTableDefinition"`
-	IgnoreHeaderRows        pulumi.IntPtrOutput    `pulumi:"ignoreHeaderRows"`
+	// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+	IgnoreHeaderRows pulumi.IntPtrOutput `pulumi:"ignoreHeaderRows"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad pulumi.BoolPtrOutput `pulumi:"includeOpForFullLoad"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -297,7 +298,7 @@ type s3endpointState struct {
 	CdcInsertsOnly *bool `pulumi:"cdcInsertsOnly"`
 	// Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
 	CdcMaxBatchInterval *int `pulumi:"cdcMaxBatchInterval"`
-	// Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+	// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
 	CdcMinFileSize *int `pulumi:"cdcMinFileSize"`
 	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
 	CdcPath *string `pulumi:"cdcPath"`
@@ -347,7 +348,8 @@ type s3endpointState struct {
 	ExternalId *string `pulumi:"externalId"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
-	IgnoreHeaderRows        *int    `pulumi:"ignoreHeaderRows"`
+	// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+	IgnoreHeaderRows *int `pulumi:"ignoreHeaderRows"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad *bool `pulumi:"includeOpForFullLoad"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -401,7 +403,7 @@ type S3EndpointState struct {
 	CdcInsertsOnly pulumi.BoolPtrInput
 	// Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
 	CdcMaxBatchInterval pulumi.IntPtrInput
-	// Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+	// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
 	CdcMinFileSize pulumi.IntPtrInput
 	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
 	CdcPath pulumi.StringPtrInput
@@ -451,7 +453,8 @@ type S3EndpointState struct {
 	ExternalId pulumi.StringPtrInput
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrInput
-	IgnoreHeaderRows        pulumi.IntPtrInput
+	// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+	IgnoreHeaderRows pulumi.IntPtrInput
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad pulumi.BoolPtrInput
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -509,7 +512,7 @@ type s3endpointArgs struct {
 	CdcInsertsOnly *bool `pulumi:"cdcInsertsOnly"`
 	// Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
 	CdcMaxBatchInterval *int `pulumi:"cdcMaxBatchInterval"`
-	// Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+	// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
 	CdcMinFileSize *int `pulumi:"cdcMinFileSize"`
 	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
 	CdcPath *string `pulumi:"cdcPath"`
@@ -553,7 +556,8 @@ type s3endpointArgs struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
-	IgnoreHeaderRows        *int    `pulumi:"ignoreHeaderRows"`
+	// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+	IgnoreHeaderRows *int `pulumi:"ignoreHeaderRows"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad *bool `pulumi:"includeOpForFullLoad"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -604,7 +608,7 @@ type S3EndpointArgs struct {
 	CdcInsertsOnly pulumi.BoolPtrInput
 	// Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
 	CdcMaxBatchInterval pulumi.IntPtrInput
-	// Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+	// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
 	CdcMinFileSize pulumi.IntPtrInput
 	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
 	CdcPath pulumi.StringPtrInput
@@ -648,7 +652,8 @@ type S3EndpointArgs struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrInput
-	IgnoreHeaderRows        pulumi.IntPtrInput
+	// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+	IgnoreHeaderRows pulumi.IntPtrInput
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad pulumi.BoolPtrInput
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -808,7 +813,7 @@ func (o S3EndpointOutput) CdcMaxBatchInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.IntPtrOutput { return v.CdcMaxBatchInterval }).(pulumi.IntPtrOutput)
 }
 
-// Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
 func (o S3EndpointOutput) CdcMinFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.IntPtrOutput { return v.CdcMinFileSize }).(pulumi.IntPtrOutput)
 }
@@ -933,6 +938,7 @@ func (o S3EndpointOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.ExternalTableDefinition }).(pulumi.StringPtrOutput)
 }
 
+// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
 func (o S3EndpointOutput) IgnoreHeaderRows() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.IntPtrOutput { return v.IgnoreHeaderRows }).(pulumi.IntPtrOutput)
 }

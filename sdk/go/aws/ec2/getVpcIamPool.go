@@ -92,7 +92,7 @@ type GetVpcIamPoolArgs struct {
 type GetVpcIamPoolResult struct {
 	// IP protocol assigned to this pool.
 	AddressFamily string `pulumi:"addressFamily"`
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
 	AllocationDefaultNetmaskLength int `pulumi:"allocationDefaultNetmaskLength"`
 	// The maximum netmask length that will be required for CIDR allocations in this pool.
 	AllocationMaxNetmaskLength int `pulumi:"allocationMaxNetmaskLength"`
@@ -104,7 +104,7 @@ type GetVpcIamPoolResult struct {
 	Arn string `pulumi:"arn"`
 	// If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
 	AutoImport bool `pulumi:"autoImport"`
-	// Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+	// Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
 	AwsService string `pulumi:"awsService"`
 	// Description for the IPAM pool.
 	Description string                `pulumi:"description"`
@@ -118,7 +118,7 @@ type GetVpcIamPoolResult struct {
 	// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
 	Locale    string `pulumi:"locale"`
 	PoolDepth int    `pulumi:"poolDepth"`
-	// Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+	// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
 	PubliclyAdvertisable bool `pulumi:"publiclyAdvertisable"`
 	// ID of the source IPAM pool.
 	SourceIpamPoolId string `pulumi:"sourceIpamPoolId"`
@@ -178,7 +178,7 @@ func (o GetVpcIamPoolResultOutput) AddressFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIamPoolResult) string { return v.AddressFamily }).(pulumi.StringOutput)
 }
 
-// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
 func (o GetVpcIamPoolResultOutput) AllocationDefaultNetmaskLength() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVpcIamPoolResult) int { return v.AllocationDefaultNetmaskLength }).(pulumi.IntOutput)
 }
@@ -208,7 +208,7 @@ func (o GetVpcIamPoolResultOutput) AutoImport() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVpcIamPoolResult) bool { return v.AutoImport }).(pulumi.BoolOutput)
 }
 
-// Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+// Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
 func (o GetVpcIamPoolResultOutput) AwsService() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIamPoolResult) string { return v.AwsService }).(pulumi.StringOutput)
 }
@@ -249,7 +249,7 @@ func (o GetVpcIamPoolResultOutput) PoolDepth() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVpcIamPoolResult) int { return v.PoolDepth }).(pulumi.IntOutput)
 }
 
-// Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
 func (o GetVpcIamPoolResultOutput) PubliclyAdvertisable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVpcIamPoolResult) bool { return v.PubliclyAdvertisable }).(pulumi.BoolOutput)
 }

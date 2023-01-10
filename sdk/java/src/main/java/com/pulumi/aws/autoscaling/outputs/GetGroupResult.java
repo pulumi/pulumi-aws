@@ -30,6 +30,11 @@ public final class GetGroupResult {
      */
     private Integer desiredCapacity;
     /**
+     * @return The unit of measurement for the value returned for `desired_capacity`.
+     * 
+     */
+    private String desiredCapacityType;
+    /**
      * @return List of metrics enabled for collection.
      * 
      */
@@ -131,6 +136,13 @@ public final class GetGroupResult {
      */
     public Integer desiredCapacity() {
         return this.desiredCapacity;
+    }
+    /**
+     * @return The unit of measurement for the value returned for `desired_capacity`.
+     * 
+     */
+    public String desiredCapacityType() {
+        return this.desiredCapacityType;
     }
     /**
      * @return List of metrics enabled for collection.
@@ -257,6 +269,7 @@ public final class GetGroupResult {
         private List<String> availabilityZones;
         private Integer defaultCooldown;
         private Integer desiredCapacity;
+        private String desiredCapacityType;
         private List<String> enabledMetrics;
         private Integer healthCheckGracePeriod;
         private String healthCheckType;
@@ -281,6 +294,7 @@ public final class GetGroupResult {
     	      this.availabilityZones = defaults.availabilityZones;
     	      this.defaultCooldown = defaults.defaultCooldown;
     	      this.desiredCapacity = defaults.desiredCapacity;
+    	      this.desiredCapacityType = defaults.desiredCapacityType;
     	      this.enabledMetrics = defaults.enabledMetrics;
     	      this.healthCheckGracePeriod = defaults.healthCheckGracePeriod;
     	      this.healthCheckType = defaults.healthCheckType;
@@ -321,6 +335,11 @@ public final class GetGroupResult {
         @CustomType.Setter
         public Builder desiredCapacity(Integer desiredCapacity) {
             this.desiredCapacity = Objects.requireNonNull(desiredCapacity);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder desiredCapacityType(String desiredCapacityType) {
+            this.desiredCapacityType = Objects.requireNonNull(desiredCapacityType);
             return this;
         }
         @CustomType.Setter
@@ -429,6 +448,7 @@ public final class GetGroupResult {
             o.availabilityZones = availabilityZones;
             o.defaultCooldown = defaultCooldown;
             o.desiredCapacity = desiredCapacity;
+            o.desiredCapacityType = desiredCapacityType;
             o.enabledMetrics = enabledMetrics;
             o.healthCheckGracePeriod = healthCheckGracePeriod;
             o.healthCheckType = healthCheckType;

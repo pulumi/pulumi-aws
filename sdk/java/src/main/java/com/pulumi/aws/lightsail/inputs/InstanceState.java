@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.lightsail.inputs;
 
+import com.pulumi.aws.lightsail.inputs.InstanceAddOnArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -19,6 +20,21 @@ import javax.annotation.Nullable;
 public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     public static final InstanceState Empty = new InstanceState();
+
+    /**
+     * The add on configuration for the instance. Detailed below.
+     * 
+     */
+    @Import(name="addOn")
+    private @Nullable Output<InstanceAddOnArgs> addOn;
+
+    /**
+     * @return The add on configuration for the instance. Detailed below.
+     * 
+     */
+    public Optional<Output<InstanceAddOnArgs>> addOn() {
+        return Optional.ofNullable(this.addOn);
+    }
 
     /**
      * The ARN of the Lightsail instance (matches `id`).
@@ -320,6 +336,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     private InstanceState() {}
 
     private InstanceState(InstanceState $) {
+        this.addOn = $.addOn;
         this.arn = $.arn;
         this.availabilityZone = $.availabilityZone;
         this.blueprintId = $.blueprintId;
@@ -357,6 +374,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(InstanceState defaults) {
             $ = new InstanceState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addOn The add on configuration for the instance. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addOn(@Nullable Output<InstanceAddOnArgs> addOn) {
+            $.addOn = addOn;
+            return this;
+        }
+
+        /**
+         * @param addOn The add on configuration for the instance. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addOn(InstanceAddOnArgs addOn) {
+            return addOn(Output.of(addOn));
         }
 
         /**

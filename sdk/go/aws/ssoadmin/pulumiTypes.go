@@ -166,6 +166,211 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+type InstanceAccessControlAttributesAttribute struct {
+	// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+	Key string `pulumi:"key"`
+	// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+	Values []InstanceAccessControlAttributesAttributeValue `pulumi:"values"`
+}
+
+// InstanceAccessControlAttributesAttributeInput is an input type that accepts InstanceAccessControlAttributesAttributeArgs and InstanceAccessControlAttributesAttributeOutput values.
+// You can construct a concrete instance of `InstanceAccessControlAttributesAttributeInput` via:
+//
+//	InstanceAccessControlAttributesAttributeArgs{...}
+type InstanceAccessControlAttributesAttributeInput interface {
+	pulumi.Input
+
+	ToInstanceAccessControlAttributesAttributeOutput() InstanceAccessControlAttributesAttributeOutput
+	ToInstanceAccessControlAttributesAttributeOutputWithContext(context.Context) InstanceAccessControlAttributesAttributeOutput
+}
+
+type InstanceAccessControlAttributesAttributeArgs struct {
+	// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+	Values InstanceAccessControlAttributesAttributeValueArrayInput `pulumi:"values"`
+}
+
+func (InstanceAccessControlAttributesAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAccessControlAttributesAttribute)(nil)).Elem()
+}
+
+func (i InstanceAccessControlAttributesAttributeArgs) ToInstanceAccessControlAttributesAttributeOutput() InstanceAccessControlAttributesAttributeOutput {
+	return i.ToInstanceAccessControlAttributesAttributeOutputWithContext(context.Background())
+}
+
+func (i InstanceAccessControlAttributesAttributeArgs) ToInstanceAccessControlAttributesAttributeOutputWithContext(ctx context.Context) InstanceAccessControlAttributesAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributesAttributeOutput)
+}
+
+// InstanceAccessControlAttributesAttributeArrayInput is an input type that accepts InstanceAccessControlAttributesAttributeArray and InstanceAccessControlAttributesAttributeArrayOutput values.
+// You can construct a concrete instance of `InstanceAccessControlAttributesAttributeArrayInput` via:
+//
+//	InstanceAccessControlAttributesAttributeArray{ InstanceAccessControlAttributesAttributeArgs{...} }
+type InstanceAccessControlAttributesAttributeArrayInput interface {
+	pulumi.Input
+
+	ToInstanceAccessControlAttributesAttributeArrayOutput() InstanceAccessControlAttributesAttributeArrayOutput
+	ToInstanceAccessControlAttributesAttributeArrayOutputWithContext(context.Context) InstanceAccessControlAttributesAttributeArrayOutput
+}
+
+type InstanceAccessControlAttributesAttributeArray []InstanceAccessControlAttributesAttributeInput
+
+func (InstanceAccessControlAttributesAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceAccessControlAttributesAttribute)(nil)).Elem()
+}
+
+func (i InstanceAccessControlAttributesAttributeArray) ToInstanceAccessControlAttributesAttributeArrayOutput() InstanceAccessControlAttributesAttributeArrayOutput {
+	return i.ToInstanceAccessControlAttributesAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceAccessControlAttributesAttributeArray) ToInstanceAccessControlAttributesAttributeArrayOutputWithContext(ctx context.Context) InstanceAccessControlAttributesAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributesAttributeArrayOutput)
+}
+
+type InstanceAccessControlAttributesAttributeOutput struct{ *pulumi.OutputState }
+
+func (InstanceAccessControlAttributesAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAccessControlAttributesAttribute)(nil)).Elem()
+}
+
+func (o InstanceAccessControlAttributesAttributeOutput) ToInstanceAccessControlAttributesAttributeOutput() InstanceAccessControlAttributesAttributeOutput {
+	return o
+}
+
+func (o InstanceAccessControlAttributesAttributeOutput) ToInstanceAccessControlAttributesAttributeOutputWithContext(ctx context.Context) InstanceAccessControlAttributesAttributeOutput {
+	return o
+}
+
+// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+func (o InstanceAccessControlAttributesAttributeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceAccessControlAttributesAttribute) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+func (o InstanceAccessControlAttributesAttributeOutput) Values() InstanceAccessControlAttributesAttributeValueArrayOutput {
+	return o.ApplyT(func(v InstanceAccessControlAttributesAttribute) []InstanceAccessControlAttributesAttributeValue {
+		return v.Values
+	}).(InstanceAccessControlAttributesAttributeValueArrayOutput)
+}
+
+type InstanceAccessControlAttributesAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceAccessControlAttributesAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceAccessControlAttributesAttribute)(nil)).Elem()
+}
+
+func (o InstanceAccessControlAttributesAttributeArrayOutput) ToInstanceAccessControlAttributesAttributeArrayOutput() InstanceAccessControlAttributesAttributeArrayOutput {
+	return o
+}
+
+func (o InstanceAccessControlAttributesAttributeArrayOutput) ToInstanceAccessControlAttributesAttributeArrayOutputWithContext(ctx context.Context) InstanceAccessControlAttributesAttributeArrayOutput {
+	return o
+}
+
+func (o InstanceAccessControlAttributesAttributeArrayOutput) Index(i pulumi.IntInput) InstanceAccessControlAttributesAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceAccessControlAttributesAttribute {
+		return vs[0].([]InstanceAccessControlAttributesAttribute)[vs[1].(int)]
+	}).(InstanceAccessControlAttributesAttributeOutput)
+}
+
+type InstanceAccessControlAttributesAttributeValue struct {
+	// The identity source to use when mapping a specified attribute to AWS SSO.
+	Sources []string `pulumi:"sources"`
+}
+
+// InstanceAccessControlAttributesAttributeValueInput is an input type that accepts InstanceAccessControlAttributesAttributeValueArgs and InstanceAccessControlAttributesAttributeValueOutput values.
+// You can construct a concrete instance of `InstanceAccessControlAttributesAttributeValueInput` via:
+//
+//	InstanceAccessControlAttributesAttributeValueArgs{...}
+type InstanceAccessControlAttributesAttributeValueInput interface {
+	pulumi.Input
+
+	ToInstanceAccessControlAttributesAttributeValueOutput() InstanceAccessControlAttributesAttributeValueOutput
+	ToInstanceAccessControlAttributesAttributeValueOutputWithContext(context.Context) InstanceAccessControlAttributesAttributeValueOutput
+}
+
+type InstanceAccessControlAttributesAttributeValueArgs struct {
+	// The identity source to use when mapping a specified attribute to AWS SSO.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
+}
+
+func (InstanceAccessControlAttributesAttributeValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAccessControlAttributesAttributeValue)(nil)).Elem()
+}
+
+func (i InstanceAccessControlAttributesAttributeValueArgs) ToInstanceAccessControlAttributesAttributeValueOutput() InstanceAccessControlAttributesAttributeValueOutput {
+	return i.ToInstanceAccessControlAttributesAttributeValueOutputWithContext(context.Background())
+}
+
+func (i InstanceAccessControlAttributesAttributeValueArgs) ToInstanceAccessControlAttributesAttributeValueOutputWithContext(ctx context.Context) InstanceAccessControlAttributesAttributeValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributesAttributeValueOutput)
+}
+
+// InstanceAccessControlAttributesAttributeValueArrayInput is an input type that accepts InstanceAccessControlAttributesAttributeValueArray and InstanceAccessControlAttributesAttributeValueArrayOutput values.
+// You can construct a concrete instance of `InstanceAccessControlAttributesAttributeValueArrayInput` via:
+//
+//	InstanceAccessControlAttributesAttributeValueArray{ InstanceAccessControlAttributesAttributeValueArgs{...} }
+type InstanceAccessControlAttributesAttributeValueArrayInput interface {
+	pulumi.Input
+
+	ToInstanceAccessControlAttributesAttributeValueArrayOutput() InstanceAccessControlAttributesAttributeValueArrayOutput
+	ToInstanceAccessControlAttributesAttributeValueArrayOutputWithContext(context.Context) InstanceAccessControlAttributesAttributeValueArrayOutput
+}
+
+type InstanceAccessControlAttributesAttributeValueArray []InstanceAccessControlAttributesAttributeValueInput
+
+func (InstanceAccessControlAttributesAttributeValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceAccessControlAttributesAttributeValue)(nil)).Elem()
+}
+
+func (i InstanceAccessControlAttributesAttributeValueArray) ToInstanceAccessControlAttributesAttributeValueArrayOutput() InstanceAccessControlAttributesAttributeValueArrayOutput {
+	return i.ToInstanceAccessControlAttributesAttributeValueArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceAccessControlAttributesAttributeValueArray) ToInstanceAccessControlAttributesAttributeValueArrayOutputWithContext(ctx context.Context) InstanceAccessControlAttributesAttributeValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributesAttributeValueArrayOutput)
+}
+
+type InstanceAccessControlAttributesAttributeValueOutput struct{ *pulumi.OutputState }
+
+func (InstanceAccessControlAttributesAttributeValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAccessControlAttributesAttributeValue)(nil)).Elem()
+}
+
+func (o InstanceAccessControlAttributesAttributeValueOutput) ToInstanceAccessControlAttributesAttributeValueOutput() InstanceAccessControlAttributesAttributeValueOutput {
+	return o
+}
+
+func (o InstanceAccessControlAttributesAttributeValueOutput) ToInstanceAccessControlAttributesAttributeValueOutputWithContext(ctx context.Context) InstanceAccessControlAttributesAttributeValueOutput {
+	return o
+}
+
+// The identity source to use when mapping a specified attribute to AWS SSO.
+func (o InstanceAccessControlAttributesAttributeValueOutput) Sources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InstanceAccessControlAttributesAttributeValue) []string { return v.Sources }).(pulumi.StringArrayOutput)
+}
+
+type InstanceAccessControlAttributesAttributeValueArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceAccessControlAttributesAttributeValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceAccessControlAttributesAttributeValue)(nil)).Elem()
+}
+
+func (o InstanceAccessControlAttributesAttributeValueArrayOutput) ToInstanceAccessControlAttributesAttributeValueArrayOutput() InstanceAccessControlAttributesAttributeValueArrayOutput {
+	return o
+}
+
+func (o InstanceAccessControlAttributesAttributeValueArrayOutput) ToInstanceAccessControlAttributesAttributeValueArrayOutputWithContext(ctx context.Context) InstanceAccessControlAttributesAttributeValueArrayOutput {
+	return o
+}
+
+func (o InstanceAccessControlAttributesAttributeValueArrayOutput) Index(i pulumi.IntInput) InstanceAccessControlAttributesAttributeValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceAccessControlAttributesAttributeValue {
+		return vs[0].([]InstanceAccessControlAttributesAttributeValue)[vs[1].(int)]
+	}).(InstanceAccessControlAttributesAttributeValueOutput)
+}
+
 type PermissionsBoundaryAttachmentPermissionsBoundary struct {
 	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReference"`
@@ -487,12 +692,20 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceInput)(nil)).Elem(), CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrInput)(nil)).Elem(), CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributesAttributeInput)(nil)).Elem(), InstanceAccessControlAttributesAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributesAttributeArrayInput)(nil)).Elem(), InstanceAccessControlAttributesAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributesAttributeValueInput)(nil)).Elem(), InstanceAccessControlAttributesAttributeValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributesAttributeValueArrayInput)(nil)).Elem(), InstanceAccessControlAttributesAttributeValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{})
 	pulumi.RegisterOutputType(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput{})
 	pulumi.RegisterOutputType(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput{})
+	pulumi.RegisterOutputType(InstanceAccessControlAttributesAttributeOutput{})
+	pulumi.RegisterOutputType(InstanceAccessControlAttributesAttributeArrayOutput{})
+	pulumi.RegisterOutputType(InstanceAccessControlAttributesAttributeValueOutput{})
+	pulumi.RegisterOutputType(InstanceAccessControlAttributesAttributeValueArrayOutput{})
 	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryOutput{})
 	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput{})

@@ -12,6 +12,18 @@ namespace Pulumi.Aws.LightSail.Inputs
 
     public sealed class InstancePublicPortsPortInfoArgs : global::Pulumi.ResourceArgs
     {
+        [Input("cidrListAliases")]
+        private InputList<string>? _cidrListAliases;
+
+        /// <summary>
+        /// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+        /// </summary>
+        public InputList<string> CidrListAliases
+        {
+            get => _cidrListAliases ?? (_cidrListAliases = new InputList<string>());
+            set => _cidrListAliases = value;
+        }
+
         [Input("cidrs")]
         private InputList<string>? _cidrs;
 

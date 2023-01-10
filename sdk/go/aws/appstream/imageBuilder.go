@@ -31,7 +31,7 @@ import (
 //				Description:                 pulumi.String("Description of a ImageBuilder"),
 //				DisplayName:                 pulumi.String("Display name of a ImageBuilder"),
 //				EnableDefaultInternetAccess: pulumi.Bool(false),
-//				ImageName:                   pulumi.String("AppStream-WinServer2012R2-07-19-2021"),
+//				ImageName:                   pulumi.String("AppStream-WinServer2019-10-05-2022"),
 //				InstanceType:                pulumi.String("stream.standard.large"),
 //				VpcConfig: &appstream.ImageBuilderVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{

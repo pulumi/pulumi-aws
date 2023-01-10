@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResolverCachingConfig {
     /**
-     * @return List of caching key.
+     * @return The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
      * 
      */
     private @Nullable List<String> cachingKeys;
     /**
-     * @return TTL in seconds.
+     * @return The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
      * 
      */
     private @Nullable Integer ttl;
 
     private ResolverCachingConfig() {}
     /**
-     * @return List of caching key.
+     * @return The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
      * 
      */
     public List<String> cachingKeys() {
         return this.cachingKeys == null ? List.of() : this.cachingKeys;
     }
     /**
-     * @return TTL in seconds.
+     * @return The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
      * 
      */
     public Optional<Integer> ttl() {

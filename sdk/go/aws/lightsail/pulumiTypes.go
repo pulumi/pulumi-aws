@@ -1193,7 +1193,184 @@ func (o ContainerServicePublicDomainNamesCertificateArrayOutput) Index(i pulumi.
 	}).(ContainerServicePublicDomainNamesCertificateOutput)
 }
 
+type InstanceAddOn struct {
+	// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+	SnapshotTime string `pulumi:"snapshotTime"`
+	// The status of the add on. Valid Values: `Enabled`, `Disabled`.
+	Status string `pulumi:"status"`
+	// The add-on type. There is currently only one valid type `AutoSnapshot`.
+	Type string `pulumi:"type"`
+}
+
+// InstanceAddOnInput is an input type that accepts InstanceAddOnArgs and InstanceAddOnOutput values.
+// You can construct a concrete instance of `InstanceAddOnInput` via:
+//
+//	InstanceAddOnArgs{...}
+type InstanceAddOnInput interface {
+	pulumi.Input
+
+	ToInstanceAddOnOutput() InstanceAddOnOutput
+	ToInstanceAddOnOutputWithContext(context.Context) InstanceAddOnOutput
+}
+
+type InstanceAddOnArgs struct {
+	// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+	SnapshotTime pulumi.StringInput `pulumi:"snapshotTime"`
+	// The status of the add on. Valid Values: `Enabled`, `Disabled`.
+	Status pulumi.StringInput `pulumi:"status"`
+	// The add-on type. There is currently only one valid type `AutoSnapshot`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (InstanceAddOnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAddOn)(nil)).Elem()
+}
+
+func (i InstanceAddOnArgs) ToInstanceAddOnOutput() InstanceAddOnOutput {
+	return i.ToInstanceAddOnOutputWithContext(context.Background())
+}
+
+func (i InstanceAddOnArgs) ToInstanceAddOnOutputWithContext(ctx context.Context) InstanceAddOnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAddOnOutput)
+}
+
+func (i InstanceAddOnArgs) ToInstanceAddOnPtrOutput() InstanceAddOnPtrOutput {
+	return i.ToInstanceAddOnPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceAddOnArgs) ToInstanceAddOnPtrOutputWithContext(ctx context.Context) InstanceAddOnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAddOnOutput).ToInstanceAddOnPtrOutputWithContext(ctx)
+}
+
+// InstanceAddOnPtrInput is an input type that accepts InstanceAddOnArgs, InstanceAddOnPtr and InstanceAddOnPtrOutput values.
+// You can construct a concrete instance of `InstanceAddOnPtrInput` via:
+//
+//	        InstanceAddOnArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceAddOnPtrInput interface {
+	pulumi.Input
+
+	ToInstanceAddOnPtrOutput() InstanceAddOnPtrOutput
+	ToInstanceAddOnPtrOutputWithContext(context.Context) InstanceAddOnPtrOutput
+}
+
+type instanceAddOnPtrType InstanceAddOnArgs
+
+func InstanceAddOnPtr(v *InstanceAddOnArgs) InstanceAddOnPtrInput {
+	return (*instanceAddOnPtrType)(v)
+}
+
+func (*instanceAddOnPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceAddOn)(nil)).Elem()
+}
+
+func (i *instanceAddOnPtrType) ToInstanceAddOnPtrOutput() InstanceAddOnPtrOutput {
+	return i.ToInstanceAddOnPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceAddOnPtrType) ToInstanceAddOnPtrOutputWithContext(ctx context.Context) InstanceAddOnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAddOnPtrOutput)
+}
+
+type InstanceAddOnOutput struct{ *pulumi.OutputState }
+
+func (InstanceAddOnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAddOn)(nil)).Elem()
+}
+
+func (o InstanceAddOnOutput) ToInstanceAddOnOutput() InstanceAddOnOutput {
+	return o
+}
+
+func (o InstanceAddOnOutput) ToInstanceAddOnOutputWithContext(ctx context.Context) InstanceAddOnOutput {
+	return o
+}
+
+func (o InstanceAddOnOutput) ToInstanceAddOnPtrOutput() InstanceAddOnPtrOutput {
+	return o.ToInstanceAddOnPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceAddOnOutput) ToInstanceAddOnPtrOutputWithContext(ctx context.Context) InstanceAddOnPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceAddOn) *InstanceAddOn {
+		return &v
+	}).(InstanceAddOnPtrOutput)
+}
+
+// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+func (o InstanceAddOnOutput) SnapshotTime() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceAddOn) string { return v.SnapshotTime }).(pulumi.StringOutput)
+}
+
+// The status of the add on. Valid Values: `Enabled`, `Disabled`.
+func (o InstanceAddOnOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceAddOn) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The add-on type. There is currently only one valid type `AutoSnapshot`.
+func (o InstanceAddOnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceAddOn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type InstanceAddOnPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceAddOnPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceAddOn)(nil)).Elem()
+}
+
+func (o InstanceAddOnPtrOutput) ToInstanceAddOnPtrOutput() InstanceAddOnPtrOutput {
+	return o
+}
+
+func (o InstanceAddOnPtrOutput) ToInstanceAddOnPtrOutputWithContext(ctx context.Context) InstanceAddOnPtrOutput {
+	return o
+}
+
+func (o InstanceAddOnPtrOutput) Elem() InstanceAddOnOutput {
+	return o.ApplyT(func(v *InstanceAddOn) InstanceAddOn {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceAddOn
+		return ret
+	}).(InstanceAddOnOutput)
+}
+
+// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+func (o InstanceAddOnPtrOutput) SnapshotTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceAddOn) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the add on. Valid Values: `Enabled`, `Disabled`.
+func (o InstanceAddOnPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceAddOn) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The add-on type. There is currently only one valid type `AutoSnapshot`.
+func (o InstanceAddOnPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceAddOn) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstancePublicPortsPortInfo struct {
+	// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+	CidrListAliases []string `pulumi:"cidrListAliases"`
 	// Set of CIDR blocks.
 	Cidrs []string `pulumi:"cidrs"`
 	// First port in a range of open ports on an instance.
@@ -1217,6 +1394,8 @@ type InstancePublicPortsPortInfoInput interface {
 }
 
 type InstancePublicPortsPortInfoArgs struct {
+	// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+	CidrListAliases pulumi.StringArrayInput `pulumi:"cidrListAliases"`
 	// Set of CIDR blocks.
 	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
 	// First port in a range of open ports on an instance.
@@ -1277,6 +1456,11 @@ func (o InstancePublicPortsPortInfoOutput) ToInstancePublicPortsPortInfoOutput()
 
 func (o InstancePublicPortsPortInfoOutput) ToInstancePublicPortsPortInfoOutputWithContext(ctx context.Context) InstancePublicPortsPortInfoOutput {
 	return o
+}
+
+// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+func (o InstancePublicPortsPortInfoOutput) CidrListAliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InstancePublicPortsPortInfo) []string { return v.CidrListAliases }).(pulumi.StringArrayOutput)
 }
 
 // Set of CIDR blocks.
@@ -1455,6 +1639,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesPtrInput)(nil)).Elem(), ContainerServicePublicDomainNamesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesCertificateInput)(nil)).Elem(), ContainerServicePublicDomainNamesCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesCertificateArrayInput)(nil)).Elem(), ContainerServicePublicDomainNamesCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnInput)(nil)).Elem(), InstanceAddOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnPtrInput)(nil)).Elem(), InstanceAddOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsPortInfoInput)(nil)).Elem(), InstancePublicPortsPortInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsPortInfoArrayInput)(nil)).Elem(), InstancePublicPortsPortInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LbCertificateDomainValidationRecordInput)(nil)).Elem(), LbCertificateDomainValidationRecordArgs{})
@@ -1475,6 +1661,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesCertificateOutput{})
 	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesCertificateArrayOutput{})
+	pulumi.RegisterOutputType(InstanceAddOnOutput{})
+	pulumi.RegisterOutputType(InstanceAddOnPtrOutput{})
 	pulumi.RegisterOutputType(InstancePublicPortsPortInfoOutput{})
 	pulumi.RegisterOutputType(InstancePublicPortsPortInfoArrayOutput{})
 	pulumi.RegisterOutputType(LbCertificateDomainValidationRecordOutput{})

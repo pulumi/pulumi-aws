@@ -521,23 +521,30 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var exampleLogPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     &#34;logs:CreateLogStream&#34;,
- *                     &#34;logs:PutLogEvents&#34;)
- *                 .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(                    
- *                         &#34;events.amazonaws.com&#34;,
- *                         &#34;delivery.logs.amazonaws.com&#34;)
- *                     .type(&#34;Service&#34;)
+ *             .statements(            
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(&#34;logs:CreateLogStream&#34;)
+ *                     .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type(&#34;Service&#34;)
+ *                         .identifiers(&#34;events.amazonaws.com&#34;)
+ *                         .build())
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(&#34;logs:PutLogEvents&#34;)
+ *                     .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*:*&#34;, arn)))
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type(&#34;Service&#34;)
+ *                         .identifiers(&#34;events.amazonaws.com&#34;)
+ *                         .build())
+ *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test(&#34;ArnEquals&#34;)
+ *                         .values(exampleEventRule.arn())
+ *                         .variable(&#34;aws:SourceArn&#34;)
+ *                         .build())
  *                     .build())
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;ArnEquals&#34;)
- *                     .values(exampleEventRule.arn())
- *                     .variable(&#34;aws:SourceArn&#34;)
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *         var exampleLogResourcePolicy = new LogResourcePolicy(&#34;exampleLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
@@ -790,14 +797,14 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sqsTarget);
     }
     /**
-     * The unique target assignment ID.  If missing, will generate a random, unique id.
+     * The unique target assignment ID. If missing, will generate a random, unique id.
      * 
      */
     @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
     /**
-     * @return The unique target assignment ID.  If missing, will generate a random, unique id.
+     * @return The unique target assignment ID. If missing, will generate a random, unique id.
      * 
      */
     public Output<String> targetId() {

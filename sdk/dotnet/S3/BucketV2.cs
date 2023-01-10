@@ -481,7 +481,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// ### Enable Default Server Side Encryption
+    /// ### Enable SSE-KMS Server Side Encryption
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

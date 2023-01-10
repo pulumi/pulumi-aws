@@ -50,14 +50,14 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
     }
 
     /**
-     * The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+     * The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+     * @return The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
      * 
      */
     public Output<String> bucket() {
@@ -197,7 +197,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param bucket The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+         * @param bucket The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param bucket The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+         * @param bucket The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
          * 
          * @return builder
          * 

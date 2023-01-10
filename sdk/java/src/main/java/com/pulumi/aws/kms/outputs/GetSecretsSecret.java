@@ -8,6 +8,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,10 +19,20 @@ public final class GetSecretsSecret {
      */
     private @Nullable Map<String,String> context;
     /**
+     * @return The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+     * 
+     */
+    private @Nullable String encryptionAlgorithm;
+    /**
      * @return An optional list of Grant Tokens for the secret.
      * 
      */
     private @Nullable List<String> grantTokens;
+    /**
+     * @return Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+     * 
+     */
+    private @Nullable String keyId;
     /**
      * @return Name to export this secret under in the attributes.
      * 
@@ -42,11 +53,25 @@ public final class GetSecretsSecret {
         return this.context == null ? Map.of() : this.context;
     }
     /**
+     * @return The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+     * 
+     */
+    public Optional<String> encryptionAlgorithm() {
+        return Optional.ofNullable(this.encryptionAlgorithm);
+    }
+    /**
      * @return An optional list of Grant Tokens for the secret.
      * 
      */
     public List<String> grantTokens() {
         return this.grantTokens == null ? List.of() : this.grantTokens;
+    }
+    /**
+     * @return Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+     * 
+     */
+    public Optional<String> keyId() {
+        return Optional.ofNullable(this.keyId);
     }
     /**
      * @return Name to export this secret under in the attributes.
@@ -73,14 +98,18 @@ public final class GetSecretsSecret {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> context;
+        private @Nullable String encryptionAlgorithm;
         private @Nullable List<String> grantTokens;
+        private @Nullable String keyId;
         private String name;
         private String payload;
         public Builder() {}
         public Builder(GetSecretsSecret defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.context = defaults.context;
+    	      this.encryptionAlgorithm = defaults.encryptionAlgorithm;
     	      this.grantTokens = defaults.grantTokens;
+    	      this.keyId = defaults.keyId;
     	      this.name = defaults.name;
     	      this.payload = defaults.payload;
         }
@@ -91,12 +120,22 @@ public final class GetSecretsSecret {
             return this;
         }
         @CustomType.Setter
+        public Builder encryptionAlgorithm(@Nullable String encryptionAlgorithm) {
+            this.encryptionAlgorithm = encryptionAlgorithm;
+            return this;
+        }
+        @CustomType.Setter
         public Builder grantTokens(@Nullable List<String> grantTokens) {
             this.grantTokens = grantTokens;
             return this;
         }
         public Builder grantTokens(String... grantTokens) {
             return grantTokens(List.of(grantTokens));
+        }
+        @CustomType.Setter
+        public Builder keyId(@Nullable String keyId) {
+            this.keyId = keyId;
+            return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -111,7 +150,9 @@ public final class GetSecretsSecret {
         public GetSecretsSecret build() {
             final var o = new GetSecretsSecret();
             o.context = context;
+            o.encryptionAlgorithm = encryptionAlgorithm;
             o.grantTokens = grantTokens;
+            o.keyId = keyId;
             o.name = name;
             o.payload = payload;
             return o;

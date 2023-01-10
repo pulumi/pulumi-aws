@@ -7958,6 +7958,12 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift st
 	BucketName string `pulumi:"bucketName"`
 	// The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
+	// The unique ID that's assigned to an Amazon Redshift cluster.
+	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
+	// ARN of the IAM role that permits AppFlow to access the database through Data API.
+	DataApiRoleArn *string `pulumi:"dataApiRoleArn"`
+	// The name of an Amazon Redshift database.
+	DatabaseName *string `pulumi:"databaseName"`
 	// The JDBC URL of the Amazon Redshift cluster.
 	DatabaseUrl *string `pulumi:"databaseUrl"`
 	// ARN of the IAM role.
@@ -7980,6 +7986,12 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArg
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+	// The unique ID that's assigned to an Amazon Redshift cluster.
+	ClusterIdentifier pulumi.StringPtrInput `pulumi:"clusterIdentifier"`
+	// ARN of the IAM role that permits AppFlow to access the database through Data API.
+	DataApiRoleArn pulumi.StringPtrInput `pulumi:"dataApiRoleArn"`
+	// The name of an Amazon Redshift database.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
 	// The JDBC URL of the Amazon Redshift cluster.
 	DatabaseUrl pulumi.StringPtrInput `pulumi:"databaseUrl"`
 	// ARN of the IAM role.
@@ -8077,6 +8089,27 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique ID that's assigned to an Amazon Redshift cluster.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
+		return v.ClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role that permits AppFlow to access the database through Data API.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput) DataApiRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
+		return v.DataApiRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of an Amazon Redshift database.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The JDBC URL of the Amazon Redshift cluster.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput) DatabaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
@@ -8132,6 +8165,36 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 			return nil
 		}
 		return v.BucketPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique ID that's assigned to an Amazon Redshift cluster.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role that permits AppFlow to access the database through Data API.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput) DataApiRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataApiRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of an Amazon Redshift database.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
 	}).(pulumi.StringPtrOutput)
 }
 

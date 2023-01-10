@@ -19,6 +19,7 @@ __all__ = [
     'ContainerServicePrivateRegistryAccessEcrImagePullerRole',
     'ContainerServicePublicDomainNames',
     'ContainerServicePublicDomainNamesCertificate',
+    'InstanceAddOn',
     'InstancePublicPortsPortInfo',
     'LbCertificateDomainValidationRecord',
 ]
@@ -469,6 +470,63 @@ class ContainerServicePublicDomainNamesCertificate(dict):
 
 
 @pulumi.output_type
+class InstanceAddOn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotTime":
+            suggest = "snapshot_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceAddOn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceAddOn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceAddOn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 snapshot_time: str,
+                 status: str,
+                 type: str):
+        """
+        :param str snapshot_time: The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+        :param str status: The status of the add on. Valid Values: `Enabled`, `Disabled`.
+        :param str type: The add-on type. There is currently only one valid type `AutoSnapshot`.
+        """
+        pulumi.set(__self__, "snapshot_time", snapshot_time)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="snapshotTime")
+    def snapshot_time(self) -> str:
+        """
+        The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+        """
+        return pulumi.get(self, "snapshot_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the add on. Valid Values: `Enabled`, `Disabled`.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The add-on type. There is currently only one valid type `AutoSnapshot`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class InstancePublicPortsPortInfo(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -477,6 +535,8 @@ class InstancePublicPortsPortInfo(dict):
             suggest = "from_port"
         elif key == "toPort":
             suggest = "to_port"
+        elif key == "cidrListAliases":
+            suggest = "cidr_list_aliases"
         elif key == "ipv6Cidrs":
             suggest = "ipv6_cidrs"
 
@@ -495,17 +555,21 @@ class InstancePublicPortsPortInfo(dict):
                  from_port: int,
                  protocol: str,
                  to_port: int,
+                 cidr_list_aliases: Optional[Sequence[str]] = None,
                  cidrs: Optional[Sequence[str]] = None,
                  ipv6_cidrs: Optional[Sequence[str]] = None):
         """
         :param int from_port: First port in a range of open ports on an instance.
         :param str protocol: IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
         :param int to_port: Last port in a range of open ports on an instance.
+        :param Sequence[str] cidr_list_aliases: Set of CIDR aliases that define access for a preconfigured range of IP addresses.
         :param Sequence[str] cidrs: Set of CIDR blocks.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "to_port", to_port)
+        if cidr_list_aliases is not None:
+            pulumi.set(__self__, "cidr_list_aliases", cidr_list_aliases)
         if cidrs is not None:
             pulumi.set(__self__, "cidrs", cidrs)
         if ipv6_cidrs is not None:
@@ -534,6 +598,14 @@ class InstancePublicPortsPortInfo(dict):
         Last port in a range of open ports on an instance.
         """
         return pulumi.get(self, "to_port")
+
+    @property
+    @pulumi.getter(name="cidrListAliases")
+    def cidr_list_aliases(self) -> Optional[Sequence[str]]:
+        """
+        Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+        """
+        return pulumi.get(self, "cidr_list_aliases")
 
     @property
     @pulumi.getter

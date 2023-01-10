@@ -3401,9 +3401,9 @@ func (o GraphQLApiUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 }
 
 type ResolverCachingConfig struct {
-	// List of caching key.
+	// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 	CachingKeys []string `pulumi:"cachingKeys"`
-	// TTL in seconds.
+	// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
 	Ttl *int `pulumi:"ttl"`
 }
 
@@ -3419,9 +3419,9 @@ type ResolverCachingConfigInput interface {
 }
 
 type ResolverCachingConfigArgs struct {
-	// List of caching key.
+	// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 	CachingKeys pulumi.StringArrayInput `pulumi:"cachingKeys"`
-	// TTL in seconds.
+	// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
 	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
 }
 
@@ -3502,12 +3502,12 @@ func (o ResolverCachingConfigOutput) ToResolverCachingConfigPtrOutputWithContext
 	}).(ResolverCachingConfigPtrOutput)
 }
 
-// List of caching key.
+// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 func (o ResolverCachingConfigOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverCachingConfig) []string { return v.CachingKeys }).(pulumi.StringArrayOutput)
 }
 
-// TTL in seconds.
+// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
 func (o ResolverCachingConfigOutput) Ttl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResolverCachingConfig) *int { return v.Ttl }).(pulumi.IntPtrOutput)
 }
@@ -3536,7 +3536,7 @@ func (o ResolverCachingConfigPtrOutput) Elem() ResolverCachingConfigOutput {
 	}).(ResolverCachingConfigOutput)
 }
 
-// List of caching key.
+// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverCachingConfig) []string {
 		if v == nil {
@@ -3546,7 +3546,7 @@ func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// TTL in seconds.
+// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
 func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResolverCachingConfig) *int {
 		if v == nil {
@@ -3557,7 +3557,7 @@ func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
 }
 
 type ResolverPipelineConfig struct {
-	// List of Function ID.
+	// A list of Function objects.
 	Functions []string `pulumi:"functions"`
 }
 
@@ -3573,7 +3573,7 @@ type ResolverPipelineConfigInput interface {
 }
 
 type ResolverPipelineConfigArgs struct {
-	// List of Function ID.
+	// A list of Function objects.
 	Functions pulumi.StringArrayInput `pulumi:"functions"`
 }
 
@@ -3654,7 +3654,7 @@ func (o ResolverPipelineConfigOutput) ToResolverPipelineConfigPtrOutputWithConte
 	}).(ResolverPipelineConfigPtrOutput)
 }
 
-// List of Function ID.
+// A list of Function objects.
 func (o ResolverPipelineConfigOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverPipelineConfig) []string { return v.Functions }).(pulumi.StringArrayOutput)
 }
@@ -3683,7 +3683,7 @@ func (o ResolverPipelineConfigPtrOutput) Elem() ResolverPipelineConfigOutput {
 	}).(ResolverPipelineConfigOutput)
 }
 
-// List of Function ID.
+// A list of Function objects.
 func (o ResolverPipelineConfigPtrOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverPipelineConfig) []string {
 		if v == nil {
@@ -3691,6 +3691,162 @@ func (o ResolverPipelineConfigPtrOutput) Functions() pulumi.StringArrayOutput {
 		}
 		return v.Functions
 	}).(pulumi.StringArrayOutput)
+}
+
+type ResolverRuntime struct {
+	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	Name string `pulumi:"name"`
+	// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+	RuntimeVersion string `pulumi:"runtimeVersion"`
+}
+
+// ResolverRuntimeInput is an input type that accepts ResolverRuntimeArgs and ResolverRuntimeOutput values.
+// You can construct a concrete instance of `ResolverRuntimeInput` via:
+//
+//	ResolverRuntimeArgs{...}
+type ResolverRuntimeInput interface {
+	pulumi.Input
+
+	ToResolverRuntimeOutput() ResolverRuntimeOutput
+	ToResolverRuntimeOutputWithContext(context.Context) ResolverRuntimeOutput
+}
+
+type ResolverRuntimeArgs struct {
+	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+}
+
+func (ResolverRuntimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuntime)(nil)).Elem()
+}
+
+func (i ResolverRuntimeArgs) ToResolverRuntimeOutput() ResolverRuntimeOutput {
+	return i.ToResolverRuntimeOutputWithContext(context.Background())
+}
+
+func (i ResolverRuntimeArgs) ToResolverRuntimeOutputWithContext(ctx context.Context) ResolverRuntimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuntimeOutput)
+}
+
+func (i ResolverRuntimeArgs) ToResolverRuntimePtrOutput() ResolverRuntimePtrOutput {
+	return i.ToResolverRuntimePtrOutputWithContext(context.Background())
+}
+
+func (i ResolverRuntimeArgs) ToResolverRuntimePtrOutputWithContext(ctx context.Context) ResolverRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuntimeOutput).ToResolverRuntimePtrOutputWithContext(ctx)
+}
+
+// ResolverRuntimePtrInput is an input type that accepts ResolverRuntimeArgs, ResolverRuntimePtr and ResolverRuntimePtrOutput values.
+// You can construct a concrete instance of `ResolverRuntimePtrInput` via:
+//
+//	        ResolverRuntimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResolverRuntimePtrInput interface {
+	pulumi.Input
+
+	ToResolverRuntimePtrOutput() ResolverRuntimePtrOutput
+	ToResolverRuntimePtrOutputWithContext(context.Context) ResolverRuntimePtrOutput
+}
+
+type resolverRuntimePtrType ResolverRuntimeArgs
+
+func ResolverRuntimePtr(v *ResolverRuntimeArgs) ResolverRuntimePtrInput {
+	return (*resolverRuntimePtrType)(v)
+}
+
+func (*resolverRuntimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverRuntime)(nil)).Elem()
+}
+
+func (i *resolverRuntimePtrType) ToResolverRuntimePtrOutput() ResolverRuntimePtrOutput {
+	return i.ToResolverRuntimePtrOutputWithContext(context.Background())
+}
+
+func (i *resolverRuntimePtrType) ToResolverRuntimePtrOutputWithContext(ctx context.Context) ResolverRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuntimePtrOutput)
+}
+
+type ResolverRuntimeOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuntimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuntime)(nil)).Elem()
+}
+
+func (o ResolverRuntimeOutput) ToResolverRuntimeOutput() ResolverRuntimeOutput {
+	return o
+}
+
+func (o ResolverRuntimeOutput) ToResolverRuntimeOutputWithContext(ctx context.Context) ResolverRuntimeOutput {
+	return o
+}
+
+func (o ResolverRuntimeOutput) ToResolverRuntimePtrOutput() ResolverRuntimePtrOutput {
+	return o.ToResolverRuntimePtrOutputWithContext(context.Background())
+}
+
+func (o ResolverRuntimeOutput) ToResolverRuntimePtrOutputWithContext(ctx context.Context) ResolverRuntimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverRuntime) *ResolverRuntime {
+		return &v
+	}).(ResolverRuntimePtrOutput)
+}
+
+// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+func (o ResolverRuntimeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverRuntime) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+func (o ResolverRuntimeOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverRuntime) string { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+type ResolverRuntimePtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuntimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverRuntime)(nil)).Elem()
+}
+
+func (o ResolverRuntimePtrOutput) ToResolverRuntimePtrOutput() ResolverRuntimePtrOutput {
+	return o
+}
+
+func (o ResolverRuntimePtrOutput) ToResolverRuntimePtrOutputWithContext(ctx context.Context) ResolverRuntimePtrOutput {
+	return o
+}
+
+func (o ResolverRuntimePtrOutput) Elem() ResolverRuntimeOutput {
+	return o.ApplyT(func(v *ResolverRuntime) ResolverRuntime {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverRuntime
+		return ret
+	}).(ResolverRuntimeOutput)
+}
+
+// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+func (o ResolverRuntimePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverRuntime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+func (o ResolverRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverRuntime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuntimeVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 type ResolverSyncConfig struct {
@@ -4052,6 +4208,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverCachingConfigPtrInput)(nil)).Elem(), ResolverCachingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverPipelineConfigInput)(nil)).Elem(), ResolverPipelineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverPipelineConfigPtrInput)(nil)).Elem(), ResolverPipelineConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuntimeInput)(nil)).Elem(), ResolverRuntimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuntimePtrInput)(nil)).Elem(), ResolverRuntimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverSyncConfigInput)(nil)).Elem(), ResolverSyncConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverSyncConfigPtrInput)(nil)).Elem(), ResolverSyncConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverSyncConfigLambdaConflictHandlerConfigInput)(nil)).Elem(), ResolverSyncConfigLambdaConflictHandlerConfigArgs{})
@@ -4100,6 +4258,8 @@ func init() {
 	pulumi.RegisterOutputType(ResolverCachingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverPipelineConfigOutput{})
 	pulumi.RegisterOutputType(ResolverPipelineConfigPtrOutput{})
+	pulumi.RegisterOutputType(ResolverRuntimeOutput{})
+	pulumi.RegisterOutputType(ResolverRuntimePtrOutput{})
 	pulumi.RegisterOutputType(ResolverSyncConfigOutput{})
 	pulumi.RegisterOutputType(ResolverSyncConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverSyncConfigLambdaConflictHandlerConfigOutput{})

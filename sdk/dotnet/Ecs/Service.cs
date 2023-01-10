@@ -103,6 +103,31 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// ### CloudWatch Deployment Alarms
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecs.Service("example", new()
+    ///     {
+    ///         Cluster = aws_ecs_cluster.Example.Id,
+    ///         Alarms = new Aws.Ecs.Inputs.ServiceAlarmsArgs
+    ///         {
+    ///             Enable = true,
+    ///             Rollback = true,
+    ///             AlarmNames = new[]
+    ///             {
+    ///                 aws_cloudwatch_metric_alarm.Example.Alarm_name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### External Deployment Controller
     /// 
     /// ```csharp
@@ -135,6 +160,12 @@ namespace Pulumi.Aws.Ecs
     [AwsResourceType("aws:ecs/service:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Information about the CloudWatch alarms. See below.
+        /// </summary>
+        [Output("alarms")]
+        public Output<Outputs.ServiceAlarms?> Alarms { get; private set; } = null!;
+
         /// <summary>
         /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         /// </summary>
@@ -349,6 +380,12 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information about the CloudWatch alarms. See below.
+        /// </summary>
+        [Input("alarms")]
+        public Input<Inputs.ServiceAlarmsArgs>? Alarms { get; set; }
+
         [Input("capacityProviderStrategies")]
         private InputList<Inputs.ServiceCapacityProviderStrategyArgs>? _capacityProviderStrategies;
 
@@ -555,6 +592,12 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information about the CloudWatch alarms. See below.
+        /// </summary>
+        [Input("alarms")]
+        public Input<Inputs.ServiceAlarmsGetArgs>? Alarms { get; set; }
+
         [Input("capacityProviderStrategies")]
         private InputList<Inputs.ServiceCapacityProviderStrategyGetArgs>? _capacityProviderStrategies;
 

@@ -153,7 +153,7 @@ type Instance struct {
 	// The daily time range (in UTC) during which automated backups are created if they are enabled.
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow pulumi.StringOutput `pulumi:"backupWindow"`
-	// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+	// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
 	// See blueGreenUpdate below
 	BlueGreenUpdate InstanceBlueGreenUpdatePtrOutput `pulumi:"blueGreenUpdate"`
 	// The identifier of the CA certificate for the DB instance.
@@ -423,7 +423,7 @@ type instanceState struct {
 	// The daily time range (in UTC) during which automated backups are created if they are enabled.
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow *string `pulumi:"backupWindow"`
-	// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+	// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
 	// See blueGreenUpdate below
 	BlueGreenUpdate *InstanceBlueGreenUpdate `pulumi:"blueGreenUpdate"`
 	// The identifier of the CA certificate for the DB instance.
@@ -655,7 +655,7 @@ type InstanceState struct {
 	// The daily time range (in UTC) during which automated backups are created if they are enabled.
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow pulumi.StringPtrInput
-	// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+	// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
 	// See blueGreenUpdate below
 	BlueGreenUpdate InstanceBlueGreenUpdatePtrInput
 	// The identifier of the CA certificate for the DB instance.
@@ -887,7 +887,7 @@ type instanceArgs struct {
 	// The daily time range (in UTC) during which automated backups are created if they are enabled.
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow *string `pulumi:"backupWindow"`
-	// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+	// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
 	// See blueGreenUpdate below
 	BlueGreenUpdate *InstanceBlueGreenUpdate `pulumi:"blueGreenUpdate"`
 	// The identifier of the CA certificate for the DB instance.
@@ -1100,7 +1100,7 @@ type InstanceArgs struct {
 	// The daily time range (in UTC) during which automated backups are created if they are enabled.
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow pulumi.StringPtrInput
-	// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+	// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
 	// See blueGreenUpdate below
 	BlueGreenUpdate InstanceBlueGreenUpdatePtrInput
 	// The identifier of the CA certificate for the DB instance.
@@ -1429,7 +1429,7 @@ func (o InstanceOutput) BackupWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.BackupWindow }).(pulumi.StringOutput)
 }
 
-// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
 // See blueGreenUpdate below
 func (o InstanceOutput) BlueGreenUpdate() InstanceBlueGreenUpdatePtrOutput {
 	return o.ApplyT(func(v *Instance) InstanceBlueGreenUpdatePtrOutput { return v.BlueGreenUpdate }).(InstanceBlueGreenUpdatePtrOutput)

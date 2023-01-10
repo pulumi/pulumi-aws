@@ -162,13 +162,11 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly dropInvalidHeaderFields!: pulumi.Output<boolean | undefined>;
     /**
-     * If true, cross-zone load balancing of the load balancer will be enabled.
-     * This is a `network` load balancer feature. Defaults to `false`.
+     * If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
      */
     public readonly enableCrossZoneLoadBalancing!: pulumi.Output<boolean | undefined>;
     /**
-     * If true, deletion of the load balancer will be disabled via
-     * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+     * If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
      */
     public readonly enableDeletionProtection!: pulumi.Output<boolean | undefined>;
     /**
@@ -188,7 +186,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly internal!: pulumi.Output<boolean>;
     /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      */
     public readonly ipAddressType!: pulumi.Output<IpAddressType>;
     /**
@@ -202,16 +200,13 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     public readonly preserveHostHeader!: pulumi.Output<boolean | undefined>;
-    /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-     */
     public readonly securityGroups!: pulumi.Output<string[]>;
     /**
      * A subnet mapping block as documented below.
@@ -234,7 +229,6 @@ export class LoadBalancer extends pulumi.CustomResource {
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      */
     public /*out*/ readonly zoneId!: pulumi.Output<string>;
 
@@ -345,13 +339,11 @@ export interface LoadBalancerState {
      */
     dropInvalidHeaderFields?: pulumi.Input<boolean>;
     /**
-     * If true, cross-zone load balancing of the load balancer will be enabled.
-     * This is a `network` load balancer feature. Defaults to `false`.
+     * If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
      */
     enableCrossZoneLoadBalancing?: pulumi.Input<boolean>;
     /**
-     * If true, deletion of the load balancer will be disabled via
-     * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+     * If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
      */
     enableDeletionProtection?: pulumi.Input<boolean>;
     /**
@@ -371,7 +363,7 @@ export interface LoadBalancerState {
      */
     internal?: pulumi.Input<boolean>;
     /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      */
     ipAddressType?: pulumi.Input<IpAddressType>;
     /**
@@ -385,16 +377,13 @@ export interface LoadBalancerState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      */
     namePrefix?: pulumi.Input<string>;
     /**
      * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     preserveHostHeader?: pulumi.Input<boolean>;
-    /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-     */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A subnet mapping block as documented below.
@@ -417,7 +406,6 @@ export interface LoadBalancerState {
     vpcId?: pulumi.Input<string>;
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      */
     zoneId?: pulumi.Input<string>;
 }
@@ -443,13 +431,11 @@ export interface LoadBalancerArgs {
      */
     dropInvalidHeaderFields?: pulumi.Input<boolean>;
     /**
-     * If true, cross-zone load balancing of the load balancer will be enabled.
-     * This is a `network` load balancer feature. Defaults to `false`.
+     * If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
      */
     enableCrossZoneLoadBalancing?: pulumi.Input<boolean>;
     /**
-     * If true, deletion of the load balancer will be disabled via
-     * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+     * If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
      */
     enableDeletionProtection?: pulumi.Input<boolean>;
     /**
@@ -469,7 +455,7 @@ export interface LoadBalancerArgs {
      */
     internal?: pulumi.Input<boolean>;
     /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      */
     ipAddressType?: pulumi.Input<IpAddressType>;
     /**
@@ -483,16 +469,13 @@ export interface LoadBalancerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      */
     namePrefix?: pulumi.Input<string>;
     /**
      * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     preserveHostHeader?: pulumi.Input<boolean>;
-    /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-     */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A subnet mapping block as documented below.

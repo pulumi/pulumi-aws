@@ -53199,7 +53199,9 @@ func (o GetVpcIamPoolCidrsIpamPoolCidrArrayOutput) Index(i pulumi.IntInput) GetV
 }
 
 type GetVpcIamPoolFilter struct {
-	Name   string   `pulumi:"name"`
+	// The name of the filter. Filter names are case-sensitive.
+	Name string `pulumi:"name"`
+	// The filter values. Filter values are case-sensitive.
 	Values []string `pulumi:"values"`
 }
 
@@ -53215,7 +53217,9 @@ type GetVpcIamPoolFilterInput interface {
 }
 
 type GetVpcIamPoolFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// The name of the filter. Filter names are case-sensitive.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The filter values. Filter values are case-sensitive.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -53270,10 +53274,12 @@ func (o GetVpcIamPoolFilterOutput) ToGetVpcIamPoolFilterOutputWithContext(ctx co
 	return o
 }
 
+// The name of the filter. Filter names are case-sensitive.
 func (o GetVpcIamPoolFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIamPoolFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The filter values. Filter values are case-sensitive.
 func (o GetVpcIamPoolFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcIamPoolFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -53299,7 +53305,9 @@ func (o GetVpcIamPoolFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolFi
 }
 
 type GetVpcIamPoolsFilter struct {
-	Name   string   `pulumi:"name"`
+	// The name of the filter. Filter names are case-sensitive.
+	Name string `pulumi:"name"`
+	// The filter values. Filter values are case-sensitive.
 	Values []string `pulumi:"values"`
 }
 
@@ -53315,7 +53323,9 @@ type GetVpcIamPoolsFilterInput interface {
 }
 
 type GetVpcIamPoolsFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// The name of the filter. Filter names are case-sensitive.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The filter values. Filter values are case-sensitive.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -53370,10 +53380,12 @@ func (o GetVpcIamPoolsFilterOutput) ToGetVpcIamPoolsFilterOutputWithContext(ctx 
 	return o
 }
 
+// The name of the filter. Filter names are case-sensitive.
 func (o GetVpcIamPoolsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIamPoolsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The filter values. Filter values are case-sensitive.
 func (o GetVpcIamPoolsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcIamPoolsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -53401,7 +53413,7 @@ func (o GetVpcIamPoolsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIamPools
 type GetVpcIamPoolsIpamPool struct {
 	// IP protocol assigned to this pool.
 	AddressFamily string `pulumi:"addressFamily"`
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
 	AllocationDefaultNetmaskLength int `pulumi:"allocationDefaultNetmaskLength"`
 	// The maximum netmask length that will be required for CIDR allocations in this pool.
 	AllocationMaxNetmaskLength int `pulumi:"allocationMaxNetmaskLength"`
@@ -53413,7 +53425,7 @@ type GetVpcIamPoolsIpamPool struct {
 	Arn string `pulumi:"arn"`
 	// If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
 	AutoImport bool `pulumi:"autoImport"`
-	// Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+	// Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
 	AwsService string `pulumi:"awsService"`
 	// Description for the IPAM pool.
 	Description string `pulumi:"description"`
@@ -53426,7 +53438,7 @@ type GetVpcIamPoolsIpamPool struct {
 	// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
 	Locale    string `pulumi:"locale"`
 	PoolDepth int    `pulumi:"poolDepth"`
-	// Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+	// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
 	PubliclyAdvertisable bool `pulumi:"publiclyAdvertisable"`
 	// ID of the source IPAM pool.
 	SourceIpamPoolId string `pulumi:"sourceIpamPoolId"`
@@ -53449,7 +53461,7 @@ type GetVpcIamPoolsIpamPoolInput interface {
 type GetVpcIamPoolsIpamPoolArgs struct {
 	// IP protocol assigned to this pool.
 	AddressFamily pulumi.StringInput `pulumi:"addressFamily"`
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
 	AllocationDefaultNetmaskLength pulumi.IntInput `pulumi:"allocationDefaultNetmaskLength"`
 	// The maximum netmask length that will be required for CIDR allocations in this pool.
 	AllocationMaxNetmaskLength pulumi.IntInput `pulumi:"allocationMaxNetmaskLength"`
@@ -53461,7 +53473,7 @@ type GetVpcIamPoolsIpamPoolArgs struct {
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
 	AutoImport pulumi.BoolInput `pulumi:"autoImport"`
-	// Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+	// Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
 	AwsService pulumi.StringInput `pulumi:"awsService"`
 	// Description for the IPAM pool.
 	Description pulumi.StringInput `pulumi:"description"`
@@ -53474,7 +53486,7 @@ type GetVpcIamPoolsIpamPoolArgs struct {
 	// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
 	Locale    pulumi.StringInput `pulumi:"locale"`
 	PoolDepth pulumi.IntInput    `pulumi:"poolDepth"`
-	// Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+	// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
 	PubliclyAdvertisable pulumi.BoolInput `pulumi:"publiclyAdvertisable"`
 	// ID of the source IPAM pool.
 	SourceIpamPoolId pulumi.StringInput `pulumi:"sourceIpamPoolId"`
@@ -53539,7 +53551,7 @@ func (o GetVpcIamPoolsIpamPoolOutput) AddressFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.AddressFamily }).(pulumi.StringOutput)
 }
 
-// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
 func (o GetVpcIamPoolsIpamPoolOutput) AllocationDefaultNetmaskLength() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) int { return v.AllocationDefaultNetmaskLength }).(pulumi.IntOutput)
 }
@@ -53569,7 +53581,7 @@ func (o GetVpcIamPoolsIpamPoolOutput) AutoImport() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) bool { return v.AutoImport }).(pulumi.BoolOutput)
 }
 
-// Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+// Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
 func (o GetVpcIamPoolsIpamPoolOutput) AwsService() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.AwsService }).(pulumi.StringOutput)
 }
@@ -53606,7 +53618,7 @@ func (o GetVpcIamPoolsIpamPoolOutput) PoolDepth() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) int { return v.PoolDepth }).(pulumi.IntOutput)
 }
 
-// Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
 func (o GetVpcIamPoolsIpamPoolOutput) PubliclyAdvertisable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) bool { return v.PubliclyAdvertisable }).(pulumi.BoolOutput)
 }

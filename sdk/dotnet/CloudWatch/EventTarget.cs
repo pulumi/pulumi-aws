@@ -465,10 +465,10 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "logs:CreateLogStream",
-    ///                     "logs:PutLogEvents",
     ///                 },
     ///                 Resources = new[]
     ///                 {
@@ -478,12 +478,34 @@ namespace Pulumi.Aws.CloudWatch
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
+    ///                         Type = "Service",
     ///                         Identifiers = new[]
     ///                         {
     ///                             "events.amazonaws.com",
-    ///                             "delivery.logs.amazonaws.com",
     ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:PutLogEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{exampleLogGroup.Arn}:*:*",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
     ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "events.amazonaws.com",
+    ///                         },
     ///                     },
     ///                 },
     ///                 Conditions = new[]
@@ -625,7 +647,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetSqsTarget?> SqsTarget { get; private set; } = null!;
 
         /// <summary>
-        /// The unique target assignment ID.  If missing, will generate a random, unique id.
+        /// The unique target assignment ID. If missing, will generate a random, unique id.
         /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
@@ -779,7 +801,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetSqsTargetArgs>? SqsTarget { get; set; }
 
         /// <summary>
-        /// The unique target assignment ID.  If missing, will generate a random, unique id.
+        /// The unique target assignment ID. If missing, will generate a random, unique id.
         /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }
@@ -895,7 +917,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetSqsTargetGetArgs>? SqsTarget { get; set; }
 
         /// <summary>
-        /// The unique target assignment ID.  If missing, will generate a random, unique id.
+        /// The unique target assignment ID. If missing, will generate a random, unique id.
         /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }

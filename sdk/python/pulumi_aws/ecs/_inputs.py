@@ -19,6 +19,7 @@ __all__ = [
     'ClusterDefaultCapacityProviderStrategyArgs',
     'ClusterServiceConnectDefaultsArgs',
     'ClusterSettingArgs',
+    'ServiceAlarmsArgs',
     'ServiceCapacityProviderStrategyArgs',
     'ServiceDeploymentCircuitBreakerArgs',
     'ServiceDeploymentControllerArgs',
@@ -521,6 +522,54 @@ class ClusterSettingArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServiceAlarmsArgs:
+    def __init__(__self__, *,
+                 alarm_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 enable: pulumi.Input[bool],
+                 rollback: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] enable: Determines whether to use the CloudWatch alarm option in the service deployment process.
+        :param pulumi.Input[bool] rollback: Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+        """
+        pulumi.set(__self__, "alarm_names", alarm_names)
+        pulumi.set(__self__, "enable", enable)
+        pulumi.set(__self__, "rollback", rollback)
+
+    @property
+    @pulumi.getter(name="alarmNames")
+    def alarm_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "alarm_names")
+
+    @alarm_names.setter
+    def alarm_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "alarm_names", value)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> pulumi.Input[bool]:
+        """
+        Determines whether to use the CloudWatch alarm option in the service deployment process.
+        """
+        return pulumi.get(self, "enable")
+
+    @enable.setter
+    def enable(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enable", value)
+
+    @property
+    @pulumi.getter
+    def rollback(self) -> pulumi.Input[bool]:
+        """
+        Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+        """
+        return pulumi.get(self, "rollback")
+
+    @rollback.setter
+    def rollback(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "rollback", value)
 
 
 @pulumi.input_type

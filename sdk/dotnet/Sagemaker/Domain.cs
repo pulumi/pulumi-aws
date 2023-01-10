@@ -22,21 +22,6 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomain = new Aws.Sagemaker.Domain("exampleDomain", new()
-    ///     {
-    ///         DomainName = "example",
-    ///         AuthMode = "IAM",
-    ///         VpcId = aws_vpc.Test.Id,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Test.Id,
-    ///         },
-    ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
-    ///         {
-    ///             ExecutionRole = aws_iam_role.Test.Arn,
-    ///         },
-    ///     });
-    /// 
     ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
@@ -68,6 +53,21 @@ namespace Pulumi.Aws.Sagemaker
     ///         AssumeRolePolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
+    ///     var exampleDomain = new Aws.Sagemaker.Domain("exampleDomain", new()
+    ///     {
+    ///         DomainName = "example",
+    ///         AuthMode = "IAM",
+    ///         VpcId = aws_vpc.Example.Id,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
+    ///         {
+    ///             ExecutionRole = exampleRole.Arn,
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// ### Using Custom Images
@@ -79,13 +79,13 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testImage = new Aws.Sagemaker.Image("testImage", new()
+    ///     var exampleImage = new Aws.Sagemaker.Image("exampleImage", new()
     ///     {
     ///         ImageName = "example",
-    ///         RoleArn = aws_iam_role.Test.Arn,
+    ///         RoleArn = aws_iam_role.Example.Arn,
     ///     });
     /// 
-    ///     var testAppImageConfig = new Aws.Sagemaker.AppImageConfig("testAppImageConfig", new()
+    ///     var exampleAppImageConfig = new Aws.Sagemaker.AppImageConfig("exampleAppImageConfig", new()
     ///     {
     ///         AppImageConfigName = "example",
     ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
@@ -97,32 +97,32 @@ namespace Pulumi.Aws.Sagemaker
     ///         },
     ///     });
     /// 
-    ///     var testImageVersion = new Aws.Sagemaker.ImageVersion("testImageVersion", new()
+    ///     var exampleImageVersion = new Aws.Sagemaker.ImageVersion("exampleImageVersion", new()
     ///     {
-    ///         ImageName = testImage.Id,
+    ///         ImageName = exampleImage.Id,
     ///         BaseImage = "base-image",
     ///     });
     /// 
-    ///     var testDomain = new Aws.Sagemaker.Domain("testDomain", new()
+    ///     var exampleDomain = new Aws.Sagemaker.Domain("exampleDomain", new()
     ///     {
     ///         DomainName = "example",
     ///         AuthMode = "IAM",
-    ///         VpcId = aws_vpc.Test.Id,
+    ///         VpcId = aws_vpc.Example.Id,
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Test.Id,
+    ///             aws_subnet.Example.Id,
     ///         },
     ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
     ///         {
-    ///             ExecutionRole = aws_iam_role.Test.Arn,
+    ///             ExecutionRole = aws_iam_role.Example.Arn,
     ///             KernelGatewayAppSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs
     ///             {
     ///                 CustomImages = new[]
     ///                 {
     ///                     new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs
     ///                     {
-    ///                         AppImageConfigName = testAppImageConfig.AppImageConfigName,
-    ///                         ImageName = testImageVersion.ImageName,
+    ///                         AppImageConfigName = exampleAppImageConfig.AppImageConfigName,
+    ///                         ImageName = exampleImageVersion.ImageName,
     ///                     },
     ///                 },
     ///             },
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> AppNetworkAccessType { get; private set; } = null!;
 
         /// <summary>
-        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
         /// </summary>
         [Output("appSecurityGroupManagement")]
         public Output<string?> AppSecurityGroupManagement { get; private set; } = null!;
@@ -174,19 +174,16 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.DomainDefaultSpaceSettings?> DefaultSpaceSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The default user settings. See Default User Settings below.
+        /// The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
         /// </summary>
         [Output("defaultUserSettings")]
         public Output<Outputs.DomainDefaultUserSettings> DefaultUserSettings { get; private set; } = null!;
 
-        /// <summary>
-        /// The domain name.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The domain settings. See Domain Settings below.
+        /// The domain's settings.
         /// </summary>
         [Output("domainSettings")]
         public Output<Outputs.DomainDomainSettings?> DomainSettings { get; private set; } = null!;
@@ -304,7 +301,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AppNetworkAccessType { get; set; }
 
         /// <summary>
-        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
         /// </summary>
         [Input("appSecurityGroupManagement")]
         public Input<string>? AppSecurityGroupManagement { get; set; }
@@ -322,19 +319,16 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.DomainDefaultSpaceSettingsArgs>? DefaultSpaceSettings { get; set; }
 
         /// <summary>
-        /// The default user settings. See Default User Settings below.
+        /// The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
         /// </summary>
         [Input("defaultUserSettings", required: true)]
         public Input<Inputs.DomainDefaultUserSettingsArgs> DefaultUserSettings { get; set; } = null!;
 
-        /// <summary>
-        /// The domain name.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The domain settings. See Domain Settings below.
+        /// The domain's settings.
         /// </summary>
         [Input("domainSettings")]
         public Input<Inputs.DomainDomainSettingsArgs>? DomainSettings { get; set; }
@@ -396,7 +390,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AppNetworkAccessType { get; set; }
 
         /// <summary>
-        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
         /// </summary>
         [Input("appSecurityGroupManagement")]
         public Input<string>? AppSecurityGroupManagement { get; set; }
@@ -420,19 +414,16 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.DomainDefaultSpaceSettingsGetArgs>? DefaultSpaceSettings { get; set; }
 
         /// <summary>
-        /// The default user settings. See Default User Settings below.
+        /// The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
         /// </summary>
         [Input("defaultUserSettings")]
         public Input<Inputs.DomainDefaultUserSettingsGetArgs>? DefaultUserSettings { get; set; }
 
-        /// <summary>
-        /// The domain name.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The domain settings. See Domain Settings below.
+        /// The domain's settings.
         /// </summary>
         [Input("domainSettings")]
         public Input<Inputs.DomainDomainSettingsGetArgs>? DomainSettings { get; set; }

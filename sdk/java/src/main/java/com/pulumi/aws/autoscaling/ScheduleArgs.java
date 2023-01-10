@@ -17,14 +17,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     public static final ScheduleArgs Empty = new ScheduleArgs();
 
     /**
-     * Name or ARN of the Auto Scaling group.
+     * The name of the Auto Scaling group.
      * 
      */
     @Import(name="autoscalingGroupName", required=true)
     private Output<String> autoscalingGroupName;
 
     /**
-     * @return Name or ARN of the Auto Scaling group.
+     * @return The name of the Auto Scaling group.
      * 
      */
     public Output<String> autoscalingGroupName() {
@@ -32,14 +32,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
+     * The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don&#39;t want to change the desired capacity at the scheduled time. Defaults to `0`.
      * 
      */
     @Import(name="desiredCapacity")
     private @Nullable Output<Integer> desiredCapacity;
 
     /**
-     * @return Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
+     * @return The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don&#39;t want to change the desired capacity at the scheduled time. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> desiredCapacity() {
@@ -47,16 +47,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
-     * If you try to schedule your action in the past, Auto Scaling returns an error message.
+     * The date and time for the recurring schedule to end, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
      * 
      */
     @Import(name="endTime")
     private @Nullable Output<String> endTime;
 
     /**
-     * @return Time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
-     * If you try to schedule your action in the past, Auto Scaling returns an error message.
+     * @return The date and time for the recurring schedule to end, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
      * 
      */
     public Optional<Output<String>> endTime() {
@@ -64,16 +62,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Maximum size for the Auto Scaling group. Default 0.
-     * Set to -1 if you don&#39;t want to change the maximum size at the scheduled time.
+     * The maximum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the maximum size at the scheduled time. Defaults to `0`.
      * 
      */
     @Import(name="maxSize")
     private @Nullable Output<Integer> maxSize;
 
     /**
-     * @return Maximum size for the Auto Scaling group. Default 0.
-     * Set to -1 if you don&#39;t want to change the maximum size at the scheduled time.
+     * @return The maximum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the maximum size at the scheduled time. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> maxSize() {
@@ -81,16 +77,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum size for the Auto Scaling group. Default 0.
-     * Set to -1 if you don&#39;t want to change the minimum size at the scheduled time.
+     * The minimum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the minimum size at the scheduled time. Defaults to `0`.
      * 
      */
     @Import(name="minSize")
     private @Nullable Output<Integer> minSize;
 
     /**
-     * @return Minimum size for the Auto Scaling group. Default 0.
-     * Set to -1 if you don&#39;t want to change the minimum size at the scheduled time.
+     * @return The minimum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the minimum size at the scheduled time. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> minSize() {
@@ -98,14 +92,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+     * The recurring schedule for this action specified using the Unix cron syntax format.
      * 
      */
     @Import(name="recurrence")
     private @Nullable Output<String> recurrence;
 
     /**
-     * @return Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+     * @return The recurring schedule for this action specified using the Unix cron syntax format.
      * 
      */
     public Optional<Output<String>> recurrence() {
@@ -113,14 +107,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of this scaling action.
+     * The name of this scaling action.
      * 
      */
     @Import(name="scheduledActionName", required=true)
     private Output<String> scheduledActionName;
 
     /**
-     * @return Name of this scaling action.
+     * @return The name of this scaling action.
      * 
      */
     public Output<String> scheduledActionName() {
@@ -128,16 +122,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
-     * If you try to schedule your action in the past, Auto Scaling returns an error message.
+     * The date and time for the recurring schedule to start, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
      * 
      */
     @Import(name="startTime")
     private @Nullable Output<String> startTime;
 
     /**
-     * @return Time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
-     * If you try to schedule your action in the past, Auto Scaling returns an error message.
+     * @return The date and time for the recurring schedule to start, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
      * 
      */
     public Optional<Output<String>> startTime() {
@@ -145,14 +137,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+     * Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
      * 
      */
     @Import(name="timeZone")
     private @Nullable Output<String> timeZone;
 
     /**
-     * @return The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+     * @return Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
      * 
      */
     public Optional<Output<String>> timeZone() {
@@ -192,7 +184,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName Name or ARN of the Auto Scaling group.
+         * @param autoscalingGroupName The name of the Auto Scaling group.
          * 
          * @return builder
          * 
@@ -203,7 +195,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName Name or ARN of the Auto Scaling group.
+         * @param autoscalingGroupName The name of the Auto Scaling group.
          * 
          * @return builder
          * 
@@ -213,7 +205,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param desiredCapacity Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
+         * @param desiredCapacity The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don&#39;t want to change the desired capacity at the scheduled time. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -224,7 +216,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param desiredCapacity Number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don&#39;t want to change the desired capacity at the scheduled time.
+         * @param desiredCapacity The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don&#39;t want to change the desired capacity at the scheduled time. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -234,8 +226,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endTime Time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
-         * If you try to schedule your action in the past, Auto Scaling returns an error message.
+         * @param endTime The date and time for the recurring schedule to end, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
          * 
          * @return builder
          * 
@@ -246,8 +237,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endTime Time for this action to end, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
-         * If you try to schedule your action in the past, Auto Scaling returns an error message.
+         * @param endTime The date and time for the recurring schedule to end, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
          * 
          * @return builder
          * 
@@ -257,8 +247,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSize Maximum size for the Auto Scaling group. Default 0.
-         * Set to -1 if you don&#39;t want to change the maximum size at the scheduled time.
+         * @param maxSize The maximum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the maximum size at the scheduled time. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -269,8 +258,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSize Maximum size for the Auto Scaling group. Default 0.
-         * Set to -1 if you don&#39;t want to change the maximum size at the scheduled time.
+         * @param maxSize The maximum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the maximum size at the scheduled time. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -280,8 +268,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minSize Minimum size for the Auto Scaling group. Default 0.
-         * Set to -1 if you don&#39;t want to change the minimum size at the scheduled time.
+         * @param minSize The minimum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the minimum size at the scheduled time. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -292,8 +279,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minSize Minimum size for the Auto Scaling group. Default 0.
-         * Set to -1 if you don&#39;t want to change the minimum size at the scheduled time.
+         * @param minSize The minimum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the minimum size at the scheduled time. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -303,7 +289,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recurrence Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+         * @param recurrence The recurring schedule for this action specified using the Unix cron syntax format.
          * 
          * @return builder
          * 
@@ -314,7 +300,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recurrence Time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+         * @param recurrence The recurring schedule for this action specified using the Unix cron syntax format.
          * 
          * @return builder
          * 
@@ -324,7 +310,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scheduledActionName Name of this scaling action.
+         * @param scheduledActionName The name of this scaling action.
          * 
          * @return builder
          * 
@@ -335,7 +321,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scheduledActionName Name of this scaling action.
+         * @param scheduledActionName The name of this scaling action.
          * 
          * @return builder
          * 
@@ -345,8 +331,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param startTime Time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
-         * If you try to schedule your action in the past, Auto Scaling returns an error message.
+         * @param startTime The date and time for the recurring schedule to start, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
          * 
          * @return builder
          * 
@@ -357,8 +342,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param startTime Time for this action to start, in &#34;YYYY-MM-DDThh:mm:ssZ&#34; format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
-         * If you try to schedule your action in the past, Auto Scaling returns an error message.
+         * @param startTime The date and time for the recurring schedule to start, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
          * 
          * @return builder
          * 
@@ -368,7 +352,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeZone The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+         * @param timeZone Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
          * 
          * @return builder
          * 
@@ -379,7 +363,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeZone The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+         * @param timeZone Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
          * 
          * @return builder
          * 

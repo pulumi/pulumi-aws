@@ -16,6 +16,10 @@ public final class ProvisioningTemplatePreProvisioningHook {
      * 
      */
     private @Nullable String payloadVersion;
+    /**
+     * @return The ARN of the target function.
+     * 
+     */
     private String targetArn;
 
     private ProvisioningTemplatePreProvisioningHook() {}
@@ -26,6 +30,10 @@ public final class ProvisioningTemplatePreProvisioningHook {
     public Optional<String> payloadVersion() {
         return Optional.ofNullable(this.payloadVersion);
     }
+    /**
+     * @return The ARN of the target function.
+     * 
+     */
     public String targetArn() {
         return this.targetArn;
     }

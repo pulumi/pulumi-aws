@@ -9,6 +9,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -64,6 +65,21 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Role used in a notebook session for accessing the user&#39;s resources.
+     * 
+     */
+    @Import(name="executionRole")
+    private @Nullable Output<String> executionRole;
+
+    /**
+     * @return Role used in a notebook session for accessing the user&#39;s resources.
+     * 
+     */
+    public Optional<Output<String>> executionRole() {
+        return Optional.ofNullable(this.executionRole);
+    }
+
+    /**
      * Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
      * 
      */
@@ -114,6 +130,7 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
         this.bytesScannedCutoffPerQuery = $.bytesScannedCutoffPerQuery;
         this.enforceWorkgroupConfiguration = $.enforceWorkgroupConfiguration;
         this.engineVersion = $.engineVersion;
+        this.executionRole = $.executionRole;
         this.publishCloudwatchMetricsEnabled = $.publishCloudwatchMetricsEnabled;
         this.requesterPaysEnabled = $.requesterPaysEnabled;
         this.resultConfiguration = $.resultConfiguration;
@@ -198,6 +215,27 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
          */
         public Builder engineVersion(WorkgroupConfigurationEngineVersionArgs engineVersion) {
             return engineVersion(Output.of(engineVersion));
+        }
+
+        /**
+         * @param executionRole Role used in a notebook session for accessing the user&#39;s resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionRole(@Nullable Output<String> executionRole) {
+            $.executionRole = executionRole;
+            return this;
+        }
+
+        /**
+         * @param executionRole Role used in a notebook session for accessing the user&#39;s resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionRole(String executionRole) {
+            return executionRole(Output.of(executionRole));
         }
 
         /**

@@ -115,6 +115,8 @@ class WorkgroupConfiguration(dict):
             suggest = "enforce_workgroup_configuration"
         elif key == "engineVersion":
             suggest = "engine_version"
+        elif key == "executionRole":
+            suggest = "execution_role"
         elif key == "publishCloudwatchMetricsEnabled":
             suggest = "publish_cloudwatch_metrics_enabled"
         elif key == "requesterPaysEnabled":
@@ -137,6 +139,7 @@ class WorkgroupConfiguration(dict):
                  bytes_scanned_cutoff_per_query: Optional[int] = None,
                  enforce_workgroup_configuration: Optional[bool] = None,
                  engine_version: Optional['outputs.WorkgroupConfigurationEngineVersion'] = None,
+                 execution_role: Optional[str] = None,
                  publish_cloudwatch_metrics_enabled: Optional[bool] = None,
                  requester_pays_enabled: Optional[bool] = None,
                  result_configuration: Optional['outputs.WorkgroupConfigurationResultConfiguration'] = None):
@@ -144,6 +147,7 @@ class WorkgroupConfiguration(dict):
         :param int bytes_scanned_cutoff_per_query: Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
         :param bool enforce_workgroup_configuration: Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
         :param 'WorkgroupConfigurationEngineVersionArgs' engine_version: Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
+        :param str execution_role: Role used in a notebook session for accessing the user's resources.
         :param bool publish_cloudwatch_metrics_enabled: Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         :param bool requester_pays_enabled: If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         :param 'WorkgroupConfigurationResultConfigurationArgs' result_configuration: Configuration block with result settings. See Result Configuration below.
@@ -154,6 +158,8 @@ class WorkgroupConfiguration(dict):
             pulumi.set(__self__, "enforce_workgroup_configuration", enforce_workgroup_configuration)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if execution_role is not None:
+            pulumi.set(__self__, "execution_role", execution_role)
         if publish_cloudwatch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloudwatch_metrics_enabled", publish_cloudwatch_metrics_enabled)
         if requester_pays_enabled is not None:
@@ -184,6 +190,14 @@ class WorkgroupConfiguration(dict):
         Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
         """
         return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> Optional[str]:
+        """
+        Role used in a notebook session for accessing the user's resources.
+        """
+        return pulumi.get(self, "execution_role")
 
     @property
     @pulumi.getter(name="publishCloudwatchMetricsEnabled")

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         private InputList<string>? _functions;
 
         /// <summary>
-        /// List of Function ID.
+        /// A list of Function objects.
         /// </summary>
         public InputList<string> Functions
         {

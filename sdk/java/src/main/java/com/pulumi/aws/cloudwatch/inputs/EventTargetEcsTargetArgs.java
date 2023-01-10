@@ -98,14 +98,14 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
+     * Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
      * 
      */
     @Import(name="networkConfiguration")
     private @Nullable Output<EventTargetEcsTargetNetworkConfigurationArgs> networkConfiguration;
 
     /**
-     * @return Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
+     * @return Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
      * 
      */
     public Optional<Output<EventTargetEcsTargetNetworkConfigurationArgs>> networkConfiguration() {
@@ -128,14 +128,14 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     @Import(name="platformVersion")
     private @Nullable Output<String> platformVersion;
 
     /**
-     * @return Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * @return Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     public Optional<Output<String>> platformVersion() {
@@ -173,14 +173,14 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The number of tasks to create based on the TaskDefinition. The default is 1.
+     * The number of tasks to create based on the TaskDefinition. Defaults to `1`.
      * 
      */
     @Import(name="taskCount")
     private @Nullable Output<Integer> taskCount;
 
     /**
-     * @return The number of tasks to create based on the TaskDefinition. The default is 1.
+     * @return The number of tasks to create based on the TaskDefinition. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> taskCount() {
@@ -353,7 +353,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param networkConfiguration Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
+         * @param networkConfiguration Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param networkConfiguration Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
+         * @param networkConfiguration Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param platformVersion Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+         * @param platformVersion Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param platformVersion Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+         * @param platformVersion Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param taskCount The number of tasks to create based on the TaskDefinition. The default is 1.
+         * @param taskCount The number of tasks to create based on the TaskDefinition. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param taskCount The number of tasks to create based on the TaskDefinition. The default is 1.
+         * @param taskCount The number of tasks to create based on the TaskDefinition. Defaults to `1`.
          * 
          * @return builder
          * 

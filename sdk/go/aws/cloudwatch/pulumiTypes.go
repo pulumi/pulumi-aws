@@ -2441,17 +2441,17 @@ type EventTargetEcsTarget struct {
 	Group *string `pulumi:"group"`
 	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
 	LaunchType *string `pulumi:"launchType"`
-	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
+	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
 	NetworkConfiguration *EventTargetEcsTargetNetworkConfiguration `pulumi:"networkConfiguration"`
 	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
 	PlacementConstraints []EventTargetEcsTargetPlacementConstraint `pulumi:"placementConstraints"`
-	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
 	PropagateTags *string `pulumi:"propagateTags"`
 	// A map of tags to assign to ecs resources.
 	Tags map[string]string `pulumi:"tags"`
-	// The number of tasks to create based on the TaskDefinition. The default is 1.
+	// The number of tasks to create based on the TaskDefinition. Defaults to `1`.
 	TaskCount *int `pulumi:"taskCount"`
 	// The ARN of the task definition to use if the event target is an Amazon ECS cluster.
 	TaskDefinitionArn string `pulumi:"taskDefinitionArn"`
@@ -2479,17 +2479,17 @@ type EventTargetEcsTargetArgs struct {
 	Group pulumi.StringPtrInput `pulumi:"group"`
 	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
 	LaunchType pulumi.StringPtrInput `pulumi:"launchType"`
-	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
+	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
 	NetworkConfiguration EventTargetEcsTargetNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
 	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
 	PlacementConstraints EventTargetEcsTargetPlacementConstraintArrayInput `pulumi:"placementConstraints"`
-	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput `pulumi:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
 	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
 	// A map of tags to assign to ecs resources.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The number of tasks to create based on the TaskDefinition. The default is 1.
+	// The number of tasks to create based on the TaskDefinition. Defaults to `1`.
 	TaskCount pulumi.IntPtrInput `pulumi:"taskCount"`
 	// The ARN of the task definition to use if the event target is an Amazon ECS cluster.
 	TaskDefinitionArn pulumi.StringInput `pulumi:"taskDefinitionArn"`
@@ -2599,7 +2599,7 @@ func (o EventTargetEcsTargetOutput) LaunchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.LaunchType }).(pulumi.StringPtrOutput)
 }
 
-// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
+// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
 func (o EventTargetEcsTargetOutput) NetworkConfiguration() EventTargetEcsTargetNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *EventTargetEcsTargetNetworkConfiguration { return v.NetworkConfiguration }).(EventTargetEcsTargetNetworkConfigurationPtrOutput)
 }
@@ -2609,7 +2609,7 @@ func (o EventTargetEcsTargetOutput) PlacementConstraints() EventTargetEcsTargetP
 	return o.ApplyT(func(v EventTargetEcsTarget) []EventTargetEcsTargetPlacementConstraint { return v.PlacementConstraints }).(EventTargetEcsTargetPlacementConstraintArrayOutput)
 }
 
-// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 func (o EventTargetEcsTargetOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.PlatformVersion }).(pulumi.StringPtrOutput)
 }
@@ -2624,7 +2624,7 @@ func (o EventTargetEcsTargetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The number of tasks to create based on the TaskDefinition. The default is 1.
+// The number of tasks to create based on the TaskDefinition. Defaults to `1`.
 func (o EventTargetEcsTargetOutput) TaskCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *int { return v.TaskCount }).(pulumi.IntPtrOutput)
 }
@@ -2708,7 +2708,7 @@ func (o EventTargetEcsTargetPtrOutput) LaunchType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
+// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
 func (o EventTargetEcsTargetPtrOutput) NetworkConfiguration() EventTargetEcsTargetNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *EventTargetEcsTargetNetworkConfiguration {
 		if v == nil {
@@ -2728,7 +2728,7 @@ func (o EventTargetEcsTargetPtrOutput) PlacementConstraints() EventTargetEcsTarg
 	}).(EventTargetEcsTargetPlacementConstraintArrayOutput)
 }
 
-// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 func (o EventTargetEcsTargetPtrOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *string {
 		if v == nil {
@@ -2758,7 +2758,7 @@ func (o EventTargetEcsTargetPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// The number of tasks to create based on the TaskDefinition. The default is 1.
+// The number of tasks to create based on the TaskDefinition. Defaults to `1`.
 func (o EventTargetEcsTargetPtrOutput) TaskCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *int {
 		if v == nil {
@@ -2779,7 +2779,7 @@ func (o EventTargetEcsTargetPtrOutput) TaskDefinitionArn() pulumi.StringPtrOutpu
 }
 
 type EventTargetEcsTargetCapacityProviderStrategy struct {
-	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
 	Base *int `pulumi:"base"`
 	// Short name of the capacity provider.
 	CapacityProvider string `pulumi:"capacityProvider"`
@@ -2799,7 +2799,7 @@ type EventTargetEcsTargetCapacityProviderStrategyInput interface {
 }
 
 type EventTargetEcsTargetCapacityProviderStrategyArgs struct {
-	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
 	Base pulumi.IntPtrInput `pulumi:"base"`
 	// Short name of the capacity provider.
 	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
@@ -2858,7 +2858,7 @@ func (o EventTargetEcsTargetCapacityProviderStrategyOutput) ToEventTargetEcsTarg
 	return o
 }
 
-// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
 func (o EventTargetEcsTargetCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTargetCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
@@ -2894,7 +2894,7 @@ func (o EventTargetEcsTargetCapacityProviderStrategyArrayOutput) Index(i pulumi.
 }
 
 type EventTargetEcsTargetNetworkConfiguration struct {
-	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
 	AssignPublicIp *bool `pulumi:"assignPublicIp"`
 	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -2914,7 +2914,7 @@ type EventTargetEcsTargetNetworkConfigurationInput interface {
 }
 
 type EventTargetEcsTargetNetworkConfigurationArgs struct {
-	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
 	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
 	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -2999,7 +2999,7 @@ func (o EventTargetEcsTargetNetworkConfigurationOutput) ToEventTargetEcsTargetNe
 	}).(EventTargetEcsTargetNetworkConfigurationPtrOutput)
 }
 
-// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
 func (o EventTargetEcsTargetNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTargetNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -3038,7 +3038,7 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) Elem() EventTargetEcs
 	}).(EventTargetEcsTargetNetworkConfigurationOutput)
 }
 
-// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
 func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTargetNetworkConfiguration) *bool {
 		if v == nil {

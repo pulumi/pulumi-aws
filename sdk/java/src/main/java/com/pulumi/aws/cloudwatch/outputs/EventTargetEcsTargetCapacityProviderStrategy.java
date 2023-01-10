@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventTargetEcsTargetCapacityProviderStrategy {
     /**
-     * @return The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+     * @return The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
      * 
      */
     private @Nullable Integer base;
@@ -30,7 +30,7 @@ public final class EventTargetEcsTargetCapacityProviderStrategy {
 
     private EventTargetEcsTargetCapacityProviderStrategy() {}
     /**
-     * @return The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+     * @return The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
      * 
      */
     public Optional<Integer> base() {

@@ -24,6 +24,11 @@ export const getPermissionSet: typeof import("./getPermissionSet").getPermission
 export const getPermissionSetOutput: typeof import("./getPermissionSet").getPermissionSetOutput = null as any;
 utilities.lazyLoad(exports, ["getPermissionSet","getPermissionSetOutput"], () => require("./getPermissionSet"));
 
+export { InstanceAccessControlAttributesArgs, InstanceAccessControlAttributesState } from "./instanceAccessControlAttributes";
+export type InstanceAccessControlAttributes = import("./instanceAccessControlAttributes").InstanceAccessControlAttributes;
+export const InstanceAccessControlAttributes: typeof import("./instanceAccessControlAttributes").InstanceAccessControlAttributes = null as any;
+utilities.lazyLoad(exports, ["InstanceAccessControlAttributes"], () => require("./instanceAccessControlAttributes"));
+
 export { ManagedPolicyAttachmentArgs, ManagedPolicyAttachmentState } from "./managedPolicyAttachment";
 export type ManagedPolicyAttachment = import("./managedPolicyAttachment").ManagedPolicyAttachment;
 export const ManagedPolicyAttachment: typeof import("./managedPolicyAttachment").ManagedPolicyAttachment = null as any;
@@ -53,6 +58,8 @@ const _module = {
                 return new AccountAssignment(name, <any>undefined, { urn })
             case "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment":
                 return new CustomerManagedPolicyAttachment(name, <any>undefined, { urn })
+            case "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes":
+                return new InstanceAccessControlAttributes(name, <any>undefined, { urn })
             case "aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment":
                 return new ManagedPolicyAttachment(name, <any>undefined, { urn })
             case "aws:ssoadmin/permissionSet:PermissionSet":
@@ -68,6 +75,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/accountAssignment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/customerManagedPolicyAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "ssoadmin/instanceAccessControlAttributes", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/managedPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSet", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSetInlinePolicy", _module)

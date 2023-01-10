@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventTargetEcsTargetNetworkConfiguration {
     /**
-     * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+     * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
      * 
      */
     private @Nullable Boolean assignPublicIp;
@@ -31,7 +31,7 @@ public final class EventTargetEcsTargetNetworkConfiguration {
 
     private EventTargetEcsTargetNetworkConfiguration() {}
     /**
-     * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+     * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
      * 
      */
     public Optional<Boolean> assignPublicIp() {

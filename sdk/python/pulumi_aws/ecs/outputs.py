@@ -20,6 +20,7 @@ __all__ = [
     'ClusterDefaultCapacityProviderStrategy',
     'ClusterServiceConnectDefaults',
     'ClusterSetting',
+    'ServiceAlarms',
     'ServiceCapacityProviderStrategy',
     'ServiceDeploymentCircuitBreaker',
     'ServiceDeploymentController',
@@ -559,6 +560,59 @@ class ClusterSetting(dict):
         The value to assign to the setting. Valid values are `enabled` and `disabled`.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceAlarms(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmNames":
+            suggest = "alarm_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAlarms. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAlarms.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAlarms.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarm_names: Sequence[str],
+                 enable: bool,
+                 rollback: bool):
+        """
+        :param bool enable: Determines whether to use the CloudWatch alarm option in the service deployment process.
+        :param bool rollback: Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+        """
+        pulumi.set(__self__, "alarm_names", alarm_names)
+        pulumi.set(__self__, "enable", enable)
+        pulumi.set(__self__, "rollback", rollback)
+
+    @property
+    @pulumi.getter(name="alarmNames")
+    def alarm_names(self) -> Sequence[str]:
+        return pulumi.get(self, "alarm_names")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> bool:
+        """
+        Determines whether to use the CloudWatch alarm option in the service deployment process.
+        """
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def rollback(self) -> bool:
+        """
+        Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+        """
+        return pulumi.get(self, "rollback")
 
 
 @pulumi.output_type

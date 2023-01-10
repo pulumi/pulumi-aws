@@ -18,18 +18,39 @@ namespace Pulumi.Aws.S3Control.Outputs
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics? ActivityMetrics;
         /// <summary>
+        /// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+        /// </summary>
+        public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics? AdvancedCostOptimizationMetrics;
+        /// <summary>
+        /// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
+        /// </summary>
+        public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics? AdvancedDataProtectionMetrics;
+        /// <summary>
         /// S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel BucketLevel;
+        /// <summary>
+        /// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
+        /// </summary>
+        public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics? DetailedStatusCodeMetrics;
 
         [OutputConstructor]
         private StorageLensConfigurationStorageLensConfigurationAccountLevel(
             Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics? activityMetrics,
 
-            Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel bucketLevel)
+            Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics? advancedCostOptimizationMetrics,
+
+            Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics? advancedDataProtectionMetrics,
+
+            Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel bucketLevel,
+
+            Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics? detailedStatusCodeMetrics)
         {
             ActivityMetrics = activityMetrics;
+            AdvancedCostOptimizationMetrics = advancedCostOptimizationMetrics;
+            AdvancedDataProtectionMetrics = advancedDataProtectionMetrics;
             BucketLevel = bucketLevel;
+            DetailedStatusCodeMetrics = detailedStatusCodeMetrics;
         }
     }
 }

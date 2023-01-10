@@ -18,6 +18,7 @@ from .get_transit_gateway import *
 from .get_vpc_attachment import *
 from .get_vpc_attachments import *
 from .get_vpn_attachment import *
+from .instance_state import *
 from .multicast_domain import *
 from .multicast_domain_association import *
 from .multicast_group_member import *

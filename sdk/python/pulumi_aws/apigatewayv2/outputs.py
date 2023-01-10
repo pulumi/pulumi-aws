@@ -466,7 +466,7 @@ class StageAccessLogSettings(dict):
                  format: str):
         """
         :param str destination_arn: ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
-        :param str format: Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+        :param str format: Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data. Refer to log settings for [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging-variables.html) or [Websocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html).
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "format", format)
@@ -483,7 +483,7 @@ class StageAccessLogSettings(dict):
     @pulumi.getter
     def format(self) -> str:
         """
-        Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+        Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data. Refer to log settings for [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging-variables.html) or [Websocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html).
         """
         return pulumi.get(self, "format")
 
@@ -522,13 +522,13 @@ class StageDefaultRouteSettings(dict):
                  throttling_burst_limit: Optional[int] = None,
                  throttling_rate_limit: Optional[float] = None):
         """
-        :param bool data_trace_enabled: Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        :param bool data_trace_enabled: Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
                Defaults to `false`. Supported only for WebSocket APIs.
-        :param bool detailed_metrics_enabled: Whether detailed metrics are enabled for the default route. Defaults to `false`.
-        :param str logging_level: Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        :param bool detailed_metrics_enabled: Whether detailed metrics are enabled for the route. Defaults to `false`.
+        :param str logging_level: Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
                Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
-        :param int throttling_burst_limit: Throttling burst limit for the default route.
-        :param float throttling_rate_limit: Throttling rate limit for the default route.
+        :param int throttling_burst_limit: Throttling burst limit for the route.
+        :param float throttling_rate_limit: Throttling rate limit for the route.
         """
         if data_trace_enabled is not None:
             pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
@@ -545,7 +545,7 @@ class StageDefaultRouteSettings(dict):
     @pulumi.getter(name="dataTraceEnabled")
     def data_trace_enabled(self) -> Optional[bool]:
         """
-        Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
         Defaults to `false`. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "data_trace_enabled")
@@ -554,7 +554,7 @@ class StageDefaultRouteSettings(dict):
     @pulumi.getter(name="detailedMetricsEnabled")
     def detailed_metrics_enabled(self) -> Optional[bool]:
         """
-        Whether detailed metrics are enabled for the default route. Defaults to `false`.
+        Whether detailed metrics are enabled for the route. Defaults to `false`.
         """
         return pulumi.get(self, "detailed_metrics_enabled")
 
@@ -562,7 +562,7 @@ class StageDefaultRouteSettings(dict):
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[str]:
         """
-        Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
         Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         """
         return pulumi.get(self, "logging_level")
@@ -571,7 +571,7 @@ class StageDefaultRouteSettings(dict):
     @pulumi.getter(name="throttlingBurstLimit")
     def throttling_burst_limit(self) -> Optional[int]:
         """
-        Throttling burst limit for the default route.
+        Throttling burst limit for the route.
         """
         return pulumi.get(self, "throttling_burst_limit")
 
@@ -579,7 +579,7 @@ class StageDefaultRouteSettings(dict):
     @pulumi.getter(name="throttlingRateLimit")
     def throttling_rate_limit(self) -> Optional[float]:
         """
-        Throttling rate limit for the default route.
+        Throttling rate limit for the route.
         """
         return pulumi.get(self, "throttling_rate_limit")
 

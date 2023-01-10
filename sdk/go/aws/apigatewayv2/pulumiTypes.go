@@ -1141,7 +1141,7 @@ func (o RouteRequestParameterArrayOutput) Index(i pulumi.IntInput) RouteRequestP
 type StageAccessLogSettings struct {
 	// ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
 	DestinationArn string `pulumi:"destinationArn"`
-	// Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+	// Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data. Refer to log settings for [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging-variables.html) or [Websocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html).
 	Format string `pulumi:"format"`
 }
 
@@ -1159,7 +1159,7 @@ type StageAccessLogSettingsInput interface {
 type StageAccessLogSettingsArgs struct {
 	// ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
 	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
-	// Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+	// Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data. Refer to log settings for [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging-variables.html) or [Websocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html).
 	Format pulumi.StringInput `pulumi:"format"`
 }
 
@@ -1245,7 +1245,7 @@ func (o StageAccessLogSettingsOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v StageAccessLogSettings) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
-// Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+// Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data. Refer to log settings for [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging-variables.html) or [Websocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html).
 func (o StageAccessLogSettingsOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v StageAccessLogSettings) string { return v.Format }).(pulumi.StringOutput)
 }
@@ -1284,7 +1284,7 @@ func (o StageAccessLogSettingsPtrOutput) DestinationArn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+// Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data. Refer to log settings for [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging-variables.html) or [Websocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html).
 func (o StageAccessLogSettingsPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StageAccessLogSettings) *string {
 		if v == nil {
@@ -1295,17 +1295,17 @@ func (o StageAccessLogSettingsPtrOutput) Format() pulumi.StringPtrOutput {
 }
 
 type StageDefaultRouteSettings struct {
-	// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+	// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
 	// Defaults to `false`. Supported only for WebSocket APIs.
 	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
-	// Whether detailed metrics are enabled for the default route. Defaults to `false`.
+	// Whether detailed metrics are enabled for the route. Defaults to `false`.
 	DetailedMetricsEnabled *bool `pulumi:"detailedMetricsEnabled"`
-	// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+	// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
 	// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
 	LoggingLevel *string `pulumi:"loggingLevel"`
-	// Throttling burst limit for the default route.
+	// Throttling burst limit for the route.
 	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
-	// Throttling rate limit for the default route.
+	// Throttling rate limit for the route.
 	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
 }
 
@@ -1321,17 +1321,17 @@ type StageDefaultRouteSettingsInput interface {
 }
 
 type StageDefaultRouteSettingsArgs struct {
-	// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+	// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
 	// Defaults to `false`. Supported only for WebSocket APIs.
 	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
-	// Whether detailed metrics are enabled for the default route. Defaults to `false`.
+	// Whether detailed metrics are enabled for the route. Defaults to `false`.
 	DetailedMetricsEnabled pulumi.BoolPtrInput `pulumi:"detailedMetricsEnabled"`
-	// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+	// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
 	// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
 	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
-	// Throttling burst limit for the default route.
+	// Throttling burst limit for the route.
 	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
-	// Throttling rate limit for the default route.
+	// Throttling rate limit for the route.
 	ThrottlingRateLimit pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
 }
 
@@ -1412,29 +1412,29 @@ func (o StageDefaultRouteSettingsOutput) ToStageDefaultRouteSettingsPtrOutputWit
 	}).(StageDefaultRouteSettingsPtrOutput)
 }
 
-// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
 // Defaults to `false`. Supported only for WebSocket APIs.
 func (o StageDefaultRouteSettingsOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageDefaultRouteSettings) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether detailed metrics are enabled for the default route. Defaults to `false`.
+// Whether detailed metrics are enabled for the route. Defaults to `false`.
 func (o StageDefaultRouteSettingsOutput) DetailedMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageDefaultRouteSettings) *bool { return v.DetailedMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
 // Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
 func (o StageDefaultRouteSettingsOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageDefaultRouteSettings) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
 }
 
-// Throttling burst limit for the default route.
+// Throttling burst limit for the route.
 func (o StageDefaultRouteSettingsOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StageDefaultRouteSettings) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
 }
 
-// Throttling rate limit for the default route.
+// Throttling rate limit for the route.
 func (o StageDefaultRouteSettingsOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v StageDefaultRouteSettings) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
 }
@@ -1463,7 +1463,7 @@ func (o StageDefaultRouteSettingsPtrOutput) Elem() StageDefaultRouteSettingsOutp
 	}).(StageDefaultRouteSettingsOutput)
 }
 
-// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
 // Defaults to `false`. Supported only for WebSocket APIs.
 func (o StageDefaultRouteSettingsPtrOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StageDefaultRouteSettings) *bool {
@@ -1474,7 +1474,7 @@ func (o StageDefaultRouteSettingsPtrOutput) DataTraceEnabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether detailed metrics are enabled for the default route. Defaults to `false`.
+// Whether detailed metrics are enabled for the route. Defaults to `false`.
 func (o StageDefaultRouteSettingsPtrOutput) DetailedMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StageDefaultRouteSettings) *bool {
 		if v == nil {
@@ -1484,7 +1484,7 @@ func (o StageDefaultRouteSettingsPtrOutput) DetailedMetricsEnabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
 // Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
 func (o StageDefaultRouteSettingsPtrOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StageDefaultRouteSettings) *string {
@@ -1495,7 +1495,7 @@ func (o StageDefaultRouteSettingsPtrOutput) LoggingLevel() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Throttling burst limit for the default route.
+// Throttling burst limit for the route.
 func (o StageDefaultRouteSettingsPtrOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StageDefaultRouteSettings) *int {
 		if v == nil {
@@ -1505,7 +1505,7 @@ func (o StageDefaultRouteSettingsPtrOutput) ThrottlingBurstLimit() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// Throttling rate limit for the default route.
+// Throttling rate limit for the route.
 func (o StageDefaultRouteSettingsPtrOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *StageDefaultRouteSettings) *float64 {
 		if v == nil {

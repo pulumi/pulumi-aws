@@ -37,14 +37,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
      * 
      */
     @Import(name="appSecurityGroupManagement")
     private @Nullable Output<String> appSecurityGroupManagement;
 
     /**
-     * @return The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     * @return The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
      * 
      */
     public Optional<Output<String>> appSecurityGroupManagement() {
@@ -97,44 +97,36 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default user settings. See Default User Settings below.
+     * The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
      * 
      */
     @Import(name="defaultUserSettings")
     private @Nullable Output<DomainDefaultUserSettingsArgs> defaultUserSettings;
 
     /**
-     * @return The default user settings. See Default User Settings below.
+     * @return The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsArgs>> defaultUserSettings() {
         return Optional.ofNullable(this.defaultUserSettings);
     }
 
-    /**
-     * The domain name.
-     * 
-     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
-    /**
-     * @return The domain name.
-     * 
-     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
     /**
-     * The domain settings. See Domain Settings below.
+     * The domain&#39;s settings.
      * 
      */
     @Import(name="domainSettings")
     private @Nullable Output<DomainDomainSettingsArgs> domainSettings;
 
     /**
-     * @return The domain settings. See Domain Settings below.
+     * @return The domain&#39;s settings.
      * 
      */
     public Optional<Output<DomainDomainSettingsArgs>> domainSettings() {
@@ -354,7 +346,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appSecurityGroupManagement The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+         * @param appSecurityGroupManagement The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
          * 
          * @return builder
          * 
@@ -365,7 +357,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appSecurityGroupManagement The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+         * @param appSecurityGroupManagement The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
          * 
          * @return builder
          * 
@@ -438,7 +430,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultUserSettings The default user settings. See Default User Settings below.
+         * @param defaultUserSettings The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
          * 
          * @return builder
          * 
@@ -449,7 +441,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultUserSettings The default user settings. See Default User Settings below.
+         * @param defaultUserSettings The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
          * 
          * @return builder
          * 
@@ -458,29 +450,17 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
             return defaultUserSettings(Output.of(defaultUserSettings));
         }
 
-        /**
-         * @param domainName The domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName The domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
         /**
-         * @param domainSettings The domain settings. See Domain Settings below.
+         * @param domainSettings The domain&#39;s settings.
          * 
          * @return builder
          * 
@@ -491,7 +471,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainSettings The domain settings. See Domain Settings below.
+         * @param domainSettings The domain&#39;s settings.
          * 
          * @return builder
          * 

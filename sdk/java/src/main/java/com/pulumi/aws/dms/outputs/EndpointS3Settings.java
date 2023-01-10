@@ -49,7 +49,7 @@ public final class EndpointS3Settings {
      */
     private @Nullable Integer cdcMaxBatchInterval;
     /**
-     * @return Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+     * @return Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
      * 
      */
     private @Nullable Integer cdcMinFileSize;
@@ -135,6 +135,11 @@ public final class EndpointS3Settings {
     private @Nullable String externalTableDefinition;
     /**
      * @return When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+     * 
+     */
+    private @Nullable Integer ignoreHeaderRows;
+    /**
+     * @return Deprecated. This setting has no effect. Will be removed in a future version.
      * 
      */
     private @Nullable Integer ignoreHeadersRow;
@@ -252,7 +257,7 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.cdcMaxBatchInterval);
     }
     /**
-     * @return Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+     * @return Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
      * 
      */
     public Optional<Integer> cdcMinFileSize() {
@@ -372,6 +377,13 @@ public final class EndpointS3Settings {
     }
     /**
      * @return When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+     * 
+     */
+    public Optional<Integer> ignoreHeaderRows() {
+        return Optional.ofNullable(this.ignoreHeaderRows);
+    }
+    /**
+     * @return Deprecated. This setting has no effect. Will be removed in a future version.
      * 
      */
     public Optional<Integer> ignoreHeadersRow() {
@@ -497,6 +509,7 @@ public final class EndpointS3Settings {
         private @Nullable String encodingType;
         private @Nullable String encryptionMode;
         private @Nullable String externalTableDefinition;
+        private @Nullable Integer ignoreHeaderRows;
         private @Nullable Integer ignoreHeadersRow;
         private @Nullable Boolean includeOpForFullLoad;
         private @Nullable Integer maxFileSize;
@@ -537,6 +550,7 @@ public final class EndpointS3Settings {
     	      this.encodingType = defaults.encodingType;
     	      this.encryptionMode = defaults.encryptionMode;
     	      this.externalTableDefinition = defaults.externalTableDefinition;
+    	      this.ignoreHeaderRows = defaults.ignoreHeaderRows;
     	      this.ignoreHeadersRow = defaults.ignoreHeadersRow;
     	      this.includeOpForFullLoad = defaults.includeOpForFullLoad;
     	      this.maxFileSize = defaults.maxFileSize;
@@ -673,6 +687,11 @@ public final class EndpointS3Settings {
             return this;
         }
         @CustomType.Setter
+        public Builder ignoreHeaderRows(@Nullable Integer ignoreHeaderRows) {
+            this.ignoreHeaderRows = ignoreHeaderRows;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ignoreHeadersRow(@Nullable Integer ignoreHeadersRow) {
             this.ignoreHeadersRow = ignoreHeadersRow;
             return this;
@@ -763,6 +782,7 @@ public final class EndpointS3Settings {
             o.encodingType = encodingType;
             o.encryptionMode = encryptionMode;
             o.externalTableDefinition = externalTableDefinition;
+            o.ignoreHeaderRows = ignoreHeaderRows;
             o.ignoreHeadersRow = ignoreHeadersRow;
             o.includeOpForFullLoad = includeOpForFullLoad;
             o.maxFileSize = maxFileSize;

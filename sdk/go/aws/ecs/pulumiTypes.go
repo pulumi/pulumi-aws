@@ -1408,6 +1408,177 @@ func (o ClusterSettingArrayOutput) Index(i pulumi.IntInput) ClusterSettingOutput
 	}).(ClusterSettingOutput)
 }
 
+type ServiceAlarms struct {
+	AlarmNames []string `pulumi:"alarmNames"`
+	// Determines whether to use the CloudWatch alarm option in the service deployment process.
+	Enable bool `pulumi:"enable"`
+	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+	Rollback bool `pulumi:"rollback"`
+}
+
+// ServiceAlarmsInput is an input type that accepts ServiceAlarmsArgs and ServiceAlarmsOutput values.
+// You can construct a concrete instance of `ServiceAlarmsInput` via:
+//
+//	ServiceAlarmsArgs{...}
+type ServiceAlarmsInput interface {
+	pulumi.Input
+
+	ToServiceAlarmsOutput() ServiceAlarmsOutput
+	ToServiceAlarmsOutputWithContext(context.Context) ServiceAlarmsOutput
+}
+
+type ServiceAlarmsArgs struct {
+	AlarmNames pulumi.StringArrayInput `pulumi:"alarmNames"`
+	// Determines whether to use the CloudWatch alarm option in the service deployment process.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+	Rollback pulumi.BoolInput `pulumi:"rollback"`
+}
+
+func (ServiceAlarmsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAlarms)(nil)).Elem()
+}
+
+func (i ServiceAlarmsArgs) ToServiceAlarmsOutput() ServiceAlarmsOutput {
+	return i.ToServiceAlarmsOutputWithContext(context.Background())
+}
+
+func (i ServiceAlarmsArgs) ToServiceAlarmsOutputWithContext(ctx context.Context) ServiceAlarmsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlarmsOutput)
+}
+
+func (i ServiceAlarmsArgs) ToServiceAlarmsPtrOutput() ServiceAlarmsPtrOutput {
+	return i.ToServiceAlarmsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAlarmsArgs) ToServiceAlarmsPtrOutputWithContext(ctx context.Context) ServiceAlarmsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlarmsOutput).ToServiceAlarmsPtrOutputWithContext(ctx)
+}
+
+// ServiceAlarmsPtrInput is an input type that accepts ServiceAlarmsArgs, ServiceAlarmsPtr and ServiceAlarmsPtrOutput values.
+// You can construct a concrete instance of `ServiceAlarmsPtrInput` via:
+//
+//	        ServiceAlarmsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceAlarmsPtrInput interface {
+	pulumi.Input
+
+	ToServiceAlarmsPtrOutput() ServiceAlarmsPtrOutput
+	ToServiceAlarmsPtrOutputWithContext(context.Context) ServiceAlarmsPtrOutput
+}
+
+type serviceAlarmsPtrType ServiceAlarmsArgs
+
+func ServiceAlarmsPtr(v *ServiceAlarmsArgs) ServiceAlarmsPtrInput {
+	return (*serviceAlarmsPtrType)(v)
+}
+
+func (*serviceAlarmsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAlarms)(nil)).Elem()
+}
+
+func (i *serviceAlarmsPtrType) ToServiceAlarmsPtrOutput() ServiceAlarmsPtrOutput {
+	return i.ToServiceAlarmsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAlarmsPtrType) ToServiceAlarmsPtrOutputWithContext(ctx context.Context) ServiceAlarmsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlarmsPtrOutput)
+}
+
+type ServiceAlarmsOutput struct{ *pulumi.OutputState }
+
+func (ServiceAlarmsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAlarms)(nil)).Elem()
+}
+
+func (o ServiceAlarmsOutput) ToServiceAlarmsOutput() ServiceAlarmsOutput {
+	return o
+}
+
+func (o ServiceAlarmsOutput) ToServiceAlarmsOutputWithContext(ctx context.Context) ServiceAlarmsOutput {
+	return o
+}
+
+func (o ServiceAlarmsOutput) ToServiceAlarmsPtrOutput() ServiceAlarmsPtrOutput {
+	return o.ToServiceAlarmsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAlarmsOutput) ToServiceAlarmsPtrOutputWithContext(ctx context.Context) ServiceAlarmsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAlarms) *ServiceAlarms {
+		return &v
+	}).(ServiceAlarmsPtrOutput)
+}
+
+func (o ServiceAlarmsOutput) AlarmNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceAlarms) []string { return v.AlarmNames }).(pulumi.StringArrayOutput)
+}
+
+// Determines whether to use the CloudWatch alarm option in the service deployment process.
+func (o ServiceAlarmsOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServiceAlarms) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+func (o ServiceAlarmsOutput) Rollback() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServiceAlarms) bool { return v.Rollback }).(pulumi.BoolOutput)
+}
+
+type ServiceAlarmsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAlarmsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAlarms)(nil)).Elem()
+}
+
+func (o ServiceAlarmsPtrOutput) ToServiceAlarmsPtrOutput() ServiceAlarmsPtrOutput {
+	return o
+}
+
+func (o ServiceAlarmsPtrOutput) ToServiceAlarmsPtrOutputWithContext(ctx context.Context) ServiceAlarmsPtrOutput {
+	return o
+}
+
+func (o ServiceAlarmsPtrOutput) Elem() ServiceAlarmsOutput {
+	return o.ApplyT(func(v *ServiceAlarms) ServiceAlarms {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAlarms
+		return ret
+	}).(ServiceAlarmsOutput)
+}
+
+func (o ServiceAlarmsPtrOutput) AlarmNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceAlarms) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AlarmNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Determines whether to use the CloudWatch alarm option in the service deployment process.
+func (o ServiceAlarmsPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceAlarms) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+func (o ServiceAlarmsPtrOutput) Rollback() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceAlarms) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Rollback
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ServiceCapacityProviderStrategy struct {
 	// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 	Base *int `pulumi:"base"`
@@ -6033,6 +6204,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsPtrInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingInput)(nil)).Elem(), ClusterSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingArrayInput)(nil)).Elem(), ClusterSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlarmsInput)(nil)).Elem(), ServiceAlarmsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlarmsPtrInput)(nil)).Elem(), ServiceAlarmsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCapacityProviderStrategyInput)(nil)).Elem(), ServiceCapacityProviderStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCapacityProviderStrategyArrayInput)(nil)).Elem(), ServiceCapacityProviderStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentCircuitBreakerInput)(nil)).Elem(), ServiceDeploymentCircuitBreakerArgs{})
@@ -6113,6 +6286,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSettingOutput{})
 	pulumi.RegisterOutputType(ClusterSettingArrayOutput{})
+	pulumi.RegisterOutputType(ServiceAlarmsOutput{})
+	pulumi.RegisterOutputType(ServiceAlarmsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentCircuitBreakerOutput{})

@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRule;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement;
 import com.pulumi.core.annotations.CustomType;
@@ -24,6 +25,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
      */
     @Deprecated /* Use rule_action_override instead */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules;
+    /**
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * 
+     */
+    private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs;
     /**
      * @return Name of the managed rule group.
      * 
@@ -61,6 +67,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
     @Deprecated /* Use rule_action_override instead */
     public List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules() {
         return this.excludedRules == null ? List.of() : this.excludedRules;
+    }
+    /**
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * 
+     */
+    public List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs() {
+        return this.managedRuleGroupConfigs == null ? List.of() : this.managedRuleGroupConfigs;
     }
     /**
      * @return Name of the managed rule group.
@@ -108,6 +121,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules;
+        private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs;
         private String name;
         private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement scopeDownStatement;
@@ -117,6 +131,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
         public Builder(WebAclRuleStatementManagedRuleGroupStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludedRules = defaults.excludedRules;
+    	      this.managedRuleGroupConfigs = defaults.managedRuleGroupConfigs;
     	      this.name = defaults.name;
     	      this.ruleActionOverrides = defaults.ruleActionOverrides;
     	      this.scopeDownStatement = defaults.scopeDownStatement;
@@ -131,6 +146,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
         }
         public Builder excludedRules(WebAclRuleStatementManagedRuleGroupStatementExcludedRule... excludedRules) {
             return excludedRules(List.of(excludedRules));
+        }
+        @CustomType.Setter
+        public Builder managedRuleGroupConfigs(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs) {
+            this.managedRuleGroupConfigs = managedRuleGroupConfigs;
+            return this;
+        }
+        public Builder managedRuleGroupConfigs(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig... managedRuleGroupConfigs) {
+            return managedRuleGroupConfigs(List.of(managedRuleGroupConfigs));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -163,6 +186,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
         public WebAclRuleStatementManagedRuleGroupStatement build() {
             final var o = new WebAclRuleStatementManagedRuleGroupStatement();
             o.excludedRules = excludedRules;
+            o.managedRuleGroupConfigs = managedRuleGroupConfigs;
             o.name = name;
             o.ruleActionOverrides = ruleActionOverrides;
             o.scopeDownStatement = scopeDownStatement;

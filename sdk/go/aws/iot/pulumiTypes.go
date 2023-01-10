@@ -854,7 +854,8 @@ func (o IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput) 
 type ProvisioningTemplatePreProvisioningHook struct {
 	// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
 	PayloadVersion *string `pulumi:"payloadVersion"`
-	TargetArn      string  `pulumi:"targetArn"`
+	// The ARN of the target function.
+	TargetArn string `pulumi:"targetArn"`
 }
 
 // ProvisioningTemplatePreProvisioningHookInput is an input type that accepts ProvisioningTemplatePreProvisioningHookArgs and ProvisioningTemplatePreProvisioningHookOutput values.
@@ -871,7 +872,8 @@ type ProvisioningTemplatePreProvisioningHookInput interface {
 type ProvisioningTemplatePreProvisioningHookArgs struct {
 	// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
 	PayloadVersion pulumi.StringPtrInput `pulumi:"payloadVersion"`
-	TargetArn      pulumi.StringInput    `pulumi:"targetArn"`
+	// The ARN of the target function.
+	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }
 
 func (ProvisioningTemplatePreProvisioningHookArgs) ElementType() reflect.Type {
@@ -956,6 +958,7 @@ func (o ProvisioningTemplatePreProvisioningHookOutput) PayloadVersion() pulumi.S
 	return o.ApplyT(func(v ProvisioningTemplatePreProvisioningHook) *string { return v.PayloadVersion }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the target function.
 func (o ProvisioningTemplatePreProvisioningHookOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ProvisioningTemplatePreProvisioningHook) string { return v.TargetArn }).(pulumi.StringOutput)
 }
@@ -994,6 +997,7 @@ func (o ProvisioningTemplatePreProvisioningHookPtrOutput) PayloadVersion() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the target function.
 func (o ProvisioningTemplatePreProvisioningHookPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplatePreProvisioningHook) *string {
 		if v == nil {

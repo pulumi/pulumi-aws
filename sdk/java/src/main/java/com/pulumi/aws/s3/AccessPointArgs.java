@@ -48,6 +48,21 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS account ID associated with the S3 bucket associated with this access point.
+     * 
+     */
+    @Import(name="bucketAccountId")
+    private @Nullable Output<String> bucketAccountId;
+
+    /**
+     * @return The AWS account ID associated with the S3 bucket associated with this access point.
+     * 
+     */
+    public Optional<Output<String>> bucketAccountId() {
+        return Optional.ofNullable(this.bucketAccountId);
+    }
+
+    /**
      * Name you want to assign to this access point.
      * 
      */
@@ -112,6 +127,7 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
     private AccessPointArgs(AccessPointArgs $) {
         this.accountId = $.accountId;
         this.bucket = $.bucket;
+        this.bucketAccountId = $.bucketAccountId;
         this.name = $.name;
         this.policy = $.policy;
         this.publicAccessBlockConfiguration = $.publicAccessBlockConfiguration;
@@ -176,6 +192,27 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
+        }
+
+        /**
+         * @param bucketAccountId The AWS account ID associated with the S3 bucket associated with this access point.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucketAccountId(@Nullable Output<String> bucketAccountId) {
+            $.bucketAccountId = bucketAccountId;
+            return this;
+        }
+
+        /**
+         * @param bucketAccountId The AWS account ID associated with the S3 bucket associated with this access point.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucketAccountId(String bucketAccountId) {
+            return bucketAccountId(Output.of(bucketAccountId));
         }
 
         /**

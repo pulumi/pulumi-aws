@@ -216,32 +216,28 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dropInvalidHeaderFields);
     }
     /**
-     * If true, cross-zone load balancing of the load balancer will be enabled.
-     * This is a `network` load balancer feature. Defaults to `false`.
+     * If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
      * 
      */
     @Export(name="enableCrossZoneLoadBalancing", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableCrossZoneLoadBalancing;
 
     /**
-     * @return If true, cross-zone load balancing of the load balancer will be enabled.
-     * This is a `network` load balancer feature. Defaults to `false`.
+     * @return If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> enableCrossZoneLoadBalancing() {
         return Codegen.optional(this.enableCrossZoneLoadBalancing);
     }
     /**
-     * If true, deletion of the load balancer will be disabled via
-     * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+     * If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
      * 
      */
     @Export(name="enableDeletionProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableDeletionProtection;
 
     /**
-     * @return If true, deletion of the load balancer will be disabled via
-     * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+     * @return If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> enableDeletionProtection() {
@@ -304,14 +300,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.internal;
     }
     /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output<String> ipAddressType;
 
     /**
-     * @return The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+     * @return The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      * 
      */
     public Output<String> ipAddressType() {
@@ -350,14 +346,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      * 
      */
     public Output<Optional<String>> namePrefix() {
@@ -377,17 +373,9 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> preserveHostHeader() {
         return Codegen.optional(this.preserveHostHeader);
     }
-    /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-     * 
-     */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroups;
 
-    /**
-     * @return A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-     * 
-     */
     public Output<List<String>> securityGroups() {
         return this.securityGroups;
     }
@@ -459,7 +447,6 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     }
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      * 
      */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
@@ -467,7 +454,6 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      * 
      */
     public Output<String> zoneId() {

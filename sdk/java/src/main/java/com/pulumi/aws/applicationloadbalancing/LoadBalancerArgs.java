@@ -82,16 +82,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, cross-zone load balancing of the load balancer will be enabled.
-     * This is a `network` load balancer feature. Defaults to `false`.
+     * If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
      * 
      */
     @Import(name="enableCrossZoneLoadBalancing")
     private @Nullable Output<Boolean> enableCrossZoneLoadBalancing;
 
     /**
-     * @return If true, cross-zone load balancing of the load balancer will be enabled.
-     * This is a `network` load balancer feature. Defaults to `false`.
+     * @return If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enableCrossZoneLoadBalancing() {
@@ -99,16 +97,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, deletion of the load balancer will be disabled via
-     * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+     * If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
      * 
      */
     @Import(name="enableDeletionProtection")
     private @Nullable Output<Boolean> enableDeletionProtection;
 
     /**
-     * @return If true, deletion of the load balancer will be disabled via
-     * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+     * @return If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enableDeletionProtection() {
@@ -176,14 +172,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+     * @return The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -225,14 +221,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      * 
      */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      * 
      */
     public Optional<Output<String>> namePrefix() {
@@ -254,17 +250,9 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.preserveHostHeader);
     }
 
-    /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-     * 
-     */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
-    /**
-     * @return A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroups() {
         return Optional.ofNullable(this.securityGroups);
     }
@@ -445,8 +433,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCrossZoneLoadBalancing If true, cross-zone load balancing of the load balancer will be enabled.
-         * This is a `network` load balancer feature. Defaults to `false`.
+         * @param enableCrossZoneLoadBalancing If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -457,8 +444,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCrossZoneLoadBalancing If true, cross-zone load balancing of the load balancer will be enabled.
-         * This is a `network` load balancer feature. Defaults to `false`.
+         * @param enableCrossZoneLoadBalancing If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -468,8 +454,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableDeletionProtection If true, deletion of the load balancer will be disabled via
-         * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+         * @param enableDeletionProtection If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -480,8 +465,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableDeletionProtection If true, deletion of the load balancer will be disabled via
-         * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+         * @param enableDeletionProtection If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -575,7 +559,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+         * @param ipAddressType The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
          * 
          * @return builder
          * 
@@ -586,7 +570,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+         * @param ipAddressType The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
          * 
          * @return builder
          * 
@@ -642,7 +626,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
          * 
          * @return builder
          * 
@@ -653,7 +637,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
          * 
          * @return builder
          * 
@@ -683,33 +667,15 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
             return preserveHostHeader(Output.of(preserveHostHeader));
         }
 
-        /**
-         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
-        /**
-         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
-        /**
-         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }

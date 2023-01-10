@@ -57,6 +57,10 @@ export interface GetGroupResult {
      */
     readonly desiredCapacity: number;
     /**
+     * The unit of measurement for the value returned for `desiredCapacity`.
+     */
+    readonly desiredCapacityType: string;
+    /**
      * List of metrics enabled for collection.
      */
     readonly enabledMetrics: string[];

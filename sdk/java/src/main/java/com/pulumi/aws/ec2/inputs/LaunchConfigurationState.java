@@ -52,16 +52,14 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Additional EBS block devices to attach to the
-     * instance.  See Block Devices below for details.
+     * Additional EBS block devices to attach to the instance. See Block Devices below for details.
      * 
      */
     @Import(name="ebsBlockDevices")
     private @Nullable Output<List<LaunchConfigurationEbsBlockDeviceArgs>> ebsBlockDevices;
 
     /**
-     * @return Additional EBS block devices to attach to the
-     * instance.  See Block Devices below for details.
+     * @return Additional EBS block devices to attach to the instance. See Block Devices below for details.
      * 
      */
     public Optional<Output<List<LaunchConfigurationEbsBlockDeviceArgs>>> ebsBlockDevices() {
@@ -99,16 +97,14 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Customize Ephemeral (also known as
-     * &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
+     * Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
      * 
      */
     @Import(name="ephemeralBlockDevices")
     private @Nullable Output<List<LaunchConfigurationEphemeralBlockDeviceArgs>> ephemeralBlockDevices;
 
     /**
-     * @return Customize Ephemeral (also known as
-     * &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
+     * @return Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
      * 
      */
     public Optional<Output<List<LaunchConfigurationEphemeralBlockDeviceArgs>>> ephemeralBlockDevices() {
@@ -116,16 +112,14 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name attribute of the IAM instance profile to associate
-     * with launched instances.
+     * The name attribute of the IAM instance profile to associate with launched instances.
      * 
      */
     @Import(name="iamInstanceProfile")
     private @Nullable Output<String> iamInstanceProfile;
 
     /**
-     * @return The name attribute of the IAM instance profile to associate
-     * with launched instances.
+     * @return The name attribute of the IAM instance profile to associate with launched instances.
      * 
      */
     public Optional<Output<String>> iamInstanceProfile() {
@@ -193,16 +187,14 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the launch configuration. If you leave
-     * this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+     * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the launch configuration. If you leave
-     * this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+     * @return The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -210,16 +202,14 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
      * 
      */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
      * 
      */
     public Optional<Output<String>> namePrefix() {
@@ -227,18 +217,14 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The tenancy of the instance. Valid values are
-     * `&#34;default&#34;` or `&#34;dedicated&#34;`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-     * for more details
+     * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
      * 
      */
     @Import(name="placementTenancy")
     private @Nullable Output<String> placementTenancy;
 
     /**
-     * @return The tenancy of the instance. Valid values are
-     * `&#34;default&#34;` or `&#34;dedicated&#34;`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-     * for more details
+     * @return The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
      * 
      */
     public Optional<Output<String>> placementTenancy() {
@@ -246,33 +232,23 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Customize details about the root block
-     * device of the instance. See Block Devices below for details.
+     * Customize details about the root block device of the instance. See Block Devices below for details.
      * 
      */
     @Import(name="rootBlockDevice")
     private @Nullable Output<LaunchConfigurationRootBlockDeviceArgs> rootBlockDevice;
 
     /**
-     * @return Customize details about the root block
-     * device of the instance. See Block Devices below for details.
+     * @return Customize details about the root block device of the instance. See Block Devices below for details.
      * 
      */
     public Optional<Output<LaunchConfigurationRootBlockDeviceArgs>> rootBlockDevice() {
         return Optional.ofNullable(this.rootBlockDevice);
     }
 
-    /**
-     * A list of associated security group IDS.
-     * 
-     */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
-    /**
-     * @return A list of associated security group IDS.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroups() {
         return Optional.ofNullable(this.securityGroups);
     }
@@ -455,8 +431,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ebsBlockDevices Additional EBS block devices to attach to the
-         * instance.  See Block Devices below for details.
+         * @param ebsBlockDevices Additional EBS block devices to attach to the instance. See Block Devices below for details.
          * 
          * @return builder
          * 
@@ -467,8 +442,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ebsBlockDevices Additional EBS block devices to attach to the
-         * instance.  See Block Devices below for details.
+         * @param ebsBlockDevices Additional EBS block devices to attach to the instance. See Block Devices below for details.
          * 
          * @return builder
          * 
@@ -478,8 +452,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ebsBlockDevices Additional EBS block devices to attach to the
-         * instance.  See Block Devices below for details.
+         * @param ebsBlockDevices Additional EBS block devices to attach to the instance. See Block Devices below for details.
          * 
          * @return builder
          * 
@@ -531,8 +504,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ephemeralBlockDevices Customize Ephemeral (also known as
-         * &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
+         * @param ephemeralBlockDevices Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
          * 
          * @return builder
          * 
@@ -543,8 +515,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ephemeralBlockDevices Customize Ephemeral (also known as
-         * &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
+         * @param ephemeralBlockDevices Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
          * 
          * @return builder
          * 
@@ -554,8 +525,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ephemeralBlockDevices Customize Ephemeral (also known as
-         * &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
+         * @param ephemeralBlockDevices Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
          * 
          * @return builder
          * 
@@ -565,8 +535,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param iamInstanceProfile The name attribute of the IAM instance profile to associate
-         * with launched instances.
+         * @param iamInstanceProfile The name attribute of the IAM instance profile to associate with launched instances.
          * 
          * @return builder
          * 
@@ -577,8 +546,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param iamInstanceProfile The name attribute of the IAM instance profile to associate
-         * with launched instances.
+         * @param iamInstanceProfile The name attribute of the IAM instance profile to associate with launched instances.
          * 
          * @return builder
          * 
@@ -672,8 +640,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the launch configuration. If you leave
-         * this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+         * @param name The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 
@@ -684,8 +651,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the launch configuration. If you leave
-         * this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+         * @param name The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 
@@ -695,8 +661,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param namePrefix Creates a unique name beginning with the specified
-         * prefix. Conflicts with `name`.
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
          * 
          * @return builder
          * 
@@ -707,8 +672,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param namePrefix Creates a unique name beginning with the specified
-         * prefix. Conflicts with `name`.
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
          * 
          * @return builder
          * 
@@ -718,9 +682,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param placementTenancy The tenancy of the instance. Valid values are
-         * `&#34;default&#34;` or `&#34;dedicated&#34;`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-         * for more details
+         * @param placementTenancy The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
          * 
          * @return builder
          * 
@@ -731,9 +693,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param placementTenancy The tenancy of the instance. Valid values are
-         * `&#34;default&#34;` or `&#34;dedicated&#34;`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-         * for more details
+         * @param placementTenancy The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
          * 
          * @return builder
          * 
@@ -743,8 +703,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rootBlockDevice Customize details about the root block
-         * device of the instance. See Block Devices below for details.
+         * @param rootBlockDevice Customize details about the root block device of the instance. See Block Devices below for details.
          * 
          * @return builder
          * 
@@ -755,8 +714,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rootBlockDevice Customize details about the root block
-         * device of the instance. See Block Devices below for details.
+         * @param rootBlockDevice Customize details about the root block device of the instance. See Block Devices below for details.
          * 
          * @return builder
          * 
@@ -765,33 +723,15 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
             return rootBlockDevice(Output.of(rootBlockDevice));
         }
 
-        /**
-         * @param securityGroups A list of associated security group IDS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
-        /**
-         * @param securityGroups A list of associated security group IDS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
-        /**
-         * @param securityGroups A list of associated security group IDS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }

@@ -782,6 +782,16 @@ class App(pulumi.CustomResource):
             ),
         ])
         ```
+        ### Custom Image
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example", environment_variables={
+            "_CUSTOM_IMAGE": "node:16",
+        })
+        ```
 
         ## Import
 
@@ -908,6 +918,16 @@ class App(pulumi.CustomResource):
                 target="/index.html",
             ),
         ])
+        ```
+        ### Custom Image
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example", environment_variables={
+            "_CUSTOM_IMAGE": "node:16",
+        })
         ```
 
         ## Import

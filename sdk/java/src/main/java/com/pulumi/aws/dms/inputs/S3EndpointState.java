@@ -139,14 +139,14 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+     * Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
      * 
      */
     @Import(name="cdcMinFileSize")
     private @Nullable Output<Integer> cdcMinFileSize;
 
     /**
-     * @return Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+     * @return Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
      * 
      */
     public Optional<Output<Integer>> cdcMinFileSize() {
@@ -513,9 +513,17 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.externalTableDefinition);
     }
 
+    /**
+     * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+     * 
+     */
     @Import(name="ignoreHeaderRows")
     private @Nullable Output<Integer> ignoreHeaderRows;
 
+    /**
+     * @return When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+     * 
+     */
     public Optional<Output<Integer>> ignoreHeaderRows() {
         return Optional.ofNullable(this.ignoreHeaderRows);
     }
@@ -1018,7 +1026,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdcMinFileSize Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+         * @param cdcMinFileSize Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
          * 
          * @return builder
          * 
@@ -1029,7 +1037,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdcMinFileSize Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+         * @param cdcMinFileSize Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
          * 
          * @return builder
          * 
@@ -1542,11 +1550,23 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
             return externalTableDefinition(Output.of(externalTableDefinition));
         }
 
+        /**
+         * @param ignoreHeaderRows When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+         * 
+         * @return builder
+         * 
+         */
         public Builder ignoreHeaderRows(@Nullable Output<Integer> ignoreHeaderRows) {
             $.ignoreHeaderRows = ignoreHeaderRows;
             return this;
         }
 
+        /**
+         * @param ignoreHeaderRows When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+         * 
+         * @return builder
+         * 
+         */
         public Builder ignoreHeaderRows(Integer ignoreHeaderRows) {
             return ignoreHeaderRows(Output.of(ignoreHeaderRows));
         }

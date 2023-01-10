@@ -120,7 +120,7 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
      */
     public readonly rootVolumeSecurityStyle!: pulumi.Output<string | undefined>;
     /**
-     * @deprecated this trait has been removed from the API
+     * Describes the SVM's subtype, e.g. `DEFAULT`
      */
     public /*out*/ readonly subtype!: pulumi.Output<string>;
     public readonly svmAdminPassword!: pulumi.Output<string | undefined>;
@@ -214,7 +214,7 @@ export interface OntapStorageVirtualMachineState {
      */
     rootVolumeSecurityStyle?: pulumi.Input<string>;
     /**
-     * @deprecated this trait has been removed from the API
+     * Describes the SVM's subtype, e.g. `DEFAULT`
      */
     subtype?: pulumi.Input<string>;
     svmAdminPassword?: pulumi.Input<string>;

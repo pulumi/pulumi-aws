@@ -41,26 +41,17 @@ class LaunchConfigurationArgs:
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]] ebs_block_devices: Additional EBS block devices to attach to the
-               instance.  See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Customize Ephemeral (also known as
-               "Instance Store") volumes on the instance. See Block Devices below for details.
-        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate
-               with launched instances.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input['LaunchConfigurationMetadataOptionsArgs'] metadata_options: The metadata options for the instance.
-        :param pulumi.Input[str] name: The name of the launch configuration. If you leave
-               this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
-               prefix. Conflicts with `name`.
-        :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are
-               `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-               for more details
-        :param pulumi.Input['LaunchConfigurationRootBlockDeviceArgs'] root_block_device: Customize details about the root block
-               device of the instance. See Block Devices below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of associated security group IDS.
+        :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
+        :param pulumi.Input['LaunchConfigurationRootBlockDeviceArgs'] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
@@ -152,8 +143,7 @@ class LaunchConfigurationArgs:
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]]]:
         """
-        Additional EBS block devices to attach to the
-        instance.  See Block Devices below for details.
+        Additional EBS block devices to attach to the instance. See Block Devices below for details.
         """
         return pulumi.get(self, "ebs_block_devices")
 
@@ -189,8 +179,7 @@ class LaunchConfigurationArgs:
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]]]:
         """
-        Customize Ephemeral (also known as
-        "Instance Store") volumes on the instance. See Block Devices below for details.
+        Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         """
         return pulumi.get(self, "ephemeral_block_devices")
 
@@ -202,8 +191,7 @@ class LaunchConfigurationArgs:
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> Optional[pulumi.Input[str]]:
         """
-        The name attribute of the IAM instance profile to associate
-        with launched instances.
+        The name attribute of the IAM instance profile to associate with launched instances.
         """
         return pulumi.get(self, "iam_instance_profile")
 
@@ -239,8 +227,7 @@ class LaunchConfigurationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the launch configuration. If you leave
-        this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+        The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -252,8 +239,7 @@ class LaunchConfigurationArgs:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates a unique name beginning with the specified
-        prefix. Conflicts with `name`.
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -265,9 +251,7 @@ class LaunchConfigurationArgs:
     @pulumi.getter(name="placementTenancy")
     def placement_tenancy(self) -> Optional[pulumi.Input[str]]:
         """
-        The tenancy of the instance. Valid values are
-        `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-        for more details
+        The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         """
         return pulumi.get(self, "placement_tenancy")
 
@@ -279,8 +263,7 @@ class LaunchConfigurationArgs:
     @pulumi.getter(name="rootBlockDevice")
     def root_block_device(self) -> Optional[pulumi.Input['LaunchConfigurationRootBlockDeviceArgs']]:
         """
-        Customize details about the root block
-        device of the instance. See Block Devices below for details.
+        Customize details about the root block device of the instance. See Block Devices below for details.
         """
         return pulumi.get(self, "root_block_device")
 
@@ -291,9 +274,6 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of associated security group IDS.
-        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -389,28 +369,19 @@ class _LaunchConfigurationState:
         Input properties used for looking up and filtering LaunchConfiguration resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name of the launch configuration.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]] ebs_block_devices: Additional EBS block devices to attach to the
-               instance.  See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Customize Ephemeral (also known as
-               "Instance Store") volumes on the instance. See Block Devices below for details.
-        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate
-               with launched instances.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input['LaunchConfigurationMetadataOptionsArgs'] metadata_options: The metadata options for the instance.
-        :param pulumi.Input[str] name: The name of the launch configuration. If you leave
-               this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
-               prefix. Conflicts with `name`.
-        :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are
-               `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-               for more details
-        :param pulumi.Input['LaunchConfigurationRootBlockDeviceArgs'] root_block_device: Customize details about the root block
-               device of the instance. See Block Devices below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of associated security group IDS.
+        :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
+        :param pulumi.Input['LaunchConfigurationRootBlockDeviceArgs'] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
@@ -494,8 +465,7 @@ class _LaunchConfigurationState:
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]]]:
         """
-        Additional EBS block devices to attach to the
-        instance.  See Block Devices below for details.
+        Additional EBS block devices to attach to the instance. See Block Devices below for details.
         """
         return pulumi.get(self, "ebs_block_devices")
 
@@ -531,8 +501,7 @@ class _LaunchConfigurationState:
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]]]:
         """
-        Customize Ephemeral (also known as
-        "Instance Store") volumes on the instance. See Block Devices below for details.
+        Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         """
         return pulumi.get(self, "ephemeral_block_devices")
 
@@ -544,8 +513,7 @@ class _LaunchConfigurationState:
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> Optional[pulumi.Input[str]]:
         """
-        The name attribute of the IAM instance profile to associate
-        with launched instances.
+        The name attribute of the IAM instance profile to associate with launched instances.
         """
         return pulumi.get(self, "iam_instance_profile")
 
@@ -605,8 +573,7 @@ class _LaunchConfigurationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the launch configuration. If you leave
-        this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+        The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -618,8 +585,7 @@ class _LaunchConfigurationState:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates a unique name beginning with the specified
-        prefix. Conflicts with `name`.
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -631,9 +597,7 @@ class _LaunchConfigurationState:
     @pulumi.getter(name="placementTenancy")
     def placement_tenancy(self) -> Optional[pulumi.Input[str]]:
         """
-        The tenancy of the instance. Valid values are
-        `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-        for more details
+        The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         """
         return pulumi.get(self, "placement_tenancy")
 
@@ -645,8 +609,7 @@ class _LaunchConfigurationState:
     @pulumi.getter(name="rootBlockDevice")
     def root_block_device(self) -> Optional[pulumi.Input['LaunchConfigurationRootBlockDeviceArgs']]:
         """
-        Customize details about the root block
-        device of the instance. See Block Devices below for details.
+        Customize details about the root block device of the instance. See Block Devices below for details.
         """
         return pulumi.get(self, "root_block_device")
 
@@ -657,9 +620,6 @@ class _LaunchConfigurationState:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of associated security group IDS.
-        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -859,58 +819,50 @@ class LaunchConfiguration(pulumi.CustomResource):
         Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
         to understand the implications of using these attributes.
 
-        The `root_block_device` mapping supports the following:
-
-        * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"st1"`, `"sc1"`
-          or `"io1"`. (Default: `"standard"`).
-        * `volume_size` - (Optional) The size of the volume in gigabytes.
-        * `iops` - (Optional) The amount of provisioned
-          [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-          This must be set with a `volume_type` of `"io1"`.
-        * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
-        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
-          on instance termination (Default: `true`).
-        * `encrypted` - (Optional) Whether the volume should be encrypted or not. (Default: `false`).
-
-        Modifying any of the `root_block_device` settings requires resource
-        replacement.
-
-        Each `ebs_block_device` supports the following:
-
-        * `device_name` - (Required) The name of the device to mount.
-        * `snapshot_id` - (Optional) The Snapshot ID to mount.
-        * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"st1"`, `"sc1"`
-          or `"io1"`. (Default: `"standard"`).
-        * `volume_size` - (Optional) The size of the volume in gigabytes.
-        * `iops` - (Optional) The amount of provisioned
-          [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-          This must be set with a `volume_type` of `"io1"`.
-        * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
-        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
-          on instance termination (Default: `true`).
-        * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshot_id` as the encrypted flag will be determined by the snapshot. (Default: `false`).
-        * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
-
-        Modifying any `ebs_block_device` currently requires resource replacement.
-
-        Each `ephemeral_block_device` supports the following:
-
-        * `device_name` - (Required) The name of the block device to mount on the instance.
-        * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
-        * `virtual_name` - (Optional) The [Instance Store Device
-          Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-          (e.g., `"ephemeral0"`)
-
         Each AWS Instance type has a different set of Instance Store block devices
         available for attachment. AWS [publishes a
         list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
         of which ephemeral devices are available on each type. The devices are always
-        identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
+        identified by the `virtual_name` in the format `ephemeral{0..N}`.
 
         > **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
         cannot currently be detected by this provider. After updating to block device
         configuration, resource recreation can be manually triggered by using the
         [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
+
+        ### ebs_block_device
+
+        Modifying any of the `ebs_block_device` settings requires resource replacement.
+
+        * `device_name` - (Required) The name of the device to mount.
+        * `snapshot_id` - (Optional) The Snapshot ID to mount.
+        * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+        * `volume_size` - (Optional) The size of the volume in gigabytes.
+        * `iops` - (Optional) The amount of provisioned
+          [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+          This must be set with a `volume_type` of `"io1"`.
+        * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
+        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+          on instance termination (Default: `true`).
+        * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
+        * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+
+        ### ephemeral_block_device
+
+        * `device_name` - (Required) The name of the block device to mount on the instance.
+        * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+        * `virtual_name` - (Optional) The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
+
+        ### root_block_device
+
+        > Modifying any of the `root_block_device` settings requires resource replacement.
+
+        * `delete_on_termination` - (Optional) Whether the volume should be destroyed on instance termination. Defaults to `true`.
+        * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
+        * `iops` - (Optional) The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volume_type` of `io1`.
+        * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
+        * `volume_size` - (Optional) The size of the volume in gigabytes.
+        * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
 
         ## Import
 
@@ -923,28 +875,19 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]] ebs_block_devices: Additional EBS block devices to attach to the
-               instance.  See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Customize Ephemeral (also known as
-               "Instance Store") volumes on the instance. See Block Devices below for details.
-        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate
-               with launched instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
-        :param pulumi.Input[str] name: The name of the launch configuration. If you leave
-               this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
-               prefix. Conflicts with `name`.
-        :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are
-               `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-               for more details
-        :param pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']] root_block_device: Customize details about the root block
-               device of the instance. See Block Devices below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of associated security group IDS.
+        :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
+        :param pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
@@ -1063,58 +1006,50 @@ class LaunchConfiguration(pulumi.CustomResource):
         Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
         to understand the implications of using these attributes.
 
-        The `root_block_device` mapping supports the following:
-
-        * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"st1"`, `"sc1"`
-          or `"io1"`. (Default: `"standard"`).
-        * `volume_size` - (Optional) The size of the volume in gigabytes.
-        * `iops` - (Optional) The amount of provisioned
-          [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-          This must be set with a `volume_type` of `"io1"`.
-        * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
-        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
-          on instance termination (Default: `true`).
-        * `encrypted` - (Optional) Whether the volume should be encrypted or not. (Default: `false`).
-
-        Modifying any of the `root_block_device` settings requires resource
-        replacement.
-
-        Each `ebs_block_device` supports the following:
-
-        * `device_name` - (Required) The name of the device to mount.
-        * `snapshot_id` - (Optional) The Snapshot ID to mount.
-        * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"st1"`, `"sc1"`
-          or `"io1"`. (Default: `"standard"`).
-        * `volume_size` - (Optional) The size of the volume in gigabytes.
-        * `iops` - (Optional) The amount of provisioned
-          [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-          This must be set with a `volume_type` of `"io1"`.
-        * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
-        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
-          on instance termination (Default: `true`).
-        * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshot_id` as the encrypted flag will be determined by the snapshot. (Default: `false`).
-        * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
-
-        Modifying any `ebs_block_device` currently requires resource replacement.
-
-        Each `ephemeral_block_device` supports the following:
-
-        * `device_name` - (Required) The name of the block device to mount on the instance.
-        * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
-        * `virtual_name` - (Optional) The [Instance Store Device
-          Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-          (e.g., `"ephemeral0"`)
-
         Each AWS Instance type has a different set of Instance Store block devices
         available for attachment. AWS [publishes a
         list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
         of which ephemeral devices are available on each type. The devices are always
-        identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
+        identified by the `virtual_name` in the format `ephemeral{0..N}`.
 
         > **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
         cannot currently be detected by this provider. After updating to block device
         configuration, resource recreation can be manually triggered by using the
         [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
+
+        ### ebs_block_device
+
+        Modifying any of the `ebs_block_device` settings requires resource replacement.
+
+        * `device_name` - (Required) The name of the device to mount.
+        * `snapshot_id` - (Optional) The Snapshot ID to mount.
+        * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+        * `volume_size` - (Optional) The size of the volume in gigabytes.
+        * `iops` - (Optional) The amount of provisioned
+          [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+          This must be set with a `volume_type` of `"io1"`.
+        * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
+        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+          on instance termination (Default: `true`).
+        * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
+        * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+
+        ### ephemeral_block_device
+
+        * `device_name` - (Required) The name of the block device to mount on the instance.
+        * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+        * `virtual_name` - (Optional) The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
+
+        ### root_block_device
+
+        > Modifying any of the `root_block_device` settings requires resource replacement.
+
+        * `delete_on_termination` - (Optional) Whether the volume should be destroyed on instance termination. Defaults to `true`.
+        * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
+        * `iops` - (Optional) The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volume_type` of `io1`.
+        * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
+        * `volume_size` - (Optional) The size of the volume in gigabytes.
+        * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
 
         ## Import
 
@@ -1239,28 +1174,19 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name of the launch configuration.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]] ebs_block_devices: Additional EBS block devices to attach to the
-               instance.  See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Customize Ephemeral (also known as
-               "Instance Store") volumes on the instance. See Block Devices below for details.
-        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate
-               with launched instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
-        :param pulumi.Input[str] name: The name of the launch configuration. If you leave
-               this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
-               prefix. Conflicts with `name`.
-        :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are
-               `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-               for more details
-        :param pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']] root_block_device: Customize details about the root block
-               device of the instance. See Block Devices below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of associated security group IDS.
+        :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
+        :param pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
@@ -1314,8 +1240,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> pulumi.Output[Sequence['outputs.LaunchConfigurationEbsBlockDevice']]:
         """
-        Additional EBS block devices to attach to the
-        instance.  See Block Devices below for details.
+        Additional EBS block devices to attach to the instance. See Block Devices below for details.
         """
         return pulumi.get(self, "ebs_block_devices")
 
@@ -1339,8 +1264,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> pulumi.Output[Optional[Sequence['outputs.LaunchConfigurationEphemeralBlockDevice']]]:
         """
-        Customize Ephemeral (also known as
-        "Instance Store") volumes on the instance. See Block Devices below for details.
+        Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         """
         return pulumi.get(self, "ephemeral_block_devices")
 
@@ -1348,8 +1272,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> pulumi.Output[Optional[str]]:
         """
-        The name attribute of the IAM instance profile to associate
-        with launched instances.
+        The name attribute of the IAM instance profile to associate with launched instances.
         """
         return pulumi.get(self, "iam_instance_profile")
 
@@ -1389,8 +1312,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the launch configuration. If you leave
-        this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+        The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -1398,8 +1320,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[str]:
         """
-        Creates a unique name beginning with the specified
-        prefix. Conflicts with `name`.
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -1407,9 +1328,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="placementTenancy")
     def placement_tenancy(self) -> pulumi.Output[Optional[str]]:
         """
-        The tenancy of the instance. Valid values are
-        `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-        for more details
+        The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         """
         return pulumi.get(self, "placement_tenancy")
 
@@ -1417,17 +1336,13 @@ class LaunchConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="rootBlockDevice")
     def root_block_device(self) -> pulumi.Output['outputs.LaunchConfigurationRootBlockDevice']:
         """
-        Customize details about the root block
-        device of the instance. See Block Devices below for details.
+        Customize details about the root block device of the instance. See Block Devices below for details.
         """
         return pulumi.get(self, "root_block_device")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        A list of associated security group IDS.
-        """
         return pulumi.get(self, "security_groups")
 
     @property

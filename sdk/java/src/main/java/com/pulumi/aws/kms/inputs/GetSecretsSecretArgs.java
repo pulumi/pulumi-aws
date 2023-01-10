@@ -33,6 +33,21 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+     * 
+     */
+    @Import(name="encryptionAlgorithm")
+    private @Nullable Output<String> encryptionAlgorithm;
+
+    /**
+     * @return The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+     * 
+     */
+    public Optional<Output<String>> encryptionAlgorithm() {
+        return Optional.ofNullable(this.encryptionAlgorithm);
+    }
+
+    /**
      * An optional list of Grant Tokens for the secret.
      * 
      */
@@ -45,6 +60,21 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<List<String>>> grantTokens() {
         return Optional.ofNullable(this.grantTokens);
+    }
+
+    /**
+     * Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+     * 
+     */
+    @Import(name="keyId")
+    private @Nullable Output<String> keyId;
+
+    /**
+     * @return Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+     * 
+     */
+    public Optional<Output<String>> keyId() {
+        return Optional.ofNullable(this.keyId);
     }
 
     /**
@@ -81,7 +111,9 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
 
     private GetSecretsSecretArgs(GetSecretsSecretArgs $) {
         this.context = $.context;
+        this.encryptionAlgorithm = $.encryptionAlgorithm;
         this.grantTokens = $.grantTokens;
+        this.keyId = $.keyId;
         this.name = $.name;
         this.payload = $.payload;
     }
@@ -126,6 +158,27 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param encryptionAlgorithm The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionAlgorithm(@Nullable Output<String> encryptionAlgorithm) {
+            $.encryptionAlgorithm = encryptionAlgorithm;
+            return this;
+        }
+
+        /**
+         * @param encryptionAlgorithm The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionAlgorithm(String encryptionAlgorithm) {
+            return encryptionAlgorithm(Output.of(encryptionAlgorithm));
+        }
+
+        /**
          * @param grantTokens An optional list of Grant Tokens for the secret.
          * 
          * @return builder
@@ -154,6 +207,27 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder grantTokens(String... grantTokens) {
             return grantTokens(List.of(grantTokens));
+        }
+
+        /**
+         * @param keyId Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(@Nullable Output<String> keyId) {
+            $.keyId = keyId;
+            return this;
+        }
+
+        /**
+         * @param keyId Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyId(String keyId) {
+            return keyId(Output.of(keyId));
         }
 
         /**

@@ -123,14 +123,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+     * Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
      * 
      */
     @Import(name="cdcMinFileSize")
     private @Nullable Output<Integer> cdcMinFileSize;
 
     /**
-     * @return Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+     * @return Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
      * 
      */
     public Optional<Output<Integer>> cdcMinFileSize() {
@@ -381,11 +381,26 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
      * When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
      * 
      */
+    @Import(name="ignoreHeaderRows")
+    private @Nullable Output<Integer> ignoreHeaderRows;
+
+    /**
+     * @return When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+     * 
+     */
+    public Optional<Output<Integer>> ignoreHeaderRows() {
+        return Optional.ofNullable(this.ignoreHeaderRows);
+    }
+
+    /**
+     * Deprecated. This setting has no effect. Will be removed in a future version.
+     * 
+     */
     @Import(name="ignoreHeadersRow")
     private @Nullable Output<Integer> ignoreHeadersRow;
 
     /**
-     * @return When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+     * @return Deprecated. This setting has no effect. Will be removed in a future version.
      * 
      */
     public Optional<Output<Integer>> ignoreHeadersRow() {
@@ -603,6 +618,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         this.encodingType = $.encodingType;
         this.encryptionMode = $.encryptionMode;
         this.externalTableDefinition = $.externalTableDefinition;
+        this.ignoreHeaderRows = $.ignoreHeaderRows;
         this.ignoreHeadersRow = $.ignoreHeadersRow;
         this.includeOpForFullLoad = $.includeOpForFullLoad;
         this.maxFileSize = $.maxFileSize;
@@ -784,7 +800,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param cdcMinFileSize Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+         * @param cdcMinFileSize Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
          * 
          * @return builder
          * 
@@ -795,7 +811,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param cdcMinFileSize Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+         * @param cdcMinFileSize Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
          * 
          * @return builder
          * 
@@ -1141,7 +1157,28 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ignoreHeadersRow When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+         * @param ignoreHeaderRows When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreHeaderRows(@Nullable Output<Integer> ignoreHeaderRows) {
+            $.ignoreHeaderRows = ignoreHeaderRows;
+            return this;
+        }
+
+        /**
+         * @param ignoreHeaderRows When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreHeaderRows(Integer ignoreHeaderRows) {
+            return ignoreHeaderRows(Output.of(ignoreHeaderRows));
+        }
+
+        /**
+         * @param ignoreHeadersRow Deprecated. This setting has no effect. Will be removed in a future version.
          * 
          * @return builder
          * 
@@ -1152,7 +1189,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ignoreHeadersRow When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+         * @param ignoreHeadersRow Deprecated. This setting has no effect. Will be removed in a future version.
          * 
          * @return builder
          * 

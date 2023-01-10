@@ -137,6 +137,25 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// });
     /// ```
+    /// ### Custom Image
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amplify.App("example", new()
+    ///     {
+    ///         EnvironmentVariables = 
+    ///         {
+    ///             { "_CUSTOM_IMAGE", "node:16" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

@@ -12,18 +12,18 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LoadBalancerSubnetMapping {
     /**
-     * @return The allocation ID of the Elastic IP address.
+     * @return The allocation ID of the Elastic IP address for an internet-facing load balancer.
      * 
      */
     private @Nullable String allocationId;
     /**
-     * @return An ipv6 address within the subnet to assign to the internet-facing load balancer.
+     * @return The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
      * 
      */
     private @Nullable String ipv6Address;
     private @Nullable String outpostId;
     /**
-     * @return A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+     * @return The private IPv4 address for an internal load balancer.
      * 
      */
     private @Nullable String privateIpv4Address;
@@ -35,14 +35,14 @@ public final class LoadBalancerSubnetMapping {
 
     private LoadBalancerSubnetMapping() {}
     /**
-     * @return The allocation ID of the Elastic IP address.
+     * @return The allocation ID of the Elastic IP address for an internet-facing load balancer.
      * 
      */
     public Optional<String> allocationId() {
         return Optional.ofNullable(this.allocationId);
     }
     /**
-     * @return An ipv6 address within the subnet to assign to the internet-facing load balancer.
+     * @return The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
      * 
      */
     public Optional<String> ipv6Address() {
@@ -52,7 +52,7 @@ public final class LoadBalancerSubnetMapping {
         return Optional.ofNullable(this.outpostId);
     }
     /**
-     * @return A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+     * @return The private IPv4 address for an internal load balancer.
      * 
      */
     public Optional<String> privateIpv4Address() {

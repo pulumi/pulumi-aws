@@ -18,14 +18,14 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
     public static final ResolverCachingConfigArgs Empty = new ResolverCachingConfigArgs();
 
     /**
-     * List of caching key.
+     * The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
      * 
      */
     @Import(name="cachingKeys")
     private @Nullable Output<List<String>> cachingKeys;
 
     /**
-     * @return List of caching key.
+     * @return The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
      * 
      */
     public Optional<Output<List<String>>> cachingKeys() {
@@ -33,14 +33,14 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * TTL in seconds.
+     * The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
      * 
      */
     @Import(name="ttl")
     private @Nullable Output<Integer> ttl;
 
     /**
-     * @return TTL in seconds.
+     * @return The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
      * 
      */
     public Optional<Output<Integer>> ttl() {
@@ -73,7 +73,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cachingKeys List of caching key.
+         * @param cachingKeys The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cachingKeys List of caching key.
+         * @param cachingKeys The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cachingKeys List of caching key.
+         * @param cachingKeys The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ttl TTL in seconds.
+         * @param ttl The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ttl TTL in seconds.
+         * @param ttl The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
          * 
          * @return builder
          * 

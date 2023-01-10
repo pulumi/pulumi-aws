@@ -522,6 +522,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int> DesiredCapacity { get; private set; } = null!;
 
         /// <summary>
+        /// The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+        /// </summary>
+        [Output("desiredCapacityType")]
+        public Output<string?> DesiredCapacityType { get; private set; } = null!;
+
+        /// <summary>
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
         [Output("enabledMetrics")]
@@ -818,6 +824,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("desiredCapacity")]
         public Input<int>? DesiredCapacity { get; set; }
+
+        /// <summary>
+        /// The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+        /// </summary>
+        [Input("desiredCapacityType")]
+        public Input<string>? DesiredCapacityType { get; set; }
 
         [Input("enabledMetrics")]
         private InputList<string>? _enabledMetrics;
@@ -1139,6 +1151,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("desiredCapacity")]
         public Input<int>? DesiredCapacity { get; set; }
+
+        /// <summary>
+        /// The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+        /// </summary>
+        [Input("desiredCapacityType")]
+        public Input<string>? DesiredCapacityType { get; set; }
 
         [Input("enabledMetrics")]
         private InputList<string>? _enabledMetrics;

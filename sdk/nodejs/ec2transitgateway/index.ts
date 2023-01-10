@@ -70,6 +70,11 @@ export const getVpnAttachment: typeof import("./getVpnAttachment").getVpnAttachm
 export const getVpnAttachmentOutput: typeof import("./getVpnAttachment").getVpnAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getVpnAttachment","getVpnAttachmentOutput"], () => require("./getVpnAttachment"));
 
+export { InstanceStateArgs, InstanceStateState } from "./instanceState";
+export type InstanceState = import("./instanceState").InstanceState;
+export const InstanceState: typeof import("./instanceState").InstanceState = null as any;
+utilities.lazyLoad(exports, ["InstanceState"], () => require("./instanceState"));
+
 export { MulticastDomainArgs, MulticastDomainState } from "./multicastDomain";
 export type MulticastDomain = import("./multicastDomain").MulticastDomain;
 export const MulticastDomain: typeof import("./multicastDomain").MulticastDomain = null as any;
@@ -159,6 +164,8 @@ const _module = {
                 return new Connect(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/connectPeer:ConnectPeer":
                 return new ConnectPeer(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/instanceState:InstanceState":
+                return new InstanceState(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/multicastDomain:MulticastDomain":
                 return new MulticastDomain(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation":
@@ -198,6 +205,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/connect", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/connectPeer", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/instanceState", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastDomain", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastDomainAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastGroupMember", _module)

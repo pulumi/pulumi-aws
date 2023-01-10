@@ -110,20 +110,16 @@ public final class OntapStorageVirtualMachineState extends com.pulumi.resources.
     }
 
     /**
-     * @deprecated
-     * this trait has been removed from the API
+     * Describes the SVM&#39;s subtype, e.g. `DEFAULT`
      * 
      */
-    @Deprecated /* this trait has been removed from the API */
     @Import(name="subtype")
     private @Nullable Output<String> subtype;
 
     /**
-     * @deprecated
-     * this trait has been removed from the API
+     * @return Describes the SVM&#39;s subtype, e.g. `DEFAULT`
      * 
      */
-    @Deprecated /* this trait has been removed from the API */
     public Optional<Output<String>> subtype() {
         return Optional.ofNullable(this.subtype);
     }
@@ -351,26 +347,22 @@ public final class OntapStorageVirtualMachineState extends com.pulumi.resources.
         }
 
         /**
+         * @param subtype Describes the SVM&#39;s subtype, e.g. `DEFAULT`
+         * 
          * @return builder
          * 
-         * @deprecated
-         * this trait has been removed from the API
-         * 
          */
-        @Deprecated /* this trait has been removed from the API */
         public Builder subtype(@Nullable Output<String> subtype) {
             $.subtype = subtype;
             return this;
         }
 
         /**
+         * @param subtype Describes the SVM&#39;s subtype, e.g. `DEFAULT`
+         * 
          * @return builder
          * 
-         * @deprecated
-         * this trait has been removed from the API
-         * 
          */
-        @Deprecated /* this trait has been removed from the API */
         public Builder subtype(String subtype) {
             return subtype(Output.of(subtype));
         }

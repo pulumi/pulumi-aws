@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs;
 import com.pulumi.core.Output;
@@ -40,6 +41,21 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
     @Deprecated /* Use rule_action_override instead */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>>> excludedRules() {
         return Optional.ofNullable(this.excludedRules);
+    }
+
+    /**
+     * Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * 
+     */
+    @Import(name="managedRuleGroupConfigs")
+    private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>> managedRuleGroupConfigs;
+
+    /**
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * 
+     */
+    public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>>> managedRuleGroupConfigs() {
+        return Optional.ofNullable(this.managedRuleGroupConfigs);
     }
 
     /**
@@ -121,6 +137,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
 
     private WebAclRuleStatementManagedRuleGroupStatementArgs(WebAclRuleStatementManagedRuleGroupStatementArgs $) {
         this.excludedRules = $.excludedRules;
+        this.managedRuleGroupConfigs = $.managedRuleGroupConfigs;
         this.name = $.name;
         this.ruleActionOverrides = $.ruleActionOverrides;
         this.scopeDownStatement = $.scopeDownStatement;
@@ -187,6 +204,37 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         @Deprecated /* Use rule_action_override instead */
         public Builder excludedRules(WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs... excludedRules) {
             return excludedRules(List.of(excludedRules));
+        }
+
+        /**
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedRuleGroupConfigs(@Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>> managedRuleGroupConfigs) {
+            $.managedRuleGroupConfigs = managedRuleGroupConfigs;
+            return this;
+        }
+
+        /**
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedRuleGroupConfigs(List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs> managedRuleGroupConfigs) {
+            return managedRuleGroupConfigs(Output.of(managedRuleGroupConfigs));
+        }
+
+        /**
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedRuleGroupConfigs(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs... managedRuleGroupConfigs) {
+            return managedRuleGroupConfigs(List.of(managedRuleGroupConfigs));
         }
 
         /**

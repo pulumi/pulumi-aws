@@ -80,6 +80,21 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS account ID associated with the S3 bucket associated with this access point.
+     * 
+     */
+    @Import(name="bucketAccountId")
+    private @Nullable Output<String> bucketAccountId;
+
+    /**
+     * @return The AWS account ID associated with the S3 bucket associated with this access point.
+     * 
+     */
+    public Optional<Output<String>> bucketAccountId() {
+        return Optional.ofNullable(this.bucketAccountId);
+    }
+
+    /**
      * The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
      * Note: S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
      * 
@@ -208,6 +223,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         this.alias = $.alias;
         this.arn = $.arn;
         this.bucket = $.bucket;
+        this.bucketAccountId = $.bucketAccountId;
         this.domainName = $.domainName;
         this.endpoints = $.endpoints;
         this.hasPublicAccessPolicy = $.hasPublicAccessPolicy;
@@ -318,6 +334,27 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
+        }
+
+        /**
+         * @param bucketAccountId The AWS account ID associated with the S3 bucket associated with this access point.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucketAccountId(@Nullable Output<String> bucketAccountId) {
+            $.bucketAccountId = bucketAccountId;
+            return this;
+        }
+
+        /**
+         * @param bucketAccountId The AWS account ID associated with the S3 bucket associated with this access point.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucketAccountId(String bucketAccountId) {
+            return bucketAccountId(Output.of(bucketAccountId));
         }
 
         /**

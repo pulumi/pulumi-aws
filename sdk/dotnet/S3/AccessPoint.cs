@@ -108,6 +108,12 @@ namespace Pulumi.Aws.S3
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS account ID associated with the S3 bucket associated with this access point.
+        /// </summary>
+        [Output("bucketAccountId")]
+        public Output<string> BucketAccountId { get; private set; } = null!;
+
+        /// <summary>
         /// The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
         /// Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
         /// </summary>
@@ -215,6 +221,12 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
+        /// The AWS account ID associated with the S3 bucket associated with this access point.
+        /// </summary>
+        [Input("bucketAccountId")]
+        public Input<string>? BucketAccountId { get; set; }
+
+        /// <summary>
         /// Name you want to assign to this access point.
         /// </summary>
         [Input("name")]
@@ -269,6 +281,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
+
+        /// <summary>
+        /// The AWS account ID associated with the S3 bucket associated with this access point.
+        /// </summary>
+        [Input("bucketAccountId")]
+        public Input<string>? BucketAccountId { get; set; }
 
         /// <summary>
         /// The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.

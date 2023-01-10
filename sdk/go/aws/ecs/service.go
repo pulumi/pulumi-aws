@@ -119,6 +119,38 @@ import (
 //	}
 //
 // ```
+// ### CloudWatch Deployment Alarms
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
+//				Cluster: pulumi.Any(aws_ecs_cluster.Example.Id),
+//				Alarms: &ecs.ServiceAlarmsArgs{
+//					Enable:   pulumi.Bool(true),
+//					Rollback: pulumi.Bool(true),
+//					AlarmNames: pulumi.StringArray{
+//						aws_cloudwatch_metric_alarm.Example.Alarm_name,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### External Deployment Controller
 //
 // ```go
@@ -160,6 +192,8 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
+	// Information about the CloudWatch alarms. See below.
+	Alarms ServiceAlarmsPtrOutput `pulumi:"alarms"`
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
 	CapacityProviderStrategies ServiceCapacityProviderStrategyArrayOutput `pulumi:"capacityProviderStrategies"`
 	// ARN of an ECS cluster.
@@ -247,6 +281,8 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
+	// Information about the CloudWatch alarms. See below.
+	Alarms *ServiceAlarms `pulumi:"alarms"`
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
 	CapacityProviderStrategies []ServiceCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
 	// ARN of an ECS cluster.
@@ -306,6 +342,8 @@ type serviceState struct {
 }
 
 type ServiceState struct {
+	// Information about the CloudWatch alarms. See below.
+	Alarms ServiceAlarmsPtrInput
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
 	CapacityProviderStrategies ServiceCapacityProviderStrategyArrayInput
 	// ARN of an ECS cluster.
@@ -369,6 +407,8 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
+	// Information about the CloudWatch alarms. See below.
+	Alarms *ServiceAlarms `pulumi:"alarms"`
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
 	CapacityProviderStrategies []ServiceCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
 	// ARN of an ECS cluster.
@@ -427,6 +467,8 @@ type serviceArgs struct {
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	// Information about the CloudWatch alarms. See below.
+	Alarms ServiceAlarmsPtrInput
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
 	CapacityProviderStrategies ServiceCapacityProviderStrategyArrayInput
 	// ARN of an ECS cluster.
@@ -568,6 +610,11 @@ func (o ServiceOutput) ToServiceOutput() ServiceOutput {
 
 func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
 	return o
+}
+
+// Information about the CloudWatch alarms. See below.
+func (o ServiceOutput) Alarms() ServiceAlarmsPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceAlarmsPtrOutput { return v.Alarms }).(ServiceAlarmsPtrOutput)
 }
 
 // Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.

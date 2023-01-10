@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
-        /// Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
+        /// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("diskSize")]
         public Output<int> DiskSize { get; private set; } = null!;
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Eks
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
+        /// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("diskSize")]
         public Input<int>? DiskSize { get; set; }
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
+        /// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("diskSize")]
         public Input<int>? DiskSize { get; set; }

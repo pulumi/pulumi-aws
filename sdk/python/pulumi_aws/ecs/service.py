@@ -16,6 +16,7 @@ __all__ = ['ServiceArgs', 'Service']
 @pulumi.input_type
 class ServiceArgs:
     def __init__(__self__, *,
+                 alarms: Optional[pulumi.Input['ServiceAlarmsArgs']] = None,
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']] = None,
@@ -45,6 +46,7 @@ class ServiceArgs:
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Service resource.
+        :param pulumi.Input['ServiceAlarmsArgs'] alarms: Information about the CloudWatch alarms. See below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster.
         :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
@@ -73,6 +75,8 @@ class ServiceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
         if capacity_provider_strategies is not None:
             pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
         if cluster is not None:
@@ -127,6 +131,18 @@ class ServiceArgs:
             pulumi.set(__self__, "triggers", triggers)
         if wait_for_steady_state is not None:
             pulumi.set(__self__, "wait_for_steady_state", wait_for_steady_state)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[pulumi.Input['ServiceAlarmsArgs']]:
+        """
+        Information about the CloudWatch alarms. See below.
+        """
+        return pulumi.get(self, "alarms")
+
+    @alarms.setter
+    def alarms(self, value: Optional[pulumi.Input['ServiceAlarmsArgs']]):
+        pulumi.set(self, "alarms", value)
 
     @property
     @pulumi.getter(name="capacityProviderStrategies")
@@ -456,6 +472,7 @@ class ServiceArgs:
 @pulumi.input_type
 class _ServiceState:
     def __init__(__self__, *,
+                 alarms: Optional[pulumi.Input['ServiceAlarmsArgs']] = None,
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']] = None,
@@ -486,6 +503,7 @@ class _ServiceState:
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Service resources.
+        :param pulumi.Input['ServiceAlarmsArgs'] alarms: Information about the CloudWatch alarms. See below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster.
         :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
@@ -515,6 +533,8 @@ class _ServiceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
         if capacity_provider_strategies is not None:
             pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
         if cluster is not None:
@@ -571,6 +591,18 @@ class _ServiceState:
             pulumi.set(__self__, "triggers", triggers)
         if wait_for_steady_state is not None:
             pulumi.set(__self__, "wait_for_steady_state", wait_for_steady_state)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[pulumi.Input['ServiceAlarmsArgs']]:
+        """
+        Information about the CloudWatch alarms. See below.
+        """
+        return pulumi.get(self, "alarms")
+
+    @alarms.setter
+    def alarms(self, value: Optional[pulumi.Input['ServiceAlarmsArgs']]):
+        pulumi.set(self, "alarms", value)
 
     @property
     @pulumi.getter(name="capacityProviderStrategies")
@@ -914,6 +946,7 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alarms: Optional[pulumi.Input[pulumi.InputType['ServiceAlarmsArgs']]] = None,
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArgs']]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArgs']]] = None,
@@ -997,6 +1030,20 @@ class Service(pulumi.CustomResource):
             task_definition=aws_ecs_task_definition["bar"]["arn"],
             scheduling_strategy="DAEMON")
         ```
+        ### CloudWatch Deployment Alarms
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.Service("example",
+            cluster=aws_ecs_cluster["example"]["id"],
+            alarms=aws.ecs.ServiceAlarmsArgs(
+                enable=True,
+                rollback=True,
+                alarm_names=[aws_cloudwatch_metric_alarm["example"]["alarm_name"]],
+            ))
+        ```
         ### External Deployment Controller
 
         ```python
@@ -1020,6 +1067,7 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ServiceAlarmsArgs']] alarms: Information about the CloudWatch alarms. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArgs']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster.
         :param pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArgs']] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
@@ -1109,6 +1157,20 @@ class Service(pulumi.CustomResource):
             task_definition=aws_ecs_task_definition["bar"]["arn"],
             scheduling_strategy="DAEMON")
         ```
+        ### CloudWatch Deployment Alarms
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.Service("example",
+            cluster=aws_ecs_cluster["example"]["id"],
+            alarms=aws.ecs.ServiceAlarmsArgs(
+                enable=True,
+                rollback=True,
+                alarm_names=[aws_cloudwatch_metric_alarm["example"]["alarm_name"]],
+            ))
+        ```
         ### External Deployment Controller
 
         ```python
@@ -1145,6 +1207,7 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alarms: Optional[pulumi.Input[pulumi.InputType['ServiceAlarmsArgs']]] = None,
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArgs']]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArgs']]] = None,
@@ -1181,6 +1244,7 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
+            __props__.__dict__["alarms"] = alarms
             __props__.__dict__["capacity_provider_strategies"] = capacity_provider_strategies
             __props__.__dict__["cluster"] = cluster
             __props__.__dict__["deployment_circuit_breaker"] = deployment_circuit_breaker
@@ -1219,6 +1283,7 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            alarms: Optional[pulumi.Input[pulumi.InputType['ServiceAlarmsArgs']]] = None,
             capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArgs']]]]] = None,
             cluster: Optional[pulumi.Input[str]] = None,
             deployment_circuit_breaker: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArgs']]] = None,
@@ -1254,6 +1319,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ServiceAlarmsArgs']] alarms: Information about the CloudWatch alarms. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArgs']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster.
         :param pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArgs']] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
@@ -1287,6 +1353,7 @@ class Service(pulumi.CustomResource):
 
         __props__ = _ServiceState.__new__(_ServiceState)
 
+        __props__.__dict__["alarms"] = alarms
         __props__.__dict__["capacity_provider_strategies"] = capacity_provider_strategies
         __props__.__dict__["cluster"] = cluster
         __props__.__dict__["deployment_circuit_breaker"] = deployment_circuit_breaker
@@ -1316,6 +1383,14 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["triggers"] = triggers
         __props__.__dict__["wait_for_steady_state"] = wait_for_steady_state
         return Service(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> pulumi.Output[Optional['outputs.ServiceAlarms']]:
+        """
+        Information about the CloudWatch alarms. See below.
+        """
+        return pulumi.get(self, "alarms")
 
     @property
     @pulumi.getter(name="capacityProviderStrategies")

@@ -31,13 +31,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.Domain;
- * import com.pulumi.aws.sagemaker.DomainArgs;
- * import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.sagemaker.Domain;
+ * import com.pulumi.aws.sagemaker.DomainArgs;
+ * import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,16 +51,6 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .domainName(&#34;example&#34;)
- *             .authMode(&#34;IAM&#34;)
- *             .vpcId(aws_vpc.test().id())
- *             .subnetIds(aws_subnet.test().id())
- *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
- *                 .executionRole(aws_iam_role.test().arn())
- *                 .build())
- *             .build());
- * 
  *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
@@ -74,6 +64,16 @@ import javax.annotation.Nullable;
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
  *             .path(&#34;/&#34;)
  *             .assumeRolePolicy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
+ *             .domainName(&#34;example&#34;)
+ *             .authMode(&#34;IAM&#34;)
+ *             .vpcId(aws_vpc.example().id())
+ *             .subnetIds(aws_subnet.example().id())
+ *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
+ *                 .executionRole(exampleRole.arn())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -111,12 +111,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testImage = new Image(&#34;testImage&#34;, ImageArgs.builder()        
+ *         var exampleImage = new Image(&#34;exampleImage&#34;, ImageArgs.builder()        
  *             .imageName(&#34;example&#34;)
- *             .roleArn(aws_iam_role.test().arn())
+ *             .roleArn(aws_iam_role.example().arn())
  *             .build());
  * 
- *         var testAppImageConfig = new AppImageConfig(&#34;testAppImageConfig&#34;, AppImageConfigArgs.builder()        
+ *         var exampleAppImageConfig = new AppImageConfig(&#34;exampleAppImageConfig&#34;, AppImageConfigArgs.builder()        
  *             .appImageConfigName(&#34;example&#34;)
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
  *                 .kernelSpec(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
@@ -125,22 +125,22 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testImageVersion = new ImageVersion(&#34;testImageVersion&#34;, ImageVersionArgs.builder()        
- *             .imageName(testImage.id())
+ *         var exampleImageVersion = new ImageVersion(&#34;exampleImageVersion&#34;, ImageVersionArgs.builder()        
+ *             .imageName(exampleImage.id())
  *             .baseImage(&#34;base-image&#34;)
  *             .build());
  * 
- *         var testDomain = new Domain(&#34;testDomain&#34;, DomainArgs.builder()        
+ *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
  *             .domainName(&#34;example&#34;)
  *             .authMode(&#34;IAM&#34;)
- *             .vpcId(aws_vpc.test().id())
- *             .subnetIds(aws_subnet.test().id())
+ *             .vpcId(aws_vpc.example().id())
+ *             .subnetIds(aws_subnet.example().id())
  *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
- *                 .executionRole(aws_iam_role.test().arn())
+ *                 .executionRole(aws_iam_role.example().arn())
  *                 .kernelGatewayAppSettings(DomainDefaultUserSettingsKernelGatewayAppSettingsArgs.builder()
  *                     .customImages(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs.builder()
- *                         .appImageConfigName(testAppImageConfig.appImageConfigName())
- *                         .imageName(testImageVersion.imageName())
+ *                         .appImageConfigName(exampleAppImageConfig.appImageConfigName())
+ *                         .imageName(exampleImageVersion.imageName())
  *                         .build())
  *                     .build())
  *                 .build())
@@ -176,14 +176,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appNetworkAccessType);
     }
     /**
-     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
      * 
      */
     @Export(name="appSecurityGroupManagement", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appSecurityGroupManagement;
 
     /**
-     * @return The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+     * @return The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
      * 
      */
     public Output<Optional<String>> appSecurityGroupManagement() {
@@ -232,42 +232,34 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultSpaceSettings);
     }
     /**
-     * The default user settings. See Default User Settings below.
+     * The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
      * 
      */
     @Export(name="defaultUserSettings", refs={DomainDefaultUserSettings.class}, tree="[0]")
     private Output<DomainDefaultUserSettings> defaultUserSettings;
 
     /**
-     * @return The default user settings. See Default User Settings below.
+     * @return The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
      * 
      */
     public Output<DomainDefaultUserSettings> defaultUserSettings() {
         return this.defaultUserSettings;
     }
-    /**
-     * The domain name.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return The domain name.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
     /**
-     * The domain settings. See Domain Settings below.
+     * The domain&#39;s settings.
      * 
      */
     @Export(name="domainSettings", refs={DomainDomainSettings.class}, tree="[0]")
     private Output</* @Nullable */ DomainDomainSettings> domainSettings;
 
     /**
-     * @return The domain settings. See Domain Settings below.
+     * @return The domain&#39;s settings.
      * 
      */
     public Output<Optional<DomainDomainSettings>> domainSettings() {

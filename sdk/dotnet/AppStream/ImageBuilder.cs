@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppStream
     ///         Description = "Description of a ImageBuilder",
     ///         DisplayName = "Display name of a ImageBuilder",
     ///         EnableDefaultInternetAccess = false,
-    ///         ImageName = "AppStream-WinServer2012R2-07-19-2021",
+    ///         ImageName = "AppStream-WinServer2019-10-05-2022",
     ///         InstanceType = "stream.standard.large",
     ///         VpcConfig = new Aws.AppStream.Inputs.ImageBuilderVpcConfigArgs
     ///         {

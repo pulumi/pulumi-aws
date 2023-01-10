@@ -132,7 +132,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
-     * Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
+     * Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
      */
     public readonly diskSize!: pulumi.Output<number>;
     /**
@@ -305,7 +305,7 @@ export interface NodeGroupState {
      */
     clusterName?: pulumi.Input<string>;
     /**
-     * Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
+     * Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
      */
     diskSize?: pulumi.Input<number>;
     /**
@@ -396,7 +396,7 @@ export interface NodeGroupArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
+     * Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
      */
     diskSize?: pulumi.Input<number>;
     /**

@@ -22,6 +22,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleActionBlock? Block;
         /// <summary>
+        /// Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleActionCaptcha? Captcha;
+        /// <summary>
         /// Instructs AWS WAF to count the web request and allow it. See Count below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleActionCount? Count;
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.RuleGroupRuleActionBlock? block,
 
+            Outputs.RuleGroupRuleActionCaptcha? captcha,
+
             Outputs.RuleGroupRuleActionCount? count)
         {
             Allow = allow;
             Block = block;
+            Captcha = captcha;
             Count = count;
         }
     }

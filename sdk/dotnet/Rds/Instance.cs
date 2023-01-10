@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> BackupWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+        /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
         /// See blue_green_update below
         /// </summary>
         [Output("blueGreenUpdate")]
@@ -713,7 +713,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? BackupWindow { get; set; }
 
         /// <summary>
-        /// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+        /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
         /// See blue_green_update below
         /// </summary>
         [Input("blueGreenUpdate")]
@@ -1215,7 +1215,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? BackupWindow { get; set; }
 
         /// <summary>
-        /// Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+        /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
         /// See blue_green_update below
         /// </summary>
         [Input("blueGreenUpdate")]
