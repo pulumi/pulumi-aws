@@ -556,6 +556,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_appsync_domain_name_api_association": {Tok: awsResource(appsyncMod, "DomainNameApiAssociation")},
+			"aws_appsync_type":                        {Tok: awsResource(appsyncMod, "Type")},
 
 			// AppMesh
 			"aws_appmesh_mesh":            {Tok: awsResource(appmeshMod, "Mesh")},
@@ -1626,6 +1627,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_multicast_group_source":       {Tok: awsResource(ec2TransitGatewayMod, "MulticastGroupSource")},
 			"aws_ec2_transit_gateway_policy_table":                 {Tok: awsResource(ec2TransitGatewayMod, "PolicyTable")},
 			"aws_ec2_transit_gateway_policy_table_association":     {Tok: awsResource(ec2TransitGatewayMod, "PolicyTableAssociation")},
+			"aws_ec2_instance_state":                               {Tok: awsResource(ec2TransitGatewayMod, "InstanceState")},
 			// Elastic Container Registry
 			"aws_ecr_repository": {Tok: awsResource(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {
@@ -2328,6 +2330,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lightsail_lb":                                   {Tok: awsResource(lightsailMod, "Lb")},
 			"aws_lightsail_static_ip_attachment":                 {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
 			"aws_lightsail_static_ip":                            {Tok: awsResource(lightsailMod, "StaticIp")},
+			"aws_lightsail_bucket":                               {Tok: awsResource(lightsailMod, "Bucket")},
 
 			// Location
 			"aws_location_map":                 {Tok: awsResource(locationMod, "Map")},
@@ -3551,6 +3554,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ssoadmin_account_assignment":                 {Tok: awsResource(ssoAdminMod, "AccountAssignment")},
 			"aws_ssoadmin_customer_managed_policy_attachment": {Tok: awsResource(ssoAdminMod, "CustomerManagedPolicyAttachment")},
 			"aws_ssoadmin_permissions_boundary_attachment":    {Tok: awsResource(ssoAdminMod, "PermissionsBoundaryAttachment")},
+			"aws_ssoadmin_instance_access_control_attributes": {Tok: awsResource(ssoAdminMod, "InstanceAccessControlAttributes")},
 			// AMP (Managed Prometheus)
 			"aws_prometheus_workspace":                {Tok: awsResource(ampMod, "Workspace")},
 			"aws_prometheus_alert_manager_definition": {Tok: awsResource(ampMod, "AlertManagerDefinition")},
@@ -5198,7 +5202,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3_object":                      {Tok: awsDataSource(s3Mod, "getObject")},
 			"aws_s3_objects":                     {Tok: awsDataSource(s3Mod, "getObjects")},
 			"aws_s3_account_public_access_block": {Tok: awsDataSource(s3Mod, "getAccountPublicAccessBlock")},
-
+			// S3Control
+			"aws_s3control_multi_region_access_point": {Tok: awsDataSource(s3ControlMod, "getMultiRegionAccessPoint")},
 			// Secrets Manager
 			"aws_secretsmanager_secret":          {Tok: awsDataSource(secretsmanagerMod, "getSecret")},
 			"aws_secretsmanager_secret_version":  {Tok: awsDataSource(secretsmanagerMod, "getSecretVersion")},
