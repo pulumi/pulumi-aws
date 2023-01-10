@@ -26,6 +26,10 @@ namespace Pulumi.Aws.Athena.Outputs
         /// </summary>
         public readonly Outputs.WorkgroupConfigurationEngineVersion? EngineVersion;
         /// <summary>
+        /// Role used in a notebook session for accessing the user's resources.
+        /// </summary>
+        public readonly string? ExecutionRole;
+        /// <summary>
         /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         /// </summary>
         public readonly bool? PublishCloudwatchMetricsEnabled;
@@ -46,6 +50,8 @@ namespace Pulumi.Aws.Athena.Outputs
 
             Outputs.WorkgroupConfigurationEngineVersion? engineVersion,
 
+            string? executionRole,
+
             bool? publishCloudwatchMetricsEnabled,
 
             bool? requesterPaysEnabled,
@@ -55,6 +61,7 @@ namespace Pulumi.Aws.Athena.Outputs
             BytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
             EnforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
             EngineVersion = engineVersion;
+            ExecutionRole = executionRole;
             PublishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
             RequesterPaysEnabled = requesterPaysEnabled;
             ResultConfiguration = resultConfiguration;

@@ -158,7 +158,7 @@ export class S3Endpoint extends pulumi.CustomResource {
      */
     public readonly cdcMaxBatchInterval!: pulumi.Output<number | undefined>;
     /**
-     * Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+     * Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
      */
     public readonly cdcMinFileSize!: pulumi.Output<number | undefined>;
     /**
@@ -257,6 +257,9 @@ export class S3Endpoint extends pulumi.CustomResource {
      * JSON document that describes how AWS DMS should interpret the data.
      */
     public readonly externalTableDefinition!: pulumi.Output<string | undefined>;
+    /**
+     * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+     */
     public readonly ignoreHeaderRows!: pulumi.Output<number | undefined>;
     /**
      * Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -499,7 +502,7 @@ export interface S3EndpointState {
      */
     cdcMaxBatchInterval?: pulumi.Input<number>;
     /**
-     * Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+     * Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
      */
     cdcMinFileSize?: pulumi.Input<number>;
     /**
@@ -598,6 +601,9 @@ export interface S3EndpointState {
      * JSON document that describes how AWS DMS should interpret the data.
      */
     externalTableDefinition?: pulumi.Input<string>;
+    /**
+     * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+     */
     ignoreHeaderRows?: pulumi.Input<number>;
     /**
      * Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -706,7 +712,7 @@ export interface S3EndpointArgs {
      */
     cdcMaxBatchInterval?: pulumi.Input<number>;
     /**
-     * Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+     * Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
      */
     cdcMinFileSize?: pulumi.Input<number>;
     /**
@@ -793,6 +799,9 @@ export interface S3EndpointArgs {
      * JSON document that describes how AWS DMS should interpret the data.
      */
     externalTableDefinition?: pulumi.Input<string>;
+    /**
+     * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+     */
     ignoreHeaderRows?: pulumi.Input<number>;
     /**
      * Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.

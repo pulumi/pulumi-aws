@@ -22,6 +22,18 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string? BucketPrefix;
         /// <summary>
+        /// The unique ID that's assigned to an Amazon Redshift cluster.
+        /// </summary>
+        public readonly string? ClusterIdentifier;
+        /// <summary>
+        /// ARN of the IAM role that permits AppFlow to access the database through Data API.
+        /// </summary>
+        public readonly string? DataApiRoleArn;
+        /// <summary>
+        /// The name of an Amazon Redshift database.
+        /// </summary>
+        public readonly string? DatabaseName;
+        /// <summary>
         /// The JDBC URL of the Amazon Redshift cluster.
         /// </summary>
         public readonly string? DatabaseUrl;
@@ -36,12 +48,21 @@ namespace Pulumi.Aws.AppFlow.Outputs
 
             string? bucketPrefix,
 
+            string? clusterIdentifier,
+
+            string? dataApiRoleArn,
+
+            string? databaseName,
+
             string? databaseUrl,
 
             string roleArn)
         {
             BucketName = bucketName;
             BucketPrefix = bucketPrefix;
+            ClusterIdentifier = clusterIdentifier;
+            DataApiRoleArn = dataApiRoleArn;
+            DatabaseName = databaseName;
             DatabaseUrl = databaseUrl;
             RoleArn = roleArn;
         }

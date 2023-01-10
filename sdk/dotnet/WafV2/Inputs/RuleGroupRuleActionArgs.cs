@@ -25,6 +25,12 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.RuleGroupRuleActionBlockArgs>? Block { get; set; }
 
         /// <summary>
+        /// Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
+        /// </summary>
+        [Input("captcha")]
+        public Input<Inputs.RuleGroupRuleActionCaptchaArgs>? Captcha { get; set; }
+
+        /// <summary>
         /// Instructs AWS WAF to count the web request and allow it. See Count below for details.
         /// </summary>
         [Input("count")]

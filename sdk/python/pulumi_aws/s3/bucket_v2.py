@@ -1196,7 +1196,7 @@ class BucketV2(pulumi.CustomResource):
             role=replication_role.name,
             policy_arn=replication_policy.arn)
         ```
-        ### Enable Default Server Side Encryption
+        ### Enable SSE-KMS Server Side Encryption
 
         ```python
         import pulumi
@@ -1583,7 +1583,7 @@ class BucketV2(pulumi.CustomResource):
             role=replication_role.name,
             policy_arn=replication_policy.arn)
         ```
-        ### Enable Default Server Side Encryption
+        ### Enable SSE-KMS Server Side Encryption
 
         ```python
         import pulumi

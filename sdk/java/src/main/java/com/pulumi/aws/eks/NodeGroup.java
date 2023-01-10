@@ -234,14 +234,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.clusterName;
     }
     /**
-     * Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
+     * Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="diskSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> diskSize;
 
     /**
-     * @return Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided.
+     * @return Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Output<Integer> diskSize() {

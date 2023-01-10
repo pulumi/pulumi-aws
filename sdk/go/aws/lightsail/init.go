@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:lightsail/bucket:Bucket":
+		r = &Bucket{}
 	case "aws:lightsail/certificate:Certificate":
 		r = &Certificate{}
 	case "aws:lightsail/containerService:ContainerService":
@@ -72,6 +74,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/bucket",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lightsail/certificate",

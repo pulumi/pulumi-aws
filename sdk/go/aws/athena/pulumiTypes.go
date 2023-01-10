@@ -310,6 +310,8 @@ type WorkgroupConfiguration struct {
 	EnforceWorkgroupConfiguration *bool `pulumi:"enforceWorkgroupConfiguration"`
 	// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
 	EngineVersion *WorkgroupConfigurationEngineVersion `pulumi:"engineVersion"`
+	// Role used in a notebook session for accessing the user's resources.
+	ExecutionRole *string `pulumi:"executionRole"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled *bool `pulumi:"publishCloudwatchMetricsEnabled"`
 	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
@@ -336,6 +338,8 @@ type WorkgroupConfigurationArgs struct {
 	EnforceWorkgroupConfiguration pulumi.BoolPtrInput `pulumi:"enforceWorkgroupConfiguration"`
 	// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
 	EngineVersion WorkgroupConfigurationEngineVersionPtrInput `pulumi:"engineVersion"`
+	// Role used in a notebook session for accessing the user's resources.
+	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudwatchMetricsEnabled"`
 	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
@@ -436,6 +440,11 @@ func (o WorkgroupConfigurationOutput) EngineVersion() WorkgroupConfigurationEngi
 	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationEngineVersion { return v.EngineVersion }).(WorkgroupConfigurationEngineVersionPtrOutput)
 }
 
+// Role used in a notebook session for accessing the user's resources.
+func (o WorkgroupConfigurationOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfiguration) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
+}
+
 // Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 func (o WorkgroupConfigurationOutput) PublishCloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.PublishCloudwatchMetricsEnabled }).(pulumi.BoolPtrOutput)
@@ -505,6 +514,16 @@ func (o WorkgroupConfigurationPtrOutput) EngineVersion() WorkgroupConfigurationE
 		}
 		return v.EngineVersion
 	}).(WorkgroupConfigurationEngineVersionPtrOutput)
+}
+
+// Role used in a notebook session for accessing the user's resources.
+func (o WorkgroupConfigurationPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRole
+	}).(pulumi.StringPtrOutput)
 }
 
 // Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.

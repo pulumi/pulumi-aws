@@ -16718,12 +16718,19 @@ class GetVpcIamPoolFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: The name of the filter. Filter names are case-sensitive.
+        :param Sequence[str] values: The filter values. Filter values are case-sensitive.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the filter. Filter names are case-sensitive.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -16733,6 +16740,9 @@ class GetVpcIamPoolFilterArgs:
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        The filter values. Filter values are case-sensitive.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -16745,12 +16755,19 @@ class GetVpcIamPoolsFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: The name of the filter. Filter names are case-sensitive.
+        :param Sequence[str] values: The filter values. Filter values are case-sensitive.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the filter. Filter names are case-sensitive.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -16760,6 +16777,9 @@ class GetVpcIamPoolsFilterArgs:
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        The filter values. Filter values are case-sensitive.
+        """
         return pulumi.get(self, "values")
 
     @values.setter

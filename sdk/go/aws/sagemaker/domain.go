@@ -29,20 +29,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewDomain(ctx, "exampleDomain", &sagemaker.DomainArgs{
-//				DomainName: pulumi.String("example"),
-//				AuthMode:   pulumi.String("IAM"),
-//				VpcId:      pulumi.Any(aws_vpc.Test.Id),
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test.Id,
-//				},
-//				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
-//					ExecutionRole: pulumi.Any(aws_iam_role.Test.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
@@ -63,9 +49,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
 //				Path:             pulumi.String("/"),
 //				AssumeRolePolicy: *pulumi.String(examplePolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sagemaker.NewDomain(ctx, "exampleDomain", &sagemaker.DomainArgs{
+//				DomainName: pulumi.String("example"),
+//				AuthMode:   pulumi.String("IAM"),
+//				VpcId:      pulumi.Any(aws_vpc.Example.Id),
+//				SubnetIds: pulumi.StringArray{
+//					aws_subnet.Example.Id,
+//				},
+//				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
+//					ExecutionRole: exampleRole.Arn,
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -89,14 +89,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testImage, err := sagemaker.NewImage(ctx, "testImage", &sagemaker.ImageArgs{
+//			exampleImage, err := sagemaker.NewImage(ctx, "exampleImage", &sagemaker.ImageArgs{
 //				ImageName: pulumi.String("example"),
-//				RoleArn:   pulumi.Any(aws_iam_role.Test.Arn),
+//				RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testAppImageConfig, err := sagemaker.NewAppImageConfig(ctx, "testAppImageConfig", &sagemaker.AppImageConfigArgs{
+//			exampleAppImageConfig, err := sagemaker.NewAppImageConfig(ctx, "exampleAppImageConfig", &sagemaker.AppImageConfigArgs{
 //				AppImageConfigName: pulumi.String("example"),
 //				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
 //					KernelSpec: &sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
@@ -107,27 +107,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testImageVersion, err := sagemaker.NewImageVersion(ctx, "testImageVersion", &sagemaker.ImageVersionArgs{
-//				ImageName: testImage.ID(),
+//			exampleImageVersion, err := sagemaker.NewImageVersion(ctx, "exampleImageVersion", &sagemaker.ImageVersionArgs{
+//				ImageName: exampleImage.ID(),
 //				BaseImage: pulumi.String("base-image"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sagemaker.NewDomain(ctx, "testDomain", &sagemaker.DomainArgs{
+//			_, err = sagemaker.NewDomain(ctx, "exampleDomain", &sagemaker.DomainArgs{
 //				DomainName: pulumi.String("example"),
 //				AuthMode:   pulumi.String("IAM"),
-//				VpcId:      pulumi.Any(aws_vpc.Test.Id),
+//				VpcId:      pulumi.Any(aws_vpc.Example.Id),
 //				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test.Id,
+//					aws_subnet.Example.Id,
 //				},
 //				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
-//					ExecutionRole: pulumi.Any(aws_iam_role.Test.Arn),
+//					ExecutionRole: pulumi.Any(aws_iam_role.Example.Arn),
 //					KernelGatewayAppSettings: &sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs{
 //						CustomImages: sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray{
 //							&sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs{
-//								AppImageConfigName: testAppImageConfig.AppImageConfigName,
-//								ImageName:          testImageVersion.ImageName,
+//								AppImageConfigName: exampleAppImageConfig.AppImageConfigName,
+//								ImageName:          exampleImageVersion.ImageName,
 //							},
 //						},
 //					},
@@ -156,7 +156,7 @@ type Domain struct {
 
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType pulumi.StringPtrOutput `pulumi:"appNetworkAccessType"`
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
 	AppSecurityGroupManagement pulumi.StringPtrOutput `pulumi:"appSecurityGroupManagement"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -164,11 +164,10 @@ type Domain struct {
 	AuthMode pulumi.StringOutput `pulumi:"authMode"`
 	// The default space settings. See Default Space Settings below.
 	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrOutput `pulumi:"defaultSpaceSettings"`
-	// The default user settings. See Default User Settings below.
+	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
 	DefaultUserSettings DomainDefaultUserSettingsOutput `pulumi:"defaultUserSettings"`
-	// The domain name.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The domain settings. See Domain Settings below.
+	DomainName          pulumi.StringOutput             `pulumi:"domainName"`
+	// The domain's settings.
 	DomainSettings DomainDomainSettingsPtrOutput `pulumi:"domainSettings"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId pulumi.StringOutput `pulumi:"homeEfsFileSystemId"`
@@ -238,7 +237,7 @@ func GetDomain(ctx *pulumi.Context,
 type domainState struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType *string `pulumi:"appNetworkAccessType"`
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
 	AppSecurityGroupManagement *string `pulumi:"appSecurityGroupManagement"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
 	Arn *string `pulumi:"arn"`
@@ -246,11 +245,10 @@ type domainState struct {
 	AuthMode *string `pulumi:"authMode"`
 	// The default space settings. See Default Space Settings below.
 	DefaultSpaceSettings *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
-	// The default user settings. See Default User Settings below.
+	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
 	DefaultUserSettings *DomainDefaultUserSettings `pulumi:"defaultUserSettings"`
-	// The domain name.
-	DomainName *string `pulumi:"domainName"`
-	// The domain settings. See Domain Settings below.
+	DomainName          *string                    `pulumi:"domainName"`
+	// The domain's settings.
 	DomainSettings *DomainDomainSettings `pulumi:"domainSettings"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId *string `pulumi:"homeEfsFileSystemId"`
@@ -277,7 +275,7 @@ type domainState struct {
 type DomainState struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType pulumi.StringPtrInput
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
 	AppSecurityGroupManagement pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
 	Arn pulumi.StringPtrInput
@@ -285,11 +283,10 @@ type DomainState struct {
 	AuthMode pulumi.StringPtrInput
 	// The default space settings. See Default Space Settings below.
 	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrInput
-	// The default user settings. See Default User Settings below.
+	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
 	DefaultUserSettings DomainDefaultUserSettingsPtrInput
-	// The domain name.
-	DomainName pulumi.StringPtrInput
-	// The domain settings. See Domain Settings below.
+	DomainName          pulumi.StringPtrInput
+	// The domain's settings.
 	DomainSettings DomainDomainSettingsPtrInput
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId pulumi.StringPtrInput
@@ -320,17 +317,16 @@ func (DomainState) ElementType() reflect.Type {
 type domainArgs struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType *string `pulumi:"appNetworkAccessType"`
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
 	AppSecurityGroupManagement *string `pulumi:"appSecurityGroupManagement"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode string `pulumi:"authMode"`
 	// The default space settings. See Default Space Settings below.
 	DefaultSpaceSettings *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
-	// The default user settings. See Default User Settings below.
+	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
 	DefaultUserSettings DomainDefaultUserSettings `pulumi:"defaultUserSettings"`
-	// The domain name.
-	DomainName string `pulumi:"domainName"`
-	// The domain settings. See Domain Settings below.
+	DomainName          string                    `pulumi:"domainName"`
+	// The domain's settings.
 	DomainSettings *DomainDomainSettings `pulumi:"domainSettings"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -348,17 +344,16 @@ type domainArgs struct {
 type DomainArgs struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType pulumi.StringPtrInput
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
 	AppSecurityGroupManagement pulumi.StringPtrInput
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode pulumi.StringInput
 	// The default space settings. See Default Space Settings below.
 	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrInput
-	// The default user settings. See Default User Settings below.
+	// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
 	DefaultUserSettings DomainDefaultUserSettingsInput
-	// The domain name.
-	DomainName pulumi.StringInput
-	// The domain settings. See Domain Settings below.
+	DomainName          pulumi.StringInput
+	// The domain's settings.
 	DomainSettings DomainDomainSettingsPtrInput
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrInput
@@ -464,7 +459,7 @@ func (o DomainOutput) AppNetworkAccessType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AppNetworkAccessType }).(pulumi.StringPtrOutput)
 }
 
-// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
 func (o DomainOutput) AppSecurityGroupManagement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AppSecurityGroupManagement }).(pulumi.StringPtrOutput)
 }
@@ -484,17 +479,16 @@ func (o DomainOutput) DefaultSpaceSettings() DomainDefaultSpaceSettingsPtrOutput
 	return o.ApplyT(func(v *Domain) DomainDefaultSpaceSettingsPtrOutput { return v.DefaultSpaceSettings }).(DomainDefaultSpaceSettingsPtrOutput)
 }
 
-// The default user settings. See Default User Settings below.
+// The default user settings. See Default User Settings below.* `domainName` - (Required) The domain name.
 func (o DomainOutput) DefaultUserSettings() DomainDefaultUserSettingsOutput {
 	return o.ApplyT(func(v *Domain) DomainDefaultUserSettingsOutput { return v.DefaultUserSettings }).(DomainDefaultUserSettingsOutput)
 }
 
-// The domain name.
 func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The domain settings. See Domain Settings below.
+// The domain's settings.
 func (o DomainOutput) DomainSettings() DomainDomainSettingsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainDomainSettingsPtrOutput { return v.DomainSettings }).(DomainDomainSettingsPtrOutput)
 }

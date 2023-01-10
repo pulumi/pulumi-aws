@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['InstanceArgs', 'Instance']
 
@@ -17,6 +19,7 @@ class InstanceArgs:
                  availability_zone: pulumi.Input[str],
                  blueprint_id: pulumi.Input[str],
                  bundle_id: pulumi.Input[str],
+                 add_on: Optional[pulumi.Input['InstanceAddOnArgs']] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  key_pair_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -28,6 +31,7 @@ class InstanceArgs:
                instance (see list below)
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
         :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
+        :param pulumi.Input['InstanceAddOnArgs'] add_on: The add on configuration for the instance. Detailed below.
         :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `ec2.KeyPair` at this time)
@@ -38,6 +42,8 @@ class InstanceArgs:
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "blueprint_id", blueprint_id)
         pulumi.set(__self__, "bundle_id", bundle_id)
+        if add_on is not None:
+            pulumi.set(__self__, "add_on", add_on)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if key_pair_name is not None:
@@ -85,6 +91,18 @@ class InstanceArgs:
     @bundle_id.setter
     def bundle_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "bundle_id", value)
+
+    @property
+    @pulumi.getter(name="addOn")
+    def add_on(self) -> Optional[pulumi.Input['InstanceAddOnArgs']]:
+        """
+        The add on configuration for the instance. Detailed below.
+        """
+        return pulumi.get(self, "add_on")
+
+    @add_on.setter
+    def add_on(self, value: Optional[pulumi.Input['InstanceAddOnArgs']]):
+        pulumi.set(self, "add_on", value)
 
     @property
     @pulumi.getter(name="ipAddressType")
@@ -151,6 +169,7 @@ class InstanceArgs:
 @pulumi.input_type
 class _InstanceState:
     def __init__(__self__, *,
+                 add_on: Optional[pulumi.Input['InstanceAddOnArgs']] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  blueprint_id: Optional[pulumi.Input[str]] = None,
@@ -172,6 +191,7 @@ class _InstanceState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
+        :param pulumi.Input['InstanceAddOnArgs'] add_on: The add on configuration for the instance. Detailed below.
         :param pulumi.Input[str] arn: The ARN of the Lightsail instance (matches `id`).
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your
                instance (see list below)
@@ -194,6 +214,8 @@ class _InstanceState:
         :param pulumi.Input[str] user_data: launch script to configure server with additional user data
         :param pulumi.Input[str] username: The user name for connecting to the instance (e.g., ec2-user).
         """
+        if add_on is not None:
+            pulumi.set(__self__, "add_on", add_on)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if availability_zone is not None:
@@ -235,6 +257,18 @@ class _InstanceState:
             pulumi.set(__self__, "user_data", user_data)
         if username is not None:
             pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="addOn")
+    def add_on(self) -> Optional[pulumi.Input['InstanceAddOnArgs']]:
+        """
+        The add on configuration for the instance. Detailed below.
+        """
+        return pulumi.get(self, "add_on")
+
+    @add_on.setter
+    def add_on(self, value: Optional[pulumi.Input['InstanceAddOnArgs']]):
+        pulumi.set(self, "add_on", value)
 
     @property
     @pulumi.getter
@@ -472,6 +506,7 @@ class Instance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 add_on: Optional[pulumi.Input[pulumi.InputType['InstanceAddOnArgs']]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  blueprint_id: Optional[pulumi.Input[str]] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
@@ -489,6 +524,7 @@ class Instance(pulumi.CustomResource):
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 
         ## Example Usage
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -497,9 +533,28 @@ class Instance(pulumi.CustomResource):
         # Create a new GitLab Lightsail Instance
         gitlab_test = aws.lightsail.Instance("gitlabTest",
             availability_zone="us-east-1b",
-            blueprint_id="string",
-            bundle_id="string",
+            blueprint_id="amazon_linux",
+            bundle_id="nano_1_0",
             key_pair_name="some_key_name",
+            tags={
+                "foo": "bar",
+            })
+        ```
+        ### Enable Auto Snapshots
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lightsail.Instance("test",
+            add_on=aws.lightsail.InstanceAddOnArgs(
+                snapshot_time="06:00",
+                status="Enabled",
+                type="AutoSnapshot",
+            ),
+            availability_zone="us-east-1b",
+            blueprint_id="amazon_linux",
+            bundle_id="nano_1_0",
             tags={
                 "foo": "bar",
             })
@@ -561,11 +616,12 @@ class Instance(pulumi.CustomResource):
         Lightsail Instances can be imported using their name, e.g.,
 
         ```sh
-         $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'
+         $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['InstanceAddOnArgs']] add_on: The add on configuration for the instance. Detailed below.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your
                instance (see list below)
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
@@ -591,6 +647,7 @@ class Instance(pulumi.CustomResource):
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 
         ## Example Usage
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -599,9 +656,28 @@ class Instance(pulumi.CustomResource):
         # Create a new GitLab Lightsail Instance
         gitlab_test = aws.lightsail.Instance("gitlabTest",
             availability_zone="us-east-1b",
-            blueprint_id="string",
-            bundle_id="string",
+            blueprint_id="amazon_linux",
+            bundle_id="nano_1_0",
             key_pair_name="some_key_name",
+            tags={
+                "foo": "bar",
+            })
+        ```
+        ### Enable Auto Snapshots
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lightsail.Instance("test",
+            add_on=aws.lightsail.InstanceAddOnArgs(
+                snapshot_time="06:00",
+                status="Enabled",
+                type="AutoSnapshot",
+            ),
+            availability_zone="us-east-1b",
+            blueprint_id="amazon_linux",
+            bundle_id="nano_1_0",
             tags={
                 "foo": "bar",
             })
@@ -663,7 +739,7 @@ class Instance(pulumi.CustomResource):
         Lightsail Instances can be imported using their name, e.g.,
 
         ```sh
-         $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'
+         $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
         ```
 
         :param str resource_name: The name of the resource.
@@ -681,6 +757,7 @@ class Instance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 add_on: Optional[pulumi.Input[pulumi.InputType['InstanceAddOnArgs']]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  blueprint_id: Optional[pulumi.Input[str]] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
@@ -698,6 +775,7 @@ class Instance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InstanceArgs.__new__(InstanceArgs)
 
+            __props__.__dict__["add_on"] = add_on
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")
             __props__.__dict__["availability_zone"] = availability_zone
@@ -733,6 +811,7 @@ class Instance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            add_on: Optional[pulumi.Input[pulumi.InputType['InstanceAddOnArgs']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             blueprint_id: Optional[pulumi.Input[str]] = None,
@@ -759,6 +838,7 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['InstanceAddOnArgs']] add_on: The add on configuration for the instance. Detailed below.
         :param pulumi.Input[str] arn: The ARN of the Lightsail instance (matches `id`).
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your
                instance (see list below)
@@ -785,6 +865,7 @@ class Instance(pulumi.CustomResource):
 
         __props__ = _InstanceState.__new__(_InstanceState)
 
+        __props__.__dict__["add_on"] = add_on
         __props__.__dict__["arn"] = arn
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["blueprint_id"] = blueprint_id
@@ -805,6 +886,14 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["user_data"] = user_data
         __props__.__dict__["username"] = username
         return Instance(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="addOn")
+    def add_on(self) -> pulumi.Output[Optional['outputs.InstanceAddOn']]:
+        """
+        The add on configuration for the instance. Detailed below.
+        """
+        return pulumi.get(self, "add_on")
 
     @property
     @pulumi.getter

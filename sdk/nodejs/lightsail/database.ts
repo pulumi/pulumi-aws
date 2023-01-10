@@ -248,9 +248,6 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
-            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'availabilityZone'");
-            }
             if ((!args || args.blueprintId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'blueprintId'");
             }
@@ -431,7 +428,7 @@ export interface DatabaseArgs {
     /**
      * The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
      */
-    availabilityZone: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
      */

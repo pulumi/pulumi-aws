@@ -22,7 +22,7 @@ public final class GetVpcIamPoolResult {
      */
     private String addressFamily;
     /**
-     * @return A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+     * @return A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
      * 
      */
     private Integer allocationDefaultNetmaskLength;
@@ -52,7 +52,7 @@ public final class GetVpcIamPoolResult {
      */
     private Boolean autoImport;
     /**
-     * @return Limits which service in AWS that the pool can be used in. &#34;ec2&#34;, for example, allows users to use space for Elastic IP addresses and VPCs.
+     * @return Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
      * 
      */
     private String awsService;
@@ -81,7 +81,7 @@ public final class GetVpcIamPoolResult {
     private String locale;
     private Integer poolDepth;
     /**
-     * @return Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+     * @return Defines whether or not IPv6 pool space is publicly advertisable over the internet.
      * 
      */
     private Boolean publiclyAdvertisable;
@@ -106,7 +106,7 @@ public final class GetVpcIamPoolResult {
         return this.addressFamily;
     }
     /**
-     * @return A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+     * @return A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
      * 
      */
     public Integer allocationDefaultNetmaskLength() {
@@ -148,7 +148,7 @@ public final class GetVpcIamPoolResult {
         return this.autoImport;
     }
     /**
-     * @return Limits which service in AWS that the pool can be used in. &#34;ec2&#34;, for example, allows users to use space for Elastic IP addresses and VPCs.
+     * @return Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
      * 
      */
     public String awsService() {
@@ -195,7 +195,7 @@ public final class GetVpcIamPoolResult {
         return this.poolDepth;
     }
     /**
-     * @return Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+     * @return Defines whether or not IPv6 pool space is publicly advertisable over the internet.
      * 
      */
     public Boolean publiclyAdvertisable() {

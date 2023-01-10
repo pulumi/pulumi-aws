@@ -163,7 +163,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly backupWindow!: pulumi.Output<string>;
     /**
-     * Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+     * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
      * See blueGreenUpdate below
      */
     public readonly blueGreenUpdate!: pulumi.Output<outputs.rds.InstanceBlueGreenUpdate | undefined>;
@@ -701,7 +701,7 @@ export interface InstanceState {
      */
     backupWindow?: pulumi.Input<string>;
     /**
-     * Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+     * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
      * See blueGreenUpdate below
      */
     blueGreenUpdate?: pulumi.Input<inputs.rds.InstanceBlueGreenUpdate>;
@@ -1066,7 +1066,7 @@ export interface InstanceArgs {
      */
     backupWindow?: pulumi.Input<string>;
     /**
-     * Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+     * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
      * See blueGreenUpdate below
      */
     blueGreenUpdate?: pulumi.Input<inputs.rds.InstanceBlueGreenUpdate>;

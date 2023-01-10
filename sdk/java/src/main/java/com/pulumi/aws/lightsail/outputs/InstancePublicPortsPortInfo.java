@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InstancePublicPortsPortInfo {
     /**
+     * @return Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+     * 
+     */
+    private @Nullable List<String> cidrListAliases;
+    /**
      * @return Set of CIDR blocks.
      * 
      */
@@ -35,6 +40,13 @@ public final class InstancePublicPortsPortInfo {
     private Integer toPort;
 
     private InstancePublicPortsPortInfo() {}
+    /**
+     * @return Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+     * 
+     */
+    public List<String> cidrListAliases() {
+        return this.cidrListAliases == null ? List.of() : this.cidrListAliases;
+    }
     /**
      * @return Set of CIDR blocks.
      * 
@@ -76,6 +88,7 @@ public final class InstancePublicPortsPortInfo {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> cidrListAliases;
         private @Nullable List<String> cidrs;
         private Integer fromPort;
         private @Nullable List<String> ipv6Cidrs;
@@ -84,6 +97,7 @@ public final class InstancePublicPortsPortInfo {
         public Builder() {}
         public Builder(InstancePublicPortsPortInfo defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.cidrListAliases = defaults.cidrListAliases;
     	      this.cidrs = defaults.cidrs;
     	      this.fromPort = defaults.fromPort;
     	      this.ipv6Cidrs = defaults.ipv6Cidrs;
@@ -91,6 +105,14 @@ public final class InstancePublicPortsPortInfo {
     	      this.toPort = defaults.toPort;
         }
 
+        @CustomType.Setter
+        public Builder cidrListAliases(@Nullable List<String> cidrListAliases) {
+            this.cidrListAliases = cidrListAliases;
+            return this;
+        }
+        public Builder cidrListAliases(String... cidrListAliases) {
+            return cidrListAliases(List.of(cidrListAliases));
+        }
         @CustomType.Setter
         public Builder cidrs(@Nullable List<String> cidrs) {
             this.cidrs = cidrs;
@@ -124,6 +146,7 @@ public final class InstancePublicPortsPortInfo {
         }
         public InstancePublicPortsPortInfo build() {
             final var o = new InstancePublicPortsPortInfo();
+            o.cidrListAliases = cidrListAliases;
             o.cidrs = cidrs;
             o.fromPort = fromPort;
             o.ipv6Cidrs = ipv6Cidrs;

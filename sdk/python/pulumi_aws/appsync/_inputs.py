@@ -32,6 +32,7 @@ __all__ = [
     'GraphQLApiUserPoolConfigArgs',
     'ResolverCachingConfigArgs',
     'ResolverPipelineConfigArgs',
+    'ResolverRuntimeArgs',
     'ResolverSyncConfigArgs',
     'ResolverSyncConfigLambdaConflictHandlerConfigArgs',
 ]
@@ -1069,8 +1070,8 @@ class ResolverCachingConfigArgs:
                  caching_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] caching_keys: List of caching key.
-        :param pulumi.Input[int] ttl: TTL in seconds.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] caching_keys: The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        :param pulumi.Input[int] ttl: The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
         """
         if caching_keys is not None:
             pulumi.set(__self__, "caching_keys", caching_keys)
@@ -1081,7 +1082,7 @@ class ResolverCachingConfigArgs:
     @pulumi.getter(name="cachingKeys")
     def caching_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of caching key.
+        The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
         """
         return pulumi.get(self, "caching_keys")
 
@@ -1093,7 +1094,7 @@ class ResolverCachingConfigArgs:
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
         """
-        TTL in seconds.
+        The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
         """
         return pulumi.get(self, "ttl")
 
@@ -1107,7 +1108,7 @@ class ResolverPipelineConfigArgs:
     def __init__(__self__, *,
                  functions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] functions: List of Function ID.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] functions: A list of Function objects.
         """
         if functions is not None:
             pulumi.set(__self__, "functions", functions)
@@ -1116,13 +1117,50 @@ class ResolverPipelineConfigArgs:
     @pulumi.getter
     def functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Function ID.
+        A list of Function objects.
         """
         return pulumi.get(self, "functions")
 
     @functions.setter
     def functions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "functions", value)
+
+
+@pulumi.input_type
+class ResolverRuntimeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 runtime_version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        :param pulumi.Input[str] runtime_version: The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> pulumi.Input[str]:
+        """
+        The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "runtime_version", value)
 
 
 @pulumi.input_type

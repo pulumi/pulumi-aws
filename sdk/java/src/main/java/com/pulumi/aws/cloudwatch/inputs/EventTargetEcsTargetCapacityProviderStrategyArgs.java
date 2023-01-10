@@ -17,14 +17,14 @@ public final class EventTargetEcsTargetCapacityProviderStrategyArgs extends com.
     public static final EventTargetEcsTargetCapacityProviderStrategyArgs Empty = new EventTargetEcsTargetCapacityProviderStrategyArgs();
 
     /**
-     * The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+     * The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
      * 
      */
     @Import(name="base")
     private @Nullable Output<Integer> base;
 
     /**
-     * @return The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+     * @return The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> base() {
@@ -88,7 +88,7 @@ public final class EventTargetEcsTargetCapacityProviderStrategyArgs extends com.
         }
 
         /**
-         * @param base The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+         * @param base The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class EventTargetEcsTargetCapacityProviderStrategyArgs extends com.
         }
 
         /**
-         * @param base The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+         * @param base The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
          * 
          * @return builder
          * 

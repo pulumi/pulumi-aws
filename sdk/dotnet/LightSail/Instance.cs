@@ -17,6 +17,7 @@ namespace Pulumi.Aws.LightSail
     /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -29,9 +30,37 @@ namespace Pulumi.Aws.LightSail
     ///     var gitlabTest = new Aws.LightSail.Instance("gitlabTest", new()
     ///     {
     ///         AvailabilityZone = "us-east-1b",
-    ///         BlueprintId = "string",
-    ///         BundleId = "string",
+    ///         BlueprintId = "amazon_linux",
+    ///         BundleId = "nano_1_0",
     ///         KeyPairName = "some_key_name",
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Enable Auto Snapshots
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LightSail.Instance("test", new()
+    ///     {
+    ///         AddOn = new Aws.LightSail.Inputs.InstanceAddOnArgs
+    ///         {
+    ///             SnapshotTime = "06:00",
+    ///             Status = "Enabled",
+    ///             Type = "AutoSnapshot",
+    ///         },
+    ///         AvailabilityZone = "us-east-1b",
+    ///         BlueprintId = "amazon_linux",
+    ///         BundleId = "nano_1_0",
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },
@@ -97,12 +126,18 @@ namespace Pulumi.Aws.LightSail
     /// Lightsail Instances can be imported using their name, e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'
+    ///  $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/instance:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The add on configuration for the instance. Detailed below.
+        /// </summary>
+        [Output("addOn")]
+        public Output<Outputs.InstanceAddOn?> AddOn { get; private set; } = null!;
+
         /// <summary>
         /// The ARN of the Lightsail instance (matches `id`).
         /// </summary>
@@ -266,6 +301,12 @@ namespace Pulumi.Aws.LightSail
     public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The add on configuration for the instance. Detailed below.
+        /// </summary>
+        [Input("addOn")]
+        public Input<Inputs.InstanceAddOnArgs>? AddOn { get; set; }
+
+        /// <summary>
         /// The Availability Zone in which to create your
         /// instance (see list below)
         /// </summary>
@@ -329,6 +370,12 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The add on configuration for the instance. Detailed below.
+        /// </summary>
+        [Input("addOn")]
+        public Input<Inputs.InstanceAddOnGetArgs>? AddOn { get; set; }
+
         /// <summary>
         /// The ARN of the Lightsail instance (matches `id`).
         /// </summary>

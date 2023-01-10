@@ -4307,12 +4307,12 @@ func (o LoadBalancerAccessLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 type LoadBalancerSubnetMapping struct {
-	// The allocation ID of the Elastic IP address.
+	// The allocation ID of the Elastic IP address for an internet-facing load balancer.
 	AllocationId *string `pulumi:"allocationId"`
-	// An ipv6 address within the subnet to assign to the internet-facing load balancer.
+	// The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
 	Ipv6Address *string `pulumi:"ipv6Address"`
 	OutpostId   *string `pulumi:"outpostId"`
-	// A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+	// The private IPv4 address for an internal load balancer.
 	PrivateIpv4Address *string `pulumi:"privateIpv4Address"`
 	// ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
 	SubnetId string `pulumi:"subnetId"`
@@ -4330,12 +4330,12 @@ type LoadBalancerSubnetMappingInput interface {
 }
 
 type LoadBalancerSubnetMappingArgs struct {
-	// The allocation ID of the Elastic IP address.
+	// The allocation ID of the Elastic IP address for an internet-facing load balancer.
 	AllocationId pulumi.StringPtrInput `pulumi:"allocationId"`
-	// An ipv6 address within the subnet to assign to the internet-facing load balancer.
+	// The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
 	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
 	OutpostId   pulumi.StringPtrInput `pulumi:"outpostId"`
-	// A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+	// The private IPv4 address for an internal load balancer.
 	PrivateIpv4Address pulumi.StringPtrInput `pulumi:"privateIpv4Address"`
 	// ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -4392,12 +4392,12 @@ func (o LoadBalancerSubnetMappingOutput) ToLoadBalancerSubnetMappingOutputWithCo
 	return o
 }
 
-// The allocation ID of the Elastic IP address.
+// The allocation ID of the Elastic IP address for an internet-facing load balancer.
 func (o LoadBalancerSubnetMappingOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
-// An ipv6 address within the subnet to assign to the internet-facing load balancer.
+// The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
 func (o LoadBalancerSubnetMappingOutput) Ipv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
 }
@@ -4406,7 +4406,7 @@ func (o LoadBalancerSubnetMappingOutput) OutpostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.OutpostId }).(pulumi.StringPtrOutput)
 }
 
-// A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+// The private IPv4 address for an internal load balancer.
 func (o LoadBalancerSubnetMappingOutput) PrivateIpv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.PrivateIpv4Address }).(pulumi.StringPtrOutput)
 }

@@ -18,6 +18,21 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
     public static final InstancePublicPortsPortInfoArgs Empty = new InstancePublicPortsPortInfoArgs();
 
     /**
+     * Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+     * 
+     */
+    @Import(name="cidrListAliases")
+    private @Nullable Output<List<String>> cidrListAliases;
+
+    /**
+     * @return Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+     * 
+     */
+    public Optional<Output<List<String>>> cidrListAliases() {
+        return Optional.ofNullable(this.cidrListAliases);
+    }
+
+    /**
      * Set of CIDR blocks.
      * 
      */
@@ -87,6 +102,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
     private InstancePublicPortsPortInfoArgs() {}
 
     private InstancePublicPortsPortInfoArgs(InstancePublicPortsPortInfoArgs $) {
+        this.cidrListAliases = $.cidrListAliases;
         this.cidrs = $.cidrs;
         this.fromPort = $.fromPort;
         this.ipv6Cidrs = $.ipv6Cidrs;
@@ -110,6 +126,37 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
 
         public Builder(InstancePublicPortsPortInfoArgs defaults) {
             $ = new InstancePublicPortsPortInfoArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cidrListAliases Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrListAliases(@Nullable Output<List<String>> cidrListAliases) {
+            $.cidrListAliases = cidrListAliases;
+            return this;
+        }
+
+        /**
+         * @param cidrListAliases Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrListAliases(List<String> cidrListAliases) {
+            return cidrListAliases(Output.of(cidrListAliases));
+        }
+
+        /**
+         * @param cidrListAliases Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrListAliases(String... cidrListAliases) {
+            return cidrListAliases(List.of(cidrListAliases));
         }
 
         /**

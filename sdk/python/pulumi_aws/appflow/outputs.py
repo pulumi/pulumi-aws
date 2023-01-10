@@ -2671,6 +2671,12 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift(d
             suggest = "role_arn"
         elif key == "bucketPrefix":
             suggest = "bucket_prefix"
+        elif key == "clusterIdentifier":
+            suggest = "cluster_identifier"
+        elif key == "dataApiRoleArn":
+            suggest = "data_api_role_arn"
+        elif key == "databaseName":
+            suggest = "database_name"
         elif key == "databaseUrl":
             suggest = "database_url"
 
@@ -2689,17 +2695,29 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift(d
                  bucket_name: str,
                  role_arn: str,
                  bucket_prefix: Optional[str] = None,
+                 cluster_identifier: Optional[str] = None,
+                 data_api_role_arn: Optional[str] = None,
+                 database_name: Optional[str] = None,
                  database_url: Optional[str] = None):
         """
         :param str bucket_name: The name of the Amazon S3 bucket associated with Snowflake.
         :param str role_arn: ARN of the IAM role.
         :param str bucket_prefix: The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+        :param str cluster_identifier: The unique ID that's assigned to an Amazon Redshift cluster.
+        :param str data_api_role_arn: ARN of the IAM role that permits AppFlow to access the database through Data API.
+        :param str database_name: The name of an Amazon Redshift database.
         :param str database_url: The JDBC URL of the Amazon Redshift cluster.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if bucket_prefix is not None:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        if cluster_identifier is not None:
+            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if data_api_role_arn is not None:
+            pulumi.set(__self__, "data_api_role_arn", data_api_role_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
         if database_url is not None:
             pulumi.set(__self__, "database_url", database_url)
 
@@ -2726,6 +2744,30 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift(d
         The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
         """
         return pulumi.get(self, "bucket_prefix")
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> Optional[str]:
+        """
+        The unique ID that's assigned to an Amazon Redshift cluster.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @property
+    @pulumi.getter(name="dataApiRoleArn")
+    def data_api_role_arn(self) -> Optional[str]:
+        """
+        ARN of the IAM role that permits AppFlow to access the database through Data API.
+        """
+        return pulumi.get(self, "data_api_role_arn")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The name of an Amazon Redshift database.
+        """
+        return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="databaseUrl")

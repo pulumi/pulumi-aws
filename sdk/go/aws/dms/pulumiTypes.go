@@ -1664,7 +1664,7 @@ type EndpointS3Settings struct {
 	CdcInsertsOnly *bool `pulumi:"cdcInsertsOnly"`
 	// Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
 	CdcMaxBatchInterval *int `pulumi:"cdcMaxBatchInterval"`
-	// Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+	// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
 	CdcMinFileSize *int `pulumi:"cdcMinFileSize"`
 	// Folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
 	CdcPath *string `pulumi:"cdcPath"`
@@ -1699,6 +1699,8 @@ type EndpointS3Settings struct {
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
 	// When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+	IgnoreHeaderRows *int `pulumi:"ignoreHeaderRows"`
+	// Deprecated. This setting has no effect. Will be removed in a future version.
 	IgnoreHeadersRow *int `pulumi:"ignoreHeadersRow"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad *bool `pulumi:"includeOpForFullLoad"`
@@ -1754,7 +1756,7 @@ type EndpointS3SettingsArgs struct {
 	CdcInsertsOnly pulumi.BoolPtrInput `pulumi:"cdcInsertsOnly"`
 	// Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
 	CdcMaxBatchInterval pulumi.IntPtrInput `pulumi:"cdcMaxBatchInterval"`
-	// Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+	// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
 	CdcMinFileSize pulumi.IntPtrInput `pulumi:"cdcMinFileSize"`
 	// Folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
 	CdcPath pulumi.StringPtrInput `pulumi:"cdcPath"`
@@ -1789,6 +1791,8 @@ type EndpointS3SettingsArgs struct {
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrInput `pulumi:"externalTableDefinition"`
 	// When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+	IgnoreHeaderRows pulumi.IntPtrInput `pulumi:"ignoreHeaderRows"`
+	// Deprecated. This setting has no effect. Will be removed in a future version.
 	IgnoreHeadersRow pulumi.IntPtrInput `pulumi:"ignoreHeadersRow"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad pulumi.BoolPtrInput `pulumi:"includeOpForFullLoad"`
@@ -1930,7 +1934,7 @@ func (o EndpointS3SettingsOutput) CdcMaxBatchInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *int { return v.CdcMaxBatchInterval }).(pulumi.IntPtrOutput)
 }
 
-// Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
 func (o EndpointS3SettingsOutput) CdcMinFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *int { return v.CdcMinFileSize }).(pulumi.IntPtrOutput)
 }
@@ -2016,6 +2020,11 @@ func (o EndpointS3SettingsOutput) ExternalTableDefinition() pulumi.StringPtrOutp
 }
 
 // When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+func (o EndpointS3SettingsOutput) IgnoreHeaderRows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *int { return v.IgnoreHeaderRows }).(pulumi.IntPtrOutput)
+}
+
+// Deprecated. This setting has no effect. Will be removed in a future version.
 func (o EndpointS3SettingsOutput) IgnoreHeadersRow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *int { return v.IgnoreHeadersRow }).(pulumi.IntPtrOutput)
 }
@@ -2176,7 +2185,7 @@ func (o EndpointS3SettingsPtrOutput) CdcMaxBatchInterval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
 func (o EndpointS3SettingsPtrOutput) CdcMinFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *int {
 		if v == nil {
@@ -2347,6 +2356,16 @@ func (o EndpointS3SettingsPtrOutput) ExternalTableDefinition() pulumi.StringPtrO
 }
 
 // When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+func (o EndpointS3SettingsPtrOutput) IgnoreHeaderRows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreHeaderRows
+	}).(pulumi.IntPtrOutput)
+}
+
+// Deprecated. This setting has no effect. Will be removed in a future version.
 func (o EndpointS3SettingsPtrOutput) IgnoreHeadersRow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *int {
 		if v == nil {

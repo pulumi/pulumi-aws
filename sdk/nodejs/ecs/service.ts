@@ -65,6 +65,21 @@ import * as utilities from "../utilities";
  *     schedulingStrategy: "DAEMON",
  * });
  * ```
+ * ### CloudWatch Deployment Alarms
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ecs.Service("example", {
+ *     cluster: aws_ecs_cluster.example.id,
+ *     alarms: {
+ *         enable: true,
+ *         rollback: true,
+ *         alarmNames: [aws_cloudwatch_metric_alarm.example.alarm_name],
+ *     },
+ * });
+ * ```
  * ### External Deployment Controller
  *
  * ```typescript
@@ -115,6 +130,10 @@ export class Service extends pulumi.CustomResource {
         return obj['__pulumiType'] === Service.__pulumiType;
     }
 
+    /**
+     * Information about the CloudWatch alarms. See below.
+     */
+    public readonly alarms!: pulumi.Output<outputs.ecs.ServiceAlarms | undefined>;
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
      */
@@ -241,6 +260,7 @@ export class Service extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
+            resourceInputs["alarms"] = state ? state.alarms : undefined;
             resourceInputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
             resourceInputs["cluster"] = state ? state.cluster : undefined;
             resourceInputs["deploymentCircuitBreaker"] = state ? state.deploymentCircuitBreaker : undefined;
@@ -271,6 +291,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["waitForSteadyState"] = state ? state.waitForSteadyState : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
+            resourceInputs["alarms"] = args ? args.alarms : undefined;
             resourceInputs["capacityProviderStrategies"] = args ? args.capacityProviderStrategies : undefined;
             resourceInputs["cluster"] = args ? args.cluster : undefined;
             resourceInputs["deploymentCircuitBreaker"] = args ? args.deploymentCircuitBreaker : undefined;
@@ -309,6 +330,10 @@ export class Service extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Service resources.
  */
 export interface ServiceState {
+    /**
+     * Information about the CloudWatch alarms. See below.
+     */
+    alarms?: pulumi.Input<inputs.ecs.ServiceAlarms>;
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
      */
@@ -427,6 +452,10 @@ export interface ServiceState {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
+    /**
+     * Information about the CloudWatch alarms. See below.
+     */
+    alarms?: pulumi.Input<inputs.ecs.ServiceAlarms>;
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
      */

@@ -8,6 +8,7 @@ import com.pulumi.aws.appsync.ResolverArgs;
 import com.pulumi.aws.appsync.inputs.ResolverState;
 import com.pulumi.aws.appsync.outputs.ResolverCachingConfig;
 import com.pulumi.aws.appsync.outputs.ResolverPipelineConfig;
+import com.pulumi.aws.appsync.outputs.ResolverRuntime;
 import com.pulumi.aws.appsync.outputs.ResolverSyncConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -130,6 +131,48 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### JS
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.Resolver;
+ * import com.pulumi.aws.appsync.ResolverArgs;
+ * import com.pulumi.aws.appsync.inputs.ResolverRuntimeArgs;
+ * import com.pulumi.aws.appsync.inputs.ResolverPipelineConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Resolver(&#34;example&#34;, ResolverArgs.builder()        
+ *             .type(&#34;Query&#34;)
+ *             .apiId(aws_appsync_graphql_api.test().id())
+ *             .field(&#34;pipelineTest&#34;)
+ *             .kind(&#34;PIPELINE&#34;)
+ *             .code(Files.readString(Paths.get(&#34;some-code-dir&#34;)))
+ *             .runtime(ResolverRuntimeArgs.builder()
+ *                 .name(&#34;APPSYNC_JS&#34;)
+ *                 .runtimeVersion(&#34;1.0.0&#34;)
+ *                 .build())
+ *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
+ *                 .functions(aws_appsync_function.test().function_id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -171,18 +214,32 @@ public class Resolver extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * CachingConfig.
+     * The Caching Config. See Caching Config.
      * 
      */
     @Export(name="cachingConfig", refs={ResolverCachingConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResolverCachingConfig> cachingConfig;
 
     /**
-     * @return CachingConfig.
+     * @return The Caching Config. See Caching Config.
      * 
      */
     public Output<Optional<ResolverCachingConfig>> cachingConfig() {
         return Codegen.optional(this.cachingConfig);
+    }
+    /**
+     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * 
+     */
+    @Export(name="code", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> code;
+
+    /**
+     * @return The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * 
+     */
+    public Output<Optional<String>> code() {
+        return Codegen.optional(this.code);
     }
     /**
      * Data source name.
@@ -241,14 +298,14 @@ public class Resolver extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxBatchSize);
     }
     /**
-     * PipelineConfig.
+     * The caching configuration for the resolver. See Pipeline Config.
      * 
      */
     @Export(name="pipelineConfig", refs={ResolverPipelineConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResolverPipelineConfig> pipelineConfig;
 
     /**
-     * @return PipelineConfig.
+     * @return The caching configuration for the resolver. See Pipeline Config.
      * 
      */
     public Output<Optional<ResolverPipelineConfig>> pipelineConfig() {
@@ -281,6 +338,20 @@ public class Resolver extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> responseTemplate() {
         return Codegen.optional(this.responseTemplate);
+    }
+    /**
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * 
+     */
+    @Export(name="runtime", refs={ResolverRuntime.class}, tree="[0]")
+    private Output</* @Nullable */ ResolverRuntime> runtime;
+
+    /**
+     * @return Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * 
+     */
+    public Output<Optional<ResolverRuntime>> runtime() {
+        return Codegen.optional(this.runtime);
     }
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.

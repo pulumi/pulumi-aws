@@ -540,9 +540,9 @@ import (
 //			exampleLogPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("logs:CreateLogStream"),
-//							pulumi.String("logs:PutLogEvents"),
 //						},
 //						Resources: pulumi.StringArray{
 //							exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
@@ -551,11 +551,29 @@ import (
 //						},
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
 //								Identifiers: pulumi.StringArray{
 //									pulumi.String("events.amazonaws.com"),
-//									pulumi.String("delivery.logs.amazonaws.com"),
 //								},
+//							},
+//						},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("logs:PutLogEvents"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v:*:*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("events.amazonaws.com"),
+//								},
 //							},
 //						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
@@ -636,7 +654,7 @@ type EventTarget struct {
 	RunCommandTargets EventTargetRunCommandTargetArrayOutput `pulumi:"runCommandTargets"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrOutput `pulumi:"sqsTarget"`
-	// The unique target assignment ID.  If missing, will generate a random, unique id.
+	// The unique target assignment ID. If missing, will generate a random, unique id.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 }
 
@@ -707,7 +725,7 @@ type eventTargetState struct {
 	RunCommandTargets []EventTargetRunCommandTarget `pulumi:"runCommandTargets"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget *EventTargetSqsTarget `pulumi:"sqsTarget"`
-	// The unique target assignment ID.  If missing, will generate a random, unique id.
+	// The unique target assignment ID. If missing, will generate a random, unique id.
 	TargetId *string `pulumi:"targetId"`
 }
 
@@ -744,7 +762,7 @@ type EventTargetState struct {
 	RunCommandTargets EventTargetRunCommandTargetArrayInput
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrInput
-	// The unique target assignment ID.  If missing, will generate a random, unique id.
+	// The unique target assignment ID. If missing, will generate a random, unique id.
 	TargetId pulumi.StringPtrInput
 }
 
@@ -785,7 +803,7 @@ type eventTargetArgs struct {
 	RunCommandTargets []EventTargetRunCommandTarget `pulumi:"runCommandTargets"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget *EventTargetSqsTarget `pulumi:"sqsTarget"`
-	// The unique target assignment ID.  If missing, will generate a random, unique id.
+	// The unique target assignment ID. If missing, will generate a random, unique id.
 	TargetId *string `pulumi:"targetId"`
 }
 
@@ -823,7 +841,7 @@ type EventTargetArgs struct {
 	RunCommandTargets EventTargetRunCommandTargetArrayInput
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrInput
-	// The unique target assignment ID.  If missing, will generate a random, unique id.
+	// The unique target assignment ID. If missing, will generate a random, unique id.
 	TargetId pulumi.StringPtrInput
 }
 
@@ -994,7 +1012,7 @@ func (o EventTargetOutput) SqsTarget() EventTargetSqsTargetPtrOutput {
 	return o.ApplyT(func(v *EventTarget) EventTargetSqsTargetPtrOutput { return v.SqsTarget }).(EventTargetSqsTargetPtrOutput)
 }
 
-// The unique target assignment ID.  If missing, will generate a random, unique id.
+// The unique target assignment ID. If missing, will generate a random, unique id.
 func (o EventTargetOutput) TargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventTarget) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
 }

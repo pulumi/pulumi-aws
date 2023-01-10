@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Iot.Inputs
         [Input("payloadVersion")]
         public Input<string>? PayloadVersion { get; set; }
 
+        /// <summary>
+        /// The ARN of the target function.
+        /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;
 

@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Dms
         public Output<int?> CdcMaxBatchInterval { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+        /// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         /// </summary>
         [Output("cdcMinFileSize")]
         public Output<int?> CdcMinFileSize { get; private set; } = null!;
@@ -324,6 +324,9 @@ namespace Pulumi.Aws.Dms
         [Output("externalTableDefinition")]
         public Output<string?> ExternalTableDefinition { get; private set; } = null!;
 
+        /// <summary>
+        /// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+        /// </summary>
         [Output("ignoreHeaderRows")]
         public Output<int?> IgnoreHeaderRows { get; private set; } = null!;
 
@@ -524,7 +527,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? CdcMaxBatchInterval { get; set; }
 
         /// <summary>
-        /// Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+        /// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         /// </summary>
         [Input("cdcMinFileSize")]
         public Input<int>? CdcMinFileSize { get; set; }
@@ -655,6 +658,9 @@ namespace Pulumi.Aws.Dms
         [Input("externalTableDefinition")]
         public Input<string>? ExternalTableDefinition { get; set; }
 
+        /// <summary>
+        /// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+        /// </summary>
         [Input("ignoreHeaderRows")]
         public Input<int>? IgnoreHeaderRows { get; set; }
 
@@ -811,7 +817,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? CdcMaxBatchInterval { get; set; }
 
         /// <summary>
-        /// Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+        /// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         /// </summary>
         [Input("cdcMinFileSize")]
         public Input<int>? CdcMinFileSize { get; set; }
@@ -960,6 +966,9 @@ namespace Pulumi.Aws.Dms
         [Input("externalTableDefinition")]
         public Input<string>? ExternalTableDefinition { get; set; }
 
+        /// <summary>
+        /// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+        /// </summary>
         [Input("ignoreHeaderRows")]
         public Input<int>? IgnoreHeaderRows { get; set; }
 

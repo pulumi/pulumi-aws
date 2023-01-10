@@ -22,6 +22,21 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     private @Nullable String bucketPrefix;
     /**
+     * @return The unique ID that&#39;s assigned to an Amazon Redshift cluster.
+     * 
+     */
+    private @Nullable String clusterIdentifier;
+    /**
+     * @return ARN of the IAM role that permits AppFlow to access the database through Data API.
+     * 
+     */
+    private @Nullable String dataApiRoleArn;
+    /**
+     * @return The name of an Amazon Redshift database.
+     * 
+     */
+    private @Nullable String databaseName;
+    /**
      * @return The JDBC URL of the Amazon Redshift cluster.
      * 
      */
@@ -46,6 +61,27 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
+    }
+    /**
+     * @return The unique ID that&#39;s assigned to an Amazon Redshift cluster.
+     * 
+     */
+    public Optional<String> clusterIdentifier() {
+        return Optional.ofNullable(this.clusterIdentifier);
+    }
+    /**
+     * @return ARN of the IAM role that permits AppFlow to access the database through Data API.
+     * 
+     */
+    public Optional<String> dataApiRoleArn() {
+        return Optional.ofNullable(this.dataApiRoleArn);
+    }
+    /**
+     * @return The name of an Amazon Redshift database.
+     * 
+     */
+    public Optional<String> databaseName() {
+        return Optional.ofNullable(this.databaseName);
     }
     /**
      * @return The JDBC URL of the Amazon Redshift cluster.
@@ -73,6 +109,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static final class Builder {
         private String bucketName;
         private @Nullable String bucketPrefix;
+        private @Nullable String clusterIdentifier;
+        private @Nullable String dataApiRoleArn;
+        private @Nullable String databaseName;
         private @Nullable String databaseUrl;
         private String roleArn;
         public Builder() {}
@@ -80,6 +119,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
     	      this.bucketPrefix = defaults.bucketPrefix;
+    	      this.clusterIdentifier = defaults.clusterIdentifier;
+    	      this.dataApiRoleArn = defaults.dataApiRoleArn;
+    	      this.databaseName = defaults.databaseName;
     	      this.databaseUrl = defaults.databaseUrl;
     	      this.roleArn = defaults.roleArn;
         }
@@ -92,6 +134,21 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
             this.bucketPrefix = bucketPrefix;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clusterIdentifier(@Nullable String clusterIdentifier) {
+            this.clusterIdentifier = clusterIdentifier;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dataApiRoleArn(@Nullable String dataApiRoleArn) {
+            this.dataApiRoleArn = dataApiRoleArn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder databaseName(@Nullable String databaseName) {
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
@@ -108,6 +165,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift();
             o.bucketName = bucketName;
             o.bucketPrefix = bucketPrefix;
+            o.clusterIdentifier = clusterIdentifier;
+            o.dataApiRoleArn = dataApiRoleArn;
+            o.databaseName = databaseName;
             o.databaseUrl = databaseUrl;
             o.roleArn = roleArn;
             return o;

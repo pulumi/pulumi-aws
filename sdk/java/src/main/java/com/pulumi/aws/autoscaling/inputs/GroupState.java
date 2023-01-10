@@ -137,6 +137,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
+     * 
+     */
+    @Import(name="desiredCapacityType")
+    private @Nullable Output<String> desiredCapacityType;
+
+    /**
+     * @return The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
+     * 
+     */
+    public Optional<Output<String>> desiredCapacityType() {
+        return Optional.ofNullable(this.desiredCapacityType);
+    }
+
+    /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      * 
      */
@@ -658,6 +673,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         this.defaultCooldown = $.defaultCooldown;
         this.defaultInstanceWarmup = $.defaultInstanceWarmup;
         this.desiredCapacity = $.desiredCapacity;
+        this.desiredCapacityType = $.desiredCapacityType;
         this.enabledMetrics = $.enabledMetrics;
         this.forceDelete = $.forceDelete;
         this.forceDeleteWarmPool = $.forceDeleteWarmPool;
@@ -867,6 +883,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder desiredCapacity(Integer desiredCapacity) {
             return desiredCapacity(Output.of(desiredCapacity));
+        }
+
+        /**
+         * @param desiredCapacityType The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder desiredCapacityType(@Nullable Output<String> desiredCapacityType) {
+            $.desiredCapacityType = desiredCapacityType;
+            return this;
+        }
+
+        /**
+         * @param desiredCapacityType The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder desiredCapacityType(String desiredCapacityType) {
+            return desiredCapacityType(Output.of(desiredCapacityType));
         }
 
         /**

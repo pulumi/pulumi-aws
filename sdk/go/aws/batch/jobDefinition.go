@@ -33,8 +33,10 @@ import (
 //				ContainerProperties: pulumi.String(fmt.Sprintf(`{
 //		"command": ["ls", "-la"],
 //		"image": "busybox",
-//		"memory": 1024,
-//		"vcpus": 1,
+//		"resourceRequirements": [
+//	    {"type": "VCPU", "value": "0.25"},
+//	    {"type": "MEMORY", "value": "512"}
+//	  ],
 //		"volumes": [
 //	      {
 //	        "host": {
@@ -192,7 +194,7 @@ type JobDefinition struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrOutput `pulumi:"timeout"`
-	// The type of job definition.  Must be `container`.
+	// The type of job definition. Must be `container`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -252,7 +254,7 @@ type jobDefinitionState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
-	// The type of job definition.  Must be `container`.
+	// The type of job definition. Must be `container`.
 	Type *string `pulumi:"type"`
 }
 
@@ -281,7 +283,7 @@ type JobDefinitionState struct {
 	TagsAll pulumi.StringMapInput
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrInput
-	// The type of job definition.  Must be `container`.
+	// The type of job definition. Must be `container`.
 	Type pulumi.StringPtrInput
 }
 
@@ -308,7 +310,7 @@ type jobDefinitionArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
-	// The type of job definition.  Must be `container`.
+	// The type of job definition. Must be `container`.
 	Type string `pulumi:"type"`
 }
 
@@ -332,7 +334,7 @@ type JobDefinitionArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrInput
-	// The type of job definition.  Must be `container`.
+	// The type of job definition. Must be `container`.
 	Type pulumi.StringInput
 }
 
@@ -480,7 +482,7 @@ func (o JobDefinitionOutput) Timeout() JobDefinitionTimeoutPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionTimeoutPtrOutput { return v.Timeout }).(JobDefinitionTimeoutPtrOutput)
 }
 
-// The type of job definition.  Must be `container`.
+// The type of job definition. Must be `container`.
 func (o JobDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

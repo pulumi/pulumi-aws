@@ -21454,17 +21454,27 @@ class GetVpcIamPoolFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: The name of the filter. Filter names are case-sensitive.
+        :param Sequence[str] values: The filter values. Filter values are case-sensitive.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the filter. Filter names are case-sensitive.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        The filter values. Filter values are case-sensitive.
+        """
         return pulumi.get(self, "values")
 
 
@@ -21473,17 +21483,27 @@ class GetVpcIamPoolsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: The name of the filter. Filter names are case-sensitive.
+        :param Sequence[str] values: The filter values. Filter values are case-sensitive.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the filter. Filter names are case-sensitive.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        The filter values. Filter values are case-sensitive.
+        """
         return pulumi.get(self, "values")
 
 
@@ -21511,17 +21531,17 @@ class GetVpcIamPoolsIpamPoolResult(dict):
                  id: Optional[str] = None):
         """
         :param str address_family: IP protocol assigned to this pool.
-        :param int allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+        :param int allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
         :param int allocation_max_netmask_length: The maximum netmask length that will be required for CIDR allocations in this pool.
         :param int allocation_min_netmask_length: The minimum netmask length that will be required for CIDR allocations in this pool.
         :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.
         :param str arn: ARN of the pool
         :param bool auto_import: If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
-        :param str aws_service: Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+        :param str aws_service: Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
         :param str description: Description for the IPAM pool.
         :param str ipam_scope_id: ID of the scope the pool belongs to.
         :param str locale: Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
-        :param bool publicly_advertisable: Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+        :param bool publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet.
         :param str source_ipam_pool_id: ID of the source IPAM pool.
         :param Mapping[str, str] tags: Map of tags to assigned to the resource.
         :param str id: ID of the IPAM pool.
@@ -21559,7 +21579,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
     @pulumi.getter(name="allocationDefaultNetmaskLength")
     def allocation_default_netmask_length(self) -> int:
         """
-        A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+        A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
         """
         return pulumi.get(self, "allocation_default_netmask_length")
 
@@ -21607,7 +21627,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
     @pulumi.getter(name="awsService")
     def aws_service(self) -> str:
         """
-        Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+        Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
         """
         return pulumi.get(self, "aws_service")
 
@@ -21654,7 +21674,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> bool:
         """
-        Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+        Defines whether or not IPv6 pool space is publicly advertisable over the internet.
         """
         return pulumi.get(self, "publicly_advertisable")
 

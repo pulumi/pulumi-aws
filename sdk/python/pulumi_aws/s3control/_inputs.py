@@ -25,11 +25,17 @@ __all__ = [
     'StorageLensConfigurationStorageLensConfigurationArgs',
     'StorageLensConfigurationStorageLensConfigurationAccountLevelArgs',
     'StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs',
     'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs',
     'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs',
     'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs',
     'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs',
     'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs',
+    'StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs',
     'StorageLensConfigurationStorageLensConfigurationAwsOrgArgs',
     'StorageLensConfigurationStorageLensConfigurationDataExportArgs',
     'StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs',
@@ -659,14 +665,26 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
 class StorageLensConfigurationStorageLensConfigurationAccountLevelArgs:
     def __init__(__self__, *,
                  bucket_level: pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs'],
-                 activity_metrics: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs']] = None):
+                 activity_metrics: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs']] = None,
+                 advanced_cost_optimization_metrics: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs']] = None,
+                 advanced_data_protection_metrics: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs']] = None,
+                 detailed_status_code_metrics: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs']] = None):
         """
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs'] bucket_level: S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs'] activity_metrics: S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs'] advanced_cost_optimization_metrics: Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs'] advanced_data_protection_metrics: Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs'] detailed_status_code_metrics: Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
         """
         pulumi.set(__self__, "bucket_level", bucket_level)
         if activity_metrics is not None:
             pulumi.set(__self__, "activity_metrics", activity_metrics)
+        if advanced_cost_optimization_metrics is not None:
+            pulumi.set(__self__, "advanced_cost_optimization_metrics", advanced_cost_optimization_metrics)
+        if advanced_data_protection_metrics is not None:
+            pulumi.set(__self__, "advanced_data_protection_metrics", advanced_data_protection_metrics)
+        if detailed_status_code_metrics is not None:
+            pulumi.set(__self__, "detailed_status_code_metrics", detailed_status_code_metrics)
 
     @property
     @pulumi.getter(name="bucketLevel")
@@ -691,6 +709,42 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelArgs:
     @activity_metrics.setter
     def activity_metrics(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs']]):
         pulumi.set(self, "activity_metrics", value)
+
+    @property
+    @pulumi.getter(name="advancedCostOptimizationMetrics")
+    def advanced_cost_optimization_metrics(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs']]:
+        """
+        Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+        """
+        return pulumi.get(self, "advanced_cost_optimization_metrics")
+
+    @advanced_cost_optimization_metrics.setter
+    def advanced_cost_optimization_metrics(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs']]):
+        pulumi.set(self, "advanced_cost_optimization_metrics", value)
+
+    @property
+    @pulumi.getter(name="advancedDataProtectionMetrics")
+    def advanced_data_protection_metrics(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs']]:
+        """
+        Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
+        """
+        return pulumi.get(self, "advanced_data_protection_metrics")
+
+    @advanced_data_protection_metrics.setter
+    def advanced_data_protection_metrics(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs']]):
+        pulumi.set(self, "advanced_data_protection_metrics", value)
+
+    @property
+    @pulumi.getter(name="detailedStatusCodeMetrics")
+    def detailed_status_code_metrics(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs']]:
+        """
+        Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
+        """
+        return pulumi.get(self, "detailed_status_code_metrics")
+
+    @detailed_status_code_metrics.setter
+    def detailed_status_code_metrics(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs']]):
+        pulumi.set(self, "detailed_status_code_metrics", value)
 
 
 @pulumi.input_type
@@ -717,16 +771,74 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetric
 
 
 @pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether advanced cost-optimization metrics are enabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether advanced cost-optimization metrics are enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether advanced data-protection metrics are enabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether advanced data-protection metrics are enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs:
     def __init__(__self__, *,
                  activity_metrics: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs']] = None,
+                 advanced_cost_optimization_metrics: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs']] = None,
+                 advanced_data_protection_metrics: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs']] = None,
+                 detailed_status_code_metrics: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs']] = None,
                  prefix_level: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs']] = None):
         """
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs'] activity_metrics: S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs'] advanced_cost_optimization_metrics: Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs'] advanced_data_protection_metrics: Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs'] detailed_status_code_metrics: Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs'] prefix_level: Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
         """
         if activity_metrics is not None:
             pulumi.set(__self__, "activity_metrics", activity_metrics)
+        if advanced_cost_optimization_metrics is not None:
+            pulumi.set(__self__, "advanced_cost_optimization_metrics", advanced_cost_optimization_metrics)
+        if advanced_data_protection_metrics is not None:
+            pulumi.set(__self__, "advanced_data_protection_metrics", advanced_data_protection_metrics)
+        if detailed_status_code_metrics is not None:
+            pulumi.set(__self__, "detailed_status_code_metrics", detailed_status_code_metrics)
         if prefix_level is not None:
             pulumi.set(__self__, "prefix_level", prefix_level)
 
@@ -741,6 +853,42 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArg
     @activity_metrics.setter
     def activity_metrics(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs']]):
         pulumi.set(self, "activity_metrics", value)
+
+    @property
+    @pulumi.getter(name="advancedCostOptimizationMetrics")
+    def advanced_cost_optimization_metrics(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs']]:
+        """
+        Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
+        """
+        return pulumi.get(self, "advanced_cost_optimization_metrics")
+
+    @advanced_cost_optimization_metrics.setter
+    def advanced_cost_optimization_metrics(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs']]):
+        pulumi.set(self, "advanced_cost_optimization_metrics", value)
+
+    @property
+    @pulumi.getter(name="advancedDataProtectionMetrics")
+    def advanced_data_protection_metrics(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs']]:
+        """
+        Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
+        """
+        return pulumi.get(self, "advanced_data_protection_metrics")
+
+    @advanced_data_protection_metrics.setter
+    def advanced_data_protection_metrics(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs']]):
+        pulumi.set(self, "advanced_data_protection_metrics", value)
+
+    @property
+    @pulumi.getter(name="detailedStatusCodeMetrics")
+    def detailed_status_code_metrics(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs']]:
+        """
+        Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
+        """
+        return pulumi.get(self, "detailed_status_code_metrics")
+
+    @detailed_status_code_metrics.setter
+    def detailed_status_code_metrics(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs']]):
+        pulumi.set(self, "detailed_status_code_metrics", value)
 
     @property
     @pulumi.getter(name="prefixLevel")
@@ -770,6 +918,75 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAct
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether the activity metrics are enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether advanced cost-optimization metrics are enabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether advanced cost-optimization metrics are enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether advanced data-protection metrics are enabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether advanced data-protection metrics are enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether detailed status code metrics are enabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether detailed status code metrics are enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -892,6 +1109,29 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     @min_storage_bytes_percentage.setter
     def min_storage_bytes_percentage(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "min_storage_bytes_percentage", value)
+
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether detailed status code metrics are enabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether detailed status code metrics are enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type

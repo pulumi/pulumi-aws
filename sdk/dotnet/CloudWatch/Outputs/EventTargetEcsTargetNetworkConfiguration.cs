@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class EventTargetEcsTargetNetworkConfiguration
     {
         /// <summary>
-        /// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+        /// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
         /// </summary>
         public readonly bool? AssignPublicIp;
         /// <summary>

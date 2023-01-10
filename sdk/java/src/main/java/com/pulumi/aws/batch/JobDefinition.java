@@ -50,8 +50,10 @@ import javax.annotation.Nullable;
  * {
  * 	&#34;command&#34;: [&#34;ls&#34;, &#34;-la&#34;],
  * 	&#34;image&#34;: &#34;busybox&#34;,
- * 	&#34;memory&#34;: 1024,
- * 	&#34;vcpus&#34;: 1,
+ * 	&#34;resourceRequirements&#34;: [
+ *     {&#34;type&#34;: &#34;VCPU&#34;, &#34;value&#34;: &#34;0.25&#34;},
+ *     {&#34;type&#34;: &#34;MEMORY&#34;, &#34;value&#34;: &#34;512&#34;}
+ *   ],
  * 	&#34;volumes&#34;: [
  *       {
  *         &#34;host&#34;: {
@@ -326,14 +328,14 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeout);
     }
     /**
-     * The type of job definition.  Must be `container`.
+     * The type of job definition. Must be `container`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of job definition.  Must be `container`.
+     * @return The type of job definition. Must be `container`.
      * 
      */
     public Output<String> type() {

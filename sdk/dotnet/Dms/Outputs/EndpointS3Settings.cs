@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly int? CdcMaxBatchInterval;
         /// <summary>
-        /// Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+        /// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
         /// </summary>
         public readonly int? CdcMinFileSize;
         /// <summary>
@@ -111,6 +111,10 @@ namespace Pulumi.Aws.Dms.Outputs
         public readonly string? ExternalTableDefinition;
         /// <summary>
         /// When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+        /// </summary>
+        public readonly int? IgnoreHeaderRows;
+        /// <summary>
+        /// Deprecated. This setting has no effect. Will be removed in a future version.
         /// </summary>
         public readonly int? IgnoreHeadersRow;
         /// <summary>
@@ -214,6 +218,8 @@ namespace Pulumi.Aws.Dms.Outputs
 
             string? externalTableDefinition,
 
+            int? ignoreHeaderRows,
+
             int? ignoreHeadersRow,
 
             bool? includeOpForFullLoad,
@@ -264,6 +270,7 @@ namespace Pulumi.Aws.Dms.Outputs
             EncodingType = encodingType;
             EncryptionMode = encryptionMode;
             ExternalTableDefinition = externalTableDefinition;
+            IgnoreHeaderRows = ignoreHeaderRows;
             IgnoreHeadersRow = ignoreHeadersRow;
             IncludeOpForFullLoad = includeOpForFullLoad;
             MaxFileSize = maxFileSize;

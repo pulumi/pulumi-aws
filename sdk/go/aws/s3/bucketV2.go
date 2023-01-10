@@ -519,7 +519,7 @@ import (
 //	}
 //
 // ```
-// ### Enable Default Server Side Encryption
+// ### Enable SSE-KMS Server Side Encryption
 //
 // ```go
 // package main

@@ -17,14 +17,14 @@ public final class ResolverPipelineConfigArgs extends com.pulumi.resources.Resou
     public static final ResolverPipelineConfigArgs Empty = new ResolverPipelineConfigArgs();
 
     /**
-     * List of Function ID.
+     * A list of Function objects.
      * 
      */
     @Import(name="functions")
     private @Nullable Output<List<String>> functions;
 
     /**
-     * @return List of Function ID.
+     * @return A list of Function objects.
      * 
      */
     public Optional<Output<List<String>>> functions() {
@@ -56,7 +56,7 @@ public final class ResolverPipelineConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param functions List of Function ID.
+         * @param functions A list of Function objects.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ResolverPipelineConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param functions List of Function ID.
+         * @param functions A list of Function objects.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ResolverPipelineConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param functions List of Function ID.
+         * @param functions A list of Function objects.
          * 
          * @return builder
          * 

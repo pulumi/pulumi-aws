@@ -25,6 +25,7 @@ class GroupArgs:
                  default_cooldown: Optional[pulumi.Input[int]] = None,
                  default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
+                 desired_capacity_type: Optional[pulumi.Input[str]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
@@ -65,6 +66,7 @@ class GroupArgs:
         :param pulumi.Input[int] desired_capacity: Number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
+        :param pulumi.Input[str] desired_capacity_type: The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
@@ -138,6 +140,8 @@ class GroupArgs:
             pulumi.set(__self__, "default_instance_warmup", default_instance_warmup)
         if desired_capacity is not None:
             pulumi.set(__self__, "desired_capacity", desired_capacity)
+        if desired_capacity_type is not None:
+            pulumi.set(__self__, "desired_capacity_type", desired_capacity_type)
         if enabled_metrics is not None:
             pulumi.set(__self__, "enabled_metrics", enabled_metrics)
         if force_delete is not None:
@@ -295,6 +299,18 @@ class GroupArgs:
     @desired_capacity.setter
     def desired_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "desired_capacity", value)
+
+    @property
+    @pulumi.getter(name="desiredCapacityType")
+    def desired_capacity_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+        """
+        return pulumi.get(self, "desired_capacity_type")
+
+    @desired_capacity_type.setter
+    def desired_capacity_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "desired_capacity_type", value)
 
     @property
     @pulumi.getter(name="enabledMetrics")
@@ -671,6 +687,7 @@ class _GroupState:
                  default_cooldown: Optional[pulumi.Input[int]] = None,
                  default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
+                 desired_capacity_type: Optional[pulumi.Input[str]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
@@ -712,6 +729,7 @@ class _GroupState:
         :param pulumi.Input[int] desired_capacity: Number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
+        :param pulumi.Input[str] desired_capacity_type: The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
@@ -787,6 +805,8 @@ class _GroupState:
             pulumi.set(__self__, "default_instance_warmup", default_instance_warmup)
         if desired_capacity is not None:
             pulumi.set(__self__, "desired_capacity", desired_capacity)
+        if desired_capacity_type is not None:
+            pulumi.set(__self__, "desired_capacity_type", desired_capacity_type)
         if enabled_metrics is not None:
             pulumi.set(__self__, "enabled_metrics", enabled_metrics)
         if force_delete is not None:
@@ -936,6 +956,18 @@ class _GroupState:
     @desired_capacity.setter
     def desired_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "desired_capacity", value)
+
+    @property
+    @pulumi.getter(name="desiredCapacityType")
+    def desired_capacity_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+        """
+        return pulumi.get(self, "desired_capacity_type")
+
+    @desired_capacity_type.setter
+    def desired_capacity_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "desired_capacity_type", value)
 
     @property
     @pulumi.getter(name="enabledMetrics")
@@ -1337,6 +1369,7 @@ class Group(pulumi.CustomResource):
                  default_cooldown: Optional[pulumi.Input[int]] = None,
                  default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
+                 desired_capacity_type: Optional[pulumi.Input[str]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
@@ -1694,6 +1727,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[int] desired_capacity: Number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
+        :param pulumi.Input[str] desired_capacity_type: The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
@@ -2098,6 +2132,7 @@ class Group(pulumi.CustomResource):
                  default_cooldown: Optional[pulumi.Input[int]] = None,
                  default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
+                 desired_capacity_type: Optional[pulumi.Input[str]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
@@ -2143,6 +2178,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["default_cooldown"] = default_cooldown
             __props__.__dict__["default_instance_warmup"] = default_instance_warmup
             __props__.__dict__["desired_capacity"] = desired_capacity
+            __props__.__dict__["desired_capacity_type"] = desired_capacity_type
             __props__.__dict__["enabled_metrics"] = enabled_metrics
             __props__.__dict__["force_delete"] = force_delete
             __props__.__dict__["force_delete_warm_pool"] = force_delete_warm_pool
@@ -2198,6 +2234,7 @@ class Group(pulumi.CustomResource):
             default_cooldown: Optional[pulumi.Input[int]] = None,
             default_instance_warmup: Optional[pulumi.Input[int]] = None,
             desired_capacity: Optional[pulumi.Input[int]] = None,
+            desired_capacity_type: Optional[pulumi.Input[str]] = None,
             enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             force_delete: Optional[pulumi.Input[bool]] = None,
             force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
@@ -2244,6 +2281,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[int] desired_capacity: Number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
+        :param pulumi.Input[str] desired_capacity_type: The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
@@ -2316,6 +2354,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["default_cooldown"] = default_cooldown
         __props__.__dict__["default_instance_warmup"] = default_instance_warmup
         __props__.__dict__["desired_capacity"] = desired_capacity
+        __props__.__dict__["desired_capacity_type"] = desired_capacity_type
         __props__.__dict__["enabled_metrics"] = enabled_metrics
         __props__.__dict__["force_delete"] = force_delete
         __props__.__dict__["force_delete_warm_pool"] = force_delete_warm_pool
@@ -2405,6 +2444,14 @@ class Group(pulumi.CustomResource):
         Capacity below.)
         """
         return pulumi.get(self, "desired_capacity")
+
+    @property
+    @pulumi.getter(name="desiredCapacityType")
+    def desired_capacity_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+        """
+        return pulumi.get(self, "desired_capacity_type")
 
     @property
     @pulumi.getter(name="enabledMetrics")

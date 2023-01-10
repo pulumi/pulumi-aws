@@ -33,6 +33,7 @@ __all__ = [
     'GraphQLApiUserPoolConfig',
     'ResolverCachingConfig',
     'ResolverPipelineConfig',
+    'ResolverRuntime',
     'ResolverSyncConfig',
     'ResolverSyncConfigLambdaConflictHandlerConfig',
 ]
@@ -1236,8 +1237,8 @@ class ResolverCachingConfig(dict):
                  caching_keys: Optional[Sequence[str]] = None,
                  ttl: Optional[int] = None):
         """
-        :param Sequence[str] caching_keys: List of caching key.
-        :param int ttl: TTL in seconds.
+        :param Sequence[str] caching_keys: The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        :param int ttl: The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
         """
         if caching_keys is not None:
             pulumi.set(__self__, "caching_keys", caching_keys)
@@ -1248,7 +1249,7 @@ class ResolverCachingConfig(dict):
     @pulumi.getter(name="cachingKeys")
     def caching_keys(self) -> Optional[Sequence[str]]:
         """
-        List of caching key.
+        The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
         """
         return pulumi.get(self, "caching_keys")
 
@@ -1256,7 +1257,7 @@ class ResolverCachingConfig(dict):
     @pulumi.getter
     def ttl(self) -> Optional[int]:
         """
-        TTL in seconds.
+        The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
         """
         return pulumi.get(self, "ttl")
 
@@ -1266,7 +1267,7 @@ class ResolverPipelineConfig(dict):
     def __init__(__self__, *,
                  functions: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] functions: List of Function ID.
+        :param Sequence[str] functions: A list of Function objects.
         """
         if functions is not None:
             pulumi.set(__self__, "functions", functions)
@@ -1275,9 +1276,55 @@ class ResolverPipelineConfig(dict):
     @pulumi.getter
     def functions(self) -> Optional[Sequence[str]]:
         """
-        List of Function ID.
+        A list of Function objects.
         """
         return pulumi.get(self, "functions")
+
+
+@pulumi.output_type
+class ResolverRuntime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "runtimeVersion":
+            suggest = "runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResolverRuntime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResolverRuntime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResolverRuntime.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 runtime_version: str):
+        """
+        :param str name: The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        :param str runtime_version: The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> str:
+        """
+        The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        """
+        return pulumi.get(self, "runtime_version")
 
 
 @pulumi.output_type

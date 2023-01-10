@@ -207,58 +207,50 @@ import javax.annotation.Nullable;
  * Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
  * to understand the implications of using these attributes.
  * 
- * The `root_block_device` mapping supports the following:
- * 
- * * `volume_type` - (Optional) The type of volume. Can be `&#34;standard&#34;`, `&#34;gp2&#34;`, `&#34;gp3&#34;`, `&#34;st1&#34;`, `&#34;sc1&#34;`
- *   or `&#34;io1&#34;`. (Default: `&#34;standard&#34;`).
- * * `volume_size` - (Optional) The size of the volume in gigabytes.
- * * `iops` - (Optional) The amount of provisioned
- *   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
- *   This must be set with a `volume_type` of `&#34;io1&#34;`.
- * * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
- * * `delete_on_termination` - (Optional) Whether the volume should be destroyed
- *   on instance termination (Default: `true`).
- * * `encrypted` - (Optional) Whether the volume should be encrypted or not. (Default: `false`).
- * 
- * Modifying any of the `root_block_device` settings requires resource
- * replacement.
- * 
- * Each `ebs_block_device` supports the following:
- * 
- * * `device_name` - (Required) The name of the device to mount.
- * * `snapshot_id` - (Optional) The Snapshot ID to mount.
- * * `volume_type` - (Optional) The type of volume. Can be `&#34;standard&#34;`, `&#34;gp2&#34;`, `&#34;gp3&#34;`, `&#34;st1&#34;`, `&#34;sc1&#34;`
- *   or `&#34;io1&#34;`. (Default: `&#34;standard&#34;`).
- * * `volume_size` - (Optional) The size of the volume in gigabytes.
- * * `iops` - (Optional) The amount of provisioned
- *   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
- *   This must be set with a `volume_type` of `&#34;io1&#34;`.
- * * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
- * * `delete_on_termination` - (Optional) Whether the volume should be destroyed
- *   on instance termination (Default: `true`).
- * * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshot_id` as the encrypted flag will be determined by the snapshot. (Default: `false`).
- * * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
- * 
- * Modifying any `ebs_block_device` currently requires resource replacement.
- * 
- * Each `ephemeral_block_device` supports the following:
- * 
- * * `device_name` - (Required) The name of the block device to mount on the instance.
- * * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
- * * `virtual_name` - (Optional) The [Instance Store Device
- *   Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
- *   (e.g., `&#34;ephemeral0&#34;`)
- * 
  * Each AWS Instance type has a different set of Instance Store block devices
  * available for attachment. AWS [publishes a
  * list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
  * of which ephemeral devices are available on each type. The devices are always
- * identified by the `virtual_name` in the format `&#34;ephemeral{0..N}&#34;`.
+ * identified by the `virtual_name` in the format `ephemeral{0..N}`.
  * 
  * &gt; **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
  * cannot currently be detected by this provider. After updating to block device
  * configuration, resource recreation can be manually triggered by using the
  * [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
+ * 
+ * ### ebs_block_device
+ * 
+ * Modifying any of the `ebs_block_device` settings requires resource replacement.
+ * 
+ * * `device_name` - (Required) The name of the device to mount.
+ * * `snapshot_id` - (Optional) The Snapshot ID to mount.
+ * * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+ * * `volume_size` - (Optional) The size of the volume in gigabytes.
+ * * `iops` - (Optional) The amount of provisioned
+ *   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+ *   This must be set with a `volume_type` of `&#34;io1&#34;`.
+ * * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
+ * * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+ *   on instance termination (Default: `true`).
+ * * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
+ * * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+ * 
+ * ### ephemeral_block_device
+ * 
+ * * `device_name` - (Required) The name of the block device to mount on the instance.
+ * * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+ * * `virtual_name` - (Optional) The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
+ * 
+ * ### root_block_device
+ * 
+ * &gt; Modifying any of the `root_block_device` settings requires resource replacement.
+ * 
+ * * `delete_on_termination` - (Optional) Whether the volume should be destroyed on instance termination. Defaults to `true`.
+ * * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
+ * * `iops` - (Optional) The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volume_type` of `io1`.
+ * * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
+ * * `volume_size` - (Optional) The size of the volume in gigabytes.
+ * * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
  * 
  * ## Import
  * 
@@ -300,16 +292,14 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.associatePublicIpAddress);
     }
     /**
-     * Additional EBS block devices to attach to the
-     * instance.  See Block Devices below for details.
+     * Additional EBS block devices to attach to the instance. See Block Devices below for details.
      * 
      */
     @Export(name="ebsBlockDevices", refs={List.class,LaunchConfigurationEbsBlockDevice.class}, tree="[0,1]")
     private Output<List<LaunchConfigurationEbsBlockDevice>> ebsBlockDevices;
 
     /**
-     * @return Additional EBS block devices to attach to the
-     * instance.  See Block Devices below for details.
+     * @return Additional EBS block devices to attach to the instance. See Block Devices below for details.
      * 
      */
     public Output<List<LaunchConfigurationEbsBlockDevice>> ebsBlockDevices() {
@@ -344,32 +334,28 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableMonitoring);
     }
     /**
-     * Customize Ephemeral (also known as
-     * &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
+     * Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
      * 
      */
     @Export(name="ephemeralBlockDevices", refs={List.class,LaunchConfigurationEphemeralBlockDevice.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LaunchConfigurationEphemeralBlockDevice>> ephemeralBlockDevices;
 
     /**
-     * @return Customize Ephemeral (also known as
-     * &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
+     * @return Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
      * 
      */
     public Output<Optional<List<LaunchConfigurationEphemeralBlockDevice>>> ephemeralBlockDevices() {
         return Codegen.optional(this.ephemeralBlockDevices);
     }
     /**
-     * The name attribute of the IAM instance profile to associate
-     * with launched instances.
+     * The name attribute of the IAM instance profile to associate with launched instances.
      * 
      */
     @Export(name="iamInstanceProfile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iamInstanceProfile;
 
     /**
-     * @return The name attribute of the IAM instance profile to associate
-     * with launched instances.
+     * @return The name attribute of the IAM instance profile to associate with launched instances.
      * 
      */
     public Output<Optional<String>> iamInstanceProfile() {
@@ -432,82 +418,64 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
         return this.metadataOptions;
     }
     /**
-     * The name of the launch configuration. If you leave
-     * this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+     * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the launch configuration. If you leave
-     * this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+     * @return The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
      * 
      */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
     /**
-     * The tenancy of the instance. Valid values are
-     * `&#34;default&#34;` or `&#34;dedicated&#34;`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-     * for more details
+     * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
      * 
      */
     @Export(name="placementTenancy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> placementTenancy;
 
     /**
-     * @return The tenancy of the instance. Valid values are
-     * `&#34;default&#34;` or `&#34;dedicated&#34;`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-     * for more details
+     * @return The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
      * 
      */
     public Output<Optional<String>> placementTenancy() {
         return Codegen.optional(this.placementTenancy);
     }
     /**
-     * Customize details about the root block
-     * device of the instance. See Block Devices below for details.
+     * Customize details about the root block device of the instance. See Block Devices below for details.
      * 
      */
     @Export(name="rootBlockDevice", refs={LaunchConfigurationRootBlockDevice.class}, tree="[0]")
     private Output<LaunchConfigurationRootBlockDevice> rootBlockDevice;
 
     /**
-     * @return Customize details about the root block
-     * device of the instance. See Block Devices below for details.
+     * @return Customize details about the root block device of the instance. See Block Devices below for details.
      * 
      */
     public Output<LaunchConfigurationRootBlockDevice> rootBlockDevice() {
         return this.rootBlockDevice;
     }
-    /**
-     * A list of associated security group IDS.
-     * 
-     */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroups;
 
-    /**
-     * @return A list of associated security group IDS.
-     * 
-     */
     public Output<Optional<List<String>>> securityGroups() {
         return Codegen.optional(this.securityGroups);
     }

@@ -12,6 +12,8 @@ from . import outputs
 
 __all__ = [
     'CustomerManagedPolicyAttachmentCustomerManagedPolicyReference',
+    'InstanceAccessControlAttributesAttribute',
+    'InstanceAccessControlAttributesAttributeValue',
     'PermissionsBoundaryAttachmentPermissionsBoundary',
     'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference',
 ]
@@ -44,6 +46,53 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReference(dict):
         The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
         """
         return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class InstanceAccessControlAttributesAttribute(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence['outputs.InstanceAccessControlAttributesAttributeValue']):
+        """
+        :param str key: The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+        :param Sequence['InstanceAccessControlAttributesAttributeValueArgs'] values: The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence['outputs.InstanceAccessControlAttributesAttributeValue']:
+        """
+        The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class InstanceAccessControlAttributesAttributeValue(dict):
+    def __init__(__self__, *,
+                 sources: Sequence[str]):
+        """
+        :param Sequence[str] sources: The identity source to use when mapping a specified attribute to AWS SSO.
+        """
+        pulumi.set(__self__, "sources", sources)
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Sequence[str]:
+        """
+        The identity source to use when mapping a specified attribute to AWS SSO.
+        """
+        return pulumi.get(self, "sources")
 
 
 @pulumi.output_type

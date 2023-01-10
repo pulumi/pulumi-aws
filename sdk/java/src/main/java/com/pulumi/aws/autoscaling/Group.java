@@ -637,6 +637,20 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.desiredCapacity;
     }
     /**
+     * The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
+     * 
+     */
+    @Export(name="desiredCapacityType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> desiredCapacityType;
+
+    /**
+     * @return The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
+     * 
+     */
+    public Output<Optional<String>> desiredCapacityType() {
+        return Codegen.optional(this.desiredCapacityType);
+    }
+    /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      * 
      */

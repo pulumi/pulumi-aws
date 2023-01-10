@@ -313,7 +313,7 @@ import * as utilities from "../utilities";
  *     policyArn: replicationPolicy.arn,
  * });
  * ```
- * ### Enable Default Server Side Encryption
+ * ### Enable SSE-KMS Server Side Encryption
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

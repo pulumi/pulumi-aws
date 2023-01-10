@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Account;
         /// <summary>
-        /// The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+        /// The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
         /// </summary>
         public readonly string Bucket;
         /// <summary>

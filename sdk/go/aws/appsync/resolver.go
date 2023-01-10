@@ -117,6 +117,54 @@ import (
 //	}
 //
 // ```
+// ### JS
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appsync.NewResolver(ctx, "example", &appsync.ResolverArgs{
+//				Type:  pulumi.String("Query"),
+//				ApiId: pulumi.Any(aws_appsync_graphql_api.Test.Id),
+//				Field: pulumi.String("pipelineTest"),
+//				Kind:  pulumi.String("PIPELINE"),
+//				Code:  readFileOrPanic("some-code-dir"),
+//				Runtime: &appsync.ResolverRuntimeArgs{
+//					Name:           pulumi.String("APPSYNC_JS"),
+//					RuntimeVersion: pulumi.String("1.0.0"),
+//				},
+//				PipelineConfig: &appsync.ResolverPipelineConfigArgs{
+//					Functions: pulumi.StringArray{
+//						aws_appsync_function.Test.Function_id,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -134,8 +182,10 @@ type Resolver struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// CachingConfig.
+	// The Caching Config. See Caching Config.
 	CachingConfig ResolverCachingConfigPtrOutput `pulumi:"cachingConfig"`
+	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+	Code pulumi.StringPtrOutput `pulumi:"code"`
 	// Data source name.
 	DataSource pulumi.StringPtrOutput `pulumi:"dataSource"`
 	// Field name from the schema defined in the GraphQL API.
@@ -144,12 +194,14 @@ type Resolver struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
-	// PipelineConfig.
+	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig ResolverPipelineConfigPtrOutput `pulumi:"pipelineConfig"`
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrOutput `pulumi:"requestTemplate"`
 	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate pulumi.StringPtrOutput `pulumi:"responseTemplate"`
+	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+	Runtime ResolverRuntimePtrOutput `pulumi:"runtime"`
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig ResolverSyncConfigPtrOutput `pulumi:"syncConfig"`
 	// Type name from the schema defined in the GraphQL API.
@@ -198,8 +250,10 @@ type resolverState struct {
 	ApiId *string `pulumi:"apiId"`
 	// ARN
 	Arn *string `pulumi:"arn"`
-	// CachingConfig.
+	// The Caching Config. See Caching Config.
 	CachingConfig *ResolverCachingConfig `pulumi:"cachingConfig"`
+	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+	Code *string `pulumi:"code"`
 	// Data source name.
 	DataSource *string `pulumi:"dataSource"`
 	// Field name from the schema defined in the GraphQL API.
@@ -208,12 +262,14 @@ type resolverState struct {
 	Kind *string `pulumi:"kind"`
 	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
-	// PipelineConfig.
+	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate *string `pulumi:"requestTemplate"`
 	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate *string `pulumi:"responseTemplate"`
+	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+	Runtime *ResolverRuntime `pulumi:"runtime"`
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig *ResolverSyncConfig `pulumi:"syncConfig"`
 	// Type name from the schema defined in the GraphQL API.
@@ -225,8 +281,10 @@ type ResolverState struct {
 	ApiId pulumi.StringPtrInput
 	// ARN
 	Arn pulumi.StringPtrInput
-	// CachingConfig.
+	// The Caching Config. See Caching Config.
 	CachingConfig ResolverCachingConfigPtrInput
+	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+	Code pulumi.StringPtrInput
 	// Data source name.
 	DataSource pulumi.StringPtrInput
 	// Field name from the schema defined in the GraphQL API.
@@ -235,12 +293,14 @@ type ResolverState struct {
 	Kind pulumi.StringPtrInput
 	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrInput
-	// PipelineConfig.
+	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig ResolverPipelineConfigPtrInput
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrInput
 	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate pulumi.StringPtrInput
+	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+	Runtime ResolverRuntimePtrInput
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig ResolverSyncConfigPtrInput
 	// Type name from the schema defined in the GraphQL API.
@@ -254,8 +314,10 @@ func (ResolverState) ElementType() reflect.Type {
 type resolverArgs struct {
 	// API ID for the GraphQL API.
 	ApiId string `pulumi:"apiId"`
-	// CachingConfig.
+	// The Caching Config. See Caching Config.
 	CachingConfig *ResolverCachingConfig `pulumi:"cachingConfig"`
+	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+	Code *string `pulumi:"code"`
 	// Data source name.
 	DataSource *string `pulumi:"dataSource"`
 	// Field name from the schema defined in the GraphQL API.
@@ -264,12 +326,14 @@ type resolverArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
-	// PipelineConfig.
+	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate *string `pulumi:"requestTemplate"`
 	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate *string `pulumi:"responseTemplate"`
+	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+	Runtime *ResolverRuntime `pulumi:"runtime"`
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig *ResolverSyncConfig `pulumi:"syncConfig"`
 	// Type name from the schema defined in the GraphQL API.
@@ -280,8 +344,10 @@ type resolverArgs struct {
 type ResolverArgs struct {
 	// API ID for the GraphQL API.
 	ApiId pulumi.StringInput
-	// CachingConfig.
+	// The Caching Config. See Caching Config.
 	CachingConfig ResolverCachingConfigPtrInput
+	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+	Code pulumi.StringPtrInput
 	// Data source name.
 	DataSource pulumi.StringPtrInput
 	// Field name from the schema defined in the GraphQL API.
@@ -290,12 +356,14 @@ type ResolverArgs struct {
 	Kind pulumi.StringPtrInput
 	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrInput
-	// PipelineConfig.
+	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig ResolverPipelineConfigPtrInput
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrInput
 	// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	ResponseTemplate pulumi.StringPtrInput
+	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+	Runtime ResolverRuntimePtrInput
 	// Describes a Sync configuration for a resolver. See Sync Config.
 	SyncConfig ResolverSyncConfigPtrInput
 	// Type name from the schema defined in the GraphQL API.
@@ -399,9 +467,14 @@ func (o ResolverOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// CachingConfig.
+// The Caching Config. See Caching Config.
 func (o ResolverOutput) CachingConfig() ResolverCachingConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverCachingConfigPtrOutput { return v.CachingConfig }).(ResolverCachingConfigPtrOutput)
+}
+
+// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+func (o ResolverOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.Code }).(pulumi.StringPtrOutput)
 }
 
 // Data source name.
@@ -424,7 +497,7 @@ func (o ResolverOutput) MaxBatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.IntPtrOutput { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
 }
 
-// PipelineConfig.
+// The caching configuration for the resolver. See Pipeline Config.
 func (o ResolverOutput) PipelineConfig() ResolverPipelineConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverPipelineConfigPtrOutput { return v.PipelineConfig }).(ResolverPipelineConfigPtrOutput)
 }
@@ -437,6 +510,11 @@ func (o ResolverOutput) RequestTemplate() pulumi.StringPtrOutput {
 // Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 func (o ResolverOutput) ResponseTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.ResponseTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+func (o ResolverOutput) Runtime() ResolverRuntimePtrOutput {
+	return o.ApplyT(func(v *Resolver) ResolverRuntimePtrOutput { return v.Runtime }).(ResolverRuntimePtrOutput)
 }
 
 // Describes a Sync configuration for a resolver. See Sync Config.

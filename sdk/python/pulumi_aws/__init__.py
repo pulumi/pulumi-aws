@@ -1450,6 +1450,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appsync/type",
+  "fqn": "pulumi_aws.appsync",
+  "classes": {
+   "aws:appsync/type:Type": "Type"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "athena/dataCatalog",
   "fqn": "pulumi_aws.athena",
   "classes": {
@@ -4082,6 +4090,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2transitgateway/instanceState",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/instanceState:InstanceState": "InstanceState"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2transitgateway/multicastDomain",
   "fqn": "pulumi_aws.ec2transitgateway",
   "classes": {
@@ -6222,6 +6238,14 @@ _utilities.register(
   "fqn": "pulumi_aws.licensemanager",
   "classes": {
    "aws:licensemanager/licenseConfiguration:LicenseConfiguration": "LicenseConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/bucket",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/bucket:Bucket": "Bucket"
   }
  },
  {
@@ -9238,6 +9262,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {
    "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment": "CustomerManagedPolicyAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/instanceAccessControlAttributes",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes": "InstanceAccessControlAttributes"
   }
  },
  {

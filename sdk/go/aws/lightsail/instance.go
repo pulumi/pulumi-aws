@@ -18,6 +18,7 @@ import (
 // > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 //
 // ## Example Usage
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -33,9 +34,44 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewInstance(ctx, "gitlabTest", &lightsail.InstanceArgs{
 //				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("string"),
-//				BundleId:         pulumi.String("string"),
+//				BlueprintId:      pulumi.String("amazon_linux"),
+//				BundleId:         pulumi.String("nano_1_0"),
 //				KeyPairName:      pulumi.String("some_key_name"),
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Enable Auto Snapshots
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
+//				AddOn: &lightsail.InstanceAddOnArgs{
+//					SnapshotTime: pulumi.String("06:00"),
+//					Status:       pulumi.String("Enabled"),
+//					Type:         pulumi.String("AutoSnapshot"),
+//				},
+//				AvailabilityZone: pulumi.String("us-east-1b"),
+//				BlueprintId:      pulumi.String("amazon_linux"),
+//				BundleId:         pulumi.String("nano_1_0"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},
@@ -106,12 +142,14 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'
+//	$ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
 //
 // ```
 type Instance struct {
 	pulumi.CustomResourceState
 
+	// The add on configuration for the instance. Detailed below.
+	AddOn InstanceAddOnPtrOutput `pulumi:"addOn"`
 	// The ARN of the Lightsail instance (matches `id`).
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Availability Zone in which to create your
@@ -194,6 +232,8 @@ func GetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Instance resources.
 type instanceState struct {
+	// The add on configuration for the instance. Detailed below.
+	AddOn *InstanceAddOn `pulumi:"addOn"`
 	// The ARN of the Lightsail instance (matches `id`).
 	Arn *string `pulumi:"arn"`
 	// The Availability Zone in which to create your
@@ -239,6 +279,8 @@ type instanceState struct {
 }
 
 type InstanceState struct {
+	// The add on configuration for the instance. Detailed below.
+	AddOn InstanceAddOnPtrInput
 	// The ARN of the Lightsail instance (matches `id`).
 	Arn pulumi.StringPtrInput
 	// The Availability Zone in which to create your
@@ -288,6 +330,8 @@ func (InstanceState) ElementType() reflect.Type {
 }
 
 type instanceArgs struct {
+	// The add on configuration for the instance. Detailed below.
+	AddOn *InstanceAddOn `pulumi:"addOn"`
 	// The Availability Zone in which to create your
 	// instance (see list below)
 	AvailabilityZone string `pulumi:"availabilityZone"`
@@ -310,6 +354,8 @@ type instanceArgs struct {
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
+	// The add on configuration for the instance. Detailed below.
+	AddOn InstanceAddOnPtrInput
 	// The Availability Zone in which to create your
 	// instance (see list below)
 	AvailabilityZone pulumi.StringInput
@@ -415,6 +461,11 @@ func (o InstanceOutput) ToInstanceOutput() InstanceOutput {
 
 func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) InstanceOutput {
 	return o
+}
+
+// The add on configuration for the instance. Detailed below.
+func (o InstanceOutput) AddOn() InstanceAddOnPtrOutput {
+	return o.ApplyT(func(v *Instance) InstanceAddOnPtrOutput { return v.AddOn }).(InstanceAddOnPtrOutput)
 }
 
 // The ARN of the Lightsail instance (matches `id`).

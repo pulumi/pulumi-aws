@@ -113,6 +113,10 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly int DesiredCapacity;
         /// <summary>
+        /// The unit of measurement for the value returned for `desired_capacity`.
+        /// </summary>
+        public readonly string DesiredCapacityType;
+        /// <summary>
         /// List of metrics enabled for collection.
         /// </summary>
         public readonly ImmutableArray<string> EnabledMetrics;
@@ -185,6 +189,8 @@ namespace Pulumi.Aws.AutoScaling
 
             int desiredCapacity,
 
+            string desiredCapacityType,
+
             ImmutableArray<string> enabledMetrics,
 
             int healthCheckGracePeriod,
@@ -223,6 +229,7 @@ namespace Pulumi.Aws.AutoScaling
             AvailabilityZones = availabilityZones;
             DefaultCooldown = defaultCooldown;
             DesiredCapacity = desiredCapacity;
+            DesiredCapacityType = desiredCapacityType;
             EnabledMetrics = enabledMetrics;
             HealthCheckGracePeriod = healthCheckGracePeriod;
             HealthCheckType = healthCheckType;

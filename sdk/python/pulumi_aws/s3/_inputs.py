@@ -2697,7 +2697,7 @@ class BucketReplicationConfigRuleDestinationArgs:
                  replication_time: Optional[pulumi.Input['BucketReplicationConfigRuleDestinationReplicationTimeArgs']] = None,
                  storage_class: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] bucket: The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+        :param pulumi.Input[str] bucket: The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
         :param pulumi.Input['BucketReplicationConfigRuleDestinationAccessControlTranslationArgs'] access_control_translation: A configuration block that specifies the overrides to use for object owners on replication documented below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
         :param pulumi.Input[str] account: The Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
         :param pulumi.Input['BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs'] encryption_configuration: A configuration block that provides information about encryption documented below. If `source_selection_criteria` is specified, you must specify this element.
@@ -2723,7 +2723,7 @@ class BucketReplicationConfigRuleDestinationArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The name of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+        The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
         """
         return pulumi.get(self, "bucket")
 

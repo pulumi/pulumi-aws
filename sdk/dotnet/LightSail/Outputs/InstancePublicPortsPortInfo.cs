@@ -14,6 +14,10 @@ namespace Pulumi.Aws.LightSail.Outputs
     public sealed class InstancePublicPortsPortInfo
     {
         /// <summary>
+        /// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+        /// </summary>
+        public readonly ImmutableArray<string> CidrListAliases;
+        /// <summary>
         /// Set of CIDR blocks.
         /// </summary>
         public readonly ImmutableArray<string> Cidrs;
@@ -33,6 +37,8 @@ namespace Pulumi.Aws.LightSail.Outputs
 
         [OutputConstructor]
         private InstancePublicPortsPortInfo(
+            ImmutableArray<string> cidrListAliases,
+
             ImmutableArray<string> cidrs,
 
             int fromPort,
@@ -43,6 +49,7 @@ namespace Pulumi.Aws.LightSail.Outputs
 
             int toPort)
         {
+            CidrListAliases = cidrListAliases;
             Cidrs = cidrs;
             FromPort = fromPort;
             Ipv6Cidrs = ipv6Cidrs;

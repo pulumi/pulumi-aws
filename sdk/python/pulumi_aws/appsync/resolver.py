@@ -20,25 +20,29 @@ class ResolverArgs:
                  field: pulumi.Input[str],
                  type: pulumi.Input[str],
                  caching_config: Optional[pulumi.Input['ResolverCachingConfigArgs']] = None,
+                 code: Optional[pulumi.Input[str]] = None,
                  data_source: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  max_batch_size: Optional[pulumi.Input[int]] = None,
                  pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None,
                  request_template: Optional[pulumi.Input[str]] = None,
                  response_template: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input['ResolverRuntimeArgs']] = None,
                  sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a Resolver resource.
         :param pulumi.Input[str] api_id: API ID for the GraphQL API.
         :param pulumi.Input[str] field: Field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] type: Type name from the schema defined in the GraphQL API.
-        :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: CachingConfig.
+        :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: The Caching Config. See Caching Config.
+        :param pulumi.Input[str] code: The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         :param pulumi.Input[str] data_source: Data source name.
         :param pulumi.Input[str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: PipelineConfig.
+        :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The caching configuration for the resolver. See Pipeline Config.
         :param pulumi.Input[str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input['ResolverRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
         :param pulumi.Input['ResolverSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -46,6 +50,8 @@ class ResolverArgs:
         pulumi.set(__self__, "type", type)
         if caching_config is not None:
             pulumi.set(__self__, "caching_config", caching_config)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
         if kind is not None:
@@ -58,6 +64,8 @@ class ResolverArgs:
             pulumi.set(__self__, "request_template", request_template)
         if response_template is not None:
             pulumi.set(__self__, "response_template", response_template)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
         if sync_config is not None:
             pulumi.set(__self__, "sync_config", sync_config)
 
@@ -101,13 +109,25 @@ class ResolverArgs:
     @pulumi.getter(name="cachingConfig")
     def caching_config(self) -> Optional[pulumi.Input['ResolverCachingConfigArgs']]:
         """
-        CachingConfig.
+        The Caching Config. See Caching Config.
         """
         return pulumi.get(self, "caching_config")
 
     @caching_config.setter
     def caching_config(self, value: Optional[pulumi.Input['ResolverCachingConfigArgs']]):
         pulumi.set(self, "caching_config", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code", value)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -149,7 +169,7 @@ class ResolverArgs:
     @pulumi.getter(name="pipelineConfig")
     def pipeline_config(self) -> Optional[pulumi.Input['ResolverPipelineConfigArgs']]:
         """
-        PipelineConfig.
+        The caching configuration for the resolver. See Pipeline Config.
         """
         return pulumi.get(self, "pipeline_config")
 
@@ -182,6 +202,18 @@ class ResolverArgs:
         pulumi.set(self, "response_template", value)
 
     @property
+    @pulumi.getter
+    def runtime(self) -> Optional[pulumi.Input['ResolverRuntimeArgs']]:
+        """
+        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[pulumi.Input['ResolverRuntimeArgs']]):
+        pulumi.set(self, "runtime", value)
+
+    @property
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> Optional[pulumi.Input['ResolverSyncConfigArgs']]:
         """
@@ -200,6 +232,7 @@ class _ResolverState:
                  api_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  caching_config: Optional[pulumi.Input['ResolverCachingConfigArgs']] = None,
+                 code: Optional[pulumi.Input[str]] = None,
                  data_source: Optional[pulumi.Input[str]] = None,
                  field: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -207,20 +240,23 @@ class _ResolverState:
                  pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None,
                  request_template: Optional[pulumi.Input[str]] = None,
                  response_template: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input['ResolverRuntimeArgs']] = None,
                  sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Resolver resources.
         :param pulumi.Input[str] api_id: API ID for the GraphQL API.
         :param pulumi.Input[str] arn: ARN
-        :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: CachingConfig.
+        :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: The Caching Config. See Caching Config.
+        :param pulumi.Input[str] code: The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         :param pulumi.Input[str] data_source: Data source name.
         :param pulumi.Input[str] field: Field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: PipelineConfig.
+        :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The caching configuration for the resolver. See Pipeline Config.
         :param pulumi.Input[str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input['ResolverRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
         :param pulumi.Input['ResolverSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         :param pulumi.Input[str] type: Type name from the schema defined in the GraphQL API.
         """
@@ -230,6 +266,8 @@ class _ResolverState:
             pulumi.set(__self__, "arn", arn)
         if caching_config is not None:
             pulumi.set(__self__, "caching_config", caching_config)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
         if field is not None:
@@ -244,6 +282,8 @@ class _ResolverState:
             pulumi.set(__self__, "request_template", request_template)
         if response_template is not None:
             pulumi.set(__self__, "response_template", response_template)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
         if sync_config is not None:
             pulumi.set(__self__, "sync_config", sync_config)
         if type is not None:
@@ -277,13 +317,25 @@ class _ResolverState:
     @pulumi.getter(name="cachingConfig")
     def caching_config(self) -> Optional[pulumi.Input['ResolverCachingConfigArgs']]:
         """
-        CachingConfig.
+        The Caching Config. See Caching Config.
         """
         return pulumi.get(self, "caching_config")
 
     @caching_config.setter
     def caching_config(self, value: Optional[pulumi.Input['ResolverCachingConfigArgs']]):
         pulumi.set(self, "caching_config", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code", value)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -337,7 +389,7 @@ class _ResolverState:
     @pulumi.getter(name="pipelineConfig")
     def pipeline_config(self) -> Optional[pulumi.Input['ResolverPipelineConfigArgs']]:
         """
-        PipelineConfig.
+        The caching configuration for the resolver. See Pipeline Config.
         """
         return pulumi.get(self, "pipeline_config")
 
@@ -368,6 +420,18 @@ class _ResolverState:
     @response_template.setter
     def response_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "response_template", value)
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[pulumi.Input['ResolverRuntimeArgs']]:
+        """
+        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[pulumi.Input['ResolverRuntimeArgs']]):
+        pulumi.set(self, "runtime", value)
 
     @property
     @pulumi.getter(name="syncConfig")
@@ -401,6 +465,7 @@ class Resolver(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  caching_config: Optional[pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']]] = None,
+                 code: Optional[pulumi.Input[str]] = None,
                  data_source: Optional[pulumi.Input[str]] = None,
                  field: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -408,6 +473,7 @@ class Resolver(pulumi.CustomResource):
                  pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
                  request_template: Optional[pulumi.Input[str]] = None,
                  response_template: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input[pulumi.InputType['ResolverRuntimeArgs']]] = None,
                  sync_config: Optional[pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -491,6 +557,26 @@ class Resolver(pulumi.CustomResource):
                 ],
             ))
         ```
+        ### JS
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.Resolver("example",
+            type="Query",
+            api_id=aws_appsync_graphql_api["test"]["id"],
+            field="pipelineTest",
+            kind="PIPELINE",
+            code=(lambda path: open(path).read())("some-code-dir"),
+            runtime=aws.appsync.ResolverRuntimeArgs(
+                name="APPSYNC_JS",
+                runtime_version="1.0.0",
+            ),
+            pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
+                functions=[aws_appsync_function["test"]["function_id"]],
+            ))
+        ```
 
         ## Import
 
@@ -503,14 +589,16 @@ class Resolver(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API ID for the GraphQL API.
-        :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: CachingConfig.
+        :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: The Caching Config. See Caching Config.
+        :param pulumi.Input[str] code: The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         :param pulumi.Input[str] data_source: Data source name.
         :param pulumi.Input[str] field: Field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: PipelineConfig.
+        :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: The caching configuration for the resolver. See Pipeline Config.
         :param pulumi.Input[str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[pulumi.InputType['ResolverRuntimeArgs']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
         :param pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         :param pulumi.Input[str] type: Type name from the schema defined in the GraphQL API.
         """
@@ -600,6 +688,26 @@ class Resolver(pulumi.CustomResource):
                 ],
             ))
         ```
+        ### JS
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.Resolver("example",
+            type="Query",
+            api_id=aws_appsync_graphql_api["test"]["id"],
+            field="pipelineTest",
+            kind="PIPELINE",
+            code=(lambda path: open(path).read())("some-code-dir"),
+            runtime=aws.appsync.ResolverRuntimeArgs(
+                name="APPSYNC_JS",
+                runtime_version="1.0.0",
+            ),
+            pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
+                functions=[aws_appsync_function["test"]["function_id"]],
+            ))
+        ```
 
         ## Import
 
@@ -626,6 +734,7 @@ class Resolver(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  caching_config: Optional[pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']]] = None,
+                 code: Optional[pulumi.Input[str]] = None,
                  data_source: Optional[pulumi.Input[str]] = None,
                  field: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -633,6 +742,7 @@ class Resolver(pulumi.CustomResource):
                  pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
                  request_template: Optional[pulumi.Input[str]] = None,
                  response_template: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input[pulumi.InputType['ResolverRuntimeArgs']]] = None,
                  sync_config: Optional[pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -648,6 +758,7 @@ class Resolver(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["caching_config"] = caching_config
+            __props__.__dict__["code"] = code
             __props__.__dict__["data_source"] = data_source
             if field is None and not opts.urn:
                 raise TypeError("Missing required property 'field'")
@@ -657,6 +768,7 @@ class Resolver(pulumi.CustomResource):
             __props__.__dict__["pipeline_config"] = pipeline_config
             __props__.__dict__["request_template"] = request_template
             __props__.__dict__["response_template"] = response_template
+            __props__.__dict__["runtime"] = runtime
             __props__.__dict__["sync_config"] = sync_config
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -675,6 +787,7 @@ class Resolver(pulumi.CustomResource):
             api_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             caching_config: Optional[pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']]] = None,
+            code: Optional[pulumi.Input[str]] = None,
             data_source: Optional[pulumi.Input[str]] = None,
             field: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
@@ -682,6 +795,7 @@ class Resolver(pulumi.CustomResource):
             pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
             request_template: Optional[pulumi.Input[str]] = None,
             response_template: Optional[pulumi.Input[str]] = None,
+            runtime: Optional[pulumi.Input[pulumi.InputType['ResolverRuntimeArgs']]] = None,
             sync_config: Optional[pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'Resolver':
         """
@@ -693,14 +807,16 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API ID for the GraphQL API.
         :param pulumi.Input[str] arn: ARN
-        :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: CachingConfig.
+        :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: The Caching Config. See Caching Config.
+        :param pulumi.Input[str] code: The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         :param pulumi.Input[str] data_source: Data source name.
         :param pulumi.Input[str] field: Field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: PipelineConfig.
+        :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: The caching configuration for the resolver. See Pipeline Config.
         :param pulumi.Input[str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        :param pulumi.Input[pulumi.InputType['ResolverRuntimeArgs']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
         :param pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         :param pulumi.Input[str] type: Type name from the schema defined in the GraphQL API.
         """
@@ -711,6 +827,7 @@ class Resolver(pulumi.CustomResource):
         __props__.__dict__["api_id"] = api_id
         __props__.__dict__["arn"] = arn
         __props__.__dict__["caching_config"] = caching_config
+        __props__.__dict__["code"] = code
         __props__.__dict__["data_source"] = data_source
         __props__.__dict__["field"] = field
         __props__.__dict__["kind"] = kind
@@ -718,6 +835,7 @@ class Resolver(pulumi.CustomResource):
         __props__.__dict__["pipeline_config"] = pipeline_config
         __props__.__dict__["request_template"] = request_template
         __props__.__dict__["response_template"] = response_template
+        __props__.__dict__["runtime"] = runtime
         __props__.__dict__["sync_config"] = sync_config
         __props__.__dict__["type"] = type
         return Resolver(resource_name, opts=opts, __props__=__props__)
@@ -742,9 +860,17 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter(name="cachingConfig")
     def caching_config(self) -> pulumi.Output[Optional['outputs.ResolverCachingConfig']]:
         """
-        CachingConfig.
+        The Caching Config. See Caching Config.
         """
         return pulumi.get(self, "caching_config")
+
+    @property
+    @pulumi.getter
+    def code(self) -> pulumi.Output[Optional[str]]:
+        """
+        The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        """
+        return pulumi.get(self, "code")
 
     @property
     @pulumi.getter(name="dataSource")
@@ -782,7 +908,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter(name="pipelineConfig")
     def pipeline_config(self) -> pulumi.Output[Optional['outputs.ResolverPipelineConfig']]:
         """
-        PipelineConfig.
+        The caching configuration for the resolver. See Pipeline Config.
         """
         return pulumi.get(self, "pipeline_config")
 
@@ -801,6 +927,14 @@ class Resolver(pulumi.CustomResource):
         Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         """
         return pulumi.get(self, "response_template")
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Output[Optional['outputs.ResolverRuntime']]:
+        """
+        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        """
+        return pulumi.get(self, "runtime")
 
     @property
     @pulumi.getter(name="syncConfig")

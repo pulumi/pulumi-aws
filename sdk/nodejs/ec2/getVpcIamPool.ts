@@ -90,7 +90,7 @@ export interface GetVpcIamPoolResult {
      */
     readonly addressFamily: string;
     /**
-     * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+     * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
      */
     readonly allocationDefaultNetmaskLength: number;
     /**
@@ -114,7 +114,7 @@ export interface GetVpcIamPoolResult {
      */
     readonly autoImport: boolean;
     /**
-     * Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+     * Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
      */
     readonly awsService: string;
     /**
@@ -138,7 +138,7 @@ export interface GetVpcIamPoolResult {
     readonly locale: string;
     readonly poolDepth: number;
     /**
-     * Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+     * Defines whether or not IPv6 pool space is publicly advertisable over the internet.
      */
     readonly publiclyAdvertisable: boolean;
     /**

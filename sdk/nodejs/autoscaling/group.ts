@@ -402,6 +402,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly desiredCapacity!: pulumi.Output<number>;
     /**
+     * The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+     */
+    public readonly desiredCapacityType!: pulumi.Output<string | undefined>;
+    /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      */
     public readonly enabledMetrics!: pulumi.Output<Metric[] | undefined>;
@@ -572,6 +576,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["defaultCooldown"] = state ? state.defaultCooldown : undefined;
             resourceInputs["defaultInstanceWarmup"] = state ? state.defaultInstanceWarmup : undefined;
             resourceInputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
+            resourceInputs["desiredCapacityType"] = state ? state.desiredCapacityType : undefined;
             resourceInputs["enabledMetrics"] = state ? state.enabledMetrics : undefined;
             resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
             resourceInputs["forceDeleteWarmPool"] = state ? state.forceDeleteWarmPool : undefined;
@@ -616,6 +621,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["defaultCooldown"] = args ? args.defaultCooldown : undefined;
             resourceInputs["defaultInstanceWarmup"] = args ? args.defaultInstanceWarmup : undefined;
             resourceInputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
+            resourceInputs["desiredCapacityType"] = args ? args.desiredCapacityType : undefined;
             resourceInputs["enabledMetrics"] = args ? args.enabledMetrics : undefined;
             resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
             resourceInputs["forceDeleteWarmPool"] = args ? args.forceDeleteWarmPool : undefined;
@@ -687,6 +693,10 @@ export interface GroupState {
      * Capacity below.)
      */
     desiredCapacity?: pulumi.Input<number>;
+    /**
+     * The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+     */
+    desiredCapacityType?: pulumi.Input<string>;
     /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      */
@@ -869,6 +879,10 @@ export interface GroupArgs {
      * Capacity below.)
      */
     desiredCapacity?: pulumi.Input<number>;
+    /**
+     * The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+     */
+    desiredCapacityType?: pulumi.Input<string>;
     /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      */

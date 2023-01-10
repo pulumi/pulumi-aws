@@ -25,6 +25,11 @@ export type BucketPolicy = import("./bucketPolicy").BucketPolicy;
 export const BucketPolicy: typeof import("./bucketPolicy").BucketPolicy = null as any;
 utilities.lazyLoad(exports, ["BucketPolicy"], () => require("./bucketPolicy"));
 
+export { GetMultiRegionAccessPointArgs, GetMultiRegionAccessPointResult, GetMultiRegionAccessPointOutputArgs } from "./getMultiRegionAccessPoint";
+export const getMultiRegionAccessPoint: typeof import("./getMultiRegionAccessPoint").getMultiRegionAccessPoint = null as any;
+export const getMultiRegionAccessPointOutput: typeof import("./getMultiRegionAccessPoint").getMultiRegionAccessPointOutput = null as any;
+utilities.lazyLoad(exports, ["getMultiRegionAccessPoint","getMultiRegionAccessPointOutput"], () => require("./getMultiRegionAccessPoint"));
+
 export { MultiRegionAccessPointArgs, MultiRegionAccessPointState } from "./multiRegionAccessPoint";
 export type MultiRegionAccessPoint = import("./multiRegionAccessPoint").MultiRegionAccessPoint;
 export const MultiRegionAccessPoint: typeof import("./multiRegionAccessPoint").MultiRegionAccessPoint = null as any;

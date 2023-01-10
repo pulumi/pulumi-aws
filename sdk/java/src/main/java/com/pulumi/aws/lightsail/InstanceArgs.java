@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.lightsail;
 
+import com.pulumi.aws.lightsail.inputs.InstanceAddOnArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final InstanceArgs Empty = new InstanceArgs();
+
+    /**
+     * The add on configuration for the instance. Detailed below.
+     * 
+     */
+    @Import(name="addOn")
+    private @Nullable Output<InstanceAddOnArgs> addOn;
+
+    /**
+     * @return The add on configuration for the instance. Detailed below.
+     * 
+     */
+    public Optional<Output<InstanceAddOnArgs>> addOn() {
+        return Optional.ofNullable(this.addOn);
+    }
 
     /**
      * The Availability Zone in which to create your
@@ -143,6 +159,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     private InstanceArgs() {}
 
     private InstanceArgs(InstanceArgs $) {
+        this.addOn = $.addOn;
         this.availabilityZone = $.availabilityZone;
         this.blueprintId = $.blueprintId;
         this.bundleId = $.bundleId;
@@ -169,6 +186,27 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(InstanceArgs defaults) {
             $ = new InstanceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param addOn The add on configuration for the instance. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addOn(@Nullable Output<InstanceAddOnArgs> addOn) {
+            $.addOn = addOn;
+            return this;
+        }
+
+        /**
+         * @param addOn The add on configuration for the instance. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addOn(InstanceAddOnArgs addOn) {
+            return addOn(Output.of(addOn));
         }
 
         /**

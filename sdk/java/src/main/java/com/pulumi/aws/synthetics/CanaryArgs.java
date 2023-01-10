@@ -278,14 +278,14 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+     * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
      * 
      */
     @Import(name="zipFile")
     private @Nullable Output<String> zipFile;
 
     /**
-     * @return ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+     * @return ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
      * 
      */
     public Optional<Output<String>> zipFile() {
@@ -691,7 +691,7 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zipFile ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+         * @param zipFile ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
          * 
          * @return builder
          * 
@@ -702,7 +702,7 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zipFile ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+         * @param zipFile ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
          * 
          * @return builder
          * 

@@ -866,6 +866,7 @@ class EndpointS3SettingsArgs:
                  encoding_type: Optional[pulumi.Input[str]] = None,
                  encryption_mode: Optional[pulumi.Input[str]] = None,
                  external_table_definition: Optional[pulumi.Input[str]] = None,
+                 ignore_header_rows: Optional[pulumi.Input[int]] = None,
                  ignore_headers_row: Optional[pulumi.Input[int]] = None,
                  include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
                  max_file_size: Optional[pulumi.Input[int]] = None,
@@ -887,7 +888,7 @@ class EndpointS3SettingsArgs:
         :param pulumi.Input[bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
-        :param pulumi.Input[int] cdc_min_file_size: Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+        :param pulumi.Input[int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
         :param pulumi.Input[str] cdc_path: Folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
         :param pulumi.Input[str] compression_type: Set to compress target files. Default is `NONE`. Valid values are `GZIP` and `NONE`.
         :param pulumi.Input[str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
@@ -904,7 +905,8 @@ class EndpointS3SettingsArgs:
         :param pulumi.Input[str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. Default is `rle_dictionary`.
         :param pulumi.Input[str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
-        :param pulumi.Input[int] ignore_headers_row: When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+        :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+        :param pulumi.Input[int] ignore_headers_row: Deprecated. This setting has no effect. Will be removed in a future version.
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
         :param pulumi.Input[bool] parquet_timestamp_in_millisecond: - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
@@ -968,6 +970,8 @@ class EndpointS3SettingsArgs:
             pulumi.set(__self__, "encryption_mode", encryption_mode)
         if external_table_definition is not None:
             pulumi.set(__self__, "external_table_definition", external_table_definition)
+        if ignore_header_rows is not None:
+            pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
         if ignore_headers_row is not None:
             pulumi.set(__self__, "ignore_headers_row", ignore_headers_row)
         if include_op_for_full_load is not None:
@@ -1083,7 +1087,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="cdcMinFileSize")
     def cdc_min_file_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum file size, defined in megabytes, to reach for a file output. Default is `32`.
+        Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
         """
         return pulumi.get(self, "cdc_min_file_size")
 
@@ -1284,10 +1288,22 @@ class EndpointS3SettingsArgs:
         pulumi.set(self, "external_table_definition", value)
 
     @property
+    @pulumi.getter(name="ignoreHeaderRows")
+    def ignore_header_rows(self) -> Optional[pulumi.Input[int]]:
+        """
+        When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+        """
+        return pulumi.get(self, "ignore_header_rows")
+
+    @ignore_header_rows.setter
+    def ignore_header_rows(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ignore_header_rows", value)
+
+    @property
     @pulumi.getter(name="ignoreHeadersRow")
     def ignore_headers_row(self) -> Optional[pulumi.Input[int]]:
         """
-        When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
+        Deprecated. This setting has no effect. Will be removed in a future version.
         """
         return pulumi.get(self, "ignore_headers_row")
 

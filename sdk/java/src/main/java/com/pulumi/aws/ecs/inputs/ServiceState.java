@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ecs.inputs;
 
+import com.pulumi.aws.ecs.inputs.ServiceAlarmsArgs;
 import com.pulumi.aws.ecs.inputs.ServiceCapacityProviderStrategyArgs;
 import com.pulumi.aws.ecs.inputs.ServiceDeploymentCircuitBreakerArgs;
 import com.pulumi.aws.ecs.inputs.ServiceDeploymentControllerArgs;
@@ -27,6 +28,21 @@ import javax.annotation.Nullable;
 public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceState Empty = new ServiceState();
+
+    /**
+     * Information about the CloudWatch alarms. See below.
+     * 
+     */
+    @Import(name="alarms")
+    private @Nullable Output<ServiceAlarmsArgs> alarms;
+
+    /**
+     * @return Information about the CloudWatch alarms. See below.
+     * 
+     */
+    public Optional<Output<ServiceAlarmsArgs>> alarms() {
+        return Optional.ofNullable(this.alarms);
+    }
 
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
@@ -451,6 +467,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     private ServiceState() {}
 
     private ServiceState(ServiceState $) {
+        this.alarms = $.alarms;
         this.capacityProviderStrategies = $.capacityProviderStrategies;
         this.cluster = $.cluster;
         this.deploymentCircuitBreaker = $.deploymentCircuitBreaker;
@@ -497,6 +514,27 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ServiceState defaults) {
             $ = new ServiceState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param alarms Information about the CloudWatch alarms. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alarms(@Nullable Output<ServiceAlarmsArgs> alarms) {
+            $.alarms = alarms;
+            return this;
+        }
+
+        /**
+         * @param alarms Information about the CloudWatch alarms. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alarms(ServiceAlarmsArgs alarms) {
+            return alarms(Output.of(alarms));
         }
 
         /**

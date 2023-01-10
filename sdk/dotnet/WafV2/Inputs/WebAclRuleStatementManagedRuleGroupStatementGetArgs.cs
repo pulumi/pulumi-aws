@@ -25,6 +25,18 @@ namespace Pulumi.Aws.WafV2.Inputs
             set => _excludedRules = value;
         }
 
+        [Input("managedRuleGroupConfigs")]
+        private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigGetArgs>? _managedRuleGroupConfigs;
+
+        /// <summary>
+        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+        /// </summary>
+        public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigGetArgs> ManagedRuleGroupConfigs
+        {
+            get => _managedRuleGroupConfigs ?? (_managedRuleGroupConfigs = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigGetArgs>());
+            set => _managedRuleGroupConfigs = value;
+        }
+
         /// <summary>
         /// Name of the managed rule group.
         /// </summary>

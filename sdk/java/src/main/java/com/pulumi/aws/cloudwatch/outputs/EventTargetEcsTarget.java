@@ -44,7 +44,7 @@ public final class EventTargetEcsTarget {
      */
     private @Nullable String launchType;
     /**
-     * @return Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
+     * @return Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
      * 
      */
     private @Nullable EventTargetEcsTargetNetworkConfiguration networkConfiguration;
@@ -54,7 +54,7 @@ public final class EventTargetEcsTarget {
      */
     private @Nullable List<EventTargetEcsTargetPlacementConstraint> placementConstraints;
     /**
-     * @return Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * @return Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     private @Nullable String platformVersion;
@@ -69,7 +69,7 @@ public final class EventTargetEcsTarget {
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return The number of tasks to create based on the TaskDefinition. The default is 1.
+     * @return The number of tasks to create based on the TaskDefinition. Defaults to `1`.
      * 
      */
     private @Nullable Integer taskCount;
@@ -116,7 +116,7 @@ public final class EventTargetEcsTarget {
         return Optional.ofNullable(this.launchType);
     }
     /**
-     * @return Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
+     * @return Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
      * 
      */
     public Optional<EventTargetEcsTargetNetworkConfiguration> networkConfiguration() {
@@ -130,7 +130,7 @@ public final class EventTargetEcsTarget {
         return this.placementConstraints == null ? List.of() : this.placementConstraints;
     }
     /**
-     * @return Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * @return Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     public Optional<String> platformVersion() {
@@ -151,7 +151,7 @@ public final class EventTargetEcsTarget {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return The number of tasks to create based on the TaskDefinition. The default is 1.
+     * @return The number of tasks to create based on the TaskDefinition. Defaults to `1`.
      * 
      */
     public Optional<Integer> taskCount() {

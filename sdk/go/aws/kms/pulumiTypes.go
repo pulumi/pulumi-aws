@@ -541,8 +541,12 @@ func (o GetSecretSecretArrayOutput) Index(i pulumi.IntInput) GetSecretSecretOutp
 type GetSecretsSecret struct {
 	// An optional mapping that makes up the Encryption Context for the secret.
 	Context map[string]string `pulumi:"context"`
+	// The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+	EncryptionAlgorithm *string `pulumi:"encryptionAlgorithm"`
 	// An optional list of Grant Tokens for the secret.
 	GrantTokens []string `pulumi:"grantTokens"`
+	// Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+	KeyId *string `pulumi:"keyId"`
 	// Name to export this secret under in the attributes.
 	Name string `pulumi:"name"`
 	// Base64 encoded payload, as returned from a KMS encrypt operation.
@@ -563,8 +567,12 @@ type GetSecretsSecretInput interface {
 type GetSecretsSecretArgs struct {
 	// An optional mapping that makes up the Encryption Context for the secret.
 	Context pulumi.StringMapInput `pulumi:"context"`
+	// The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+	EncryptionAlgorithm pulumi.StringPtrInput `pulumi:"encryptionAlgorithm"`
 	// An optional list of Grant Tokens for the secret.
 	GrantTokens pulumi.StringArrayInput `pulumi:"grantTokens"`
+	// Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
 	// Name to export this secret under in the attributes.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Base64 encoded payload, as returned from a KMS encrypt operation.
@@ -627,9 +635,19 @@ func (o GetSecretsSecretOutput) Context() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetSecretsSecret) map[string]string { return v.Context }).(pulumi.StringMapOutput)
 }
 
+// The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+func (o GetSecretsSecretOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecretsSecret) *string { return v.EncryptionAlgorithm }).(pulumi.StringPtrOutput)
+}
+
 // An optional list of Grant Tokens for the secret.
 func (o GetSecretsSecretOutput) GrantTokens() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecretsSecret) []string { return v.GrantTokens }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+func (o GetSecretsSecretOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecretsSecret) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
 // Name to export this secret under in the attributes.

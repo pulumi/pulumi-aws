@@ -31,14 +31,13 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-        :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.
-        :param pulumi.Input[str] domain_name: The domain name.
+        :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-        :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
         :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings. See Default Space Settings below.
-        :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See Domain Settings below.
+        :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain's settings.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -79,7 +78,7 @@ class DomainArgs:
     @pulumi.getter(name="defaultUserSettings")
     def default_user_settings(self) -> pulumi.Input['DomainDefaultUserSettingsArgs']:
         """
-        The default user settings. See Default User Settings below.
+        The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
         """
         return pulumi.get(self, "default_user_settings")
 
@@ -90,9 +89,6 @@ class DomainArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
-        """
-        The domain name.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -139,7 +135,7 @@ class DomainArgs:
     @pulumi.getter(name="appSecurityGroupManagement")
     def app_security_group_management(self) -> Optional[pulumi.Input[str]]:
         """
-        The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
         """
         return pulumi.get(self, "app_security_group_management")
 
@@ -163,7 +159,7 @@ class DomainArgs:
     @pulumi.getter(name="domainSettings")
     def domain_settings(self) -> Optional[pulumi.Input['DomainDomainSettingsArgs']]:
         """
-        The domain settings. See Domain Settings below.
+        The domain's settings.
         """
         return pulumi.get(self, "domain_settings")
 
@@ -232,13 +228,12 @@ class _DomainState:
         """
         Input properties used for looking up and filtering Domain resources.
         :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-        :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings. See Default Space Settings below.
-        :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.
-        :param pulumi.Input[str] domain_name: The domain name.
-        :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See Domain Settings below.
+        :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain's settings.
         :param pulumi.Input[str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
@@ -303,7 +298,7 @@ class _DomainState:
     @pulumi.getter(name="appSecurityGroupManagement")
     def app_security_group_management(self) -> Optional[pulumi.Input[str]]:
         """
-        The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
         """
         return pulumi.get(self, "app_security_group_management")
 
@@ -351,7 +346,7 @@ class _DomainState:
     @pulumi.getter(name="defaultUserSettings")
     def default_user_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsArgs']]:
         """
-        The default user settings. See Default User Settings below.
+        The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
         """
         return pulumi.get(self, "default_user_settings")
 
@@ -362,9 +357,6 @@ class _DomainState:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The domain name.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -375,7 +367,7 @@ class _DomainState:
     @pulumi.getter(name="domainSettings")
     def domain_settings(self) -> Optional[pulumi.Input['DomainDomainSettingsArgs']]:
         """
-        The domain settings. See Domain Settings below.
+        The domain's settings.
         """
         return pulumi.get(self, "domain_settings")
 
@@ -532,14 +524,6 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain = aws.sagemaker.Domain("exampleDomain",
-            domain_name="example",
-            auth_mode="IAM",
-            vpc_id=aws_vpc["test"]["id"],
-            subnet_ids=[aws_subnet["test"]["id"]],
-            default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
-                execution_role=aws_iam_role["test"]["arn"],
-            ))
         example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -550,6 +534,14 @@ class Domain(pulumi.CustomResource):
         example_role = aws.iam.Role("exampleRole",
             path="/",
             assume_role_policy=example_policy_document.json)
+        example_domain = aws.sagemaker.Domain("exampleDomain",
+            domain_name="example",
+            auth_mode="IAM",
+            vpc_id=aws_vpc["example"]["id"],
+            subnet_ids=[aws_subnet["example"]["id"]],
+            default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
+                execution_role=example_role.arn,
+            ))
         ```
         ### Using Custom Images
 
@@ -557,30 +549,30 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_image = aws.sagemaker.Image("testImage",
+        example_image = aws.sagemaker.Image("exampleImage",
             image_name="example",
-            role_arn=aws_iam_role["test"]["arn"])
-        test_app_image_config = aws.sagemaker.AppImageConfig("testAppImageConfig",
+            role_arn=aws_iam_role["example"]["arn"])
+        example_app_image_config = aws.sagemaker.AppImageConfig("exampleAppImageConfig",
             app_image_config_name="example",
             kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
                 kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
                     name="example",
                 ),
             ))
-        test_image_version = aws.sagemaker.ImageVersion("testImageVersion",
-            image_name=test_image.id,
+        example_image_version = aws.sagemaker.ImageVersion("exampleImageVersion",
+            image_name=example_image.id,
             base_image="base-image")
-        test_domain = aws.sagemaker.Domain("testDomain",
+        example_domain = aws.sagemaker.Domain("exampleDomain",
             domain_name="example",
             auth_mode="IAM",
-            vpc_id=aws_vpc["test"]["id"],
-            subnet_ids=[aws_subnet["test"]["id"]],
+            vpc_id=aws_vpc["example"]["id"],
+            subnet_ids=[aws_subnet["example"]["id"]],
             default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
-                execution_role=aws_iam_role["test"]["arn"],
+                execution_role=aws_iam_role["example"]["arn"],
                 kernel_gateway_app_settings=aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs(
                     custom_images=[aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs(
-                        app_image_config_name=test_app_image_config.app_image_config_name,
-                        image_name=test_image_version.image_name,
+                        app_image_config_name=example_app_image_config.app_image_config_name,
+                        image_name=example_image_version.image_name,
                     )],
                 ),
             ))
@@ -597,12 +589,11 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-        :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         :param pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']] default_space_settings: The default space settings. See Default Space Settings below.
-        :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See Default User Settings below.
-        :param pulumi.Input[str] domain_name: The domain name.
-        :param pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']] domain_settings: The domain settings. See Domain Settings below.
+        :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        :param pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']] domain_settings: The domain's settings.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
@@ -625,14 +616,6 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain = aws.sagemaker.Domain("exampleDomain",
-            domain_name="example",
-            auth_mode="IAM",
-            vpc_id=aws_vpc["test"]["id"],
-            subnet_ids=[aws_subnet["test"]["id"]],
-            default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
-                execution_role=aws_iam_role["test"]["arn"],
-            ))
         example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -643,6 +626,14 @@ class Domain(pulumi.CustomResource):
         example_role = aws.iam.Role("exampleRole",
             path="/",
             assume_role_policy=example_policy_document.json)
+        example_domain = aws.sagemaker.Domain("exampleDomain",
+            domain_name="example",
+            auth_mode="IAM",
+            vpc_id=aws_vpc["example"]["id"],
+            subnet_ids=[aws_subnet["example"]["id"]],
+            default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
+                execution_role=example_role.arn,
+            ))
         ```
         ### Using Custom Images
 
@@ -650,30 +641,30 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_image = aws.sagemaker.Image("testImage",
+        example_image = aws.sagemaker.Image("exampleImage",
             image_name="example",
-            role_arn=aws_iam_role["test"]["arn"])
-        test_app_image_config = aws.sagemaker.AppImageConfig("testAppImageConfig",
+            role_arn=aws_iam_role["example"]["arn"])
+        example_app_image_config = aws.sagemaker.AppImageConfig("exampleAppImageConfig",
             app_image_config_name="example",
             kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
                 kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
                     name="example",
                 ),
             ))
-        test_image_version = aws.sagemaker.ImageVersion("testImageVersion",
-            image_name=test_image.id,
+        example_image_version = aws.sagemaker.ImageVersion("exampleImageVersion",
+            image_name=example_image.id,
             base_image="base-image")
-        test_domain = aws.sagemaker.Domain("testDomain",
+        example_domain = aws.sagemaker.Domain("exampleDomain",
             domain_name="example",
             auth_mode="IAM",
-            vpc_id=aws_vpc["test"]["id"],
-            subnet_ids=[aws_subnet["test"]["id"]],
+            vpc_id=aws_vpc["example"]["id"],
+            subnet_ids=[aws_subnet["example"]["id"]],
             default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
-                execution_role=aws_iam_role["test"]["arn"],
+                execution_role=aws_iam_role["example"]["arn"],
                 kernel_gateway_app_settings=aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs(
                     custom_images=[aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs(
-                        app_image_config_name=test_app_image_config.app_image_config_name,
-                        image_name=test_image_version.image_name,
+                        app_image_config_name=example_app_image_config.app_image_config_name,
+                        image_name=example_image_version.image_name,
                     )],
                 ),
             ))
@@ -787,13 +778,12 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-        :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         :param pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']] default_space_settings: The default space settings. See Default Space Settings below.
-        :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See Default User Settings below.
-        :param pulumi.Input[str] domain_name: The domain name.
-        :param pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']] domain_settings: The domain settings. See Domain Settings below.
+        :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
+        :param pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']] domain_settings: The domain's settings.
         :param pulumi.Input[str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
@@ -841,7 +831,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="appSecurityGroupManagement")
     def app_security_group_management(self) -> pulumi.Output[Optional[str]]:
         """
-        The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
         """
         return pulumi.get(self, "app_security_group_management")
 
@@ -873,23 +863,20 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="defaultUserSettings")
     def default_user_settings(self) -> pulumi.Output['outputs.DomainDefaultUserSettings']:
         """
-        The default user settings. See Default User Settings below.
+        The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
         """
         return pulumi.get(self, "default_user_settings")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
-        """
-        The domain name.
-        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="domainSettings")
     def domain_settings(self) -> pulumi.Output[Optional['outputs.DomainDomainSettings']]:
         """
-        The domain settings. See Domain Settings below.
+        The domain's settings.
         """
         return pulumi.get(self, "domain_settings")
 

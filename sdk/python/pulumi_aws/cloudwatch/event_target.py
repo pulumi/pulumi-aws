@@ -51,7 +51,7 @@ class EventTargetArgs:
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] target_id: The unique target assignment ID.  If missing, will generate a random, unique id.
+        :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "rule", rule)
@@ -282,7 +282,7 @@ class EventTargetArgs:
     @pulumi.getter(name="targetId")
     def target_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique target assignment ID.  If missing, will generate a random, unique id.
+        The unique target assignment ID. If missing, will generate a random, unique id.
         """
         return pulumi.get(self, "target_id")
 
@@ -329,7 +329,7 @@ class _EventTargetState:
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] target_id: The unique target assignment ID.  If missing, will generate a random, unique id.
+        :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -562,7 +562,7 @@ class _EventTargetState:
     @pulumi.getter(name="targetId")
     def target_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique target assignment ID.  If missing, will generate a random, unique id.
+        The unique target assignment ID. If missing, will generate a random, unique id.
         """
         return pulumi.get(self, "target_id")
 
@@ -841,25 +841,31 @@ class EventTarget(pulumi.CustomResource):
             tags={
                 "Environment": "example",
             })
-        example_log_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
-            resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=[
-                    "events.amazonaws.com",
-                    "delivery.logs.amazonaws.com",
-                ],
-                type="Service",
-            )],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="ArnEquals",
-                values=[example_event_rule.arn],
-                variable="aws:SourceArn",
-            )],
-        )])
+        example_log_policy = aws.iam.get_policy_document_output(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["logs:CreateLogStream"],
+                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["events.amazonaws.com"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["logs:PutLogEvents"],
+                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*:*")],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["events.amazonaws.com"],
+                )],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="ArnEquals",
+                    values=[example_event_rule.arn],
+                    variable="aws:SourceArn",
+                )],
+            ),
+        ])
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
             policy_document=example_log_policy.json,
             policy_name="guardduty-log-publishing-policy")
@@ -894,7 +900,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] target_id: The unique target assignment ID.  If missing, will generate a random, unique id.
+        :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
         ...
     @overload
@@ -1149,25 +1155,31 @@ class EventTarget(pulumi.CustomResource):
             tags={
                 "Environment": "example",
             })
-        example_log_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
-            resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=[
-                    "events.amazonaws.com",
-                    "delivery.logs.amazonaws.com",
-                ],
-                type="Service",
-            )],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="ArnEquals",
-                values=[example_event_rule.arn],
-                variable="aws:SourceArn",
-            )],
-        )])
+        example_log_policy = aws.iam.get_policy_document_output(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["logs:CreateLogStream"],
+                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["events.amazonaws.com"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["logs:PutLogEvents"],
+                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*:*")],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["events.amazonaws.com"],
+                )],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="ArnEquals",
+                    values=[example_event_rule.arn],
+                    variable="aws:SourceArn",
+                )],
+            ),
+        ])
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
             policy_document=example_log_policy.json,
             policy_name="guardduty-log-publishing-policy")
@@ -1296,7 +1308,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] target_id: The unique target assignment ID.  If missing, will generate a random, unique id.
+        :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1453,7 +1465,7 @@ class EventTarget(pulumi.CustomResource):
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Output[str]:
         """
-        The unique target assignment ID.  If missing, will generate a random, unique id.
+        The unique target assignment ID. If missing, will generate a random, unique id.
         """
         return pulumi.get(self, "target_id")
 

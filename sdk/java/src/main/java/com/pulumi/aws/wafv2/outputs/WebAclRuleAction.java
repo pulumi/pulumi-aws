@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleActionAllow;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleActionBlock;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleActionCaptcha;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleActionChallenge;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleActionCount;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -29,6 +30,11 @@ public final class WebAclRuleAction {
      * 
      */
     private @Nullable WebAclRuleActionCaptcha captcha;
+    /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
+     * 
+     */
+    private @Nullable WebAclRuleActionChallenge challenge;
     /**
      * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
      * 
@@ -58,6 +64,13 @@ public final class WebAclRuleAction {
         return Optional.ofNullable(this.captcha);
     }
     /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
+     * 
+     */
+    public Optional<WebAclRuleActionChallenge> challenge() {
+        return Optional.ofNullable(this.challenge);
+    }
+    /**
      * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
      * 
      */
@@ -77,6 +90,7 @@ public final class WebAclRuleAction {
         private @Nullable WebAclRuleActionAllow allow;
         private @Nullable WebAclRuleActionBlock block;
         private @Nullable WebAclRuleActionCaptcha captcha;
+        private @Nullable WebAclRuleActionChallenge challenge;
         private @Nullable WebAclRuleActionCount count;
         public Builder() {}
         public Builder(WebAclRuleAction defaults) {
@@ -84,6 +98,7 @@ public final class WebAclRuleAction {
     	      this.allow = defaults.allow;
     	      this.block = defaults.block;
     	      this.captcha = defaults.captcha;
+    	      this.challenge = defaults.challenge;
     	      this.count = defaults.count;
         }
 
@@ -103,6 +118,11 @@ public final class WebAclRuleAction {
             return this;
         }
         @CustomType.Setter
+        public Builder challenge(@Nullable WebAclRuleActionChallenge challenge) {
+            this.challenge = challenge;
+            return this;
+        }
+        @CustomType.Setter
         public Builder count(@Nullable WebAclRuleActionCount count) {
             this.count = count;
             return this;
@@ -112,6 +132,7 @@ public final class WebAclRuleAction {
             o.allow = allow;
             o.block = block;
             o.captcha = captcha;
+            o.challenge = challenge;
             o.count = count;
             return o;
         }

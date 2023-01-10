@@ -18,6 +18,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRule> ExcludedRules;
         /// <summary>
+        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> ManagedRuleGroupConfigs;
+        /// <summary>
         /// Name of the managed rule group.
         /// </summary>
         public readonly string Name;
@@ -42,6 +46,8 @@ namespace Pulumi.Aws.WafV2.Outputs
         private WebAclRuleStatementManagedRuleGroupStatement(
             ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules,
 
+            ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs,
+
             string name,
 
             ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides,
@@ -53,6 +59,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             string? version)
         {
             ExcludedRules = excludedRules;
+            ManagedRuleGroupConfigs = managedRuleGroupConfigs;
             Name = name;
             RuleActionOverrides = ruleActionOverrides;
             ScopeDownStatement = scopeDownStatement;

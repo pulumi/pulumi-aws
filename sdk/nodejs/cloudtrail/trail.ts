@@ -118,48 +118,6 @@ import * as utilities from "../utilities";
  *     readWriteType: "All",
  * }]});
  * ```
- * ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const not-important-bucket-1 = aws.s3.getBucket({
- *     bucket: "not-important-bucket-1",
- * });
- * const not-important-bucket-2 = aws.s3.getBucket({
- *     bucket: "not-important-bucket-2",
- * });
- * const example = new aws.cloudtrail.Trail("example", {advancedEventSelectors: [
- *     {
- *         fieldSelectors: [
- *             {
- *                 equals: ["Data"],
- *                 field: "eventCategory",
- *             },
- *             {
- *                 field: "resources.ARN",
- *                 notEquals: [
- *                     not_important_bucket_1.then(not_important_bucket_1 => `${not_important_bucket_1.arn}/`),
- *                     not_important_bucket_2.then(not_important_bucket_2 => `${not_important_bucket_2.arn}/`),
- *                 ],
- *             },
- *             {
- *                 equals: ["AWS::S3::Object"],
- *                 field: "resources.type",
- *             },
- *         ],
- *         name: "Log all S3 objects events except for two S3 buckets",
- *     },
- *     {
- *         fieldSelectors: [{
- *             equals: ["Management"],
- *             field: "eventCategory",
- *         }],
- *         name: "Log readOnly and writeOnly management events",
- *     },
- * ]});
- * ```
  * ### Sending Events to CloudWatch Logs
  *
  * ```typescript

@@ -97,7 +97,7 @@ class GetVpcIamPoolResult:
     @pulumi.getter(name="allocationDefaultNetmaskLength")
     def allocation_default_netmask_length(self) -> int:
         """
-        A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
+        A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
         """
         return pulumi.get(self, "allocation_default_netmask_length")
 
@@ -145,7 +145,7 @@ class GetVpcIamPoolResult:
     @pulumi.getter(name="awsService")
     def aws_service(self) -> str:
         """
-        Limits which service in AWS that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
+        Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
         """
         return pulumi.get(self, "aws_service")
 
@@ -205,7 +205,7 @@ class GetVpcIamPoolResult:
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> bool:
         """
-        Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet.
+        Defines whether or not IPv6 pool space is publicly advertisable over the internet.
         """
         return pulumi.get(self, "publicly_advertisable")
 

@@ -110,6 +110,39 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// });
     /// ```
+    /// ### JS
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AppSync.Resolver("example", new()
+    ///     {
+    ///         Type = "Query",
+    ///         ApiId = aws_appsync_graphql_api.Test.Id,
+    ///         Field = "pipelineTest",
+    ///         Kind = "PIPELINE",
+    ///         Code = File.ReadAllText("some-code-dir"),
+    ///         Runtime = new Aws.AppSync.Inputs.ResolverRuntimeArgs
+    ///         {
+    ///             Name = "APPSYNC_JS",
+    ///             RuntimeVersion = "1.0.0",
+    ///         },
+    ///         PipelineConfig = new Aws.AppSync.Inputs.ResolverPipelineConfigArgs
+    ///         {
+    ///             Functions = new[]
+    ///             {
+    ///                 aws_appsync_function.Test.Function_id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -135,10 +168,16 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// CachingConfig.
+        /// The Caching Config. See Caching Config.
         /// </summary>
         [Output("cachingConfig")]
         public Output<Outputs.ResolverCachingConfig?> CachingConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        /// </summary>
+        [Output("code")]
+        public Output<string?> Code { get; private set; } = null!;
 
         /// <summary>
         /// Data source name.
@@ -165,7 +204,7 @@ namespace Pulumi.Aws.AppSync
         public Output<int?> MaxBatchSize { get; private set; } = null!;
 
         /// <summary>
-        /// PipelineConfig.
+        /// The caching configuration for the resolver. See Pipeline Config.
         /// </summary>
         [Output("pipelineConfig")]
         public Output<Outputs.ResolverPipelineConfig?> PipelineConfig { get; private set; } = null!;
@@ -181,6 +220,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Output("responseTemplate")]
         public Output<string?> ResponseTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        /// </summary>
+        [Output("runtime")]
+        public Output<Outputs.ResolverRuntime?> Runtime { get; private set; } = null!;
 
         /// <summary>
         /// Describes a Sync configuration for a resolver. See Sync Config.
@@ -247,10 +292,16 @@ namespace Pulumi.Aws.AppSync
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// CachingConfig.
+        /// The Caching Config. See Caching Config.
         /// </summary>
         [Input("cachingConfig")]
         public Input<Inputs.ResolverCachingConfigArgs>? CachingConfig { get; set; }
+
+        /// <summary>
+        /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        /// </summary>
+        [Input("code")]
+        public Input<string>? Code { get; set; }
 
         /// <summary>
         /// Data source name.
@@ -277,7 +328,7 @@ namespace Pulumi.Aws.AppSync
         public Input<int>? MaxBatchSize { get; set; }
 
         /// <summary>
-        /// PipelineConfig.
+        /// The caching configuration for the resolver. See Pipeline Config.
         /// </summary>
         [Input("pipelineConfig")]
         public Input<Inputs.ResolverPipelineConfigArgs>? PipelineConfig { get; set; }
@@ -293,6 +344,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("responseTemplate")]
         public Input<string>? ResponseTemplate { get; set; }
+
+        /// <summary>
+        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        /// </summary>
+        [Input("runtime")]
+        public Input<Inputs.ResolverRuntimeArgs>? Runtime { get; set; }
 
         /// <summary>
         /// Describes a Sync configuration for a resolver. See Sync Config.
@@ -327,10 +384,16 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// CachingConfig.
+        /// The Caching Config. See Caching Config.
         /// </summary>
         [Input("cachingConfig")]
         public Input<Inputs.ResolverCachingConfigGetArgs>? CachingConfig { get; set; }
+
+        /// <summary>
+        /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        /// </summary>
+        [Input("code")]
+        public Input<string>? Code { get; set; }
 
         /// <summary>
         /// Data source name.
@@ -357,7 +420,7 @@ namespace Pulumi.Aws.AppSync
         public Input<int>? MaxBatchSize { get; set; }
 
         /// <summary>
-        /// PipelineConfig.
+        /// The caching configuration for the resolver. See Pipeline Config.
         /// </summary>
         [Input("pipelineConfig")]
         public Input<Inputs.ResolverPipelineConfigGetArgs>? PipelineConfig { get; set; }
@@ -373,6 +436,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("responseTemplate")]
         public Input<string>? ResponseTemplate { get; set; }
+
+        /// <summary>
+        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        /// </summary>
+        [Input("runtime")]
+        public Input<Inputs.ResolverRuntimeGetArgs>? Runtime { get; set; }
 
         /// <summary>
         /// Describes a Sync configuration for a resolver. See Sync Config.

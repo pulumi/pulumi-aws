@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountAssignment{}
 	case "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment":
 		r = &CustomerManagedPolicyAttachment{}
+	case "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes":
+		r = &InstanceAccessControlAttributes{}
 	case "aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment":
 		r = &ManagedPolicyAttachment{}
 	case "aws:ssoadmin/permissionSet:PermissionSet":
@@ -54,6 +56,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ssoadmin/customerManagedPolicyAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssoadmin/instanceAccessControlAttributes",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

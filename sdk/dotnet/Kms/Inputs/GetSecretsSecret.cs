@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Kms.Inputs
             set => _context = value;
         }
 
+        /// <summary>
+        /// The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+        /// </summary>
+        [Input("encryptionAlgorithm")]
+        public string? EncryptionAlgorithm { get; set; }
+
         [Input("grantTokens")]
         private List<string>? _grantTokens;
 
@@ -35,6 +41,12 @@ namespace Pulumi.Aws.Kms.Inputs
             get => _grantTokens ?? (_grantTokens = new List<string>());
             set => _grantTokens = value;
         }
+
+        /// <summary>
+        /// Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+        /// </summary>
+        [Input("keyId")]
+        public string? KeyId { get; set; }
 
         /// <summary>
         /// Name to export this secret under in the attributes.

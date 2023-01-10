@@ -178,6 +178,20 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
         return this.bucket;
     }
     /**
+     * The AWS account ID associated with the S3 bucket associated with this access point.
+     * 
+     */
+    @Export(name="bucketAccountId", refs={String.class}, tree="[0]")
+    private Output<String> bucketAccountId;
+
+    /**
+     * @return The AWS account ID associated with the S3 bucket associated with this access point.
+     * 
+     */
+    public Output<String> bucketAccountId() {
+        return this.bucketAccountId;
+    }
+    /**
      * The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
      * Note: S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
      * 

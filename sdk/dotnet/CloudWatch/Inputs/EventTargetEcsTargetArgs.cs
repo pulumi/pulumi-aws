@@ -49,7 +49,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public Input<string>? LaunchType { get; set; }
 
         /// <summary>
-        /// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
+        /// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.EventTargetEcsTargetNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         }
 
         /// <summary>
-        /// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        /// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         }
 
         /// <summary>
-        /// The number of tasks to create based on the TaskDefinition. The default is 1.
+        /// The number of tasks to create based on the TaskDefinition. Defaults to `1`.
         /// </summary>
         [Input("taskCount")]
         public Input<int>? TaskCount { get; set; }

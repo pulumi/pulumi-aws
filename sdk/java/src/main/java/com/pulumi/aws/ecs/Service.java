@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ecs.ServiceArgs;
 import com.pulumi.aws.ecs.inputs.ServiceState;
+import com.pulumi.aws.ecs.outputs.ServiceAlarms;
 import com.pulumi.aws.ecs.outputs.ServiceCapacityProviderStrategy;
 import com.pulumi.aws.ecs.outputs.ServiceDeploymentCircuitBreaker;
 import com.pulumi.aws.ecs.outputs.ServiceDeploymentController;
@@ -147,6 +148,41 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### CloudWatch Deployment Alarms
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.Service;
+ * import com.pulumi.aws.ecs.ServiceArgs;
+ * import com.pulumi.aws.ecs.inputs.ServiceAlarmsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .cluster(aws_ecs_cluster.example().id())
+ *             .alarms(ServiceAlarmsArgs.builder()
+ *                 .enable(true)
+ *                 .rollback(true)
+ *                 .alarmNames(aws_cloudwatch_metric_alarm.example().alarm_name())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### External Deployment Controller
  * ```java
  * package generated_program;
@@ -192,6 +228,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ecs/service:Service")
 public class Service extends com.pulumi.resources.CustomResource {
+    /**
+     * Information about the CloudWatch alarms. See below.
+     * 
+     */
+    @Export(name="alarms", refs={ServiceAlarms.class}, tree="[0]")
+    private Output</* @Nullable */ ServiceAlarms> alarms;
+
+    /**
+     * @return Information about the CloudWatch alarms. See below.
+     * 
+     */
+    public Output<Optional<ServiceAlarms>> alarms() {
+        return Codegen.optional(this.alarms);
+    }
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
      * 

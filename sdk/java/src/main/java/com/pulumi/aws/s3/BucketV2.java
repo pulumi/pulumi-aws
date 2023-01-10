@@ -542,7 +542,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Enable Default Server Side Encryption
+ * ### Enable SSE-KMS Server Side Encryption
  * ```java
  * package generated_program;
  * 

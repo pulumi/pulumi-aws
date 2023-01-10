@@ -8,6 +8,7 @@ import com.pulumi.aws.athena.outputs.WorkgroupConfigurationResultConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -29,6 +30,11 @@ public final class WorkgroupConfiguration {
      * 
      */
     private @Nullable WorkgroupConfigurationEngineVersion engineVersion;
+    /**
+     * @return Role used in a notebook session for accessing the user&#39;s resources.
+     * 
+     */
+    private @Nullable String executionRole;
     /**
      * @return Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
      * 
@@ -68,6 +74,13 @@ public final class WorkgroupConfiguration {
         return Optional.ofNullable(this.engineVersion);
     }
     /**
+     * @return Role used in a notebook session for accessing the user&#39;s resources.
+     * 
+     */
+    public Optional<String> executionRole() {
+        return Optional.ofNullable(this.executionRole);
+    }
+    /**
      * @return Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
      * 
      */
@@ -101,6 +114,7 @@ public final class WorkgroupConfiguration {
         private @Nullable Integer bytesScannedCutoffPerQuery;
         private @Nullable Boolean enforceWorkgroupConfiguration;
         private @Nullable WorkgroupConfigurationEngineVersion engineVersion;
+        private @Nullable String executionRole;
         private @Nullable Boolean publishCloudwatchMetricsEnabled;
         private @Nullable Boolean requesterPaysEnabled;
         private @Nullable WorkgroupConfigurationResultConfiguration resultConfiguration;
@@ -110,6 +124,7 @@ public final class WorkgroupConfiguration {
     	      this.bytesScannedCutoffPerQuery = defaults.bytesScannedCutoffPerQuery;
     	      this.enforceWorkgroupConfiguration = defaults.enforceWorkgroupConfiguration;
     	      this.engineVersion = defaults.engineVersion;
+    	      this.executionRole = defaults.executionRole;
     	      this.publishCloudwatchMetricsEnabled = defaults.publishCloudwatchMetricsEnabled;
     	      this.requesterPaysEnabled = defaults.requesterPaysEnabled;
     	      this.resultConfiguration = defaults.resultConfiguration;
@@ -128,6 +143,11 @@ public final class WorkgroupConfiguration {
         @CustomType.Setter
         public Builder engineVersion(@Nullable WorkgroupConfigurationEngineVersion engineVersion) {
             this.engineVersion = engineVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder executionRole(@Nullable String executionRole) {
+            this.executionRole = executionRole;
             return this;
         }
         @CustomType.Setter
@@ -150,6 +170,7 @@ public final class WorkgroupConfiguration {
             o.bytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
             o.enforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
             o.engineVersion = engineVersion;
+            o.executionRole = executionRole;
             o.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
             o.requesterPaysEnabled = requesterPaysEnabled;
             o.resultConfiguration = resultConfiguration;

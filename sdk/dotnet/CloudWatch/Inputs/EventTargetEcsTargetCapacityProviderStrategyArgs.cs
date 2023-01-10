@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     public sealed class EventTargetEcsTargetCapacityProviderStrategyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+        /// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
         /// </summary>
         [Input("base")]
         public Input<int>? Base { get; set; }

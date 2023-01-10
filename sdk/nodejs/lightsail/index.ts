@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { BucketArgs, BucketState } from "./bucket";
+export type Bucket = import("./bucket").Bucket;
+export const Bucket: typeof import("./bucket").Bucket = null as any;
+utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
+
 export { CertificateArgs, CertificateState } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
@@ -105,6 +110,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:lightsail/bucket:Bucket":
+                return new Bucket(name, <any>undefined, { urn })
             case "aws:lightsail/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "aws:lightsail/containerService:ContainerService":
@@ -148,6 +155,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "lightsail/bucket", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/certificate", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/containerService", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/containerServiceDeploymentVersion", _module)

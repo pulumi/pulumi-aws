@@ -6,6 +6,7 @@ package com.pulumi.aws.lightsail;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.lightsail.InstanceArgs;
 import com.pulumi.aws.lightsail.inputs.InstanceState;
+import com.pulumi.aws.lightsail.outputs.InstanceAddOn;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -27,6 +28,7 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
  * 
  * ## Example Usage
+ * ### Basic Usage
  * ```java
  * package generated_program;
  * 
@@ -50,9 +52,47 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var gitlabTest = new Instance(&#34;gitlabTest&#34;, InstanceArgs.builder()        
  *             .availabilityZone(&#34;us-east-1b&#34;)
- *             .blueprintId(&#34;string&#34;)
- *             .bundleId(&#34;string&#34;)
+ *             .blueprintId(&#34;amazon_linux&#34;)
+ *             .bundleId(&#34;nano_1_0&#34;)
  *             .keyPairName(&#34;some_key_name&#34;)
+ *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Enable Auto Snapshots
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lightsail.Instance;
+ * import com.pulumi.aws.lightsail.InstanceArgs;
+ * import com.pulumi.aws.lightsail.inputs.InstanceAddOnArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
+ *             .addOn(InstanceAddOnArgs.builder()
+ *                 .snapshotTime(&#34;06:00&#34;)
+ *                 .status(&#34;Enabled&#34;)
+ *                 .type(&#34;AutoSnapshot&#34;)
+ *                 .build())
+ *             .availabilityZone(&#34;us-east-1b&#34;)
+ *             .blueprintId(&#34;amazon_linux&#34;)
+ *             .bundleId(&#34;nano_1_0&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());
  * 
@@ -116,12 +156,26 @@ import javax.annotation.Nullable;
  * Lightsail Instances can be imported using their name, e.g.,
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/instance:Instance gitlab_test &#39;custom gitlab&#39;
+ *  $ pulumi import aws:lightsail/instance:Instance gitlab_test &#39;custom_gitlab&#39;
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
+    /**
+     * The add on configuration for the instance. Detailed below.
+     * 
+     */
+    @Export(name="addOn", refs={InstanceAddOn.class}, tree="[0]")
+    private Output</* @Nullable */ InstanceAddOn> addOn;
+
+    /**
+     * @return The add on configuration for the instance. Detailed below.
+     * 
+     */
+    public Output<Optional<InstanceAddOn>> addOn() {
+        return Codegen.optional(this.addOn);
+    }
     /**
      * The ARN of the Lightsail instance (matches `id`).
      * 

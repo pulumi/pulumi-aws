@@ -14,7 +14,6 @@ __all__ = ['DatabaseArgs', 'Database']
 @pulumi.input_type
 class DatabaseArgs:
     def __init__(__self__, *,
-                 availability_zone: pulumi.Input[str],
                  blueprint_id: pulumi.Input[str],
                  bundle_id: pulumi.Input[str],
                  master_database_name: pulumi.Input[str],
@@ -22,6 +21,7 @@ class DatabaseArgs:
                  master_username: pulumi.Input[str],
                  relational_database_name: pulumi.Input[str],
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_enabled: Optional[pulumi.Input[bool]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
@@ -31,13 +31,13 @@ class DatabaseArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Database resource.
-        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
         :param pulumi.Input[str] blueprint_id: The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
         :param pulumi.Input[str] bundle_id: The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
         :param pulumi.Input[str] master_database_name: The name of the master database created when the Lightsail database resource is created.
         :param pulumi.Input[str] master_password: The password for the master user of your new database. The password can include any printable ASCII character except "/", \"\"\", or "@".
         :param pulumi.Input[str] master_username: The master user name for your new database.
         :param pulumi.Input[bool] apply_immediately: When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
         :param pulumi.Input[bool] backup_retention_enabled: When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
         :param pulumi.Input[str] final_snapshot_name: The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
@@ -46,7 +46,6 @@ class DatabaseArgs:
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         """
-        pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "blueprint_id", blueprint_id)
         pulumi.set(__self__, "bundle_id", bundle_id)
         pulumi.set(__self__, "master_database_name", master_database_name)
@@ -55,6 +54,8 @@ class DatabaseArgs:
         pulumi.set(__self__, "relational_database_name", relational_database_name)
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if backup_retention_enabled is not None:
             pulumi.set(__self__, "backup_retention_enabled", backup_retention_enabled)
         if final_snapshot_name is not None:
@@ -69,18 +70,6 @@ class DatabaseArgs:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> pulumi.Input[str]:
-        """
-        The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
-        """
-        return pulumi.get(self, "availability_zone")
-
-    @availability_zone.setter
-    def availability_zone(self, value: pulumi.Input[str]):
-        pulumi.set(self, "availability_zone", value)
 
     @property
     @pulumi.getter(name="blueprintId")
@@ -162,6 +151,18 @@ class DatabaseArgs:
     @apply_immediately.setter
     def apply_immediately(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "apply_immediately", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
 
     @property
     @pulumi.getter(name="backupRetentionEnabled")
@@ -910,8 +911,6 @@ class Database(pulumi.CustomResource):
             __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
             __props__.__dict__["apply_immediately"] = apply_immediately
-            if availability_zone is None and not opts.urn:
-                raise TypeError("Missing required property 'availability_zone'")
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup_retention_enabled"] = backup_retention_enabled
             if blueprint_id is None and not opts.urn:

@@ -134,6 +134,7 @@ class _OntapStorageVirtualMachineState:
         :param pulumi.Input[str] file_system_id: The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
         :param pulumi.Input[str] name: The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+        :param pulumi.Input[str] subtype: Describes the SVM's subtype, e.g. `DEFAULT`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] uuid: The SVM's UUID (universally unique identifier).
@@ -150,9 +151,6 @@ class _OntapStorageVirtualMachineState:
             pulumi.set(__self__, "name", name)
         if root_volume_security_style is not None:
             pulumi.set(__self__, "root_volume_security_style", root_volume_security_style)
-        if subtype is not None:
-            warnings.warn("""this trait has been removed from the API""", DeprecationWarning)
-            pulumi.log.warn("""subtype is deprecated: this trait has been removed from the API""")
         if subtype is not None:
             pulumi.set(__self__, "subtype", subtype)
         if svm_admin_password is not None:
@@ -239,6 +237,9 @@ class _OntapStorageVirtualMachineState:
     @property
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes the SVM's subtype, e.g. `DEFAULT`
+        """
         return pulumi.get(self, "subtype")
 
     @subtype.setter
@@ -514,6 +515,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] file_system_id: The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
         :param pulumi.Input[str] name: The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+        :param pulumi.Input[str] subtype: Describes the SVM's subtype, e.g. `DEFAULT`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] uuid: The SVM's UUID (universally unique identifier).
@@ -586,6 +588,9 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     @property
     @pulumi.getter
     def subtype(self) -> pulumi.Output[str]:
+        """
+        Describes the SVM's subtype, e.g. `DEFAULT`
+        """
         return pulumi.get(self, "subtype")
 
     @property

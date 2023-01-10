@@ -36,15 +36,15 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
      * The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
      * 
      */
-    @Import(name="availabilityZone", required=true)
-    private Output<String> availabilityZone;
+    @Import(name="availabilityZone")
+    private @Nullable Output<String> availabilityZone;
 
     /**
      * @return The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
      * 
      */
-    public Output<String> availabilityZone() {
-        return this.availabilityZone;
+    public Optional<Output<String>> availabilityZone() {
+        return Optional.ofNullable(this.availabilityZone);
     }
 
     /**
@@ -299,7 +299,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder availabilityZone(Output<String> availabilityZone) {
+        public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
@@ -576,7 +576,6 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DatabaseArgs build() {
-            $.availabilityZone = Objects.requireNonNull($.availabilityZone, "expected parameter 'availabilityZone' to be non-null");
             $.blueprintId = Objects.requireNonNull($.blueprintId, "expected parameter 'blueprintId' to be non-null");
             $.bundleId = Objects.requireNonNull($.bundleId, "expected parameter 'bundleId' to be non-null");
             $.masterDatabaseName = Objects.requireNonNull($.masterDatabaseName, "expected parameter 'masterDatabaseName' to be non-null");

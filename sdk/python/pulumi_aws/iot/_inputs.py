@@ -390,6 +390,7 @@ class ProvisioningTemplatePreProvisioningHookArgs:
                  target_arn: pulumi.Input[str],
                  payload_version: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] target_arn: The ARN of the target function.
         :param pulumi.Input[str] payload_version: The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
         """
         pulumi.set(__self__, "target_arn", target_arn)
@@ -399,6 +400,9 @@ class ProvisioningTemplatePreProvisioningHookArgs:
     @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the target function.
+        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter

@@ -73,7 +73,7 @@ class S3EndpointArgs:
         :param pulumi.Input[bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
-        :param pulumi.Input[int] cdc_min_file_size: Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+        :param pulumi.Input[int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         :param pulumi.Input[str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
         :param pulumi.Input[str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
@@ -93,6 +93,7 @@ class S3EndpointArgs:
         :param pulumi.Input[str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         :param pulumi.Input[str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
@@ -333,7 +334,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="cdcMinFileSize")
     def cdc_min_file_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+        Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         """
         return pulumi.get(self, "cdc_min_file_size")
 
@@ -572,6 +573,9 @@ class S3EndpointArgs:
     @property
     @pulumi.getter(name="ignoreHeaderRows")
     def ignore_header_rows(self) -> Optional[pulumi.Input[int]]:
+        """
+        When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+        """
         return pulumi.get(self, "ignore_header_rows")
 
     @ignore_header_rows.setter
@@ -811,7 +815,7 @@ class _S3EndpointState:
         :param pulumi.Input[bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
-        :param pulumi.Input[int] cdc_min_file_size: Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+        :param pulumi.Input[int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         :param pulumi.Input[str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
         :param pulumi.Input[str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
@@ -836,6 +840,7 @@ class _S3EndpointState:
         :param pulumi.Input[str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[str] external_id: Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
@@ -1057,7 +1062,7 @@ class _S3EndpointState:
     @pulumi.getter(name="cdcMinFileSize")
     def cdc_min_file_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+        Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         """
         return pulumi.get(self, "cdc_min_file_size")
 
@@ -1356,6 +1361,9 @@ class _S3EndpointState:
     @property
     @pulumi.getter(name="ignoreHeaderRows")
     def ignore_header_rows(self) -> Optional[pulumi.Input[int]]:
+        """
+        When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+        """
         return pulumi.get(self, "ignore_header_rows")
 
     @ignore_header_rows.setter
@@ -1718,7 +1726,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
-        :param pulumi.Input[int] cdc_min_file_size: Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+        :param pulumi.Input[int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         :param pulumi.Input[str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
         :param pulumi.Input[str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
@@ -1740,6 +1748,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
         :param pulumi.Input[str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
@@ -2056,7 +2065,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
-        :param pulumi.Input[int] cdc_min_file_size: Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+        :param pulumi.Input[int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         :param pulumi.Input[str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
         :param pulumi.Input[str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
@@ -2081,6 +2090,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[str] external_id: Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
@@ -2224,7 +2234,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="cdcMinFileSize")
     def cdc_min_file_size(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+        Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         """
         return pulumi.get(self, "cdc_min_file_size")
 
@@ -2423,6 +2433,9 @@ class S3Endpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ignoreHeaderRows")
     def ignore_header_rows(self) -> pulumi.Output[Optional[int]]:
+        """
+        When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+        """
         return pulumi.get(self, "ignore_header_rows")
 
     @property

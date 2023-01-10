@@ -20,8 +20,10 @@ import * as utilities from "../utilities";
  *     containerProperties: `{
  * 	"command": ["ls", "-la"],
  * 	"image": "busybox",
- * 	"memory": 1024,
- * 	"vcpus": 1,
+ * 	"resourceRequirements": [
+ *     {"type": "VCPU", "value": "0.25"},
+ *     {"type": "MEMORY", "value": "512"}
+ *   ],
  * 	"volumes": [
  *       {
  *         "host": {
@@ -175,7 +177,7 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
     /**
-     * The type of job definition.  Must be `container`.
+     * The type of job definition. Must be `container`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -278,7 +280,7 @@ export interface JobDefinitionState {
      */
     timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
     /**
-     * The type of job definition.  Must be `container`.
+     * The type of job definition. Must be `container`.
      */
     type?: pulumi.Input<string>;
 }
@@ -322,7 +324,7 @@ export interface JobDefinitionArgs {
      */
     timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
     /**
-     * The type of job definition.  Must be `container`.
+     * The type of job definition. Must be `container`.
      */
     type: pulumi.Input<string>;
 }

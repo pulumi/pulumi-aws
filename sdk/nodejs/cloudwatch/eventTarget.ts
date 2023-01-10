@@ -276,25 +276,31 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleLogPolicy = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         actions: [
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *         ],
- *         resources: [pulumi.interpolate`${exampleLogGroup.arn}:*`],
- *         principals: [{
- *             identifiers: [
- *                 "events.amazonaws.com",
- *                 "delivery.logs.amazonaws.com",
- *             ],
- *             type: "Service",
- *         }],
- *         conditions: [{
- *             test: "ArnEquals",
- *             values: [exampleEventRule.arn],
- *             variable: "aws:SourceArn",
- *         }],
- *     }],
+ *     statements: [
+ *         {
+ *             effect: "Allow",
+ *             actions: ["logs:CreateLogStream"],
+ *             resources: [pulumi.interpolate`${exampleLogGroup.arn}:*`],
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["events.amazonaws.com"],
+ *             }],
+ *         },
+ *         {
+ *             effect: "Allow",
+ *             actions: ["logs:PutLogEvents"],
+ *             resources: [pulumi.interpolate`${exampleLogGroup.arn}:*:*`],
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["events.amazonaws.com"],
+ *             }],
+ *             conditions: [{
+ *                 test: "ArnEquals",
+ *                 values: [exampleEventRule.arn],
+ *                 variable: "aws:SourceArn",
+ *             }],
+ *         },
+ *     ],
  * });
  * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy", {
  *     policyDocument: exampleLogPolicy.apply(exampleLogPolicy => exampleLogPolicy.json),
@@ -407,7 +413,7 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly sqsTarget!: pulumi.Output<outputs.cloudwatch.EventTargetSqsTarget | undefined>;
     /**
-     * The unique target assignment ID.  If missing, will generate a random, unique id.
+     * The unique target assignment ID. If missing, will generate a random, unique id.
      */
     public readonly targetId!: pulumi.Output<string>;
 
@@ -541,7 +547,7 @@ export interface EventTargetState {
      */
     sqsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSqsTarget>;
     /**
-     * The unique target assignment ID.  If missing, will generate a random, unique id.
+     * The unique target assignment ID. If missing, will generate a random, unique id.
      */
     targetId?: pulumi.Input<string>;
 }
@@ -615,7 +621,7 @@ export interface EventTargetArgs {
      */
     sqsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSqsTarget>;
     /**
-     * The unique target assignment ID.  If missing, will generate a random, unique id.
+     * The unique target assignment ID. If missing, will generate a random, unique id.
      */
     targetId?: pulumi.Input<string>;
 }

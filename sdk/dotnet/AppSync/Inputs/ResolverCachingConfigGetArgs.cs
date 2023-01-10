@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         private InputList<string>? _cachingKeys;
 
         /// <summary>
-        /// List of caching key.
+        /// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
         /// </summary>
         public InputList<string> CachingKeys
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         }
 
         /// <summary>
-        /// TTL in seconds.
+        /// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
         /// </summary>
         [Input("ttl")]
         public Input<int>? Ttl { get; set; }

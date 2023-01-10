@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Athena.Inputs
         public Input<Inputs.WorkgroupConfigurationEngineVersionArgs>? EngineVersion { get; set; }
 
         /// <summary>
+        /// Role used in a notebook session for accessing the user's resources.
+        /// </summary>
+        [Input("executionRole")]
+        public Input<string>? ExecutionRole { get; set; }
+
+        /// <summary>
         /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         /// </summary>
         [Input("publishCloudwatchMetricsEnabled")]

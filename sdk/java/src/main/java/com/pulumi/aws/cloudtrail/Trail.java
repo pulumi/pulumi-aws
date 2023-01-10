@@ -235,6 +235,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
+ * 
  * ```java
  * package generated_program;
  * 
@@ -277,7 +278,7 @@ import javax.annotation.Nullable;
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
  *                             .field(&#34;resources.ARN&#34;)
- *                             .notEquals(                            
+ *                             .notStartsWith(                            
  *                                 String.format(&#34;%s/&#34;, not_important_bucket_1.arn()),
  *                                 String.format(&#34;%s/&#34;, not_important_bucket_2.arn()))
  *                             .build(),

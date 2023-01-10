@@ -191,58 +191,50 @@ namespace Pulumi.Aws.Ec2
     /// Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
     /// to understand the implications of using these attributes.
     /// 
-    /// The `root_block_device` mapping supports the following:
-    /// 
-    /// * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"st1"`, `"sc1"`
-    ///   or `"io1"`. (Default: `"standard"`).
-    /// * `volume_size` - (Optional) The size of the volume in gigabytes.
-    /// * `iops` - (Optional) The amount of provisioned
-    ///   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-    ///   This must be set with a `volume_type` of `"io1"`.
-    /// * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
-    /// * `delete_on_termination` - (Optional) Whether the volume should be destroyed
-    ///   on instance termination (Default: `true`).
-    /// * `encrypted` - (Optional) Whether the volume should be encrypted or not. (Default: `false`).
-    /// 
-    /// Modifying any of the `root_block_device` settings requires resource
-    /// replacement.
-    /// 
-    /// Each `ebs_block_device` supports the following:
-    /// 
-    /// * `device_name` - (Required) The name of the device to mount.
-    /// * `snapshot_id` - (Optional) The Snapshot ID to mount.
-    /// * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`, `"gp3"`, `"st1"`, `"sc1"`
-    ///   or `"io1"`. (Default: `"standard"`).
-    /// * `volume_size` - (Optional) The size of the volume in gigabytes.
-    /// * `iops` - (Optional) The amount of provisioned
-    ///   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-    ///   This must be set with a `volume_type` of `"io1"`.
-    /// * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
-    /// * `delete_on_termination` - (Optional) Whether the volume should be destroyed
-    ///   on instance termination (Default: `true`).
-    /// * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshot_id` as the encrypted flag will be determined by the snapshot. (Default: `false`).
-    /// * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
-    /// 
-    /// Modifying any `ebs_block_device` currently requires resource replacement.
-    /// 
-    /// Each `ephemeral_block_device` supports the following:
-    /// 
-    /// * `device_name` - (Required) The name of the block device to mount on the instance.
-    /// * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
-    /// * `virtual_name` - (Optional) The [Instance Store Device
-    ///   Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-    ///   (e.g., `"ephemeral0"`)
-    /// 
     /// Each AWS Instance type has a different set of Instance Store block devices
     /// available for attachment. AWS [publishes a
     /// list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
     /// of which ephemeral devices are available on each type. The devices are always
-    /// identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
+    /// identified by the `virtual_name` in the format `ephemeral{0..N}`.
     /// 
     /// &gt; **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
     /// cannot currently be detected by this provider. After updating to block device
     /// configuration, resource recreation can be manually triggered by using the
     /// [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
+    /// 
+    /// ### ebs_block_device
+    /// 
+    /// Modifying any of the `ebs_block_device` settings requires resource replacement.
+    /// 
+    /// * `device_name` - (Required) The name of the device to mount.
+    /// * `snapshot_id` - (Optional) The Snapshot ID to mount.
+    /// * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+    /// * `volume_size` - (Optional) The size of the volume in gigabytes.
+    /// * `iops` - (Optional) The amount of provisioned
+    ///   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+    ///   This must be set with a `volume_type` of `"io1"`.
+    /// * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
+    /// * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+    ///   on instance termination (Default: `true`).
+    /// * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
+    /// * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+    /// 
+    /// ### ephemeral_block_device
+    /// 
+    /// * `device_name` - (Required) The name of the block device to mount on the instance.
+    /// * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+    /// * `virtual_name` - (Optional) The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
+    /// 
+    /// ### root_block_device
+    /// 
+    /// &gt; Modifying any of the `root_block_device` settings requires resource replacement.
+    /// 
+    /// * `delete_on_termination` - (Optional) Whether the volume should be destroyed on instance termination. Defaults to `true`.
+    /// * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
+    /// * `iops` - (Optional) The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volume_type` of `io1`.
+    /// * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
+    /// * `volume_size` - (Optional) The size of the volume in gigabytes.
+    /// * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
     /// 
     /// ## Import
     /// 
@@ -268,8 +260,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> AssociatePublicIpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Additional EBS block devices to attach to the
-        /// instance.  See Block Devices below for details.
+        /// Additional EBS block devices to attach to the instance. See Block Devices below for details.
         /// </summary>
         [Output("ebsBlockDevices")]
         public Output<ImmutableArray<Outputs.LaunchConfigurationEbsBlockDevice>> EbsBlockDevices { get; private set; } = null!;
@@ -287,15 +278,13 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> EnableMonitoring { get; private set; } = null!;
 
         /// <summary>
-        /// Customize Ephemeral (also known as
-        /// "Instance Store") volumes on the instance. See Block Devices below for details.
+        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
         [Output("ephemeralBlockDevices")]
         public Output<ImmutableArray<Outputs.LaunchConfigurationEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
         /// <summary>
-        /// The name attribute of the IAM instance profile to associate
-        /// with launched instances.
+        /// The name attribute of the IAM instance profile to associate with launched instances.
         /// </summary>
         [Output("iamInstanceProfile")]
         public Output<string?> IamInstanceProfile { get; private set; } = null!;
@@ -325,37 +314,29 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.LaunchConfigurationMetadataOptions> MetadataOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the launch configuration. If you leave
-        /// this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+        /// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The tenancy of the instance. Valid values are
-        /// `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-        /// for more details
+        /// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         /// </summary>
         [Output("placementTenancy")]
         public Output<string?> PlacementTenancy { get; private set; } = null!;
 
         /// <summary>
-        /// Customize details about the root block
-        /// device of the instance. See Block Devices below for details.
+        /// Customize details about the root block device of the instance. See Block Devices below for details.
         /// </summary>
         [Output("rootBlockDevice")]
         public Output<Outputs.LaunchConfigurationRootBlockDevice> RootBlockDevice { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of associated security group IDS.
-        /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
@@ -445,8 +426,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.LaunchConfigurationEbsBlockDeviceArgs>? _ebsBlockDevices;
 
         /// <summary>
-        /// Additional EBS block devices to attach to the
-        /// instance.  See Block Devices below for details.
+        /// Additional EBS block devices to attach to the instance. See Block Devices below for details.
         /// </summary>
         public InputList<Inputs.LaunchConfigurationEbsBlockDeviceArgs> EbsBlockDevices
         {
@@ -470,8 +450,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs>? _ephemeralBlockDevices;
 
         /// <summary>
-        /// Customize Ephemeral (also known as
-        /// "Instance Store") volumes on the instance. See Block Devices below for details.
+        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
         public InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs> EphemeralBlockDevices
         {
@@ -480,8 +459,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The name attribute of the IAM instance profile to associate
-        /// with launched instances.
+        /// The name attribute of the IAM instance profile to associate with launched instances.
         /// </summary>
         [Input("iamInstanceProfile")]
         public Input<string>? IamInstanceProfile { get; set; }
@@ -511,40 +489,31 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchConfigurationMetadataOptionsArgs>? MetadataOptions { get; set; }
 
         /// <summary>
-        /// The name of the launch configuration. If you leave
-        /// this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+        /// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The tenancy of the instance. Valid values are
-        /// `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-        /// for more details
+        /// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         /// </summary>
         [Input("placementTenancy")]
         public Input<string>? PlacementTenancy { get; set; }
 
         /// <summary>
-        /// Customize details about the root block
-        /// device of the instance. See Block Devices below for details.
+        /// Customize details about the root block device of the instance. See Block Devices below for details.
         /// </summary>
         [Input("rootBlockDevice")]
         public Input<Inputs.LaunchConfigurationRootBlockDeviceArgs>? RootBlockDevice { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// A list of associated security group IDS.
-        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -612,8 +581,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.LaunchConfigurationEbsBlockDeviceGetArgs>? _ebsBlockDevices;
 
         /// <summary>
-        /// Additional EBS block devices to attach to the
-        /// instance.  See Block Devices below for details.
+        /// Additional EBS block devices to attach to the instance. See Block Devices below for details.
         /// </summary>
         public InputList<Inputs.LaunchConfigurationEbsBlockDeviceGetArgs> EbsBlockDevices
         {
@@ -637,8 +605,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceGetArgs>? _ephemeralBlockDevices;
 
         /// <summary>
-        /// Customize Ephemeral (also known as
-        /// "Instance Store") volumes on the instance. See Block Devices below for details.
+        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
         public InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceGetArgs> EphemeralBlockDevices
         {
@@ -647,8 +614,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The name attribute of the IAM instance profile to associate
-        /// with launched instances.
+        /// The name attribute of the IAM instance profile to associate with launched instances.
         /// </summary>
         [Input("iamInstanceProfile")]
         public Input<string>? IamInstanceProfile { get; set; }
@@ -678,40 +644,31 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchConfigurationMetadataOptionsGetArgs>? MetadataOptions { get; set; }
 
         /// <summary>
-        /// The name of the launch configuration. If you leave
-        /// this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+        /// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The tenancy of the instance. Valid values are
-        /// `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-        /// for more details
+        /// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         /// </summary>
         [Input("placementTenancy")]
         public Input<string>? PlacementTenancy { get; set; }
 
         /// <summary>
-        /// Customize details about the root block
-        /// device of the instance. See Block Devices below for details.
+        /// Customize details about the root block device of the instance. See Block Devices below for details.
         /// </summary>
         [Input("rootBlockDevice")]
         public Input<Inputs.LaunchConfigurationRootBlockDeviceGetArgs>? RootBlockDevice { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// A list of associated security group IDS.
-        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());

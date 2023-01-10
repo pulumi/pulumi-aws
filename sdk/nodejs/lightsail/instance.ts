@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -12,6 +15,7 @@ import * as utilities from "../utilities";
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
  *
  * ## Example Usage
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -20,9 +24,29 @@ import * as utilities from "../utilities";
  * // Create a new GitLab Lightsail Instance
  * const gitlabTest = new aws.lightsail.Instance("gitlabTest", {
  *     availabilityZone: "us-east-1b",
- *     blueprintId: "string",
- *     bundleId: "string",
+ *     blueprintId: "amazon_linux",
+ *     bundleId: "nano_1_0",
  *     keyPairName: "some_key_name",
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * ```
+ * ### Enable Auto Snapshots
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.lightsail.Instance("test", {
+ *     addOn: {
+ *         snapshotTime: "06:00",
+ *         status: "Enabled",
+ *         type: "AutoSnapshot",
+ *     },
+ *     availabilityZone: "us-east-1b",
+ *     blueprintId: "amazon_linux",
+ *     bundleId: "nano_1_0",
  *     tags: {
  *         foo: "bar",
  *     },
@@ -85,7 +109,7 @@ import * as utilities from "../utilities";
  * Lightsail Instances can be imported using their name, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'
+ *  $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
  * ```
  */
 export class Instance extends pulumi.CustomResource {
@@ -116,6 +140,10 @@ export class Instance extends pulumi.CustomResource {
         return obj['__pulumiType'] === Instance.__pulumiType;
     }
 
+    /**
+     * The add on configuration for the instance. Detailed below.
+     */
+    public readonly addOn!: pulumi.Output<outputs.lightsail.InstanceAddOn | undefined>;
     /**
      * The ARN of the Lightsail instance (matches `id`).
      */
@@ -210,6 +238,7 @@ export class Instance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceState | undefined;
+            resourceInputs["addOn"] = state ? state.addOn : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["blueprintId"] = state ? state.blueprintId : undefined;
@@ -240,6 +269,7 @@ export class Instance extends pulumi.CustomResource {
             if ((!args || args.bundleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
+            resourceInputs["addOn"] = args ? args.addOn : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["blueprintId"] = args ? args.blueprintId : undefined;
             resourceInputs["bundleId"] = args ? args.bundleId : undefined;
@@ -269,6 +299,10 @@ export class Instance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Instance resources.
  */
 export interface InstanceState {
+    /**
+     * The add on configuration for the instance. Detailed below.
+     */
+    addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn>;
     /**
      * The ARN of the Lightsail instance (matches `id`).
      */
@@ -355,6 +389,10 @@ export interface InstanceState {
  * The set of arguments for constructing a Instance resource.
  */
 export interface InstanceArgs {
+    /**
+     * The add on configuration for the instance. Detailed below.
+     */
+    addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn>;
     /**
      * The Availability Zone in which to create your
      * instance (see list below)

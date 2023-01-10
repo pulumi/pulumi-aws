@@ -128,15 +128,13 @@ namespace Pulumi.Aws.Alb
         public Output<bool?> DropInvalidHeaderFields { get; private set; } = null!;
 
         /// <summary>
-        /// If true, cross-zone load balancing of the load balancer will be enabled.
-        /// This is a `network` load balancer feature. Defaults to `false`.
+        /// If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
         /// </summary>
         [Output("enableCrossZoneLoadBalancing")]
         public Output<bool?> EnableCrossZoneLoadBalancing { get; private set; } = null!;
 
         /// <summary>
-        /// If true, deletion of the load balancer will be disabled via
-        /// the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+        /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         /// </summary>
         [Output("enableDeletionProtection")]
         public Output<bool?> EnableDeletionProtection { get; private set; } = null!;
@@ -166,7 +164,7 @@ namespace Pulumi.Aws.Alb
         public Output<bool> Internal { get; private set; } = null!;
 
         /// <summary>
-        /// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+        /// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
         /// </summary>
         [Output("ipAddressType")]
         public Output<string> IpAddressType { get; private set; } = null!;
@@ -186,7 +184,7 @@ namespace Pulumi.Aws.Alb
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string?> NamePrefix { get; private set; } = null!;
@@ -197,9 +195,6 @@ namespace Pulumi.Aws.Alb
         [Output("preserveHostHeader")]
         public Output<bool?> PreserveHostHeader { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
@@ -234,7 +229,6 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-        /// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         /// </summary>
         [Output("zoneId")]
         public Output<string> ZoneId { get; private set; } = null!;
@@ -314,15 +308,13 @@ namespace Pulumi.Aws.Alb
         public Input<bool>? DropInvalidHeaderFields { get; set; }
 
         /// <summary>
-        /// If true, cross-zone load balancing of the load balancer will be enabled.
-        /// This is a `network` load balancer feature. Defaults to `false`.
+        /// If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
         /// </summary>
         [Input("enableCrossZoneLoadBalancing")]
         public Input<bool>? EnableCrossZoneLoadBalancing { get; set; }
 
         /// <summary>
-        /// If true, deletion of the load balancer will be disabled via
-        /// the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+        /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         /// </summary>
         [Input("enableDeletionProtection")]
         public Input<bool>? EnableDeletionProtection { get; set; }
@@ -352,7 +344,7 @@ namespace Pulumi.Aws.Alb
         public Input<bool>? Internal { get; set; }
 
         /// <summary>
-        /// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+        /// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -372,7 +364,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -385,10 +377,6 @@ namespace Pulumi.Aws.Alb
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -484,15 +472,13 @@ namespace Pulumi.Aws.Alb
         public Input<bool>? DropInvalidHeaderFields { get; set; }
 
         /// <summary>
-        /// If true, cross-zone load balancing of the load balancer will be enabled.
-        /// This is a `network` load balancer feature. Defaults to `false`.
+        /// If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
         /// </summary>
         [Input("enableCrossZoneLoadBalancing")]
         public Input<bool>? EnableCrossZoneLoadBalancing { get; set; }
 
         /// <summary>
-        /// If true, deletion of the load balancer will be disabled via
-        /// the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+        /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         /// </summary>
         [Input("enableDeletionProtection")]
         public Input<bool>? EnableDeletionProtection { get; set; }
@@ -522,7 +508,7 @@ namespace Pulumi.Aws.Alb
         public Input<bool>? Internal { get; set; }
 
         /// <summary>
-        /// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+        /// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -542,7 +528,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -555,10 +541,6 @@ namespace Pulumi.Aws.Alb
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -620,7 +602,6 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-        /// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }

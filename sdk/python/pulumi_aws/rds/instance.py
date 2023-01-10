@@ -100,7 +100,7 @@ class InstanceArgs:
                or will use [RDS Blue/Green deployments][blue-green].
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which automated backups are created if they are enabled.
                Example: "09:46-10:16". Must not overlap with `maintenance_window`.
-        :param pulumi.Input['InstanceBlueGreenUpdateArgs'] blue_green_update: Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+        :param pulumi.Input['InstanceBlueGreenUpdateArgs'] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
                See blue_green_update below
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] character_set_name: The character set name to use for DB
@@ -463,7 +463,7 @@ class InstanceArgs:
     @pulumi.getter(name="blueGreenUpdate")
     def blue_green_update(self) -> Optional[pulumi.Input['InstanceBlueGreenUpdateArgs']]:
         """
-        Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+        Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
         See blue_green_update below
         """
         return pulumi.get(self, "blue_green_update")
@@ -1255,7 +1255,7 @@ class _InstanceState:
                or will use [RDS Blue/Green deployments][blue-green].
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which automated backups are created if they are enabled.
                Example: "09:46-10:16". Must not overlap with `maintenance_window`.
-        :param pulumi.Input['InstanceBlueGreenUpdateArgs'] blue_green_update: Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+        :param pulumi.Input['InstanceBlueGreenUpdateArgs'] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
                See blue_green_update below
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] character_set_name: The character set name to use for DB
@@ -1660,7 +1660,7 @@ class _InstanceState:
     @pulumi.getter(name="blueGreenUpdate")
     def blue_green_update(self) -> Optional[pulumi.Input['InstanceBlueGreenUpdateArgs']]:
         """
-        Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+        Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
         See blue_green_update below
         """
         return pulumi.get(self, "blue_green_update")
@@ -2625,7 +2625,7 @@ class Instance(pulumi.CustomResource):
                or will use [RDS Blue/Green deployments][blue-green].
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which automated backups are created if they are enabled.
                Example: "09:46-10:16". Must not overlap with `maintenance_window`.
-        :param pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']] blue_green_update: Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+        :param pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
                See blue_green_update below
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] character_set_name: The character set name to use for DB
@@ -3105,7 +3105,7 @@ class Instance(pulumi.CustomResource):
                or will use [RDS Blue/Green deployments][blue-green].
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which automated backups are created if they are enabled.
                Example: "09:46-10:16". Must not overlap with `maintenance_window`.
-        :param pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']] blue_green_update: Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+        :param pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
                See blue_green_update below
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] character_set_name: The character set name to use for DB
@@ -3406,7 +3406,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="blueGreenUpdate")
     def blue_green_update(self) -> pulumi.Output[Optional['outputs.InstanceBlueGreenUpdate']]:
         """
-        Enables low-downtime updates using R[RDS Blue/Green deployments][blue-green].
+        Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
         See blue_green_update below
         """
         return pulumi.get(self, "blue_green_update")

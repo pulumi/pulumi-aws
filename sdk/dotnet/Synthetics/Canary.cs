@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Synthetics
         public Output<Outputs.CanaryVpcConfig?> VpcConfig { get; private set; } = null!;
 
         /// <summary>
-        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         /// </summary>
         [Output("zipFile")]
         public Output<string?> ZipFile { get; private set; } = null!;
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.Synthetics
         public Input<Inputs.CanaryVpcConfigArgs>? VpcConfig { get; set; }
 
         /// <summary>
-        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         /// </summary>
         [Input("zipFile")]
         public Input<string>? ZipFile { get; set; }
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.Synthetics
         public Input<Inputs.CanaryVpcConfigGetArgs>? VpcConfig { get; set; }
 
         /// <summary>
-        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 5 MB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         /// </summary>
         [Input("zipFile")]
         public Input<string>? ZipFile { get; set; }

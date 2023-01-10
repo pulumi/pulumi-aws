@@ -266,14 +266,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cdcMaxBatchInterval);
     }
     /**
-     * Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+     * Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
      * 
      */
     @Export(name="cdcMinFileSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> cdcMinFileSize;
 
     /**
-     * @return Minimum file size, defined in kilobytes, to reach for a file output. (AWS default is 32 MB.)
+     * @return Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
      * 
      */
     public Output<Optional<Integer>> cdcMinFileSize() {
@@ -615,9 +615,17 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> externalTableDefinition() {
         return Codegen.optional(this.externalTableDefinition);
     }
+    /**
+     * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+     * 
+     */
     @Export(name="ignoreHeaderRows", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ignoreHeaderRows;
 
+    /**
+     * @return When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+     * 
+     */
     public Output<Optional<Integer>> ignoreHeaderRows() {
         return Codegen.optional(this.ignoreHeaderRows);
     }

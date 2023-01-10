@@ -170,6 +170,33 @@ import (
 //	}
 //
 // ```
+// ### Custom Image
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				EnvironmentVariables: pulumi.StringMap{
+//					"_CUSTOM_IMAGE": pulumi.String("node:16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
