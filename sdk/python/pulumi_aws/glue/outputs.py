@@ -65,6 +65,16 @@ __all__ = [
     'TriggerPredicate',
     'TriggerPredicateCondition',
     'UserDefinedFunctionResourceUri',
+    'GetCatalogTablePartitionIndexResult',
+    'GetCatalogTablePartitionKeyResult',
+    'GetCatalogTableStorageDescriptorResult',
+    'GetCatalogTableStorageDescriptorColumnResult',
+    'GetCatalogTableStorageDescriptorSchemaReferenceResult',
+    'GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult',
+    'GetCatalogTableStorageDescriptorSerDeInfoResult',
+    'GetCatalogTableStorageDescriptorSkewedInfoResult',
+    'GetCatalogTableStorageDescriptorSortColumnResult',
+    'GetCatalogTableTargetTableResult',
     'GetConnectionPhysicalConnectionRequirementResult',
     'GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult',
     'GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult',
@@ -3379,6 +3389,512 @@ class UserDefinedFunctionResourceUri(dict):
         The URI for accessing the resource.
         """
         return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class GetCatalogTablePartitionIndexResult(dict):
+    def __init__(__self__, *,
+                 index_name: str,
+                 index_status: str,
+                 keys: Sequence[str]):
+        """
+        :param str index_name: Name of the partition index.
+        :param Sequence[str] keys: Keys for the partition index.
+        """
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "index_status", index_status)
+        pulumi.set(__self__, "keys", keys)
+
+    @property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> str:
+        """
+        Name of the partition index.
+        """
+        return pulumi.get(self, "index_name")
+
+    @property
+    @pulumi.getter(name="indexStatus")
+    def index_status(self) -> str:
+        return pulumi.get(self, "index_status")
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Sequence[str]:
+        """
+        Keys for the partition index.
+        """
+        return pulumi.get(self, "keys")
+
+
+@pulumi.output_type
+class GetCatalogTablePartitionKeyResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 name: str,
+                 type: str):
+        """
+        :param str comment: Free-form text comment.
+        :param str name: Name of the table.
+        :param str type: Datatype of data in the Column.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        """
+        Free-form text comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Datatype of data in the Column.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetCatalogTableStorageDescriptorResult(dict):
+    def __init__(__self__, *,
+                 bucket_columns: Sequence[str],
+                 columns: Sequence['outputs.GetCatalogTableStorageDescriptorColumnResult'],
+                 compressed: bool,
+                 input_format: str,
+                 location: str,
+                 number_of_buckets: int,
+                 output_format: str,
+                 parameters: Mapping[str, str],
+                 schema_references: Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceResult'],
+                 ser_de_infos: Sequence['outputs.GetCatalogTableStorageDescriptorSerDeInfoResult'],
+                 skewed_infos: Sequence['outputs.GetCatalogTableStorageDescriptorSkewedInfoResult'],
+                 sort_columns: Sequence['outputs.GetCatalogTableStorageDescriptorSortColumnResult'],
+                 stored_as_sub_directories: bool):
+        """
+        :param Sequence[str] bucket_columns: List of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        :param Sequence['GetCatalogTableStorageDescriptorColumnArgs'] columns: Configuration block for columns in the table. See `columns` below.
+        :param bool compressed: Whether the data in the table is compressed.
+        :param str input_format: Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        :param str location: Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        :param int number_of_buckets: Is if the table contains any dimension columns.
+        :param str output_format: Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        :param Mapping[str, str] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param Sequence['GetCatalogTableStorageDescriptorSchemaReferenceArgs'] schema_references: Object that references a schema stored in the AWS Glue Schema Registry. See `schema_reference` below.
+        :param Sequence['GetCatalogTableStorageDescriptorSerDeInfoArgs'] ser_de_infos: Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
+        :param Sequence['GetCatalogTableStorageDescriptorSkewedInfoArgs'] skewed_infos: Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
+        :param Sequence['GetCatalogTableStorageDescriptorSortColumnArgs'] sort_columns: Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
+        :param bool stored_as_sub_directories: Whether the table data is stored in subdirectories.
+        """
+        pulumi.set(__self__, "bucket_columns", bucket_columns)
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "compressed", compressed)
+        pulumi.set(__self__, "input_format", input_format)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "number_of_buckets", number_of_buckets)
+        pulumi.set(__self__, "output_format", output_format)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "schema_references", schema_references)
+        pulumi.set(__self__, "ser_de_infos", ser_de_infos)
+        pulumi.set(__self__, "skewed_infos", skewed_infos)
+        pulumi.set(__self__, "sort_columns", sort_columns)
+        pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+
+    @property
+    @pulumi.getter(name="bucketColumns")
+    def bucket_columns(self) -> Sequence[str]:
+        """
+        List of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        """
+        return pulumi.get(self, "bucket_columns")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorColumnResult']:
+        """
+        Configuration block for columns in the table. See `columns` below.
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def compressed(self) -> bool:
+        """
+        Whether the data in the table is compressed.
+        """
+        return pulumi.get(self, "compressed")
+
+    @property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> str:
+        """
+        Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        """
+        return pulumi.get(self, "input_format")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="numberOfBuckets")
+    def number_of_buckets(self) -> int:
+        """
+        Is if the table contains any dimension columns.
+        """
+        return pulumi.get(self, "number_of_buckets")
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> str:
+        """
+        Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        """
+        return pulumi.get(self, "output_format")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, str]:
+        """
+        Map of initialization parameters for the SerDe, in key-value form.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="schemaReferences")
+    def schema_references(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceResult']:
+        """
+        Object that references a schema stored in the AWS Glue Schema Registry. See `schema_reference` below.
+        """
+        return pulumi.get(self, "schema_references")
+
+    @property
+    @pulumi.getter(name="serDeInfos")
+    def ser_de_infos(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorSerDeInfoResult']:
+        """
+        Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
+        """
+        return pulumi.get(self, "ser_de_infos")
+
+    @property
+    @pulumi.getter(name="skewedInfos")
+    def skewed_infos(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorSkewedInfoResult']:
+        """
+        Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
+        """
+        return pulumi.get(self, "skewed_infos")
+
+    @property
+    @pulumi.getter(name="sortColumns")
+    def sort_columns(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorSortColumnResult']:
+        """
+        Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
+        """
+        return pulumi.get(self, "sort_columns")
+
+    @property
+    @pulumi.getter(name="storedAsSubDirectories")
+    def stored_as_sub_directories(self) -> bool:
+        """
+        Whether the table data is stored in subdirectories.
+        """
+        return pulumi.get(self, "stored_as_sub_directories")
+
+
+@pulumi.output_type
+class GetCatalogTableStorageDescriptorColumnResult(dict):
+    def __init__(__self__, *,
+                 comment: str,
+                 name: str,
+                 parameters: Mapping[str, str],
+                 type: str):
+        """
+        :param str comment: Free-form text comment.
+        :param str name: Name of the table.
+        :param Mapping[str, str] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param str type: Datatype of data in the Column.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        """
+        Free-form text comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, str]:
+        """
+        Map of initialization parameters for the SerDe, in key-value form.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Datatype of data in the Column.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetCatalogTableStorageDescriptorSchemaReferenceResult(dict):
+    def __init__(__self__, *,
+                 schema_ids: Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult'],
+                 schema_version_id: str,
+                 schema_version_number: int):
+        """
+        :param Sequence['GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs'] schema_ids: Configuration block that contains schema identity fields. See `schema_id` below.
+        :param str schema_version_id: Unique ID assigned to a version of the schema.
+        :param int schema_version_number: Version number of the schema.
+        """
+        pulumi.set(__self__, "schema_ids", schema_ids)
+        pulumi.set(__self__, "schema_version_id", schema_version_id)
+        pulumi.set(__self__, "schema_version_number", schema_version_number)
+
+    @property
+    @pulumi.getter(name="schemaIds")
+    def schema_ids(self) -> Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult']:
+        """
+        Configuration block that contains schema identity fields. See `schema_id` below.
+        """
+        return pulumi.get(self, "schema_ids")
+
+    @property
+    @pulumi.getter(name="schemaVersionId")
+    def schema_version_id(self) -> str:
+        """
+        Unique ID assigned to a version of the schema.
+        """
+        return pulumi.get(self, "schema_version_id")
+
+    @property
+    @pulumi.getter(name="schemaVersionNumber")
+    def schema_version_number(self) -> int:
+        """
+        Version number of the schema.
+        """
+        return pulumi.get(self, "schema_version_number")
+
+
+@pulumi.output_type
+class GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult(dict):
+    def __init__(__self__, *,
+                 registry_name: str,
+                 schema_arn: str,
+                 schema_name: str):
+        """
+        :param str registry_name: Name of the schema registry that contains the schema.
+        :param str schema_arn: ARN of the schema.
+        :param str schema_name: Name of the schema.
+        """
+        pulumi.set(__self__, "registry_name", registry_name)
+        pulumi.set(__self__, "schema_arn", schema_arn)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> str:
+        """
+        Name of the schema registry that contains the schema.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @property
+    @pulumi.getter(name="schemaArn")
+    def schema_arn(self) -> str:
+        """
+        ARN of the schema.
+        """
+        return pulumi.get(self, "schema_arn")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        """
+        Name of the schema.
+        """
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class GetCatalogTableStorageDescriptorSerDeInfoResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Mapping[str, str],
+                 serialization_library: str):
+        """
+        :param str name: Name of the table.
+        :param Mapping[str, str] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param str serialization_library: Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "serialization_library", serialization_library)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, str]:
+        """
+        Map of initialization parameters for the SerDe, in key-value form.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="serializationLibrary")
+    def serialization_library(self) -> str:
+        """
+        Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
+        """
+        return pulumi.get(self, "serialization_library")
+
+
+@pulumi.output_type
+class GetCatalogTableStorageDescriptorSkewedInfoResult(dict):
+    def __init__(__self__, *,
+                 skewed_column_names: Sequence[str],
+                 skewed_column_value_location_maps: Mapping[str, str],
+                 skewed_column_values: Sequence[str]):
+        """
+        :param Sequence[str] skewed_column_names: List of names of columns that contain skewed values.
+        :param Mapping[str, str] skewed_column_value_location_maps: List of values that appear so frequently as to be considered skewed.
+        :param Sequence[str] skewed_column_values: Map of skewed values to the columns that contain them.
+        """
+        pulumi.set(__self__, "skewed_column_names", skewed_column_names)
+        pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
+        pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+
+    @property
+    @pulumi.getter(name="skewedColumnNames")
+    def skewed_column_names(self) -> Sequence[str]:
+        """
+        List of names of columns that contain skewed values.
+        """
+        return pulumi.get(self, "skewed_column_names")
+
+    @property
+    @pulumi.getter(name="skewedColumnValueLocationMaps")
+    def skewed_column_value_location_maps(self) -> Mapping[str, str]:
+        """
+        List of values that appear so frequently as to be considered skewed.
+        """
+        return pulumi.get(self, "skewed_column_value_location_maps")
+
+    @property
+    @pulumi.getter(name="skewedColumnValues")
+    def skewed_column_values(self) -> Sequence[str]:
+        """
+        Map of skewed values to the columns that contain them.
+        """
+        return pulumi.get(self, "skewed_column_values")
+
+
+@pulumi.output_type
+class GetCatalogTableStorageDescriptorSortColumnResult(dict):
+    def __init__(__self__, *,
+                 column: str,
+                 sort_order: int):
+        """
+        :param str column: Name of the column.
+        :param int sort_order: Whether the column is sorted in ascending (`1`) or descending order (`0`).
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "sort_order", sort_order)
+
+    @property
+    @pulumi.getter
+    def column(self) -> str:
+        """
+        Name of the column.
+        """
+        return pulumi.get(self, "column")
+
+    @property
+    @pulumi.getter(name="sortOrder")
+    def sort_order(self) -> int:
+        """
+        Whether the column is sorted in ascending (`1`) or descending order (`0`).
+        """
+        return pulumi.get(self, "sort_order")
+
+
+@pulumi.output_type
+class GetCatalogTableTargetTableResult(dict):
+    def __init__(__self__, *,
+                 catalog_id: str,
+                 database_name: str,
+                 name: str):
+        """
+        :param str catalog_id: ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
+        :param str database_name: Name of the metadata database where the table metadata resides.
+        :param str name: Name of the table.
+        """
+        pulumi.set(__self__, "catalog_id", catalog_id)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> str:
+        """
+        ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        Name of the metadata database where the table metadata resides.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

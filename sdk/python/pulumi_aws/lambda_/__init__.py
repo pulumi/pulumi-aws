@@ -16,6 +16,7 @@ from .get_alias import *
 from .get_code_signing_config import *
 from .get_function import *
 from .get_function_url import *
+from .get_functions import *
 from .get_invocation import *
 from .get_layer_version import *
 from .invocation import *

@@ -44,6 +44,15 @@ __all__ = [
     'MetricStreamIncludeFilterArgs',
     'MetricStreamStatisticsConfigurationArgs',
     'MetricStreamStatisticsConfigurationIncludeMetricArgs',
+    'GetLogDataProtectionPolicyDocumentStatementArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args',
+    'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs',
 ]
 
 @pulumi.input_type
@@ -1971,5 +1980,268 @@ class MetricStreamStatisticsConfigurationIncludeMetricArgs:
     @namespace.setter
     def namespace(self, value: pulumi.Input[str]):
         pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
+class GetLogDataProtectionPolicyDocumentStatementArgs:
+    def __init__(__self__, *,
+                 data_identifiers: Sequence[str],
+                 operation: 'GetLogDataProtectionPolicyDocumentStatementOperationArgs',
+                 sid: Optional[str] = None):
+        """
+        :param Sequence[str] data_identifiers: Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationArgs' operation: Configures the data protection operation applied by this statement.
+        :param str sid: Name of this statement.
+        """
+        pulumi.set(__self__, "data_identifiers", data_identifiers)
+        pulumi.set(__self__, "operation", operation)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+
+    @property
+    @pulumi.getter(name="dataIdentifiers")
+    def data_identifiers(self) -> Sequence[str]:
+        """
+        Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
+        """
+        return pulumi.get(self, "data_identifiers")
+
+    @data_identifiers.setter
+    def data_identifiers(self, value: Sequence[str]):
+        pulumi.set(self, "data_identifiers", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> 'GetLogDataProtectionPolicyDocumentStatementOperationArgs':
+        """
+        Configures the data protection operation applied by this statement.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: 'GetLogDataProtectionPolicyDocumentStatementOperationArgs'):
+        pulumi.set(self, "operation", value)
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[str]:
+        """
+        Name of this statement.
+        """
+        return pulumi.get(self, "sid")
+
+    @sid.setter
+    def sid(self, value: Optional[str]):
+        pulumi.set(self, "sid", value)
+
+
+@pulumi.input_type
+class GetLogDataProtectionPolicyDocumentStatementOperationArgs:
+    def __init__(__self__, *,
+                 audit: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs'] = None,
+                 deidentify: Optional['GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs'] = None):
+        """
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs' audit: Configures the detection of sensitive data.
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs' deidentify: Configures the masking of sensitive data.
+        """
+        if audit is not None:
+            pulumi.set(__self__, "audit", audit)
+        if deidentify is not None:
+            pulumi.set(__self__, "deidentify", deidentify)
+
+    @property
+    @pulumi.getter
+    def audit(self) -> Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs']:
+        """
+        Configures the detection of sensitive data.
+        """
+        return pulumi.get(self, "audit")
+
+    @audit.setter
+    def audit(self, value: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs']):
+        pulumi.set(self, "audit", value)
+
+    @property
+    @pulumi.getter
+    def deidentify(self) -> Optional['GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs']:
+        """
+        Configures the masking of sensitive data.
+        """
+        return pulumi.get(self, "deidentify")
+
+    @deidentify.setter
+    def deidentify(self, value: Optional['GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs']):
+        pulumi.set(self, "deidentify", value)
+
+
+@pulumi.input_type
+class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs:
+    def __init__(__self__, *,
+                 findings_destination: 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs'):
+        """
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs' findings_destination: Configures destinations to send audit findings to.
+        """
+        pulumi.set(__self__, "findings_destination", findings_destination)
+
+    @property
+    @pulumi.getter(name="findingsDestination")
+    def findings_destination(self) -> 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs':
+        """
+        Configures destinations to send audit findings to.
+        """
+        return pulumi.get(self, "findings_destination")
+
+    @findings_destination.setter
+    def findings_destination(self, value: 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs'):
+        pulumi.set(self, "findings_destination", value)
+
+
+@pulumi.input_type
+class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs:
+    def __init__(__self__, *,
+                 cloudwatch_logs: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs'] = None,
+                 firehose: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs'] = None,
+                 s3: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args'] = None):
+        """
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs' cloudwatch_logs: Configures CloudWatch Logs as a findings destination.
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs' firehose: Configures Kinesis Firehose as a findings destination.
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args' s3: Configures S3 as a findings destination.
+        """
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+        if firehose is not None:
+            pulumi.set(__self__, "firehose", firehose)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs']:
+        """
+        Configures CloudWatch Logs as a findings destination.
+        """
+        return pulumi.get(self, "cloudwatch_logs")
+
+    @cloudwatch_logs.setter
+    def cloudwatch_logs(self, value: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs']):
+        pulumi.set(self, "cloudwatch_logs", value)
+
+    @property
+    @pulumi.getter
+    def firehose(self) -> Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs']:
+        """
+        Configures Kinesis Firehose as a findings destination.
+        """
+        return pulumi.get(self, "firehose")
+
+    @firehose.setter
+    def firehose(self, value: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs']):
+        pulumi.set(self, "firehose", value)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args']:
+        """
+        Configures S3 as a findings destination.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args']):
+        pulumi.set(self, "s3", value)
+
+
+@pulumi.input_type
+class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs:
+    def __init__(__self__, *,
+                 log_group: str):
+        """
+        :param str log_group: Name of the CloudWatch Log Group to send findings to.
+        """
+        pulumi.set(__self__, "log_group", log_group)
+
+    @property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> str:
+        """
+        Name of the CloudWatch Log Group to send findings to.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: str):
+        pulumi.set(self, "log_group", value)
+
+
+@pulumi.input_type
+class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs:
+    def __init__(__self__, *,
+                 delivery_stream: str):
+        """
+        :param str delivery_stream: Name of the Kinesis Firehose Delivery Stream to send findings to.
+        """
+        pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> str:
+        """
+        Name of the Kinesis Firehose Delivery Stream to send findings to.
+        """
+        return pulumi.get(self, "delivery_stream")
+
+    @delivery_stream.setter
+    def delivery_stream(self, value: str):
+        pulumi.set(self, "delivery_stream", value)
+
+
+@pulumi.input_type
+class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args:
+    def __init__(__self__, *,
+                 bucket: str):
+        """
+        :param str bucket: Name of the S3 Bucket to send findings to.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        """
+        Name of the S3 Bucket to send findings to.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: str):
+        pulumi.set(self, "bucket", value)
+
+
+@pulumi.input_type
+class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs:
+    def __init__(__self__, *,
+                 mask_config: 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs'):
+        """
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs' mask_config: An empty object that configures masking.
+        """
+        pulumi.set(__self__, "mask_config", mask_config)
+
+    @property
+    @pulumi.getter(name="maskConfig")
+    def mask_config(self) -> 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs':
+        """
+        An empty object that configures masking.
+        """
+        return pulumi.get(self, "mask_config")
+
+    @mask_config.setter
+    def mask_config(self, value: 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs'):
+        pulumi.set(self, "mask_config", value)
+
+
+@pulumi.input_type
+class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs:
+    def __init__(__self__):
+        pass
 
 

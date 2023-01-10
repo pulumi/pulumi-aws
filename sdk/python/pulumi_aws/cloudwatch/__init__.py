@@ -18,6 +18,7 @@ from .event_target import *
 from .get_event_bus import *
 from .get_event_connection import *
 from .get_event_source import *
+from .get_log_data_protection_policy_document import *
 from .get_log_group import *
 from .get_log_groups import *
 from .log_data_protection_policy import *

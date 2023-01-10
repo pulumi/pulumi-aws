@@ -10,6 +10,8 @@ import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionPlainArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetEventSourcePlainArgs;
+import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
+import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentPlainArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetLogGroupPlainArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
@@ -17,6 +19,7 @@ import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsPlainArgs;
 import com.pulumi.aws.cloudwatch.outputs.GetEventBusResult;
 import com.pulumi.aws.cloudwatch.outputs.GetEventConnectionResult;
 import com.pulumi.aws.cloudwatch.outputs.GetEventSourceResult;
+import com.pulumi.aws.cloudwatch.outputs.GetLogDataProtectionPolicyDocumentResult;
 import com.pulumi.aws.cloudwatch.outputs.GetLogGroupResult;
 import com.pulumi.aws.cloudwatch.outputs.GetLogGroupsResult;
 import com.pulumi.core.Output;
@@ -571,6 +574,322 @@ public final class CloudwatchFunctions {
      */
     public static CompletableFuture<GetEventSourceResult> getEventSourcePlain(GetEventSourcePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudwatch/getEventSource:getEventSource", TypeShape.of(GetEventSourceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `aws.cloudwatch.LogDataProtectionPolicy` resource.
+     * 
+     * &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
+     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
+     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleLogDataProtectionPolicyDocument = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
+     *             .name(&#34;Example&#34;)
+     *             .statements(            
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Audit&#34;)
+     *                     .dataIdentifiers(                    
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
+     *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
+     *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
+     *                                 .cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs.builder()
+     *                                     .logGroup(aws_cloudwatch_log_group.audit().name())
+     *                                     .build())
+     *                                 .firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs.builder()
+     *                                     .deliveryStream(aws_kinesis_firehose_delivery_stream.audit().name())
+     *                                     .build())
+     *                                 .s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args.builder()
+     *                                     .bucket(aws_s3_bucket.audit().bucket())
+     *                                     .build())
+     *                                 .build())
+     *                             .build())
+     *                         .build())
+     *                     .build(),
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Deidentify&#34;)
+     *                     .dataIdentifiers(                    
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
+     *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
+     *                             .maskConfig()
+     *                             .build())
+     *                         .build())
+     *                     .build())
+     *             .build());
+     * 
+     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
+     *             .logGroupName(aws_cloudwatch_log_group.example().name())
+     *             .policyDocument(exampleLogDataProtectionPolicyDocument.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLogDataProtectionPolicyDocumentResult> getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs args) {
+        return getLogDataProtectionPolicyDocument(args, InvokeOptions.Empty);
+    }
+    /**
+     * Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `aws.cloudwatch.LogDataProtectionPolicy` resource.
+     * 
+     * &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
+     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
+     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleLogDataProtectionPolicyDocument = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
+     *             .name(&#34;Example&#34;)
+     *             .statements(            
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Audit&#34;)
+     *                     .dataIdentifiers(                    
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
+     *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
+     *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
+     *                                 .cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs.builder()
+     *                                     .logGroup(aws_cloudwatch_log_group.audit().name())
+     *                                     .build())
+     *                                 .firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs.builder()
+     *                                     .deliveryStream(aws_kinesis_firehose_delivery_stream.audit().name())
+     *                                     .build())
+     *                                 .s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args.builder()
+     *                                     .bucket(aws_s3_bucket.audit().bucket())
+     *                                     .build())
+     *                                 .build())
+     *                             .build())
+     *                         .build())
+     *                     .build(),
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Deidentify&#34;)
+     *                     .dataIdentifiers(                    
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
+     *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
+     *                             .maskConfig()
+     *                             .build())
+     *                         .build())
+     *                     .build())
+     *             .build());
+     * 
+     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
+     *             .logGroupName(aws_cloudwatch_log_group.example().name())
+     *             .policyDocument(exampleLogDataProtectionPolicyDocument.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLogDataProtectionPolicyDocumentResult> getLogDataProtectionPolicyDocumentPlain(GetLogDataProtectionPolicyDocumentPlainArgs args) {
+        return getLogDataProtectionPolicyDocumentPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `aws.cloudwatch.LogDataProtectionPolicy` resource.
+     * 
+     * &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
+     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
+     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleLogDataProtectionPolicyDocument = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
+     *             .name(&#34;Example&#34;)
+     *             .statements(            
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Audit&#34;)
+     *                     .dataIdentifiers(                    
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
+     *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
+     *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
+     *                                 .cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs.builder()
+     *                                     .logGroup(aws_cloudwatch_log_group.audit().name())
+     *                                     .build())
+     *                                 .firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs.builder()
+     *                                     .deliveryStream(aws_kinesis_firehose_delivery_stream.audit().name())
+     *                                     .build())
+     *                                 .s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args.builder()
+     *                                     .bucket(aws_s3_bucket.audit().bucket())
+     *                                     .build())
+     *                                 .build())
+     *                             .build())
+     *                         .build())
+     *                     .build(),
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Deidentify&#34;)
+     *                     .dataIdentifiers(                    
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
+     *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
+     *                             .maskConfig()
+     *                             .build())
+     *                         .build())
+     *                     .build())
+     *             .build());
+     * 
+     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
+     *             .logGroupName(aws_cloudwatch_log_group.example().name())
+     *             .policyDocument(exampleLogDataProtectionPolicyDocument.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLogDataProtectionPolicyDocumentResult> getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", TypeShape.of(GetLogDataProtectionPolicyDocumentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `aws.cloudwatch.LogDataProtectionPolicy` resource.
+     * 
+     * &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
+     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
+     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleLogDataProtectionPolicyDocument = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
+     *             .name(&#34;Example&#34;)
+     *             .statements(            
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Audit&#34;)
+     *                     .dataIdentifiers(                    
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
+     *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
+     *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
+     *                                 .cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs.builder()
+     *                                     .logGroup(aws_cloudwatch_log_group.audit().name())
+     *                                     .build())
+     *                                 .firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs.builder()
+     *                                     .deliveryStream(aws_kinesis_firehose_delivery_stream.audit().name())
+     *                                     .build())
+     *                                 .s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args.builder()
+     *                                     .bucket(aws_s3_bucket.audit().bucket())
+     *                                     .build())
+     *                                 .build())
+     *                             .build())
+     *                         .build())
+     *                     .build(),
+     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Deidentify&#34;)
+     *                     .dataIdentifiers(                    
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
+     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
+     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
+     *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
+     *                             .maskConfig()
+     *                             .build())
+     *                         .build())
+     *                     .build())
+     *             .build());
+     * 
+     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
+     *             .logGroupName(aws_cloudwatch_log_group.example().name())
+     *             .policyDocument(exampleLogDataProtectionPolicyDocument.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLogDataProtectionPolicyDocumentResult> getLogDataProtectionPolicyDocumentPlain(GetLogDataProtectionPolicyDocumentPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", TypeShape.of(GetLogDataProtectionPolicyDocumentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about an AWS Cloudwatch Log Group

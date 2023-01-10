@@ -55,6 +55,10 @@ export const getFunctionUrl: typeof import("./getFunctionUrl").getFunctionUrl = 
 export const getFunctionUrlOutput: typeof import("./getFunctionUrl").getFunctionUrlOutput = null as any;
 utilities.lazyLoad(exports, ["getFunctionUrl","getFunctionUrlOutput"], () => require("./getFunctionUrl"));
 
+export { GetFunctionsResult } from "./getFunctions";
+export const getFunctions: typeof import("./getFunctions").getFunctions = null as any;
+utilities.lazyLoad(exports, ["getFunctions"], () => require("./getFunctions"));
+
 export { GetInvocationArgs, GetInvocationResult, GetInvocationOutputArgs } from "./getInvocation";
 export const getInvocation: typeof import("./getInvocation").getInvocation = null as any;
 export const getInvocationOutput: typeof import("./getInvocation").getInvocationOutput = null as any;

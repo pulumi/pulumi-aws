@@ -12,6 +12,7 @@ from .connection import *
 from .crawler import *
 from .data_catalog_encryption_settings import *
 from .dev_endpoint import *
+from .get_catalog_table import *
 from .get_connection import *
 from .get_data_catalog_encryption_settings import *
 from .get_script import *

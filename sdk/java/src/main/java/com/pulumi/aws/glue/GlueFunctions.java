@@ -4,12 +4,15 @@
 package com.pulumi.aws.glue;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.glue.inputs.GetCatalogTableArgs;
+import com.pulumi.aws.glue.inputs.GetCatalogTablePlainArgs;
 import com.pulumi.aws.glue.inputs.GetConnectionArgs;
 import com.pulumi.aws.glue.inputs.GetConnectionPlainArgs;
 import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
 import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsPlainArgs;
 import com.pulumi.aws.glue.inputs.GetScriptArgs;
 import com.pulumi.aws.glue.inputs.GetScriptPlainArgs;
+import com.pulumi.aws.glue.outputs.GetCatalogTableResult;
 import com.pulumi.aws.glue.outputs.GetConnectionResult;
 import com.pulumi.aws.glue.outputs.GetDataCatalogEncryptionSettingsResult;
 import com.pulumi.aws.glue.outputs.GetScriptResult;
@@ -20,6 +23,158 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class GlueFunctions {
+    /**
+     * This data source can be used to fetch information about an AWS Glue Data Catalog Table.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetCatalogTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
+     *             .databaseName(&#34;MyCatalogDatabase&#34;)
+     *             .name(&#34;MyCatalogTable&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCatalogTableResult> getCatalogTable(GetCatalogTableArgs args) {
+        return getCatalogTable(args, InvokeOptions.Empty);
+    }
+    /**
+     * This data source can be used to fetch information about an AWS Glue Data Catalog Table.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetCatalogTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
+     *             .databaseName(&#34;MyCatalogDatabase&#34;)
+     *             .name(&#34;MyCatalogTable&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCatalogTableResult> getCatalogTablePlain(GetCatalogTablePlainArgs args) {
+        return getCatalogTablePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * This data source can be used to fetch information about an AWS Glue Data Catalog Table.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetCatalogTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
+     *             .databaseName(&#34;MyCatalogDatabase&#34;)
+     *             .name(&#34;MyCatalogTable&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCatalogTableResult> getCatalogTable(GetCatalogTableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:glue/getCatalogTable:getCatalogTable", TypeShape.of(GetCatalogTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source can be used to fetch information about an AWS Glue Data Catalog Table.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetCatalogTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
+     *             .databaseName(&#34;MyCatalogDatabase&#34;)
+     *             .name(&#34;MyCatalogTable&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCatalogTableResult> getCatalogTablePlain(GetCatalogTablePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:glue/getCatalogTable:getCatalogTable", TypeShape.of(GetCatalogTableResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * This data source can be used to fetch information about a specific Glue Connection.
      * 

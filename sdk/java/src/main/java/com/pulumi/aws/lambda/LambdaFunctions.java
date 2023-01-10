@@ -20,12 +20,14 @@ import com.pulumi.aws.lambda.outputs.GetAliasResult;
 import com.pulumi.aws.lambda.outputs.GetCodeSigningConfigResult;
 import com.pulumi.aws.lambda.outputs.GetFunctionResult;
 import com.pulumi.aws.lambda.outputs.GetFunctionUrlResult;
+import com.pulumi.aws.lambda.outputs.GetFunctionsResult;
 import com.pulumi.aws.lambda.outputs.GetInvocationResult;
 import com.pulumi.aws.lambda.outputs.GetLayerVersionResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class LambdaFunctions {
@@ -648,6 +650,210 @@ public final class LambdaFunctions {
      */
     public static CompletableFuture<GetFunctionUrlResult> getFunctionUrlPlain(GetFunctionUrlPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:lambda/getFunctionUrl:getFunctionUrl", TypeShape.of(GetFunctionUrlResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data resource to get a list of Lambda Functions.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = LambdaFunctions.getFunctions();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFunctionsResult> getFunctions() {
+        return getFunctions(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data resource to get a list of Lambda Functions.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = LambdaFunctions.getFunctions();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain() {
+        return getFunctionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data resource to get a list of Lambda Functions.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = LambdaFunctions.getFunctions();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFunctionsResult> getFunctions(InvokeArgs args) {
+        return getFunctions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data resource to get a list of Lambda Functions.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = LambdaFunctions.getFunctions();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(InvokeArgs args) {
+        return getFunctionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data resource to get a list of Lambda Functions.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = LambdaFunctions.getFunctions();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFunctionsResult> getFunctions(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:lambda/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data resource to get a list of Lambda Functions.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = LambdaFunctions.getFunctions();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:lambda/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to invoke custom lambda functions as data source.

@@ -40,6 +40,11 @@ export type DevEndpoint = import("./devEndpoint").DevEndpoint;
 export const DevEndpoint: typeof import("./devEndpoint").DevEndpoint = null as any;
 utilities.lazyLoad(exports, ["DevEndpoint"], () => require("./devEndpoint"));
 
+export { GetCatalogTableArgs, GetCatalogTableResult, GetCatalogTableOutputArgs } from "./getCatalogTable";
+export const getCatalogTable: typeof import("./getCatalogTable").getCatalogTable = null as any;
+export const getCatalogTableOutput: typeof import("./getCatalogTable").getCatalogTableOutput = null as any;
+utilities.lazyLoad(exports, ["getCatalogTable","getCatalogTableOutput"], () => require("./getCatalogTable"));
+
 export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
 export const getConnection: typeof import("./getConnection").getConnection = null as any;
 export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
