@@ -4799,11 +4799,12 @@ func Provider() tfbridge.ProviderInfo {
 			// CloudTrail
 			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
 			// CloudWatch
-			"aws_cloudwatch_log_group":        {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
-			"aws_cloudwatch_log_groups":       {Tok: awsDataSource(cloudwatchMod, "getLogGroups")},
-			"aws_cloudwatch_event_source":     {Tok: awsDataSource(cloudwatchMod, "getEventSource")},
-			"aws_cloudwatch_event_connection": {Tok: awsDataSource(cloudwatchMod, "getEventConnection")},
-			"aws_cloudwatch_event_bus":        {Tok: awsDataSource(cloudwatchMod, "getEventBus")},
+			"aws_cloudwatch_log_group":                           {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
+			"aws_cloudwatch_log_groups":                          {Tok: awsDataSource(cloudwatchMod, "getLogGroups")},
+			"aws_cloudwatch_event_source":                        {Tok: awsDataSource(cloudwatchMod, "getEventSource")},
+			"aws_cloudwatch_event_connection":                    {Tok: awsDataSource(cloudwatchMod, "getEventConnection")},
+			"aws_cloudwatch_event_bus":                           {Tok: awsDataSource(cloudwatchMod, "getEventBus")},
+			"aws_cloudwatch_log_data_protection_policy_document": {Tok: awsDataSource(cloudwatchMod, "getLogDataProtectionPolicyDocument")},
 			// CodeCommit
 			"aws_codecommit_repository":             {Tok: awsDataSource(codecommitMod, "getRepository")},
 			"aws_codecommit_approval_rule_template": {Tok: awsDataSource(codecommitMod, "getApprovalRuleTemplate")},
@@ -5046,6 +5047,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_script":                           {Tok: awsDataSource(glueMod, "getScript")},
 			"aws_glue_connection":                       {Tok: awsDataSource(glueMod, "getConnection")},
 			"aws_glue_data_catalog_encryption_settings": {Tok: awsDataSource(glueMod, "getDataCatalogEncryptionSettings")},
+			"aws_glue_catalog_table":                    {Tok: awsDataSource(glueMod, "getCatalogTable")},
 			// IOT
 			"aws_iot_endpoint": {Tok: awsDataSource(iotMod, "getEndpoint")},
 			// Lambda
@@ -5066,6 +5068,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_lambda_functions":           {Tok: awsDataSource(lambdaMod, "getFunctions")},
 			"aws_lambda_function_url":        {Tok: awsDataSource(lambdaMod, "getFunctionUrl")},
 			"aws_lambda_invocation":          {Tok: awsDataSource(lambdaMod, "getInvocation")},
 			"aws_lambda_layer_version":       {Tok: awsDataSource(lambdaMod, "getLayerVersion")},
@@ -5161,6 +5164,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_cluster_snapshot":            {Tok: awsDataSource(rdsMod, "getClusterSnapshot")},
 			"aws_db_event_categories":            {Tok: awsDataSource(rdsMod, "getEventCategories")},
 			"aws_db_instance":                    {Tok: awsDataSource(rdsMod, "getInstance")},
+			"aws_db_instances":                   {Tok: awsDataSource(rdsMod, "getInstances")},
 			"aws_db_snapshot":                    {Tok: awsDataSource(rdsMod, "getSnapshot")},
 			"aws_db_subnet_group":                {Tok: awsDataSource(rdsMod, "getSubnetGroup")},
 			"aws_rds_orderable_db_instance":      {Tok: awsDataSource(rdsMod, "getOrderableDbInstance")},
