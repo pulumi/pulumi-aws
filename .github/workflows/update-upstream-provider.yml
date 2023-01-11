@@ -21,6 +21,7 @@ env:
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  TF_APPEND_USER_AGENT: pulumi
   TRAVIS_OS_NAME: linux
   UPSTREAM_PROVIDER_MAJOR_VERSION: ""
   UPSTREAM_PROVIDER_ORG: pulumi
@@ -62,7 +63,7 @@ jobs:
       with:
         python-version: ${{matrix.pythonversion}}
     - name: Get upstream provider sha
-      run: echo "UPSTREAM_PROVIDER_SHA=$(curl https://api.github.com/repos/${{
+      run: echo "UPSTREAM_PROVIDER_SHA=$(curl -L https://api.github.com/repos/${{
         env.UPSTREAM_PROVIDER_ORG }}/${{ env.UPSTREAM_PROVIDER_REPO
         }}/git/ref/tags/v${{ github.event.inputs.version }} | jq .object.sha
         -r)" >> $GITHUB_ENV
@@ -133,7 +134,9 @@ jobs:
       fail-fast: true
       matrix:
         dotnetversion:
-        - 3.1.301
+        - |
+          6.0.x
+          3.1.301
         goversion:
         - 1.19.x
         nodeversion:
@@ -144,6 +147,11 @@ name: Update upstream provider
 on:
   workflow_dispatch:
     inputs:
+      automerge:
+        default: false
+        description: Mark created PR for auto-merging?
+        required: true
+        type: boolean
       linked_issue_number:
         description: The issue number of a PR in this repository to which the generated
           pull request should be linked.
