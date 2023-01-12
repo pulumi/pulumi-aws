@@ -2,7 +2,13 @@
 
 env:
   AWS_REGION: us-west-2
+  DOTNETVERSION: |
+    6.0.x
+    3.1.301
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GOVERSION: 1.19.x
+  JAVAVERSION: "11"
+  NODEVERSION: 16.x
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
@@ -15,10 +21,12 @@ env:
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PULUMI_MISSING_DOCS_ERROR: true
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+  PYTHONVERSION: "3.9"
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  TF_APPEND_USER_AGENT: pulumi
   TRAVIS_OS_NAME: linux
 jobs:
   build_sdk:
@@ -38,7 +46,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -48,22 +56,22 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
-        node-version: ${{matrix.nodeversion}}
+        node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Setup DotNet
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{matrix.dotnetversion}}
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{matrix.pythonversion}}
+        python-version: ${{ env.PYTHONVERSION }}
     - name: Setup Java
       uses: actions/setup-java@v3
       with:
         cache: gradle
         distribution: temurin
-        java-version: ${{matrix.javaversion}}
+        java-version: ${{ env.JAVAVERSION }}
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -103,22 +111,12 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        dotnetversion:
-        - 3.1.301
-        goversion:
-        - 1.19.x
-        javaversion:
-        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
         - java
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
@@ -135,7 +133,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -182,17 +180,6 @@ jobs:
         author_name: Failure in building provider prerequisites
         fields: repo,commit,author,action
         status: ${{ job.status }}
-    strategy:
-      fail-fast: true
-      matrix:
-        dotnetversion:
-        - 3.1.301
-        goversion:
-        - 1.19.x
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
   test:
     name: test
     needs: build_sdk
@@ -213,7 +200,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -223,22 +210,22 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
-        node-version: ${{matrix.nodeversion}}
+        node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Setup DotNet
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{matrix.dotnetversion}}
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{matrix.pythonversion}}
+        python-version: ${{ env.PYTHONVERSION }}
     - name: Setup Java
       uses: actions/setup-java@v3
       with:
         cache: gradle
         distribution: temurin
-        java-version: ${{matrix.javaversion}}
+        java-version: ${{ env.JAVAVERSION }}
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -294,22 +281,12 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        dotnetversion:
-        - 3.1.301
-        goversion:
-        - 1.19.x
-        javaversion:
-        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
         - java
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
 name: cron
 on:
   schedule:
