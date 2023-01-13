@@ -16,7 +16,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -26,16 +26,16 @@ jobs:
     - name: Setup DotNet
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{matrix.dotnetversion}}
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
-        node-version: ${{matrix.nodeversion}}
+        node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{matrix.pythonversion}}
+        python-version: ${{ env.PYTHONVERSION }}
     - name: Update pulumi-terraform-bridge
       run: cd provider && go mod edit -require
         github.com/pulumi/pulumi-terraform-bridge/v3@v${{
@@ -66,21 +66,19 @@ jobs:
         title: Update pulumi-terraform-bridge to v${{ github.event.inputs.bridge_version
           }}
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
-    strategy:
-      fail-fast: true
-      matrix:
-        dotnetversion:
-        - 3.1.301
-        goversion:
-        - 1.19.x
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
+    - if: steps.create-pr.outputs.pull-request-operation == 'created' &&
+        github.event.inputs.automerge == 'true'
+      run: gh pr merge --auto --squash ${{ steps.create-pr.outputs.pull-request-number
+        }}
 name: Update pulumi-terraform-bridge
 on:
   workflow_dispatch:
     inputs:
+      automerge:
+        default: false
+        description: Mark created PR for auto-merging?
+        required: true
+        type: boolean
       bridge_version:
         description: The version of pulumi/pulumi-terraform-bridge to update to. Do not
           include the 'v' prefix. Must be major version 3.
