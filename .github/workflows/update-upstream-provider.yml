@@ -2,7 +2,13 @@
 
 env:
   AWS_REGION: us-west-2
+  DOTNETVERSION: |
+    6.0.x
+    3.1.301
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GOVERSION: 1.19.x
+  JAVAVERSION: "11"
+  NODEVERSION: 16.x
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
@@ -17,10 +23,12 @@ env:
   PULUMI_MISSING_DOCS_ERROR: true
   PULUMI_MISSING_MAPPING_ERROR: true
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+  PYTHONVERSION: "3.9"
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  TF_APPEND_USER_AGENT: pulumi
   TRAVIS_OS_NAME: linux
   UPSTREAM_PROVIDER_MAJOR_VERSION: ""
   UPSTREAM_PROVIDER_ORG: pulumi
@@ -41,7 +49,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -51,18 +59,18 @@ jobs:
     - name: Setup DotNet
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{matrix.dotnetversion}}
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
-        node-version: ${{matrix.nodeversion}}
+        node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{matrix.pythonversion}}
+        python-version: ${{ env.PYTHONVERSION }}
     - name: Get upstream provider sha
-      run: echo "UPSTREAM_PROVIDER_SHA=$(curl https://api.github.com/repos/${{
+      run: echo "UPSTREAM_PROVIDER_SHA=$(curl -L https://api.github.com/repos/${{
         env.UPSTREAM_PROVIDER_ORG }}/${{ env.UPSTREAM_PROVIDER_REPO
         }}/git/ref/tags/v${{ github.event.inputs.version }} | jq .object.sha
         -r)" >> $GITHUB_ENV
@@ -129,21 +137,15 @@ jobs:
         issue_number: ${{ github.event.inputs.linked_issue_number }}
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
         type: create
-    strategy:
-      fail-fast: true
-      matrix:
-        dotnetversion:
-        - 3.1.301
-        goversion:
-        - 1.19.x
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
 name: Update upstream provider
 on:
   workflow_dispatch:
     inputs:
+      automerge:
+        default: false
+        description: Mark created PR for auto-merging?
+        required: true
+        type: boolean
       linked_issue_number:
         description: The issue number of a PR in this repository to which the generated
           pull request should be linked.
